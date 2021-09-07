@@ -11,3 +11,11 @@ repositories:
     type: git
     url: https://github.com/eclipse-cyclonedds/cyclonedds.git
     version: iceoryx
+  CARET/CARET_trace:
+    type: git
+    url: https://github.com/tier4/CARET_trace.git
+    version: main
+  CARET/CARET_analyze:
+    type: git
+    url: https://github.com/tier4/CARET_analyze.git
+    version: main
