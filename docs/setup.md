@@ -1,7 +1,7 @@
 ```
 mkdir -p ~/ros2_caret_ws/src
 cd ~/ros2_caret_ws
-wget 
+wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
 vcs import src < caret.repos
 colcon build --symlink-install --packages-select cyclonedds  --cmake-args -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=OFF
 colcon build --symlink-install --packages-select tracetools rclcpp caret_trace caret_analyze --cmake-args -DBUILD_TESTING=OFF
