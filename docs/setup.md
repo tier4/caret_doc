@@ -104,6 +104,7 @@ $ cd ~/ros2_ws/
 $ source ./install/setup.bash
 $ colcon build --symlink-install
 
+$ export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
 $ export ROS_TRACE_DIR=$(pwd) # トレースファイルの出力をデフォルトから変更
 $ ros2 launch caret_demos talker_listener.launch.py
 数秒後、 Ctrl+C で終了
