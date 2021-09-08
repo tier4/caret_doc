@@ -1,4 +1,8 @@
 repositories:
+  ros2/rcl:
+    type: git
+    url: https://github.com/ros2/rcl.git
+    version: galactic
   ros2/rclcpp:
     type: git
     url: https://github.com/tier4/rclcpp.git
