@@ -24,7 +24,9 @@ sudo apt update && sudo apt install -y \
   python3-rosdep \
   python3-setuptools \
   python3-vcstool \
-  wget
+  wget \
+  graphviz \
+  graphviz-dev
 
 python3 -m pip install -U \
   flake8-blind-except \
@@ -42,7 +44,9 @@ python3 -m pip install -U \
   pytest-mock \
   pybind11 \
   pandas \
-  fire
+  fire \
+  bokeh \
+  pygraphviz
 ```
 
 ### ROS 2 galactic のインストール
