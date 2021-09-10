@@ -96,7 +96,7 @@ Tracing enabled
 デモアプリのビルド
 ```
 $ mkdir -p ~/ros2_ws/src
-$ cd ros2_ws
+$ cd ~/ros2_ws
 $ git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
 
 $ source ~/ros2_caret_ws/install/local_setup.bash
