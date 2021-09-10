@@ -22,8 +22,8 @@
 |galacticデフォルト|ros2|初期化時||rcl_lifecycle_state_machine_init|node_handle_arg|state_machine_arg|
 |rclcppパッケージ新規追加|ros2|ランタイム|publish時、ROSレイヤー内でコピーが発生した際のコピー元アドレスとコピー先アドレスの紐付け用|message_construct|original_message_arg|constructed_message_arg|
 |rclcppパッケージ新規追加|ros2|ランタイム|publishの測定用|rclcpp_intra_publish|publisher_handle_arg|message_arg|
-|rclcppパッケージ新規追加|ros2|ランタイム|コールバック実行の測定用（メッセージアドレスとコールバックを紐付け）|dispatch|message_arg|callback_arg|stamp_arg|
-|rclcppパッケージ新規追加|ros2|ランタイム|コールバック実行の測定用（メッセージアドレスとコールバックを紐付け）|dispatch_intra_process|message_arg|callback_arg|stamp_arg|
+|rclcppパッケージ新規追加|ros2|ランタイム|コールバック実行の測定用（メッセージアドレスとコールバックを紐付け）|dispatch_subscription_callback|message_arg|callback_arg|stamp_arg|
+|rclcppパッケージ新規追加|ros2|ランタイム|コールバック実行の測定用（メッセージアドレスとコールバックを紐付け）|dispatch_intra_process_subscription_callback|message_arg|callback_arg|stamp_arg|
 |LD_PRELOADフック|ros2_caret|ランタイム|DDSがメッセージを受け取った際に呼ばれる関数|on_data_available|stamp_arg|
 |LD_PRELOADフック|ros2_caret|ランタイム|DDSにメッセージを書き込んだ際に呼ばれる関数|dds_write|message_arg|
 |LD_PRELOADフック|ros2_caret|ランタイム|DDS内でアドレスとstampを紐付けるためのトレースポイント。各DDSに対応が必要|dds_bind_addr_to_stamp|addr_from_arg|stamp_to_arg|
