@@ -1,0 +1,28 @@
+digraph {
+	compound=true rankdir=LR style=rounded
+
+	subgraph "cluster_node_a" {
+		graph [bgcolor=white color=black label="NodeA"]
+		"callback_a" [label=A shape=box]
+	}
+	subgraph "cluster_node_target" {
+		graph [bgcolor=white color=black label="TargetNode"]
+		"callback_c" [label=C shape=box]
+		"callback_d" [label=D shape=box]
+	}
+	subgraph "cluster_node_b" {
+		graph [bgcolor=white color=black label="NodeB"]
+		"callback_b" [label=B shape=box
+		]
+    }
+
+	subgraph "cluster_node_e" {
+		graph [bgcolor=white color=black label="NodeE"]
+		"callback_e" [label=E shape=box]
+	}
+
+	"callback_b" -> "callback_d" [label="/camera"]
+	"callback_d" -> "callback_e" [label="/fusion"]
+	"callback_a" -> "callback_c" [label="/lidar"]
+	"callback_c" -> "callback_d" [label="variable passing"]
+}

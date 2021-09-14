@@ -30,6 +30,9 @@
 |LD_PRELOADフック|ros2_caret|ランタイム|DDS内でアドレスとアドレスを紐付けるためのトレースポイント。各DDSに対応が必要|dds_bind_addr_to_addr|addr_from_arg|addr_to_arg|
 
 
+## 主要なトレースポイントのシーケンス図
+![major_tracepoints_definition](/imgs/major_trace_points_definition.png)
+
 ## トレースポイントの実装方法・フック方法について
 
 |トレースポイントの種類|説明|
