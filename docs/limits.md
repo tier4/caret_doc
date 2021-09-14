@@ -18,3 +18,5 @@
 - galaticのみ 対応
 - FastDDS/CycloneDDSのみ対応（DDS-layer 測定のために DDS 内のフックも行っているため）
 - Linux のみの対応（LTTngを使用していることによるもの）
+
+- msg.header.stamp を元にマッチングを取るような処理を含むパス（tfやmessage_filter）
