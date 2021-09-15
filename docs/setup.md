@@ -67,7 +67,6 @@ $ python3 -m pip install -U
   pytest-mock \
   pybind11 \
   pandas \
-  fire \
   bokeh \
   jupyterlab
 ```
