@@ -26,9 +26,7 @@ $ sudo apt update && sudo apt install -y \
   python3-rosdep \
   python3-setuptools \
   python3-vcstool \
-  wget \
-  graphviz \
-  graphviz-dev
+  wget
 $ python3 -m pip install -U \
   flake8-blind-except \
   flake8-builtins \
@@ -84,12 +82,10 @@ $ cd ~/ros2_caret_ws
 $ wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
 $ vcs import src < caret.repos --recursive
 $ rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
-$ # CycloneDDS のみ Debug ビルドを行う
-$ colcon build --symlink-install --packages-select cyclonedds --cmake-args -DCMAKE_BUILD_TYPE=Debug
-$ colcon build --symlink-install --packages-skip cyclonedds
+$ colcon build --symlink-install
 ```
 
-ros2 tracing のトレースが有効になっていることを確認
+ros2 tracing が有効になっていることを確認
 ```bash
 $ source ~/ros2_caret_ws/install/local_setup.bash
 $ ros2 run tracetools status

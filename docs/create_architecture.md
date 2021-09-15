@@ -1,10 +1,10 @@
 # アーキテクチャファイル
 
-アーキテクチャファイルとは、レイテンシの算出に必要な静的な情報を記述した yaml 形式の設定ファイルです。
+アーキテクチャファイルとは、レイテンシの算出に必要な静的情報を記述した yaml 形式の設定ファイルです。
 トレース結果のファイルから雛形を作成できますが、一部修正が必要になります。
-ここでは、アーキテクチャファイルの作成と修正方法を説明します。
+ここでは、アーキテクチャファイルの作成方法と修正方法を説明します。
 
-アーキテクチャファイルには以下の情報が記述されます。
+アーキテクチャファイルには以下の情報を記述します。
 
 - パス情報
   - パスの名前
@@ -28,7 +28,7 @@
 $ ls ~/ros2_ws/evaluate/end_to_end_sample/ # トレース結果のパスの確認
 ust
 $ source ~/ros2_caret_ws/install/setup.bash # コマンドのパスを通す
-$ caret_create architecture ~/.ros/tracing/talker_listener ./architecture.yaml
+$ ros2 caret architecture -t evaluate/end_to_end_sample/ -o evaluate/architecture.yaml
 $ cat ./architecture.yaml
 path_name_aliases: []
 nodes:
@@ -92,7 +92,7 @@ nodes:【ノード情報】
 
 ここでは、 CUI による可視化方法を説明します。
 ```bash
-$ caret_create callback_graph architecture.yaml callback_graph.svg
+$ ros2 caret callback_graph -a ./evaluate/architecture.yaml -o calback_graph.svg
 ```
 
 グラフの作成には Graphviz を使用しています。
@@ -137,12 +137,6 @@ caret はパスの探索にコールバックグラフを利用するので、�
     - callback_name_write: subscription_callback_0【コールバック名*】
       callback_name_read: timer_callback_0【コールバック名*】
   ```
-
-# コールバックグラフ情報の記述の差分はこちら
-
->> TODO: コールバックグラフ情報の記述の差分へのリンクを追加
-
-修正後のコールバックグラフは以下のようになります。
 
 ![callback_graph_cui_export](/imgs/callback_graph_modified.png)
 
@@ -218,21 +212,9 @@ path_name_aliases:
 ...
 ```
 
-最終的なアーキテクチャファイルは以下のようになります。
-
->> TODO: 最終的なアーキテクチャファイルへのリンクを追加
-
-caret_create コマンドは、パスの強調にも対応しています。
-コールバック識別名を挙げていくことで、パスの強調されたグラフを表示できます。
+パスの定義をした後は、CLI からパスがハイライトされたコールバックグラフを出力できます。
 
 ```bash
-$ caret_create callback_graph architecture_modified.yaml graph.svg  \
-	/sensor_dummy_node/timer_callback_0  \
-	/filter_node/subscription_callback_0  \
-	/message_driven_node/subscription_callback_0  \
-	/message_driven_node/subscription_callback_1  \
-	/timer_driven_node/subscription_callback_0  \
-	/timer_driven_node/timer_callback_0  \
-	/actuator_dummy_node/subscription_callback_0
+$ ros2 caret callback_graph -a ./evaluate/architecture.yaml -o calback_graph.svg -p end_to_end
 ```
 
