@@ -2,80 +2,89 @@
 
 測定結果の可視化方法を説明します。
 
+```
+$ cd ~/ros2_ws/evaluate
+$ jupyter-lab
+```
+
+本ページのサンプル jupyter notebook については以下をご覧ください。
+https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/visualize_result.ipynb
+
+本ページのコマンドを実行する前に、以下を実行する必要が有ります。
+```
+from bokeh.plotting import output_notebook, figure, show
+output_notebook()
+
+import caret_analyze as caret
+import caret_analyze.plot as caret_plot
+```
+
+測定結果の読み込み、測定対象のパスの指定配下のようにして行います。
+```
+# トレース結果の読み込み、 キャッシュを使わない場合は force_conversion=True とする。
+lttng = caret.Lttng('end_to_end_sample', force_conversion=True)
+# アーキテクチャファイルを読み込み、トレース結果を紐付ける
+app = caret.Application('architecture.yaml', 'yaml', lttng)
+# 評価対象のパス名を指定。
+path = app.path['target_path']
+```
+
+
 ## メッセージフロー
 
 ```python
-import caret_analyze as caret
-import caret_analyze.plot as message_flow
-
 # トレース結果の読み込み、 キャッシュを使わない場合は force_conversion=True とする。
-lttng = caret.Lttng('/path/to/trace_resut/', force_conversion=True)
-
-# アーキテクチャファイルを読み込み、トレース結果を紐付ける
-app = caret.Application('/path/to/architecture.yaml', 'yaml', lttng)
-
-# 評価対象のパス名を指定。
-path = app.path['taget_path_name']
-
-# メッセージフローの出力
-# granularity は raw/callback/node のいずれか
-caret_plot.message_flow(path, granularity='node', remove_, treat_drop_as_delay=True)
+caret_plot.message_flow(path, granularity='node', treat_drop_as_delay=True)
 ```
 
 `treat_drop_as_delay=False`とした場合、メッセージがロスト（上書き）されたトレースポイントの箇所で途切れます。
 `treat_drop_as_delay=True`とした場合、ロスト箇所を遅延として算出できるように紐付けたフローを出力します。
 
+![message_flow_sample](/imgs/message_flow_sample.png)
+
 ## チェーンのレイテンシ
 
 ```python
-import caret_analyze as caret
-import caret_analyze.plot as caret_plot
-lttng = caret.Lttng('/path/to/trace_resut/', force_conversion=True)
-app = caret.Application('/path/to/architecture.yaml', 'yaml', lttng)
-path = app.paths['taget_path_name']
 caret_plot.chain_latency(path, granularity='node', treat_drop_as_delay=True)
 ```
 
 `treat_drop_as_delay=False`とした場合、ロストせず終点まで到達したメッセージのレイテンシを出力します。
 `treat_drop_as_delay=True`とした場合、ロスト箇所を遅延として算出したメッセージのレイテンシを出力します。
 
+![chain_latency_sample](/imgs/chain_latency_sample.png)
+
 ## レイテンシの時系列波形・ヒストグラム
 
 ```python
-import caret_analyze as caret
-import caret_analyze.plot as caret_plot
-import matplotlyb.pyplot as plt
-lttng = caret.Lttng('/path/to/trace_resut/', force_conversion=True)
-app = caret.Application('/path/to/architecture.yaml', 'yaml', lttng)
+t, latency_ns = path.to_timeseries(remove_dropped=False, treat_drop_as_delay=True)
+latency_ms = latency_ns * 1.0e-6
 
-latency_target = app.callbacks[0]
-
-t, latency_ns = latency_target.to_timeseries(remove_dropped=True)
-plt.plot(t, latency_ns)
-
-t, latency_ns = latency_target.to_timeseries(
-    remove_dropped=False, treat_drop_as_delay=True)
-plt.plot(t, latency_ns)
+p = figure()
+p.line(t, latency_ns)
+show(p)
 ```
+
+![time_series_sample](/imgs/time_series_sample.png)
+
 
 ヒストグラムも以下のようにして可視化できます。
 
 ```python
-bins, hist = callback.to_histogram(remove_dropped=True)
-plt.ste(bins[:-1], histogram, where='post')
-
-bins, hist = callback.to_histogram(remove_dropped=False, treat_drop_as_delay=True)
-plt.ste(bins[:-1], histogram, where='post')
+bins, hist = path.to_histogram(treat_drop_as_delay=True)
+p = figure()
+p.step(hist[1:], bins)
+show(p)
 ```
 
-`latency_target`には、以下が指定可能です。
+![history_sample](/imgs/history_sample.png)
+
+時系列とヒストグラムについては、以下が指定可能です。
 
 ```python
 callback = app.callbacks[0] # コールバック実行時間
 node = app.nodes[0].paths[0] # ノードレイテンシ
 path = app.paths[0] # パスレイテンシ
 comm = app.communications[0] # 通信レイテンシ（pub_sub レイテンシ）
-comm_pubsub = app.communications[0].to_pubsub_latency()
 comm_dds = app.communications[0].to_dds_latency() # 通信レイテンシ（DDSレイヤーレイテンシ）
 var_pass = app.variable_passings[0] # 変数を介したメッセージ渡し
 ```

@@ -61,7 +61,7 @@ ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれ
 
    ```bash
    $ ros2 trace -s end_to_end_sample -k -u ros2*
-   $ # ヘルプは ros2 trace -h 
+   $ # ヘルプは ros2 trace -h
    ```
 
 2. アプリケーションの実行
@@ -77,10 +77,16 @@ ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれ
 launch ファイルを実行します
 
 ```bash
+$ source /opt/ros/galactic/setup.bash
+$ # caret_ws 配下の rclcpp を使わせるため、opt 配下の後に caret_ws 配下の setup.bash を実行する。
+$ source ~/ros2_caret_ws/install/local_setup.bash
 $ source ~/ros2_ws/install/local_setup.bash
 $ export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
 $ mkdir -p ~/ros2_ws/evaluate
 $ export ROS_TRACE_DIR=~/ros2_ws/evaluate # トレースファイルの出力先を設定。デフォルトは ~/.ros/tracing。
+$ # ビルドした rclcpp が使われることを確認。
+$ ldd ./build/caret_demos/end_to_end_sample  | grep rclcpp
+  librclcpp.so => /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so
 $ ros2 launch caret_demos end_to_end_sample.launch.py
 ^C # 数秒後、 Ctrl+C で終了
 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)

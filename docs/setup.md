@@ -81,6 +81,7 @@ $ cd ~/ros2_caret_ws
 $ wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
 $ vcs import src < caret.repos --recursive
 $ rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+$ source /opt/ros/galactic/setup.bash
 $ colcon build --symlink-install
 ```
 
