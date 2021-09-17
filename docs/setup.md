@@ -60,10 +60,10 @@ $ sudo apt install -y \
 caret の依存パッケージをインストール
 
 ```bash
-$ sudo apt update && sudo apt install -y
+$ sudo apt update && sudo apt install -y \
   graphviz \
   graphviz-dev
-$ python3 -m pip install -U
+$ python3 -m pip install -U \
   pytest-mock \
   pybind11 \
   pandas \
