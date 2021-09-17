@@ -8,7 +8,7 @@ $ jupyter-lab
 ```
 
 本ページのサンプル jupyter notebook については以下をご覧ください。
-https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/visualize_result.ipynb
+[https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/visualize_result.ipynb](https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/visualize_result.ipynb)
 
 本ページのコマンドを実行する前に、以下を実行する必要が有ります。
 ```

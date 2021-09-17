@@ -64,6 +64,7 @@ Pub-Subレイテンシに大きな値が算出された場合、DDS-Layerレイ�
 
 
 エグゼキュータのスケジューリングについては、こちらの論文も参照ください。
-https://www.google.com/search?q=response%20analysis
+[Response-Time Analysis of ROS 2 Processing
+Chains Under Reservation-Based Scheduling](https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf)
 
 

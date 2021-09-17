@@ -157,7 +157,7 @@ caret はパスの探索にコールバックグラフを利用するので、�
 ※ jupyter 上での手動による評価を行う場合にはこの手順をスキップすることもできます。
 
 本手順の jupyter notebook は以下に有ります。
-https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/select_path.ipynb
+[https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/select_path.ipynb](https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/select_path.ipynb)
 
 ```yaml
 path_name_aliases:
@@ -228,4 +228,4 @@ $ ros2 caret callback_graph -a architecture.yaml -o calback_graph_cmd.svg -p tar
 ```
 
 手作業での修正による差分は以下のようになります。
-https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b
+[https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b](https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b)
