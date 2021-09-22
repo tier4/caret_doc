@@ -53,5 +53,7 @@ CARET は以下のパッケージから構成されています。
 | ------------------------------------------------------------ | -------------------------------------------- |
 | [CARET_trace](https://github.com/tier4/CARET_trace)          | フックによるトレースポイント追加のリポジトリ |
 | [CARET_analyze](https://github.com/tier4/CARET_analyze)      | トレース結果の解析スクリプトのリポジトリ     |
+| [CARET_analyze_cpp_impl](https://github.com/tier4/CARET_analyze_cpp_impl.git)      | トレース結果の解析スクリプトのC++実装版     |
+| [ros2caret](https://github.com/tier4/ros2caret.git)      | ros2 cli用 リポジトリ     |
 | [CARET_demos](https://github.com/tier4/CARET_demos)          | デモプログラム集のリポジトリ                 |
 | [CARET_doc]([CARET_doc](https://github.com/tier4/CARET_doc)) | 本ドキュメントのリポジトリ                   |
