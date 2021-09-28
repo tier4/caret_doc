@@ -6,8 +6,8 @@ LTTng のインストール
 詳細は [LTTng の公式ドキュメント](https://lttng.org/docs/v2.12/#doc-ubuntu-ppa) を参照。
 
 ```bash
-$ apt-add-repository ppa:lttng/stable-2.12
-$ apt-get update
+$ sudo apt-add-repository ppa:lttng/stable-2.12
+$ sudo apt-get update
 $ sudo apt-get install lttng-tools lttng-modules-dkms liblttng-ust-dev
 $ sudo apt-get install python3-babeltrace python3-lttng
 ```
