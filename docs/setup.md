@@ -82,7 +82,7 @@ $ wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
 $ vcs import src < caret.repos --recursive
 $ rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 $ source /opt/ros/galactic/setup.bash
-$ colcon build --symlink-install
+$ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=off  --symlink-install
 ```
 
 ros2 tracing が有効になっていることを確認
