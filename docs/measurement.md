@@ -60,7 +60,7 @@ ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれ
 1. セッション開始
 
    ```bash
-   $ ros2 trace -s end_to_end_sample -k -u ros2*
+   $ ros2 trace -s end_to_end_sample -k -u "ros2*"
    $ # ヘルプは ros2 trace -h
    ```
 
