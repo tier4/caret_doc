@@ -84,6 +84,9 @@ $ cd ~/ros2_caret_ws
 $ wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
 $ vcs import src < caret.repos --recursive
 $ rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+$ # [ERROR: the following packages/stacks could not have their rosdep keys resolved] と出る場合は、以下を試すこと
+$ # rosdep init
+$ # rosdep update
 $ source /opt/ros/galactic/setup.bash
 $ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=off  --symlink-install
 ```
