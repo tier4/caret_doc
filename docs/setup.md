@@ -70,6 +70,8 @@ $ python3 -m pip install -U \
   bokeh \
   jupyterlab \
   graphviz
+$ # julyterlabのインストール時に[ImportError: The Jupyter Server requires tornado >=6.1.0]と出る場合は以下を実行すること
+$ # pip install tornado --upgrade
 ```
 
 
