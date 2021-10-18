@@ -1,12 +1,11 @@
 # 制限
 - callback start から end は順番が守られる
-- 任意のノードペアの間はプロセス・プロセスは固定。トピック毎に指定していないこと。
+- 任意のノードペアの間はプロセス内通信・プロセス間通信は固定。トピック毎に指定していないこと。
 - callback は以下のいづれかで依存関係がある
     - pub/sub
     - intra-process
     - inter-process
     - Node-field
-    - reader/write 側はこれらの複数が入る。
 - 同じトピックに pulish するコールバックは１つのノード内でひとつだけ
 - /rosout や/parameter_event はパスには含まない。
 - 同じ名前空間を持つ、同じノード名は一つのみ。
