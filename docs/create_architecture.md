@@ -224,8 +224,10 @@ path_name_aliases:
 パスの定義をした後は、CLI からパスがハイライトされたコールバックグラフを出力できます。
 
 ```bash
-$ ros2 caret callback_graph -a architecture.yaml -o calback_graph_cmd.svg -p target_path
+$ ros2 caret callback_graph -a architecture.yaml -o calback_graph_cmd.svg -p target_path -s false
 ```
+
+`-s true` とすると、全てのトピックがラベル化され、ノードごとの確認が行いやすくなります。
 
 手作業での修正による差分は以下のようになります。
 [https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b](https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b)
