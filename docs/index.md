@@ -36,6 +36,7 @@
   - [利用可能な環境変数一覧](./env.md)
   - [ツール利用時の制約](./limits.md)
   - [通信レイテンシについて](./about_communication_latency.md)
+  - [トラブルシューティング](./trouble_shooting.md)
 - 設計資料
 
   <!-- - [アーキテクチャ](./architecture.md) -->
