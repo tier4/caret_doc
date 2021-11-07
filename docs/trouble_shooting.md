@@ -52,3 +52,21 @@
 
     設定については、[利用可能な環境変数一覧](./env.md)をご覧ください。
 
+## TraceResultAanalyzeError: Failed to find ** のエラーが出る
+
+アーキテクチャファイルに記載された情報がトレース結果上で見つからない際に生じるエラーです。
+アーキテクチャファイルとトレース結果が一致しないことを指しています。
+表示されたエラー文を参考に、アーキテクチャファイルまたは測定方法を見直してください。
+
+例
+
+```
+TraceResultAanalyzeError: Failed to find callback_object.node_name: /localization/pose_twist_fusion_filter/ekf_localizer, callback_name: timer_callback_0, period_ns: 19999999, symbol: void (EKFLocalizer::?)()
+```
+
+- コールバック情報が見つかりませんでした。
+  - node_name：/localization/pose_twist_fusion_filter/ekf_localizer
+  - callback_name：timer_callback_0
+  - period_ns：19999999
+  - symbol：void (EKFLocalizer::?)()
+
