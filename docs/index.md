@@ -58,3 +58,8 @@ CARET は以下のパッケージから構成されています。
 | [ros2caret](https://github.com/tier4/ros2caret.git)      | ros2 cli用 リポジトリ     |
 | [CARET_demos](https://github.com/tier4/CARET_demos)          | デモプログラム集のリポジトリ                 |
 | [CARET_doc]([CARET_doc](https://github.com/tier4/CARET_doc)) | 本ドキュメントのリポジトリ                   |
+
+
+
+---
+This software is based on results obtained from a project subsidized by the New Energy and Industrial Technology Development Organization (NEDO).
