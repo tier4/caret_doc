@@ -11,6 +11,7 @@ $ jupyter-lab
 [https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/visualize_result.ipynb](https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/visualize_result.ipynb)
 
 本ページのコマンドを実行する前に、以下を実行する必要が有ります。
+
 ```
 from bokeh.plotting import output_notebook, figure, show
 output_notebook()
@@ -20,6 +21,7 @@ import caret_analyze.plot as caret_plot
 ```
 
 測定結果の読み込み、測定対象のパスの指定配下のようにして行います。
+
 ```
 # トレース結果の読み込み、 キャッシュを使わない場合は force_conversion=True とする。
 lttng = caret.Lttng('end_to_end_sample', force_conversion=True)
@@ -29,8 +31,9 @@ app = caret.Application('architecture.yaml', 'yaml', lttng)
 path = app.path['target_path']
 ```
 
-
 ## メッセージフロー
+
+各メッセージがどの時点で何の処理をしていたか可視化できます。
 
 ```python
 # トレース結果の読み込み、 キャッシュを使わない場合は force_conversion=True とする。
@@ -41,6 +44,19 @@ caret_plot.message_flow(path, granularity='node', treat_drop_as_delay=True)
 `treat_drop_as_delay=True`とした場合、ロスト箇所を遅延として算出できるように紐付けたフローを出力します。
 
 ![message_flow_sample](/imgs/message_flow_sample.png)
+
+縦軸は上から下に向かって、パスの始めから終わりに対応しています。
+各線はメッセージの流れを示しています。グレーの矩形領域はコールバックの実行時間を示しています。
+
+treat_drop_as_delay=Falseとすると、ノード内コールバック間で最新のメッセージのみを使うという仮定し、線を途中で途切れさせて表示します。
+treat_drop_as_delay=Trueとすると、メッセージロストを遅延として換算します。
+
+メッセージフロー図では、bokehの基本操作に加え、以下の操作が可能です。
+
+- 片方の軸のスケール調整
+  - 軸のラベル上でホイール操作することで、X軸のみまたはY軸のみのスケール調整が可能です。
+- 詳細情報の表示
+  - メッセージフローの線や、グレーの矩形領域にカーソルを合わせると、詳細情報が確認できます。
 
 ## チェーンのレイテンシ
 
