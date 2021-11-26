@@ -8,7 +8,6 @@ theme:
     - yaml
     - python
     - c++
-  locale: ja
   icon:
     admonition:
       note: octicons/tag-16
