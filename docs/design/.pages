@@ -1,0 +1,4 @@
+nav:
+    - トレースポイントの定義: tracepoint_definition.md
+    - コールバックグラフについて: about_callback_graph.md
+    - galacticとの差分: diff.md

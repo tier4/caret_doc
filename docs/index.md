@@ -26,25 +26,24 @@
 
 
 - 評価手順
+  - [環境構築](./tutorials/setup.md)
+  - [測定](./tutorials/measurement.md)
+  - [アーキテクチャファイルの作成](./tutorials/create_architecture.md)
+  - [性能評価](./tutorials/performance_evaluation.md)
 
-  - [環境構築](./setup.md)
-  - [測定](./measurement.md)
-  - [アーキテクチャファイルの作成](./create_architecture.md)
-  - [性能評価](./performance_evaluation.md)
 - 補足資料
+  - [利用可能な環境変数一覧](./supplements/env.md)
+  - [ツール利用時の制約](./supplements/limits.md)
+  - [通信レイテンシについて](./supplements/about_communication_latency.md)
+  - [トラブルシューティング](./supplements/trouble_shooting.md)
 
-  - [利用可能な環境変数一覧](./env.md)
-  - [ツール利用時の制約](./limits.md)
-  - [通信レイテンシについて](./about_communication_latency.md)
-  - [トラブルシューティング](./trouble_shooting.md)
 - 設計資料
-
   <!-- - [アーキテクチャ](./architecture.md) -->
-  - [トレースポイントの定義](./tracepoint_definition.md)
-  - [コールバックグラフについて](./about_callback_graph.md)
+  - [トレースポイントの定義](./design/tracepoint_definition.md)
+  - [コールバックグラフについて](./design/about_callback_graph.md)
   <!-- - [メッセージのトラッキングについて](./about_message_tracking.md) -->
   <!-- - [DDS-layer レイテンシの測定方法](./) -->
-  - [galactic との差分](./diff.md)
+  - [galactic との差分](./design/diff.md)
 
 ## リポジトリ一覧
 

@@ -94,7 +94,7 @@ $ ros2 launch caret_demos end_to_end_sample.launch.py
 [INFO] [end_to_end_sample-1]: process has finished cleanly [pid 722356]
 ```
 
-設定可能な環境変数については、 [利用可能な環境変数一覧](./env.md) を参照。
+設定可能な環境変数については、 [利用可能な環境変数一覧](../supplements/env.md) を参照。
 
 記録されたトレースポイントを確認します。
 
