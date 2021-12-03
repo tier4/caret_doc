@@ -5,6 +5,6 @@ on:
 
 jobs:
   pre-commit:
-    uses: tier4/CARET_doc/.github/workflows/reusable-pre-commit.yaml@feature/add-ci
+    uses: autowarefoundation/autoware-github-actions/.github/workflows/reusable-pre-commit.yaml@tier4/proposal
     with:
       pre-commit-config: .pre-commit-config.yaml
