@@ -1,6 +1,6 @@
-# E2Eレイテンシの測定方法
+# End-to-Endレイテンシの測定方法
 CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイテンシを結びつけてE2Eレイテンシを算出しています。
-ここでは通信レイテンシとノードレイテンシの算出方法と、それらをどのように結びつけているかを説明します。
+ここでは通信レイテンシとノードレイテンシの算出方法について説明します。
 
 
 ## 通信レイテンシとノードレイテンシの算出方法
@@ -16,14 +16,16 @@ CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイ�
 次の表はプロセス内通信のトレースに必要なトレースポイントと、そのトレースポイントの引数（トレースデータとして出力されるもの）です。※簡易版
 
 
-| トレースポイント名                | 引数1     |  引数2        | 引数3          |
+| トレースポイント名                | 引数1     |  引数2        | 時刻          |
 |--------------------------|----------------------|------------------|-----------|
 | rclcpp_intra_publish | publisher_handle_arg | <span style="color: red; ">message_arg</span>      | time1          |
 | dispatch_intra_process_subscription_callback | <span style="color: red; ">message_arg</span>             |  <span style="color: green; ">callback_arg</span>     | time2 |
 | callback_start                               | <span style="color: green; ">callback_arg</span>         | is_intra_process |   time3        |
+
 ※[引数についてはこちらを参照](https://tier4.github.io/CARET_doc/design/tracepoint_definition/)
 
-上記の表から引数の値（メッセージ・コールバックのアドレス）を使ってトレースデータの紐づけを行い、publishからcallback_startまでの表を作成します（下記表）。
+message_argとcallback_argにはメッセージのアドレス、コールバックのアドレスが格納されています。
+これらを使うことによりpublishからcallback_startまでのトレースデータの紐づけを行い、下記のような表を作成します。
 最後に`callback_start - rclcpp_intra_publish`でプロセス内通信のレイテンシを算出しています。
 
 |idx| rclcpp_intra_publish | dispatch_intra_process_subscription_callback | callback_start |
@@ -35,7 +37,7 @@ CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイ�
 #### プロセス間通信
 以下はプロセス間通信のトレースポイントとその引数です。
 
-| トレースポイント名 | 引数1  | 引数2 | 引数3 | 引数4 |
+| トレースポイント名 | 引数1  | 引数2 | 引数3 | 時刻 |
 |-|-|-|-|-|
 | rclcpp_publish  | publisher_handle_arg | <span style="color: red; ">message_arg</span>@1   |   | time1 |
 | rcl_publish  | publisher_handle_arg | <span style="color: red; ">message_arg</span>@1   |   | time2 |
@@ -46,7 +48,7 @@ CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイ�
 
 
 プロセス内通信と同様に、publishからcallback_startまでの表を作成します（下記表）。
-1行が1つのプロセス間通信のチェーンを表し、`callback_start - rclcpp_publish` にてプロセス間通信を算出します。
+1行が1つのプロセス間通信のチェーンを表し、`callback_start - rclcpp_publish` にてプロセス間通信のレイテンシを算出します。
 
 | idx | rclcpp_publish | rcl_publish | dds_write | dds_bind_addr_to_stamp | dispatch_subscription_callback | callback_start |
 |-|-|-|-|-|-|-|
@@ -87,7 +89,7 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 
 
 
-**制限**
+**想定**
   - コールバック間のキューサイズ1を想定
   - 厳密に測定できるのはSingle Threaded Executorのみ
 
