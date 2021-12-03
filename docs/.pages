@@ -1,0 +1,5 @@
+nav:
+    - Overview: index.md
+    - Tutorials: tutorials
+    - Supplements: supplements
+    - Design: design
