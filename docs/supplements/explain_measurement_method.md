@@ -6,7 +6,7 @@ CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイ�
 ## 通信レイテンシとノードレイテンシの算出方法
 以下は通信レイテンシとノードレイテンシを表した図です。
 
-![callback_and_node_latency](/imgs/callback_and_node_latency.png)
+![callback_and_node_latency](../imgs/callback_and_node_latency.png)
 
 
 ### 通信レイテンシの算出方法
