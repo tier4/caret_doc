@@ -15,13 +15,12 @@
     - コールバック名
     - コールバック関数のシンボル名
     - コールバックの種類【timer_callback または subscription_callback】
-    - コールバックのパラメータ【timerの場合は周期・subscriptionの場合はトピック名】
-  - コールバック間の変数渡し情報　
-  - パブリッシュの情報　
-
-
+    - コールバックのパラメータ【timer の場合は周期・subscription の場合はトピック名】
+  - コールバック間の変数渡し情報
+  - パブリッシュの情報
 
 ## 雛形の作成
+
 雛形はトレース結果から生成できます。
 
 ```bash
@@ -36,11 +35,11 @@ nodes:
 ...
 ```
 
-
 ## アーキテクチャファイルのフォーマット
+
 以下にアーキテクチャファイルのフォーマットを示します。
 
-*の付いた項目は手作業での修正が必要な項目です。
+\*の付いた項目は手作業での修正が必要な項目です。
 
 ```yaml
 path_name_aliases:【パス情報】
@@ -70,7 +69,7 @@ nodes:【ノード情報】
 コールバックの識別名は、アプリケーション全体でコールバックを一意に特定するための名前です。
 以下のフォーマットになっています。
 
-```
+```text
 コールバック識別名 = ノード名/コールバック名
 ```
 
@@ -93,9 +92,10 @@ nodes:【ノード情報】
 作成したアーキテクチャファイルを元に、コールバックグラフを可視化できます。
 
 ここでは、 CUI による可視化方法を説明します。
+
 ```bash
-$ cd ~/ros2_ws/evaluate
-$ ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
+cd ~/ros2_ws/evaluate
+ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
 ```
 
 グラフの作成には Graphviz を使用しています。
@@ -107,7 +107,7 @@ $ ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
 
 灰色は名前空間、角丸四角はノード、四角はコールバック、矢印はコールバック間の依存関係を示しています。
 赤矢印はトピックを publish しているコールバックが不明なトピック通信を示しています。
-この赤矢印が、アーキテクチャファイルを編集し、publish元のコールバックを指定する必要のある箇所です。
+この赤矢印が、アーキテクチャファイルを編集し、publish 元のコールバックを指定する必要のある箇所です。
 
 デフォルトの型は svg 形式で、 tooltip による情報の表示に対応しています。
 
@@ -116,15 +116,17 @@ $ ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
 カーソルをコールバックに合わせることで、コールバックのパラメータとシンボル名が表示されます。
 
 ## コールバックグラフ情報の記述
+
 出力直後の雛形はコールバックの依存関係などが記述されていません。
 caret はパスの探索にコールバックグラフを利用するので、アーキテクチャファイルの修正が必要になります。
 
 コールバックグラフ構築のために修正する項目は以下の通りです。
 
-1. コールバック関数と publish の紐付け（上図コールバックグラフの赤矢印）
-    [/nodes/node/publish] には、ノードが publish しているトピック名が key として列挙されています。
-    value にトピックを publish しているコールバック名を記述してください。
-    未接続のトピック通信（コールバックグラフ上の赤矢印）が無くなるまで修正してください。
+<!-- prettier-ignore-start -->
+1. コールバック関数と publish の紐付け（上図コールバックグラフの赤矢印）  
+   [/nodes/node/publish] には、ノードが publish しているトピック名が key として列挙されています。
+   value にトピックを publish しているコールバック名を記述してください。
+   未接続のトピック通信（コールバックグラフ上の赤矢印）が無くなるまで修正してください。
 
   ```yaml
     publishes:【パブリッシュの情報】
@@ -132,15 +134,16 @@ caret はパスの探索にコールバックグラフを利用するので、�
       callback_name: timer_callback_0【コールバック名*】
   ```
 
-2. コールバック間の変数渡しの記述
-    [/nodes/node/variable_passing]には、変数渡しによるコールバック間の依存関係を記述します。
-    callback_writeには書き込み側のコールバック名、callback_readには読み込み側のコールバック名を記述してください。
+1. コールバック間の変数渡しの記述  
+   [/nodes/node/variable_passing]には、変数渡しによるコールバック間の依存関係を記述します。
+   callback_write には書き込み側のコールバック名、callback_read には読み込み側のコールバック名を記述してください。
 
   ```yaml
     variable_passings:【変数を介したコールバック間のメッセージ渡し】
     - callback_name_write: subscription_callback_0【コールバック名*】
       callback_name_read: timer_callback_0【コールバック名*】
   ```
+<!-- prettier-ignore-end -->
 
 ![callback_graph_cui_export](/imgs/callback_graph_modified.png)
 
@@ -148,7 +151,7 @@ caret はパスの探索にコールバックグラフを利用するので、�
 
 ## コールバックチェーン情報の記述
 
-ノードレイテンシや、End-to-Endレイテンシ、通信レイテンシのレイテンシを算出するには、多数あるパスの中から、評価対象のパスのコールバックチェーンを与える必要があります。
+ノードレイテンシや、End-to-End レイテンシ、通信レイテンシのレイテンシを算出するには、多数あるパスの中から、評価対象のパスのコールバックチェーンを与える必要があります。
 
 評価対象のパスのコールバックチェーンを与えるには、アーキテクチャファイルにパスの名前とコールバックのリストを記述します。
 このコールバックリストは、コールバックを一つずつ記述していくのは手間であり、誤りが生じやすいです。
@@ -161,21 +164,20 @@ caret はパスの探索にコールバックグラフを利用するので、�
 
 ```yaml
 path_name_aliases:
-- path_name: target_path【パスの名前（任意）】
-  callbacks:
-  - /talker/subscription_callback_0【コールバックの識別名】
-  - /talker/timer_callback_0【コールバックの識別名】
+  - path_name: target_path【パスの名前（任意）】
+    callbacks:
+      - /talker/subscription_callback_0【コールバックの識別名】
+      - /talker/timer_callback_0【コールバックの識別名】
 ```
 
-
-
 ```bash
-$ cd ~/ros2_ws/evaluate
-$ ~/ros2_caret_ws/install/setup.bash
-$ jupyter-lab
+cd ~/ros2_ws/evaluate
+~/ros2_caret_ws/install/setup.bash
+jupyter-lab
 ```
 
 アーキテクチャファイルを読み込み。
+
 ```python
 import caret_analyze as caret
 import caret_analyze.plot as caret_plot
@@ -184,6 +186,7 @@ app = caret.Application('/path/to/architecture.yaml', 'yaml', None)
 ```
 
 評価対象のパスの、始点と終点のコールバック識別名から、パスを探索。
+
 ```python
 start_callback_name = '/sensor_dummy_node/timer_callback_0'
 end_callback_name = '/actuator_dummy_node/subscription_callback_0'
@@ -192,6 +195,7 @@ len(paths)  # 見つかったパスの数を出力
 ```
 
 探索結果のパスを一つずつ確認し、評価対象のパスを選定します。
+
 ```python
 path = paths[0]
 caret_plot.callback_graph(app, callbacks=path.callbacks)
@@ -205,12 +209,13 @@ jupyter 上に、パスの強調されたコールバックグラフが表示さ
 
 評価対象のパスに名前を付け、再度保存します。
 
-```
+```python
 app.path['target_path'] = path
 app.export_architecture('architecture.yaml')
 ```
 
 アーキテクチャファイルを確認し、パスの情報が追加されたことを確認します。
+
 ```bash
 $ cat architecture.yaml
 path_name_aliases:
@@ -224,13 +229,13 @@ path_name_aliases:
 パスの定義をした後は、CLI からパスがハイライトされたコールバックグラフを出力できます。
 
 ```bash
-$ ros2 caret callback_graph -a architecture.yaml -o calback_graph_cmd.svg -p target_path -s false
+ros2 caret callback_graph -a architecture.yaml -o calback_graph_cmd.svg -p target_path -s false
 ```
 
 `-s true` とすると、全てのトピックがラベル化され、ノードごとの確認が行いやすくなります。
 
 ---
 
-CARET_demos/end_to_endのソースコードと、手作業での修正例を示します。
+CARET_demos/end_to_end のソースコードと、手作業での修正例を示します。
 [https://github.com/tier4/CARET_demos/blob/main/caret_demos/src/end_to_end_sample.cpp](https://github.com/tier4/CARET_demos/blob/main/caret_demos/src/end_to_end_sample.cpp)
 [https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b](https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b)

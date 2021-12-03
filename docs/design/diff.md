@@ -2,14 +2,12 @@
 
 [caret.repos](https://github.com/tier4/CARET_doc/blob/main/caret.repos) には caret のリポジトリの他に、以下のリポジトリを含んでいます。
 
-- https://github.com/ros2/rcl.git
-- https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added
-- https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added
-- https://github.com/eclipse-cyclonedds/cyclonedds.git
+- <https://github.com/ros2/rcl.git>
+- <https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added>
+- <https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added>
+- <https://github.com/eclipse-cyclonedds/cyclonedds.git>
 
 それぞれのリポジトリの差分について説明します。
-
-
 
 ## rcl
 
@@ -20,7 +18,7 @@
 
 以下のトレースポイントを追加
 
-差分：https://github.com/tier4/rclcpp/commit/3d050be42e3e7ab6a8f84dce598a19df537f8246
+差分：<https://github.com/tier4/rclcpp/commit/3d050be42e3e7ab6a8f84dce598a19df537f8246>
 
 追加したトレースポイントは以下の通りです。
 
@@ -35,25 +33,24 @@
 > テンプレート実装はヘッダーに含まれ、アプリケーションのバイナリ内に生成される。
 > LD_PRELOAD でのフックが不可能な測定箇所なため、 rclcpp にトレースポイントの追加した。
 
-また、ビルドを通すためにros2_tracingのincludeファイルを追加しています。
-差分：https://github.com/tier4/rclcpp/commit/3d050be42e3e7ab6a8f84dce598a19df537f8246
+また、ビルドを通すために ros2_tracing の include ファイルを追加しています。
+差分：<https://github.com/tier4/rclcpp/commit/3d050be42e3e7ab6a8f84dce598a19df537f8246>
 
 > rclcpp に ros2_tracing の include ファイルを追加した理由：
 >
 > LD_PRELOAD では実行開始直後にカスタムの共有ライブラリを優先して読み込ませることが可能になる。
 > 一方で、上記のようなヘッダーに追加されたトレースポイントには、ビルド時のヘッダー探索にトレースポイント追加版ヘッダーが優先して読み込まれる必要がある。
-> gcc の -I フラグや CPATH などを検討したが、トレースポイント追加版 rclcpp/include, /opt/ros/galactic/include （ros2_tracing含む）,トレースポイント追加版  tracetools/include の順となり、追加したトレースポイント未定義のエラーでビルドが通せなかった。
-> そのため、 トレースポイント追加版  tracetools/include に追加されていないトレースポイントは、一時的に rclcpp/include 配下に追加した。
+> gcc の -I フラグや CPATH などを検討したが、トレースポイント追加版 rclcpp/include, /opt/ros/galactic/include （ros2_tracing 含む）,トレースポイント追加版 tracetools/include の順となり、追加したトレースポイント未定義のエラーでビルドが通せなかった。
+> そのため、 トレースポイント追加版 tracetools/include に追加されていないトレースポイントは、一時的に rclcpp/include 配下に追加した。
 > ros2 本家へのトレースポイントのマージを検討していく際には、rclcpp への ros2_tracing の include ファイル追加は必要ない。
 
 ## ros2_tracing
 
 rclcpp で追加したトレースポイントの定義を追加
 
-差分：https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added
+差分：<https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added>
 
-フックではなく、rclcppへトレースポイントを追加した理由については、「rclcpp 実装の理由」を参照。
-
+フックではなく、rclcpp へトレースポイントを追加した理由については、「rclcpp 実装の理由」を参照。
 
 ## cyclonedds
 

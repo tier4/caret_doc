@@ -6,11 +6,12 @@ LTTng のインストール
 詳細は [LTTng の公式ドキュメント](https://lttng.org/docs/v2.12/#doc-ubuntu-ppa) を参照。
 
 ```bash
-$ sudo apt-add-repository ppa:lttng/stable-2.12
-$ sudo apt-get update
-$ sudo apt-get install lttng-tools lttng-modules-dkms liblttng-ust-dev
-$ sudo apt-get install python3-babeltrace python3-lttng
+sudo apt-add-repository ppa:lttng/stable-2.12
+sudo apt-get update
+sudo apt-get install lttng-tools lttng-modules-dkms liblttng-ust-dev
+sudo apt-get install python3-babeltrace python3-lttng
 ```
+
 ROS 2 galactic のインストール、依存パッケージのインストール。
 詳細は [ROS2 公式ドキュメント](https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html) を参照。
 
@@ -74,24 +75,23 @@ $ # julyterlabのインストール時に[ImportError: The Jupyter Server requir
 $ # pip install tornado --upgrade
 ```
 
-
-
 ## CARET のビルド
 
 ```bash
-$ mkdir -p ~/ros2_caret_ws/src
-$ cd ~/ros2_caret_ws
-$ wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
-$ vcs import src < caret.repos --recursive
-$ rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
-$ # [ERROR: the following packages/stacks could not have their rosdep keys resolved] と出る場合は、以下を試すこと
-$ # rosdep init
-$ # rosdep update
-$ source /opt/ros/galactic/setup.bash
-$ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=off  --symlink-install
+mkdir -p ~/ros2_caret_ws/src
+cd ~/ros2_caret_ws
+wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
+vcs import src < caret.repos --recursive
+rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+# [ERROR: the following packages/stacks could not have their rosdep keys resolved] と出る場合は、以下を試すこと
+# rosdep init
+# rosdep update
+source /opt/ros/galactic/setup.bash
+colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=off  --symlink-install
 ```
 
 ros2 tracing が有効になっていることを確認
+
 ```bash
 $ source ~/ros2_caret_ws/install/local_setup.bash
 $ ros2 run tracetools status

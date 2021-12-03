@@ -1,11 +1,12 @@
 # 制限
+
 - callback start から end は順番が守られる
 - 任意のノードペアの間はプロセス内通信・プロセス間通信は固定。トピック毎に指定していないこと。
 - callback は以下のいづれかで依存関係がある
-    - pub/sub
-    - intra-process
-    - inter-process
-    - Node-field
+  - pub/sub
+  - intra-process
+  - inter-process
+  - Node-field
 - 同じトピックに pulish するコールバックは１つのノード内でひとつだけ
 - /rosout や/parameter_event はパスには含まない。
 - 同じ名前空間を持つ、同じノード名は一つのみ。
@@ -14,8 +15,8 @@
 - ラッパーを入れる場合がある。同じスレッドでなければならないペアが存在する。同じスレッドでの実行を前提にしている　トレースポイントのペアがある。
 
 - アプリケーションの再ビルドが必要（rclcpp のヘッダーにトレースポイントを追加したため）
-- galaticのみ 対応
-- FastDDS/CycloneDDSのみ対応（DDS-layer 測定のために DDS 内のフックも行っているため）
-- Linux のみの対応（LTTngを使用していることによるもの）
+- galatic のみ 対応
+- FastDDS/CycloneDDS のみ対応（DDS-layer 測定のために DDS 内のフックも行っているため）
+- Linux のみの対応（LTTng を使用していることによるもの）
 
-- msg.header.stamp を元にマッチングを取るような処理を含むパス（tfやmessage_filter）
+- msg.header.stamp を元にマッチングを取るような処理を含むパス（tf や message_filter）
