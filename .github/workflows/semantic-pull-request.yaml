@@ -9,6 +9,6 @@ on:
 
 jobs:
   semantic-pull-request:
-    uses: tier4/CARET_doc/.github/workflows/reusable-semantic-pull-request.yaml@tier4/proposal
+    uses: tier4/CARET_doc/.github/workflows/reusable-semantic-pull-request.yaml@main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}

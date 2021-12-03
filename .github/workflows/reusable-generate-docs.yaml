@@ -77,7 +77,7 @@ jobs:
       - name: Retrieve create-doc-comment script
         run: |
           curl -fsSL -o create-doc-comment.sh \
-            https://raw.githubusercontent.com/autowarefoundation/autoware-github-actions/${{ inputs.script-ref }}/.github/create-doc-comment.sh
+            https://raw.githubusercontent.com/tier4/CARET_doc/${{ inputs.script-ref }}/.github/create-doc-comment.sh
           chmod +x create-doc-comment.sh
 
       - name: Create comment body

@@ -30,7 +30,7 @@ jobs:
       - name: Install MkDocs
         run: |
           curl -fsSL -o mkdocs-requirements.txt \
-            https://raw.githubusercontent.com/autowarefoundation/autoware-github-actions/${{ inputs.script-ref }}/.github/mkdocs-requirements.txt
+            https://raw.githubusercontent.com/tier4/CARET_doc/${{ inputs.script-ref }}/.github/mkdocs-requirements.txt
           python3 -m pip install --upgrade pip setuptools wheel
           pip3 install -r mkdocs-requirements.txt
 
