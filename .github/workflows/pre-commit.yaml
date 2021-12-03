@@ -1,0 +1,10 @@
+name: pre-commit
+
+on:
+  pull_request:
+
+jobs:
+  pre-commit:
+    uses: tier4/CARET_doc/.github/workflows/reusable-pre-commit.yaml@tier4/proposal
+    with:
+      pre-commit-config: .pre-commit-config.yaml
