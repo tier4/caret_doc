@@ -8,8 +8,9 @@
       
       
       
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
     
     
       
@@ -17,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.62128196.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -34,15 +35,18 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
     
-    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+      <link rel="stylesheet" href="../../assets/stylesheets/tier4_color.css">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    
     
       
+
 
     
     
@@ -57,6 +61,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -72,7 +77,6 @@
     <div data-md-component="announce">
       
     </div>
-    
     
       
 
@@ -111,7 +115,8 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+<div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -365,6 +370,7 @@
       
         
 
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -592,49 +598,45 @@
             <article class="md-content__inner md-typeset">
               
                 
-
-<h1 id="_1">性能評価<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+                
+                <h1 id="_1">性能評価<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
 <p>測定結果の可視化方法を説明します。</p>
-<div class="highlight"><pre><span></span><code>$ cd ~/ros2_ws/evaluate
-$ jupyter-lab
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
+jupyter-lab
 </code></pre></div>
-
 <p>本ページのサンプル jupyter notebook については以下をご覧ください。
 <a href="https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/visualize_result.ipynb">https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/visualize_result.ipynb</a></p>
 <p>本ページのコマンドを実行する前に、以下を実行する必要が有ります。</p>
-<div class="highlight"><pre><span></span><code>from bokeh.plotting import output_notebook, figure, show
-output_notebook()
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="n">output_notebook</span><span class="p">()</span>
 
-import caret_analyze as caret
-import caret_analyze.plot as caret_plot
+<span class="kn">import</span> <span class="nn">caret_analyze</span> <span class="k">as</span> <span class="nn">caret</span>
+<span class="kn">import</span> <span class="nn">caret_analyze.plot</span> <span class="k">as</span> <span class="nn">caret_plot</span>
 </code></pre></div>
-
 <p>測定結果の読み込み、測定対象のパスの指定配下のようにして行います。</p>
-<div class="highlight"><pre><span></span><code># トレース結果の読み込み、 キャッシュを使わない場合は force_conversion=True とする。
-lttng = caret.Lttng(&#39;end_to_end_sample&#39;, force_conversion=True)
-# アーキテクチャファイルを読み込み、トレース結果を紐付ける
-app = caret.Application(&#39;architecture.yaml&#39;, &#39;yaml&#39;, lttng)
-# 評価対象のパス名を指定。
-path = app.path[&#39;target_path&#39;]
+<div class="highlight"><pre><span></span><code><span class="c1"># トレース結果の読み込み、 キャッシュを使わない場合は force_conversion=True とする。</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">caret</span><span class="o">.</span><span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;end_to_end_sample&#39;</span><span class="p">,</span> <span class="n">force_conversion</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># アーキテクチャファイルを読み込み、トレース結果を紐付ける</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">caret</span><span class="o">.</span><span class="n">Application</span><span class="p">(</span><span class="s1">&#39;architecture.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
+<span class="c1"># 評価対象のパス名を指定。</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="s1">&#39;target_path&#39;</span><span class="p">]</span>
 </code></pre></div>
-
 <h2 id="_2">メッセージフロー<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <p>各メッセージがどの時点で何の処理をしていたか可視化できます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># トレース結果の読み込み、 キャッシュを使わない場合は force_conversion=True とする。</span>
 <span class="n">caret_plot</span><span class="o">.</span><span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">granularity</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-
 <p><code>treat_drop_as_delay=False</code>とした場合、メッセージがロスト（上書き）されたトレースポイントの箇所で途切れます。
 <code>treat_drop_as_delay=True</code>とした場合、ロスト箇所を遅延として算出できるように紐付けたフローを出力します。</p>
 <p><img alt="message_flow_sample" src="/imgs/message_flow_sample.png" /></p>
 <p>縦軸は上から下に向かって、パスの始めから終わりに対応しています。
 各線はメッセージの流れを示しています。グレーの矩形領域はコールバックの実行時間を示しています。</p>
-<p>treat_drop_as_delay=Falseとすると、ノード内コールバック間で最新のメッセージのみを使うという仮定し、線を途中で途切れさせて表示します。
-treat_drop_as_delay=Trueとすると、メッセージロストを遅延として換算します。</p>
-<p>メッセージフロー図では、bokehの基本操作に加え、以下の操作が可能です。</p>
+<p>treat_drop_as_delay=False とすると、ノード内コールバック間で最新のメッセージのみを使うという仮定し、線を途中で途切れさせて表示します。
+treat_drop_as_delay=True とすると、メッセージロストを遅延として換算します。</p>
+<p>メッセージフロー図では、bokeh の基本操作に加え、以下の操作が可能です。</p>
 <ul>
 <li>片方の軸のスケール調整<ul>
-<li>軸のラベル上でホイール操作することで、X軸のみまたはY軸のみのスケール調整が可能です。</li>
+<li>軸のラベル上でホイール操作することで、X 軸のみまたは Y 軸のみのスケール調整が可能です。</li>
 </ul>
 </li>
 <li>詳細情報の表示<ul>
@@ -645,7 +647,6 @@ treat_drop_as_delay=Trueとすると、メッセージロストを遅延とし�
 <h2 id="_3">チェーンのレイテンシ<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">caret_plot</span><span class="o">.</span><span class="n">chain_latency</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">granularity</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-
 <p><code>treat_drop_as_delay=False</code>とした場合、ロストせず終点まで到達したメッセージのレイテンシを出力します。
 <code>treat_drop_as_delay=True</code>とした場合、ロスト箇所を遅延として算出したメッセージのレイテンシを出力します。</p>
 <p><img alt="chain_latency_sample" src="/imgs/chain_latency_sample.png" /></p>
@@ -657,7 +658,6 @@ treat_drop_as_delay=Trueとすると、メッセージロストを遅延とし�
 <span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">latency_ns</span><span class="p">)</span>
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
-
 <p><img alt="time_series_sample" src="/imgs/time_series_sample.png" /></p>
 <p>ヒストグラムも以下のようにして可視化できます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">bins</span><span class="p">,</span> <span class="n">hist</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">(</span><span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -665,7 +665,6 @@ treat_drop_as_delay=Trueとすると、メッセージロストを遅延とし�
 <span class="n">p</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">bins</span><span class="p">)</span>
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
-
 <p><img alt="history_sample" src="/imgs/history_sample.png" /></p>
 <p>時系列とヒストグラムについては、以下が指定可能です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">callback</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># コールバック実行時間</span>
@@ -675,6 +674,11 @@ treat_drop_as_delay=Trueとすると、メッセージロストを遅延とし�
 <span class="n">comm_dds</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">communications</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_dds_latency</span><span class="p">()</span> <span class="c1"># 通信レイテンシ（DDSレイヤーレイテンシ）</span>
 <span class="n">var_pass</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">variable_passings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 変数を介したメッセージ渡し</span>
 </code></pre></div>
+                
+              
+              
+                
+
 
               
             </article>
@@ -688,7 +692,8 @@ treat_drop_as_delay=Trueとすると、メッセージロストを遅延とし�
         
       </main>
       
-        <footer class="md-footer">
+        
+<footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
@@ -727,15 +732,16 @@ treat_drop_as_delay=Trueとすると、メッセージロストを遅延とし�
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
       
     </div>
   </div>
@@ -745,12 +751,12 @@ treat_drop_as_delay=Trueとすると、メッセージロストを遅延とし�
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
   </body>
