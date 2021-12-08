@@ -5,6 +5,6 @@ on:
 
 jobs:
   pre-commit:
-    uses: autowarefoundation/autoware-github-actions/.github/workflows/reusable-pre-commit.yaml@feef2b5395cf6de748cacc72f5ad08feea53e15a
+    uses: autowarefoundation/autoware-github-actions/.github/workflows/reusable-pre-commit.yaml@ec4c748cc49333a9067152b045fbc6a8bc0cd231
     with:
       pre-commit-config: .pre-commit-config.yaml

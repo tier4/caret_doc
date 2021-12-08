@@ -20,13 +20,13 @@ on:
 
 jobs:
   get-docs-version-name:
-    uses: autowarefoundation/autoware-github-actions/.github/workflows/reusable-get-docs-version-name.yaml@feef2b5395cf6de748cacc72f5ad08feea53e15a
+    uses: autowarefoundation/autoware-github-actions/.github/workflows/reusable-get-docs-version-name.yaml@ec4c748cc49333a9067152b045fbc6a8bc0cd231
 
   generate-docs:
-    uses: autowarefoundation/autoware-github-actions/.github/workflows/reusable-generate-docs.yaml@feef2b5395cf6de748cacc72f5ad08feea53e15a
+    uses: autowarefoundation/autoware-github-actions/.github/workflows/reusable-generate-docs.yaml@ec4c748cc49333a9067152b045fbc6a8bc0cd231
     needs: get-docs-version-name
     with:
-      script-ref: feef2b5395cf6de748cacc72f5ad08feea53e15a
+      script-ref: ec4c748cc49333a9067152b045fbc6a8bc0cd231
       mkdocs-yaml: mkdocs.yaml
       version-name: ${{ needs.get-docs-version-name.outputs.version-name }}
     secrets:
