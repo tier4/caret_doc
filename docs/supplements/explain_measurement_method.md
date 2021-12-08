@@ -95,7 +95,7 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 
 **想定**
 
-  - コールバック間のキューサイズ1を想定
+  - コールバック間のキューサイズ１を想定
   - 厳密に測定できるのはSingle Threaded Executorのみ
 
 
