@@ -16,7 +16,7 @@ CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイ�
 次の表はプロセス内通信のトレースに必要なトレースポイントと、そのトレースポイントの引数（トレースデータとして出力されるもの）です。※簡易版
 
 
-| トレースポイント名                | 引数1     |  引数2        | 時刻          |
+| トレースポイント名      | 引数1     |  引数2        | 時刻          |
 |--------------------------|----------------------|------------------|-----------|
 | rclcpp_intra_publish | publisher_handle_arg | <span style="color: red; ">message_arg</span>      | time1          |
 | dispatch_intra_process_subscription_callback | <span style="color: red; ">message_arg</span>             |  <span style="color: green; ">callback_arg</span>     | time2 |
@@ -78,6 +78,7 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 | ... | ... | ... | ... |
 
 上記表のようにコールバックA・Bが存在し、A→Bと処理が続く時、コールバックチェーンは下記表のように一つのテーブルにできます。
+
 | idx | callback_start (CB_A) [s] | rclcpp_publish (CB_A) [s] | callback_start (CB_B) [s] | rclcpp_publish (CB_B) [s] |
 |-|-|-|-|-|
 | 0 | 0 | 3 | 4 | 8 |
