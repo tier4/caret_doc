@@ -2,9 +2,9 @@
 
 測定結果の可視化方法を説明します。
 
-```
-$ cd ~/ros2_ws/evaluate
-$ jupyter-lab
+```bash
+cd ~/ros2_ws/evaluate
+jupyter-lab
 ```
 
 本ページのサンプル jupyter notebook については以下をご覧ください。
@@ -12,7 +12,7 @@ $ jupyter-lab
 
 本ページのコマンドを実行する前に、以下を実行する必要が有ります。
 
-```
+```python
 from bokeh.plotting import output_notebook, figure, show
 output_notebook()
 
@@ -22,7 +22,7 @@ import caret_analyze.plot as caret_plot
 
 測定結果の読み込み、測定対象のパスの指定配下のようにして行います。
 
-```
+```python
 # トレース結果の読み込み、 キャッシュを使わない場合は force_conversion=True とする。
 lttng = caret.Lttng('end_to_end_sample', force_conversion=True)
 # アーキテクチャファイルを読み込み、トレース結果を紐付ける
@@ -48,13 +48,13 @@ caret_plot.message_flow(path, granularity='node', treat_drop_as_delay=True)
 縦軸は上から下に向かって、パスの始めから終わりに対応しています。
 各線はメッセージの流れを示しています。グレーの矩形領域はコールバックの実行時間を示しています。
 
-treat_drop_as_delay=Falseとすると、ノード内コールバック間で最新のメッセージのみを使うという仮定し、線を途中で途切れさせて表示します。
-treat_drop_as_delay=Trueとすると、メッセージロストを遅延として換算します。
+treat_drop_as_delay=False とすると、ノード内コールバック間で最新のメッセージのみを使うという仮定し、線を途中で途切れさせて表示します。
+treat_drop_as_delay=True とすると、メッセージロストを遅延として換算します。
 
-メッセージフロー図では、bokehの基本操作に加え、以下の操作が可能です。
+メッセージフロー図では、bokeh の基本操作に加え、以下の操作が可能です。
 
 - 片方の軸のスケール調整
-  - 軸のラベル上でホイール操作することで、X軸のみまたはY軸のみのスケール調整が可能です。
+  - 軸のラベル上でホイール操作することで、X 軸のみまたは Y 軸のみのスケール調整が可能です。
 - 詳細情報の表示
   - メッセージフローの線や、グレーの矩形領域にカーソルを合わせると、詳細情報が確認できます。
 
@@ -81,7 +81,6 @@ show(p)
 ```
 
 ![time_series_sample](/imgs/time_series_sample.png)
-
 
 ヒストグラムも以下のようにして可視化できます。
 

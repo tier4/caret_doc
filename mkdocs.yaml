@@ -1,9 +1,9 @@
 site_name: Chain-Aware ROS Evaluation Tool (CARET)
 theme:
-  name: 'material'
-  palette: 
-    primary: 'indigo'
-    accent: 'indigo'
+  name: "material"
+  palette:
+    primary: "indigo"
+    accent: "indigo"
   hljs_languages:
     - yaml
     - python
@@ -60,11 +60,5 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
 
   - toc: { permalink: "#" }
-extra_css:
-  - https://unpkg.com/mermaid@8.0.0/dist/mermaid.css
-
-extra_javascript:
-  - https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js

@@ -1,8 +1,6 @@
 # トラブルシューティング
 
-
-
-## メッセージフローが表示されないなど、可視化時に問題がある。
+## メッセージフローが表示されないなど、可視化時に問題がある
 
 以下が考えられます
 
@@ -11,23 +9,23 @@
 - 初期化時のログが記録されていない
 
   - ros2 tracing コマンドでログを記録する場合、
-    ros2 tracing コマンド実行→Enterでスタートさせた後、
+    ros2 tracing コマンド実行 →Enter でスタートさせた後、
     測定対象のアプリケーション実行が必要になります。
 
-- 対象のアプリケーションをトレースポイント追加済みrclcppでビルドし直ししていない
+- 対象のアプリケーションをトレースポイント追加済み rclcpp でビルドし直ししていない
 
-  - caretはrosレイヤーにも一部トレースポイントを追加しています。
+  - caret は ros レイヤーにも一部トレースポイントを追加しています。
     これらトレースポイントを有効にするためには、以下の手順でアプリケーションを再ビルドする必要があります。
 
     ```bash
-    $ mkdir -p ~/ros2_ws/src
-    $ cd ~/ros2_ws
-    $ git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
-    $ source ~/ros2_caret_ws/install/local_setup.bash
-    $ colcon build --symlink-install
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws
+    git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
+    source ~/ros2_caret_ws/install/local_setup.bash
+    colcon build --symlink-install
     ```
 
-## 測定結果が明らかにおかしい。
+## 測定結果が明らかにおかしい
 
 以下が考えられます。
 
@@ -46,13 +44,13 @@
   - トレース結果の保存が間に合わない場合には、以下のように環境変数を設定して、再度測定してください。
 
     ```bash
-    $ export CARET_IGNORE_NODES="/rviz*"
-    $ export CARET_IGNORE_TOPICS="/clock:/parameter_events"
+    export CARET_IGNORE_NODES="/rviz*"
+    export CARET_IGNORE_TOPICS="/clock:/parameter_events"
     ```
 
     設定については、[利用可能な環境変数一覧](./env.md)をご覧ください。
 
-## TraceResultAanalyzeError: Failed to find ** のエラーが出る
+## TraceResultAanalyzeError: Failed to find \*\* のエラーが出る
 
 アーキテクチャファイルに記載された情報がトレース結果上で見つからない際に生じるエラーです。
 アーキテクチャファイルとトレース結果が一致しないことを指しています。
@@ -60,7 +58,7 @@
 
 例
 
-```
+```text
 TraceResultAanalyzeError: Failed to find callback_object.node_name: /localization/pose_twist_fusion_filter/ekf_localizer, callback_name: timer_callback_0, period_ns: 19999999, symbol: void (EKFLocalizer::?)()
 ```
 
@@ -69,4 +67,3 @@ TraceResultAanalyzeError: Failed to find callback_object.node_name: /localizatio
   - callback_name：timer_callback_0
   - period_ns：19999999
   - symbol：void (EKFLocalizer::?)()
-

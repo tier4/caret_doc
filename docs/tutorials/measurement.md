@@ -7,14 +7,14 @@
 caret の環境変数を`/opt/ros/galactic/setup.bash`の後に設定し、測定対象のアプリケーションをビルドします。caret 導入前にビルド済みのアプリケーションも、再度ビルドが必要になります。
 
 ```bash
-$ mkdir -p ~/ros2_ws/src
-$ cd ~/ros2_ws
-$ git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
-$ source ~/ros2_caret_ws/install/local_setup.bash
-$ colcon build --symlink-install --packages-up-to caret_demos
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws
+git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
+source ~/ros2_caret_ws/install/local_setup.bash
+colcon build --symlink-install --packages-up-to caret_demos
 ```
 
->  ビルドが必要な理由：
+> ビルドが必要な理由：
 >
 > caret は rclcpp のヘッダーで読み込まれるテンプレート実装内にもトレースポイントを追加しています。
 > トレースポイントを追加された rclcpp を有効にするため、測定対象のアプリケーションを再度ビルドする必要が有ります。
@@ -22,7 +22,7 @@ $ colcon build --symlink-install --packages-up-to caret_demos
 
 ## 測定の設定
 
-###  Launch ファイルの編集
+### Launch ファイルの編集
 
 LTTng のセッション開始を launch ファイルに記述します。
 launch ファイル内へ、`tracetools_launch.action.Trace` を追加します。
@@ -40,7 +40,7 @@ from tracetools_launch.action import Trace
 
 def generate_launch_description():
     return launch.LaunchDescription([
-    	## Trace 追加 -- ここから --
+     ## Trace 追加 -- ここから --
         Trace(
             session_name='end_to_end_sample',　# LTTng のセッション名。
             events_kernel=[], # カーネルイベントは無効化
@@ -60,8 +60,8 @@ ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれ
 1. セッション開始
 
    ```bash
-   $ ros2 trace -s end_to_end_sample -k -u "ros2*"
-   $ # ヘルプは ros2 trace -h
+   ros2 trace -s end_to_end_sample -k -u "ros2*"
+   # ヘルプは ros2 trace -h
    ```
 
 2. アプリケーションの実行
