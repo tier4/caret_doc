@@ -25,8 +25,8 @@ CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイ�
 ※[引数についてはこちらを参照](https://tier4.github.io/CARET_doc/design/tracepoint_definition/)
 
 message_argとcallback_argにはメッセージのアドレス、コールバックのアドレスが格納されています。
-これらを使うことによりpublishからcallback_startまでのトレースデータの紐づけを行い、下記のような表を作成します。
-最後に`callback_start - rclcpp_intra_publish`でプロセス内通信のレイテンシを算出しています。
+rclcpp_intra_publisherとdispatch_intra_process_subscription_callbackは同じmessage_argを持つトレースポイント同士で紐づけ、dispatch_intra_process_subscription_callbackとcallback_startは同じcallback_argを持つトレースポイント同士で紐づけることにより、下記のような表を作成します。
+最後に`callback_start - rclcpp_intra_publish`で**プロセス内通信のレイテンシ**を算出しています。
 
 |idx| rclcpp_intra_publish | dispatch_intra_process_subscription_callback | callback_start |
 |-|-|-|-|
@@ -47,8 +47,8 @@ message_argとcallback_argにはメッセージのアドレス、コールバッ
 | callback_start | <span style="color: blue; ">callback_arg</span> | is_intra_process |  | time6 |
 
 
-プロセス内通信と同様に、publishからcallback_startまでの表を作成します（下記表）。
-1行が1つのプロセス間通信のチェーンを表し、`callback_start - rclcpp_publish` にてプロセス間通信のレイテンシを算出します。
+プロセス内通信と同様に同じ引数を持つトレースポイント同士を紐づけていき、publishからcallback_startまでの表を作成します（下記表）。
+1行が1つのプロセス間通信のチェーンを表し、`callback_start - rclcpp_publish` にて**プロセス間通信のレイテンシ**を算出します。
 
 | idx | rclcpp_publish | rcl_publish | dds_write | dds_bind_addr_to_stamp | dispatch_subscription_callback | callback_start |
 |-|-|-|-|-|-|-|
@@ -62,31 +62,34 @@ message_argとcallback_argにはメッセージのアドレス、コールバッ
 
 ### コールバックチェーンの利用
 コールバックレイテンシの測定は、同じコールバックアドレスを持つcallback_startとrclcpp_publishの差分を使って算出します。
-callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一番近いcallback_startと紐づけます。※そのためSingle Threaded Executorでしか計算できません。
+callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一番近いcallback_startと紐づけます。
+> ※そのためSingle Threaded Executorでしか計算できません。
 
-| idx | callback_start (CB_A) [s] | rclcpp_publish (CB_A) [s] | callback_arg (CB_A) |
+| idx | callback_start (cb_A) [s] | rclcpp_publish (cb_A) [s] | callback_arg (cb_A) |
 |-|-|-|-|
 | 0 | 0 | 3 | 0x1000 |
 | 1 | 2 | 5 | 0x1000 |
 | 2 | 4 | 7 | 0x1000 |
 | ... | ... | ... | ... |
 
-| idx | callback_start (CB_B) [s] | rclcpp_publish (CB_B) [s] | callback_arg (CB_B) |
+| idx | callback_start (cb_B) [s] | rclcpp_publish (cb_B) [s] | callback_arg (cb_B) |
 |-|-|-|-|
 | 0 | 4 | 8 | 0x2000 |
 | 1 | 8 | 12 | 0x2000 |
-| ... | ... | ... | ... |
+| 2 | 10 | 14 | 0x2000 |
 
-上記表のようにコールバックA・Bが存在し、A→Bと処理が続く時、コールバックチェーンは下記表のように一つのテーブルにできます。
+上記表のようにコールバックA・B（cb_A・cb_B）が存在し、A→Bと処理が続く時、コールバックチェーンは下記表のように一つのテーブルにできます。
 
-| idx | callback_start (CB_A) [s] | rclcpp_publish (CB_A) [s] | callback_start (CB_B) [s] | rclcpp_publish (CB_B) [s] |
+| idx | callback_start (cb_A) [s] | rclcpp_publish (cb_A) [s] | callback_start (cb_B) [s] | rclcpp_publish (cb_B) [s] |
 |-|-|-|-|-|
 | 0 | 0 | 3 | 4 | 8 |
 | 1 | 2 | 5 | Lost | Lost |
 | 2 | 4 | 7 | 8 | 12 |
 | ... | ... | ... | ... | ... |
 
-上記のようにコールバックチェーンをつなぎ、ノードレイテンシを算出する。
+上記のようにコールバックチェーンをつなぎ、```rclcpp_publish (cb_X) - callback_start (cb_Y)```で**ノードレイテンシ**を算出します。
+
+> ※ノード内にコールバックが１つの場合、X, Yは同じものを指します。複数コールバックがある場合は、Xが最後・Yが最初のコールバックを指します。
 
 
 
