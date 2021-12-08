@@ -16,11 +16,11 @@ CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイ�
 次の表はプロセス内通信のトレースに必要なトレースポイントと、そのトレースポイントの引数（トレースデータとして出力されるもの）です。※簡易版
 
 
-| トレースポイント名      | 引数1     |  引数2        | 時刻          |
-|--------------------------|----------------------|------------------|-----------|
-| rclcpp_intra_publish | publisher_handle_arg | <span style="color: red; ">message_arg</span>      | time1          |
-| dispatch_intra_process_subscription_callback | <span style="color: red; ">message_arg</span>             |  <span style="color: green; ">callback_arg</span>     | time2 |
-| callback_start                               | <span style="color: green; ">callback_arg</span>         | is_intra_process |   time3        |
+| トレースポイント名 | 引数1 | 引数2 | 時刻 |
+|-|-|-|-|
+| rclcpp_intra_publish | publisher_handle_arg | <span style="color: red; ">message_arg</span> | time1 |
+| dispatch_intra_process_subscription_callback | <span style="color: red; ">message_arg</span> | <span style="color: green; ">callback_arg</span> | time2 |
+| callback_start | <span style="color: green; ">callback_arg</span> | is_intra_process | time3 |
 
 ※[引数についてはこちらを参照](https://tier4.github.io/CARET_doc/design/tracepoint_definition/)
 
@@ -37,14 +37,14 @@ message_argとcallback_argにはメッセージのアドレス、コールバッ
 #### プロセス間通信
 以下はプロセス間通信のトレースポイントとその引数です。
 
-| トレースポイント名 | 引数1  | 引数2 | 引数3 | 時刻 |
+| トレースポイント名 | 引数1 | 引数2 | 引数3 | 時刻 |
 |-|-|-|-|-|
-| rclcpp_publish  | publisher_handle_arg | <span style="color: red; ">message_arg</span>@1   |   | time1 |
-| rcl_publish  | publisher_handle_arg | <span style="color: red; ">message_arg</span>@1   |   | time2 |
-| dds_write   | publisher_handle_arg | <span style="color: red; ">message_arg</span>@1   |    | time3 |
-| dds_bind_addr_to_stamp    | <span style="color: red; ">message_arg</span>@1       | <span style="color: green; ">stamp_arg</span>        |  | time4 |
-| dispatch_subscription_callback | messsage_arg@2       | <span style="color: green; ">stamp_arg</span>        | <span style="color: blue; ">callback_arg</span>          |  time5 |
-| callback_start   | <span style="color: blue; ">callback_arg</span>   | is_intra_process |  |  time6 |
+| rclcpp_publish | publisher_handle_arg | <span style="color: red; ">message_arg</span>@1   |   | time1 |
+| rcl_publish | publisher_handle_arg | <span style="color: red; ">message_arg</span>@1   |   | time2 |
+| dds_write | publisher_handle_arg | <span style="color: red; ">message_arg</span>@1   |   | time3 |
+| dds_bind_addr_to_stamp | <span style="color: red; ">message_arg</span>@1 | <span style="color: green; ">stamp_arg</span> |  | time4 |
+| dispatch_subscription_callback | messsage_arg@2 | <span style="color: green; ">stamp_arg</span> | <span style="color: blue; ">callback_arg</span> | time5 |
+| callback_start | <span style="color: blue; ">callback_arg</span> | is_intra_process |  | time6 |
 
 
 プロセス内通信と同様に、publishからcallback_startまでの表を作成します（下記表）。
@@ -91,10 +91,13 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 
 
 **想定**
+
   - コールバック間のキューサイズ1を想定
   - 厳密に測定できるのはSingle Threaded Executorのみ
 
+
 **長所**
+
  - ソースコードへの変更が不要
  - 任意のメッセージ型に適用可能
 
@@ -120,12 +123,7 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
  - キューサイズに依らない
 
 **短所**
+
  - ヘッダーが必要
  - publish 前に stamp=現在時刻としているケースは対応不可
-
-
-
-
-
-
 
