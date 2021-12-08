@@ -2,4 +2,5 @@ nav:
     - 利用可能な環境変数: env.md
     - ツール利用時の制約: limits.md
     - 通信レイテンシについて: about_communication_latency.md
+    - E2Eレイテンシ測定方法の説明: explain_measurement_method.md
     - トラブルシューティング: trouble_shooting.md
