@@ -78,7 +78,7 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 | 2 | 10 | 14 | 15 | 0x2000 |
 
 上記表のようにコールバックA・B（cb_A・cb_B）が存在し、A→Bと処理が続く時、cb_Aのcallback_endとcb_Bのcallback_startを結び付けて表を作ります。
-最後のcallbackだけはpublishの時の時刻を採用し、下記表のように一つのテーブルにできます。
+最後のcallbackだけはpublishの時の時刻を採用し、下記表のように一つのテーブルにします。
 
 | idx | callback_start (cb_A) [s] | callback_end (cb_A) [s] | callback_start (cb_B) [s] | rclcpp_publish (cb_B) [s] |
 |-|-|-|-|-|
@@ -107,7 +107,7 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 
 **短所**
 
- - キューサイズが大きい時⇒レイテンシが小さめに出るケースがある。
+ - キューサイズが大きい時、レイテンシが小さめに出るケースがある。
  - multi threaded executor では、レイテンシが大きめに出るケースがある。
  - 実装を読み解くのが難しい
 
