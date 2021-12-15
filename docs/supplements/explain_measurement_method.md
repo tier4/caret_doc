@@ -77,7 +77,8 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 | 1 | 8 | 12 | 13 | 0x2000 |
 | 2 | 10 | 14 | 15 | 0x2000 |
 
-上記表のようにコールバックA・B（cb_A・cb_B）が存在し、A→Bと処理が続く時、コールバックチェーンは下記表のように一つのテーブルにできます。
+上記表のようにコールバックA・B（cb_A・cb_B）が存在し、A→Bと処理が続く時、cb_Aのcallback_endとcb_Bのcallback_startを結び付けて表を作ります。
+最後のcallbackだけはpublishの時の時刻を採用し、下記表のように一つのテーブルにできます。
 
 | idx | callback_start (cb_A) [s] | callback_end (cb_A) [s] | callback_start (cb_B) [s] | rclcpp_publish (cb_B) [s] |
 |-|-|-|-|-|
@@ -89,7 +90,6 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 上記のようにコールバックチェーンをつなぎ、```rclcpp_publish (cb_X) - callback_start (cb_Y)```で**ノードレイテンシ**を算出します。
 
 > ※ノード内にコールバックが１つの場合、X, Yは同じものを指します。複数コールバックがある場合は、Xが最後・Yが最初のコールバックを指します。
-> コールバックチェーンを用いてノードレイテンシを出すときは、callback_startとcallback_endを結び付けて表を作りますが、最後のcallbackだけはpublishの時の時刻を採用します。
 
 
 
