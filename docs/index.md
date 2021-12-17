@@ -34,6 +34,7 @@
   - [利用可能な環境変数一覧](./supplements/env.md)
   - [ツール利用時の制約](./supplements/limits.md)
   - [通信レイテンシについて](./supplements/about_communication_latency.md)
+  - [E2Eレイテンシ測定方法の説明](./supplements/explain_measurement_method.md)
   - [トラブルシューティング](./supplements/trouble_shooting.md)
 
 - 設計資料
