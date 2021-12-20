@@ -19,10 +19,11 @@ ROS のアプリケーションは一般的にノードのグラフで記述さ�
 
 > ノード・コールバックの整理
 >
-> A node is an executable that uses ROS to communicate with other nodes.
+> A node is an executable that uses ROS to communicate with other nodes.  
 > (<http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes> より引用)
 >
-> と言われているように、ノードは実行可能な単位です。
-> 一方で、コールバックはスケジューリングされるタスクの単位として捉えることができます。
-> 特に ROS 2 の場合、SingleThreadedExecutor を始めとするエグゼキュータが複数存在し、スレッド数の違いだけでなく、コールバックの実行順序が異なります。
+> と言われているように、ノードは実行可能な単位です。  
+> 一方で、コールバックはスケジューリングされるタスクの単位として捉えることができます。  
+> 特に ROS 2 の場合、SingleThreadedExecutor を始めとするエグゼキュータが複数存在し、  
+> スレッド数の違いだけでなく、コールバックの実行順序が異なります。  
 > 性能を評価する上では、何のノードが何のエグゼキュータで実行されていたかも重要な観点です。

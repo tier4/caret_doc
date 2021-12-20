@@ -16,7 +16,7 @@ ROS 2 galactic のインストール、依存パッケージのインストー�
 詳細は [ROS2 公式ドキュメント](https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html) を参照。
 
 ```bash
-$ sudo apt update && sudo apt install -y \
+sudo apt update && sudo apt install -y \
   build-essential \
   cmake \
   git \
@@ -28,7 +28,8 @@ $ sudo apt update && sudo apt install -y \
   python3-setuptools \
   python3-vcstool \
   wget
-$ python3 -m pip install -U \
+
+python3 -m pip install -U \
   flake8-blind-except \
   flake8-builtins \
   flake8-class-newline \
@@ -41,13 +42,14 @@ $ python3 -m pip install -U \
   pytest-rerunfailures \
   pytest \
   setuptools
-$ sudo apt install ros-galactic-desktop
+
+sudo apt install ros-galactic-desktop
 ```
 
 ros2 trace 関連のパッケージをインストール
 
 ```bash
-$ sudo apt install -y \
+sudo apt install -y \
   ros-galactic-ros2trace \
   ros-galactic-ros2trace-analysis \
   ros-galactic-tracetools \
@@ -61,18 +63,20 @@ $ sudo apt install -y \
 caret の依存パッケージをインストール
 
 ```bash
-$ sudo apt update && sudo apt install -y \
+sudo apt update && sudo apt install -y \
   graphviz \
   graphviz-dev
-$ python3 -m pip install -U \
+
+python3 -m pip install -U \
   pytest-mock \
   pybind11 \
   pandas \
   bokeh \
   jupyterlab \
   graphviz
-$ # julyterlabのインストール時に[ImportError: The Jupyter Server requires tornado >=6.1.0]と出る場合は以下を実行すること
-$ # pip install tornado --upgrade
+
+# julyterlabのインストール時に[ImportError: The Jupyter Server requires tornado >=6.1.0]と出る場合は以下を実行すること
+# pip install tornado --upgrade
 ```
 
 ## CARET のビルド
@@ -80,9 +84,15 @@ $ # pip install tornado --upgrade
 ```bash
 mkdir -p ~/ros2_caret_ws/src
 cd ~/ros2_caret_ws
+
 wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
 vcs import src < caret.repos --recursive
-rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+
+rosdep install \
+  --from-paths src --ignore-src \
+  --rosdistro galactic -y \
+  --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+
 # [ERROR: the following packages/stacks could not have their rosdep keys resolved] と出る場合は、以下を試すこと
 # rosdep init
 # rosdep update

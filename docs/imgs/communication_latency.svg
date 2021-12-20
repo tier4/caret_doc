@@ -18,7 +18,7 @@
    id="svg247"
    sodipodi:docname="communication_latency.svg"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   inkscape:export-filename="/home/hasegawa/remote_home/CARET_doc/imgs/communication_latency.png"
+   inkscape:export-filename="/home/hasegawa/CARET_doc/docs/imgs/communication_latency.png"
    inkscape:export-xdpi="143.8"
    inkscape:export-ydpi="143.8">
   <metadata
@@ -42,15 +42,15 @@
      guidetolerance="10"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1080"
+     inkscape:window-width="1020"
+     inkscape:window-height="1041"
      id="namedview249"
      showgrid="false"
-     inkscape:zoom="0.40211374"
-     inkscape:cx="-443.1668"
-     inkscape:cy="553.9634"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:zoom="0.5686747"
+     inkscape:cx="132.36785"
+     inkscape:cy="407.87325"
+     inkscape:window-x="896"
+     inkscape:window-y="18"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg247" />
   <defs
@@ -153,38 +153,6 @@
          style="fill:#0b75f6;fill-opacity:1;fill-rule:evenodd;stroke:#0b75f6;stroke-width:1.00000003pt;stroke-opacity:1"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path2876"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       inkscape:stockid="Arrow1Mend"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="Arrow1Mend"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         id="path1069"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         style="fill:#0b75f6;fill-opacity:1;fill-rule:evenodd;stroke:#0b75f6;stroke-width:1.00000003pt;stroke-opacity:1"
-         transform="matrix(-0.4,0,0,-0.4,-4,0)"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       inkscape:stockid="Arrow1Mstart"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="Arrow1Mstart"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         id="path1066"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         style="fill:#0b75f6;fill-opacity:1;fill-rule:evenodd;stroke:#0b75f6;stroke-width:1.00000003pt;stroke-opacity:1"
-         transform="matrix(0.4,0,0,0.4,4,0)"
          inkscape:connector-curvature="0" />
     </marker>
     <filter
@@ -1100,41 +1068,10 @@ Country: US
        inkscape:connector-curvature="0" />
   </g>
   <path
-     style="fill:none;stroke:#0b75f6;stroke-width:4.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)"
-     d="M 484.00212,263.3314 V 467.90733"
-     id="path253"
-     inkscape:connector-curvature="0" />
-  <path
      inkscape:connector-curvature="0"
      id="path2874"
      d="M 586.59261,205.09177 V 594.03772"
      style="fill:none;stroke:#0b75f6;stroke-width:4.60000038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker2878);marker-end:url(#marker2906)" />
-  <g
-     id="g4192">
-    <rect
-       y="316.52542"
-       x="434.34323"
-       height="52.754238"
-       width="94.078392"
-       id="rect4172"
-       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#0b75f6;stroke-width:2.70000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
-       id="text4164"
-       y="337.37827"
-       x="480.60593"
-       style="font-style:normal;font-weight:normal;font-size:15.82335949px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
-       xml:space="preserve"><tspan
-         id="tspan4166"
-         style="text-align:center;text-anchor:middle;stroke-width:1"
-         y="337.37827"
-         x="480.60593"
-         sodipodi:role="line">DDS-layer</tspan><tspan
-         id="tspan4170"
-         style="text-align:center;text-anchor:middle;stroke-width:1"
-         y="357.15747"
-         x="480.60593"
-         sodipodi:role="line">Latency</tspan></text>
-  </g>
   <g
      id="g4186">
     <rect

@@ -1,6 +1,14 @@
 nav:
-    - 利用可能な環境変数: env.md
+    - ギャラリー: gallery.md
+    - パスのレイテンシの定義: latency_definition.md
+    - ノードレイテンシの定義: node_latency_definition.md
+    - 通信レイテンシの定義: communication_latency_definition.md
+    - コールバックグラフの説明: about_callback_graph.md
+    - トレースフィルタリング: trace_filtering.md
     - ツール利用時の制約: limits.md
-    - 通信レイテンシについて: about_communication_latency.md
-    - E2Eレイテンシ測定方法の説明: explain_measurement_method.md
+    - パスの探索方法: how_to_search_path.md
+    - treat_drop_as_delayフラグの説明: about_treat_drop_as_delay.md
+    - アーキテクチャファイルフォーマット: architecture_format.md
+    - Lttngセッションの開始方法: how_to_run_lttng_session.md
+    - ノードレイテンシの算出方法の指定: how_to_write_architecture.md
     - トラブルシューティング: trouble_shooting.md
