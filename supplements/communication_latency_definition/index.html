@@ -8,20 +8,19 @@
       
       
       
-      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.3">
     
     
       
-        <title>通信レイテンシについて - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>通信レイテンシの定義 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.62128196.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
           
           
@@ -35,18 +34,17 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/tier4_color.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
-
 
     
     
@@ -61,7 +59,6 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,6 +74,7 @@
     <div data-md-component="announce">
       
     </div>
+    
     
       
 
@@ -103,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              通信レイテンシについて
+              通信レイテンシの定義
             
           </span>
         </div>
@@ -115,8 +113,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -194,7 +191,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../env/" class="md-tabs__link md-tabs__link--active">
+      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
         Supplements
       </a>
     </li>
@@ -210,7 +207,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../design/tracepoint_definition/" class="md-tabs__link">
+      <a href="../../design/design/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -335,7 +332,7 @@
   
     <li class="md-nav__item">
       <a href="../../tutorials/create_architecture/" class="md-nav__link">
-        アーキテクチャファイル
+        評価準備
       </a>
     </li>
   
@@ -398,8 +395,132 @@
   
   
     <li class="md-nav__item">
-      <a href="../env/" class="md-nav__link">
-        利用可能な環境変数
+      <a href="../gallery/" class="md-nav__link">
+        ギャラリー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../latency_definition/" class="md-nav__link">
+        パスのレイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node_latency_definition/" class="md-nav__link">
+        ノードレイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          通信レイテンシの定義
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        通信レイテンシの定義
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    レイテンシの定義
+  </a>
+  
+    <nav class="md-nav" aria-label="レイテンシの定義">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    通信イテンシの定義
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about_callback_graph/" class="md-nav__link">
+        コールバックグラフの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trace_filtering/" class="md-nav__link">
+        トレースフィルタリング
       </a>
     </li>
   
@@ -424,80 +545,67 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          通信レイテンシについて
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        通信レイテンシについて
+    <li class="md-nav__item">
+      <a href="../how_to_search_path/" class="md-nav__link">
+        パスの探索方法
       </a>
-      
-        
+    </li>
+  
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
+        treat_drop_as_delayフラグの説明
+      </a>
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+            
+          
+            
+              
   
   
   
-    
+    <li class="md-nav__item">
+      <a href="../architecture_format/" class="md-nav__link">
+        アーキテクチャファイルフォーマット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    レイテンシの定義
-  </a>
   
-    <nav class="md-nav" aria-label="レイテンシの定義">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pub-sub" class="md-nav__link">
-    Pub-Sub レイテンシの定義
-  </a>
+    <li class="md-nav__item">
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
+        Lttngセッションの開始方法
+      </a>
+    </li>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dds-layer" class="md-nav__link">
-    DDS-layer レイテンシの定義
-  </a>
+
+            
+          
+            
+              
   
-</li>
-        
-      </ul>
-    </nav>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pub-sub-dds-layer" class="md-nav__link">
-    Pub-Sub レイテンシと DDS-layer レイテンシの違い
-  </a>
   
-</li>
-      
-    </ul>
-  
-</nav>
-      
+    <li class="md-nav__item">
+      <a href="../how_to_write_architecture/" class="md-nav__link">
+        ノードレイテンシの算出方法の指定
+      </a>
     </li>
   
 
@@ -557,6 +665,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../design/design/" class="md-nav__link">
+        ソフトウェアアーキテクチャ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../design/tracepoint_definition/" class="md-nav__link">
         トレースポイントの定義
       </a>
@@ -571,8 +693,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/about_callback_graph/" class="md-nav__link">
-        コールバックグラフについて
+      <a href="../../design/diff/" class="md-nav__link">
+        galacticとの差分
       </a>
     </li>
   
@@ -585,8 +707,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/diff/" class="md-nav__link">
-        galacticとの差分
+      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
+        レイテンシの算出方法
       </a>
     </li>
   
@@ -611,58 +733,62 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <h1 id="_1">通信レイテンシについて<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>通信レイテンシとして、以下の２種類が測定できます</p>
-<ul>
-<li>DDS-layer レイテンシ</li>
-<li>Pub-Sub レイテンシ
-  また、プロセス内通信とプロセス間通信により、意味が異なってきます。
-  それぞれの違いについて説明します。</li>
-</ul>
-<p>※ DDS-layer レイテンシは現在試験導入段階です。正しい値が測定されないケースがありますのでご了承ください。</p>
+
+<h1 id="_1">通信レイテンシの定義<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p>CARETで算出される通信レイテンシについて詳細を説明します。</p>
 <h2 id="_2">レイテンシの定義<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <p><img alt="communication_latency" src="/imgs/communication_latency.png" /></p>
-<h3 id="pub-sub">Pub-Sub レイテンシの定義<a class="headerlink" href="#pub-sub" title="Permanent link">#</a></h3>
-<p>Pub-Sub レイテンシの定義は以下の通りです。</p>
+<h3 id="_3">通信イテンシの定義<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<p>CARETが算出している通信レイテンシの定義は以下の通りです。</p>
 <div class="highlight"><pre><span></span><code>Pub-Sub レイテンシ = Subscriptionコールバックの実行開始時刻 - Publisher::publish()実行開始時刻
 </code></pre></div>
+
 <p>この値は、ros2 topic delay や、topic statistics で測定される値に対応します。</p>
 <div class="highlight"><pre><span></span><code>通信レイテンシ = 現在時刻 - msg.header.stamp
 </code></pre></div>
-<p>また、プロセス内通信とプロセス間通信で、レイテンシの構成が変わってきます。
-Pub-Sub レイテンシはプロセス内通信・プロセス間通信両方で算出されます。</p>
-<p>Pub-Sub レイテンシは、ユーザーコード（コールバック）の実行以外によるレイテンシを全て含んだ値です。
+
+<!-- また、プロセス内通信とプロセス間通信で、レイテンシの構成が変わってきます。
+Pub-Sub レイテンシはプロセス内通信・プロセス間通信両方で算出されます。
+
+Pub-Sub レイテンシは、ユーザーコード（コールバック）の実行以外によるレイテンシを全て含んだ値です。
 概ねコールバック終了からコールバック開始までの時間です。
 publish 後、subscription コールバック実行開始までは、エグゼキューターによるスケジューリングの遅延が発生します。
 プロセス間通信に対する Pub-Sub レイテンシとは、このスケジューリングによる遅延のことをさします。
-大まかなシーケンス図を書きます。</p>
-<p>DDS によるレイテンシと、エグゼキューターによる遅延を指します</p>
-<h3 id="dds-layer">DDS-layer レイテンシの定義<a class="headerlink" href="#dds-layer" title="Permanent link">#</a></h3>
-<p>DDS-layer レイテンシの定義は以下の通りです。</p>
+大まかなシーケンス図を書きます。 -->
+
+<!-- DDS によるレイテンシと、エグゼキューターによる遅延を指します -->
+
+<!-- ### DDS-layer レイテンシの定義
+
+DDS-layer レイテンシの定義は以下の通りです。
+
 <div class="highlight"><pre><span></span><code>DDS-layer レイテンシ = on_data_availableの実行開始時刻 - dds_writeの実行開始時刻
 </code></pre></div>
-<p>DDS-layer レイテンシは、プロセス間通信のみ算出されます。</p>
-<p>dds_write は rmw が DDS に書き込む時刻、
-on_data_available は DDS が RMW に通知する時刻になります。</p>
-<p>※ CycloneDDS は on_data_available をエグゼキューターの起床に使用していません。
-そのため、on_data_availale と subscription callback の実行開始の前後の時間関係がズレる可能性があります。</p>
-<h2 id="pub-sub-dds-layer">Pub-Sub レイテンシと DDS-layer レイテンシの違い<a class="headerlink" href="#pub-sub-dds-layer" title="Permanent link">#</a></h2>
-<p>Pub-Sub レイテンシと DDS-layer レイテンシはどちらも通信レイテンシと捉えることができます。</p>
-<p>レイテンシの観測開始地点である、rclcpp_publish と dds_write は同じスレッドで実行されており、ほとんど差はありません。
+
+DDS-layer レイテンシは、プロセス間通信のみ算出されます。
+
+dds_write は rmw が DDS に書き込む時刻、
+on_data_available は DDS が RMW に通知する時刻になります。
+
+※ CycloneDDS は on_data_available をエグゼキューターの起床に使用していません。
+そのため、on_data_availale と subscription callback の実行開始の前後の時間関係がズレる可能性があります。
+
+## Pub-Sub レイテンシと DDS-layer レイテンシの違い
+
+Pub-Sub レイテンシと DDS-layer レイテンシはどちらも通信レイテンシと捉えることができます。
+
+レイテンシの観測開始地点である、rclcpp_publish と dds_write は同じスレッドで実行されており、ほとんど差はありません。
 callback_start はコールバックスレッドが実行します。そのため、他のコールバックが実行完了し、対象の Subscription コールバックの実行開始順番が回ってくるまで待たされる可能性があります。
-例えば、タイマーコールバックと subscription コールバックがほぼ同時に発火した場合、Pub-sub レイテンシにはタイマーコールバックの実行時間も含まれます。</p>
-<p>一方で、観測の終了地点である、on_data_available と callback_start は、実行するスレッドが異なります。
-on_data_available は DDS スレッドが実行します。 従って、DDS-layer レイテンシは他のコールバックの実行時間は含みません。</p>
-<p>Pub-Sub レイテンシに大きな値が算出された場合、DDS-Layer レイテンシも確認することで、他のコールバックによる影響か判断することができます。</p>
-<p>エグゼキュータのスケジューリングについては、こちらの論文も参照ください。
+例えば、タイマーコールバックと subscription コールバックがほぼ同時に発火した場合、Pub-sub レイテンシにはタイマーコールバックの実行時間も含まれます。
+
+一方で、観測の終了地点である、on_data_available と callback_start は、実行するスレッドが異なります。
+on_data_available は DDS スレッドが実行します。 従って、DDS-layer レイテンシは他のコールバックの実行時間は含みません。
+
+Pub-Sub レイテンシに大きな値が算出された場合、DDS-Layer レイテンシも確認することで、他のコールバックによる影響か判断することができます。 -->
+
+<p>エグゼキュータのスケジューリングについては、こちらの論文も参照ください。<br />
 <a href="https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf">Response-Time Analysis of ROS 2 Processing
 Chains Under Reservation-Based Scheduling</a></p>
-                
-              
-              
-                
-
 
               
             </article>
@@ -676,13 +802,12 @@ Chains Under Reservation-Based Scheduling</a></p>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../limits/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ツール利用時の制約" rel="prev">
+        <a href="../node_latency_definition/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ノードレイテンシの定義" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -691,20 +816,20 @@ Chains Under Reservation-Based Scheduling</a></p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              ツール利用時の制約
+              ノードレイテンシの定義
             </div>
           </div>
         </a>
       
       
         
-        <a href="../trouble_shooting/" class="md-footer__link md-footer__link--next" aria-label="Next: トラブルシューティング" rel="next">
+        <a href="../about_callback_graph/" class="md-footer__link md-footer__link--next" aria-label="Next: コールバックグラフの説明" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              トラブルシューティング
+              コールバックグラフの説明
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -716,16 +841,15 @@ Chains Under Reservation-Based Scheduling</a></p>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -735,10 +859,10 @@ Chains Under Reservation-Based Scheduling</a></p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

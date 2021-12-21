@@ -1,0 +1,1088 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.3">
+    
+    
+      
+        <title>ノードレイテンシの算出方法の指定 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.62128196.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/tier4_color.css">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    
+    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chain-Aware ROS Evaluation Tool (CARET)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ノードレイテンシの算出方法の指定
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorials/setup/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
+        Supplements
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../design/design/" class="md-tabs__link">
+        Design
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Chain-Aware ROS Evaluation Tool (CARET)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/setup/" class="md-nav__link">
+        環境構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/measurement/" class="md-nav__link">
+        測定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/create_architecture/" class="md-nav__link">
+        評価準備
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/performance_evaluation/" class="md-nav__link">
+        性能評価
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Supplements
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Supplements" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Supplements
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        ギャラリー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../latency_definition/" class="md-nav__link">
+        パスのレイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node_latency_definition/" class="md-nav__link">
+        ノードレイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication_latency_definition/" class="md-nav__link">
+        通信レイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about_callback_graph/" class="md-nav__link">
+        コールバックグラフの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trace_filtering/" class="md-nav__link">
+        トレースフィルタリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../limits/" class="md-nav__link">
+        ツール利用時の制約
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to_search_path/" class="md-nav__link">
+        パスの探索方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
+        treat_drop_as_delayフラグの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture_format/" class="md-nav__link">
+        アーキテクチャファイルフォーマット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
+        Lttngセッションの開始方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ノードレイテンシの算出方法の指定
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ノードレイテンシの算出方法の指定
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    パスの定義の確認方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ノードレイテンシ算出方法の指定
+  </a>
+  
+    <nav class="md-nav" aria-label="ノードレイテンシ算出方法の指定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain" class="md-nav__link">
+    callback_chain
+  </a>
+  
+    <nav class="md-nav" aria-label="callback_chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    記述例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    コールバックグラフの可視化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    コールバックグラフ情報の記述
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherit_unique_stamp" class="md-nav__link">
+    inherit_unique_stamp
+  </a>
+  
+    <nav class="md-nav" aria-label="inherit_unique_stamp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    記述例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_latest_message" class="md-nav__link">
+    use_latest_message
+  </a>
+  
+    <nav class="md-nav" aria-label="use_latest_message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    記述例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trouble_shooting/" class="md-nav__link">
+        トラブルシューティング
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Design" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/design/" class="md-nav__link">
+        ソフトウェアアーキテクチャ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/tracepoint_definition/" class="md-nav__link">
+        トレースポイントの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/diff/" class="md-nav__link">
+        galacticとの差分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
+        レイテンシの算出方法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="_1">アーキテクチャファイルの作成方法<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<h2 id="_2">パスの定義の確認方法<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<p><div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span> 
+<span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span> 
+<span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+<span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">message_driven_node</span>
+<span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
+<span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
+
+<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span> 
+<span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/timer_driven_node&#39;</span><span class="p">)</span> 
+<span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+<span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">timer_driven_node</span>
+<span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
+<span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
+</code></pre></div></p>
+<hr />
+<p><div class="highlight"><pre><span></span><code><span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span> 
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[callback_chain]
+[callback_chain]
+Path Added: subscribe: /drive, publish: None, callbacks: (&#39;/message_driven_node/callback_1&#39;,)
+Path Added: subscribe: /drive, publish: None, callbacks: (&#39;/message_driven_node/callback_1&#39;,)
+Path Added: subscribe: /topic2, publish: None, callbacks: (&#39;/message_driven_node/callback_0&#39;,)
+Path Added: subscribe: /topic2, publish: None, callbacks: (&#39;/message_driven_node/callback_0&#39;,)
+
+[pub-sub pair]
+
+[pub-sub pair]
+Path Added: subscribe: /drive, publish: /topic3, 
+Path Added: subscribe: /drive, publish: /topic3, 
+Path Added: subscribe: /topic2, publish: /topic3, 
+Path Added: subscribe: /topic2, publish: /topic3, 
+
+[dummy paths]
+
+[dummy paths]
+Path Added: subscribe: None, publish: /topic3, 
+Path Added: subscribe: None, publish: /topic3, 
+message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/drive&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
+message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/drive&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
+message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/topic2&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
+message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/topic2&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
+
+5 paths found in /message_driven_node.
+
+5 paths found in /message_driven_node.
+
+-----
+[message context assigned]
+
+-----
+[message context assigned]
+subscribe: /drive, publish: None, message_context: None
+subscribe: /drive, publish: None, message_context: None
+subscribe: /topic2, publish: None, message_context: None
+subscribe: /topic2, publish: None, message_context: None
+subscribe: /drive, publish: /topic3, message_context: None
+subscribe: /drive, publish: /topic3, message_context: None
+subscribe: /topic2, publish: /topic3, message_context: None
+subscribe: /topic2, publish: /topic3, message_context: None
+subscribe: None, publish: /topic3, message_context: None
+subscribe: None, publish: /topic3, message_context: None
+</code></pre></div></p>
+<p>今回の場合は用意しています。</p>
+<h2 id="_3">ノードレイテンシ算出方法の指定<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
+<p>ノードレイテンシは、「ノードがメッセージをsubscribeし、コールバックが処理開始する時刻」から「ノードがメッセージをpublishする時刻」までとしています。<br />
+ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。  </p>
+<p>CARETではいくつかのノードレイテンシの算出方法を提供しています。<br />
+ノードレイテンシの算出方法はアーキテクチャファイルでは、主に <strong>message_context</strong>という項目として指定します。  </p>
+<p>message_contextとして、以下のポリシーが指定可能です。</p>
+<ul>
+<li>callback_chain</li>
+<li>inherit_unique_stamp</li>
+<li>use_latest_message</li>
+</ul>
+<p>それぞれレイテンシの算出方法が異なり、測定できる粒度の違いや、測定できるケース・できないケースが異なります。
+従って、ノードの実装を確認し、どのポリシーでノードレイテンシを算出させるか、を使い分ける必要が有ります。<br />
+それぞれの詳細については<a href="../node_latency_definition/">ノードレイテンシについて</a>を参照してください。</p>
+<p>本節ではアーキテクチャファイルへの記述方法をを説明します。</p>
+<h3 id="callback_chain">callback_chain<a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h3>
+<p>callback_chainは、コールバックの実行間からノードレイテンシを算出する方法です。<br />
+ノードの内の処理をコールバックレベルまで分解するので、細かい粒度で測定が可能です。</p>
+<h4 id="_4">記述例<a class="headerlink" href="#_4" title="Permanent link">#</a></h4>
+<p>重要な項目のみを抜粋した記述の例を示します。<br />
+*の付いた項目は、測定対象のアプリケーションの実装を確認の上、手作業での修正が必要な項目です。</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping_node</span>
+  <span class="nt">callbacks</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span>
+  <span class="nt">variable_passings</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name_write</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0 【* メッセージをメンバに書き込むコールバック】</span>
+    <span class="nt">callback_name_read</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0 【*メンバからメッセージを読み込むコールバック】</span>
+  <span class="nt">publishes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span>
+    <span class="nt">callback_names</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0 【* /pingトピックをpublishするコールバック名】</span>
+  <span class="nt">subscribes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span>
+    <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【subscribeするコールバック】</span>
+  <span class="nt">message_contexts</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">context_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">callback_chain 【*ノードレイテンシのポリシー】</span>
+    <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span>
+    <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span>
+</code></pre></div>
+
+<p>callback_chainポリシーでは、コールバックグラフを構築するための情報として、<strong>variable_passings</strong>を指定する必要があります。</p>
+<h4 id="_5">コールバックグラフの可視化<a class="headerlink" href="#_5" title="Permanent link">#</a></h4>
+<p>作成したアーキテクチャファイルを元に、コールバックグラフを可視化できます。</p>
+<p>ここでは、 CUI による可視化方法を説明します。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
+ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
+</code></pre></div>
+
+<p>グラフの作成には Graphviz を使用しています。
+使用可能な拡張子については <a href="http://www.graphviz.org/docs/outputs/">Graphviz|Output Formats</a> をご覧ください。</p>
+<p>コマンドを実行すると以下のようなコールバックグラフが出力されます。</p>
+<p><img alt="callback_graph_cui_export" src="/imgs/callback_graph_cui_export.png" /></p>
+<p>灰色は名前空間、角丸四角はノード、四角はコールバック、矢印はコールバック間の依存関係を示しています。
+赤矢印はトピックを publish しているコールバックが不明なトピック通信を示しています。
+この赤矢印が、アーキテクチャファイルを編集し、publish 元のコールバックを指定する必要のある箇所です。</p>
+<p>デフォルトの型は svg 形式で、 tooltip による情報の表示に対応しています。</p>
+<p><img alt="tooltip_sample" src="/imgs/tooltip_sample.png" /></p>
+<p>カーソルをコールバックに合わせることで、コールバックのパラメータとシンボル名が表示されます。</p>
+<h4 id="_6">コールバックグラフ情報の記述<a class="headerlink" href="#_6" title="Permanent link">#</a></h4>
+<p>出力直後の雛形はコールバックの依存関係などが記述されていません。
+caret はパスの探索にコールバックグラフを利用するので、アーキテクチャファイルの修正が必要になります。</p>
+<p>コールバックグラフ構築のために修正する項目は以下の通りです。</p>
+<!-- prettier-ignore-start -->
+
+<ol>
+<li>
+<p>コールバック関数と publish の紐付け（上図コールバックグラフの赤矢印）<br />
+   [/nodes/node/publish] には、ノードが publish しているトピック名が key として列挙されています。
+   value にトピックを publish しているコールバック名を記述してください。
+   未接続のトピック通信（コールバックグラフ上の赤矢印）が無くなるまで修正してください。</p>
+<div class="highlight"><pre><span></span><code>  <span class="l l-Scalar l-Scalar-Plain">publishes:【パブリッシュの情報】</span>
+  <span class="l l-Scalar l-Scalar-Plain">- topic_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic4【トピック名】</span>
+    <span class="l l-Scalar l-Scalar-Plain">callback_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>コールバック間の変数渡しの記述<br />
+   [/nodes/node/variable_passing]には、変数渡しによるコールバック間の依存関係を記述します。
+   callback_write には書き込み側のコールバック名、callback_read には読み込み側のコールバック名を記述してください。</p>
+<p><div class="highlight"><pre><span></span><code>  <span class="l l-Scalar l-Scalar-Plain">variable_passings:【変数を介したコールバック間のメッセージ渡し】</span>
+  <span class="l l-Scalar l-Scalar-Plain">- callback_name_write</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名*】</span>
+    <span class="l l-Scalar l-Scalar-Plain">callback_name_read</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
+</code></pre></div>
+<!-- prettier-ignore-end --></p>
+</li>
+</ol>
+<p><img alt="callback_graph_cui_export" src="/imgs/callback_graph_modified.png" /></p>
+<p>全ての矢印がコールバックからコールバックに繋がっていることに注意してください。</p>
+<h3 id="inherit_unique_stamp">inherit_unique_stamp<a class="headerlink" href="#inherit_unique_stamp" title="Permanent link">#</a></h3>
+<h4 id="_7">記述例<a class="headerlink" href="#_7" title="Permanent link">#</a></h4>
+<p>重要な項目のみを抜粋した記述の例を示します。</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping_node</span>
+  <span class="nt">callbacks</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0 【コールバック名】</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span>
+  <span class="nt">publishes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span>
+    <span class="nt">callback_names</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【* /pingトピックをpublishするコールバック名】</span>
+  <span class="nt">subscribes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span>
+    <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【subscribeするコールバック】</span>
+  <span class="nt">message_contexts</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">context_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">inherit_unique_stamp【*ノードレイテンシのポリシー】</span>
+    <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span>
+    <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span>
+</code></pre></div>
+
+<h3 id="use_latest_message">use_latest_message<a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h3>
+<h4 id="_8">記述例<a class="headerlink" href="#_8" title="Permanent link">#</a></h4>
+<p>重要な項目のみを抜粋した記述の例を示します。</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping_node</span>
+  <span class="nt">callbacks</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名】</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span>
+  <span class="nt">publishes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span>
+    <span class="nt">callback_names</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【* /pingトピックをpublishするコールバック名】</span>
+  <span class="nt">subscribes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span>
+    <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【subscribeするコールバック】</span>
+  <span class="nt">message_contexts</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">context_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">inherit_unique_stamp【*ノードレイテンシのポリシー】</span>
+    <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span>
+    <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span>
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../how_to_run_lttng_session/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lttngセッションの開始方法" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Lttngセッションの開始方法
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../trouble_shooting/" class="md-footer__link md-footer__link--next" aria-label="Next: トラブルシューティング" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              トラブルシューティング
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

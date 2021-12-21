@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.3">
     
     
       
-        <title>Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>アーキテクチャファイルフォーマット - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.62128196.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.62128196.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.9204c3b2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
           
           
@@ -38,11 +38,11 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/tier4_color.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/tier4_color.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?".":"."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
 
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chain-aware-ros-evaluation-tool-caret" class="md-skip">
+        <a href="#end-to-end" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              アーキテクチャファイルフォーマット
             
           </span>
         </div>
@@ -155,12 +155,10 @@
         
   
   
-    
-  
 
 
   <li class="md-tabs__item">
-    <a href="." class="md-tabs__link md-tabs__link--active">
+    <a href="../.." class="md-tabs__link">
       Overview
     </a>
   </li>
@@ -175,7 +173,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="tutorials/setup/" class="md-tabs__link">
+      <a href="../../tutorials/setup/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -185,13 +183,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="supplements/gallery/" class="md-tabs__link">
+      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
         Supplements
       </a>
     </li>
@@ -207,7 +207,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="design/design/" class="md-tabs__link">
+      <a href="../../design/design/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -243,7 +243,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -260,93 +260,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Overview
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         Overview
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    性能評価の流れ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    ドキュメント一覧
-  </a>
-  
-    <nav class="md-nav" aria-label="ドキュメント一覧">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    チュートリアル
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    補足資料
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    設計資料
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    リポジトリ一覧
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -385,7 +303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/setup/" class="md-nav__link">
+      <a href="../../tutorials/setup/" class="md-nav__link">
         環境構築
       </a>
     </li>
@@ -399,7 +317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/measurement/" class="md-nav__link">
+      <a href="../../tutorials/measurement/" class="md-nav__link">
         測定
       </a>
     </li>
@@ -413,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/create_architecture/" class="md-nav__link">
+      <a href="../../tutorials/create_architecture/" class="md-nav__link">
         評価準備
       </a>
     </li>
@@ -427,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/performance_evaluation/" class="md-nav__link">
+      <a href="../../tutorials/performance_evaluation/" class="md-nav__link">
         性能評価
       </a>
     </li>
@@ -447,12 +365,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -475,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/gallery/" class="md-nav__link">
+      <a href="../gallery/" class="md-nav__link">
         ギャラリー
       </a>
     </li>
@@ -489,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/latency_definition/" class="md-nav__link">
+      <a href="../latency_definition/" class="md-nav__link">
         パスのレイテンシの定義
       </a>
     </li>
@@ -503,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/node_latency_definition/" class="md-nav__link">
+      <a href="../node_latency_definition/" class="md-nav__link">
         ノードレイテンシの定義
       </a>
     </li>
@@ -517,7 +437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/communication_latency_definition/" class="md-nav__link">
+      <a href="../communication_latency_definition/" class="md-nav__link">
         通信レイテンシの定義
       </a>
     </li>
@@ -531,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/about_callback_graph/" class="md-nav__link">
+      <a href="../about_callback_graph/" class="md-nav__link">
         コールバックグラフの説明
       </a>
     </li>
@@ -545,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/trace_filtering/" class="md-nav__link">
+      <a href="../trace_filtering/" class="md-nav__link">
         トレースフィルタリング
       </a>
     </li>
@@ -559,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/limits/" class="md-nav__link">
+      <a href="../limits/" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -573,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/how_to_search_path/" class="md-nav__link">
+      <a href="../how_to_search_path/" class="md-nav__link">
         パスの探索方法
       </a>
     </li>
@@ -587,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/about_treat_drop_as_delay/" class="md-nav__link">
+      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
         treat_drop_as_delayフラグの説明
       </a>
     </li>
@@ -599,11 +519,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="supplements/architecture_format/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         アーキテクチャファイルフォーマット
       </a>
+      
     </li>
   
 
@@ -615,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/how_to_run_lttng_session/" class="md-nav__link">
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
         Lttngセッションの開始方法
       </a>
     </li>
@@ -629,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/how_to_write_architecture/" class="md-nav__link">
+      <a href="../how_to_write_architecture/" class="md-nav__link">
         ノードレイテンシの算出方法の指定
       </a>
     </li>
@@ -643,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="supplements/trouble_shooting/" class="md-nav__link">
+      <a href="../trouble_shooting/" class="md-nav__link">
         トラブルシューティング
       </a>
     </li>
@@ -691,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/design/" class="md-nav__link">
+      <a href="../../design/design/" class="md-nav__link">
         ソフトウェアアーキテクチャ
       </a>
     </li>
@@ -705,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/tracepoint_definition/" class="md-nav__link">
+      <a href="../../design/tracepoint_definition/" class="md-nav__link">
         トレースポイントの定義
       </a>
     </li>
@@ -719,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/diff/" class="md-nav__link">
+      <a href="../../design/diff/" class="md-nav__link">
         galacticとの差分
       </a>
     </li>
@@ -733,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/how_to_calculate_latency/" class="md-nav__link">
+      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
         レイテンシの算出方法
       </a>
     </li>
@@ -760,82 +690,63 @@
               
                 
 
-<h1 id="chain-aware-ros-evaluation-tool-caret">Chain-Aware ROS Evaluation Tool (CARET)<a class="headerlink" href="#chain-aware-ros-evaluation-tool-caret" title="Permanent link">#</a></h1>
-<p>コールバックチェーンを考慮した ROS 2 アプリケーションの性能評価ツールです。<br />
-フックでのトレースポイント追加により、メッセージのトラッキングをベースとした性能の評価が可能です。</p>
-<p>主な特徴</p>
-<ul>
-<li>
-<p>以下の対象について、評価および測定が可能</p>
-<ul>
-<li>コールバックの実行時間</li>
-<li>通信レイテンシ<ul>
-<li>メッセージのロスト</li>
-</ul>
-</li>
-<li>ノードレイテンシ</li>
-<li>End-to-End レイテンシ</li>
-<li>エグゼキュータのスケジューリング</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>LTTng (ros2_tracing) のトレースポイントによる低オーバーヘッド</li>
-</ul>
-<h2 id="_1">性能評価の流れ<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
-<p><img alt="measurement_flow" src="/imgs/measurement_flow.svg" /></p>
-<p>CARETはros2_tracingにより追加されたトレースポイントに加え、<br />
-ROSやDDSの処理に対してトレースポイントを追加することで、様々な処理かかる時間の測定を可能にしています。</p>
-<p>動的ライブラリの処理をフックするためのトレース用ライブラリに加え、<br />
-フォークしてトレースポイントを追加したROSを必要とします。<br />
-現在はソースコードでの提供のみになっているため、これらパッケージのビルドが必要です。</p>
-<p>測定を行うとトレース結果が得られ、この結果を元に、解析を行います。<br />
-解析前には、レイテンシの定義や測定対象のパスの定義を記述したアーキテクチャファイルが必要になります。</p>
-<p>解析用のパッケージ、トレース結果、アーキテクチャファイルが揃い、性能の評価や解析が可能になります。<br />
-一部CLIでの可視化も対応していますが、主にjupyter上での評価・解析することを想定しています。</p>
-<h2 id="_2">ドキュメント一覧<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<h3 id="_3">チュートリアル<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
-<p>CARETの基本的な使い方についての説明です。</p>
-<ul>
-<li><a href="tutorials/setup/">環境構築</a></li>
-<li><a href="tutorials/measurement/">測定</a></li>
-<li><a href="tutorials/create_architecture/">評価準備</a></li>
-<li><a href="tutorials/performance_evaluation/">性能評価</a></li>
-</ul>
-<h3 id="_4">補足資料<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
-<p>使用する上での補足資料です。</p>
-<ul>
-<li><a href="supplements/latency_definition/">パスのレイテンシの定義</a></li>
-<li><a href="supplements/node_latency_definition/">ノードレイテンシの定義</a></li>
-<li><a href="supplements/communication_latency_definition/">通信レイテンシの定義</a></li>
-<li><a href="supplements/trace_filtering/">トレースフィルタリングについて</a></li>
-<li><a href="supplements/limits/">ツール利用時の制約</a></li>
-<li><a href="supplements/gallery/">ギャラリー</a></li>
-<li><a href="supplements/trouble_shooting/">トラブルシューティング</a></li>
-</ul>
-<h3 id="_5">設計資料<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
-<p>内部の実装などに関する資料です。</p>
-<ul>
-<li><a href="./design.md">アーキテクチャ</a></li>
-<li><a href="design/tracepoint_definition/">トレースポイントの定義</a></li>
-<li><a href="./design/about_callback_graph.md">コールバックグラフについて</a></li>
-<li><a href="./about_records_type.md">records型について</a></li>
-<li><a href="design/diff/">galactic との差分</a></li>
-</ul>
-<h2 id="_6">リポジトリ一覧<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
-<p>CARET は以下のパッケージから構成されています。</p>
-<ul>
-<li><a href="https://github.com/tier4/CARET_trace">CARET_trace</a> ｜ フックによるトレースポイント追加のリポジトリ</li>
-<li><a href="https://github.com/tier4/CARET_analyze">CARET_analyze</a> ｜ トレース結果の解析スクリプトのリポジトリ</li>
-<li><a href="https://github.com/tier4/CARET_analyze_cpp_impl.git">CARET_analyze_cpp_impl</a> ｜ トレース結果の解析スクリプトの C++実装版</li>
-<li><a href="https://github.com/tier4/ros2caret.git">ros2caret</a> ｜ ros2 cli 用 リポジトリ</li>
-<li><a href="https://github.com/tier4/CARET_demos">CARET_demos</a> ｜デモプログラム集のリポジトリ</li>
-<li><a href="https://github.com/tier4/CARET_doc">CARET_doc</a> ｜本ドキュメントのリポジトリ</li>
-<li><a href="https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added">rclcpp</a> ｜ トレースポイントを追加したrclcpp</li>
-<li><a href="https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added">ros2_tracing</a>｜rclcpp追加のトレースポイントを定義したros2_tracing</li>
-</ul>
-<hr />
-<p>This software is based on results obtained from a project subsidized by the New Energy and Industrial Technology Development Organization (NEDO).</p>
+<h1 id="end-to-end">End-to-Endレイテンシの測定方法<a class="headerlink" href="#end-to-end" title="Permanent link">#</a></h1>
+<p>以下にアーキテクチャファイルのフォーマットを示します。</p>
+<p><em>の付いた項目は、測定対象のアプリケーションの実装を確認の上、手作業での修正が必要な項目です。<br />
+</em>の付いていない項目は雛形として自動的に記載されます</p>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">named_paths:【パス情報】</span>
+<span class="l l-Scalar l-Scalar-Plain">- path_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">target_path【パスの名前】</span>
+  <span class="l l-Scalar l-Scalar-Plain">node_chain</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping_node 【ノード名】</span>
+    <span class="nt">publish_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/chatter 【ノードがpublishするトピック名】</span>
+    <span class="nt">subscribe_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UNDEFINED【ノードがsubscribeするトピック名】</span>
+  <span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong_node</span>
+    <span class="nt">publish_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span>
+    <span class="nt">subscribe_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/chatter</span>
+
+<span class="l l-Scalar l-Scalar-Plain">executors:【エグゼキューター情報】</span>
+  <span class="l l-Scalar l-Scalar-Plain">- executor_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">single_threaded_executor【エグゼキューター種別】</span>
+    <span class="l l-Scalar l-Scalar-Plain">executor_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">【エグゼキューター名】</span>
+    <span class="l l-Scalar l-Scalar-Plain">callback_group_names</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_group_0 【追加されたコールバックグループ名】</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/pong_node/callback_group_0</span>
+
+<span class="l l-Scalar l-Scalar-Plain">nodes:【ノード情報】</span>
+<span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping_node【ノード名】</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">callback_groups:【コールバックグループの情報】</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">callback_group_type:【コールバックグループの種別】</span>
+    <span class="l l-Scalar l-Scalar-Plain">callback_group_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_group_0 【コールバックグループ名】</span>
+    <span class="nt">callback_names</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_0 【追加されたコールバック名】</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">callbacks:【コールバックの情報】</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名】</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback【コールバックの種別】</span>
+    <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic3【トピック名】</span>
+    <span class="nt">symbol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}【コールバック関数のシンボル名】</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback【コールバックの種類】</span>
+    <span class="nt">period_ns</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000000【タイマーコールバックの周期】</span>
+    <span class="nt">symbol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}【コールバック関数のシンボル名】</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">variable_passings:【変数を介したコールバック間のメッセージ渡し】</span>
+  <span class="p p-Indicator">-</span> <span class="nt">callback_name_write</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名*】</span>
+    <span class="nt">callback_name_read</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">publishes:【パブリッシュの情報】</span>
+  <span class="p p-Indicator">-</span> <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【トピック名】</span>
+    <span class="nt">callback_names</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
+  <span class="l l-Scalar l-Scalar-Plain">subscribes:【サブスクライブの情報】</span>
+  <span class="p p-Indicator">-</span> <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【トピック名】</span>
+    <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">message_contexts:【ノードレイテンシの定義】</span>
+  <span class="p p-Indicator">-</span> <span class="nt">context_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">use_latest_message【算出方法の種別*】</span>
+    <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【ノードへの入力トピック名】</span>
+    <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【ノードからの出力トピック名】</span>
+</code></pre></div>
 
               
             </article>
@@ -853,15 +764,30 @@ ROSやDDSの処理に対してトレースポイントを追加することで�
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
+        
+        <a href="../about_treat_drop_as_delay/" class="md-footer__link md-footer__link--prev" aria-label="Previous: treat_drop_as_delayフラグの説明" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              treat_drop_as_delayフラグの説明
+            </div>
+          </div>
+        </a>
+      
       
         
-        <a href="tutorials/setup/" class="md-footer__link md-footer__link--next" aria-label="Next: 環境構築" rel="next">
+        <a href="../how_to_run_lttng_session/" class="md-footer__link md-footer__link--next" aria-label="Next: Lttngセッションの開始方法" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              環境構築
+              Lttngセッションの開始方法
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -891,10 +817,10 @@ ROSやDDSの処理に対してトレースポイントを追加することで�
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.01824240.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js"}</script>
     
     
-      <script src="assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

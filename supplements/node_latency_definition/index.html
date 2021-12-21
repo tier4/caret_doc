@@ -8,20 +8,19 @@
       
       
       
-      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.3">
     
     
       
-        <title>利用可能な環境変数 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>ノードレイテンシの定義 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.62128196.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
           
           
@@ -35,18 +34,17 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/tier4_color.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
-
 
     
     
@@ -61,7 +59,6 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,6 +74,7 @@
     <div data-md-component="announce">
       
     </div>
+    
     
       
 
@@ -103,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              利用可能な環境変数
+              ノードレイテンシの定義
             
           </span>
         </div>
@@ -115,8 +113,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -194,7 +191,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
         Supplements
       </a>
     </li>
@@ -210,7 +207,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../design/tracepoint_definition/" class="md-tabs__link">
+      <a href="../../design/design/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -335,7 +332,7 @@
   
     <li class="md-nav__item">
       <a href="../../tutorials/create_architecture/" class="md-nav__link">
-        アーキテクチャファイル
+        評価準備
       </a>
     </li>
   
@@ -396,6 +393,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        ギャラリー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../latency_definition/" class="md-nav__link">
+        パスのレイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -407,10 +432,164 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ノードレイテンシの定義
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        利用可能な環境変数
+        ノードレイテンシの定義
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#callback_chain" class="md-nav__link">
+    callback_chain ポリシー
+  </a>
+  
+    <nav class="md-nav" aria-label="callback_chain ポリシー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inherit_unique_stamp" class="md-nav__link">
+    inherit_unique_stamp ポリシー
+  </a>
+  
+    <nav class="md-nav" aria-label="inherit_unique_stamp ポリシー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use_latest_message" class="md-nav__link">
+    use_latest_message ポリシー
+  </a>
+  
+    <nav class="md-nav" aria-label="use_latest_message ポリシー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    各ポリシーの比較
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ポリシーの選び方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    注意点
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication_latency_definition/" class="md-nav__link">
+        通信レイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about_callback_graph/" class="md-nav__link">
+        コールバックグラフの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trace_filtering/" class="md-nav__link">
+        トレースフィルタリング
+      </a>
     </li>
   
 
@@ -436,8 +615,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../about_communication_latency/" class="md-nav__link">
-        通信レイテンシについて
+      <a href="../how_to_search_path/" class="md-nav__link">
+        パスの探索方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
+        treat_drop_as_delayフラグの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture_format/" class="md-nav__link">
+        アーキテクチャファイルフォーマット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
+        Lttngセッションの開始方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to_write_architecture/" class="md-nav__link">
+        ノードレイテンシの算出方法の指定
       </a>
     </li>
   
@@ -498,6 +733,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../design/design/" class="md-nav__link">
+        ソフトウェアアーキテクチャ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../design/tracepoint_definition/" class="md-nav__link">
         トレースポイントの定義
       </a>
@@ -512,8 +761,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/about_callback_graph/" class="md-nav__link">
-        コールバックグラフについて
+      <a href="../../design/diff/" class="md-nav__link">
+        galacticとの差分
       </a>
     </li>
   
@@ -526,8 +775,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/diff/" class="md-nav__link">
-        galacticとの差分
+      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
+        レイテンシの算出方法
       </a>
     </li>
   
@@ -552,45 +801,57 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <h1 id="_1">利用可能な環境変数一覧<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<ul>
-<li>LD_PRELOAD : 高優先度で探索される動的ライブラリのパス</li>
-</ul>
-<ul>
-<li>ROS_TRACE_DIR : トレース結果が出力されるパス</li>
-</ul>
-<ul>
-<li>
-<p>トレースフィルタリング
-  ※ IGNORE と SELECT が両方設定された場合、SELECT が優先されます。
-  ※ :（コロン）区切りで複数指定。正規表現が利用可（例：/topic*:/parameter_events:/rosout）</p>
-<ul>
-<li>CARET_SELECT_NODES : トレース対象のノード名</li>
-</ul>
-<ul>
-<li>CARET_IGNORE_NODES : トレースから除外されるノード名</li>
-</ul>
-<ul>
-<li>CARET_SELECT_TOPICS : トレース対象のトピック名</li>
-</ul>
-<ul>
-<li>
-<p>CARET_IGNORE_TOPICS : トレースから除外されるノード名</p>
-<p>rviz ノード関連や、/clock トピック・/parameter_events トピックは多くの場合不要になります。
-以下のような環境変数を設定しておくことで、無駄なトレースログを減らすことができます。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
-<span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
-</code></pre></div>
-</li>
-</ul>
-</li>
-</ul>
-                
-              
-              
-                
 
+<h1 id="_1">ノードレイテンシについて<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p>ノードレイテンシは算出が困難です<br />
+直接メッセージの流れを追い、レイテンシを出すのは簡単ではありません。
+CARETはいくつかの前提のもと、ノードレイテンシを算出できるようにしています。</p>
+<h2 id="callback_chain">callback_chain ポリシー<a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h2>
+<p><a href="../about_callback_graph/">コールバックグラフについて</a>もご参照ください。</p>
+<p><strong>想定</strong></p>
+<ul>
+<li>コールバック間のキューサイズ１を想定</li>
+<li>厳密に測定できるのはSingle Threaded Executorのみ</li>
+</ul>
+<p><strong>長所</strong></p>
+<ul>
+<li>ソースコードへの変更が不要</li>
+<li>任意のメッセージ型に適用可能</li>
+</ul>
+<p><strong>短所</strong></p>
+<ul>
+<li>キューサイズが大きい時、レイテンシが小さめに出るケースがある。</li>
+<li>multi threaded executor では、レイテンシが大きめに出るケースがある。</li>
+<li>実装を読み解くのが難しい</li>
+</ul>
+<h3 id="_2">ノードレイテンシの定義<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<h2 id="_3">ノードレイテンシの定義<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
+<h2 id="inherit_unique_stamp">inherit_unique_stamp ポリシー<a class="headerlink" href="#inherit_unique_stamp" title="Permanent link">#</a></h2>
+<h3 id="_4">ノードレイテンシの定義<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
+<p>入出力のヘッダーでマッチングを取り、入力トピックと出力トピックの時刻の差分からノードレイテンシを算出します。</p>
+<p><strong>想定</strong></p>
+<ul>
+<li>入出力のタイムスタンプの値でマッチングが取れること（値を書き換えずに、そのまま publish していること）</li>
+<li>入出力ともに header をもっていること</li>
+</ul>
+<p><strong>長所</strong></p>
+<ul>
+<li>ソースコードへの変更が不要</li>
+<li>キューサイズに依らない</li>
+</ul>
+<p><strong>短所</strong></p>
+<ul>
+<li>ヘッダーが必要</li>
+<li>publish 前に stamp=現在時刻としているケースは対応不可</li>
+</ul>
+<h2 id="use_latest_message">use_latest_message ポリシー<a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h2>
+<h3 id="_5">ノードレイテンシの定義<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<h2 id="_6">各ポリシーの比較<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
+<h2 id="_7">ポリシーの選び方<a class="headerlink" href="#_7" title="Permanent link">#</a></h2>
+<p>決定木が欲しい</p>
+<h2 id="_8">注意点<a class="headerlink" href="#_8" title="Permanent link">#</a></h2>
+<p>測定できないケース
+誤った値を算出するケース</p>
 
               
             </article>
@@ -604,13 +865,12 @@
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../tutorials/performance_evaluation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 性能評価" rel="prev">
+        <a href="../latency_definition/" class="md-footer__link md-footer__link--prev" aria-label="Previous: パスのレイテンシの定義" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -619,20 +879,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              性能評価
+              パスのレイテンシの定義
             </div>
           </div>
         </a>
       
       
         
-        <a href="../limits/" class="md-footer__link md-footer__link--next" aria-label="Next: ツール利用時の制約" rel="next">
+        <a href="../communication_latency_definition/" class="md-footer__link md-footer__link--next" aria-label="Next: 通信レイテンシの定義" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ツール利用時の制約
+              通信レイテンシの定義
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -644,16 +904,15 @@
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -663,10 +922,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

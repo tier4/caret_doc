@@ -8,20 +8,19 @@
       
       
       
-      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.3">
     
     
       
-        <title>アーキテクチャファイル - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>評価準備 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.62128196.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
           
           
@@ -35,18 +34,17 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/tier4_color.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
-
 
     
     
@@ -61,7 +59,6 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,6 +74,7 @@
     <div data-md-component="announce">
       
     </div>
+    
     
       
 
@@ -103,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              アーキテクチャファイル
+              評価準備
             
           </span>
         </div>
@@ -115,8 +113,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -194,7 +191,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../supplements/env/" class="md-tabs__link">
+      <a href="../../supplements/gallery/" class="md-tabs__link">
         Supplements
       </a>
     </li>
@@ -210,7 +207,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../design/tracepoint_definition/" class="md-tabs__link">
+      <a href="../../design/design/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -346,16 +343,15 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          アーキテクチャファイル
+          評価準備
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        アーキテクチャファイル
+        評価準備
       </a>
       
         
-
 
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
@@ -372,36 +368,63 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    雛形の作成
+    アーキテクチャファイルとは
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyter" class="md-nav__link">
+    jupyter の起動
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    アーキテクチャファイルのフォーマット
+    雛形の作成
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    コールバックグラフの可視化
+    測定対象のパスの指定
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    コールバックグラフ情報の記述
+    ノードレイテンシの定義指定
+  </a>
+  
+    <nav class="md-nav" aria-label="ノードレイテンシの定義指定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    修正対象の確認
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    コールバックチェーン情報の記述
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ノードレイテンシの算出方法指定
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    修正結果の確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -468,8 +491,78 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/env/" class="md-nav__link">
-        利用可能な環境変数
+      <a href="../../supplements/gallery/" class="md-nav__link">
+        ギャラリー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplements/latency_definition/" class="md-nav__link">
+        パスのレイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplements/node_latency_definition/" class="md-nav__link">
+        ノードレイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplements/communication_latency_definition/" class="md-nav__link">
+        通信レイテンシの定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplements/about_callback_graph/" class="md-nav__link">
+        コールバックグラフの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplements/trace_filtering/" class="md-nav__link">
+        トレースフィルタリング
       </a>
     </li>
   
@@ -496,8 +589,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/about_communication_latency/" class="md-nav__link">
-        通信レイテンシについて
+      <a href="../../supplements/how_to_search_path/" class="md-nav__link">
+        パスの探索方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplements/about_treat_drop_as_delay/" class="md-nav__link">
+        treat_drop_as_delayフラグの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplements/architecture_format/" class="md-nav__link">
+        アーキテクチャファイルフォーマット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplements/how_to_run_lttng_session/" class="md-nav__link">
+        Lttngセッションの開始方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplements/how_to_write_architecture/" class="md-nav__link">
+        ノードレイテンシの算出方法の指定
       </a>
     </li>
   
@@ -558,6 +707,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../design/design/" class="md-nav__link">
+        ソフトウェアアーキテクチャ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../design/tracepoint_definition/" class="md-nav__link">
         トレースポイントの定義
       </a>
@@ -572,8 +735,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/about_callback_graph/" class="md-nav__link">
-        コールバックグラフについて
+      <a href="../../design/diff/" class="md-nav__link">
+        galacticとの差分
       </a>
     </li>
   
@@ -586,8 +749,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/diff/" class="md-nav__link">
-        galacticとの差分
+      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
+        レイテンシの算出方法
       </a>
     </li>
   
@@ -612,196 +775,181 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <h1 id="_1">アーキテクチャファイル<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>アーキテクチャファイルとは、レイテンシの算出に必要な静的情報を記述した yaml 形式の設定ファイルです。
-トレース結果のファイルから雛形を作成できますが、一部修正が必要になります。
-ここでは、アーキテクチャファイルの作成方法と修正方法を説明します。</p>
-<p>アーキテクチャファイルには以下の情報を記述します。</p>
-<ul>
-<li>パス情報<ul>
-<li>パスの名前</li>
-<li>コールバックチェーン</li>
-</ul>
-</li>
-<li>ノード情報<ul>
-<li>ノード名</li>
-<li>コールバックの情報<ul>
-<li>コールバック名</li>
-<li>コールバック関数のシンボル名</li>
-<li>コールバックの種類【timer_callback または subscription_callback】</li>
-<li>コールバックのパラメータ【timer の場合は周期・subscription の場合はトピック名】</li>
-</ul>
-</li>
-<li>コールバック間の変数渡し情報</li>
-<li>パブリッシュの情報</li>
-</ul>
-</li>
-</ul>
-<h2 id="_2">雛形の作成<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p>雛形はトレース結果から生成できます。</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> ~/ros2_ws/evaluate
-$ ls end_to_end_sample <span class="c1"># トレース結果のパスの確認</span>
-ust
-$ <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash <span class="c1"># コマンドのパスを通す</span>
-$ ros2 caret architecture -t end_to_end_sample -o architecture.yaml
-$ cat ./architecture.yaml
-path_name_aliases: <span class="o">[]</span>
-nodes:
-...
-</code></pre></div>
-<h2 id="_3">アーキテクチャファイルのフォーマット<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<p>以下にアーキテクチャファイルのフォーマットを示します。</p>
-<p>*の付いた項目は手作業での修正が必要な項目です。</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">path_name_aliases:【パス情報】</span>
-<span class="l l-Scalar l-Scalar-Plain">- path_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">target_path【パスの名前*】</span>
-  <span class="l l-Scalar l-Scalar-Plain">callbacks</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/talker/subscription_callback_0【コールバックの識別名*】</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/talker/timer_callback_0【コールバックの識別名*】</span>
-<span class="l l-Scalar l-Scalar-Plain">nodes:【ノード情報】</span>
-<span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/talker【ノード名】</span>
-  <span class="l l-Scalar l-Scalar-Plain">callbacks:【コールバックの情報】</span>
-  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名】</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback【コールバックの種類】</span>
-    <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic3【トピック名】</span>
-    <span class="nt">symbol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}【コールバック関数のシンボル名】</span>
-  <span class="p p-Indicator">-</span> <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback【コールバックの種類】</span>
-    <span class="nt">period_ns</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100000000【タイマーコールバックの周期】</span>
-    <span class="nt">symbol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}【コールバック関数のシンボル名】</span>
-  <span class="l l-Scalar l-Scalar-Plain">variable_passings:【変数を介したコールバック間のメッセージ渡し】</span>
-  <span class="p p-Indicator">-</span> <span class="nt">callback_name_write</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名*】</span>
-    <span class="nt">callback_name_read</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
-  <span class="l l-Scalar l-Scalar-Plain">publishes:【パブリッシュの情報】</span>
-  <span class="p p-Indicator">-</span> <span class="nt">topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic4【トピック名】</span>
-    <span class="nt">callback_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
-</code></pre></div>
-<p>コールバックの識別名は、アプリケーション全体でコールバックを一意に特定するための名前です。
-以下のフォーマットになっています。</p>
-<div class="highlight"><pre><span></span><code>コールバック識別名 = ノード名/コールバック名
-</code></pre></div>
-<blockquote>
-<p>コールバックの一意性制約について</p>
-<p>コールバック識別名は、以下に示すコールバック情報を元に、 subscription_callback_0 のようなインデックスを付けた名前が付けられます。</p>
-<p>コールバック情報</p>
-<ul>
-<li>コールバックの種類</li>
-<li>コールバックのパラメータ（タイマーの場合は周期、サブスクライバの場合はトピック名）</li>
-<li>シンボル名</li>
-</ul>
-<p>そのため、同じノード名を持つノード内で、同じコールバック情報をもつコールバックが複数存在するケースには caret を利用することが出来せん。</p>
-<p>コールバックのパラメータ（トピック名や周期）やシンボル名（関数名）が変更された際は、アーキテクチャファイルの修正が必要となります。</p>
-</blockquote>
-<h2 id="_4">コールバックグラフの可視化<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
-<p>作成したアーキテクチャファイルを元に、コールバックグラフを可視化できます。</p>
-<p>ここでは、 CUI による可視化方法を説明します。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
-ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
-</code></pre></div>
-<p>グラフの作成には Graphviz を使用しています。
-使用可能な拡張子については <a href="http://www.graphviz.org/docs/outputs/">Graphviz|Output Formats</a> をご覧ください。</p>
-<p>コマンドを実行すると以下のようなコールバックグラフが出力されます。</p>
-<p><img alt="callback_graph_cui_export" src="/imgs/callback_graph_cui_export.png" /></p>
-<p>灰色は名前空間、角丸四角はノード、四角はコールバック、矢印はコールバック間の依存関係を示しています。
-赤矢印はトピックを publish しているコールバックが不明なトピック通信を示しています。
-この赤矢印が、アーキテクチャファイルを編集し、publish 元のコールバックを指定する必要のある箇所です。</p>
-<p>デフォルトの型は svg 形式で、 tooltip による情報の表示に対応しています。</p>
-<p><img alt="tooltip_sample" src="/imgs/tooltip_sample.png" /></p>
-<p>カーソルをコールバックに合わせることで、コールバックのパラメータとシンボル名が表示されます。</p>
-<h2 id="_5">コールバックグラフ情報の記述<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
-<p>出力直後の雛形はコールバックの依存関係などが記述されていません。
-caret はパスの探索にコールバックグラフを利用するので、アーキテクチャファイルの修正が必要になります。</p>
-<p>コールバックグラフ構築のために修正する項目は以下の通りです。</p>
-<!-- prettier-ignore-start -->
-<ol>
-<li>
-<p>コールバック関数と publish の紐付け（上図コールバックグラフの赤矢印）<br />
-   [/nodes/node/publish] には、ノードが publish しているトピック名が key として列挙されています。
-   value にトピックを publish しているコールバック名を記述してください。
-   未接続のトピック通信（コールバックグラフ上の赤矢印）が無くなるまで修正してください。</p>
-<div class="highlight"><pre><span></span><code>  <span class="l l-Scalar l-Scalar-Plain">publishes:【パブリッシュの情報】</span>
-  <span class="l l-Scalar l-Scalar-Plain">- topic_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic4【トピック名】</span>
-    <span class="l l-Scalar l-Scalar-Plain">callback_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
-</code></pre></div>
-</li>
-<li>
-<p>コールバック間の変数渡しの記述<br />
-   [/nodes/node/variable_passing]には、変数渡しによるコールバック間の依存関係を記述します。
-   callback_write には書き込み側のコールバック名、callback_read には読み込み側のコールバック名を記述してください。</p>
-<div class="highlight"><pre><span></span><code>  <span class="l l-Scalar l-Scalar-Plain">variable_passings:【変数を介したコールバック間のメッセージ渡し】</span>
-  <span class="l l-Scalar l-Scalar-Plain">- callback_name_write</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名*】</span>
-    <span class="l l-Scalar l-Scalar-Plain">callback_name_read</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
-</code></pre></div>
-</li>
-</ol>
-<!-- prettier-ignore-end -->
 
-<p><img alt="callback_graph_cui_export" src="/imgs/callback_graph_modified.png" /></p>
-<p>全ての矢印がコールバックからコールバックに繋がっていることに注意してください。</p>
-<h2 id="_6">コールバックチェーン情報の記述<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
-<p>ノードレイテンシや、End-to-End レイテンシ、通信レイテンシのレイテンシを算出するには、多数あるパスの中から、評価対象のパスのコールバックチェーンを与える必要があります。</p>
-<p>評価対象のパスのコールバックチェーンを与えるには、アーキテクチャファイルにパスの名前とコールバックのリストを記述します。
-このコールバックリストは、コールバックを一つずつ記述していくのは手間であり、誤りが生じやすいです。
-ここでは caret が備えているパス探索を使用し、アーキテクチャファイルにコールバックチェーン情報を記述する手順を説明します。</p>
-<p>※ jupyter 上での手動による評価を行う場合にはこの手順をスキップすることもできます。</p>
-<p>本手順の jupyter notebook は以下に有ります。
-<a href="https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/select_path.ipynb">https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/select_path.ipynb</a></p>
-<div class="highlight"><pre><span></span><code><span class="nt">path_name_aliases</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">path_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">target_path【パスの名前（任意）】</span>
-    <span class="nt">callbacks</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/talker/subscription_callback_0【コールバックの識別名】</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/talker/timer_callback_0【コールバックの識別名】</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
-~/ros2_caret_ws/install/setup.bash
+<h1 id="_1">評価準備<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p>CARETは、評価する際にアーキテクチャファイルの作成が必要です。</p>
+<p>トレース結果からアーキテクチャファイルの雛形を作成できますが、一部手作業での修正が必要になります。<br />
+ここでは、アーキテクチャファイルの作成方法とその修正方法を説明します。</p>
+<h2 id="_2">アーキテクチャファイルとは<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<p>アーキテクチャファイルとは、実際に実行されたノードの情報など、測定毎に不変な静的な情報のみを含んだyaml形式の設定ファイルです。<br />
+コールバックの実行時間などの動的な情報は含みません。<br />
+※ トピック名やタイマーの周期など、実行時のパラメータも一部含みます。</p>
+<p>アーキテクチャファイルで記述した静的な情報と、<br />
+コールバックの実行時間などの測定結果と合わせることで、レイテンシの算出が行えるようになります。</p>
+<hr />
+<p>アーキテクチャファイルの主な役割は以下の通りです。</p>
+<ol>
+<li>測定対象のパスを定義</li>
+<li>ノードおよびコールバックの実行方法（エグゼキューターの情報）を記述</li>
+<li>ノードレイテンシの算出方法（ノードの情報）を指定</li>
+</ol>
+<p><img alt="パスの指定とノードレイテンシの算出方法指定" src="../../imgs/path_and_node_latency.svg" /></p>
+<p>この内、①パスの情報はpythonAPIからの編集（直接yamlファイルからの編集も可）、②ノードの情報は直接yamlファイルの編集が必要です。</p>
+<h2 id="jupyter">jupyter の起動<a class="headerlink" href="#jupyter" title="Permanent link">#</a></h2>
+<p>本ページで説明する雛形の作成などの作業は、python APIを使用して行います。  </p>
+<p>以下の手順でjupyterを起動してください。</p>
+<div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/evaluate <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/ros2_ws/evaluate
+
+<span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
 jupyter-lab
 </code></pre></div>
-<p>アーキテクチャファイルを読み込み。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">caret_analyze</span> <span class="k">as</span> <span class="nn">caret</span>
-<span class="kn">import</span> <span class="nn">caret_analyze.plot</span> <span class="k">as</span> <span class="nn">caret_plot</span>
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">caret</span><span class="o">.</span><span class="n">Application</span><span class="p">(</span><span class="s1">&#39;/path/to/architecture.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-</code></pre></div>
-<p>評価対象のパスの、始点と終点のコールバック識別名から、パスを探索。</p>
-<div class="highlight"><pre><span></span><code><span class="n">start_callback_name</span> <span class="o">=</span> <span class="s1">&#39;/sensor_dummy_node/timer_callback_0&#39;</span>
-<span class="n">end_callback_name</span> <span class="o">=</span> <span class="s1">&#39;/actuator_dummy_node/subscription_callback_0&#39;</span>
-<span class="n">paths</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span><span class="n">start_callback_name</span><span class="p">,</span> <span class="n">end_callback_name</span><span class="p">)</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>  <span class="c1"># 見つかったパスの数を出力</span>
-</code></pre></div>
-<p>探索結果のパスを一つずつ確認し、評価対象のパスを選定します。</p>
-<div class="highlight"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">caret_plot</span><span class="o">.</span><span class="n">callback_graph</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">path</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
-<span class="c1"># 画像として保存する場合はパスを指定</span>
-<span class="c1"># caret_plot.callback_graph(app, callbacks=path.callbacks, export_path=&#39;callback_graph.svg&#39;)</span>
-</code></pre></div>
-<p>jupyter 上に、パスの強調されたコールバックグラフが表示されます。</p>
-<p><img alt="callback_graph_cui_export" src="/imgs/callback_graph_highlight.png" /></p>
-<p>評価対象のパスに名前を付け、再度保存します。</p>
-<div class="highlight"><pre><span></span><code><span class="n">app</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="s1">&#39;target_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">path</span>
-<span class="n">app</span><span class="o">.</span><span class="n">export_architecture</span><span class="p">(</span><span class="s1">&#39;architecture.yaml&#39;</span><span class="p">)</span>
-</code></pre></div>
-<p>アーキテクチャファイルを確認し、パスの情報が追加されたことを確認します。</p>
-<div class="highlight"><pre><span></span><code>$ cat architecture.yaml
-path_name_aliases:
-- path_name: target_path
-  callbacks:
-  - /talker/subscription_callback_0
-  - /talker/timer_callback_0
-...
-</code></pre></div>
-<p>パスの定義をした後は、CLI からパスがハイライトされたコールバックグラフを出力できます。</p>
-<div class="highlight"><pre><span></span><code>ros2 caret callback_graph -a architecture.yaml -o calback_graph_cmd.svg -p target_path -s <span class="nb">false</span>
-</code></pre></div>
-<p><code>-s true</code> とすると、全てのトピックがラベル化され、ノードごとの確認が行いやすくなります。</p>
-<hr />
-<p>CARET_demos/end_to_end のソースコードと、手作業での修正例を示します。
-<a href="https://github.com/tier4/CARET_demos/blob/main/caret_demos/src/end_to_end_sample.cpp">https://github.com/tier4/CARET_demos/blob/main/caret_demos/src/end_to_end_sample.cpp</a>
-<a href="https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b">https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b</a></p>
-                
-              
-              
-                
+<h2 id="_3">雛形の作成<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
+<p>雛形はpython以下のコードでトレース結果から生成できます。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
 
+<span class="c1"># トレース結果からアーキテクチャファイルの読み込み</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+
+<span class="c1"># アーキテクチャファイルの保存</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s1">&#39;architecture.yaml&#39;</span><span class="p">)</span>
+
+<span class="c1"># 生成されたファイルの確認</span>
+<span class="err">!</span> <span class="n">readlink</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">architecture</span><span class="o">.</span><span class="n">yaml</span>
+<span class="c1"># /home/user/ros2_caret_ws/eval/architecture.yaml</span>
+</code></pre></div>
+
+<h2 id="_4">測定対象のパスの指定<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
+<p>生成したアーキテクチャファイルは以下のようにして読み込めます。</p>
+<div class="highlight"><pre><span></span><code>from caret_analyze import Architecture, check_procedure
+arch = Architecture(&#39;yaml&#39;, &#39;./architecture.yaml&#39;)
+</code></pre></div>
+
+<p>読み込んだ情報を元に、始点ノードから終点ノードまでのパスを全探索します。</p>
+<div class="highlight"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
+    <span class="s1">&#39;/sensor_dummy_node&#39;</span><span class="p">,</span> <span class="c1"># パスの開始ノード</span>
+    <span class="s1">&#39;/actuator_dummy_node&#39;</span><span class="p">)</span> <span class="c1"># パスの終了ノード</span>
+</code></pre></div>
+
+<p>測定対象のアプリケーションが複雑な場合、探索に時間がかることがあります。<br />
+その際は、無関係なノードやトピックの枝刈りや、探索する深さを指定できます。 詳細は<a href="../../supplements/how_to_search_path/">パスの探索方法</a>を参照ください。</p>
+<p>探索されたパスは複数見つかることがあります。<br />
+測定したいパスのインデックスを探すために、探索したパスの情報を確認します。</p>
+<div class="highlight"><pre><span></span><code>path = paths[0]
+path.summary.pprint()
+
+---以下出力---
+ path:
+ - message_context: null  # ノードレイテンシの定義。
+   node: /sensor_dummy_node
+ - topic: /topic1
+ - message_context:
+     publisher_topic_name: /topic2
+     subscription_topic_name: /topic1
+     type: callback_chain
+   node: /filter_node
+ - topic: /topic2
+ - message_context: null
+   node: /message_driven_node
+ - topic: /topic3
+ - message_context: null
+   node: /timer_driven_node
+ - topic: /topic4
+ - message_context: null
+   node: /actuator_dummy_node
+</code></pre></div>
+
+<p>決定したパスに<code>target_path</code>と名前を付け、アーキテクチャファイルに保存します。</p>
+<div class="highlight"><pre><span></span><code>arch.add_path(&#39;target_path&#39;, path)
+arch.export(&#39;./architecture.yaml&#39;)
+</code></pre></div>
+
+<p>アーキテクチャファイルには、以下のように記載されます。
+<div class="highlight"><pre><span></span><code><span class="nt">named_paths</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">path_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">target_path</span>
+  <span class="nt">node_chain</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/sensor_dummy_node</span>
+    <span class="nt">publish_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic1</span>
+    <span class="nt">subscribe_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span>
+  <span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/filter_node</span>
+    <span class="nt">publish_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic2</span>
+    <span class="nt">subscribe_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic1</span>
+  <span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/message_driven_node</span>
+    <span class="nt">publish_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic3</span>
+    <span class="nt">subscribe_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic2</span>
+  <span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/timer_driven_node</span>
+    <span class="nt">publish_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic4</span>
+    <span class="nt">subscribe_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic3</span>
+  <span class="p p-Indicator">-</span> <span class="nt">node_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/actuator_dummy_node</span>
+    <span class="nt">publish_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span>
+    <span class="nt">subscribe_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic4</span>
+</code></pre></div></p>
+<h2 id="_5">ノードレイテンシの定義指定<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
+<p>ノードレイテンシは、「ノードがメッセージをsubscribeし、コールバックが処理開始する時刻」から「ノードがメッセージをpublishする時刻」までとしています。<br />
+ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。  </p>
+<p>CARETではいくつかのノードレイテンシの算出方法を提供しています。<br />
+ノードレイテンシの算出方法はアーキテクチャファイルでは、主に <strong>message_context</strong>という項目として指定します。  </p>
+<h3 id="_6">修正対象の確認<a class="headerlink" href="#_6" title="Permanent link">#</a></h3>
+<p>以下のように、<code>path.verify()</code>を実行し、パスに含まれるノードレイテンシの定義の情報が不足ていないか確認します。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
+
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
+<span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
+
+<span class="o">---</span><span class="n">以下出力</span><span class="o">---</span>
+<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span> 
+<span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span> 
+<span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+<span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">message_driven_node</span>
+<span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
+<span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
+
+<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span> 
+<span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/timer_driven_node&#39;</span><span class="p">)</span> 
+<span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+<span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">timer_driven_node</span>
+<span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
+<span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
+</code></pre></div>
+
+<p>上記は、以下の修正が必要と警告しています</p>
+<ul>
+<li><code>/message_driven_node</code>ノード、<code>/topic2</code>入力から<code>/topic3</code>出力のパス</li>
+<li><code>/timer_driven_node</code>ノード、<code>/topic3</code>入力から<code>/topic4</code>出力のパス</li>
+</ul>
+<p>警告されたノードのパスについて、アーキテクチャファイル内の対応するmessage_contextを編集する必要が有ります。  </p>
+<h3 id="_7">ノードレイテンシの算出方法指定<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
+<p>サンプルのアプリケーションでは、以下の修正が必要になります。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># /message_driven_node内の項目</span>
+  <span class="nt">message_contexts</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">context_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">use_latest_message</span> <span class="c1"># UNDEFINEDからuse_latest_messageへ変更</span>
+    <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic2</span>
+    <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic3</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># /message_driven_node内の項目</span>
+  <span class="l l-Scalar l-Scalar-Plain">message_contexts</span><span class="err">:　</span>
+  <span class="l l-Scalar l-Scalar-Plain">- context_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">use_latest_message</span> <span class="c1"># UNDEFINEDからuse_latest_messageへ変更</span>
+    <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic3</span>
+    <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic4</span>
+</code></pre></div>
+
+<h3 id="_8">修正結果の確認<a class="headerlink" href="#_8" title="Permanent link">#</a></h3>
+<p>ノードレイテンシの定義を与えた後、警告がでなくなることを確認します。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
+
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
+<span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
+</code></pre></div>
+
+<p>警告が出なければ、パスのレイテンシが算出できるということになります。<br />
+警告が出る箇所は、算出に必要な情報が不足している可能性があります。</p>
+<p>最終的には以下のようなアーキテクチャファイルを用意します。</p>
+<p>TODO: サンプルのアーキテクチャファイルへのリンクを追加。</p>
 
               
             </article>
@@ -815,8 +963,7 @@ path_name_aliases:
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
@@ -855,16 +1002,15 @@ path_name_aliases:
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -874,10 +1020,10 @@ path_name_aliases:
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
