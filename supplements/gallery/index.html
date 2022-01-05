@@ -785,7 +785,7 @@ treat_drop_as_delay=True とすると、メッセージロストを遅延とし�
 
 <p><code>treat_drop_as_delay=False</code>とした場合、ロストせず終点まで到達したメッセージのレイテンシを出力します。
 <code>treat_drop_as_delay=True</code>とした場合、ロスト箇所を遅延として算出したメッセージのレイテンシを出力します。</p>
-<p><img alt="chain_latency_sample" src="/imgs/chain_latency_sample.png" /></p>
+<p><img alt="chain_latency_sample" src="../../imgs/chain_latency_sample.png" /></p>
 <h2 id="_4">レイテンシの時系列波形<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">t</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">to_timeseries</span><span class="p">(</span><span class="n">remove_dropped</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">latency_ms</span> <span class="o">=</span> <span class="n">latency_ns</span> <span class="o">*</span> <span class="mf">1.0e-6</span>
@@ -795,7 +795,7 @@ treat_drop_as_delay=True とすると、メッセージロストを遅延とし�
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 
-<p><img alt="time_series_sample" src="/imgs/time_series_sample.png" /></p>
+<p><img alt="time_series_sample" src="../../imgs/time_series_sample.png" /></p>
 <h2 id="_5">レイテンシのヒストグラム<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
 <p>ヒストグラムも以下のようにして可視化できます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">bins</span><span class="p">,</span> <span class="n">hist</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">(</span><span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -804,7 +804,7 @@ treat_drop_as_delay=True とすると、メッセージロストを遅延とし�
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 
-<p><img alt="history_sample" src="/imgs/history_sample.png" /></p>
+<p><img alt="history_sample" src="../../imgs/history_sample.png" /></p>
 
               
             </article>
