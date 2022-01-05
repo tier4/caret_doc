@@ -56,10 +56,9 @@ CARETの基本的な使い方についての説明です。
 ### 設計資料
 内部の実装などに関する資料です。
 
-- [アーキテクチャ](./design.md)
+- [アーキテクチャ](./design/design.md)
 - [トレースポイントの定義](./design/tracepoint_definition.md)
-- [コールバックグラフについて](./design/about_callback_graph.md)
-- [records型について](./about_records_type.md)
+<!-- - [records型について](./about_records_type.md) -->
 - [galactic との差分](./design/diff.md)
 
 ## リポジトリ一覧
