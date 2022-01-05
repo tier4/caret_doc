@@ -51,7 +51,7 @@ chain_latency(path, granularity='node', treat_drop_as_delay=False, lstrip_s=1, r
 `treat_drop_as_delay=False`とした場合、ロストせず終点まで到達したメッセージのレイテンシを出力します。
 `treat_drop_as_delay=True`とした場合、ロスト箇所を遅延として算出したメッセージのレイテンシを出力します。
 
-![chain_latency_sample](/imgs/chain_latency_sample.png)
+![chain_latency_sample](../imgs/chain_latency_sample.png)
 
 ## レイテンシの時系列波形
 
@@ -64,7 +64,7 @@ p.line(t, latency_ns)
 show(p)
 ```
 
-![time_series_sample](/imgs/time_series_sample.png)
+![time_series_sample](../imgs/time_series_sample.png)
 
 ## レイテンシのヒストグラム
 
@@ -77,4 +77,4 @@ p.step(hist[1:], bins)
 show(p)
 ```
 
-![history_sample](/imgs/history_sample.png)
+![history_sample](../imgs/history_sample.png)

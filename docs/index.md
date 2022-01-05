@@ -17,7 +17,7 @@
 
 ## 性能評価の流れ
 
-![measurement_flow](/imgs/measurement_flow.svg)
+![measurement_flow](./imgs/measurement_flow.svg)
 
 CARETはros2_tracingにより追加されたトレースポイントに加え、  
 ROSやDDSの処理に対してトレースポイントを追加することで、様々な処理かかる時間の測定を可能にしています。
