@@ -815,6 +815,14 @@ rosdep install <span class="se">\</span>
 <span class="c1"># rosdep init</span>
 <span class="c1"># rosdep update</span>
 <span class="nb">source</span> /opt/ros/galactic/setup.bash
+
+<span class="c1"># フォークしたパッケージのヘッダーファイルを使用させるためのシンボリックリンクを作成</span>
+ln -sf ~/ros2_caret_ws/src/ros-tracing/ros2_tracing/tracetools/include/tracetools ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
+ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_action/include/rclcpp_action ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
+ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_components/include/rclcpp_components/ ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
+ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_lifecycle/include/rclcpp_lifecycle/ ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
+
+<span class="c1"># CARETのビルド</span>
 colcon build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DBUILD_TESTING<span class="o">=</span>off  --symlink-install
 </code></pre></div>
 
