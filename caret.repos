@@ -11,10 +11,6 @@ repositories:
     type: git
     url: https://github.com/tier4/ros2_tracing.git
     version: galactic_tracepoint_added
-  eclipse-cyclonedds/cyclonedds:
-    type: git
-    url: https://github.com/eclipse-cyclonedds/cyclonedds.git
-    version: iceoryx
   CARET/CARET_trace:
     type: git
     url: https://github.com/tier4/CARET_trace.git
