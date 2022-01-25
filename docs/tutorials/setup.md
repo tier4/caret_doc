@@ -41,7 +41,8 @@ python3 -m pip install -U \
   pytest-repeat \
   pytest-rerunfailures \
   pytest \
-  setuptools
+  setuptools \
+  colorcet
 
 sudo apt install ros-galactic-desktop
 ```
