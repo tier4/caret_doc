@@ -73,7 +73,7 @@ message_flow(path)
 
 正常に測定されると、以下のような図が表示されます。
 
-![message_flow_sample](/imgs/message_flow_with_cursor.png)
+![message_flow_sample](../../imgs/message_flow_with_cursor.png)
 
 この図は横軸が時間、縦軸が上から下へ`taget_path`になっており、各線はメッセージの流れを示しています。  
 グレーの矩形はコールバックの実行時間を示しています。

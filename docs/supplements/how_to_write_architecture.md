@@ -152,7 +152,7 @@ ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
 
 デフォルトの型は svg 形式で、 tooltip による情報の表示に対応しています。
 
-![tooltip_sample](/imgs/tooltip_sample.png)
+![tooltip_sample](../../imgs/tooltip_sample.png)
 
 カーソルをコールバックに合わせることで、コールバックのパラメータとシンボル名が表示されます。
 
@@ -186,7 +186,7 @@ caret はパスの探索にコールバックグラフを利用するので、�
   ```
 <!-- prettier-ignore-end -->
 
-![callback_graph_cui_export](/imgs/callback_graph_modified.png)
+![callback_graph_cui_export](../../imgs/callback_graph_modified.png)
 
 全ての矢印がコールバックからコールバックに繋がっていることに注意してください。
 
