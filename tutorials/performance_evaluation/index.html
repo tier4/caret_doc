@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
+    
     <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
@@ -744,13 +746,11 @@
 <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
 jupyter-lab
 </code></pre></div>
-
 <p>CARETが備えている可視化には、bokehを使用したものが有ります。<br />
 jupyter上で表示させるには、以下を実行してください。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span>
 <span class="n">output_notebook</span><span class="p">()</span>
 </code></pre></div>
-
 <h2 id="_2">測定結果の読み込み<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <p>アーキテクチャファイルとトレース結果を読み込みます。</p>
 <div class="highlight"><pre><span></span><code>from caret_analyze import Architecture, Application, Lttng
@@ -764,7 +764,6 @@ lttng = Lttng(&#39;./e2e_sample&#39;)
 # アーキテクチャ情報とトレース結果の結合
 app = Application(arch, lttng)
 </code></pre></div>
-
 <p>Applicationクラスはアーキテクチャファイルと同等の情報・インターフェースを持ち、レイテンシの情報も持ったクラスです。<br />
 app経由で通信レイテンシやコールバックの実行時間など、様々な情報へアクセスします。</p>
 <h2 id="api">基本的なAPIの説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
@@ -778,7 +777,6 @@ app経由で通信レイテンシやコールバックの実行時間など、�
 <span class="c1"># ヒストグラムの取得</span>
 <span class="n">bins</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">callback</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">()</span>
 </code></pre></div>
-
 <p><code>callback</code>のほか、<code>communication</code>なども同様なインターフェースがあります。</p>
 <p><code>callback.to_dataframe()</code> を実行すると、元データを<code>pandas.DataFrame</code>型で取得できます。</p>
 <h2 id="_3">メッセージフローの可視化<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
@@ -789,7 +787,6 @@ app経由で通信レイテンシやコールバックの実行時間など、�
 <span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
 <span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </code></pre></div>
-
 <p>正常に測定されると、以下のような図が表示されます。</p>
 <p><img alt="message_flow_sample" src="/imgs/message_flow_with_cursor.png" /></p>
 <p>この図は横軸が時間、縦軸が上から下へ<code>taget_path</code>になっており、各線はメッセージの流れを示しています。<br />
@@ -870,6 +867,8 @@ app経由で通信レイテンシやコールバックの実行時間など、�
     
     
       <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

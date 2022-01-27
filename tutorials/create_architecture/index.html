@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
+    
     <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
@@ -803,7 +805,6 @@
 <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
 jupyter-lab
 </code></pre></div>
-
 <h2 id="_3">雛形の作成<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
 <p>雛形はpython以下のコードでトレース結果から生成できます。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
@@ -818,19 +819,16 @@ jupyter-lab
 <span class="err">!</span> <span class="n">readlink</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">architecture</span><span class="o">.</span><span class="n">yaml</span>
 <span class="c1"># /home/user/ros2_caret_ws/eval/architecture.yaml</span>
 </code></pre></div>
-
 <h2 id="_4">測定対象のパスの指定<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
 <p>生成したアーキテクチャファイルは以下のようにして読み込めます。</p>
 <div class="highlight"><pre><span></span><code>from caret_analyze import Architecture, check_procedure
 arch = Architecture(&#39;yaml&#39;, &#39;./architecture.yaml&#39;)
 </code></pre></div>
-
 <p>読み込んだ情報を元に、始点ノードから終点ノードまでのパスを全探索します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
     <span class="s1">&#39;/sensor_dummy_node&#39;</span><span class="p">,</span> <span class="c1"># パスの開始ノード</span>
     <span class="s1">&#39;/actuator_dummy_node&#39;</span><span class="p">)</span> <span class="c1"># パスの終了ノード</span>
 </code></pre></div>
-
 <p>測定対象のアプリケーションが複雑な場合、探索に時間がかることがあります。<br />
 その際は、無関係なノードやトピックの枝刈りや、探索する深さを指定できます。 詳細は<a href="../../supplements/how_to_search_path/">パスの探索方法</a>を参照ください。</p>
 <p>探索されたパスは複数見つかることがあります。<br />
@@ -858,12 +856,10 @@ path.summary.pprint()
  - message_context: null
    node: /actuator_dummy_node
 </code></pre></div>
-
 <p>決定したパスに<code>target_path</code>と名前を付け、アーキテクチャファイルに保存します。</p>
 <div class="highlight"><pre><span></span><code>arch.add_path(&#39;target_path&#39;, path)
 arch.export(&#39;./architecture.yaml&#39;)
 </code></pre></div>
-
 <p>アーキテクチャファイルには、以下のように記載されます。
 <div class="highlight"><pre><span></span><code><span class="nt">named_paths</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">path_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">target_path</span>
@@ -914,7 +910,6 @@ arch.export(&#39;./architecture.yaml&#39;)
 <span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
 <span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
 </code></pre></div>
-
 <p>上記は、以下の修正が必要と警告しています</p>
 <ul>
 <li><code>/message_driven_node</code>ノード、<code>/topic2</code>入力から<code>/topic3</code>出力のパス</li>
@@ -929,14 +924,12 @@ arch.export(&#39;./architecture.yaml&#39;)
     <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic2</span>
     <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic3</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="c1"># /message_driven_node内の項目</span>
   <span class="l l-Scalar l-Scalar-Plain">message_contexts</span><span class="err">:　</span>
   <span class="l l-Scalar l-Scalar-Plain">- context_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">use_latest_message</span> <span class="c1"># UNDEFINEDからuse_latest_messageへ変更</span>
     <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic3</span>
     <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic4</span>
 </code></pre></div>
-
 <h3 id="_8">修正結果の確認<a class="headerlink" href="#_8" title="Permanent link">#</a></h3>
 <p>ノードレイテンシの定義を与えた後、警告がでなくなることを確認します。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
@@ -945,7 +938,6 @@ arch.export(&#39;./architecture.yaml&#39;)
 <span class="n">path</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
 <span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
 </code></pre></div>
-
 <p>警告が出なければ、パスのレイテンシが算出できるということになります。<br />
 警告が出る箇所は、算出に必要な情報が不足している可能性があります。</p>
 <p>最終的には以下のようなアーキテクチャファイルを用意します。</p>
@@ -1024,6 +1016,8 @@ arch.export(&#39;./architecture.yaml&#39;)
     
     
       <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

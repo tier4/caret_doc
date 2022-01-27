@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
+    
     <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
@@ -742,11 +744,9 @@
 <p>CARETが算出している通信レイテンシの定義は以下の通りです。</p>
 <div class="highlight"><pre><span></span><code>Pub-Sub レイテンシ = Subscriptionコールバックの実行開始時刻 - Publisher::publish()実行開始時刻
 </code></pre></div>
-
 <p>この値は、ros2 topic delay や、topic statistics で測定される値に対応します。</p>
 <div class="highlight"><pre><span></span><code>通信レイテンシ = 現在時刻 - msg.header.stamp
 </code></pre></div>
-
 <!-- また、プロセス内通信とプロセス間通信で、レイテンシの構成が変わってきます。
 Pub-Sub レイテンシはプロセス内通信・プロセス間通信両方で算出されます。
 
@@ -757,7 +757,6 @@ publish 後、subscription コールバック実行開始までは、エグゼ�
 大まかなシーケンス図を書きます。 -->
 
 <!-- DDS によるレイテンシと、エグゼキューターによる遅延を指します -->
-
 <!-- ### DDS-layer レイテンシの定義
 
 DDS-layer レイテンシの定義は以下の通りです。
@@ -863,6 +862,8 @@ Chains Under Reservation-Based Scheduling</a></p>
     
     
       <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

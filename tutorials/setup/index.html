@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
+    
     <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
@@ -737,7 +739,6 @@ sudo apt-get update
 sudo apt-get install lttng-tools lttng-modules-dkms liblttng-ust-dev
 sudo apt-get install python3-babeltrace python3-lttng
 </code></pre></div>
-
 <p>ROS 2 galactic のインストール、依存パッケージのインストール。
 詳細は <a href="https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html">ROS2 公式ドキュメント</a> を参照。</p>
 <div class="highlight"><pre><span></span><code>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y <span class="se">\</span>
@@ -765,11 +766,11 @@ python3 -m pip install -U <span class="se">\</span>
   pytest-repeat <span class="se">\</span>
   pytest-rerunfailures <span class="se">\</span>
   pytest <span class="se">\</span>
-  setuptools
+  setuptools <span class="se">\</span>
+  colorcet
 
 sudo apt install ros-galactic-desktop
 </code></pre></div>
-
 <p>ros2 trace 関連のパッケージをインストール</p>
 <div class="highlight"><pre><span></span><code>sudo apt install -y <span class="se">\</span>
   ros-galactic-ros2trace <span class="se">\</span>
@@ -781,7 +782,6 @@ sudo apt install ros-galactic-desktop
   ros-galactic-tracetools-test <span class="se">\</span>
   ros-galactic-tracetools-trace
 </code></pre></div>
-
 <p>caret の依存パッケージをインストール</p>
 <div class="highlight"><pre><span></span><code>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y <span class="se">\</span>
   graphviz <span class="se">\</span>
@@ -798,7 +798,6 @@ python3 -m pip install -U <span class="se">\</span>
 <span class="c1"># julyterlabのインストール時に[ImportError: The Jupyter Server requires tornado &gt;=6.1.0]と出る場合は以下を実行すること</span>
 <span class="c1"># pip install tornado --upgrade</span>
 </code></pre></div>
-
 <h2 id="caret">CARET のビルド<a class="headerlink" href="#caret" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_caret_ws/src
 <span class="nb">cd</span> ~/ros2_caret_ws
@@ -825,7 +824,6 @@ ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_lifecycle/include/rclcpp_lifecycle
 <span class="c1"># CARETのビルド</span>
 colcon build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DBUILD_TESTING<span class="o">=</span>off  --symlink-install
 </code></pre></div>
-
 <p>ros2 tracing が有効になっていることを確認</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 $ ros2 run tracetools status
@@ -905,6 +903,8 @@ Tracing enabled
     
     
       <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

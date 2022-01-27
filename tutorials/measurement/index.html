@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
+    
     <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
@@ -782,7 +784,6 @@ git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
 
 colcon build --symlink-install --packages-up-to caret_demos
 </code></pre></div>
-
 <blockquote>
 <p>測定対象のアプリケーションも再ビルドが必要な理由</p>
 <p>caret は rclcpp のヘッダーで読み込まれるテンプレート実装内にもトレースポイントを追加しています。<br />
@@ -805,7 +806,6 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># -s はセッション名。</span>
 <span class="c1"># 上記の例では~/ros_ws/evaluate/e2e_sampleに測定結果が保存されます。</span>
 </code></pre></div>
-
 <p>別途ターミナルでLTTngセッションを開始せずに、Launchファイル内でLTTngのセッションを開始する方法もあります。<br />
 <a href="../../supplements/how_to_run_lttng_session/">LTTng セッションの開始方法</a>を参照してください。</p>
 <h3 id="_4">アプリケーションの開始・測定<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
@@ -814,18 +814,15 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
 </code></pre></div>
-
 <p>以下のコマンドでビルドした rclcpp が使われることを確認します。</p>
 <div class="highlight"><pre><span></span><code>ldd ./build/caret_demos/end_to_end_sample  | grep rclcpp
 
 # librclcpp.so =&gt; /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so
 </code></pre></div>
-
 <p>フックを有効にするため、<code>LD_PRELOAD</code>を設定します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># フックで追加されるトレースポイントの有効化</span>
 <span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
 </code></pre></div>
-
 <p>不要なノードやトピックを測定対象から除外する設定を行います。<br />
 トレースフィルタリング機能については、<a href="../../supplements/trace_filtering/">トレースフィルタリング</a>を参照。</p>
 <p><div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
@@ -870,7 +867,6 @@ ros2:rcl_service_init:
 ros2:rcl_subscription_init:
 ros2:rcl_timer_init:
 </code></pre></div>
-
 <p>トレースポイントが不足している場合、セットアップで問題がある可能性があります。<br />
 トレース結果の保存が間に合わない場合には、<code>Tracer discarded とエラーが出る場合</code>とエラーが出る場合があります。</p>
 <h3 id="tracer-discarded">Tracer discarded とエラーが出る場合<a class="headerlink" href="#tracer-discarded" title="Permanent link">#</a></h3>
@@ -956,6 +952,8 @@ You should consider recording a new trace with larger buffers or with fewer even
     
     
       <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

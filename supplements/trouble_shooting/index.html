@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
+    
     <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
@@ -778,7 +780,6 @@ git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 colcon build --symlink-install
 </code></pre></div>
-
 </li>
 </ul>
 </li>
@@ -795,7 +796,6 @@ colcon build --symlink-install
 <span class="o">[</span>warning<span class="o">]</span> Tracer discarded <span class="m">3435</span> events between <span class="o">[</span><span class="m">15</span>:05:22.967846940<span class="o">]</span> and <span class="o">[</span><span class="m">15</span>:05:23.025356129<span class="o">]</span> <span class="k">in</span> trace UUID 236d978f8bde4cbc9460b0f4e008081, at path: <span class="s2">&quot;autoware/ust/uid/1000/64-bit&quot;</span>, within stream id <span class="m">0</span>, at relative path: <span class="s2">&quot;ros2_12&quot;</span>. You should consider recording a new trace with larger buffers or with fewer events enabled.
 <span class="o">[</span>warning<span class="o">]</span> Tracer discarded <span class="m">3910</span> events between <span class="o">[</span><span class="m">15</span>:05:22.972199681<span class="o">]</span> and <span class="o">[</span><span class="m">15</span>:05:23.024463592<span class="o">]</span> <span class="k">in</span> trace UUID 236d978f8bde4cbc9460b0f4e008081, at path: <span class="s2">&quot;autoware/ust/uid/1000/64-bit&quot;</span>, within stream id <span class="m">0</span>, at relative path: <span class="s2">&quot;ros2_6&quot;</span>. You should consider recording a new trace with larger buffers or with fewer events enabled.
 </code></pre></div>
-
 <p>上記のように <code>Tracer discarded 3435 events</code>と出ている場合には、測定結果が正しくでない可能性があります</p>
 </li>
 </ul>
@@ -805,7 +805,6 @@ colcon build --symlink-install
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
 </code></pre></div>
-
 <p>設定については、<a href="../trace_filtering/">トレースフィルタリング</a>をご覧ください。</p>
 </li>
 </ul>
@@ -818,7 +817,6 @@ colcon build --symlink-install
 <p>例</p>
 <div class="highlight"><pre><span></span><code>TraceResultAanalyzeError: Failed to find callback_object.node_name: /localization/pose_twist_fusion_filter/ekf_localizer, callback_name: timer_callback_0, period_ns: 19999999, symbol: void (EKFLocalizer::?)()
 </code></pre></div>
-
 <ul>
 <li>コールバック情報が見つかりませんでした。<ul>
 <li>node_name：/localization/pose_twist_fusion_filter/ekf_localizer</li>
@@ -913,6 +911,8 @@ CMakeLists.txtのfind_package後に以下の行を追加してください。<br
     
     
       <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
+    
     <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
@@ -917,7 +919,6 @@ subscribe: None, publish: /topic3, message_context: None
     <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span>
     <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span>
 </code></pre></div>
-
 <p>callback_chainポリシーでは、コールバックグラフを構築するための情報として、<strong>variable_passings</strong>を指定する必要があります。</p>
 <h4 id="_5">コールバックグラフの可視化<a class="headerlink" href="#_5" title="Permanent link">#</a></h4>
 <p>作成したアーキテクチャファイルを元に、コールバックグラフを可視化できます。</p>
@@ -925,7 +926,6 @@ subscribe: None, publish: /topic3, message_context: None
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
 ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
 </code></pre></div>
-
 <p>グラフの作成には Graphviz を使用しています。
 使用可能な拡張子については <a href="http://www.graphviz.org/docs/outputs/">Graphviz|Output Formats</a> をご覧ください。</p>
 <p>コマンドを実行すると以下のようなコールバックグラフが出力されます。</p>
@@ -941,7 +941,6 @@ ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
 caret はパスの探索にコールバックグラフを利用するので、アーキテクチャファイルの修正が必要になります。</p>
 <p>コールバックグラフ構築のために修正する項目は以下の通りです。</p>
 <!-- prettier-ignore-start -->
-
 <ol>
 <li>
 <p>コールバック関数と publish の紐付け（上図コールバックグラフの赤矢印）<br />
@@ -952,19 +951,19 @@ caret はパスの探索にコールバックグラフを利用するので、�
   <span class="l l-Scalar l-Scalar-Plain">- topic_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/topic4【トピック名】</span>
     <span class="l l-Scalar l-Scalar-Plain">callback_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
 </code></pre></div>
-
 </li>
 <li>
 <p>コールバック間の変数渡しの記述<br />
    [/nodes/node/variable_passing]には、変数渡しによるコールバック間の依存関係を記述します。
    callback_write には書き込み側のコールバック名、callback_read には読み込み側のコールバック名を記述してください。</p>
-<p><div class="highlight"><pre><span></span><code>  <span class="l l-Scalar l-Scalar-Plain">variable_passings:【変数を介したコールバック間のメッセージ渡し】</span>
+<div class="highlight"><pre><span></span><code>  <span class="l l-Scalar l-Scalar-Plain">variable_passings:【変数を介したコールバック間のメッセージ渡し】</span>
   <span class="l l-Scalar l-Scalar-Plain">- callback_name_write</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名*】</span>
     <span class="l l-Scalar l-Scalar-Plain">callback_name_read</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span>
 </code></pre></div>
-<!-- prettier-ignore-end --></p>
 </li>
 </ol>
+<!-- prettier-ignore-end -->
+
 <p><img alt="callback_graph_cui_export" src="/imgs/callback_graph_modified.png" /></p>
 <p>全ての矢印がコールバックからコールバックに繋がっていることに注意してください。</p>
 <h3 id="inherit_unique_stamp">inherit_unique_stamp<a class="headerlink" href="#inherit_unique_stamp" title="Permanent link">#</a></h3>
@@ -986,7 +985,6 @@ caret はパスの探索にコールバックグラフを利用するので、�
     <span class="nt">subscription_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span>
     <span class="nt">publisher_topic_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span>
 </code></pre></div>
-
 <h3 id="use_latest_message">use_latest_message<a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h3>
 <h4 id="_8">記述例<a class="headerlink" href="#_8" title="Permanent link">#</a></h4>
 <p>重要な項目のみを抜粋した記述の例を示します。</p>
@@ -1080,6 +1078,8 @@ caret はパスの探索にコールバックグラフを利用するので、�
     
     
       <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

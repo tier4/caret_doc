@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
+    
     <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
@@ -749,7 +751,6 @@ notebook上でbokehのグラフも表示させるため、以下コマンドを�
 <div class="highlight"><pre><span></span><code>from bokeh.plotting import output_notebook, figure, show
 output_notebook()
 </code></pre></div>
-
 <h2 id="_2">メッセージフロー<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <p>各メッセージがどの時点で何の処理をしていたか可視化できます。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">message_flow</span>
@@ -758,7 +759,6 @@ output_notebook()
 
 <span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">granularity</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lstrip_s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rstrip_s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-
 <p><img alt="message_flow" src="../../imgs/message_flow_sample.png" /></p>
 <p>縦軸は上から下に向かって、パスの始めから終わりに対応しています。
 各線はメッセージの流れを示しています。グレーの矩形領域はコールバックの実行時間を示しています。</p>
@@ -782,7 +782,6 @@ treat_drop_as_delay=True とすると、メッセージロストを遅延とし�
 
 <span class="n">chain_latency</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">granularity</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lstrip_s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rstrip_s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-
 <p><code>treat_drop_as_delay=False</code>とした場合、ロストせず終点まで到達したメッセージのレイテンシを出力します。
 <code>treat_drop_as_delay=True</code>とした場合、ロスト箇所を遅延として算出したメッセージのレイテンシを出力します。</p>
 <p><img alt="chain_latency_sample" src="../../imgs/chain_latency_sample.png" /></p>
@@ -794,7 +793,6 @@ treat_drop_as_delay=True とすると、メッセージロストを遅延とし�
 <span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">latency_ns</span><span class="p">)</span>
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
-
 <p><img alt="time_series_sample" src="../../imgs/time_series_sample.png" /></p>
 <h2 id="_5">レイテンシのヒストグラム<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
 <p>ヒストグラムも以下のようにして可視化できます。</p>
@@ -803,7 +801,6 @@ treat_drop_as_delay=True とすると、メッセージロストを遅延とし�
 <span class="n">p</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">bins</span><span class="p">)</span>
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
-
 <p><img alt="history_sample" src="../../imgs/history_sample.png" /></p>
 
               
@@ -879,6 +876,8 @@ treat_drop_as_delay=True とすると、メッセージロストを遅延とし�
     
     
       <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

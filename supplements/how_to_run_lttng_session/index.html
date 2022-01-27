@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
+    
     <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
     
       
@@ -739,7 +741,6 @@ ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれ
 <div class="highlight"><pre><span></span><code>ros2 trace -s end_to_end_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># ヘルプは ros2 trace -h</span>
 </code></pre></div>
-
 </li>
 <li>
 <p>アプリケーションの実行</p>
@@ -747,7 +748,6 @@ ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれ
 　<span class="c1"># end_to_end_sample.launch.py には tracetools_launch.action.Trace が追加済みです。</span>
   <span class="c1"># 自動でros2 trace同等の事を行ってくれるので、ros2 trace コマンドの実行は不要です。</span>
 </code></pre></div>
-
 </li>
 </ol>
 <p>終了する際の順番に指定はありません。<br />
@@ -851,6 +851,8 @@ launch ファイル内へ、<code>tracetools_launch.action.Trace</code> を追�
     
     
       <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
