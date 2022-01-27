@@ -695,7 +695,7 @@
 <h1 id="_1">コールバックグラフについて<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
 <p>ROS のアプリケーションは一般的にノードのグラフで記述され、それに伴いノード単位のレイテンシ（ノードレイテンシ）を把握したいケースが生じます。
 しかしながら、一つのノードにコールバックが複数存在するケースでは、ノードレイテンシを考えた際に不都合が生じます。</p>
-<p><img alt="callback_graph" src="/imgs/callback_graph.png" /></p>
+<p><img alt="callback_graph" src="../../imgs/callback_graph.png" /></p>
 <p>上図は、 /lidar と /camera トピックをサブスクライブし、その２つの情報を統合したメッセージを /fusion にパブリッシュする TargetNode を例として示しています。
 /lidar のコールバックでは、メンバ変数にメッセージを格納し、/camera コールバック内で統合させています。
 ※ CARET では 、変数を経由したコールバック間のメッセージ渡しを Variable Passing と呼び、アーキテクチャファイルへ記述させています。</p>
