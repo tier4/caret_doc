@@ -13,7 +13,7 @@ sudo apt-get install python3-babeltrace python3-lttng
 ```
 
 ROS 2 galactic のインストール、依存パッケージのインストール。
-詳細は [ROS2 公式ドキュメント](https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html) を参照。
+詳細は [ROS2 公式ドキュメント](https://docs.ros.org/en/galactic/Installation/Ubuntu-Development-Setup.html) を参照。
 
 ```bash
 sudo apt update && sudo apt install -y \
