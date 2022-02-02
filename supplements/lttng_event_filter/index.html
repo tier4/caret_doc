@@ -13,7 +13,7 @@
     
     
       
-        <title>測定 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>LTTngEventFilterの使用方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#lttngeventfilter" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              測定
+              LTTngEventFilterの使用方法
             
           </span>
         </div>
@@ -169,15 +169,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../setup/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../tutorials/setup/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -187,13 +185,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../supplements/gallery/" class="md-tabs__link">
+      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
         Supplements
       </a>
     </li>
@@ -277,14 +277,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -307,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/" class="md-nav__link">
+      <a href="../../tutorials/setup/" class="md-nav__link">
         環境構築
       </a>
     </li>
@@ -319,99 +317,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          測定
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorials/measurement/" class="md-nav__link">
         測定
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    アプリケーションのビルド
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    測定
-  </a>
-  
-    <nav class="md-nav" aria-label="測定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lttng" class="md-nav__link">
-    LTTngセッションの開始
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    アプリケーションの開始・測定
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    測定結果の確認
-  </a>
-  
-    <nav class="md-nav" aria-label="測定結果の確認">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tracer-discarded" class="md-nav__link">
-    Tracer discarded とエラーが出る場合
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -423,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_architecture/" class="md-nav__link">
+      <a href="../../tutorials/create_architecture/" class="md-nav__link">
         評価準備
       </a>
     </li>
@@ -437,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance_evaluation/" class="md-nav__link">
+      <a href="../../tutorials/performance_evaluation/" class="md-nav__link">
         性能評価
       </a>
     </li>
@@ -457,12 +367,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -485,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/gallery/" class="md-nav__link">
+      <a href="../gallery/" class="md-nav__link">
         ギャラリー
       </a>
     </li>
@@ -499,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/latency_definition/" class="md-nav__link">
+      <a href="../latency_definition/" class="md-nav__link">
         パスのレイテンシの定義
       </a>
     </li>
@@ -513,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/node_latency_definition/" class="md-nav__link">
+      <a href="../node_latency_definition/" class="md-nav__link">
         ノードレイテンシの定義
       </a>
     </li>
@@ -527,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/communication_latency_definition/" class="md-nav__link">
+      <a href="../communication_latency_definition/" class="md-nav__link">
         通信レイテンシの定義
       </a>
     </li>
@@ -541,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/about_callback_graph/" class="md-nav__link">
+      <a href="../about_callback_graph/" class="md-nav__link">
         コールバックグラフの説明
       </a>
     </li>
@@ -555,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/trace_filtering/" class="md-nav__link">
+      <a href="../trace_filtering/" class="md-nav__link">
         トレースフィルタリング
       </a>
     </li>
@@ -569,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/limits/" class="md-nav__link">
+      <a href="../limits/" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -583,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/how_to_search_path/" class="md-nav__link">
+      <a href="../how_to_search_path/" class="md-nav__link">
         パスの探索方法
       </a>
     </li>
@@ -597,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/about_treat_drop_as_delay/" class="md-nav__link">
+      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
         treat_drop_as_delayフラグの説明
       </a>
     </li>
@@ -611,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/architecture_format/" class="md-nav__link">
+      <a href="../architecture_format/" class="md-nav__link">
         アーキテクチャファイルフォーマット
       </a>
     </li>
@@ -625,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/how_to_run_lttng_session/" class="md-nav__link">
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
         Lttngセッションの開始方法
       </a>
     </li>
@@ -639,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/how_to_write_architecture/" class="md-nav__link">
+      <a href="../how_to_write_architecture/" class="md-nav__link">
         ノードレイテンシの算出方法の指定
       </a>
     </li>
@@ -651,11 +563,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../supplements/lttng_event_filter/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LTTngEventFilterの使用方法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         LTTngEventFilterの使用方法
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API説明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    使用例
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -667,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supplements/trouble_shooting/" class="md-nav__link">
+      <a href="../trouble_shooting/" class="md-nav__link">
         トラブルシューティング
       </a>
     </li>
@@ -784,114 +744,44 @@
               
                 
 
-<h1 id="_1">測定<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>サンプルのアプリケーションを例に、ツールの使い方を説明していきます。</p>
-<p>サンプルのリポジトリ<a href="https://github.com/tier4/CARET_demos.git">https://github.com/tier4/CARET_demos.git</a></p>
-<h2 id="_2">アプリケーションのビルド<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p>caret の環境変数を<code>/opt/ros/galactic/setup.bash</code>の後に設定し、測定対象のアプリケーションをビルドします。<br />
-caret 導入前にビルド済みのアプリケーションも、再度ビルドが必要になります。</p>
-<div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/src
-<span class="nb">cd</span> ~/ros2_ws
+<h1 id="lttngeventfilter">LTTngEventFilterの使用<a class="headerlink" href="#lttngeventfilter" title="Permanent link">#</a></h1>
+<p>CARETは数分程度の測定や解析までを取り扱うことができます。<br />
+より長時間、十数分〜数十分程度の測定結果を取り扱う際には、メモリの使用量・解析時間・可視化時間などが問題となってきます。</p>
+<p>そこで、CARETはLTTngの読み込み時に不要な測定結果を省くためのAPI(LTTngEventFilter)を備えています。<br />
+ここでは、LTTngEventFitlerの使い方について説明します。</p>
+<p>LTTngEventFitlerでは、以下のフィルタを備えています。</p>
+<ul>
+<li>init_pass_filter</li>
+<li>duration_filter</li>
+<li>strip_filter</li>
+</ul>
+<h2 id="api">API説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code>LttngEventFilter.init_pass_filter()
+</code></pre></div>
+<ul>
+<li>初期化時のトレースポイントのみを通します。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>LttngEventFilter.duration_filter(duration_s: float, offset_s: float)
+</code></pre></div>
+<ul>
+<li>[duration_s]秒間を測定対象にフィルタリング</li>
+<li>最初の[offset_s]秒間を無視</li>
+</ul>
+<div class="highlight"><pre><span></span><code>LttngEventFilter.strip_filter(lsplit_s: Optional[float], rsplit_s: Optional[float])
+</code></pre></div>
+<ul>
+<li>測定開始から[lsplit_s]秒間の測定結果を無視</li>
+<li>測定測定終了から[rsplit_s]秒間の測定結果を無視</li>
+</ul>
+<h2 id="_1">使用例<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<p><div class="highlight"><pre><span></span><code>from caret_analyze import Lttng, LttngEventFilter
 
-git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
-<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
-
-colcon build --symlink-install --packages-up-to caret_demos
+lttng = Lttng(&#39;/path/to/ctf&#39;, event_filters=[
+  LttngEventFilter.duration_filter(10, 5)
+]) # 測定開始5秒後から10秒間にフィルタいrング
 </code></pre></div>
-<blockquote>
-<p>測定対象のアプリケーションも再ビルドが必要な理由</p>
-<p>caret は rclcpp のヘッダーで読み込まれるテンプレート実装内にもトレースポイントを追加しています。<br />
-トレースポイントを追加された rclcpp を有効にするため、測定対象のアプリケーションを再度ビルドする必要が有ります。<br />
-従って、 apt でインストールした demo_nodes_cpp などのアプリケーションは測定することが出来ません。<br />
-測定するにはソースファイルからビルドし直す必要があります。</p>
-</blockquote>
-<h2 id="_3">測定<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<h3 id="lttng">LTTngセッションの開始<a class="headerlink" href="#lttng" title="Permanent link">#</a></h3>
-<p>CARETは測定のためにLTTngを利用しており、LTTngセッションの開始が必要です。<br />
-ここでは、ros2 tracingによって用意されたインターフェース経由でLTTngセッションを開始します。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
-
-<span class="c1"># トレースファイルの出力先を設定。デフォルトは ~/.ros/tracing。</span>
-mkdir -p ~/ros2_ws/evaluate
-<span class="nb">export</span> <span class="nv">ROS_TRACE_DIR</span><span class="o">=</span>~/ros2_ws/evaluate
-ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
-<span class="c1"># Enter を押して測定開始</span>
-
-<span class="c1"># -s はセッション名。</span>
-<span class="c1"># 上記の例では~/ros_ws/evaluate/e2e_sampleに測定結果が保存されます。</span>
-</code></pre></div>
-<p>別途ターミナルでLTTngセッションを開始せずに、Launchファイル内でLTTngのセッションを開始する方法もあります。<br />
-<a href="../../supplements/how_to_run_lttng_session/">LTTng セッションの開始方法</a>を参照してください。</p>
-<h3 id="_4">アプリケーションの開始・測定<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
-<p>アプリケーションを実行するターミナルでは、caret_ws 配下の rclcpp を使わせるため、opt 配下の後に caret_ws 配下の setup.bash を実行します。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
-<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
-<span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
-</code></pre></div>
-<p>以下のコマンドでビルドした rclcpp が使われることを確認します。</p>
-<div class="highlight"><pre><span></span><code>ldd ./build/caret_demos/end_to_end_sample  | grep rclcpp
-
-# librclcpp.so =&gt; /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so
-</code></pre></div>
-<p>フックを有効にするため、<code>LD_PRELOAD</code>を設定します。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># フックで追加されるトレースポイントの有効化</span>
-<span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
-</code></pre></div>
-<p>不要なノードやトピックを測定対象から除外する設定を行います。<br />
-トレースフィルタリング機能については、<a href="../../supplements/trace_filtering/">トレースフィルタリング</a>を参照。</p>
-<p><div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
-<span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>ros2 launch caret_demos end_to_end_sample.launch.py
-^C <span class="c1"># 数秒後、 Ctrl+C で終了</span>
-
-<span class="o">[</span>WARNING<span class="o">]</span> <span class="o">[</span>launch<span class="o">]</span>: user interrupted with ctrl-c <span class="o">(</span>SIGINT<span class="o">)</span>
-<span class="o">[</span>end_to_end_sample-1<span class="o">]</span> <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span><span class="m">1631481246</span>.160958444<span class="o">]</span> <span class="o">[</span>rclcpp<span class="o">]</span>: signal_handler<span class="o">(</span><span class="nv">signal_value</span><span class="o">=</span><span class="m">2</span><span class="o">)</span>
-<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>end_to_end_sample-1<span class="o">]</span>: process has finished cleanly <span class="o">[</span>pid <span class="m">722356</span><span class="o">]</span>
-</code></pre></div></p>
-<p>終了する際の順番に指定はありません。<br />
-<code>ros2 trace</code> を実行しているターミナルは <code>Enter</code> を再度押して測定を終了してください。</p>
-<h2 id="_5">測定結果の確認<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
-<p>記録されたトレースポイントを確認します。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 以下のトレースポイントが記録されていることを確認</span>
-$ babeltrace ~/ros2_ws/evaluate/e2e_sample/ <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u
-ros2:callback_end:
-ros2:callback_start:
-ros2_caret:add_callback_group_static_executor:
-ros2_caret:callback_group_add_service:
-ros2_caret:callback_group_add_subscription:
-ros2_caret:callback_group_add_timer:
-ros2_caret:construct_static_executor:
-ros2_caret:dds_bind_addr_to_stamp:
-ros2_caret:dds_write:
-ros2_caret:rmw_implementation:
-ros2:dispatch_subscription_callback:
-ros2:rclcpp_callback_register:
-ros2:rclcpp_publish:
-ros2:rclcpp_service_callback_added:
-ros2:rclcpp_subscription_callback_added:
-ros2:rclcpp_subscription_init:
-ros2:rclcpp_timer_callback_added:
-ros2:rclcpp_timer_link_node:
-ros2:rcl_init:
-ros2:rcl_node_init:
-ros2:rcl_publish:
-ros2:rcl_publisher_init:
-ros2:rcl_service_init:
-ros2:rcl_subscription_init:
-ros2:rcl_timer_init:
-</code></pre></div>
-<p>トレースポイントが不足している場合、セットアップで問題がある可能性があります。<br />
-トレース結果の保存が間に合わない場合には、<code>Tracer discarded とエラーが出る場合</code>とエラーが出る場合があります。</p>
-<h3 id="tracer-discarded">Tracer discarded とエラーが出る場合<a class="headerlink" href="#tracer-discarded" title="Permanent link">#</a></h3>
-<p>babeltrace コマンドの実行時に以下のような警告が現れる場合、<br />
-トレース結果のドロップが生じており、解析が正しく行えません。  </p>
-<p>トレースフィルタリング機能の設定を見直し、警告が出ないようにしてください。</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>warning<span class="o">]</span> Tracer discarded <span class="m">328</span> events between <span class="o">[</span><span class="m">10</span>:46:15.566916889<span class="o">]</span> and <span class="o">[</span><span class="m">10</span>:46:15.620323777<span class="o">]</span>  
-<span class="k">in</span> trace UUID 353a72bc12d4bcc85c9158dd8f88ef9, at path: <span class="s2">&quot;end_to_end_sample/ust/uid/10368/64-bit&quot;</span>,  
-within stream id <span class="m">0</span>, at relative path: <span class="s2">&quot;ros2_3&quot;</span>.  
-You should consider recording a new trace with larger buffers or with fewer events enabled.
-</code></pre></div>
+event_filtersは複数指定することもできます。<br />
+複数を入れた場合は、全てのフィルタが指定した区間のみにフィルタリングされます。</p>
 
               
             </article>
@@ -910,7 +800,7 @@ You should consider recording a new trace with larger buffers or with fewer even
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 環境構築" rel="prev">
+        <a href="../how_to_write_architecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ノードレイテンシの算出方法の指定" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -919,20 +809,20 @@ You should consider recording a new trace with larger buffers or with fewer even
               <span class="md-footer__direction">
                 Previous
               </span>
-              環境構築
+              ノードレイテンシの算出方法の指定
             </div>
           </div>
         </a>
       
       
         
-        <a href="../create_architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: 評価準備" rel="next">
+        <a href="../trouble_shooting/" class="md-footer__link md-footer__link--next" aria-label="Next: トラブルシューティング" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              評価準備
+              トラブルシューティング
             </div>
           </div>
           <div class="md-footer__button md-icon">
