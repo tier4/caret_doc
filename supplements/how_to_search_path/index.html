@@ -504,9 +504,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          パスの探索方法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         パスの探索方法
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    例
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -693,6 +731,59 @@
                 
 
 <h1 id="_1">パス探索の高速化<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p><code>search_paths</code>メソッドはノード図を描き、始点に設定したノードから終点に設定したノードまでを一筆書きで辿れる経路（パス）を全探索し、
+見つかった経路（パス）を全て返却する関数です。</p>
+<p>ノード図から全ての探索できるパスを全探索するため、対象のアプリケーションによっては処理に時間がかかりすぎてしまうケースがあります。<br />
+このようなケースで、高速に目的とするパスを探索する方法を説明します。</p>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
+<p>search_pathsでは、このような時間がかかりすぎてしまうケースを避けるためのAPIが備わっています。  </p>
+<div class="highlight"><pre><span></span><code>search_paths(
+    start_node_name: &#39;str&#39;,
+    end_node_name: &#39;str&#39;,
+    max_node_depth: &#39;Optional[int]&#39; = None,
+    node_filter: &#39;Optional[Callable[[str], bool]]&#39; = None,
+    communication_filter: &#39;Optional[Callable[[str], bool]]&#39; = None
+) -&gt; &#39;List[PathStructValue]&#39;
+</code></pre></div>
+<ul>
+<li>start_node_name : 探索の始点となるノード名</li>
+<li>end_node_name : 探索の終点となるノード名</li>
+<li>max_node_depth : 探索するパスが含む最大ノード数。小さいほど探索範囲が狭くなります</li>
+<li>node_filter: 探索対象のノードをフィルタする関数。Trueを返却した場合は探索対象になります。</li>
+<li>communication_filter: 探索対象の通信をフィルタする関数。Trueを返却した場合は探索対象になります。</li>
+</ul>
+<h2 id="_2">例<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code>import re
+
+# 正規表現に一致するノード名を探索から除外する
+node_filters = [
+    re.compile(r&#39;/_ros2cli_/*&#39;),
+    re.compile(r&#39;/launch_ros_*&#39;),
+]
+
+# 正規表現に一致するトピック名を探索から除外する
+comm_filters = [
+    re.compile(r&#39;/tf/*&#39;),
+]
+def comm_filter(topic_name: str) -&gt; bool:
+    can_pass = True
+    for comm_filter in comm_filters:
+        can_pass &amp;= not bool(comm_filter.search(topic_name))
+    return can_pass
+
+def node_filter(node_name: str) -&gt; bool:
+    can_pass = True
+    for node_filter in node_filters:
+        can_pass &amp;= not bool(node_filter.search(node_name))
+    return can_pass
+
+paths = arch.search_paths(
+    &#39;/start_node&#39;,
+    &#39;/end_node&#39;,
+    max_node_depth=30,
+    node_filter = node_filter,
+    communication_filter = comm_filter)
+</code></pre></div>
 
               
             </article>
