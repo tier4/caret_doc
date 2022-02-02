@@ -11,4 +11,5 @@ nav:
     - アーキテクチャファイルフォーマット: architecture_format.md
     - Lttngセッションの開始方法: how_to_run_lttng_session.md
     - ノードレイテンシの算出方法の指定: how_to_write_architecture.md
+    - LTTngEventFilterの使用方法: lttng_event_filter.md
     - トラブルシューティング: trouble_shooting.md
