@@ -73,6 +73,7 @@ python3 -m pip install -U \
   pybind11 \
   'pandas>=1.4.0' \
   bokeh \
+  pandas-bokeh \
   jupyterlab \
   graphviz
 
