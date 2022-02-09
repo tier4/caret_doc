@@ -71,7 +71,7 @@ sudo apt update && sudo apt install -y \
 python3 -m pip install -U \
   pytest-mock \
   pybind11 \
-  pandas \
+  'pandas>=1.4.0' \
   bokeh \
   jupyterlab \
   graphviz
