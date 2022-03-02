@@ -40,10 +40,12 @@ extra:
     provider: mike
 
 extra_css:
+  - https://unpkg.com/mermaid@8.13.10/dist/mermaid.css
   - assets/css/extra.css
   - https://use.fontawesome.com/releases/v5.15.4/css/all.css
 
 extra_javascript:
+  - https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js
   - https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 plugins:
