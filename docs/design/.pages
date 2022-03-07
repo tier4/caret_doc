@@ -1,4 +1,5 @@
 nav:
+    - ソフトウェアアーキテクチャ: design.md
     - トレースポイントの定義: tracepoint_definition.md
-    - コールバックグラフについて: about_callback_graph.md
     - galacticとの差分: diff.md
+    - レイテンシの算出方法: how_to_calculate_latency.md

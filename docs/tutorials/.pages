@@ -1,5 +1,5 @@
 nav:
     - 環境構築: setup.md
     - 測定: measurement.md
-    - アーキテクチャファイル: create_architecture.md
+    - 評価準備: create_architecture.md
     - 性能評価: performance_evaluation.md

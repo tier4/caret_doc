@@ -1,241 +1,222 @@
-# アーキテクチャファイル
+# 評価準備
 
-アーキテクチャファイルとは、レイテンシの算出に必要な静的情報を記述した yaml 形式の設定ファイルです。
-トレース結果のファイルから雛形を作成できますが、一部修正が必要になります。
-ここでは、アーキテクチャファイルの作成方法と修正方法を説明します。
+CARETは、評価する際にアーキテクチャファイルの作成が必要です。
 
-アーキテクチャファイルには以下の情報を記述します。
+トレース結果からアーキテクチャファイルの雛形を作成できますが、一部手作業での修正が必要になります。  
+ここでは、アーキテクチャファイルの作成方法とその修正方法を説明します。
 
-- パス情報
-  - パスの名前
-  - コールバックチェーン
-- ノード情報
-  - ノード名
-  - コールバックの情報
-    - コールバック名
-    - コールバック関数のシンボル名
-    - コールバックの種類【timer_callback または subscription_callback】
-    - コールバックのパラメータ【timer の場合は周期・subscription の場合はトピック名】
-  - コールバック間の変数渡し情報
-  - パブリッシュの情報
 
-## 雛形の作成
+## アーキテクチャファイルとは
+アーキテクチャファイルとは、実際に実行されたノードの情報など、測定毎に不変な静的な情報のみを含んだyaml形式の設定ファイルです。  
+コールバックの実行時間などの動的な情報は含みません。  
+※ トピック名やタイマーの周期など、実行時のパラメータも一部含みます。
 
-雛形はトレース結果から生成できます。
-
-```bash
-$ cd ~/ros2_ws/evaluate
-$ ls end_to_end_sample # トレース結果のパスの確認
-ust
-$ source ~/ros2_caret_ws/install/setup.bash # コマンドのパスを通す
-$ ros2 caret architecture -t end_to_end_sample -o architecture.yaml
-$ cat ./architecture.yaml
-path_name_aliases: []
-nodes:
-...
-```
-
-## アーキテクチャファイルのフォーマット
-
-以下にアーキテクチャファイルのフォーマットを示します。
-
-\*の付いた項目は手作業での修正が必要な項目です。
-
-```yaml
-path_name_aliases:【パス情報】
-- path_name: target_path【パスの名前*】
-  callbacks:
-  - /talker/subscription_callback_0【コールバックの識別名*】
-  - /talker/timer_callback_0【コールバックの識別名*】
-nodes:【ノード情報】
-- node_name: /talker【ノード名】
-  callbacks:【コールバックの情報】
-  - callback_name: subscription_callback_0【コールバック名】
-    type: subscription_callback【コールバックの種類】
-    topic_name: /topic3【トピック名】
-    symbol: Node::{lambda()}【コールバック関数のシンボル名】
-  - callback_name: timer_callback_0【コールバック名】
-    type: timer_callback【コールバックの種類】
-    period_ns: 100000000【タイマーコールバックの周期】
-    symbol: Node::{lambda()}【コールバック関数のシンボル名】
-  variable_passings:【変数を介したコールバック間のメッセージ渡し】
-  - callback_name_write: subscription_callback_0【コールバック名*】
-    callback_name_read: timer_callback_0【コールバック名*】
-  publishes:【パブリッシュの情報】
-  - topic_name: /topic4【トピック名】
-    callback_name: timer_callback_0【コールバック名*】
-```
-
-コールバックの識別名は、アプリケーション全体でコールバックを一意に特定するための名前です。
-以下のフォーマットになっています。
-
-```text
-コールバック識別名 = ノード名/コールバック名
-```
-
-> コールバックの一意性制約について
->
-> コールバック識別名は、以下に示すコールバック情報を元に、 subscription_callback_0 のようなインデックスを付けた名前が付けられます。
->
-> コールバック情報
->
-> - コールバックの種類
-> - コールバックのパラメータ（タイマーの場合は周期、サブスクライバの場合はトピック名）
-> - シンボル名
->
-> そのため、同じノード名を持つノード内で、同じコールバック情報をもつコールバックが複数存在するケースには caret を利用することが出来せん。
->
-> コールバックのパラメータ（トピック名や周期）やシンボル名（関数名）が変更された際は、アーキテクチャファイルの修正が必要となります。
-
-## コールバックグラフの可視化
-
-作成したアーキテクチャファイルを元に、コールバックグラフを可視化できます。
-
-ここでは、 CUI による可視化方法を説明します。
-
-```bash
-cd ~/ros2_ws/evaluate
-ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
-```
-
-グラフの作成には Graphviz を使用しています。
-使用可能な拡張子については [Graphviz|Output Formats](http://www.graphviz.org/docs/outputs/) をご覧ください。
-
-コマンドを実行すると以下のようなコールバックグラフが出力されます。
-
-![callback_graph_cui_export](/imgs/callback_graph_cui_export.png)
-
-灰色は名前空間、角丸四角はノード、四角はコールバック、矢印はコールバック間の依存関係を示しています。
-赤矢印はトピックを publish しているコールバックが不明なトピック通信を示しています。
-この赤矢印が、アーキテクチャファイルを編集し、publish 元のコールバックを指定する必要のある箇所です。
-
-デフォルトの型は svg 形式で、 tooltip による情報の表示に対応しています。
-
-![tooltip_sample](/imgs/tooltip_sample.png)
-
-カーソルをコールバックに合わせることで、コールバックのパラメータとシンボル名が表示されます。
-
-## コールバックグラフ情報の記述
-
-出力直後の雛形はコールバックの依存関係などが記述されていません。
-caret はパスの探索にコールバックグラフを利用するので、アーキテクチャファイルの修正が必要になります。
-
-コールバックグラフ構築のために修正する項目は以下の通りです。
-
-<!-- prettier-ignore-start -->
-1. コールバック関数と publish の紐付け（上図コールバックグラフの赤矢印）  
-   [/nodes/node/publish] には、ノードが publish しているトピック名が key として列挙されています。
-   value にトピックを publish しているコールバック名を記述してください。
-   未接続のトピック通信（コールバックグラフ上の赤矢印）が無くなるまで修正してください。
-
-  ```yaml
-    publishes:【パブリッシュの情報】
-    - topic_name: /topic4【トピック名】
-      callback_name: timer_callback_0【コールバック名*】
-  ```
-
-1. コールバック間の変数渡しの記述  
-   [/nodes/node/variable_passing]には、変数渡しによるコールバック間の依存関係を記述します。
-   callback_write には書き込み側のコールバック名、callback_read には読み込み側のコールバック名を記述してください。
-
-  ```yaml
-    variable_passings:【変数を介したコールバック間のメッセージ渡し】
-    - callback_name_write: subscription_callback_0【コールバック名*】
-      callback_name_read: timer_callback_0【コールバック名*】
-  ```
-<!-- prettier-ignore-end -->
-
-![callback_graph_cui_export](/imgs/callback_graph_modified.png)
-
-全ての矢印がコールバックからコールバックに繋がっていることに注意してください。
-
-## コールバックチェーン情報の記述
-
-ノードレイテンシや、End-to-End レイテンシ、通信レイテンシのレイテンシを算出するには、多数あるパスの中から、評価対象のパスのコールバックチェーンを与える必要があります。
-
-評価対象のパスのコールバックチェーンを与えるには、アーキテクチャファイルにパスの名前とコールバックのリストを記述します。
-このコールバックリストは、コールバックを一つずつ記述していくのは手間であり、誤りが生じやすいです。
-ここでは caret が備えているパス探索を使用し、アーキテクチャファイルにコールバックチェーン情報を記述する手順を説明します。
-
-※ jupyter 上での手動による評価を行う場合にはこの手順をスキップすることもできます。
-
-本手順の jupyter notebook は以下に有ります。
-[https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/select_path.ipynb](https://github.com/tier4/CARET_demos/blob/main/samples/end_to_end_sample/select_path.ipynb)
-
-```yaml
-path_name_aliases:
-  - path_name: target_path【パスの名前（任意）】
-    callbacks:
-      - /talker/subscription_callback_0【コールバックの識別名】
-      - /talker/timer_callback_0【コールバックの識別名】
-```
-
-```bash
-cd ~/ros2_ws/evaluate
-~/ros2_caret_ws/install/setup.bash
-jupyter-lab
-```
-
-アーキテクチャファイルを読み込み。
-
-```python
-import caret_analyze as caret
-import caret_analyze.plot as caret_plot
-
-app = caret.Application('/path/to/architecture.yaml', 'yaml', None)
-```
-
-評価対象のパスの、始点と終点のコールバック識別名から、パスを探索。
-
-```python
-start_callback_name = '/sensor_dummy_node/timer_callback_0'
-end_callback_name = '/actuator_dummy_node/subscription_callback_0'
-paths = app.search_paths(start_callback_name, end_callback_name)
-len(paths)  # 見つかったパスの数を出力
-```
-
-探索結果のパスを一つずつ確認し、評価対象のパスを選定します。
-
-```python
-path = paths[0]
-caret_plot.callback_graph(app, callbacks=path.callbacks)
-# 画像として保存する場合はパスを指定
-# caret_plot.callback_graph(app, callbacks=path.callbacks, export_path='callback_graph.svg')
-```
-
-jupyter 上に、パスの強調されたコールバックグラフが表示されます。
-
-![callback_graph_cui_export](/imgs/callback_graph_highlight.png)
-
-評価対象のパスに名前を付け、再度保存します。
-
-```python
-app.path['target_path'] = path
-app.export_architecture('architecture.yaml')
-```
-
-アーキテクチャファイルを確認し、パスの情報が追加されたことを確認します。
-
-```bash
-$ cat architecture.yaml
-path_name_aliases:
-- path_name: target_path
-  callbacks:
-  - /talker/subscription_callback_0
-  - /talker/timer_callback_0
-...
-```
-
-パスの定義をした後は、CLI からパスがハイライトされたコールバックグラフを出力できます。
-
-```bash
-ros2 caret callback_graph -a architecture.yaml -o calback_graph_cmd.svg -p target_path -s false
-```
-
-`-s true` とすると、全てのトピックがラベル化され、ノードごとの確認が行いやすくなります。
+アーキテクチャファイルで記述した静的な情報と、  
+コールバックの実行時間などの測定結果と合わせることで、レイテンシの算出が行えるようになります。
 
 ---
 
-CARET_demos/end_to_end のソースコードと、手作業での修正例を示します。
-[https://github.com/tier4/CARET_demos/blob/main/caret_demos/src/end_to_end_sample.cpp](https://github.com/tier4/CARET_demos/blob/main/caret_demos/src/end_to_end_sample.cpp)
-[https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b](https://github.com/tier4/CARET_demos/commit/b449c924c24dd17be70a1b7d3886a28e9e70682b)
+アーキテクチャファイルの主な役割は以下の通りです。
+
+1. 測定対象のパスを定義
+1. ノードおよびコールバックの実行方法（エグゼキューターの情報）を記述
+1. ノードレイテンシの算出方法（ノードの情報）を指定
+
+
+![パスの指定とノードレイテンシの算出方法指定](../imgs/path_and_node_latency.svg)
+
+この内、①パスの情報はpythonAPIからの編集（直接yamlファイルからの編集も可）、②ノードの情報は直接yamlファイルの編集が必要です。
+
+## jupyter の起動
+
+本ページで説明する雛形の作成などの作業は、python APIを使用して行います。  
+
+以下の手順でjupyterを起動してください。
+
+```bash
+mkdir -p ~/ros2_ws/evaluate && cd ~/ros2_ws/evaluate
+
+source ~/ros2_caret_ws/install/setup.bash
+jupyter-lab
+```
+
+
+## 雛形の作成
+
+雛形はpython以下のコードでトレース結果から生成できます。
+
+```python
+from caret_analyze import Architecture
+
+# トレース結果からアーキテクチャファイルの読み込み
+arch = Architecture('lttng', './e2e_sample')
+
+# アーキテクチャファイルの保存
+arch.export('architecture.yaml')
+
+# 生成されたファイルの確認
+! readlink -f ./architecture.yaml
+# /home/user/ros2_caret_ws/eval/architecture.yaml
+```
+
+
+## 測定対象のパスの指定
+
+生成したアーキテクチャファイルは以下のようにして読み込めます。
+
+```
+from caret_analyze import Architecture, check_procedure
+arch = Architecture('yaml', './architecture.yaml')
+```
+
+読み込んだ情報を元に、始点ノードから終点ノードまでのパスを全探索します。
+
+```python
+paths = arch.search_paths(
+    '/sensor_dummy_node', # パスの開始ノード
+    '/actuator_dummy_node') # パスの終了ノード
+```
+
+測定対象のアプリケーションが複雑な場合、探索に時間がかることがあります。  
+その際は、無関係なノードやトピックの枝刈りや、探索する深さを指定できます。 詳細は[パスの探索方法](../supplements/how_to_search_path.md)を参照ください。
+
+探索されたパスは複数見つかることがあります。  
+測定したいパスのインデックスを探すために、探索したパスの情報を確認します。
+
+```
+path = paths[0]
+path.summary.pprint()
+
+---以下出力---
+ path:
+ - message_context: null  # ノードレイテンシの定義。
+   node: /sensor_dummy_node
+ - topic: /topic1
+ - message_context:
+     publisher_topic_name: /topic2
+     subscription_topic_name: /topic1
+     type: callback_chain
+   node: /filter_node
+ - topic: /topic2
+ - message_context: null
+   node: /message_driven_node
+ - topic: /topic3
+ - message_context: null
+   node: /timer_driven_node
+ - topic: /topic4
+ - message_context: null
+   node: /actuator_dummy_node
+```
+
+決定したパスに`target_path`と名前を付け、アーキテクチャファイルに保存します。
+
+```
+arch.add_path('target_path', path)
+arch.export('./architecture.yaml')
+```
+
+アーキテクチャファイルには、以下のように記載されます。
+``` yaml
+named_paths:
+- path_name: target_path
+  node_chain:
+  - node_name: /sensor_dummy_node
+    publish_topic_name: /topic1
+    subscribe_topic_name: UNDEFINED
+  - node_name: /filter_node
+    publish_topic_name: /topic2
+    subscribe_topic_name: /topic1
+  - node_name: /message_driven_node
+    publish_topic_name: /topic3
+    subscribe_topic_name: /topic2
+  - node_name: /timer_driven_node
+    publish_topic_name: /topic4
+    subscribe_topic_name: /topic3
+  - node_name: /actuator_dummy_node
+    publish_topic_name: UNDEFINED
+    subscribe_topic_name: /topic4
+```
+
+## ノードレイテンシの定義指定
+
+ノードレイテンシは、「ノードがメッセージをsubscribeし、コールバックが処理開始する時刻」から「ノードがメッセージをpublishする時刻」までとしています。  
+ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。  
+
+CARETではいくつかのノードレイテンシの算出方法を提供しています。  
+ノードレイテンシの算出方法はアーキテクチャファイルでは、主に **message_context**という項目として指定します。  
+
+### 修正対象の確認
+
+以下のように、`path.verify()`を実行し、パスに含まれるノードレイテンシの定義の情報が不足ていないか確認します。
+
+```python
+from caret_analyze import Architecture
+
+arch = Architecture('yaml', './architecture.yaml')
+path = arch.get_path('target_path')
+path.verify()
+
+---以下出力---
+WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions. 
+To see node definition and procedure,execute :
+>> check_procedure('yaml', '/path/to/yaml', arch, '/message_driven_node') 
+message_context: null
+node: /message_driven_node
+publish_topic_name: /topic3
+subscribe_topic_name: /topic2
+
+WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions. 
+To see node definition and procedure,execute :
+>> check_procedure('yaml', '/path/to/yaml', arch, '/timer_driven_node') 
+message_context: null
+node: /timer_driven_node
+publish_topic_name: /topic4
+subscribe_topic_name: /topic3
+```
+
+上記は、以下の修正が必要と警告しています
+
+- `/message_driven_node`ノード、`/topic2`入力から`/topic3`出力のパス
+- `/timer_driven_node`ノード、`/topic3`入力から`/topic4`出力のパス
+
+警告されたノードのパスについて、アーキテクチャファイル内の対応するmessage_contextを編集する必要が有ります。  
+
+### ノードレイテンシの算出方法指定
+
+サンプルのアプリケーションでは、以下の修正が必要になります。
+
+```yaml
+# /message_driven_node内の項目
+  message_contexts:
+  - context_type: use_latest_message # UNDEFINEDからuse_latest_messageへ変更
+    subscription_topic_name: /topic2
+    publisher_topic_name: /topic3
+```
+
+```yaml
+# /message_driven_node内の項目
+  message_contexts:　
+  - context_type: use_latest_message # UNDEFINEDからuse_latest_messageへ変更
+    subscription_topic_name: /topic3
+    publisher_topic_name: /topic4
+
+```
+
+### 修正結果の確認
+
+ノードレイテンシの定義を与えた後、警告がでなくなることを確認します。
+
+```python
+from caret_analyze import Architecture
+
+arch = Architecture('yaml', './architecture.yaml')
+path = arch.get_path('target_path')
+path.verify()
+```
+
+警告が出なければ、パスのレイテンシが算出できるということになります。  
+警告が出る箇所は、算出に必要な情報が不足している可能性があります。
+
+最終的には以下のようなアーキテクチャファイルを用意します。
+
+TODO: サンプルのアーキテクチャファイルへのリンクを追加。

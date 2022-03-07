@@ -1,35 +1,34 @@
-## トレースポイントの定義
+# トレースポイントの定義
 
-| トレースポイントの実装方法 | provider   | 呼び出し種類 | トレースポイントの説明                                                                       | トレースポイント名                           | 引数１                  | 引数２                  | 引数３                      | 引数４           | 引数５          |
-| -------------------------- | ---------- | ------------ | -------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------------------- | ----------------------- | --------------------------- | ---------------- | --------------- |
-| galactic デフォルト        | ros2       | 初期化時     |                                                                                              | rcl_init                                     | context_handle_arg      | version                 |
-| galactic デフォルト        | ros2       | 初期化時     | ノード情報の出力用                                                                           | rcl_node_init                                | node_handle_arg         | rmw_handle_arg          | node_name_arg               | namespace_arg    |
-| galactic デフォルト        | ros2       | 初期化時     | publisher 情報の出力用                                                                       | rcl_publisher_init                           | publisher_handle_arg    | node_handle_arg         | rmw_publisher_handle_arg    | queue_depth_arg  |
-| galactic デフォルト        | ros2       | ランタイム   | publish の測定用                                                                             | rcl_publish                                  | publisher_handle_arg    | message_arg             |
-| galactic デフォルト        | ros2       | ランタイム   | publish の測定用                                                                             | rclcpp_publish                               | publisher_handle_arg    | message_arg             |
-| galactic デフォルト        | ros2       | 初期化時     | subscription 情報の出力用                                                                    | rcl_subscription_init                        | subscription_handle_arg | node_handle_arg         | rmw_subscription_handle_arg | topic_name_arg   | queue_depth_arg |
-| galactic デフォルト        | ros2       | 初期化時     | subscription 情報の出力用                                                                    | rclcpp_subscription_init                     | subscription_handle_arg | subscription_arg        |
-| galactic デフォルト        | ros2       | 初期化時     | subscription 情報の出力用                                                                    | rclcpp_subscription_callback_added           | subscription_arg        | callback_arg            |
-| galactic デフォルト        | ros2       | 初期化時     | service 情報の出力用                                                                         | rcl_service_init                             | service_handle_arg      | node_handle_arg         | rmw_service_handle_arg      | service_name_arg |
-| galactic デフォルト        | ros2       | 初期化時     | service 情報の出力用                                                                         | rclcpp_service_callback_added                | service_handle_arg      | callback_arg            |
-| galactic デフォルト        | ros2       | 初期化時     | client 情報の出力用                                                                          | rcl_client_init                              | client_handle_arg       | node_handle_arg         | rmw_client_handle_arg       | service_name_arg |
-| galactic デフォルト        | ros2       | 初期化時     | client 情報の出力用                                                                          | rcl_timer_init                               | timer_handle_arg        | period_arg              |
-| galactic デフォルト        | ros2       | 初期化時     | timer 情報の出力用                                                                           | rclcpp_timer_callback_added                  | timer_handle_arg        | callback_arg            |
-| galactic デフォルト        | ros2       | 初期化時     | timer 情報の出力用                                                                           | rclcpp_timer_link_node                       | timer_handle_arg        | node_handle_arg         |
-| galactic デフォルト        | ros2       | 初期化時     | timer 情報の出力用                                                                           | rclcpp_callback_register                     | callback_arg            | symbol_arg              |
-| galactic デフォルト        | ros2       | ランタイム   | コールバック実行の測定用                                                                     | callback_start                               | callback_arg            | is_intra_process_arg    |
-| galactic デフォルト        | ros2       | ランタイム   | コールバック実行の測定用                                                                     | callback_end                                 | callback_arg            |
-| galactic デフォルト        | ros2       | 初期化時     |                                                                                              | rcl_lifecycle_state_machine_init             | node_handle_arg         | state_machine_arg       |
-| rclcpp パッケージ新規追加  | ros2       | ランタイム   | publish 時、ROS レイヤー内でコピーが発生した際のコピー元アドレスとコピー先アドレスの紐付け用 | message_construct                            | original_message_arg    | constructed_message_arg |
-| rclcpp パッケージ新規追加  | ros2       | ランタイム   | publish の測定用                                                                             | rclcpp_intra_publish                         | publisher_handle_arg    | message_arg             |
-| rclcpp パッケージ新規追加  | ros2       | ランタイム   | コールバック実行の測定用（メッセージアドレスとコールバックを紐付け）                         | dispatch_subscription_callback               | message_arg             | callback_arg            | stamp_arg                   |
-| rclcpp パッケージ新規追加  | ros2       | ランタイム   | コールバック実行の測定用（メッセージアドレスとコールバックを紐付け）                         | dispatch_intra_process_subscription_callback | message_arg             | callback_arg            | stamp_arg                   |
-| LD_PRELOAD フック          | ros2_caret | ランタイム   | DDS がメッセージを受け取った際に呼ばれる関数                                                 | on_data_available                            | stamp_arg               |
-| LD_PRELOAD フック          | ros2_caret | ランタイム   | DDS にメッセージを書き込んだ際に呼ばれる関数                                                 | dds_write                                    | message_arg             |
-| LD_PRELOAD フック          | ros2_caret | ランタイム   | DDS 内でアドレスと stamp を紐付けるためのトレースポイント。各 DDS に対応が必要               | dds_bind_addr_to_stamp                       | addr_from_arg           | stamp_to_arg            |
-| LD_PRELOAD フック          | ros2_caret | ランタイム   | DDS 内でアドレスとアドレスを紐付けるためのトレースポイント。各 DDS に対応が必要              | dds_bind_addr_to_addr                        | addr_from_arg           | addr_to_arg             |
+CARETはトピック名などの情報を得るための「初期化時の処理に対するトレースポイント」と、  
+測定をするための「ランタイムの処理に対するトレースポイント」があります。
 
-## 主要なトレースポイントのシーケンス図
+本ページではそれぞれのトレースポイントの定義についてまとめています。
+
+
+各トレースポイントには、その実装方法を区別するために以下の情報も記載しています。
+
+- Galactic実装
+  - Galactic以降のROSにはデフォルトで実装されている、ros2 tracingが使用しているトレースポイントです。
+  - serviceやlifecycleなど、実装はされていてもCARETでは使われていないトレースポイントも有ります。
+- CARETフォーク実装
+  - rclcppリポジトリをフォークして追加しているトレースポイントです。
+- CARETフック実装
+  - LD_PRELOADによるフックで追加しているトレースポイントです。
+
+
+> フォークとフックの２つの方法でトレースポイントを追加している理由  
+>
+> CARETは基本的には実装と切り離すために、LD_PRELOADを利用したフックによるトレースポイントの追加をしています。  
+> ただし、rclcppには、プロセス内通信などのテンプレートによる実装を含み、LD_PRELOADではフックできない処理があります。  
+> LD_PRELOADは実行時の動的リンクに対しフックできる機能であるのに対し、  
+> テンプレートで実装された処理はコンパイルでバイナリ内に組み込まれてしまうためフックできません。  
+> このようなテンプレートで実装された処理に対してのみ、rclcppをフォークしてトレースポイントを追加しています。  
+> このような理由から、測定対象のアプリケーションを再ビルドする必要が生じています。
+
+
+## シーケンスと主要なトレースポイント
+
 
 ```plantuml
 @startuml
@@ -102,10 +101,552 @@ deactivate ROS2
 @enduml
 ```
 
-## トレースポイントの実装方法・フック方法について
+## 初期化時のトレースポイント
 
-| トレースポイントの種類    | 説明                                                                                                                    |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| galactic デフォルト       | galactic で初期から実装されている LTTng のトレースポイント                                                              |
-| rclcpp パッケージ新規追加 | LD_PRELOAD でのフックが不可な箇所へのトレースポイント。テンプレートによりヘッダー内で実装されているのがフック不可な理由 |
-| LD_PRELOAD フック         | LD_PRELOAD で特定の関数をフックさせたトレースポイント。別途動的ライブラリのビルドが必要。                               |
+---
+
+### rcl_init
+[Galactic実装]
+
+付加情報
+
+- void * context_handle
+
+---
+
+### rcl_node_init
+[Galactic実装]
+
+付加情報
+
+- void * node_handle
+- void * rmw_handle
+- char * node_name
+- char * node_namespace
+
+---
+
+### rcl_publisher_init
+[Galactic実装]
+
+付加情報
+
+- void * publisher_handle
+- void * node_handle
+- void * rmw_publisher_handle
+- char * topic_name
+- size_t queue_depth
+
+
+---
+
+### rcl_subscription_init
+[Galactic実装]
+
+付加情報
+
+- void * subscription_handle
+- void * node_handle
+- void * rmw_subscription_handle
+- char * topic_name
+- size_t queue_depth
+
+
+---
+
+### rclcpp_subscription_init
+[Galactic実装]
+
+付加情報
+
+- void * subscription_handle
+- void * subscription
+
+
+---
+
+### rclcpp_subscription_callback_added
+[Galactic実装]
+
+付加情報
+
+- void * subscription
+- void * callback
+
+
+---
+
+### rcl_timer_init
+[Galactic実装]
+
+付加情報
+- void * timer_handle
+- int64_t period
+
+
+---
+
+### rclcpp_timer_callback_added
+[Galactic実装]
+
+付加情報
+
+- void * timer_handle
+- void * callback
+
+
+---
+
+### rclcpp_timer_link_node
+[Galactic実装]
+
+付加情報
+
+- void * timer_handle
+- void * node_handle
+
+
+---
+
+### rclcpp_callback_register
+[Galactic実装]
+
+付加情報
+
+- void * callback
+- char * function_symbol
+
+
+---
+
+### rmw_implementation
+[CARETフック実装]
+
+付加情報
+
+- char * rmw_impl
+
+
+---
+
+### construct_executor
+[CARETフック実装]
+
+付加情報
+
+-  void * executor_addr
+-  char * executor_type_name
+
+
+---
+
+### construct_static_executor
+[CARETフック実装]
+
+付加情報
+
+- void * executor_addr
+- void * entities_collector_addr
+- char * executor_type_name
+
+---
+
+### add_callback_group
+[CARETフック実装]
+
+付加情報
+
+- void * executor_addr
+- void * callback_group_addr
+- char * group_type_name
+
+---
+
+### add_callback_group_static_executor
+[CARETフック実装]
+
+付加情報
+
+- void * entities_collector_addr
+- void * callback_group_addr
+- char * group_type_name
+
+---
+
+### callback_group_add_timer
+[CARETフック実装]
+
+付加情報
+
+- void * callback_group_addr
+- void * timer_handle
+
+---
+
+### callback_group_add_subscription
+[CARETフック実装]
+
+付加情報
+
+- void * callback_group_addr
+- void * subscription_handle
+
+---
+
+### callback_group_add_service
+[CARETフック実装]
+
+付加情報
+
+- void * callback_group_addr
+- void * service_handle
+
+
+---
+
+### callback_group_add_client
+[CARETフック実装]
+
+付加情報
+
+- void * callback_group_addr
+- void * client_handle
+
+
+---
+
+## ランタイム時のトレースポイント
+
+### callback_start
+[Galactic実装]
+
+付加情報
+
+- void * callback
+- bool is_intra_process
+
+
+---
+
+### callback_end
+[Galactic実装]
+
+付加情報
+
+-  void * callback
+
+---
+
+### message_construct
+[CARETフォーク実装]
+
+付加情報
+
+- void * original_message
+- void * constructed_message
+
+
+---
+
+### rclcpp_intra_publish
+[CARETフォーク実装]
+
+付加情報
+
+- void * publisher_handle
+- void * message
+- uint64_t message_timestamp
+
+
+---
+
+### dispatch_subscription_callback
+[CARETフォーク実装]
+
+付加情報
+
+- void * message
+- void * callback
+- uint64_t source_timestamp
+- uint64_t message_timestamp
+
+
+---
+
+### dispatch_intra_process_subscription_callback
+[CARETフォーク実装]
+
+付加情報
+
+- void * message
+- void * callback
+- uint64_t message_timestamp
+
+---
+
+### rcl_publish
+[Galactic実装]
+
+付加情報
+
+- void * publisher_handle
+- void * message
+
+
+---
+
+### rclcpp_publish
+[Galactic実装]
+
+付加情報
+
+- void * publisher_handle
+- void * message
+- uint64_t message_timestamp
+
+### dds_write
+[CARETフック実装]
+
+付加情報
+
+- void * message
+
+---
+
+### dds_bind_addr_to_stamp
+[CARETフック実装]
+
+付加情報
+
+-  void * addr
+-  uint64_t source_stamp
+
+
+---
+
+
+### dds_bind_addr_to_addr
+[CARETフック実装]
+
+付加情報
+
+-  void * addr_from
+-  void * addr_to
+
+
+---
+
+## トレースポイントの紐付け
+
+本ページで列挙しているトレースポイントはノードID（`node_handle`）やコールバックID（`コールバックのインスタンスのアドレス`）などの値を元に紐付けて利用する。  
+それぞれのトレースポイントの対応関係をグラフで示す。
+### ノードの初期化
+
+```mermaid
+
+graph RL
+  node_handle[[node_handle]]
+  subscription_handle[[subscription_handle]]
+  subscription[[subscription]]
+  callback[[callback]]
+  timer_handle[[timer_handle]]
+  client_handle[[client_handle]]
+  node_handle[[node_handle]]
+  publisher_handle[[publisher_handle]]
+
+  rcl_init[rcl_init<ul><li>context_handle</li></ul>]
+
+  rcl_node_init[rcl_node_init<br /><ul><li>node_handle</li><li>node_name</li><li>node_namespace</li><li>rmw_handle</li></ul>]
+
+  rcl_publisher_init[rcl_publisher_init<br /><ul><li>node_handle</li><li>publisher_handle</li><li>rmw_publisher_handle</li><li>topic_name</li><li>queue_depth</li></ul>]
+
+  rcl_subscription_init[rcl_subscription_init<ul><li>subscription_handle</li><li>node_handle</li><li>rmw_subscription_handle</li><li>topic_name</li><li>queue_depth</li></ul>]
+
+  rclcpp_subscription_init[rclcpp_subscription_init<ul><li>subscription_handle</li><li>subscription</li></ul>]
+
+  rclcpp_subscription_callback_added[rclcpp_subscription_callback_added<ul><li>subscription</li><li>callback</li></ul>]
+
+  rclcpp_timer_link_node[rclcpp_timer_link_node<ul><li>timer_handle</li><li>node_handle</li></ul>]
+
+  rclcpp_callback_register[rclcpp_callback_register<ul><li>callback</li><li>function_symbol</li></ul>]
+
+  rmw_implementation[rmw_implementation<ul><li>rmw_impl</li></ul>]
+
+  rcl_timer_init[rcl_timer_init<ul><li>timer_handle</li><li>period</li></ul>]
+
+
+  rcl_publisher_init <--> node_handle
+  node_handle <--> rcl_node_init
+  rcl_subscription_init <--> node_handle
+  subscription_handle <--> rcl_subscription_init
+  rclcpp_subscription_init <--> subscription_handle
+
+  publisher_handle <--> rcl_publisher_init
+
+  subscription <--> rclcpp_subscription_init
+  rclcpp_subscription_callback_added <--> subscription
+  callback <--> rclcpp_subscription_callback_added
+
+  rcl_timer_init <--> timer_handle
+  rclcpp_timer_callback_added <--> timer_handle
+  callback <-->  rclcpp_timer_callback_added
+  timer_handle <--> rclcpp_timer_link_node
+  rclcpp_timer_link_node <--> node_handle
+
+  callback <--> rclcpp_callback_register
+  rmw_implementation
+
+```
+コールバックのインスタンスのアドレス値が一意に決まれば、`timer_callback_added`など他のトレースポイントの値を紐付いていくことでノードの情報まで得ることができる。  
+逆に、node_handleが一意に決まれば、そのノードに含まれるコールバックも特定できる。
+
+### エグゼキューターやコールバックグループの初期化
+
+``` mermaid
+
+graph RL
+  subscription_handle[[subscription_handle]]
+  executor_addr[[executor_addr]]
+  entities_collector_addr[[entities_collector_addr]]
+  timer_handle[[timer_handle]]
+  client_handle[[client_handle]]
+  service_handle[[service_handle]]
+  callback_group_addr[[callback_group_addr]]
+
+  construct_executor[construct_executor<ul><li>executor_addr</li><li>executor_type_name</li></ul>]
+
+  construct_static_executor[construct_static_executor<ul><li>executor_addr</li><li>executor_type_name</li><li>entities_collector_addr</li></ul>]
+
+  add_callback_group[add_callback_group<ul><li>executor_addr</li><li>callback_group_addr</li><li>group_type_name</li></ul>]
+
+  add_callback_group_static_executor[add_callback_group_static_executor<ul><li>entities_collector_addr</li><li>callback_group_addr</li><li>group_type_name</li></ul>]
+
+  callback_group_add_timer[callback_group_add_timer<ul><li>callback_group_addr</li><li>timer_handle</li></ul>]
+
+  callback_group_add_subscription[callback_group_add_subscription<ul><li>callback_group_addr</li><li>subscription_handle</li></ul>]
+
+  callback_group_add_service[callback_group_add_service<ul><li>callback_group_addr</li><li>service_handle</li></ul>]
+
+
+  callback_group_add_client[callback_group_add_client<ul><li>callback_group_addr</li><li>client_handle</li></ul>]
+
+  executor_addr <--> construct_executor
+  entities_collector_addr <--> construct_static_executor
+  add_callback_group <--> executor_addr
+  callback_group_addr <--> add_callback_group
+
+  add_callback_group_static_executor <--> entities_collector_addr
+  callback_group_addr <--> add_callback_group_static_executor
+
+  callback_group_add_timer <--> callback_group_addr
+  timer_handle <--> callback_group_add_timer
+
+  callback_group_add_subscription <--> callback_group_addr
+  subscription_handle <--> callback_group_add_subscription
+
+  callback_group_add_service <--> callback_group_addr
+  service_handle <--> callback_group_add_service
+
+  callback_group_add_client <--> callback_group_addr
+  client_handle <--> callback_group_add_client
+```
+
+タイマーなどの各ハンドラはコールバックグループに追加され、エグゼキュータに紐付けられる。
+
+### メッセージのpublishまで
+
+```mermaid
+
+graph LR
+  source_timestamp[[source_timestamp]]
+  message_dds[[message_addr]]
+  message_intra[[message_addr]]
+  message_inter[[message_addr]]
+  publish(("publish(message)"))
+  source_timestamp[[source_timestamp]]
+  message_intra_sub[[message_addr]]
+
+  rclcpp_intra_publish[rclcpp_intra_publish<ul><li>publisher_handle</li><li>message_addr</li><li>message_timestamp</li></ul>]
+
+  message_construct_intra[message_construct<ul><li>original_message_addr</li><li>constructed_message_addr</li></ul>]
+  message_construct_inter[message_construct<ul><li>original_message_addr</li><li>constructed_message_addr</li></ul>]
+
+  rclcpp_publish[rclcpp_publish<ul><li>publisher_handle</li><li>message_addr</li><li>message_timestamp</li></ul>]
+
+  rcl_publish[rcl_publish<ul><li>publisher_handle</li><li>message_addr</li></ul>]
+  dds_write[dds_write<ul><li>message_addr</li></ul>]
+  dds_bind_addr_to_addr[dds_bind_addr_to_addr<ul><li>addr_from</li><li>addr_to</li></ul>]
+  dds_bind_addr_to_stamp[dds_bind_addr_to_stamp<ul><li>message_addr</li><li>source_timestamp</li></ul>]
+
+  publish -->  rclcpp_intra_publish
+  publish -->  rclcpp_publish
+
+  subgraph message_copy_if_necessary
+    rclcpp_intra_publish <--> message_intra
+    rclcpp_publish <--> message_inter
+    message_construct_intra -.-> message_intra
+    message_intra -.-> message_construct_intra
+    message_construct_inter -.-> message_inter
+    message_inter -.-> message_construct_inter
+  end
+
+
+  message_inter <--> rcl_publish
+  message_inter <--> dds_write
+  dds_write <--> message_dds
+
+  message_dds <-->  dds_bind_addr_to_stamp
+  dds_bind_addr_to_stamp <--> source_timestamp
+
+  dds_bind_addr_to_addr -.-> message_dds
+  message_dds -.-> dds_bind_addr_to_addr
+
+```
+
+`publish`を実行した際、unique_ptr型で複数のsubscriptionがある場合などのケースでは、必要に応じてメッセージのコピーが発生する。  
+メッセージのコピーが発生した際は`message_construct`でコピー前とコピー後の変数のアドレスを紐付けられるようにしている。  
+rclレイヤー以下ではメッセージのアドレスで対応付けられるようにし、DDSレイヤーでsource_timestampに紐付けられるようにしている。  
+source_timestampは元々はQoSのDeadlineなどに使われる値で、全てのDDS通信を行うメッセージに自動的に付与される値であり、subscription側で同じ値が受信される。  
+受信側ではsource_timestampの値を紐付けるための情報として利用している。
+
+message_addr（プロセス内通信）/source_timestamp（プロセス間通信）からpublishまでが一意に紐付けられる。
+
+### メッセージの受信からコールバック実行まで
+```mermaid
+
+graph LR
+  source_timestamp[[source_timestamp]]
+  message_intra_sub[[message_addr]]
+  message_intra[[message_addr]]
+  callback[[callback]]
+  source_timestamp[[source_timestamp]]
+  source_timestamp_sub[source_timestamp]
+
+  dispatch_subscription_callback[dispatch_subscription_callback<ul><li>message_addr</li><li>callback</li><li>source_timestamp</li><li>message_timestamp</li></ul>]
+  dispatch_intra_process_subscription_callback[dispatch_intra_process_subscription_callback<ul><li>message_addr</li><li>callback</li><li>message_timestamp</li></ul>]
+
+  callback_end_[callback_end<ul><li>callback</li></ul>]
+  callback_start[callback_start<ul><li>callback</li><li>is_intra_process</li></ul>]
+
+
+  source_timestamp --Inter Process Communication--> source_timestamp_sub
+  message_intra --Intra Process Communication--> message_intra_sub
+  message_intra_sub --> dispatch_intra_process_subscription_callback
+
+  dispatch_intra_process_subscription_callback --> callback
+
+  callback --> callback_start
+  callback --> callback_end_
+
+  dispatch_subscription_callback --> callback
+  source_timestamp_sub --> dispatch_subscription_callback
+```
+
+プロセス内通信ではpublishされたメッセージのアドレスで紐づけを行う。  
+プロセス間通信ではsource_timestampで紐づけを行う。
+
+callback_startからmessage_addr/source_timestampまでが一意に紐付けられる。  
+また、publisher側のグラフで示した通り、message_addr/source_timestampからpublishまでが一意に紐付けられる。  
+したがって、publishからcallback_startまでは一意に紐付けることができる。  
+
+ただし、コールバックの実行とpublishの紐付けはできていないので注意。
