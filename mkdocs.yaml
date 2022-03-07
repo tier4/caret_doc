@@ -1,64 +1,82 @@
 site_name: Chain-Aware ROS Evaluation Tool (CARET)
+site_url: https://tier4.github.io/CARET_doc
+repo_url: https://github.com/tier4/CARET_doc
+edit_uri: edit/main/
+docs_dir: docs
+copyright: Copyright &copy; 2022 TIER IV, Inc.
+
 theme:
-  name: "material"
-  palette:
-    primary: "indigo"
-    accent: "indigo"
-  hljs_languages:
-    - yaml
-    - python
-    - c++
-  icon:
-    admonition:
-      note: octicons/tag-16
-      abstract: octicons/checklist-16
-      info: octicons/info-16
-      tip: octicons/squirrel-16
-      success: octicons/check-16
-      question: octicons/question-16
-      warning: octicons/alert-16
-      failure: octicons/x-circle-16
-      danger: octicons/zap-16
-      bug: octicons/bug-16
-      example: octicons/beaker-16
-      quote: octicons/quote-16
+  name: material
   features:
     - navigation.expand
+    - navigation.indexes
     - navigation.instant
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
-    - toc.integrate
+  favicon: assets/images/tier4.png
+  icon:
+    logo: fontawesome/solid/car
+    repo: fontawesome/brands/github
+  language: en
+  palette:
+    - scheme: default
+      primary: white
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - scheme: slate
+      primary: grey
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+extra:
+  font:
+    text: Roboto
+    code: Roboto Mono
+  version:
+    provider: mike
 
 extra_css:
-  - assets/stylesheets/tier4_color.css
+  - https://unpkg.com/mermaid@8.13.10/dist/mermaid.css
+  - assets/css/extra.css
   - https://use.fontawesome.com/releases/v5.15.4/css/all.css
 
 extra_javascript:
+  - https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js
   - https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 plugins:
   - awesome-pages
+  - exclude:
+      regex:
+        - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?jpg).*$
+        - ^(.*/)?[^.]*$
+  - same-dir
   - search
 
 markdown_extensions:
   - admonition
   - attr_list
-  - codehilite: { guess_lang: false }
+  - codehilite:
+      guess_lang: false
   - fontawesome_markdown
   - footnotes
   - mdx_math
-  - mdx_truly_sane_lists: { nested_indent: 2 }
+  - mdx_truly_sane_lists:
+      nested_indent: 2
   - mdx_unimoji
-  - plantuml_markdown: { server: "http://www.plantuml.com/plantuml", format: svg }
-  - pymdownx.arithmatex
-  - pymdownx.details
   - plantuml_markdown:
+      server: http://www.plantuml.com/plantuml
+      format: svg
+  - pymdownx.arithmatex
   - pymdownx.highlight
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
-
-  - toc: { permalink: "#" }
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: "#"

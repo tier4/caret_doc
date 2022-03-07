@@ -48,9 +48,9 @@
     export CARET_IGNORE_TOPICS="/clock:/parameter_events"
     ```
 
-    設定については、[利用可能な環境変数一覧](./env.md)をご覧ください。
+    設定については、[トレースフィルタリング](./trace_filtering.md)をご覧ください。
 
-## TraceResultAanalyzeError: Failed to find \*\* のエラーが出る
+## TraceResultAanalyzeError: Failed to find のエラーが出る
 
 アーキテクチャファイルに記載された情報がトレース結果上で見つからない際に生じるエラーです。
 アーキテクチャファイルとトレース結果が一致しないことを指しています。
@@ -67,3 +67,22 @@ TraceResultAanalyzeError: Failed to find callback_object.node_name: /localizatio
   - callback_name：timer_callback_0
   - period_ns：19999999
   - symbol：void (EKFLocalizer::?)()
+
+
+
+## 特定のノードだけ測定がされていない。
+一部のトレースポイントが見当たらない現象が残っており、これが原因の可能性があります。
+
+現在、フォークしたROSレイヤーに追加したトレースポイントが正しく測定されない問題が見つかっています。  
+これはビルドする際にフォークしたrclcppが参照されていないことが原因です。  
+
+上記手順でトレースポイントが不足している場合には、  
+CMakeLists.txtのfind_package後に以下の行を追加してください。  
+```
+include_directories(SYSTEM /home/autoware/ros2_caret_ws/install/rclcpp/include)
+```
+
+フォークしたrclcppで追加したトレースポイントについては、 [トレースポイントの定義](../design/tracepoint_definition.md)の表内で、
+トレースポイントの実装方法が「rclcppパッケージ新規追加」となっている項目が対象になります。
+
+## メッセージフローの図が途中で止まっている。
