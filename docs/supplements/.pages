@@ -11,3 +11,4 @@ nav:
 
     - トラブルシューティング: trouble_shooting.md
     - sim_timeでの時系列データ評価: use_sim_time.md
+    - トレースポイントの追加方法、読み込まれ方: how_to_read_tracepoint.md
