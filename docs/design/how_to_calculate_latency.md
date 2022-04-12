@@ -1,11 +1,13 @@
-# レイテンシの計算方法
+# End-to-Endレイテンシの測定方法
+CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイテンシを結びつけてE2Eレイテンシを算出しています。
+ここでは通信レイテンシとノードレイテンシの算出方法について説明します。
+
 
 ## 通信レイテンシとノードレイテンシの算出方法
 以下は通信レイテンシとノードレイテンシを表した図です。
 
-![callback_and_node_latency](../imgs/callback_and_node_latency.png)
+![callback_and_node_latency](../imgs/callback_and_node_latency.png){ width="1000" }
 
-ここでは通信レイテンシとノードレイテンシの算出方法について説明します。
 
 ### 通信レイテンシの算出方法
 通信レイテンシはコールバックのpublishの時刻と、後続のコールバックが開始した時刻の差分で計算しています。
@@ -45,7 +47,7 @@ rclcpp_intra_publisherとdispatch_intra_process_subscription_callbackは同じme
 | callback_start | <span style="color: blue; ">callback_arg</span> | is_intra_process |  | time6 |
 
 
-プロセス内通信と同様に同じ引数を持つトレースポイント同士を紐づけていき、publishからcallback_startまでの表を作成します（下記表）。  
+プロセス内通信と同様に同じ引数を持つトレースポイント同士を紐づけていき、publishからcallback_startまでの表を作成します（下記表）。
 1行が1つのプロセス間通信のチェーンを表し、`callback_start - rclcpp_publish` にて**プロセス間通信のレイテンシ**を算出します。
 
 | idx | rclcpp_publish | rcl_publish | dds_write | dds_bind_addr_to_stamp | dispatch_subscription_callback | callback_start |
@@ -59,7 +61,7 @@ rclcpp_intra_publisherとdispatch_intra_process_subscription_callbackは同じme
 それぞれの手法・長所・短所を説明します。
 
 ### コールバックチェーンの利用
-コールバックレイテンシの測定は、同じコールバックアドレスを持つcallback_startとrclcpp_publishの差分を使って算出します。  
+コールバックレイテンシの測定は、同じコールバックアドレスを持つcallback_startとrclcpp_publishの差分を使って算出します。
 callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一番近いcallback_startと紐づけます。
 
 | idx | callback_start (cb_A) [s] | rclcpp_publish (cb_A) [s] | callback_end (cb_A) [s] | callback_arg (cb_A) |
@@ -75,7 +77,7 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 | 1 | 8 | 12 | 13 | 0x2000 |
 | 2 | 10 | 14 | 15 | 0x2000 |
 
-上記表のようにコールバックA・B（cb_A・cb_B）が存在し、A→Bと処理が続く時、cb_Aのcallback_endとcb_Bのcallback_startを結び付けて表を作ります。  
+上記表のようにコールバックA・B（cb_A・cb_B）が存在し、A→Bと処理が続く時、cb_Aのcallback_endとcb_Bのcallback_startを結び付けて表を作ります。
 最後のcallbackだけはpublishの時の時刻を採用し、下記表のように一つのテーブルにします。
 
 | idx | callback_start (cb_A) [s] | callback_end (cb_A) [s] | callback_start (cb_B) [s] | rclcpp_publish (cb_B) [s] |
@@ -87,8 +89,48 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 
 上記のようにコールバックチェーンをつなぎ、```rclcpp_publish (cb_X) - callback_start (cb_Y)```で**ノードレイテンシ**を算出します。
 
-> ※ノード内にコールバックが１つの場合、X, Yは同じものを指します。  
-> 複数コールバックがある場合は、Xが最後・Yが最初のコールバックを指します。
+> ※ノード内にコールバックが１つの場合、X, Yは同じものを指します。複数コールバックがある場合は、Xが最後・Yが最初のコールバックを指します。
+
+
+
+
+
+**想定**
+
+ - コールバック間のキューサイズ１を想定
+ - 厳密に測定できるのはSingle Threaded Executorのみ
+
+**長所**
+
+ - ソースコードへの変更が不要
+ - 任意のメッセージ型に適用可能
+
+**短所**
+
+ - キューサイズが大きい時、レイテンシが小さめに出るケースがある。
+ - multi threaded executor では、レイテンシが大きめに出るケースがある。
+ - 実装を読み解くのが難しい
+
+
+### 入出力のヘッダータイムスタンプのマッチング
+入出力のヘッダーでマッチングを取り、入力トピックと出力トピックの時刻の差分からノードレイテンシを算出します。
+
+
+
+**想定**
+
+ - 入出力のタイムスタンプの値でマッチングが取れること（値を書き換えずに、そのまま publish していること）
+ - 入出力ともに header をもっていること
+
+**長所**
+
+ - ソースコードへの変更が不要
+ - キューサイズに依らない
+
+**短所**
+
+ - ヘッダーが必要
+ - publish 前に stamp=現在時刻としているケースは対応不可
 
 
 
@@ -98,8 +140,7 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 CARETで使われているトレースポイントはROS 2 Galacticで追加したものとCARETで追加したものの2種類あります。
 CARETで追加したものは直接書き換えているものとLD_PRELOADによるフックで追加しているものの2種類あります。
 
-![tracepoints_location](../imgs/tracepoints_location.png)
-
+![tracepoints_location](../imgs/tracepoints_location.png){ width="700" }
 
 図上で緑色の枠で示されている部分は関数を直接書き換えてトレースポイントを追加しています。
 水色の枠で示されている部分はLD_PRELOADを用いたフックによって追加しています。
@@ -117,7 +158,7 @@ rclcpp層のheaderはフックによる方法で追加できなかったため�
 
 それぞれの方法で追加したトレースポイントがどのように読み込まれるか説明します。
 
-![tracepoints_call](../imgs/tracepoints_call.png)
+![tracepoints_call](../imgs/tracepoints_call.png){ width="700" }
 
 緑色の枠は直接書き換えている場合です。
 関数内に直接トレースポイントの関数があります。

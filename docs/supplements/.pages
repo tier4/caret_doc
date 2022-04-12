@@ -7,7 +7,5 @@ nav:
     - トレースフィルタリング: trace_filtering.md
     - ツール利用時の制約: limits.md
     - 通信レイテンシについて: about_communication_latency.md
-    - E2Eレイテンシ測定方法の説明: explain_measurement_method.md
-
     - トラブルシューティング: trouble_shooting.md
     - sim_timeでの時系列データ評価: use_sim_time.md
