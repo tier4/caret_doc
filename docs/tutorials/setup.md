@@ -87,7 +87,7 @@ python3 -m pip install -U \
 mkdir -p ~/ros2_caret_ws/src
 cd ~/ros2_caret_ws
 
-wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
+wget https://raw.githubusercontent.com/tier4/caret/main/caret.repos
 vcs import src < caret.repos --recursive
 
 rosdep install \
