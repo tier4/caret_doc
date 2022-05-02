@@ -23,7 +23,7 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    vcs import src < caret.repos --recursive
    ```
 
-3. Run `setup_caret.bash`.
+3. Run `setup_caret.sh`.
 
    ```bash
    ./setup_caret.bash
@@ -40,7 +40,7 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
 
 ### パッケージのインストール
 
-ILTTng のインストール
+LTTng のインストール
 詳細は [LTTng の公式ドキュメント](https://lttng.org/docs/v2.12/#doc-ubuntu-ppa) を参照。
 
 ```bash
