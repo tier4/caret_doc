@@ -28,11 +28,10 @@ colcon build --symlink-install --packages-up-to caret_demos
 
 ## 測定
 
-### LTTngセッションの開始
+### LTTng セッションの開始
 
-CARETは測定のためにLTTngを利用しており、LTTngセッションの開始が必要です。  
-ここでは、ros2 tracingによって用意されたインターフェース経由でLTTngセッションを開始します。
-
+CARET は測定のために LTTng を利用しており、LTTng セッションの開始が必要です。  
+ここでは、ros2 tracing によって用意されたインターフェース経由で LTTng セッションを開始します。
 
 ```bash
 source /opt/ros/galactic/setup.bash
@@ -47,7 +46,7 @@ ros2 trace -s e2e_sample -k -u "ros2*"
 # 上記の例では~/ros_ws/evaluate/e2e_sampleに測定結果が保存されます。
 ```
 
-別途ターミナルでLTTngセッションを開始せずに、Launchファイル内でLTTngのセッションを開始する方法もあります。  
+別途ターミナルで LTTng セッションを開始せずに、Launch ファイル内で LTTng のセッションを開始する方法もあります。  
 [LTTng セッションの開始方法](../supplements/how_to_run_lttng_session.md)を参照してください。
 
 ### アプリケーションの開始・測定
@@ -62,7 +61,7 @@ source ~/ros2_ws/install/local_setup.bash
 
 以下のコマンドでビルドした rclcpp が使われることを確認します。
 
-```
+```bash
 ldd ./build/caret_demos/end_to_end_sample  | grep rclcpp
 
 # librclcpp.so => /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so
@@ -78,11 +77,11 @@ export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret
 不要なノードやトピックを測定対象から除外する設定を行います。  
 トレースフィルタリング機能については、[トレースフィルタリング](../supplements/trace_filtering.md)を参照。
 
-
 ```bash
 export CARET_IGNORE_NODES="/rviz*"
 export CARET_IGNORE_TOPICS="/clock:/parameter_events"
 ```
+
 ```bash
 ros2 launch caret_demos end_to_end_sample.launch.py
 ^C # 数秒後、 Ctrl+C で終了
@@ -133,16 +132,15 @@ ros2:rcl_timer_init:
 トレース結果の保存が間に合わない場合には、`Tracer discarded とエラーが出る場合`とエラーが出る場合があります。
 
 ### Tracer discarded とエラーが出る場合
+
 babeltrace コマンドの実行時に以下のような警告が現れる場合、  
-トレース結果のドロップが生じており、解析が正しく行えません。  
+トレース結果のドロップが生じており、解析が正しく行えません。
 
 トレースフィルタリング機能の設定を見直し、警告が出ないようにしてください。
 
 ```bash
-[warning] Tracer discarded 328 events between [10:46:15.566916889] and [10:46:15.620323777]  
-in trace UUID 353a72bc12d4bcc85c9158dd8f88ef9, at path: "end_to_end_sample/ust/uid/10368/64-bit",  
-within stream id 0, at relative path: "ros2_3".  
+[warning] Tracer discarded 328 events between [10:46:15.566916889] and [10:46:15.620323777]
+in trace UUID 353a72bc12d4bcc85c9158dd8f88ef9, at path: "end_to_end_sample/ust/uid/10368/64-bit",
+within stream id 0, at relative path: "ros2_3".
 You should consider recording a new trace with larger buffers or with fewer events enabled.
 ```
-
-

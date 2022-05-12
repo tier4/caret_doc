@@ -1,4 +1,5 @@
 # Chain-Aware ROS Evaluation Tool (CARET)
+
 コールバックチェーンを考慮した ROS 2 アプリケーションの性能評価ツールです。  
 フックでのトレースポイント追加により、メッセージのトラッキングをベースとした性能の評価が可能です。
 
@@ -19,23 +20,24 @@
 
 ![measurement_flow](./imgs/measurement_flow.svg)
 
-CARETはros2_tracingにより追加されたトレースポイントに加え、  
-ROSやDDSの処理に対してトレースポイントを追加することで、様々な処理かかる時間の測定を可能にしています。
+CARET は ros2_tracing により追加されたトレースポイントに加え、  
+ROS や DDS の処理に対してトレースポイントを追加することで、様々な処理かかる時間の測定を可能にしています。
 
 動的ライブラリの処理をフックするためのトレース用ライブラリに加え、  
-フォークしてトレースポイントを追加したROSを必要とします。  
+フォークしてトレースポイントを追加した ROS を必要とします。  
 現在はソースコードでの提供のみになっているため、これらパッケージのビルドが必要です。
 
 測定を行うとトレース結果が得られ、この結果を元に、解析を行います。  
 解析前には、レイテンシの定義や測定対象のパスの定義を記述したアーキテクチャファイルが必要になります。
 
 解析用のパッケージ、トレース結果、アーキテクチャファイルが揃い、性能の評価や解析が可能になります。  
-一部CLIでの可視化も対応していますが、主にjupyter上での評価・解析することを想定しています。
+一部 CLI での可視化も対応していますが、主に jupyter 上での評価・解析することを想定しています。
 
 ## ドキュメント一覧
 
 ### チュートリアル
-CARETの基本的な使い方についての説明です。
+
+CARET の基本的な使い方についての説明です。
 
 - [環境構築](./tutorials/setup.md)
 - [測定](./tutorials/measurement.md)
@@ -43,6 +45,7 @@ CARETの基本的な使い方についての説明です。
 - [性能評価](./tutorials/performance_evaluation.md)
 
 ### 補足資料
+
 使用する上での補足資料です。
 
 - [パスのレイテンシの定義](./supplements/latency_definition.md)
@@ -54,6 +57,7 @@ CARETの基本的な使い方についての説明です。
 - [トラブルシューティング](./supplements/trouble_shooting.md)
 
 ### 設計資料
+
 内部の実装などに関する資料です。
 
 - [アーキテクチャ](./design/design.md)
@@ -71,8 +75,8 @@ CARET は以下のパッケージから構成されています。
 - [ros2caret](https://github.com/tier4/ros2caret.git) ｜ ros2 cli 用 リポジトリ
 - [CARET_demos](https://github.com/tier4/CARET_demos) ｜デモプログラム集のリポジトリ
 - [CARET_doc](https://github.com/tier4/CARET_doc) ｜本ドキュメントのリポジトリ
-- [rclcpp](https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added) ｜ トレースポイントを追加したrclcpp
-- [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added)｜rclcpp追加のトレースポイントを定義したros2_tracing
+- [rclcpp](https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added) ｜ トレースポイントを追加した rclcpp
+- [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added)｜ rclcpp 追加のトレースポイントを定義した ros2_tracing
 
 ---
 

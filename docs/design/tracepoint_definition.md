@@ -1,34 +1,30 @@
 # トレースポイントの定義
 
-CARETはトピック名などの情報を得るための「初期化時の処理に対するトレースポイント」と、  
+CARET はトピック名などの情報を得るための「初期化時の処理に対するトレースポイント」と、  
 測定をするための「ランタイムの処理に対するトレースポイント」があります。
 
 本ページではそれぞれのトレースポイントの定義についてまとめています。
 
-
 各トレースポイントには、その実装方法を区別するために以下の情報も記載しています。
 
-- Galactic実装
-  - Galactic以降のROSにはデフォルトで実装されている、ros2 tracingが使用しているトレースポイントです。
-  - serviceやlifecycleなど、実装はされていてもCARETでは使われていないトレースポイントも有ります。
-- CARETフォーク実装
-  - rclcppリポジトリをフォークして追加しているトレースポイントです。
-- CARETフック実装
-  - LD_PRELOADによるフックで追加しているトレースポイントです。
+- Galactic 実装
+  - Galactic 以降の ROS にはデフォルトで実装されている、ros2 tracing が使用しているトレースポイントです。
+  - service や lifecycle など、実装はされていても CARET では使われていないトレースポイントも有ります。
+- CARET フォーク実装
+  - rclcpp リポジトリをフォークして追加しているトレースポイントです。
+- CARET フック実装
+  - LD_PRELOAD によるフックで追加しているトレースポイントです。
 
-
-> フォークとフックの２つの方法でトレースポイントを追加している理由  
+> フォークとフックの２つの方法でトレースポイントを追加している理由
 >
-> CARETは基本的には実装と切り離すために、LD_PRELOADを利用したフックによるトレースポイントの追加をしています。  
-> ただし、rclcppには、プロセス内通信などのテンプレートによる実装を含み、LD_PRELOADではフックできない処理があります。  
-> LD_PRELOADは実行時の動的リンクに対しフックできる機能であるのに対し、  
+> CARET は基本的には実装と切り離すために、LD_PRELOAD を利用したフックによるトレースポイントの追加をしています。  
+> ただし、rclcpp には、プロセス内通信などのテンプレートによる実装を含み、LD_PRELOAD ではフックできない処理があります。  
+> LD_PRELOAD は実行時の動的リンクに対しフックできる機能であるのに対し、  
 > テンプレートで実装された処理はコンパイルでバイナリ内に組み込まれてしまうためフックできません。  
-> このようなテンプレートで実装された処理に対してのみ、rclcppをフォークしてトレースポイントを追加しています。  
+> このようなテンプレートで実装された処理に対してのみ、rclcpp をフォークしてトレースポイントを追加しています。  
 > このような理由から、測定対象のアプリケーションを再ビルドする必要が生じています。
 
-
 ## シーケンスと主要なトレースポイント
-
 
 ```plantuml
 @startuml
@@ -106,340 +102,352 @@ deactivate ROS2
 ---
 
 ### ros2:rcl_init
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * context_handle
+- void \* context_handle
 
 ---
 
 ### ros2:rcl_node_init
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * node_handle
-- void * rmw_handle
-- char * node_name
-- char * node_namespace
+- void \* node_handle
+- void \* rmw_handle
+- char \* node_name
+- char \* node_namespace
 
 ---
 
 ### ros2:rcl_publisher_init
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * publisher_handle
-- void * node_handle
-- void * rmw_publisher_handle
-- char * topic_name
+- void \* publisher_handle
+- void \* node_handle
+- void \* rmw_publisher_handle
+- char \* topic_name
 - size_t queue_depth
-
 
 ---
 
 ### ros2:rcl_subscription_init
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * subscription_handle
-- void * node_handle
-- void * rmw_subscription_handle
-- char * topic_name
+- void \* subscription_handle
+- void \* node_handle
+- void \* rmw_subscription_handle
+- char \* topic_name
 - size_t queue_depth
-
 
 ---
 
 ### ros2:rclcpp_subscription_init
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * subscription_handle
-- void * subscription
-
+- void \* subscription_handle
+- void \* subscription
 
 ---
 
 ### ros2:rclcpp_subscription_callback_added
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * subscription
-- void * callback
-
+- void \* subscription
+- void \* callback
 
 ---
 
 ### ros2:rcl_timer_init
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
-- void * timer_handle
-- int64_t period
 
+- void \* timer_handle
+- int64_t period
 
 ---
 
 ### ros2:rclcpp_timer_callback_added
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * timer_handle
-- void * callback
-
+- void \* timer_handle
+- void \* callback
 
 ---
 
 ### ros2:rclcpp_timer_link_node
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * timer_handle
-- void * node_handle
-
+- void \* timer_handle
+- void \* node_handle
 
 ---
 
 ### ros2:rclcpp_callback_register
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * callback
-- char * function_symbol
-
+- void \* callback
+- char \* function_symbol
 
 ---
 
 ### ros2_caret:rmw_implementation
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
-- char * rmw_impl
-
+- char \* rmw_impl
 
 ---
 
 ### ros2_caret:construct_executor
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
--  void * executor_addr
--  char * executor_type_name
-
+- void \* executor_addr
+- char \* executor_type_name
 
 ---
 
 ### ros2_caret:construct_static_executor
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
-- void * executor_addr
-- void * entities_collector_addr
-- char * executor_type_name
+- void \* executor_addr
+- void \* entities_collector_addr
+- char \* executor_type_name
 
 ---
 
 ### ros2_caret:add_callback_group
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
-- void * executor_addr
-- void * callback_group_addr
-- char * group_type_name
+- void \* executor_addr
+- void \* callback_group_addr
+- char \* group_type_name
 
 ---
 
 ### ros2_caret:add_callback_group_static_executor
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
-- void * entities_collector_addr
-- void * callback_group_addr
-- char * group_type_name
+- void \* entities_collector_addr
+- void \* callback_group_addr
+- char \* group_type_name
 
 ---
 
 ### ros2_caret:callback_group_add_timer
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
-- void * callback_group_addr
-- void * timer_handle
+- void \* callback_group_addr
+- void \* timer_handle
 
 ---
 
 ### ros2_caret:callback_group_add_subscription
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
-- void * callback_group_addr
-- void * subscription_handle
+- void \* callback_group_addr
+- void \* subscription_handle
 
 ---
 
 ### ros2_caret:callback_group_add_service
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
-- void * callback_group_addr
-- void * service_handle
-
+- void \* callback_group_addr
+- void \* service_handle
 
 ---
 
 ### ros2_caret:callback_group_add_client
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
-- void * callback_group_addr
-- void * client_handle
-
+- void \* callback_group_addr
+- void \* client_handle
 
 ---
 
 ## ランタイム時のトレースポイント
 
 ### ros2:callback_start
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * callback
+- void \* callback
 - bool is_intra_process
-
 
 ---
 
 ### ros2:callback_end
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
--  void * callback
+- void \* callback
 
 ---
 
 ### ros2:message_construct
-[CARETフォーク実装]
+
+[CARET フォーク実装]
 
 付加情報
 
-- void * original_message
-- void * constructed_message
-
+- void \* original_message
+- void \* constructed_message
 
 ---
 
 ### ros2:rclcpp_intra_publish
-[CARETフォーク実装]
+
+[CARET フォーク実装]
 
 付加情報
 
-- void * publisher_handle
-- void * message
+- void \* publisher_handle
+- void \* message
 - uint64_t message_timestamp
-
 
 ---
 
 ### ros2:dispatch_subscription_callback
-[CARETフォーク実装]
+
+[CARET フォーク実装]
 
 付加情報
 
-- void * message
-- void * callback
+- void \* message
+- void \* callback
 - uint64_t source_timestamp
 - uint64_t message_timestamp
-
 
 ---
 
 ### ros2:dispatch_intra_process_subscription_callback
-[CARETフォーク実装]
+
+[CARET フォーク実装]
 
 付加情報
 
-- void * message
-- void * callback
+- void \* message
+- void \* callback
 - uint64_t message_timestamp
 
 ---
 
 ### ros2:rcl_publish
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * publisher_handle
-- void * message
-
+- void \* publisher_handle
+- void \* message
 
 ---
 
 ### ros2:rclcpp_publish
-[Galactic実装]
+
+[Galactic 実装]
 
 付加情報
 
-- void * publisher_handle
-- void * message
+- void \* publisher_handle
+- void \* message
 - uint64_t message_timestamp
 
 ### ros2_caret:dds_write
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
-- void * message
+- void \* message
 
 ---
 
 ### ros2_caret:dds_bind_addr_to_stamp
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
--  void * addr
--  uint64_t source_stamp
-
+- void \* addr
+- uint64_t source_stamp
 
 ---
 
-
 ### ros2_caret:dds_bind_addr_to_addr
-[CARETフック実装]
+
+[CARET フック実装]
 
 付加情報
 
--  void * addr_from
--  void * addr_to
-
+- void \* addr_from
+- void \* addr_to
 
 ---
 
 ## トレースポイントの紐付け
 
-本ページで列挙しているトレースポイントはノードID（`node_handle`）やコールバックID（`コールバックのインスタンスのアドレス`）などの値を元に紐付けて利用する。  
+本ページで列挙しているトレースポイントはノード ID（`node_handle`）やコールバック ID（`コールバックのインスタンスのアドレス`）などの値を元に紐付けて利用する。  
 それぞれのトレースポイントの対応関係をグラフで示す。
+
 ### ノードの初期化
 
 ```mermaid
@@ -497,12 +505,13 @@ graph RL
   rmw_implementation
 
 ```
+
 コールバックのインスタンスのアドレス値が一意に決まれば、`timer_callback_added`など他のトレースポイントの値を紐付いていくことでノードの情報まで得ることができる。  
-逆に、node_handleが一意に決まれば、そのノードに含まれるコールバックも特定できる。
+逆に、node_handle が一意に決まれば、そのノードに含まれるコールバックも特定できる。
 
 ### エグゼキューターやコールバックグループの初期化
 
-``` mermaid
+```mermaid
 
 graph RL
   subscription_handle[[subscription_handle]]
@@ -553,7 +562,7 @@ graph RL
 
 タイマーなどの各ハンドラはコールバックグループに追加され、エグゼキュータに紐付けられる。
 
-### メッセージのpublishまで
+### メッセージの publish まで
 
 ```mermaid
 
@@ -603,15 +612,16 @@ graph LR
 
 ```
 
-`publish`を実行した際、unique_ptr型で複数のsubscriptionがある場合などのケースでは、必要に応じてメッセージのコピーが発生する。  
+`publish`を実行した際、unique_ptr 型で複数の subscription がある場合などのケースでは、必要に応じてメッセージのコピーが発生する。  
 メッセージのコピーが発生した際は`message_construct`でコピー前とコピー後の変数のアドレスを紐付けられるようにしている。  
-rclレイヤー以下ではメッセージのアドレスで対応付けられるようにし、DDSレイヤーでsource_timestampに紐付けられるようにしている。  
-source_timestampは元々はQoSのDeadlineなどに使われる値で、全てのDDS通信を行うメッセージに自動的に付与される値であり、subscription側で同じ値が受信される。  
-受信側ではsource_timestampの値を紐付けるための情報として利用している。
+rcl レイヤー以下ではメッセージのアドレスで対応付けられるようにし、DDS レイヤーで source_timestamp に紐付けられるようにしている。  
+source_timestamp は元々は QoS の Deadline などに使われる値で、全ての DDS 通信を行うメッセージに自動的に付与される値であり、subscription 側で同じ値が受信される。  
+受信側では source_timestamp の値を紐付けるための情報として利用している。
 
-message_addr（プロセス内通信）/source_timestamp（プロセス間通信）からpublishまでが一意に紐付けられる。
+message_addr（プロセス内通信）/source_timestamp（プロセス間通信）から publish までが一意に紐付けられる。
 
 ### メッセージの受信からコールバック実行まで
+
 ```mermaid
 
 graph LR
@@ -642,11 +652,11 @@ graph LR
   source_timestamp_sub --> dispatch_subscription_callback
 ```
 
-プロセス内通信ではpublishされたメッセージのアドレスで紐づけを行う。  
-プロセス間通信ではsource_timestampで紐づけを行う。
+プロセス内通信では publish されたメッセージのアドレスで紐づけを行う。  
+プロセス間通信では source_timestamp で紐づけを行う。
 
-callback_startからmessage_addr/source_timestampまでが一意に紐付けられる。  
-また、publisher側のグラフで示した通り、message_addr/source_timestampからpublishまでが一意に紐付けられる。  
-したがって、publishからcallback_startまでは一意に紐付けることができる。  
+callback_start から message_addr/source_timestamp までが一意に紐付けられる。  
+また、publisher 側のグラフで示した通り、message_addr/source_timestamp から publish までが一意に紐付けられる。  
+したがって、publish から callback_start までは一意に紐付けることができる。
 
-ただし、コールバックの実行とpublishの紐付けはできていないので注意。
+ただし、コールバックの実行と publish の紐付けはできていないので注意。
