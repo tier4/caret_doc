@@ -434,7 +434,7 @@
         
           <li class="md-nav__item">
   <a href="#lttng" class="md-nav__link">
-    LTTngセッションの開始
+    LTTng セッションの開始
   </a>
   
 </li>
@@ -933,7 +933,7 @@
         
           <li class="md-nav__item">
   <a href="#lttng" class="md-nav__link">
-    LTTngセッションの開始
+    LTTng セッションの開始
   </a>
   
 </li>
@@ -1010,9 +1010,9 @@ colcon build --symlink-install --packages-up-to caret_demos
 測定するにはソースファイルからビルドし直す必要があります。</p>
 </blockquote>
 <h2 id="_3">測定<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<h3 id="lttng">LTTngセッションの開始<a class="headerlink" href="#lttng" title="Permanent link">#</a></h3>
-<p>CARETは測定のためにLTTngを利用しており、LTTngセッションの開始が必要です。<br />
-ここでは、ros2 tracingによって用意されたインターフェース経由でLTTngセッションを開始します。</p>
+<h3 id="lttng">LTTng セッションの開始<a class="headerlink" href="#lttng" title="Permanent link">#</a></h3>
+<p>CARET は測定のために LTTng を利用しており、LTTng セッションの開始が必要です。<br />
+ここでは、ros2 tracing によって用意されたインターフェース経由で LTTng セッションを開始します。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
 
 <span class="c1"># トレースファイルの出力先を設定。デフォルトは ~/.ros/tracing。</span>
@@ -1024,7 +1024,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># -s はセッション名。</span>
 <span class="c1"># 上記の例では~/ros_ws/evaluate/e2e_sampleに測定結果が保存されます。</span>
 </code></pre></div>
-<p>別途ターミナルでLTTngセッションを開始せずに、Launchファイル内でLTTngのセッションを開始する方法もあります。<br />
+<p>別途ターミナルで LTTng セッションを開始せずに、Launch ファイル内で LTTng のセッションを開始する方法もあります。<br />
 <a href="../../supplements/how_to_run_lttng_session/">LTTng セッションの開始方法</a>を参照してください。</p>
 <h3 id="_4">アプリケーションの開始・測定<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
 <p>アプリケーションを実行するターミナルでは、caret_ws 配下の rclcpp を使わせるため、opt 配下の後に caret_ws 配下の setup.bash を実行します。</p>
@@ -1033,9 +1033,9 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
 </code></pre></div>
 <p>以下のコマンドでビルドした rclcpp が使われることを確認します。</p>
-<div class="highlight"><pre><span></span><code>ldd ./build/caret_demos/end_to_end_sample  | grep rclcpp
+<div class="highlight"><pre><span></span><code>ldd ./build/caret_demos/end_to_end_sample  <span class="p">|</span> grep rclcpp
 
-# librclcpp.so =&gt; /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so
+<span class="c1"># librclcpp.so =&gt; /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so</span>
 </code></pre></div>
 <p>フックを有効にするため、<code>LD_PRELOAD</code>を設定します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># フックで追加されるトレースポイントの有効化</span>
@@ -1043,7 +1043,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 </code></pre></div>
 <p>不要なノードやトピックを測定対象から除外する設定を行います。<br />
 トレースフィルタリング機能については、<a href="../../supplements/trace_filtering/">トレースフィルタリング</a>を参照。</p>
-<p><div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ros2 launch caret_demos end_to_end_sample.launch.py
@@ -1052,7 +1052,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="o">[</span>WARNING<span class="o">]</span> <span class="o">[</span>launch<span class="o">]</span>: user interrupted with ctrl-c <span class="o">(</span>SIGINT<span class="o">)</span>
 <span class="o">[</span>end_to_end_sample-1<span class="o">]</span> <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span><span class="m">1631481246</span>.160958444<span class="o">]</span> <span class="o">[</span>rclcpp<span class="o">]</span>: signal_handler<span class="o">(</span><span class="nv">signal_value</span><span class="o">=</span><span class="m">2</span><span class="o">)</span>
 <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>end_to_end_sample-1<span class="o">]</span>: process has finished cleanly <span class="o">[</span>pid <span class="m">722356</span><span class="o">]</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>終了する際の順番に指定はありません。<br />
 <code>ros2 trace</code> を実行しているターミナルは <code>Enter</code> を再度押して測定を終了してください。</p>
 <h2 id="_5">測定結果の確認<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
@@ -1089,11 +1089,11 @@ ros2:rcl_timer_init:
 トレース結果の保存が間に合わない場合には、<code>Tracer discarded とエラーが出る場合</code>とエラーが出る場合があります。</p>
 <h3 id="tracer-discarded">Tracer discarded とエラーが出る場合<a class="headerlink" href="#tracer-discarded" title="Permanent link">#</a></h3>
 <p>babeltrace コマンドの実行時に以下のような警告が現れる場合、<br />
-トレース結果のドロップが生じており、解析が正しく行えません。  </p>
+トレース結果のドロップが生じており、解析が正しく行えません。</p>
 <p>トレースフィルタリング機能の設定を見直し、警告が出ないようにしてください。</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>warning<span class="o">]</span> Tracer discarded <span class="m">328</span> events between <span class="o">[</span><span class="m">10</span>:46:15.566916889<span class="o">]</span> and <span class="o">[</span><span class="m">10</span>:46:15.620323777<span class="o">]</span>  
-<span class="k">in</span> trace UUID 353a72bc12d4bcc85c9158dd8f88ef9, at path: <span class="s2">&quot;end_to_end_sample/ust/uid/10368/64-bit&quot;</span>,  
-within stream id <span class="m">0</span>, at relative path: <span class="s2">&quot;ros2_3&quot;</span>.  
+<div class="highlight"><pre><span></span><code><span class="o">[</span>warning<span class="o">]</span> Tracer discarded <span class="m">328</span> events between <span class="o">[</span><span class="m">10</span>:46:15.566916889<span class="o">]</span> and <span class="o">[</span><span class="m">10</span>:46:15.620323777<span class="o">]</span>
+<span class="k">in</span> trace UUID 353a72bc12d4bcc85c9158dd8f88ef9, at path: <span class="s2">&quot;end_to_end_sample/ust/uid/10368/64-bit&quot;</span>,
+within stream id <span class="m">0</span>, at relative path: <span class="s2">&quot;ros2_3&quot;</span>.
 You should consider recording a new trace with larger buffers or with fewer events enabled.
 </code></pre></div>
 

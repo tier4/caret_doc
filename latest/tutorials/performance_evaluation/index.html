@@ -454,7 +454,7 @@
       
         <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
-    基本的なAPIの説明
+    基本的な API の説明
   </a>
   
 </li>
@@ -892,7 +892,7 @@
       
         <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
-    基本的なAPIの説明
+    基本的な API の説明
   </a>
   
 </li>
@@ -924,35 +924,35 @@
 
 <h1 id="_1">性能評価<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
 <p>測定結果の可視化方法を説明します。</p>
-<p>本ページの説明はjupyter上を想定しています。<br />
+<p>本ページの説明は jupyter 上を想定しています。<br />
 以下のコマンドで jupyter を起動してください。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
 
 <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
 jupyter-lab
 </code></pre></div>
-<p>CARETが備えている可視化には、bokehを使用したものが有ります。<br />
-jupyter上で表示させるには、以下を実行してください。</p>
+<p>CARET が備えている可視化には、bokeh を使用したものが有ります。<br />
+jupyter 上で表示させるには、以下を実行してください。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span>
 <span class="n">output_notebook</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="_2">測定結果の読み込み<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <p>アーキテクチャファイルとトレース結果を読み込みます。</p>
-<div class="highlight"><pre><span></span><code>from caret_analyze import Architecture, Application, Lttng
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
-# トレース結果からアーキテクチャファイルの読み込み
-arch = Architecture(&#39;yaml&#39;, &#39;./architecture.yaml&#39;)
+<span class="c1"># トレース結果からアーキテクチャファイルの読み込み</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
 
-# トレース結果の読み込み
-lttng = Lttng(&#39;./e2e_sample&#39;)
+<span class="c1"># トレース結果の読み込み</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
 
-# アーキテクチャ情報とトレース結果の結合
-app = Application(arch, lttng)
+<span class="c1"># アーキテクチャ情報とトレース結果の結合</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 </code></pre></div>
-<p>Applicationクラスはアーキテクチャファイルと同等の情報・インターフェースを持ち、レイテンシの情報も持ったクラスです。<br />
-app経由で通信レイテンシやコールバックの実行時間など、様々な情報へアクセスします。</p>
-<h2 id="api">基本的なAPIの説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<p>appから、コールバック実行時間を取得するAPIを説明します。</p>
+<p>Application クラスはアーキテクチャファイルと同等の情報・インターフェースを持ち、レイテンシの情報も持ったクラスです。<br />
+app 経由で通信レイテンシやコールバックの実行時間など、様々な情報へアクセスします。</p>
+<h2 id="api">基本的な API の説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
+<p>app から、コールバック実行時間を取得する API を説明します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># コールバックの測定結果のインスタンスを取得</span>
 <span class="n">callback</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/callback_0&#39;</span><span class="p">)</span>
 
@@ -965,7 +965,7 @@ app経由で通信レイテンシやコールバックの実行時間など、�
 <p><code>callback</code>のほか、<code>communication</code>なども同様なインターフェースがあります。</p>
 <p><code>callback.to_dataframe()</code> を実行すると、元データを<code>pandas.DataFrame</code>型で取得できます。</p>
 <h2 id="_3">メッセージフローの可視化<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<p>CARETではいくつかの可視化を標準で備えています。<br />
+<p>CARET ではいくつかの可視化を標準で備えています。<br />
 ここでは、測定結果を算出する上で基本となるメッセージフローの可視化を説明します。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">message_flow</span>
 

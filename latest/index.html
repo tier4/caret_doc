@@ -998,18 +998,18 @@
 </ul>
 <h2 id="_1">性能評価の流れ<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <p><img alt="measurement_flow" src="imgs/measurement_flow.svg" /></p>
-<p>CARETはros2_tracingにより追加されたトレースポイントに加え、<br />
-ROSやDDSの処理に対してトレースポイントを追加することで、様々な処理かかる時間の測定を可能にしています。</p>
+<p>CARET は ros2_tracing により追加されたトレースポイントに加え、<br />
+ROS や DDS の処理に対してトレースポイントを追加することで、様々な処理かかる時間の測定を可能にしています。</p>
 <p>動的ライブラリの処理をフックするためのトレース用ライブラリに加え、<br />
-フォークしてトレースポイントを追加したROSを必要とします。<br />
+フォークしてトレースポイントを追加した ROS を必要とします。<br />
 現在はソースコードでの提供のみになっているため、これらパッケージのビルドが必要です。</p>
 <p>測定を行うとトレース結果が得られ、この結果を元に、解析を行います。<br />
 解析前には、レイテンシの定義や測定対象のパスの定義を記述したアーキテクチャファイルが必要になります。</p>
 <p>解析用のパッケージ、トレース結果、アーキテクチャファイルが揃い、性能の評価や解析が可能になります。<br />
-一部CLIでの可視化も対応していますが、主にjupyter上での評価・解析することを想定しています。</p>
+一部 CLI での可視化も対応していますが、主に jupyter 上での評価・解析することを想定しています。</p>
 <h2 id="_2">ドキュメント一覧<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <h3 id="_3">チュートリアル<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
-<p>CARETの基本的な使い方についての説明です。</p>
+<p>CARET の基本的な使い方についての説明です。</p>
 <ul>
 <li><a href="tutorials/setup/">環境構築</a></li>
 <li><a href="tutorials/measurement/">測定</a></li>
@@ -1046,8 +1046,8 @@ ROSやDDSの処理に対してトレースポイントを追加することで�
 <li><a href="https://github.com/tier4/ros2caret.git">ros2caret</a> ｜ ros2 cli 用 リポジトリ</li>
 <li><a href="https://github.com/tier4/CARET_demos">CARET_demos</a> ｜デモプログラム集のリポジトリ</li>
 <li><a href="https://github.com/tier4/CARET_doc">CARET_doc</a> ｜本ドキュメントのリポジトリ</li>
-<li><a href="https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added">rclcpp</a> ｜ トレースポイントを追加したrclcpp</li>
-<li><a href="https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added">ros2_tracing</a>｜rclcpp追加のトレースポイントを定義したros2_tracing</li>
+<li><a href="https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added">rclcpp</a> ｜ トレースポイントを追加した rclcpp</li>
+<li><a href="https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added">ros2_tracing</a>｜ rclcpp 追加のトレースポイントを定義した ros2_tracing</li>
 </ul>
 <hr />
 <p>This software is based on results obtained from a project subsidized by the New Energy and Industrial Technology Development Organization (NEDO).</p>

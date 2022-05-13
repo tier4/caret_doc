@@ -695,7 +695,7 @@
       
         <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
-    API説明
+    API 説明
   </a>
   
 </li>
@@ -878,7 +878,7 @@
       
         <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
-    API説明
+    API 説明
   </a>
   
 </li>
@@ -908,43 +908,43 @@
 
 
 
-<h1 id="lttngeventfilter">LTTngEventFilterの使用<a class="headerlink" href="#lttngeventfilter" title="Permanent link">#</a></h1>
-<p>CARETは数分程度の測定や解析までを取り扱うことができます。<br />
+<h1 id="lttngeventfilter">LTTngEventFilter の使用<a class="headerlink" href="#lttngeventfilter" title="Permanent link">#</a></h1>
+<p>CARET は数分程度の測定や解析までを取り扱うことができます。<br />
 より長時間、十数分〜数十分程度の測定結果を取り扱う際には、メモリの使用量・解析時間・可視化時間などが問題となってきます。</p>
-<p>そこで、CARETはLTTngの読み込み時に不要な測定結果を省くためのAPI(LTTngEventFilter)を備えています。<br />
-ここでは、LTTngEventFitlerの使い方について説明します。</p>
-<p>LTTngEventFitlerでは、以下のフィルタを備えています。</p>
+<p>そこで、CARET は LTTng の読み込み時に不要な測定結果を省くための API(LTTngEventFilter)を備えています。<br />
+ここでは、LTTngEventFitler の使い方について説明します。</p>
+<p>LTTngEventFitler では、以下のフィルタを備えています。</p>
 <ul>
 <li>init_pass_filter</li>
 <li>duration_filter</li>
 <li>strip_filter</li>
 </ul>
-<h2 id="api">API説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>LttngEventFilter.init_pass_filter()
+<h2 id="api">API 説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">init_pass_filter</span><span class="p">()</span>
 </code></pre></div>
 <ul>
 <li>初期化時のトレースポイントのみを通します。</li>
 </ul>
-<div class="highlight"><pre><span></span><code>LttngEventFilter.duration_filter(duration_s: float, offset_s: float)
+<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="n">duration_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">offset_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li>[duration_s]秒間を測定対象にフィルタリング</li>
 <li>最初の[offset_s]秒間を無視</li>
 </ul>
-<div class="highlight"><pre><span></span><code>LttngEventFilter.strip_filter(lsplit_s: Optional[float], rsplit_s: Optional[float])
+<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">strip_filter</span><span class="p">(</span><span class="n">lsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">rsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span>
 </code></pre></div>
 <ul>
 <li>測定開始から[lsplit_s]秒間の測定結果を無視</li>
 <li>測定測定終了から[rsplit_s]秒間の測定結果を無視</li>
 </ul>
 <h2 id="_1">使用例<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
-<p><div class="highlight"><pre><span></span><code>from caret_analyze import Lttng, LttngEventFilter
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
 
-lttng = Lttng(&#39;/path/to/ctf&#39;, event_filters=[
-  LttngEventFilter.duration_filter(10, 5)
-]) # 測定開始5秒後から10秒間にフィルタいrング
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/ctf&#39;</span><span class="p">,</span> <span class="n">event_filters</span><span class="o">=</span><span class="p">[</span>
+  <span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">])</span> <span class="c1"># 測定開始5秒後から10秒間にフィルタいrング</span>
 </code></pre></div>
-event_filtersは複数指定することもできます。<br />
+<p>event_filters は複数指定することもできます。<br />
 複数を入れた場合は、全てのフィルタが指定した区間のみにフィルタリングされます。</p>
 
               

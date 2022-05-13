@@ -1070,26 +1070,26 @@
 
 <h1 id="_1">アーキテクチャファイルの作成方法<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
 <h2 id="_2">パスの定義の確認方法<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p><div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span> 
+<div class="highlight"><pre><span></span><code><span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span>
 <span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
-<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span> 
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span>
 <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
 <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">message_driven_node</span>
 <span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
 <span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
 
-<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span> 
+<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span>
 <span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
-<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/timer_driven_node&#39;</span><span class="p">)</span> 
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/timer_driven_node&#39;</span><span class="p">)</span>
 <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
 <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">timer_driven_node</span>
 <span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
 <span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
-</code></pre></div></p>
+</code></pre></div>
 <hr />
-<p><div class="highlight"><pre><span></span><code><span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span> 
+<div class="highlight"><pre><span></span><code><span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>[callback_chain]
 [callback_chain]
@@ -1101,16 +1101,16 @@ Path Added: subscribe: /topic2, publish: None, callbacks: (&#39;/message_driven_
 [pub-sub pair]
 
 [pub-sub pair]
-Path Added: subscribe: /drive, publish: /topic3, 
-Path Added: subscribe: /drive, publish: /topic3, 
-Path Added: subscribe: /topic2, publish: /topic3, 
-Path Added: subscribe: /topic2, publish: /topic3, 
+Path Added: subscribe: /drive, publish: /topic3,
+Path Added: subscribe: /drive, publish: /topic3,
+Path Added: subscribe: /topic2, publish: /topic3,
+Path Added: subscribe: /topic2, publish: /topic3,
 
 [dummy paths]
 
 [dummy paths]
-Path Added: subscribe: None, publish: /topic3, 
-Path Added: subscribe: None, publish: /topic3, 
+Path Added: subscribe: None, publish: /topic3,
+Path Added: subscribe: None, publish: /topic3,
 message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/drive&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
 message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/drive&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
 message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/topic2&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
@@ -1135,14 +1135,14 @@ subscribe: /topic2, publish: /topic3, message_context: None
 subscribe: /topic2, publish: /topic3, message_context: None
 subscribe: None, publish: /topic3, message_context: None
 subscribe: None, publish: /topic3, message_context: None
-</code></pre></div></p>
+</code></pre></div>
 <p>今回の場合は用意しています。</p>
 <h2 id="_3">ノードレイテンシ算出方法の指定<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<p>ノードレイテンシは、「ノードがメッセージをsubscribeし、コールバックが処理開始する時刻」から「ノードがメッセージをpublishする時刻」までとしています。<br />
-ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。  </p>
-<p>CARETではいくつかのノードレイテンシの算出方法を提供しています。<br />
-ノードレイテンシの算出方法はアーキテクチャファイルでは、主に <strong>message_context</strong>という項目として指定します。  </p>
-<p>message_contextとして、以下のポリシーが指定可能です。</p>
+<p>ノードレイテンシは、「ノードがメッセージを subscribe し、コールバックが処理開始する時刻」から「ノードがメッセージを publish する時刻」までとしています。<br />
+ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。</p>
+<p>CARET ではいくつかのノードレイテンシの算出方法を提供しています。<br />
+ノードレイテンシの算出方法はアーキテクチャファイルでは、主に <strong>message_context</strong>という項目として指定します。</p>
+<p>message_context として、以下のポリシーが指定可能です。</p>
 <ul>
 <li>callback_chain</li>
 <li>inherit_unique_stamp</li>
@@ -1153,31 +1153,31 @@ subscribe: None, publish: /topic3, message_context: None
 それぞれの詳細については<a href="../node_latency_definition/">ノードレイテンシについて</a>を参照してください。</p>
 <p>本節ではアーキテクチャファイルへの記述方法をを説明します。</p>
 <h3 id="callback_chain">callback_chain<a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h3>
-<p>callback_chainは、コールバックの実行間からノードレイテンシを算出する方法です。<br />
+<p>callback_chain は、コールバックの実行間からノードレイテンシを算出する方法です。<br />
 ノードの内の処理をコールバックレベルまで分解するので、細かい粒度で測定が可能です。</p>
 <h4 id="_4">記述例<a class="headerlink" href="#_4" title="Permanent link">#</a></h4>
 <p>重要な項目のみを抜粋した記述の例を示します。<br />
 *の付いた項目は、測定対象のアプリケーションの実装を確認の上、手作業での修正が必要な項目です。</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node</span><span class="w"></span>
 <span class="w">  </span><span class="nt">callbacks</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span><span class="w"></span>
 <span class="w">  </span><span class="nt">variable_passings</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0 【* メッセージをメンバに書き込むコールバック】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_name_read</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0 【*メンバからメッセージを読み込むコールバック】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0 【* メッセージをメンバに書き込むコールバック】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">callback_name_read</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0 【*メンバからメッセージを読み込むコールバック】</span><span class="w"></span>
 <span class="w">  </span><span class="nt">publishes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0 【* /pingトピックをpublishするコールバック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0 【* /pingトピックをpublishするコールバック名】</span><span class="w"></span>
 <span class="w">  </span><span class="nt">subscribes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【subscribeするコールバック】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【subscribeするコールバック】</span><span class="w"></span>
 <span class="w">  </span><span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">callback_chain 【*ノードレイテンシのポリシー】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">callback_chain 【*ノードレイテンシのポリシー】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span><span class="w"></span>
 </code></pre></div>
-<p>callback_chainポリシーでは、コールバックグラフを構築するための情報として、<strong>variable_passings</strong>を指定する必要があります。</p>
+<p>callback_chain ポリシーでは、コールバックグラフを構築するための情報として、<strong>variable_passings</strong>を指定する必要があります。</p>
 <h4 id="_5">コールバックグラフの可視化<a class="headerlink" href="#_5" title="Permanent link">#</a></h4>
 <p>作成したアーキテクチャファイルを元に、コールバックグラフを可視化できます。</p>
 <p>ここでは、 CUI による可視化方法を説明します。</p>
@@ -1229,38 +1229,38 @@ caret はパスの探索にコールバックグラフを利用するので、�
 <p>重要な項目のみを抜粋した記述の例を示します。</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node</span><span class="w"></span>
 <span class="w">  </span><span class="nt">callbacks</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0 【コールバック名】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0 【コールバック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
 <span class="w">  </span><span class="nt">publishes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【* /pingトピックをpublishするコールバック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【* /pingトピックをpublishするコールバック名】</span><span class="w"></span>
 <span class="w">  </span><span class="nt">subscribes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【subscribeするコールバック】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【subscribeするコールバック】</span><span class="w"></span>
 <span class="w">  </span><span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inherit_unique_stamp【*ノードレイテンシのポリシー】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inherit_unique_stamp【*ノードレイテンシのポリシー】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span><span class="w"></span>
 </code></pre></div>
 <h3 id="use_latest_message">use_latest_message<a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h3>
 <h4 id="_8">記述例<a class="headerlink" href="#_8" title="Permanent link">#</a></h4>
 <p>重要な項目のみを抜粋した記述の例を示します。</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node</span><span class="w"></span>
 <span class="w">  </span><span class="nt">callbacks</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
 <span class="w">  </span><span class="nt">publishes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【* /pingトピックをpublishするコールバック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【* /pingトピックをpublishするコールバック名】</span><span class="w"></span>
 <span class="w">  </span><span class="nt">subscribes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【subscribeするコールバック】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【subscribeするコールバック】</span><span class="w"></span>
 <span class="w">  </span><span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inherit_unique_stamp【*ノードレイテンシのポリシー】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inherit_unique_stamp【*ノードレイテンシのポリシー】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span><span class="w"></span>
+<span class="w">      </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span><span class="w"></span>
 </code></pre></div>
 
               

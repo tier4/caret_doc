@@ -914,53 +914,53 @@
 <p>ノード図から全ての探索できるパスを全探索するため、対象のアプリケーションによっては処理に時間がかかりすぎてしまうケースがあります。<br />
 このようなケースで、高速に目的とするパスを探索する方法を説明します。</p>
 <h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<p>search_pathsでは、このような時間がかかりすぎてしまうケースを避けるためのAPIが備わっています。  </p>
-<div class="highlight"><pre><span></span><code>search_paths(
-    start_node_name: &#39;str&#39;,
-    end_node_name: &#39;str&#39;,
-    max_node_depth: &#39;Optional[int]&#39; = None,
-    node_filter: &#39;Optional[Callable[[str], bool]]&#39; = None,
-    communication_filter: &#39;Optional[Callable[[str], bool]]&#39; = None
-) -&gt; &#39;List[PathStructValue]&#39;
+<p>search_paths では、このような時間がかかりすぎてしまうケースを避けるための API が備わっています。</p>
+<div class="highlight"><pre><span></span><code><span class="n">search_paths</span><span class="p">(</span>
+    <span class="n">start_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
+    <span class="n">end_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
+    <span class="n">max_node_depth</span><span class="p">:</span> <span class="s1">&#39;Optional[int]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">node_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">communication_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;List[PathStructValue]&#39;</span>
 </code></pre></div>
 <ul>
 <li>start_node_name : 探索の始点となるノード名</li>
 <li>end_node_name : 探索の終点となるノード名</li>
 <li>max_node_depth : 探索するパスが含む最大ノード数。小さいほど探索範囲が狭くなります</li>
-<li>node_filter: 探索対象のノードをフィルタする関数。Trueを返却した場合は探索対象になります。</li>
-<li>communication_filter: 探索対象の通信をフィルタする関数。Trueを返却した場合は探索対象になります。</li>
+<li>node_filter: 探索対象のノードをフィルタする関数。True を返却した場合は探索対象になります。</li>
+<li>communication_filter: 探索対象の通信をフィルタする関数。True を返却した場合は探索対象になります。</li>
 </ul>
 <h2 id="_2">例<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>import re
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
-# 正規表現に一致するノード名を探索から除外する
-node_filters = [
-    re.compile(r&#39;/_ros2cli_/*&#39;),
-    re.compile(r&#39;/launch_ros_*&#39;),
-]
+<span class="c1"># 正規表現に一致するノード名を探索から除外する</span>
+<span class="n">node_filters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/_ros2cli_/*&#39;</span><span class="p">),</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/launch_ros_*&#39;</span><span class="p">),</span>
+<span class="p">]</span>
 
-# 正規表現に一致するトピック名を探索から除外する
-comm_filters = [
-    re.compile(r&#39;/tf/*&#39;),
-]
-def comm_filter(topic_name: str) -&gt; bool:
-    can_pass = True
-    for comm_filter in comm_filters:
-        can_pass &amp;= not bool(comm_filter.search(topic_name))
-    return can_pass
+<span class="c1"># 正規表現に一致するトピック名を探索から除外する</span>
+<span class="n">comm_filters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/tf/*&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="k">def</span> <span class="nf">comm_filter</span><span class="p">(</span><span class="n">topic_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">for</span> <span class="n">comm_filter</span> <span class="ow">in</span> <span class="n">comm_filters</span><span class="p">:</span>
+        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">comm_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">topic_name</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">can_pass</span>
 
-def node_filter(node_name: str) -&gt; bool:
-    can_pass = True
-    for node_filter in node_filters:
-        can_pass &amp;= not bool(node_filter.search(node_name))
-    return can_pass
+<span class="k">def</span> <span class="nf">node_filter</span><span class="p">(</span><span class="n">node_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">for</span> <span class="n">node_filter</span> <span class="ow">in</span> <span class="n">node_filters</span><span class="p">:</span>
+        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">node_name</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">can_pass</span>
 
-paths = arch.search_paths(
-    &#39;/start_node&#39;,
-    &#39;/end_node&#39;,
-    max_node_depth=30,
-    node_filter = node_filter,
-    communication_filter = comm_filter)
+<span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
+    <span class="s1">&#39;/start_node&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/end_node&#39;</span><span class="p">,</span>
+    <span class="n">max_node_depth</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">node_filter</span> <span class="o">=</span> <span class="n">node_filter</span><span class="p">,</span>
+    <span class="n">communication_filter</span> <span class="o">=</span> <span class="n">comm_filter</span><span class="p">)</span>
 </code></pre></div>
 
               

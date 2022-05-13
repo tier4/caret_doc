@@ -1005,11 +1005,11 @@
 
 
 <h1 id="_1">評価準備<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>CARETは、評価する際にアーキテクチャファイルの作成が必要です。</p>
+<p>CARET は、評価する際にアーキテクチャファイルの作成が必要です。</p>
 <p>トレース結果からアーキテクチャファイルの雛形を作成できますが、一部手作業での修正が必要になります。<br />
 ここでは、アーキテクチャファイルの作成方法とその修正方法を説明します。</p>
 <h2 id="_2">アーキテクチャファイルとは<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p>アーキテクチャファイルとは、実際に実行されたノードの情報など、測定毎に不変な静的な情報のみを含んだyaml形式の設定ファイルです。<br />
+<p>アーキテクチャファイルとは、実際に実行されたノードの情報など、測定毎に不変な静的な情報のみを含んだ yaml 形式の設定ファイルです。<br />
 コールバックの実行時間などの動的な情報は含みません。<br />
 ※ トピック名やタイマーの周期など、実行時のパラメータも一部含みます。</p>
 <p>アーキテクチャファイルで記述した静的な情報と、<br />
@@ -1022,17 +1022,17 @@
 <li>ノードレイテンシの算出方法（ノードの情報）を指定</li>
 </ol>
 <p><img alt="パスの指定とノードレイテンシの算出方法指定" src="../../imgs/path_and_node_latency.svg" /></p>
-<p>この内、①パスの情報はpythonAPIからの編集（直接yamlファイルからの編集も可）、②ノードの情報は直接yamlファイルの編集が必要です。</p>
+<p>この内、① パスの情報は pythonAPI からの編集（直接 yaml ファイルからの編集も可）、② ノードの情報は直接 yaml ファイルの編集が必要です。</p>
 <h2 id="jupyter">jupyter の起動<a class="headerlink" href="#jupyter" title="Permanent link">#</a></h2>
-<p>本ページで説明する雛形の作成などの作業は、python APIを使用して行います。  </p>
-<p>以下の手順でjupyterを起動してください。</p>
+<p>本ページで説明する雛形の作成などの作業は、python API を使用して行います。</p>
+<p>以下の手順で jupyter を起動してください。</p>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/evaluate <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/ros2_ws/evaluate
 
 <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
 jupyter-lab
 </code></pre></div>
 <h2 id="_3">雛形の作成<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<p>雛形はpython以下のコードでトレース結果から生成できます。</p>
+<p>雛形は python 以下のコードでトレース結果から生成できます。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
 
 <span class="c1"># トレース結果からアーキテクチャファイルの読み込み</span>
@@ -1047,8 +1047,8 @@ jupyter-lab
 </code></pre></div>
 <h2 id="_4">測定対象のパスの指定<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
 <p>生成したアーキテクチャファイルは以下のようにして読み込めます。</p>
-<div class="highlight"><pre><span></span><code>from caret_analyze import Architecture, check_procedure
-arch = Architecture(&#39;yaml&#39;, &#39;./architecture.yaml&#39;)
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">check_procedure</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>読み込んだ情報を元に、始点ノードから終点ノードまでのパスを全探索します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
@@ -1059,58 +1059,59 @@ arch = Architecture(&#39;yaml&#39;, &#39;./architecture.yaml&#39;)
 その際は、無関係なノードやトピックの枝刈りや、探索する深さを指定できます。 詳細は<a href="../../supplements/how_to_search_path/">パスの探索方法</a>を参照ください。</p>
 <p>探索されたパスは複数見つかることがあります。<br />
 測定したいパスのインデックスを探すために、探索したパスの情報を確認します。</p>
-<div class="highlight"><pre><span></span><code>path = paths[0]
-path.summary.pprint()
+<div class="highlight"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">path</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">pprint</span><span class="p">()</span>
 
----以下出力---
- path:
- - message_context: null  # ノードレイテンシの定義。
-   node: /sensor_dummy_node
- - topic: /topic1
- - message_context:
-     publisher_topic_name: /topic2
-     subscription_topic_name: /topic1
-     type: callback_chain
-   node: /filter_node
- - topic: /topic2
- - message_context: null
-   node: /message_driven_node
- - topic: /topic3
- - message_context: null
-   node: /timer_driven_node
- - topic: /topic4
- - message_context: null
-   node: /actuator_dummy_node
+<span class="o">---</span><span class="n">以下出力</span><span class="o">---</span>
+
+<span class="n">path</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span> <span class="c1"># ノードレイテンシの定義。</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">sensor_dummy_node</span>
+  <span class="o">-</span> <span class="n">topic</span><span class="p">:</span> <span class="o">/</span><span class="n">topic1</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span>
+      <span class="n">publisher_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
+      <span class="n">subscription_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic1</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="n">callback_chain</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">filter_node</span>
+  <span class="o">-</span> <span class="n">topic</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">message_driven_node</span>
+  <span class="o">-</span> <span class="n">topic</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">timer_driven_node</span>
+  <span class="o">-</span> <span class="n">topic</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">actuator_dummy_node</span>
 </code></pre></div>
 <p>決定したパスに<code>target_path</code>と名前を付け、アーキテクチャファイルに保存します。</p>
-<div class="highlight"><pre><span></span><code>arch.add_path(&#39;target_path&#39;, path)
-arch.export(&#39;./architecture.yaml&#39;)
+<div class="highlight"><pre><span></span><code><span class="n">arch</span><span class="o">.</span><span class="n">add_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>アーキテクチャファイルには、以下のように記載されます。
+<p>アーキテクチャファイルには、以下のように記載されます。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">named_paths</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_path</span><span class="w"></span>
-<span class="w">  </span><span class="nt">node_chain</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sensor_dummy_node</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/filter_node</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic2</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic1</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/message_driven_node</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic2</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/timer_driven_node</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic4</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/actuator_dummy_node</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic4</span><span class="w"></span>
-</code></pre></div></p>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_path</span><span class="w"></span>
+<span class="w">    </span><span class="nt">node_chain</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sensor_dummy_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic1</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/filter_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic2</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic1</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/message_driven_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic2</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/timer_driven_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic4</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/actuator_dummy_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic4</span><span class="w"></span>
+</code></pre></div>
 <h2 id="_5">ノードレイテンシの定義指定<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
-<p>ノードレイテンシは、「ノードがメッセージをsubscribeし、コールバックが処理開始する時刻」から「ノードがメッセージをpublishする時刻」までとしています。<br />
-ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。  </p>
-<p>CARETではいくつかのノードレイテンシの算出方法を提供しています。<br />
-ノードレイテンシの算出方法はアーキテクチャファイルでは、主に <strong>message_context</strong>という項目として指定します。  </p>
+<p>ノードレイテンシは、「ノードがメッセージを subscribe し、コールバックが処理開始する時刻」から「ノードがメッセージを publish する時刻」までとしています。<br />
+ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。</p>
+<p>CARET ではいくつかのノードレイテンシの算出方法を提供しています。<br />
+ノードレイテンシの算出方法はアーキテクチャファイルでは、主に <strong>message_context</strong>という項目として指定します。</p>
 <h3 id="_6">修正対象の確認<a class="headerlink" href="#_6" title="Permanent link">#</a></h3>
 <p>以下のように、<code>path.verify()</code>を実行し、パスに含まれるノードレイテンシの定義の情報が不足ていないか確認します。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
@@ -1120,17 +1121,17 @@ arch.export(&#39;./architecture.yaml&#39;)
 <span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
 
 <span class="o">---</span><span class="n">以下出力</span><span class="o">---</span>
-<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span> 
+<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span>
 <span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
-<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span> 
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span>
 <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
 <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">message_driven_node</span>
 <span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
 <span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
 
-<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span> 
+<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span>
 <span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
-<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/timer_driven_node&#39;</span><span class="p">)</span> 
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/timer_driven_node&#39;</span><span class="p">)</span>
 <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
 <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">timer_driven_node</span>
 <span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
@@ -1141,11 +1142,11 @@ arch.export(&#39;./architecture.yaml&#39;)
 <li><code>/message_driven_node</code>ノード、<code>/topic2</code>入力から<code>/topic3</code>出力のパス</li>
 <li><code>/timer_driven_node</code>ノード、<code>/topic3</code>入力から<code>/topic4</code>出力のパス</li>
 </ul>
-<p>警告されたノードのパスについて、アーキテクチャファイル内の対応するmessage_contextを編集する必要が有ります。  </p>
+<p>警告されたノードのパスについて、アーキテクチャファイル内の対応する message_context を編集する必要が有ります。</p>
 <h3 id="_7">ノードレイテンシの算出方法指定<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
 <p>サンプルのアプリケーションでは、以下の修正が必要になります。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># /message_driven_node内の項目</span><span class="w"></span>
-<span class="w">  </span><span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
+<span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">use_latest_message</span><span class="w"> </span><span class="c1"># UNDEFINEDからuse_latest_messageへ変更</span><span class="w"></span>
 <span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic2</span><span class="w"></span>
 <span class="w">    </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>

@@ -730,14 +730,14 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    特定のノードだけ測定がされていない。
+    特定のノードだけ測定がされていない
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    メッセージフローの図が途中で止まっている。
+    メッセージフローの図が途中で止まっている
   </a>
   
 </li>
@@ -920,14 +920,14 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    特定のノードだけ測定がされていない。
+    特定のノードだけ測定がされていない
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    メッセージフローの図が途中で止まっている。
+    メッセージフローの図が途中で止まっている
   </a>
   
 </li>
@@ -1025,17 +1025,17 @@ colcon build --symlink-install
 </ul>
 </li>
 </ul>
-<h2 id="_4">特定のノードだけ測定がされていない。<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
+<h2 id="_4">特定のノードだけ測定がされていない<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
 <p>一部のトレースポイントが見当たらない現象が残っており、これが原因の可能性があります。</p>
-<p>現在、フォークしたROSレイヤーに追加したトレースポイントが正しく測定されない問題が見つかっています。<br />
-これはビルドする際にフォークしたrclcppが参照されていないことが原因です。  </p>
+<p>現在、フォークした ROS レイヤーに追加したトレースポイントが正しく測定されない問題が見つかっています。<br />
+これはビルドする際にフォークした rclcpp が参照されていないことが原因です。</p>
 <p>上記手順でトレースポイントが不足している場合には、<br />
-CMakeLists.txtのfind_package後に以下の行を追加してください。<br />
-<div class="highlight"><pre><span></span><code>include_directories(SYSTEM /home/autoware/ros2_caret_ws/install/rclcpp/include)
-</code></pre></div></p>
-<p>フォークしたrclcppで追加したトレースポイントについては、 <a href="../../design/tracepoint_definition/">トレースポイントの定義</a>の表内で、
-トレースポイントの実装方法が「rclcppパッケージ新規追加」となっている項目が対象になります。</p>
-<h2 id="_5">メッセージフローの図が途中で止まっている。<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
+CMakeLists.txt の find_package 後に以下の行を追加してください。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">include_directories</span><span class="p">(</span><span class="s">SYSTEM</span><span class="w"> </span><span class="s">/home/autoware/ros2_caret_ws/install/rclcpp/include</span><span class="p">)</span>
+</code></pre></div>
+<p>フォークした rclcpp で追加したトレースポイントについては、 <a href="../../design/tracepoint_definition/">トレースポイントの定義</a>の表内で、
+トレースポイントの実装方法が「rclcpp パッケージ新規追加」となっている項目が対象になります。</p>
+<h2 id="_5">メッセージフローの図が途中で止まっている<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
 
               
             </article>
