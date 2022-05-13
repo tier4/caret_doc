@@ -1006,15 +1006,15 @@
 <p><img alt="callback_and_node_latency" src="../../imgs/callback_and_node_latency.png" /></p>
 <p>ここでは通信レイテンシとノードレイテンシの算出方法について説明します。</p>
 <h3 id="_3">通信レイテンシの算出方法<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
-<p>通信レイテンシはコールバックのpublishの時刻と、後続のコールバックが開始した時刻の差分で計算しています。</p>
+<p>通信レイテンシはコールバックの publish の時刻と、後続のコールバックが開始した時刻の差分で計算しています。</p>
 <h4 id="_4">プロセス内通信<a class="headerlink" href="#_4" title="Permanent link">#</a></h4>
 <p>次の表はプロセス内通信のトレースに必要なトレースポイントと、そのトレースポイントの引数（トレースデータとして出力されるもの）です。※簡易版</p>
 <table>
 <thead>
 <tr>
 <th>トレースポイント名</th>
-<th>引数1</th>
-<th>引数2</th>
+<th>引数 1</th>
+<th>引数 2</th>
 <th>時刻</th>
 </tr>
 </thead>
@@ -1040,8 +1040,8 @@
 </tbody>
 </table>
 <p>※<a href="https://tier4.github.io/CARET_doc/design/tracepoint_definition/">引数についてはこちらを参照</a></p>
-<p>message_argとcallback_argにはメッセージのアドレス、コールバックのアドレスが格納されています。
-rclcpp_intra_publisherとdispatch_intra_process_subscription_callbackは同じmessage_argを持つトレースポイント同士で紐づけ、dispatch_intra_process_subscription_callbackとcallback_startは同じcallback_argを持つトレースポイント同士で紐づけることにより、下記のような表を作成します。
+<p>message_arg と callback_arg にはメッセージのアドレス、コールバックのアドレスが格納されています。
+rclcpp_intra_publisher と dispatch_intra_process_subscription_callback は同じ message_arg を持つトレースポイント同士で紐づけ、dispatch_intra_process_subscription_callback と callback_start は同じ callback_arg を持つトレースポイント同士で紐づけることにより、下記のような表を作成します。
 最後に<code>callback_start - rclcpp_intra_publish</code>で<strong>プロセス内通信のレイテンシ</strong>を算出しています。</p>
 <table>
 <thead>
@@ -1073,9 +1073,9 @@ rclcpp_intra_publisherとdispatch_intra_process_subscription_callbackは同じme
 <thead>
 <tr>
 <th>トレースポイント名</th>
-<th>引数1</th>
-<th>引数2</th>
-<th>引数3</th>
+<th>引数 1</th>
+<th>引数 2</th>
+<th>引数 3</th>
 <th>時刻</th>
 </tr>
 </thead>
@@ -1124,8 +1124,8 @@ rclcpp_intra_publisherとdispatch_intra_process_subscription_callbackは同じme
 </tr>
 </tbody>
 </table>
-<p>プロセス内通信と同様に同じ引数を持つトレースポイント同士を紐づけていき、publishからcallback_startまでの表を作成します（下記表）。<br />
-1行が1つのプロセス間通信のチェーンを表し、<code>callback_start - rclcpp_publish</code> にて<strong>プロセス間通信のレイテンシ</strong>を算出します。</p>
+<p>プロセス内通信と同様に同じ引数を持つトレースポイント同士を紐づけていき、publish から callback_start までの表を作成します（下記表）。<br />
+1 行が 1 つのプロセス間通信のチェーンを表し、<code>callback_start - rclcpp_publish</code> にて<strong>プロセス間通信のレイテンシ</strong>を算出します。</p>
 <table>
 <thead>
 <tr>
@@ -1160,11 +1160,11 @@ rclcpp_intra_publisherとdispatch_intra_process_subscription_callbackは同じme
 </tbody>
 </table>
 <h2 id="_6">ノードレイテンシの算出方法<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
-<p>ノードレイテンシの算出方法は2つあります。
+<p>ノードレイテンシの算出方法は 2 つあります。
 それぞれの手法・長所・短所を説明します。</p>
 <h3 id="_7">コールバックチェーンの利用<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
-<p>コールバックレイテンシの測定は、同じコールバックアドレスを持つcallback_startとrclcpp_publishの差分を使って算出します。<br />
-callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一番近いcallback_startと紐づけます。</p>
+<p>コールバックレイテンシの測定は、同じコールバックアドレスを持つ callback_start と rclcpp_publish の差分を使って算出します。<br />
+callback_start と rclcpp_publish の紐づけは、rclcpp_publish から見て一番近い callback_start と紐づけます。</p>
 <table>
 <thead>
 <tr>
@@ -1240,8 +1240,8 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 </tr>
 </tbody>
 </table>
-<p>上記表のようにコールバックA・B（cb_A・cb_B）が存在し、A→Bと処理が続く時、cb_Aのcallback_endとcb_Bのcallback_startを結び付けて表を作ります。<br />
-最後のcallbackだけはpublishの時の時刻を採用し、下記表のように一つのテーブルにします。</p>
+<p>上記表のようにコールバック A・B（cb_A・cb_B）が存在し、A→B と処理が続く時、cb_A の callback_end と cb_B の callback_start を結び付けて表を作ります。<br />
+最後の callback だけは publish の時の時刻を採用し、下記表のように一つのテーブルにします。</p>
 <table>
 <thead>
 <tr>
@@ -1285,8 +1285,8 @@ callback_startとrclcpp_publishの紐づけは、rclcpp_publishから見て一�
 </table>
 <p>上記のようにコールバックチェーンをつなぎ、<code>rclcpp_publish (cb_X) - callback_start (cb_Y)</code>で<strong>ノードレイテンシ</strong>を算出します。</p>
 <blockquote>
-<p>※ノード内にコールバックが１つの場合、X, Yは同じものを指します。<br />
-複数コールバックがある場合は、Xが最後・Yが最初のコールバックを指します。</p>
+<p>※ノード内にコールバックが１つの場合、X, Y は同じものを指します。<br />
+複数コールバックがある場合は、X が最後・Y が最初のコールバックを指します。</p>
 </blockquote>
 
               

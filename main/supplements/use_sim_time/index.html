@@ -723,14 +723,14 @@
       
         <li class="md-nav__item">
   <a href="#sim_time_1" class="md-nav__link">
-    sim_timeの記録
+    sim_time の記録
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#sim_time_2" class="md-nav__link">
-    sim_timeを使った可視化
+    sim_time を使った可視化
   </a>
   
 </li>
@@ -878,14 +878,14 @@
       
         <li class="md-nav__item">
   <a href="#sim_time_1" class="md-nav__link">
-    sim_timeの記録
+    sim_time の記録
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#sim_time_2" class="md-nav__link">
-    sim_timeを使った可視化
+    sim_time を使った可視化
   </a>
   
 </li>
@@ -908,43 +908,43 @@
 
 
 
-<h1 id="sim_time">sim_timeでの時系列データ評価<a class="headerlink" href="#sim_time" title="Permanent link">#</a></h1>
-<p>CARETのデフォルト（LTTng）では、システム時間で測定結果が出力されます。<br />
+<h1 id="sim_time">sim_time での時系列データ評価<a class="headerlink" href="#sim_time" title="Permanent link">#</a></h1>
+<p>CARET のデフォルト（LTTng）では、システム時間で測定結果が出力されます。<br />
 この場合、同じ条件で繰り返し測定する場合などでは、時間がズレてしまい、並べて比較するのが困難です。<br />
 そのような場合には、sim_time で時刻を一致させることで、同条件下での評価が可能になります。<br />
-本ページでは、時系列データの時刻をsim_timeに時刻を揃えて評価する方法を説明します。</p>
-<h2 id="sim_time_1">sim_timeの記録<a class="headerlink" href="#sim_time_1" title="Permanent link">#</a></h2>
-<p>sim_timeを使った評価を行う際には、測定時に特定のノードを実行させておく必要が有ります。
+本ページでは、時系列データの時刻を sim_time に時刻を揃えて評価する方法を説明します。</p>
+<h2 id="sim_time_1">sim_time の記録<a class="headerlink" href="#sim_time_1" title="Permanent link">#</a></h2>
+<p>sim_time を使った評価を行う際には、測定時に特定のノードを実行させておく必要が有ります。</p>
 <div class="highlight"><pre><span></span><code>ros2 run caret_trace clock_recorder
-</code></pre></div></p>
-<p><code>clock_recorder</code>ノードを起動させておくことで、<code>ros2_caret:simime</code>トレースが有効になります。  </p>
+</code></pre></div>
+<p><code>clock_recorder</code>ノードを起動させておくことで、<code>ros2_caret:simime</code>トレースが有効になります。</p>
 <p>以下のようにコマンドを実行することで、トレースポイントが記録されていることを確認できます。</p>
-<div class="highlight"><pre><span></span><code>$ babeltrace ~/.ros/tracing/ctf_path | cut -d&#39; &#39; -f 4 | sort -u | grep sim_time
+<div class="highlight"><pre><span></span><code>$ babeltrace ~/.ros/tracing/ctf_path <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
 ros2_caret:sim_time:
 </code></pre></div>
-<p>なお、sim_timeは<code>/clock</code>トピックがpublishされている間のみ記録されます。</p>
-<h2 id="sim_time_2">sim_timeを使った可視化<a class="headerlink" href="#sim_time_2" title="Permanent link">#</a></h2>
-<p><code>caret_analyze.plot</code>配下の可視化では、時間軸をsim_timeにした可視化が可能です。<br />
-最新版v.0.2.1では、<code>callback_sched</code>と<code>message_flow</code>がsim_timeの時刻を使用した可視化に対応しています。</p>
-<p><div class="highlight"><pre><span></span><code>def callback_sched(
-    target: Union[Node, CallbackGroup, Executor],
-    lstrip_s: float = 0,
-    rstrip_s: float = 0,
-    coloring_rule=&#39;callback&#39;,
-    use_sim_time: bool = False)
-):
+<p>なお、sim_time は<code>/clock</code>トピックが publish されている間のみ記録されます。</p>
+<h2 id="sim_time_2">sim_time を使った可視化<a class="headerlink" href="#sim_time_2" title="Permanent link">#</a></h2>
+<p><code>caret_analyze.plot</code>配下の可視化では、時間軸を sim_time にした可視化が可能です。<br />
+最新版 v.0.2.1 では、<code>callback_sched</code>と<code>message_flow</code>が sim_time の時刻を使用した可視化に対応しています。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">callback_sched</span><span class="p">(</span>
+    <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Node</span><span class="p">,</span> <span class="n">CallbackGroup</span><span class="p">,</span> <span class="n">Executor</span><span class="p">],</span>
+    <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">coloring_rule</span><span class="o">=</span><span class="s1">&#39;callback&#39;</span><span class="p">,</span>
+    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="p">):</span>
 
-def message_flow(
-    path: Path,
-    export_path: Optional[str] = None,
-    granularity: Optional[str] = None,
-    treat_drop_as_delay=False,
-    lstrip_s: float = 0,
-    rstrip_s: float = 0,
-    use_sim_time: bool = False
-)
+<span class="k">def</span> <span class="nf">message_flow</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">granularity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span>
 </code></pre></div>
-オプション引数の<code>use_sim_time = True</code>とすることで、横軸がsim_timeのグラフを描画できます。<br />
+<p>オプション引数の<code>use_sim_time = True</code>とすることで、横軸が sim_time のグラフを描画できます。<br />
 なお、<code>ros2_caret:sim_time</code>トレースポイントが見つからない場合には、エラーが出るようになっています。</p>
 
               

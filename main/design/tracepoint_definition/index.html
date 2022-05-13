@@ -1060,7 +1060,7 @@
         
           <li class="md-nav__item">
   <a href="#publish" class="md-nav__link">
-    メッセージのpublishまで
+    メッセージの publish まで
   </a>
   
 </li>
@@ -1413,7 +1413,7 @@
         
           <li class="md-nav__item">
   <a href="#publish" class="md-nav__link">
-    メッセージのpublishまで
+    メッセージの publish まで
   </a>
   
 </li>
@@ -1449,32 +1449,32 @@
 
 
 <h1 id="_1">トレースポイントの定義<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>CARETはトピック名などの情報を得るための「初期化時の処理に対するトレースポイント」と、<br />
+<p>CARET はトピック名などの情報を得るための「初期化時の処理に対するトレースポイント」と、<br />
 測定をするための「ランタイムの処理に対するトレースポイント」があります。</p>
 <p>本ページではそれぞれのトレースポイントの定義についてまとめています。</p>
 <p>各トレースポイントには、その実装方法を区別するために以下の情報も記載しています。</p>
 <ul>
-<li>Galactic実装<ul>
-<li>Galactic以降のROSにはデフォルトで実装されている、ros2 tracingが使用しているトレースポイントです。</li>
-<li>serviceやlifecycleなど、実装はされていてもCARETでは使われていないトレースポイントも有ります。</li>
+<li>Galactic 実装<ul>
+<li>Galactic 以降の ROS にはデフォルトで実装されている、ros2 tracing が使用しているトレースポイントです。</li>
+<li>service や lifecycle など、実装はされていても CARET では使われていないトレースポイントも有ります。</li>
 </ul>
 </li>
-<li>CARETフォーク実装<ul>
-<li>rclcppリポジトリをフォークして追加しているトレースポイントです。</li>
+<li>CARET フォーク実装<ul>
+<li>rclcpp リポジトリをフォークして追加しているトレースポイントです。</li>
 </ul>
 </li>
-<li>CARETフック実装<ul>
-<li>LD_PRELOADによるフックで追加しているトレースポイントです。</li>
+<li>CARET フック実装<ul>
+<li>LD_PRELOAD によるフックで追加しているトレースポイントです。</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>フォークとフックの２つの方法でトレースポイントを追加している理由  </p>
-<p>CARETは基本的には実装と切り離すために、LD_PRELOADを利用したフックによるトレースポイントの追加をしています。<br />
-ただし、rclcppには、プロセス内通信などのテンプレートによる実装を含み、LD_PRELOADではフックできない処理があります。<br />
-LD_PRELOADは実行時の動的リンクに対しフックできる機能であるのに対し、<br />
+<p>フォークとフックの２つの方法でトレースポイントを追加している理由</p>
+<p>CARET は基本的には実装と切り離すために、LD_PRELOAD を利用したフックによるトレースポイントの追加をしています。<br />
+ただし、rclcpp には、プロセス内通信などのテンプレートによる実装を含み、LD_PRELOAD ではフックできない処理があります。<br />
+LD_PRELOAD は実行時の動的リンクに対しフックできる機能であるのに対し、<br />
 テンプレートで実装された処理はコンパイルでバイナリ内に組み込まれてしまうためフックできません。<br />
-このようなテンプレートで実装された処理に対してのみ、rclcppをフォークしてトレースポイントを追加しています。<br />
+このようなテンプレートで実装された処理に対してのみ、rclcpp をフォークしてトレースポイントを追加しています。<br />
 このような理由から、測定対象のアプリケーションを再ビルドする必要が生じています。</p>
 </blockquote>
 <h2 id="_2">シーケンスと主要なトレースポイント<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
@@ -1482,14 +1482,14 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 <h2 id="_3">初期化時のトレースポイント<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
 <hr />
 <h3 id="ros2rcl_init">ros2:rcl_init<a class="headerlink" href="#ros2rcl_init" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * context_handle</li>
 </ul>
 <hr />
 <h3 id="ros2rcl_node_init">ros2:rcl_node_init<a class="headerlink" href="#ros2rcl_node_init" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * node_handle</li>
@@ -1499,7 +1499,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rcl_publisher_init">ros2:rcl_publisher_init<a class="headerlink" href="#ros2rcl_publisher_init" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * publisher_handle</li>
@@ -1510,7 +1510,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rcl_subscription_init">ros2:rcl_subscription_init<a class="headerlink" href="#ros2rcl_subscription_init" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * subscription_handle</li>
@@ -1521,7 +1521,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rclcpp_subscription_init">ros2:rclcpp_subscription_init<a class="headerlink" href="#ros2rclcpp_subscription_init" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * subscription_handle</li>
@@ -1529,7 +1529,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rclcpp_subscription_callback_added">ros2:rclcpp_subscription_callback_added<a class="headerlink" href="#ros2rclcpp_subscription_callback_added" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * subscription</li>
@@ -1537,13 +1537,15 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rcl_timer_init">ros2:rcl_timer_init<a class="headerlink" href="#ros2rcl_timer_init" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
-<p>付加情報
-- void * timer_handle
-- int64_t period</p>
+<p>[Galactic 実装]</p>
+<p>付加情報</p>
+<ul>
+<li>void * timer_handle</li>
+<li>int64_t period</li>
+</ul>
 <hr />
 <h3 id="ros2rclcpp_timer_callback_added">ros2:rclcpp_timer_callback_added<a class="headerlink" href="#ros2rclcpp_timer_callback_added" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * timer_handle</li>
@@ -1551,7 +1553,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rclcpp_timer_link_node">ros2:rclcpp_timer_link_node<a class="headerlink" href="#ros2rclcpp_timer_link_node" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * timer_handle</li>
@@ -1559,7 +1561,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rclcpp_callback_register">ros2:rclcpp_callback_register<a class="headerlink" href="#ros2rclcpp_callback_register" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * callback</li>
@@ -1567,14 +1569,14 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2_caretrmw_implementation">ros2_caret:rmw_implementation<a class="headerlink" href="#ros2_caretrmw_implementation" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>char * rmw_impl</li>
 </ul>
 <hr />
 <h3 id="ros2_caretconstruct_executor">ros2_caret:construct_executor<a class="headerlink" href="#ros2_caretconstruct_executor" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * executor_addr</li>
@@ -1582,7 +1584,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2_caretconstruct_static_executor">ros2_caret:construct_static_executor<a class="headerlink" href="#ros2_caretconstruct_static_executor" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * executor_addr</li>
@@ -1591,7 +1593,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2_caretadd_callback_group">ros2_caret:add_callback_group<a class="headerlink" href="#ros2_caretadd_callback_group" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * executor_addr</li>
@@ -1600,7 +1602,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2_caretadd_callback_group_static_executor">ros2_caret:add_callback_group_static_executor<a class="headerlink" href="#ros2_caretadd_callback_group_static_executor" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * entities_collector_addr</li>
@@ -1609,7 +1611,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2_caretcallback_group_add_timer">ros2_caret:callback_group_add_timer<a class="headerlink" href="#ros2_caretcallback_group_add_timer" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * callback_group_addr</li>
@@ -1617,7 +1619,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2_caretcallback_group_add_subscription">ros2_caret:callback_group_add_subscription<a class="headerlink" href="#ros2_caretcallback_group_add_subscription" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * callback_group_addr</li>
@@ -1625,7 +1627,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2_caretcallback_group_add_service">ros2_caret:callback_group_add_service<a class="headerlink" href="#ros2_caretcallback_group_add_service" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * callback_group_addr</li>
@@ -1633,7 +1635,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2_caretcallback_group_add_client">ros2_caret:callback_group_add_client<a class="headerlink" href="#ros2_caretcallback_group_add_client" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * callback_group_addr</li>
@@ -1642,7 +1644,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 <hr />
 <h2 id="_4">ランタイム時のトレースポイント<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
 <h3 id="ros2callback_start">ros2:callback_start<a class="headerlink" href="#ros2callback_start" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * callback</li>
@@ -1650,14 +1652,14 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2callback_end">ros2:callback_end<a class="headerlink" href="#ros2callback_end" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * callback</li>
 </ul>
 <hr />
 <h3 id="ros2message_construct">ros2:message_construct<a class="headerlink" href="#ros2message_construct" title="Permanent link">#</a></h3>
-<p>[CARETフォーク実装]</p>
+<p>[CARET フォーク実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * original_message</li>
@@ -1665,7 +1667,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rclcpp_intra_publish">ros2:rclcpp_intra_publish<a class="headerlink" href="#ros2rclcpp_intra_publish" title="Permanent link">#</a></h3>
-<p>[CARETフォーク実装]</p>
+<p>[CARET フォーク実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * publisher_handle</li>
@@ -1674,7 +1676,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2dispatch_subscription_callback">ros2:dispatch_subscription_callback<a class="headerlink" href="#ros2dispatch_subscription_callback" title="Permanent link">#</a></h3>
-<p>[CARETフォーク実装]</p>
+<p>[CARET フォーク実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * message</li>
@@ -1684,7 +1686,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2dispatch_intra_process_subscription_callback">ros2:dispatch_intra_process_subscription_callback<a class="headerlink" href="#ros2dispatch_intra_process_subscription_callback" title="Permanent link">#</a></h3>
-<p>[CARETフォーク実装]</p>
+<p>[CARET フォーク実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * message</li>
@@ -1693,7 +1695,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rcl_publish">ros2:rcl_publish<a class="headerlink" href="#ros2rcl_publish" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * publisher_handle</li>
@@ -1701,7 +1703,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2rclcpp_publish">ros2:rclcpp_publish<a class="headerlink" href="#ros2rclcpp_publish" title="Permanent link">#</a></h3>
-<p>[Galactic実装]</p>
+<p>[Galactic 実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * publisher_handle</li>
@@ -1709,14 +1711,14 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 <li>uint64_t message_timestamp</li>
 </ul>
 <h3 id="ros2_caretdds_write">ros2_caret:dds_write<a class="headerlink" href="#ros2_caretdds_write" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * message</li>
 </ul>
 <hr />
 <h3 id="ros2_caretdds_bind_addr_to_stamp">ros2_caret:dds_bind_addr_to_stamp<a class="headerlink" href="#ros2_caretdds_bind_addr_to_stamp" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * addr</li>
@@ -1724,7 +1726,7 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h3 id="ros2_caretdds_bind_addr_to_addr">ros2_caret:dds_bind_addr_to_addr<a class="headerlink" href="#ros2_caretdds_bind_addr_to_addr" title="Permanent link">#</a></h3>
-<p>[CARETフック実装]</p>
+<p>[CARET フック実装]</p>
 <p>付加情報</p>
 <ul>
 <li>void * addr_from</li>
@@ -1732,10 +1734,10 @@ LD_PRELOADは実行時の動的リンクに対しフックできる機能であ�
 </ul>
 <hr />
 <h2 id="_5">トレースポイントの紐付け<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
-<p>本ページで列挙しているトレースポイントはノードID（<code>node_handle</code>）やコールバックID（<code>コールバックのインスタンスのアドレス</code>）などの値を元に紐付けて利用する。<br />
+<p>本ページで列挙しているトレースポイントはノード ID（<code>node_handle</code>）やコールバック ID（<code>コールバックのインスタンスのアドレス</code>）などの値を元に紐付けて利用する。<br />
 それぞれのトレースポイントの対応関係をグラフで示す。</p>
 <h3 id="_6">ノードの初期化<a class="headerlink" href="#_6" title="Permanent link">#</a></h3>
-<p><pre class="mermaid"><code>
+<pre class="mermaid"><code>
 graph RL
   node_handle[[node_handle]]
   subscription_handle[[subscription_handle]]
@@ -1788,8 +1790,8 @@ graph RL
   callback &lt;--&gt; rclcpp_callback_register
   rmw_implementation
 </code></pre>
-コールバックのインスタンスのアドレス値が一意に決まれば、<code>timer_callback_added</code>など他のトレースポイントの値を紐付いていくことでノードの情報まで得ることができる。<br />
-逆に、node_handleが一意に決まれば、そのノードに含まれるコールバックも特定できる。</p>
+<p>コールバックのインスタンスのアドレス値が一意に決まれば、<code>timer_callback_added</code>など他のトレースポイントの値を紐付いていくことでノードの情報まで得ることができる。<br />
+逆に、node_handle が一意に決まれば、そのノードに含まれるコールバックも特定できる。</p>
 <h3 id="_7">エグゼキューターやコールバックグループの初期化<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
 <pre class="mermaid"><code>
 graph RL
@@ -1838,7 +1840,7 @@ graph RL
   callback_group_add_client &lt;--&gt; callback_group_addr
   client_handle &lt;--&gt; callback_group_add_client</code></pre>
 <p>タイマーなどの各ハンドラはコールバックグループに追加され、エグゼキュータに紐付けられる。</p>
-<h3 id="publish">メッセージのpublishまで<a class="headerlink" href="#publish" title="Permanent link">#</a></h3>
+<h3 id="publish">メッセージの publish まで<a class="headerlink" href="#publish" title="Permanent link">#</a></h3>
 <pre class="mermaid"><code>
 graph LR
   source_timestamp[[source_timestamp]]
@@ -1884,12 +1886,12 @@ graph LR
   dds_bind_addr_to_addr -.-&gt; message_dds
   message_dds -.-&gt; dds_bind_addr_to_addr
 </code></pre>
-<p><code>publish</code>を実行した際、unique_ptr型で複数のsubscriptionがある場合などのケースでは、必要に応じてメッセージのコピーが発生する。<br />
+<p><code>publish</code>を実行した際、unique_ptr 型で複数の subscription がある場合などのケースでは、必要に応じてメッセージのコピーが発生する。<br />
 メッセージのコピーが発生した際は<code>message_construct</code>でコピー前とコピー後の変数のアドレスを紐付けられるようにしている。<br />
-rclレイヤー以下ではメッセージのアドレスで対応付けられるようにし、DDSレイヤーでsource_timestampに紐付けられるようにしている。<br />
-source_timestampは元々はQoSのDeadlineなどに使われる値で、全てのDDS通信を行うメッセージに自動的に付与される値であり、subscription側で同じ値が受信される。<br />
-受信側ではsource_timestampの値を紐付けるための情報として利用している。</p>
-<p>message_addr（プロセス内通信）/source_timestamp（プロセス間通信）からpublishまでが一意に紐付けられる。</p>
+rcl レイヤー以下ではメッセージのアドレスで対応付けられるようにし、DDS レイヤーで source_timestamp に紐付けられるようにしている。<br />
+source_timestamp は元々は QoS の Deadline などに使われる値で、全ての DDS 通信を行うメッセージに自動的に付与される値であり、subscription 側で同じ値が受信される。<br />
+受信側では source_timestamp の値を紐付けるための情報として利用している。</p>
+<p>message_addr（プロセス内通信）/source_timestamp（プロセス間通信）から publish までが一意に紐付けられる。</p>
 <h3 id="_8">メッセージの受信からコールバック実行まで<a class="headerlink" href="#_8" title="Permanent link">#</a></h3>
 <pre class="mermaid"><code>
 graph LR
@@ -1918,12 +1920,12 @@ graph LR
 
   dispatch_subscription_callback --&gt; callback
   source_timestamp_sub --&gt; dispatch_subscription_callback</code></pre>
-<p>プロセス内通信ではpublishされたメッセージのアドレスで紐づけを行う。<br />
-プロセス間通信ではsource_timestampで紐づけを行う。</p>
-<p>callback_startからmessage_addr/source_timestampまでが一意に紐付けられる。<br />
-また、publisher側のグラフで示した通り、message_addr/source_timestampからpublishまでが一意に紐付けられる。<br />
-したがって、publishからcallback_startまでは一意に紐付けることができる。  </p>
-<p>ただし、コールバックの実行とpublishの紐付けはできていないので注意。</p>
+<p>プロセス内通信では publish されたメッセージのアドレスで紐づけを行う。<br />
+プロセス間通信では source_timestamp で紐づけを行う。</p>
+<p>callback_start から message_addr/source_timestamp までが一意に紐付けられる。<br />
+また、publisher 側のグラフで示した通り、message_addr/source_timestamp から publish までが一意に紐付けられる。<br />
+したがって、publish から callback_start までは一意に紐付けることができる。</p>
+<p>ただし、コールバックの実行と publish の紐付けはできていないので注意。</p>
 
               
             </article>
