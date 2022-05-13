@@ -8,8 +8,8 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
 1. Clone `caret` and enter the directory.
 
    ```bash
-   git clone https://github.com/tier4/caret.git
-   cd caret
+   git clone https://github.com/tier4/caret.git ros2_caret_ws
+   cd ros2_caret_ws
    ```
 
 2. Create the src directory and clone repositories into it.
@@ -39,9 +39,8 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    CARET inherits some functions from [ros2-tracing](https://gitlab.com/ros-tracing/ros2_tracing).
 
    ```bash
-   $ source ~/ros2_caret_ws/install/local_setup.bash
-   $ ros2 run tracetools status
-   Tracing enabled
+   source ~/ros2_caret_ws/install/local_setup.bash
+   ros2 run tracetools status # return Tracing enabled
    ```
 
 If you see `Tracing enabled`, you can continue to apply CARET to your application.
