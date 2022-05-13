@@ -5,7 +5,7 @@ The sample application is located on [CARET_demos](https://github.com/tier4/CARE
 
 ## Building application with CARET
 
-To measure target applications' performance, the target should be built with CARET/rclcpp. CARET/rclcpp is another implementation of [ROS 2-based rclcpp](https://github.com/ros2/rclcpp) which has some additional tracepoints defined by CARET. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp.
+To measure target applications' performance, the target should be built with CARET/rclcpp. CARET/rclcpp is a fork of [ROS 2-based rclcpp](https://github.com/ros2/rclcpp) which has some additional tracepoints defined by CARET. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again.
 
 For building the application with CARET/rclcpp, CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as shown below.
 
@@ -23,12 +23,12 @@ colcon build --symlink-install --packages-up-to caret_demos
 > Reason to build the target with CARET/rclcpp
 > Some tracepoints must be added to template implementation, which is referred by rclcpp, for CARET to measure performance.
 > In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.
-> Therefor, CARET cannot measure performance of the application provided by Ubuntu's aptitude such as `demo_nodes_cpp`.
+> Therefore, CARET cannot measure performance of the application provided by Ubuntu's aptitude such as `demo_nodes_cpp`.
 > If you want to measure such pre-build packages, please build them again from source code.
 
 ## Measuring the sample application with CARET
 
-### Execution of LTTng session
+### Starting LTTng session
 
 CARET depends on LTTng for tracing applications. LTTng session has to be executed while a target application runs.
 You can execute LTTng session, for CARET, with a simple command interface as well as ros2-tracing.
@@ -49,7 +49,7 @@ ros2 trace -s e2e_sample -k -u "ros2*"
 You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to [LTTng セッションの開始方法](../supplements/how_to_run_lttng_session.md).  
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by `ros2 launch` is a reasonable way to apply CARET repeatedly.
 
-### Launch of the target application
+### Launching the target application
 
 1. Open new terminal and run the target as shown in the following
 
