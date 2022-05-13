@@ -1,11 +1,11 @@
 # ギャラリー
 
-CARETで可視化できる図の例を上げます。
+CARET で可視化できる図の例を上げます。
 
-jupyter上での可視化を想定してします。  
-notebook上でbokehのグラフも表示させるため、以下コマンドを事前に実行しておく必要があります。
+jupyter 上での可視化を想定してします。  
+notebook 上で bokeh のグラフも表示させるため、以下コマンドを事前に実行しておく必要があります。
 
-```
+```python
 from bokeh.plotting import output_notebook, figure, show
 output_notebook()
 ```
@@ -23,7 +23,6 @@ message_flow(path, granularity='node', treat_drop_as_delay=False, lstrip_s=1, rs
 ```
 
 ![message_flow](../../imgs/message_flow_sample.png)
-
 
 縦軸は上から下に向かって、パスの始めから終わりに対応しています。
 各線はメッセージの流れを示しています。グレーの矩形領域はコールバックの実行時間を示しています。

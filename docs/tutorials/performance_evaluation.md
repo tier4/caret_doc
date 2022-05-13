@@ -2,9 +2,8 @@
 
 測定結果の可視化方法を説明します。
 
-本ページの説明はjupyter上を想定しています。  
+本ページの説明は jupyter 上を想定しています。  
 以下のコマンドで jupyter を起動してください。
-
 
 ```bash
 cd ~/ros2_ws/evaluate
@@ -13,8 +12,8 @@ source ~/ros2_caret_ws/install/setup.bash
 jupyter-lab
 ```
 
-CARETが備えている可視化には、bokehを使用したものが有ります。  
-jupyter上で表示させるには、以下を実行してください。
+CARET が備えている可視化には、bokeh を使用したものが有ります。  
+jupyter 上で表示させるには、以下を実行してください。
 
 ```python
 from bokeh.plotting import output_notebook
@@ -25,7 +24,7 @@ output_notebook()
 
 アーキテクチャファイルとトレース結果を読み込みます。
 
-```
+```python
 from caret_analyze import Architecture, Application, Lttng
 
 # トレース結果からアーキテクチャファイルの読み込み
@@ -38,11 +37,12 @@ lttng = Lttng('./e2e_sample')
 app = Application(arch, lttng)
 ```
 
-Applicationクラスはアーキテクチャファイルと同等の情報・インターフェースを持ち、レイテンシの情報も持ったクラスです。  
-app経由で通信レイテンシやコールバックの実行時間など、様々な情報へアクセスします。
+Application クラスはアーキテクチャファイルと同等の情報・インターフェースを持ち、レイテンシの情報も持ったクラスです。  
+app 経由で通信レイテンシやコールバックの実行時間など、様々な情報へアクセスします。
 
-## 基本的なAPIの説明
-appから、コールバック実行時間を取得するAPIを説明します。
+## 基本的な API の説明
+
+app から、コールバック実行時間を取得する API を説明します。
 
 ```python
 # コールバックの測定結果のインスタンスを取得
@@ -61,7 +61,7 @@ bins, latency_ns = callback.to_histogram()
 
 ## メッセージフローの可視化
 
-CARETではいくつかの可視化を標準で備えています。  
+CARET ではいくつかの可視化を標準で備えています。  
 ここでは、測定結果を算出する上で基本となるメッセージフローの可視化を説明します。
 
 ```python
@@ -80,7 +80,4 @@ message_flow(path)
 
 矩形や線にカーソルを重ねると、コールバックの実行時間やメッセージごとのパスのレイテンシが表示されます。
 
-
 他にも、いくつかの可視化を備えています。詳細は[ギャラリー](../supplements/gallery.md)をご覧ください。
-
-

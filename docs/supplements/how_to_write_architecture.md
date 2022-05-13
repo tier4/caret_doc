@@ -1,21 +1,23 @@
 # アーキテクチャファイルの作成方法
+
 ## パスの定義の確認方法
 
 ```python
 path.verify()
 ```
+
 ```python
-WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions. 
+WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions.
 To see node definition and procedure,execute :
->> check_procedure('yaml', '/path/to/yaml', arch, '/message_driven_node') 
+>> check_procedure('yaml', '/path/to/yaml', arch, '/message_driven_node')
 message_context: null
 node: /message_driven_node
 publish_topic_name: /topic3
 subscribe_topic_name: /topic2
 
-WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions. 
+WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions.
 To see node definition and procedure,execute :
->> check_procedure('yaml', '/path/to/yaml', arch, '/timer_driven_node') 
+>> check_procedure('yaml', '/path/to/yaml', arch, '/timer_driven_node')
 message_context: null
 node: /timer_driven_node
 publish_topic_name: /topic4
@@ -24,10 +26,10 @@ subscribe_topic_name: /topic3
 
 ---
 
-
 ```python
-check_procedure('yaml', './architecture.yaml', arch, '/message_driven_node') 
+check_procedure('yaml', './architecture.yaml', arch, '/message_driven_node')
 ```
+
 ```pythyon
 [callback_chain]
 [callback_chain]
@@ -39,16 +41,16 @@ Path Added: subscribe: /topic2, publish: None, callbacks: ('/message_driven_node
 [pub-sub pair]
 
 [pub-sub pair]
-Path Added: subscribe: /drive, publish: /topic3, 
-Path Added: subscribe: /drive, publish: /topic3, 
-Path Added: subscribe: /topic2, publish: /topic3, 
-Path Added: subscribe: /topic2, publish: /topic3, 
+Path Added: subscribe: /drive, publish: /topic3,
+Path Added: subscribe: /drive, publish: /topic3,
+Path Added: subscribe: /topic2, publish: /topic3,
+Path Added: subscribe: /topic2, publish: /topic3,
 
 [dummy paths]
 
 [dummy paths]
-Path Added: subscribe: None, publish: /topic3, 
-Path Added: subscribe: None, publish: /topic3, 
+Path Added: subscribe: None, publish: /topic3,
+Path Added: subscribe: None, publish: /topic3,
 message context is UNDEFINED. {'context_type': 'UNDEFINED', 'subscription_topic_name': '/drive', 'publisher_topic_name': '/topic3'}
 message context is UNDEFINED. {'context_type': 'UNDEFINED', 'subscription_topic_name': '/drive', 'publisher_topic_name': '/topic3'}
 message context is UNDEFINED. {'context_type': 'UNDEFINED', 'subscription_topic_name': '/topic2', 'publisher_topic_name': '/topic3'}
@@ -79,13 +81,13 @@ subscribe: None, publish: /topic3, message_context: None
 
 ## ノードレイテンシ算出方法の指定
 
-ノードレイテンシは、「ノードがメッセージをsubscribeし、コールバックが処理開始する時刻」から「ノードがメッセージをpublishする時刻」までとしています。  
-ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。  
+ノードレイテンシは、「ノードがメッセージを subscribe し、コールバックが処理開始する時刻」から「ノードがメッセージを publish する時刻」までとしています。  
+ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。
 
-CARETではいくつかのノードレイテンシの算出方法を提供しています。  
-ノードレイテンシの算出方法はアーキテクチャファイルでは、主に **message_context**という項目として指定します。  
+CARET ではいくつかのノードレイテンシの算出方法を提供しています。  
+ノードレイテンシの算出方法はアーキテクチャファイルでは、主に **message_context**という項目として指定します。
 
-message_contextとして、以下のポリシーが指定可能です。
+message_context として、以下のポリシーが指定可能です。
 
 - callback_chain
 - inherit_unique_stamp
@@ -98,35 +100,37 @@ message_contextとして、以下のポリシーが指定可能です。
 本節ではアーキテクチャファイルへの記述方法をを説明します。
 
 ### callback_chain
-callback_chainは、コールバックの実行間からノードレイテンシを算出する方法です。  
+
+callback_chain は、コールバックの実行間からノードレイテンシを算出する方法です。  
 ノードの内の処理をコールバックレベルまで分解するので、細かい粒度で測定が可能です。
+
 #### 記述例
 
 重要な項目のみを抜粋した記述の例を示します。  
-*の付いた項目は、測定対象のアプリケーションの実装を確認の上、手作業での修正が必要な項目です。
+\*の付いた項目は、測定対象のアプリケーションの実装を確認の上、手作業での修正が必要な項目です。
 
 ```yaml
 - node_name: /ping_node
   callbacks:
-  - callback_name: subscription_callback_0
-  - callback_name: timer_callback_0
+    - callback_name: subscription_callback_0
+    - callback_name: timer_callback_0
   variable_passings:
-  - callback_name_write: subscription_callback_0 【* メッセージをメンバに書き込むコールバック】
-    callback_name_read: timer_callback_0 【*メンバからメッセージを読み込むコールバック】
+    - callback_name_write: subscription_callback_0 【* メッセージをメンバに書き込むコールバック】
+      callback_name_read: timer_callback_0 【*メンバからメッセージを読み込むコールバック】
   publishes:
-  - topic_name: /ping【/ping_nodeがpublishするトピック名】
-    callback_names:
-    - timer_callback_0 【* /pingトピックをpublishするコールバック名】
+    - topic_name: /ping【/ping_nodeがpublishするトピック名】
+      callback_names:
+        - timer_callback_0 【* /pingトピックをpublishするコールバック名】
   subscribes:
-  - topic_name: /pong【/ping_nodeがsubscribeするトピック名】
-    callback_name: timer_callback_0【subscribeするコールバック】
+    - topic_name: /pong【/ping_nodeがsubscribeするトピック名】
+      callback_name: timer_callback_0【subscribeするコールバック】
   message_contexts:
-  - context_type: callback_chain 【*ノードレイテンシのポリシー】
-    subscription_topic_name: /pong【ノードのパスがsubscribeするトピック名】
-    publisher_topic_name: /ping【ノードのパスがpublishするトピック名】
+    - context_type: callback_chain 【*ノードレイテンシのポリシー】
+      subscription_topic_name: /pong【ノードのパスがsubscribeするトピック名】
+      publisher_topic_name: /ping【ノードのパスがpublishするトピック名】
 ```
 
-callback_chainポリシーでは、コールバックグラフを構築するための情報として、**variable_passings**を指定する必要があります。
+callback_chain ポリシーでは、コールバックグラフを構築するための情報として、**variable_passings**を指定する必要があります。
 
 #### コールバックグラフの可視化
 
@@ -199,19 +203,19 @@ caret はパスの探索にコールバックグラフを利用するので、�
 ```yaml
 - node_name: /ping_node
   callbacks:
-  - callback_name: subscription_callback_0 【コールバック名】
-  - callback_name: timer_callback_0【コールバック名】
+    - callback_name: subscription_callback_0 【コールバック名】
+    - callback_name: timer_callback_0【コールバック名】
   publishes:
-  - topic_name: /ping【/ping_nodeがpublishするトピック名】
-    callback_names:
-    - timer_callback_0【* /pingトピックをpublishするコールバック名】
+    - topic_name: /ping【/ping_nodeがpublishするトピック名】
+      callback_names:
+        - timer_callback_0【* /pingトピックをpublishするコールバック名】
   subscribes:
-  - topic_name: /pong【/ping_nodeがsubscribeするトピック名】
-    callback_name: subscription_callback_0【subscribeするコールバック】
+    - topic_name: /pong【/ping_nodeがsubscribeするトピック名】
+      callback_name: subscription_callback_0【subscribeするコールバック】
   message_contexts:
-  - context_type: inherit_unique_stamp【*ノードレイテンシのポリシー】
-    subscription_topic_name: /pong【ノードのパスがsubscribeするトピック名】
-    publisher_topic_name: /ping【ノードのパスがpublishするトピック名】
+    - context_type: inherit_unique_stamp【*ノードレイテンシのポリシー】
+      subscription_topic_name: /pong【ノードのパスがsubscribeするトピック名】
+      publisher_topic_name: /ping【ノードのパスがpublishするトピック名】
 ```
 
 ### use_latest_message
@@ -223,17 +227,17 @@ caret はパスの探索にコールバックグラフを利用するので、�
 ```yaml
 - node_name: /ping_node
   callbacks:
-  - callback_name: subscription_callback_0【コールバック名】
-  - callback_name: timer_callback_0【コールバック名】
+    - callback_name: subscription_callback_0【コールバック名】
+    - callback_name: timer_callback_0【コールバック名】
   publishes:
-  - topic_name: /ping【/ping_nodeがpublishするトピック名】
-    callback_names:
-    - timer_callback_0【* /pingトピックをpublishするコールバック名】
+    - topic_name: /ping【/ping_nodeがpublishするトピック名】
+      callback_names:
+        - timer_callback_0【* /pingトピックをpublishするコールバック名】
   subscribes:
-  - topic_name: /pong【/ping_nodeがsubscribeするトピック名】
-    callback_name: subscription_callback_0【subscribeするコールバック】
+    - topic_name: /pong【/ping_nodeがsubscribeするトピック名】
+      callback_name: subscription_callback_0【subscribeするコールバック】
   message_contexts:
-  - context_type: inherit_unique_stamp【*ノードレイテンシのポリシー】
-    subscription_topic_name: /pong【ノードのパスがsubscribeするトピック名】
-    publisher_topic_name: /ping【ノードのパスがpublishするトピック名】
+    - context_type: inherit_unique_stamp【*ノードレイテンシのポリシー】
+      subscription_topic_name: /pong【ノードのパスがsubscribeするトピック名】
+      publisher_topic_name: /ping【ノードのパスがpublishするトピック名】
 ```

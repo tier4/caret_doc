@@ -1,8 +1,9 @@
 # LTTng セッションの開始方法
 
 ## 別途ターミナルで開始
+
 ターミナル上でセッションを開始できます。  
-ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれる関数にもトレースポイントを挿入しています。  
+ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれる関数にもトレースポイントを挿入しています。
 
 以下の順番で起動を行ってください。
 
@@ -24,7 +25,6 @@ ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれ
 終了する際の順番に指定はありません。  
 `ros2 trace` を実行しているターミナルは `Enter` を再度押して終了してください。
 
-
 ## Launch システムでの開始
 
 LTTng のセッション開始を launch ファイルに記述します。  
@@ -32,8 +32,6 @@ launch ファイル内へ、`tracetools_launch.action.Trace` を追加します�
 
 CARET_demos の launch ファイルでは記述済みです。  
 参考のために追加箇所を示します。
-
-
 
 ```python
 $ cat ~/ros2_ws/src/CARET_demos/caret_demos/launch/end_to_end_sample.launch.py
