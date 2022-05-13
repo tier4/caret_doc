@@ -39,9 +39,8 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    CARET inherits some functions from [ros2-tracing](https://gitlab.com/ros-tracing/ros2_tracing).
 
    ```bash
-   $ source ~/ros2_caret_ws/install/local_setup.bash
-   $ ros2 run tracetools status
-   Tracing enabled
+   source ~/ros2_caret_ws/install/local_setup.bash
+   ros2 run tracetools status # return Tracing enabled
    ```
 
 If you see `Tracing enabled`, you can continue to apply CARET to your application.
