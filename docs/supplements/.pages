@@ -14,3 +14,4 @@ nav:
     - LTTngEventFilterの使用方法: lttng_event_filter.md
     - トラブルシューティング: trouble_shooting.md
     - sim_timeでの時系列データ評価: use_sim_time.md
+    - Manual Installation: manual_installation.md

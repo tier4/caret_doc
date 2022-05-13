@@ -1,44 +1,6 @@
-# 環境構築
+# Manual installation
 
-## Quick setup
-
-Installation using meta repository is the least time-consuming way to install CARET.  
-With meta repository and Ansible, You can skip the manual setup which is explained in the following section.
-
-Please execute the following steps on Ubuntu 20.04. The order is important so that you have to follow the steps in order.
-
-1. Clone `caret` and enter the directory.
-
-   ```bash
-   git clone https://github.com/tier4/caret.git
-   cd caret
-   ```
-
-2. Create the src directory and clone repositories into it.
-
-   CARET uses vcstool to construct workspaces.
-
-   ```bash
-   mkdir src
-   vcs import src < caret.repos --recursive
-   ```
-
-3. Run `setup_caret.sh`.
-
-   ```bash
-   ./setup_caret.bash
-   ```
-
-4. Build the workspace.
-
-   ```bash
-   source /opt/ros/galactic/setup.bash
-   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-   ```
-
-## Manual setup
-
-### パッケージのインストール
+## パッケージのインストール
 
 LTTng のインストール
 詳細は [LTTng の公式ドキュメント](https://lttng.org/docs/v2.12/#doc-ubuntu-ppa) を参照。
@@ -65,6 +27,7 @@ sudo apt update && sudo apt install -y \
   python3-rosdep \
   python3-setuptools \
   python3-vcstool \
+  python3-bt2 \
   wget
 
 python3 -m pip install -U \
@@ -119,7 +82,7 @@ python3 -m pip install -U \
 # pip install tornado --upgrade
 ```
 
-### CARET のビルド
+## CARET のビルド
 
 ```bash
 mkdir -p ~/ros2_caret_ws/src
