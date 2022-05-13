@@ -81,6 +81,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/main/supplements/manual_installation/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/main/supplements/node_latency_definition/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
@@ -106,17 +111,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/main/tutorials/installation/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/main/tutorials/measurement/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/main/tutorials/performance_evaluation/</loc>
-         <lastmod>2022-05-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/main/tutorials/setup/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
