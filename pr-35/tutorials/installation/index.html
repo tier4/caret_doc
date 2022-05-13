@@ -871,8 +871,8 @@ With meta repository and Ansible, you can skip the labotorious manual setup whic
 <ol>
 <li>
 <p>Clone <code>caret</code> and enter the directory.</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/tier4/caret.git
-<span class="nb">cd</span> caret
+<div class="highlight"><pre><span></span><code>git clone https://github.com/tier4/caret.git ros2_caret_ws
+<span class="nb">cd</span> ros2_caret_ws
 </code></pre></div>
 </li>
 <li>
@@ -896,9 +896,8 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=<
 <li>
 <p>Check whether CARET (ros2-tracing) is enabled.</p>
 <p>CARET inherits some functions from <a href="https://gitlab.com/ros-tracing/ros2_tracing">ros2-tracing</a>.</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
-$ ros2 run tracetools status
-Tracing enabled
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+ros2 run tracetools status <span class="c1"># return Tracing enabled</span>
 </code></pre></div>
 </li>
 </ol>
