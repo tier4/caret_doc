@@ -219,5 +219,7 @@ Therefore, CARET has to deal with several types of node implementation to measur
 
    If `path.verify()` returns `True`, CARET can calculate latency of the node chain. Otherwise, there is any lack of definition to calculate latency.
 
+<prettier-ignore-start>
 !!! todo
-We'll provide the sample architecture file here, but it's not ready. Sorry for inconvenience.
+        We'll provide the sample architecture file here, but it's not ready. Sorry for inconvenience.
+<prettier-ignore-end>
