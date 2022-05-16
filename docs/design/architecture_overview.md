@@ -1,0 +1,23 @@
+# Architecture overview
+
+This section explains an overview of software architecture of CARET.
+
+![architecture](../../imgs/architecture.png)
+
+CARET collects data, which include timestamps, from tracepoints embedded in application, ROS 2 middleware, and DDS. The collected data is stored into a storage as "Trace Data".
+
+A set of trace data is divided into two sections by CARET_analyze; Architecture and Runtime Data. CARET_analyze package loads trace data, and divides it into two data objects corresponding to the sections. Architecture object includes description of target application's structure. This object can be reused unless you change structure of the target application. Runtime Data object has data sampled during execution of the target application. The sampled data includes timestamps, whose value are different per execution, obtained from tracepoints.
+
+Architecture object and Runtime Data object are implemented as Python-based classes. The structure of their classes are designed based on the structure of ROS applications who are constructed of executors, nodes, callback functions, and topic messages. ROS-based structure makes CARET's API friendly for ROS users. They are able to find target nodes, topic messages, or executors if they know their application structure.
+
+Architecture object serves APIs to search node chains and define node latency as mentioned in [tutorial/architecture file section](../tutorials/create_architecture.md). Architecture object is reusable after it is saved as a YAML-based file called "architecture file".
+Runtime Data object serves APIs to retrieve `pandas.DataFrame`-based objects including execution time of callback functions or communication latency of topic messages. Users can analyze temporal aspects of their applications, with visualization, as they expect. APIs for visualization are also served by CARET_analyze which plays main role to analyze trace data.
+
+## Co-design with TILDE, a framework tools to detect deadline overrun
+
+CARET can cooperate with TILDE, a framework tool to detect deadline overrun. As TILDE's tracepoints are embedded in user codes of target applications, TILDE lets CARET trace events in user applications which cannot be traced from ROS/DDS layer. One example of the events in user applications is consumption of topic messages buffered in nodes. CARET can observe subscription and publish of topic messages but not strictly trace consumption of topic messages buffered in nodes. TILDE is able to trace execution of callback function to consume a certain buffered message. With TILDE's capability, CARET can observe such events seen in application layer as well as ROS/DDS layer.
+
+<prettier-ignore-start>
+!!! todo
+        TILDE is now under development. Please wait for more details.
+<prettier-ignore-end>
