@@ -1,10 +1,11 @@
-# トレースポイントの定義
+# Tracepoints definition
 
-CARET はトピック名などの情報を得るための「初期化時の処理に対するトレースポイント」と、  
-測定をするための「ランタイムの処理に対するトレースポイント」があります。
+This section lists all tracepoints and their definition.
+Before listing tracepoints.
 
-本ページではそれぞれのトレースポイントの定義についてまとめています。
+Some tracepoints are used for collecting identification of executors, nodes, callbacks, and topics during application's initialization. They are called initialization tracepoints. The other tracepoints are embedded for sampling timestamps after completion of initialization, and called runtime tracepoints.
 
+Tracepoints are embedded in ROS and DDS layer.
 各トレースポイントには、その実装方法を区別するために以下の情報も記載しています。
 
 - Galactic 実装
@@ -24,7 +25,7 @@ CARET はトピック名などの情報を得るための「初期化時の処�
 > このようなテンプレートで実装された処理に対してのみ、rclcpp をフォークしてトレースポイントを追加しています。  
 > このような理由から、測定対象のアプリケーションを再ビルドする必要が生じています。
 
-## シーケンスと主要なトレースポイント
+## Sequence diagram of major tracepoints
 
 ```plantuml
 @startuml
@@ -97,7 +98,7 @@ deactivate ROS2
 @enduml
 ```
 
-## 初期化時のトレースポイント
+## Initialization tracepoints
 
 ---
 
