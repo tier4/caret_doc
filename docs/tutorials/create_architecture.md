@@ -110,7 +110,7 @@ path:
 
 ```python
 arch.add_path('target_path', path)
-arch.export('./architecture.yaml')
+arch.export('./architecture.yaml', force=True)
 ```
 
 アーキテクチャファイルには、以下のように記載されます。
@@ -193,7 +193,7 @@ message_contexts:
 ```
 
 ```yaml
-# /message_driven_node内の項目
+# /timer_driven_node内の項目
   message_contexts:　
   - context_type: use_latest_message # UNDEFINEDからuse_latest_messageへ変更
     subscription_topic_name: /topic3

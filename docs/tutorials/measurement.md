@@ -65,7 +65,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
 2. Check whether the target uses CARET/rclcpp
 
    ```bash
-   ldd ./build/caret_demos/end_to_end_sample  | grep rclcpp
+   ldd ~/ros2_ws/build/caret_demos/end_to_end_sample  | grep rclcpp
 
    # librclcpp.so => /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so
    ```
@@ -111,22 +111,7 @@ You can check whether measurement is successful or not with `babeltrace` command
 $ babeltrace ~/ros2_ws/evaluate/e2e_sample/ | cut -d' ' -f 4 | sort -u
 ros2:callback_end:
 ros2:callback_start:
-ros2_caret:add_callback_group_static_executor:
-ros2_caret:callback_group_add_service:
-ros2_caret:callback_group_add_subscription:
-ros2_caret:callback_group_add_timer:
-ros2_caret:construct_static_executor:
-ros2_caret:dds_bind_addr_to_stamp:
-ros2_caret:dds_write:
-ros2_caret:rmw_implementation:
 ros2:dispatch_subscription_callback:
-ros2:rclcpp_callback_register:
-ros2:rclcpp_publish:
-ros2:rclcpp_service_callback_added:
-ros2:rclcpp_subscription_callback_added:
-ros2:rclcpp_subscription_init:
-ros2:rclcpp_timer_callback_added:
-ros2:rclcpp_timer_link_node:
 ros2:rcl_init:
 ros2:rcl_node_init:
 ros2:rcl_publish:
@@ -134,6 +119,21 @@ ros2:rcl_publisher_init:
 ros2:rcl_service_init:
 ros2:rcl_subscription_init:
 ros2:rcl_timer_init:
+ros2:rclcpp_callback_register:
+ros2:rclcpp_publish:
+ros2:rclcpp_service_callback_added:
+ros2:rclcpp_subscription_callback_added:
+ros2:rclcpp_subscription_init:
+ros2:rclcpp_timer_callback_added:
+ros2:rclcpp_timer_link_node:
+ros2_caret:add_callback_group:
+ros2_caret:callback_group_add_service:
+ros2_caret:callback_group_add_subscription:
+ros2_caret:callback_group_add_timer:
+ros2_caret:construct_executor:
+ros2_caret:dds_bind_addr_to_stamp:
+ros2_caret:dds_write:
+ros2_caret:rmw_implementation:
 ```
 
 If there is loss of captured tracepoints, suspects the following.
