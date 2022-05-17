@@ -11,15 +11,15 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/tutorials/measurement/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>測定 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Measurement - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3de6f41f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#measurement-with-caret" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              測定
+              Measurement
             
           </span>
         </div>
@@ -394,12 +394,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          測定
+          Measurement
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        測定
+        Measurement
       </a>
       
         
@@ -418,30 +418,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    アプリケーションのビルド
+  <a href="#building-application-with-caret" class="md-nav__link">
+    Building application with CARET
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    測定
+  <a href="#measuring-the-sample-application-with-caret" class="md-nav__link">
+    Measuring the sample application with CARET
   </a>
   
-    <nav class="md-nav" aria-label="測定">
+    <nav class="md-nav" aria-label="Measuring the sample application with CARET">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lttng" class="md-nav__link">
-    LTTng セッションの開始
+  <a href="#starting-lttng-session" class="md-nav__link">
+    Starting LTTng session
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    アプリケーションの開始・測定
+  <a href="#launching-the-target-application" class="md-nav__link">
+    Launching the target application
   </a>
   
 </li>
@@ -452,16 +452,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    測定結果の確認
+  <a href="#validating-measurement-result-briefly" class="md-nav__link">
+    Validating measurement result briefly
   </a>
   
-    <nav class="md-nav" aria-label="測定結果の確認">
+    <nav class="md-nav" aria-label="Validating measurement result briefly">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tracer-discarded" class="md-nav__link">
-    Tracer discarded とエラーが出る場合
+  <a href="#tracer-discarded-error" class="md-nav__link">
+    Tracer discarded error
   </a>
   
 </li>
@@ -933,30 +933,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    アプリケーションのビルド
+  <a href="#building-application-with-caret" class="md-nav__link">
+    Building application with CARET
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    測定
+  <a href="#measuring-the-sample-application-with-caret" class="md-nav__link">
+    Measuring the sample application with CARET
   </a>
   
-    <nav class="md-nav" aria-label="測定">
+    <nav class="md-nav" aria-label="Measuring the sample application with CARET">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lttng" class="md-nav__link">
-    LTTng セッションの開始
+  <a href="#starting-lttng-session" class="md-nav__link">
+    Starting LTTng session
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    アプリケーションの開始・測定
+  <a href="#launching-the-target-application" class="md-nav__link">
+    Launching the target application
   </a>
   
 </li>
@@ -967,16 +967,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    測定結果の確認
+  <a href="#validating-measurement-result-briefly" class="md-nav__link">
+    Validating measurement result briefly
   </a>
   
-    <nav class="md-nav" aria-label="測定結果の確認">
+    <nav class="md-nav" aria-label="Validating measurement result briefly">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tracer-discarded" class="md-nav__link">
-    Tracer discarded とエラーが出る場合
+  <a href="#tracer-discarded-error" class="md-nav__link">
+    Tracer discarded error
   </a>
   
 </li>
@@ -1004,76 +1004,93 @@
 
 
 
-<h1 id="_1">測定<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>サンプルのアプリケーションを例に、ツールの使い方を説明していきます。</p>
-<p>サンプルのリポジトリ<a href="https://github.com/tier4/CARET_demos.git">https://github.com/tier4/CARET_demos.git</a></p>
-<h2 id="_2">アプリケーションのビルド<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p>caret の環境変数を<code>/opt/ros/galactic/setup.bash</code>の後に設定し、測定対象のアプリケーションをビルドします。<br />
-caret 導入前にビルド済みのアプリケーションも、再度ビルドが必要になります。</p>
+<h1 id="measurement-with-caret">Measurement with CARET<a class="headerlink" href="#measurement-with-caret" title="Permanent link">#</a></h1>
+<p>This page explains usage of CARET with a sample application.
+The sample application is located on <a href="https://github.com/tier4/CARET_demos.git">CARET_demos</a> repository.</p>
+<h2 id="building-application-with-caret">Building application with CARET<a class="headerlink" href="#building-application-with-caret" title="Permanent link">#</a></h2>
+<p>To measure target applications' performance, the target should be built with CARET/rclcpp. CARET/rclcpp is a fork of <a href="https://github.com/ros2/rclcpp">ROS 2-based rclcpp</a> which has some additional tracepoints defined by CARET. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again.</p>
+<p>For building the application with CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as shown below.</p>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/src
 <span class="nb">cd</span> ~/ros2_ws
 
 git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
-<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+<span class="nb">source</span> /opt/ros/galactic/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash <span class="c1"># please keep the order after &#39;source /opt/ros/galactic/setup.bash&#39;</span>
 
 colcon build --symlink-install --packages-up-to caret_demos
 </code></pre></div>
 <blockquote>
-<p>測定対象のアプリケーションも再ビルドが必要な理由</p>
-<p>caret は rclcpp のヘッダーで読み込まれるテンプレート実装内にもトレースポイントを追加しています。<br />
-トレースポイントを追加された rclcpp を有効にするため、測定対象のアプリケーションを再度ビルドする必要が有ります。<br />
-従って、 apt でインストールした demo_nodes_cpp などのアプリケーションは測定することが出来ません。<br />
-測定するにはソースファイルからビルドし直す必要があります。</p>
+<p>Reason to build the target with CARET/rclcpp
+Some tracepoints must be added to template implementation, which is referred by rclcpp, for CARET to measure performance.
+In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.
+Therefore, CARET cannot measure performance of the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.
+If you want to measure such pre-build packages, please build them again from source code.</p>
 </blockquote>
-<h2 id="_3">測定<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<h3 id="lttng">LTTng セッションの開始<a class="headerlink" href="#lttng" title="Permanent link">#</a></h3>
-<p>CARET は測定のために LTTng を利用しており、LTTng セッションの開始が必要です。<br />
-ここでは、ros2 tracing によって用意されたインターフェース経由で LTTng セッションを開始します。</p>
+<h2 id="measuring-the-sample-application-with-caret">Measuring the sample application with CARET<a class="headerlink" href="#measuring-the-sample-application-with-caret" title="Permanent link">#</a></h2>
+<h3 id="starting-lttng-session">Starting LTTng session<a class="headerlink" href="#starting-lttng-session" title="Permanent link">#</a></h3>
+<p>CARET depends on LTTng for tracing applications. LTTng session has to be executed while a target application runs.
+You can execute LTTng session, for CARET, with a simple command interface as well as ros2-tracing.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
 
-<span class="c1"># トレースファイルの出力先を設定。デフォルトは ~/.ros/tracing。</span>
+<span class="c1"># set a destination directory. ~/.ros/tracing is default.</span>
 mkdir -p ~/ros2_ws/evaluate
 <span class="nb">export</span> <span class="nv">ROS_TRACE_DIR</span><span class="o">=</span>~/ros2_ws/evaluate
 ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
-<span class="c1"># Enter を押して測定開始</span>
+<span class="c1"># Start session with pressing Enter key</span>
 
-<span class="c1"># -s はセッション名。</span>
-<span class="c1"># 上記の例では~/ros_ws/evaluate/e2e_sampleに測定結果が保存されます。</span>
+<span class="c1"># with &quot;-s&quot; option, you can give session name</span>
+<span class="c1"># the measurement result will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
 </code></pre></div>
-<p>別途ターミナルで LTTng セッションを開始せずに、Launch ファイル内で LTTng のセッションを開始する方法もあります。<br />
-<a href="../../supplements/how_to_run_lttng_session/">LTTng セッションの開始方法</a>を参照してください。</p>
-<h3 id="_4">アプリケーションの開始・測定<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
-<p>アプリケーションを実行するターミナルでは、caret_ws 配下の rclcpp を使わせるため、opt 配下の後に caret_ws 配下の setup.bash を実行します。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
+<p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../supplements/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
+When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by <code>ros2 launch</code> is a reasonable way to apply CARET repeatedly.</p>
+<h3 id="launching-the-target-application">Launching the target application<a class="headerlink" href="#launching-the-target-application" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>Open new terminal and run the target as shown in the following</p>
+<p>On the new terminal, as the target refers to CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># keep the order as below</span>
+<span class="nb">source</span> /opt/ros/galactic/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
 </code></pre></div>
-<p>以下のコマンドでビルドした rclcpp が使われることを確認します。</p>
+</li>
+<li>
+<p>Check whether the target uses CARET/rclcpp</p>
 <div class="highlight"><pre><span></span><code>ldd ./build/caret_demos/end_to_end_sample  <span class="p">|</span> grep rclcpp
 
 <span class="c1"># librclcpp.so =&gt; /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so</span>
 </code></pre></div>
-<p>フックを有効にするため、<code>LD_PRELOAD</code>を設定します。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># フックで追加されるトレースポイントの有効化</span>
+<p>if you confronted with another result, please check which rclcpp is used for the target and your workspace's environment variables.</p>
+</li>
+<li>
+<p>Set <code>LD_PRELOAD</code> for adding tracepoints provided by function hook</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enable tracepoints which are defined hooked functions.</span>
 <span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
 </code></pre></div>
-<p>不要なノードやトピックを測定対象から除外する設定を行います。<br />
-トレースフィルタリング機能については、<a href="../../supplements/trace_filtering/">トレースフィルタリング</a>を参照。</p>
+</li>
+<li>
+<p>(Optional) Exclude nodes and topics which you are not concerned with</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
 </code></pre></div>
+<p>CARET serves <a href="../../supplements/trace_filtering/">trace filtering</a>(in Japanese). With configuration of trace filtering, CARET can ignore nodes and topics. This function is useful for a large application.</p>
+</li>
+<li>
+<p>Launch the target application, demos_end_to_end_sample</p>
 <div class="highlight"><pre><span></span><code>ros2 launch caret_demos end_to_end_sample.launch.py
-^C <span class="c1"># 数秒後、 Ctrl+C で終了</span>
+^C <span class="c1"># Finish with Ctrl+C after several seconds</span>
 
 <span class="o">[</span>WARNING<span class="o">]</span> <span class="o">[</span>launch<span class="o">]</span>: user interrupted with ctrl-c <span class="o">(</span>SIGINT<span class="o">)</span>
 <span class="o">[</span>end_to_end_sample-1<span class="o">]</span> <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span><span class="m">1631481246</span>.160958444<span class="o">]</span> <span class="o">[</span>rclcpp<span class="o">]</span>: signal_handler<span class="o">(</span><span class="nv">signal_value</span><span class="o">=</span><span class="m">2</span><span class="o">)</span>
 <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>end_to_end_sample-1<span class="o">]</span>: process has finished cleanly <span class="o">[</span>pid <span class="m">722356</span><span class="o">]</span>
 </code></pre></div>
-<p>終了する際の順番に指定はありません。<br />
-<code>ros2 trace</code> を実行しているターミナルは <code>Enter</code> を再度押して測定を終了してください。</p>
-<h2 id="_5">測定結果の確認<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
-<p>記録されたトレースポイントを確認します。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 以下のトレースポイントが記録されていることを確認</span>
+<p>You can finish the target application and LTTng session.
+ LTTng session will be closed if you push <code>Enter</code> key on the terminal where the LTTng session runs.</p>
+</li>
+</ol>
+<h2 id="validating-measurement-result-briefly">Validating measurement result briefly<a class="headerlink" href="#validating-measurement-result-briefly" title="Permanent link">#</a></h2>
+<p>You can check whether measurement is successful or not with <code>babeltrace</code> command before analyzing result data.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># To check which tracepoints are captured as result data</span>
 $ babeltrace ~/ros2_ws/evaluate/e2e_sample/ <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u
 ros2:callback_end:
 ros2:callback_start:
@@ -1101,17 +1118,33 @@ ros2:rcl_service_init:
 ros2:rcl_subscription_init:
 ros2:rcl_timer_init:
 </code></pre></div>
-<p>トレースポイントが不足している場合、セットアップで問題がある可能性があります。<br />
-トレース結果の保存が間に合わない場合には、<code>Tracer discarded とエラーが出る場合</code>とエラーが出る場合があります。</p>
-<h3 id="tracer-discarded">Tracer discarded とエラーが出る場合<a class="headerlink" href="#tracer-discarded" title="Permanent link">#</a></h3>
-<p>babeltrace コマンドの実行時に以下のような警告が現れる場合、<br />
-トレース結果のドロップが生じており、解析が正しく行えません。</p>
-<p>トレースフィルタリング機能の設定を見直し、警告が出ないようにしてください。</p>
+<p>If there is loss of captured tracepoints, suspects the following.</p>
+<ul>
+<li>Outstandingly loss of <code>*_init</code> tracepoints<ul>
+<li>To avoid this, start LTTng session before your application is executed</li>
+</ul>
+</li>
+<li>Loss of <code>ros2_caret:*</code> tracepoints<ul>
+<li>Check whether CARET/rclcpp is applied or not</li>
+</ul>
+</li>
+</ul>
+<h3 id="tracer-discarded-error">Tracer discarded error<a class="headerlink" href="#tracer-discarded-error" title="Permanent link">#</a></h3>
+<p><code>Tracer discarded</code> will be observed in some case, especially when applying CARET to a large application. If you find this error, CARET has failed in sampling tracepoints.</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>warning<span class="o">]</span> Tracer discarded <span class="m">328</span> events between <span class="o">[</span><span class="m">10</span>:46:15.566916889<span class="o">]</span> and <span class="o">[</span><span class="m">10</span>:46:15.620323777<span class="o">]</span>
 <span class="k">in</span> trace UUID 353a72bc12d4bcc85c9158dd8f88ef9, at path: <span class="s2">&quot;end_to_end_sample/ust/uid/10368/64-bit&quot;</span>,
 within stream id <span class="m">0</span>, at relative path: <span class="s2">&quot;ros2_3&quot;</span>.
 You should consider recording a new trace with larger buffers or with fewer events enabled.
 </code></pre></div>
+<p>LTTng session collects sampling data generated by tracepoints. Sampling data are stored into ring-buffer as explained <a href="https://lttng.org/man/7/lttng-concepts/v2.13/#doc-channel">LTTng documents</a>. After a piece of ring-buffer is occupied, sampling data is stored into next empty piece while the occupied piece is copied to file. If there is no room to store sampling data in all pieces of ring-buffer, sampling data will be discarded.</p>
+<p>You can avoid this error with the following two approach.</p>
+<ul>
+<li>to filter topics and nodes which can be ignored with trace filtering explained in the previous section<ul>
+<li>especially, filtering highly-frequent nodes and topics is effective</li>
+</ul>
+</li>
+<li>to increase size of ring buffer defined in <a href="https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F"><code>lttng_impl.py</code></a></li>
+</ul>
 
               
             </article>
@@ -1189,7 +1222,7 @@ You should consider recording a new trace with larger buffers or with fewer even
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
