@@ -1056,7 +1056,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
 </li>
 <li>
 <p>Check whether the target uses CARET/rclcpp</p>
-<div class="highlight"><pre><span></span><code>ldd ./build/caret_demos/end_to_end_sample  <span class="p">|</span> grep rclcpp
+<div class="highlight"><pre><span></span><code>ldd ~/ros2_ws/build/caret_demos/end_to_end_sample  <span class="p">|</span> grep rclcpp
 
 <span class="c1"># librclcpp.so =&gt; /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so</span>
 </code></pre></div>
@@ -1094,22 +1094,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
 $ babeltrace ~/ros2_ws/evaluate/e2e_sample/ <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u
 ros2:callback_end:
 ros2:callback_start:
-ros2_caret:add_callback_group_static_executor:
-ros2_caret:callback_group_add_service:
-ros2_caret:callback_group_add_subscription:
-ros2_caret:callback_group_add_timer:
-ros2_caret:construct_static_executor:
-ros2_caret:dds_bind_addr_to_stamp:
-ros2_caret:dds_write:
-ros2_caret:rmw_implementation:
 ros2:dispatch_subscription_callback:
-ros2:rclcpp_callback_register:
-ros2:rclcpp_publish:
-ros2:rclcpp_service_callback_added:
-ros2:rclcpp_subscription_callback_added:
-ros2:rclcpp_subscription_init:
-ros2:rclcpp_timer_callback_added:
-ros2:rclcpp_timer_link_node:
 ros2:rcl_init:
 ros2:rcl_node_init:
 ros2:rcl_publish:
@@ -1117,6 +1102,21 @@ ros2:rcl_publisher_init:
 ros2:rcl_service_init:
 ros2:rcl_subscription_init:
 ros2:rcl_timer_init:
+ros2:rclcpp_callback_register:
+ros2:rclcpp_publish:
+ros2:rclcpp_service_callback_added:
+ros2:rclcpp_subscription_callback_added:
+ros2:rclcpp_subscription_init:
+ros2:rclcpp_timer_callback_added:
+ros2:rclcpp_timer_link_node:
+ros2_caret:add_callback_group:
+ros2_caret:callback_group_add_service:
+ros2_caret:callback_group_add_subscription:
+ros2_caret:callback_group_add_timer:
+ros2_caret:construct_executor:
+ros2_caret:dds_bind_addr_to_stamp:
+ros2_caret:dds_write:
+ros2_caret:rmw_implementation:
 </code></pre></div>
 <p>If there is loss of captured tracepoints, suspects the following.</p>
 <ul>
