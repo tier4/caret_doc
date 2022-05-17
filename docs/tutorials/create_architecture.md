@@ -110,8 +110,7 @@ path:
 
 ```python
 arch.add_path('target_path', path)
-! rm ./architecture.yaml
-arch.export('./architecture.yaml')
+arch.export('./architecture.yaml', force=True)
 ```
 
 アーキテクチャファイルには、以下のように記載されます。
