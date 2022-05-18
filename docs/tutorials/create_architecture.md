@@ -135,8 +135,6 @@ This section explains how to generate an architecture file which has minimum des
            subscribe_topic_name: /topic4
    ```
 
-## ノードレイテンシの定義指定
-
 ## How to define latency of a single node
 
 Latency of a single node, so called "node latency", is defined as elapsed time between 1. starting time and 2. publishing time as below.
