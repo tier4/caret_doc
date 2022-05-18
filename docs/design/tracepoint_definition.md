@@ -439,12 +439,12 @@ Sampled items
 
 ---
 
-## トレースポイントの紐付け
+## Tracepoints mapping
 
 本ページで列挙しているトレースポイントはノード ID（`node_handle`）やコールバック ID（`コールバックのインスタンスのアドレス`）などの値を元に紐付けて利用する。  
 それぞれのトレースポイントの対応関係をグラフで示す。
 
-### ノードの初期化
+### Node initialization
 
 ```mermaid
 
