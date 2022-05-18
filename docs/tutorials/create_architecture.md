@@ -1,28 +1,27 @@
-# Preparation for measuring latency of callback-chains
+# Preparation for measuring node and path latency
 
-CARET is capable of measuring latency of not only callback functions and topic communications, but also node chains.
-Specifying a callback function as target is very simple because name is corresponding to the callback function. Topic communication is specified by a topic name, a source node, and a destination node. However, specifying a node chain is more difficult than them. A node chain is defined as a combination of callback functions and topic communications, and often called as "path". Though node chain is regarded as DAG (Direct Acyclic Graph), a node chain may have loops and forks. Loops and forks make a node chain make complicated. Additionally, a large system tends to have many candidates of node chains because it is constructed of many callback functions which are communicated via many topics.
+CARET can observe as following:
+
+- callback latency
+- communication latency (inter-node)
+- node latency (intra-node)
+- path latency (intra-node & inter-node)
+
+The following figure shows definition of node latency and path latency.
+
+![Definition node and path latency](../imgs/path_and_node_latency.svg)
+
+Callback latency can be defined as execution time of a callback function and can be measured with simple tracepoints. Communication latency between nodes can be defined as time from publish invoking to subscription callback invoking. Identifying callback and topic is not difficult so that their latency are calculated easily.  
+However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in ROS layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in a application is equaled to that of nodes combination, so that complicated and large application has large number of paths.  
+To deal with such difficulty of defining node and path latency mechanically, CARET requires users to define node and path latency manually via a configuration file, called "**architecture file**".
 
 ## Overview of an architecture file
 
-To deal with such difficulty of specifying node chains, CARET serves configuration for users to choose target node chains. The configuration is defined in a yaml file, which is called "**architecture file**". An architecture file describes a target application's structure. CARET can create an architecture file for minimum description automatically with using measured data, but it does not have target node chains. You will add description for target node chains to a generated architecture file.
+An architecture file has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. CARET can create a template architecture file including only application structure section. The application structure section remains same unless the structure is changed or component is renamed.
 
-The rest of this section will explain more details of an architecture file.
+On the other hand, latency definition section in the template architecture file is empty just before users add any definition. Users are expected to add definitions of node latency and path latency in the template file. CARET helps users to add definition of path latency with Python API. However, users have to add definition of node latency manually with editing the architecture file.
 
-## What to describe in an architecture file
-
-An architecture file is a yaml-based file which has description of an application measured by CARET. In particular, an architecture file includes information representing the application structure, such as executors, nodes, callback groups, callbacks, topics, timers and so on. It can be used for another trial measurement because such information shall be same unless the application is changed.
-
----
-
-User have to add the following description to architecture file.
-
-1. Target node chains and its structure
-2. Intra-communication of topic in a single node to calculate latency of the node
-
-![Target node chains and path latency calculate](../imgs/path_and_node_latency.svg)
-
-CARET serves Python API to make 1. easier, but you have to edit architecture file for 2.
+The following sections explains how to create an architecture file and add latency definition.
 
 ## How to generate an architecture file
 
@@ -53,7 +52,7 @@ This section explains how to generate an architecture file which has minimum des
    # /home/user/ros2_caret_ws/eval/architecture.yaml
    ```
 
-## How to specify a target node chain
+## How to define a target path
 
 1. Load the yaml-based architecture file as below
 
@@ -62,9 +61,9 @@ This section explains how to generate an architecture file which has minimum des
    arch = Architecture('yaml', './architecture.yaml')
    ```
 
-2. Specify source node and destination node in a node chain
+2. Choose source node and destination node in a path
 
-   `arch.search_paths` extract all candidates of the node chain.
+   `arch.search_paths` extract all candidates of the path
 
    ```python
    paths = arch.search_paths(
@@ -75,9 +74,9 @@ This section explains how to generate an architecture file which has minimum des
    If a target application is large and complicated, `arch.search_paths` method may consume time more than 1 minute.
    For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to [パスの探索方法](../supplements/how_to_search_path.md) for more details.
 
-3. Check the node chain as you expected
+3. Check the path as you expected
 
-   You will find multiple candidates of the node chain. You can check which candidate is expected as target. The following code is an example for users to check
+   You will find multiple candidates of the path. You can check which candidate is expected as target. The following code is an example for users to check
 
    ```python
    path = paths[0]
@@ -134,8 +133,6 @@ This section explains how to generate an architecture file which has minimum des
            publish_topic_name: UNDEFINED
            subscribe_topic_name: /topic4
    ```
-
-## ノードレイテンシの定義指定
 
 ## How to define latency of a single node
 
@@ -197,7 +194,7 @@ Therefore, CARET has to deal with several types of node implementation to measur
    ```
 
    ```yaml
-   # in /message_driven_node
+   # in /timer_driven_node
      message_contexts:　
      - context_type: use_latest_message # changed from 'UNDEFINED' to 'use_latest_message'
        subscription_topic_name: /topic3
@@ -207,7 +204,7 @@ Therefore, CARET has to deal with several types of node implementation to measur
 
 3. Check if node latency is defined
 
-   `path.verify()` tells you that there is no undefined node latency in the path (node chain).
+   `path.verify()` tells you that there is no undefined node latency in the path.
 
    ```python
    from caret_analyze import Architecture
@@ -217,7 +214,9 @@ Therefore, CARET has to deal with several types of node implementation to measur
    path.verify()
    ```
 
-   If `path.verify()` returns `True`, CARET can calculate latency of the node chain. Otherwise, there is any lack of definition to calculate latency.
+   If `path.verify()` returns `True`, CARET can calculate latency of the path. Otherwise, there is any lack of definition to calculate latency.
 
+<prettier-ignore-start>
 !!! todo
-We'll provide the sample architecture file here, but it's not ready. Sorry for inconvenience.
+        We'll provide the sample architecture file here, but it's not ready. Sorry for inconvenience.
+<prettier-ignore-end>

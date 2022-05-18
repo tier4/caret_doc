@@ -1,12 +1,12 @@
 # Performance visualization
 
-CARET serves Python APIs to visualize measured data for users to analyze applications' performance.
+CARET serves Python APIs to visualize trace data for users to analyze applications' performance.
 This section will show basic flow to visualize data with Jupyter notebook.
 
-## How to locate measured data on Jupyter notebook
+## How to locate trace data on Jupyter notebook
 
 1. Launching `jupyter-lab`
-   Launch `jupyter-lab` at first for learning how to visualize measured data.
+   Launch `jupyter-lab` at first for learning how to visualize trace data.
 
    ```bash
    cd ~/ros2_ws/evaluate
@@ -23,9 +23,9 @@ This section will show basic flow to visualize data with Jupyter notebook.
    output_notebook()
    ```
 
-2. Loading measured data onto Jupyter notebook
+2. Loading trace data onto Jupyter notebook
 
-   Loading measured data by CARET as well as the architecture file.
+   Locate trace data on Jupyter notebook as well as the architecture file.
 
    ```python
    from caret_analyze import Architecture, Application, Lttng
@@ -40,11 +40,11 @@ This section will show basic flow to visualize data with Jupyter notebook.
    app = Application(arch, lttng)
    ```
 
-   After execution of the code, users will often refer to the `app` object defined as `Application` class. CARET provides latency of callback functions, topic communication, and node chains via `app` objects. `Application` class is similar to `Architecture` class which describes structure of the application and their interfaces are similar. In addition, `Application` class has interfaces to get latency information.
+   After execution of the code, users will often refer to the `app` object defined as `Application` class. The `app` objects provides users latency of callbacks, communication, and paths. `Application` class is similar to `Architecture` class which describes structure of the application and their interfaces are similar. In addition, `Application` class has interfaces to get latency.
 
 ## Basic API to get latency
 
-This section will explain APIs to get latency elapsed in a callback function. The following code is one of examples to get latency.
+This section will explain APIs to get callback latency. The following code is one of examples to get callback latency.
 
 ```python
 # Get a callback instance, which has latency information, from app
@@ -57,12 +57,12 @@ t, latency_ns = callback.to_timeseries()
 bins, latency_ns = callback.to_histogram()
 ```
 
-Though this example shows callback latency, CARET serves API to get latency of topic communication.
+Though this example shows callback latency, CARET serves API to get communication latency.
 `callback.to_dataframe()` will provides `pandas.DataFrame` based object including raw timestamps which is obtained from tracepoints.
 
 <prettier-ignore-start>
 !!! todo
-        Sorry for not providing API list, but we'll provide it in the near future.
+        Sorry for not providing CARET's API list, but we'll provide it in the near future.
 <prettier-ignore-end>
 
 ## Visualizing latency of node chain with message flow
