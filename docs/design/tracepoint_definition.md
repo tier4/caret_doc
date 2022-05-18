@@ -5,25 +5,20 @@ Before listing tracepoints.
 
 Some tracepoints are used for collecting identification of executors, nodes, callbacks, and topics during application's initialization. They are called initialization tracepoints. The other tracepoints are embedded for sampling timestamps after completion of initialization, and called runtime tracepoints.
 
-Tracepoints are embedded in ROS and DDS layer.
-各トレースポイントには、その実装方法を区別するために以下の情報も記載しています。
+Almost all of tracepoints supported by CARET are embedded in ROS and DDS layer. CARET utilizes some of the tracepoints embedded in original ROS 2 middleware, which are used for ros2-tracing. Some of the rest tracepoints are added to the fork of ROS 2's rclcpp, the other are introduced by function hooking with LD_PRELOAD. AS explained, tracepoints for CARET is embedded by three ways and they are identified as below.
 
-- Galactic 実装
-  - Galactic 以降の ROS にはデフォルトで実装されている、ros2 tracing が使用しているトレースポイントです。
-  - service や lifecycle など、実装はされていても CARET では使われていないトレースポイントも有ります。
-- CARET フォーク実装
-  - rclcpp リポジトリをフォークして追加しているトレースポイントです。
-- CARET フック実装
-  - LD_PRELOAD によるフックで追加しているトレースポイントです。
+- Original tracepoints
+  - tracepoints embedded in original ROS 2 middleware which are utilized by ros2-tracing
+  - some of tracepoints, for service, action and lifecycle node, are not utilized by CARET
+- Extended tracepoints
+  - CARET-dedicated tracepoints added to the fork of rclcpp
+- Hooked tracepoints
+  - CARET-dedicated tracepoints introduced by function hooking with LD_PRELOAD
 
-> フォークとフックの２つの方法でトレースポイントを追加している理由
->
-> CARET は基本的には実装と切り離すために、LD_PRELOAD を利用したフックによるトレースポイントの追加をしています。  
-> ただし、rclcpp には、プロセス内通信などのテンプレートによる実装を含み、LD_PRELOAD ではフックできない処理があります。  
-> LD_PRELOAD は実行時の動的リンクに対しフックできる機能であるのに対し、  
-> テンプレートで実装された処理はコンパイルでバイナリ内に組み込まれてしまうためフックできません。  
-> このようなテンプレートで実装された処理に対してのみ、rclcpp をフォークしてトレースポイントを追加しています。  
-> このような理由から、測定対象のアプリケーションを再ビルドする必要が生じています。
+<prettier-ignore-start>
+!!! info
+    Please read this section if you are interested in CARET-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. CARET would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Original rclpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.
+<prettier-ignore-end>
 
 ## Sequence diagram of major tracepoints
 
@@ -104,9 +99,9 @@ deactivate ROS2
 
 ### ros2:rcl_init
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* context_handle
 
@@ -114,9 +109,9 @@ deactivate ROS2
 
 ### ros2:rcl_node_init
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* node_handle
 - void \* rmw_handle
@@ -127,9 +122,9 @@ deactivate ROS2
 
 ### ros2:rcl_publisher_init
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* publisher_handle
 - void \* node_handle
@@ -141,9 +136,9 @@ deactivate ROS2
 
 ### ros2:rcl_subscription_init
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* subscription_handle
 - void \* node_handle
@@ -155,9 +150,9 @@ deactivate ROS2
 
 ### ros2:rclcpp_subscription_init
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* subscription_handle
 - void \* subscription
@@ -166,9 +161,9 @@ deactivate ROS2
 
 ### ros2:rclcpp_subscription_callback_added
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* subscription
 - void \* callback
@@ -177,9 +172,9 @@ deactivate ROS2
 
 ### ros2:rcl_timer_init
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* timer_handle
 - int64_t period
@@ -188,9 +183,9 @@ deactivate ROS2
 
 ### ros2:rclcpp_timer_callback_added
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* timer_handle
 - void \* callback
@@ -199,9 +194,9 @@ deactivate ROS2
 
 ### ros2:rclcpp_timer_link_node
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* timer_handle
 - void \* node_handle
@@ -210,9 +205,9 @@ deactivate ROS2
 
 ### ros2:rclcpp_callback_register
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* callback
 - char \* function_symbol
@@ -221,9 +216,9 @@ deactivate ROS2
 
 ### ros2_caret:rmw_implementation
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - char \* rmw_impl
 
@@ -231,9 +226,9 @@ deactivate ROS2
 
 ### ros2_caret:construct_executor
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* executor_addr
 - char \* executor_type_name
@@ -242,9 +237,9 @@ deactivate ROS2
 
 ### ros2_caret:construct_static_executor
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* executor_addr
 - void \* entities_collector_addr
@@ -254,9 +249,9 @@ deactivate ROS2
 
 ### ros2_caret:add_callback_group
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* executor_addr
 - void \* callback_group_addr
@@ -266,9 +261,9 @@ deactivate ROS2
 
 ### ros2_caret:add_callback_group_static_executor
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* entities_collector_addr
 - void \* callback_group_addr
@@ -278,9 +273,9 @@ deactivate ROS2
 
 ### ros2_caret:callback_group_add_timer
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* callback_group_addr
 - void \* timer_handle
@@ -289,9 +284,9 @@ deactivate ROS2
 
 ### ros2_caret:callback_group_add_subscription
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* callback_group_addr
 - void \* subscription_handle
@@ -300,9 +295,9 @@ deactivate ROS2
 
 ### ros2_caret:callback_group_add_service
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* callback_group_addr
 - void \* service_handle
@@ -311,22 +306,22 @@ deactivate ROS2
 
 ### ros2_caret:callback_group_add_client
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* callback_group_addr
 - void \* client_handle
 
 ---
 
-## ランタイム時のトレースポイント
+## Runtime tracepoints
 
 ### ros2:callback_start
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* callback
 - bool is_intra_process
@@ -335,9 +330,9 @@ deactivate ROS2
 
 ### ros2:callback_end
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* callback
 
@@ -345,9 +340,9 @@ deactivate ROS2
 
 ### ros2:message_construct
 
-[CARET フォーク実装]
+[Extended tracepoints]
 
-付加情報
+Sampled items
 
 - void \* original_message
 - void \* constructed_message
@@ -356,9 +351,9 @@ deactivate ROS2
 
 ### ros2:rclcpp_intra_publish
 
-[CARET フォーク実装]
+[Extended tracepoints]
 
-付加情報
+Sampled items
 
 - void \* publisher_handle
 - void \* message
@@ -368,9 +363,9 @@ deactivate ROS2
 
 ### ros2:dispatch_subscription_callback
 
-[CARET フォーク実装]
+[Extended tracepoints]
 
-付加情報
+Sampled items
 
 - void \* message
 - void \* callback
@@ -381,9 +376,9 @@ deactivate ROS2
 
 ### ros2:dispatch_intra_process_subscription_callback
 
-[CARET フォーク実装]
+[Extended tracepoints]
 
-付加情報
+Sampled items
 
 - void \* message
 - void \* callback
@@ -393,9 +388,9 @@ deactivate ROS2
 
 ### ros2:rcl_publish
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* publisher_handle
 - void \* message
@@ -404,9 +399,9 @@ deactivate ROS2
 
 ### ros2:rclcpp_publish
 
-[Galactic 実装]
+[Original tracepoints]
 
-付加情報
+Sampled items
 
 - void \* publisher_handle
 - void \* message
@@ -414,9 +409,9 @@ deactivate ROS2
 
 ### ros2_caret:dds_write
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* message
 
@@ -424,9 +419,9 @@ deactivate ROS2
 
 ### ros2_caret:dds_bind_addr_to_stamp
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* addr
 - uint64_t source_stamp
@@ -435,9 +430,9 @@ deactivate ROS2
 
 ### ros2_caret:dds_bind_addr_to_addr
 
-[CARET フック実装]
+[Hooked tracepoints]
 
-付加情報
+Sampled items
 
 - void \* addr_from
 - void \* addr_to
