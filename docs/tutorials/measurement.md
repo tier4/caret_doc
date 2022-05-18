@@ -1,11 +1,11 @@
-# Measurement with CARET
+# Tracing with CARET
 
 This page explains usage of CARET with a sample application.
 The sample application is located on [CARET_demos](https://github.com/tier4/CARET_demos.git) repository.
 
 ## Building application with CARET
 
-To measure target applications' performance, the target should be built with CARET/rclcpp. CARET/rclcpp is a fork of [ROS 2-based rclcpp](https://github.com/ros2/rclcpp) which has some additional tracepoints defined by CARET. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again.
+To trace a target application, the target should be built with CARET/rclcpp. CARET/rclcpp is a fork of [ROS 2-based rclcpp](https://github.com/ros2/rclcpp) which has some additional tracepoints defined by CARET. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again.
 
 For building the application with CARET/rclcpp, CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as shown below.
 
@@ -21,12 +21,12 @@ colcon build --symlink-install --packages-up-to caret_demos
 ```
 
 > Reason to build the target with CARET/rclcpp
-> Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to measure performance.
+> Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to trace a target application.
 > In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.
-> Therefore, CARET cannot measure performance of the application provided by Ubuntu's aptitude such as `demo_nodes_cpp`.
-> If you want to measure such pre-build packages, please build them again from source code.
+> Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as `demo_nodes_cpp`.
+> If you want to trace such pre-build packages, please build them again from source code.
 
-## Measuring the sample application with CARET
+## Tracing the sample application with CARET
 
 ### Starting LTTng session
 
@@ -43,7 +43,7 @@ ros2 trace -s e2e_sample -k -u "ros2*"
 # Start session with pressing Enter key
 
 # with "-s" option, you can give session name
-# the measured data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample
+# the trac data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample
 ```
 
 You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to [LTTng セッションの開始方法](../supplements/how_to_run_lttng_session.md).  
@@ -102,12 +102,12 @@ When you execute a LTTng session in one terminal, you have to open another termi
    You can finish the target application and LTTng session.
    LTTng session will be closed if you push `Enter` key on the terminal where the LTTng session runs.
 
-## Validating measured data briefly
+## Validating trace data briefly
 
-You can check whether measurement is successful or not with `babeltrace` command before analyzing measured data.
+You can check whether tracing is successful or not with `babeltrace` command before analyzing trace data.
 
 ```bash
-# To check which tracepoints are captured as measured data
+# To check which tracepoints are captured as trace data
 $ babeltrace ~/ros2_ws/evaluate/e2e_sample/ | cut -d' ' -f 4 | sort -u
 ros2:callback_end:
 ros2:callback_start:
