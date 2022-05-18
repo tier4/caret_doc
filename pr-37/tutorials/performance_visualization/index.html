@@ -446,8 +446,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-locate-measured-data-on-jupyter-notebook" class="md-nav__link">
-    How to locate measured data on Jupyter notebook
+  <a href="#how-to-locate-trace-data-on-jupyter-notebook" class="md-nav__link">
+    How to locate trace data on Jupyter notebook
   </a>
   
 </li>
@@ -900,8 +900,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-locate-measured-data-on-jupyter-notebook" class="md-nav__link">
-    How to locate measured data on Jupyter notebook
+  <a href="#how-to-locate-trace-data-on-jupyter-notebook" class="md-nav__link">
+    How to locate trace data on Jupyter notebook
   </a>
   
 </li>
@@ -939,13 +939,13 @@
 
 
 <h1 id="performance-visualization">Performance visualization<a class="headerlink" href="#performance-visualization" title="Permanent link">#</a></h1>
-<p>CARET serves Python APIs to visualize measured data for users to analyze applications' performance.
+<p>CARET serves Python APIs to visualize trace data for users to analyze applications' performance.
 This section will show basic flow to visualize data with Jupyter notebook.</p>
-<h2 id="how-to-locate-measured-data-on-jupyter-notebook">How to locate measured data on Jupyter notebook<a class="headerlink" href="#how-to-locate-measured-data-on-jupyter-notebook" title="Permanent link">#</a></h2>
+<h2 id="how-to-locate-trace-data-on-jupyter-notebook">How to locate trace data on Jupyter notebook<a class="headerlink" href="#how-to-locate-trace-data-on-jupyter-notebook" title="Permanent link">#</a></h2>
 <ol>
 <li>
 <p>Launching <code>jupyter-lab</code>
-   Launch <code>jupyter-lab</code> at first for learning how to visualize measured data.</p>
+   Launch <code>jupyter-lab</code> at first for learning how to visualize trace data.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
 
 <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
@@ -958,8 +958,8 @@ jupyter-lab
 </code></pre></div>
 </li>
 <li>
-<p>Loading measured data onto Jupyter notebook</p>
-<p>Loading measured data by CARET as well as the architecture file.</p>
+<p>Loading trace data onto Jupyter notebook</p>
+<p>Locate trace data on Jupyter notebook as well as the architecture file.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
 <span class="c1"># load the architecture file which is created in the previous page</span>
@@ -971,11 +971,11 @@ jupyter-lab
 <span class="c1"># map the application architecture to measured data</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 </code></pre></div>
-<p>After execution of the code, users will often refer to the <code>app</code> object defined as <code>Application</code> class. CARET provides latency of callback functions, topic communication, and node chains via <code>app</code> objects. <code>Application</code> class is similar to <code>Architecture</code> class which describes structure of the application and their interfaces are similar. In addition, <code>Application</code> class has interfaces to get latency information.</p>
+<p>After execution of the code, users will often refer to the <code>app</code> object defined as <code>Application</code> class. The <code>app</code> objects provides users latency of callbacks, communication, and paths. <code>Application</code> class is similar to <code>Architecture</code> class which describes structure of the application and their interfaces are similar. In addition, <code>Application</code> class has interfaces to get latency.</p>
 </li>
 </ol>
 <h2 id="basic-api-to-get-latency">Basic API to get latency<a class="headerlink" href="#basic-api-to-get-latency" title="Permanent link">#</a></h2>
-<p>This section will explain APIs to get latency elapsed in a callback function. The following code is one of examples to get latency.</p>
+<p>This section will explain APIs to get callback latency. The following code is one of examples to get callback latency.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Get a callback instance, which has latency information, from app</span>
 <span class="n">callback</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/callback_0&#39;</span><span class="p">)</span>
 
@@ -985,11 +985,11 @@ jupyter-lab
 <span class="c1"># Get histogram of latency</span>
 <span class="n">bins</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">callback</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">()</span>
 </code></pre></div>
-<p>Though this example shows callback latency, CARET serves API to get latency of topic communication.
+<p>Though this example shows callback latency, CARET serves API to get communication latency.
 <code>callback.to_dataframe()</code> will provides <code>pandas.DataFrame</code> based object including raw timestamps which is obtained from tracepoints.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition todo">
-<p class="admonition-title">Todo<p>Sorry for not providing API list, but we'll provide it in the near future.</p>
+<p class="admonition-title">Todo<p>Sorry for not providing CARET's API list, but we'll provide it in the near future.</p>
 </p>
 </div>
 <p><prettier-ignore-end></p>
