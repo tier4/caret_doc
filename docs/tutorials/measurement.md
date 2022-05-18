@@ -21,7 +21,7 @@ colcon build --symlink-install --packages-up-to caret_demos
 ```
 
 > Reason to build the target with CARET/rclcpp
-> Some tracepoints must be added to template implementation, which is referred by rclcpp, for CARET to measure performance.
+> Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to measure performance.
 > In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.
 > Therefore, CARET cannot measure performance of the application provided by Ubuntu's aptitude such as `demo_nodes_cpp`.
 > If you want to measure such pre-build packages, please build them again from source code.
