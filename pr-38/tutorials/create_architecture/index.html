@@ -1070,10 +1070,10 @@ jupyter-lab
 </li>
 </ol>
 <h2 id="how-to-define-latency-of-a-single-node">How to define latency of a single node<a class="headerlink" href="#how-to-define-latency-of-a-single-node" title="Permanent link">#</a></h2>
-<p>Latency of a single node, so called "node latency", is defined as elapsed time between 1. starting time and 2. publishing time as below.</p>
+<p>Latency of a single node, so called "node latency", is defined as elapsed time from 1. starting time to 2. publishing time as below.</p>
 <ol>
 <li>starting time when node subscribes topic message and invokes a corresponding callback function</li>
-<li>publish time: when node publishes topic message</li>
+<li>publishing time when node publishes topic message</li>
 </ol>
 <p>Definition of node latency depends on implementation pattern. Some nodes subscribe input messages and invoke callback function where they publish output messages. These nodes has direct relationship between input and output. Other nodes subscribe input messages and invoke callback functions where they buffer them, and invoke different callback functions consume input messages and publish output message. In the latter cases, relationship of input and output is indirect, and intra-node communication is performed with using multiple callback functions. <a href="http://wiki.ros.org/message_filters">message_filters</a> is another cause to increase the number of implementation patterns.</p>
 <p>Therefore, CARET has to deal with several types of node implementation to measure node latency. CARET serve a function to define node latency with an architecture file. An architecture file has an item of <strong>mesasge_context</strong>, which indicates relation between input message and output message. This item should be defined by users as below.</p>
