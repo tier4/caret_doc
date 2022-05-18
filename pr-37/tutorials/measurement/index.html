@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#measurement-with-caret" class="md-skip">
+        <a href="#tracing-with-caret" class="md-skip">
           Skip to content
         </a>
       
@@ -425,11 +425,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#measuring-the-sample-application-with-caret" class="md-nav__link">
-    Measuring the sample application with CARET
+  <a href="#tracing-the-sample-application-with-caret" class="md-nav__link">
+    Tracing the sample application with CARET
   </a>
   
-    <nav class="md-nav" aria-label="Measuring the sample application with CARET">
+    <nav class="md-nav" aria-label="Tracing the sample application with CARET">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -452,11 +452,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validating-measured-data-briefly" class="md-nav__link">
-    Validating measured data briefly
+  <a href="#validating-trace-data-briefly" class="md-nav__link">
+    Validating trace data briefly
   </a>
   
-    <nav class="md-nav" aria-label="Validating measured data briefly">
+    <nav class="md-nav" aria-label="Validating trace data briefly">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -940,11 +940,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#measuring-the-sample-application-with-caret" class="md-nav__link">
-    Measuring the sample application with CARET
+  <a href="#tracing-the-sample-application-with-caret" class="md-nav__link">
+    Tracing the sample application with CARET
   </a>
   
-    <nav class="md-nav" aria-label="Measuring the sample application with CARET">
+    <nav class="md-nav" aria-label="Tracing the sample application with CARET">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -967,11 +967,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validating-measured-data-briefly" class="md-nav__link">
-    Validating measured data briefly
+  <a href="#validating-trace-data-briefly" class="md-nav__link">
+    Validating trace data briefly
   </a>
   
-    <nav class="md-nav" aria-label="Validating measured data briefly">
+    <nav class="md-nav" aria-label="Validating trace data briefly">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1004,11 +1004,11 @@
 
 
 
-<h1 id="measurement-with-caret">Measurement with CARET<a class="headerlink" href="#measurement-with-caret" title="Permanent link">#</a></h1>
+<h1 id="tracing-with-caret">Tracing with CARET<a class="headerlink" href="#tracing-with-caret" title="Permanent link">#</a></h1>
 <p>This page explains usage of CARET with a sample application.
 The sample application is located on <a href="https://github.com/tier4/CARET_demos.git">CARET_demos</a> repository.</p>
 <h2 id="building-application-with-caret">Building application with CARET<a class="headerlink" href="#building-application-with-caret" title="Permanent link">#</a></h2>
-<p>To measure target applications' performance, the target should be built with CARET/rclcpp. CARET/rclcpp is a fork of <a href="https://github.com/ros2/rclcpp">ROS 2-based rclcpp</a> which has some additional tracepoints defined by CARET. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again.</p>
+<p>To trace a target application, the target should be built with CARET/rclcpp. CARET/rclcpp is a fork of <a href="https://github.com/ros2/rclcpp">ROS 2-based rclcpp</a> which has some additional tracepoints defined by CARET. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again.</p>
 <p>For building the application with CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as shown below.</p>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/src
 <span class="nb">cd</span> ~/ros2_ws
@@ -1021,12 +1021,12 @@ colcon build --symlink-install --packages-up-to caret_demos
 </code></pre></div>
 <blockquote>
 <p>Reason to build the target with CARET/rclcpp
-Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to measure performance.
+Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to trace a target application.
 In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.
-Therefore, CARET cannot measure performance of the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.
-If you want to measure such pre-build packages, please build them again from source code.</p>
+Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.
+If you want to trace such pre-build packages, please build them again from source code.</p>
 </blockquote>
-<h2 id="measuring-the-sample-application-with-caret">Measuring the sample application with CARET<a class="headerlink" href="#measuring-the-sample-application-with-caret" title="Permanent link">#</a></h2>
+<h2 id="tracing-the-sample-application-with-caret">Tracing the sample application with CARET<a class="headerlink" href="#tracing-the-sample-application-with-caret" title="Permanent link">#</a></h2>
 <h3 id="starting-lttng-session">Starting LTTng session<a class="headerlink" href="#starting-lttng-session" title="Permanent link">#</a></h3>
 <p>CARET depends on LTTng for tracing applications. LTTng session has to be executed while a target application runs.
 You can execute LTTng session, for CARET, with a simple command interface as well as ros2-tracing.</p>
@@ -1039,7 +1039,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># Start session with pressing Enter key</span>
 
 <span class="c1"># with &quot;-s&quot; option, you can give session name</span>
-<span class="c1"># the measured data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
+<span class="c1"># the trac data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
 </code></pre></div>
 <p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../supplements/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by <code>ros2 launch</code> is a reasonable way to apply CARET repeatedly.</p>
@@ -1088,9 +1088,9 @@ When you execute a LTTng session in one terminal, you have to open another termi
  LTTng session will be closed if you push <code>Enter</code> key on the terminal where the LTTng session runs.</p>
 </li>
 </ol>
-<h2 id="validating-measured-data-briefly">Validating measured data briefly<a class="headerlink" href="#validating-measured-data-briefly" title="Permanent link">#</a></h2>
-<p>You can check whether measurement is successful or not with <code>babeltrace</code> command before analyzing measured data.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># To check which tracepoints are captured as measured data</span>
+<h2 id="validating-trace-data-briefly">Validating trace data briefly<a class="headerlink" href="#validating-trace-data-briefly" title="Permanent link">#</a></h2>
+<p>You can check whether tracing is successful or not with <code>babeltrace</code> command before analyzing trace data.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># To check which tracepoints are captured as trace data</span>
 $ babeltrace ~/ros2_ws/evaluate/e2e_sample/ <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u
 ros2:callback_end:
 ros2:callback_start:
