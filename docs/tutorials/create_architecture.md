@@ -186,7 +186,7 @@ Therefore, CARET has to deal with several types of node implementation to measur
    You have to change message_contexts items as below for the sample.
 
    ```yaml
-   # in /timer_driven_node
+   # in /message_driven_node
    message_contexts:
      - context_type: use_latest_message # changed from 'UNDEFINED' to 'use_latest_message'
        subscription_topic_name: /topic2
@@ -194,7 +194,7 @@ Therefore, CARET has to deal with several types of node implementation to measur
    ```
 
    ```yaml
-   # in /message_driven_node
+   # in /timer_driven_node
      message_contexts:　
      - context_type: use_latest_message # changed from 'UNDEFINED' to 'use_latest_message'
        subscription_topic_name: /topic3
