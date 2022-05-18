@@ -452,11 +452,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validating-measurement-result-briefly" class="md-nav__link">
-    Validating measurement result briefly
+  <a href="#validating-measured-data-briefly" class="md-nav__link">
+    Validating measured data briefly
   </a>
   
-    <nav class="md-nav" aria-label="Validating measurement result briefly">
+    <nav class="md-nav" aria-label="Validating measured data briefly">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -487,7 +487,7 @@
   
     <li class="md-nav__item">
       <a href="../create_architecture/" class="md-nav__link">
-        評価準備
+        Architecture file creation
       </a>
     </li>
   
@@ -967,11 +967,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validating-measurement-result-briefly" class="md-nav__link">
-    Validating measurement result briefly
+  <a href="#validating-measured-data-briefly" class="md-nav__link">
+    Validating measured data briefly
   </a>
   
-    <nav class="md-nav" aria-label="Validating measurement result briefly">
+    <nav class="md-nav" aria-label="Validating measured data briefly">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1021,7 +1021,7 @@ colcon build --symlink-install --packages-up-to caret_demos
 </code></pre></div>
 <blockquote>
 <p>Reason to build the target with CARET/rclcpp
-Some tracepoints must be added to template implementation, which is referred by rclcpp, for CARET to measure performance.
+Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to measure performance.
 In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.
 Therefore, CARET cannot measure performance of the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.
 If you want to measure such pre-build packages, please build them again from source code.</p>
@@ -1039,7 +1039,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># Start session with pressing Enter key</span>
 
 <span class="c1"># with &quot;-s&quot; option, you can give session name</span>
-<span class="c1"># the measurement result will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
+<span class="c1"># the measured data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
 </code></pre></div>
 <p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../supplements/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by <code>ros2 launch</code> is a reasonable way to apply CARET repeatedly.</p>
@@ -1088,9 +1088,9 @@ When you execute a LTTng session in one terminal, you have to open another termi
  LTTng session will be closed if you push <code>Enter</code> key on the terminal where the LTTng session runs.</p>
 </li>
 </ol>
-<h2 id="validating-measurement-result-briefly">Validating measurement result briefly<a class="headerlink" href="#validating-measurement-result-briefly" title="Permanent link">#</a></h2>
-<p>You can check whether measurement is successful or not with <code>babeltrace</code> command before analyzing result data.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># To check which tracepoints are captured as result data</span>
+<h2 id="validating-measured-data-briefly">Validating measured data briefly<a class="headerlink" href="#validating-measured-data-briefly" title="Permanent link">#</a></h2>
+<p>You can check whether measurement is successful or not with <code>babeltrace</code> command before analyzing measured data.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># To check which tracepoints are captured as measured data</span>
 $ babeltrace ~/ros2_ws/evaluate/e2e_sample/ <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u
 ros2:callback_end:
 ros2:callback_start:
@@ -1179,13 +1179,13 @@ You should consider recording a new trace with larger buffers or with fewer even
       
       
         
-        <a href="../create_architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: 評価準備" rel="next">
+        <a href="../create_architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Architecture file creation" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              評価準備
+              Architecture file creation
             </div>
           </div>
           <div class="md-footer__button md-icon">
