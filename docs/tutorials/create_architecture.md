@@ -8,6 +8,7 @@ CARET can observe as following:
 - path latency (intra-node & inter-node)
 
 The following figure shows definition of node latency and path latency.
+
 ![Definition node and path latency](../imgs/path_and_node_latency.svg)
 
 Callback latency can be defined as execution time of a callback function and can be measured with simple tracepoints. Communication latency between nodes can be defined as time from publish invoking to subscription callback invoking. Identifying callback and topic is not difficult so that their latency are calculated easily.  
