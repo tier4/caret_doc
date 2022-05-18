@@ -8,7 +8,7 @@ CARET can observe as following:
 - path latency (intra-node & inter-node)
 
 The following figure shows definition of node latency and path latency.
-![Target node chains and path latency calculate](../imgs/path_and_node_latency.svg)
+![Definition node and path latency](../imgs/path_and_node_latency.svg)
 
 Callback latency can be defined as execution time of a callback function and can be measured with simple tracepoints. Communication latency between nodes can be defined as time from publish invoking to subscription callback invoking. Identifying callback and topic is not difficult so that their latency are calculated easily.  
 However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in ROS layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in a application is equaled to that of nodes combination, so that complicated and large application has large number of paths.  
@@ -51,7 +51,7 @@ This section explains how to generate an architecture file which has minimum des
    # /home/user/ros2_caret_ws/eval/architecture.yaml
    ```
 
-## How to specify a target node chain
+## How to specify a target path
 
 1. Load the yaml-based architecture file as below
 
@@ -60,9 +60,9 @@ This section explains how to generate an architecture file which has minimum des
    arch = Architecture('yaml', './architecture.yaml')
    ```
 
-2. Specify source node and destination node in a node chain
+2. Specify source node and destination node in a path
 
-   `arch.search_paths` extract all candidates of the node chain.
+   `arch.search_paths` extract all candidates of the path
 
    ```python
    paths = arch.search_paths(
@@ -73,9 +73,9 @@ This section explains how to generate an architecture file which has minimum des
    If a target application is large and complicated, `arch.search_paths` method may consume time more than 1 minute.
    For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to [パスの探索方法](../supplements/how_to_search_path.md) for more details.
 
-3. Check the node chain as you expected
+3. Check the path as you expected
 
-   You will find multiple candidates of the node chain. You can check which candidate is expected as target. The following code is an example for users to check
+   You will find multiple candidates of the path. You can check which candidate is expected as target. The following code is an example for users to check
 
    ```python
    path = paths[0]
@@ -203,7 +203,7 @@ Therefore, CARET has to deal with several types of node implementation to measur
 
 3. Check if node latency is defined
 
-   `path.verify()` tells you that there is no undefined node latency in the path (node chain).
+   `path.verify()` tells you that there is no undefined node latency in the path.
 
    ```python
    from caret_analyze import Architecture
@@ -213,7 +213,7 @@ Therefore, CARET has to deal with several types of node implementation to measur
    path.verify()
    ```
 
-   If `path.verify()` returns `True`, CARET can calculate latency of the node chain. Otherwise, there is any lack of definition to calculate latency.
+   If `path.verify()` returns `True`, CARET can calculate latency of the path. Otherwise, there is any lack of definition to calculate latency.
 
 <prettier-ignore-start>
 !!! todo
