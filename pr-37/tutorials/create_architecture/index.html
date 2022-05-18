@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#preparation-for-measuring-latency-of-callback-chains" class="md-skip">
+        <a href="#preparation-for-measuring-node-and-path-latency" class="md-skip">
           Skip to content
         </a>
       
@@ -439,13 +439,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-to-describe-in-an-architecture-file" class="md-nav__link">
-    What to describe in an architecture file
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#how-to-generate-an-architecture-file" class="md-nav__link">
     How to generate an architecture file
   </a>
@@ -453,15 +446,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-specify-a-target-node-chain" class="md-nav__link">
-    How to specify a target node chain
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    ノードレイテンシの定義指定
+  <a href="#how-to-define-a-target-path" class="md-nav__link">
+    How to define a target path
   </a>
   
 </li>
@@ -928,13 +914,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-to-describe-in-an-architecture-file" class="md-nav__link">
-    What to describe in an architecture file
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#how-to-generate-an-architecture-file" class="md-nav__link">
     How to generate an architecture file
   </a>
@@ -942,15 +921,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-specify-a-target-node-chain" class="md-nav__link">
-    How to specify a target node chain
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    ノードレイテンシの定義指定
+  <a href="#how-to-define-a-target-path" class="md-nav__link">
+    How to define a target path
   </a>
   
 </li>
@@ -980,22 +952,23 @@
 
 
 
-<h1 id="preparation-for-measuring-latency-of-callback-chains">Preparation for measuring latency of callback-chains<a class="headerlink" href="#preparation-for-measuring-latency-of-callback-chains" title="Permanent link">#</a></h1>
-<p>CARET is capable of measuring latency of not only callback functions and topic communications, but also node chains.
-Specifying a callback function as target is very simple because name is corresponding to the callback function. Topic communication is specified by a topic name, a source node, and a destination node. However, specifying a node chain is more difficult than them. A node chain is defined as a combination of callback functions and topic communications, and often called as "path". Though node chain is regarded as DAG (Direct Acyclic Graph), a node chain may have loops and forks. Loops and forks make a node chain make complicated. Additionally, a large system tends to have many candidates of node chains because it is constructed of many callback functions which are communicated via many topics.</p>
+<h1 id="preparation-for-measuring-node-and-path-latency">Preparation for measuring node and path latency<a class="headerlink" href="#preparation-for-measuring-node-and-path-latency" title="Permanent link">#</a></h1>
+<p>CARET can observe as following:</p>
+<ul>
+<li>callback latency</li>
+<li>communication latency (inter-node)</li>
+<li>node latency (intra-node)</li>
+<li>path latency (intra-node &amp; inter-node)</li>
+</ul>
+<p>The following figure shows definition of node latency and path latency.</p>
+<p><img alt="Definition node and path latency" src="../../imgs/path_and_node_latency.svg" /></p>
+<p>Callback latency can be defined as execution time of a callback function and can be measured with simple tracepoints. Communication latency between nodes can be defined as time from publish invoking to subscription callback invoking. Identifying callback and topic is not difficult so that their latency are calculated easily.<br />
+However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in ROS layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in a application is equaled to that of nodes combination, so that complicated and large application has large number of paths.<br />
+To deal with such difficulty of defining node and path latency mechanically, CARET requires users to define node and path latency manually via a configuration file, called "<strong>architecture file</strong>".</p>
 <h2 id="overview-of-an-architecture-file">Overview of an architecture file<a class="headerlink" href="#overview-of-an-architecture-file" title="Permanent link">#</a></h2>
-<p>To deal with such difficulty of specifying node chains, CARET serves configuration for users to choose target node chains. The configuration is defined in a yaml file, which is called "<strong>architecture file</strong>". An architecture file describes a target application's structure. CARET can create an architecture file for minimum description automatically with using measured data, but it does not have target node chains. You will add description for target node chains to a generated architecture file.</p>
-<p>The rest of this section will explain more details of an architecture file.</p>
-<h2 id="what-to-describe-in-an-architecture-file">What to describe in an architecture file<a class="headerlink" href="#what-to-describe-in-an-architecture-file" title="Permanent link">#</a></h2>
-<p>An architecture file is a yaml-based file which has description of an application measured by CARET. In particular, an architecture file includes information representing the application structure, such as executors, nodes, callback groups, callbacks, topics, timers and so on. It can be used for another trial measurement because such information shall be same unless the application is changed.</p>
-<hr />
-<p>User have to add the following description to architecture file.</p>
-<ol>
-<li>Target node chains and its structure</li>
-<li>Intra-communication of topic in a single node to calculate latency of the node</li>
-</ol>
-<p><img alt="Target node chains and path latency calculate" src="../../imgs/path_and_node_latency.svg" /></p>
-<p>CARET serves Python API to make 1. easier, but you have to edit architecture file for 2.</p>
+<p>An architecture file has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. CARET can create a template architecture file including only application structure section. The application structure section remains same unless the structure is changed or component is renamed.</p>
+<p>On the other hand, latency definition section in the template architecture file is empty just before users add any definition. Users are expected to add definitions of node latency and path latency in the template file. CARET helps users to add definition of path latency with Python API. However, users have to add definition of node latency manually with editing the architecture file.</p>
+<p>The following sections explains how to create an architecture file and add latency definition.</p>
 <h2 id="how-to-generate-an-architecture-file">How to generate an architecture file<a class="headerlink" href="#how-to-generate-an-architecture-file" title="Permanent link">#</a></h2>
 <p>This section explains how to generate an architecture file which has minimum description.</p>
 <ol>
@@ -1023,7 +996,7 @@ jupyter-lab
 </code></pre></div>
 </li>
 </ol>
-<h2 id="how-to-specify-a-target-node-chain">How to specify a target node chain<a class="headerlink" href="#how-to-specify-a-target-node-chain" title="Permanent link">#</a></h2>
+<h2 id="how-to-define-a-target-path">How to define a target path<a class="headerlink" href="#how-to-define-a-target-path" title="Permanent link">#</a></h2>
 <ol>
 <li>
 <p>Load the yaml-based architecture file as below</p>
@@ -1032,8 +1005,8 @@ jupyter-lab
 </code></pre></div>
 </li>
 <li>
-<p>Specify source node and destination node in a node chain</p>
-<p><code>arch.search_paths</code> extract all candidates of the node chain.</p>
+<p>Choose source node and destination node in a path</p>
+<p><code>arch.search_paths</code> extract all candidates of the path</p>
 <div class="highlight"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
 <span class="s1">&#39;/sensor_dummy_node&#39;</span><span class="p">,</span> <span class="c1"># source node</span>
 <span class="s1">&#39;/actuator_dummy_node&#39;</span><span class="p">)</span> <span class="c1"># destination node</span>
@@ -1042,8 +1015,8 @@ jupyter-lab
  For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to <a href="../../supplements/how_to_search_path/">パスの探索方法</a> for more details.</p>
 </li>
 <li>
-<p>Check the node chain as you expected</p>
-<p>You will find multiple candidates of the node chain. You can check which candidate is expected as target. The following code is an example for users to check</p>
+<p>Check the path as you expected</p>
+<p>You will find multiple candidates of the path. You can check which candidate is expected as target. The following code is an example for users to check</p>
 <div class="highlight"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">path</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">pprint</span><span class="p">()</span>
 
@@ -1096,7 +1069,6 @@ jupyter-lab
 </code></pre></div>
 </li>
 </ol>
-<h2 id="_1">ノードレイテンシの定義指定<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <h2 id="how-to-define-latency-of-a-single-node">How to define latency of a single node<a class="headerlink" href="#how-to-define-latency-of-a-single-node" title="Permanent link">#</a></h2>
 <p>Latency of a single node, so called "node latency", is defined as elapsed time between 1. starting time and 2. publishing time as below.</p>
 <ol>
@@ -1148,7 +1120,7 @@ jupyter-lab
 <span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic2</span><span class="w"></span>
 <span class="w">    </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># in /message_driven_node</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1"># in /timer_driven_node</span><span class="w"></span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">message_contexts</span><span class="err">:　</span><span class="w"></span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- context_type</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">use_latest_message</span><span class="w"> </span><span class="c1"># changed from &#39;UNDEFINED&#39; to &#39;use_latest_message&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
@@ -1157,20 +1129,22 @@ jupyter-lab
 </li>
 <li>
 <p>Check if node latency is defined</p>
-<p><code>path.verify()</code> tells you that there is no undefined node latency in the path (node chain).</p>
+<p><code>path.verify()</code> tells you that there is no undefined node latency in the path.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
 
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
 <span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
 </code></pre></div>
-<p>If <code>path.verify()</code> returns <code>True</code>, CARET can calculate latency of the node chain. Otherwise, there is any lack of definition to calculate latency.</p>
+<p>If <code>path.verify()</code> returns <code>True</code>, CARET can calculate latency of the path. Otherwise, there is any lack of definition to calculate latency.</p>
 </li>
 </ol>
+<p><prettier-ignore-start></p>
 <div class="admonition todo">
-<p class="admonition-title">Todo</p>
+<p class="admonition-title">Todo<p>We'll provide the sample architecture file here, but it's not ready. Sorry for inconvenience.</p>
+</p>
 </div>
-<p>We'll provide the sample architecture file here, but it's not ready. Sorry for inconvenience.</p>
+<p><prettier-ignore-end></p>
 
               
             </article>
