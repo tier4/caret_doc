@@ -21,7 +21,7 @@ colcon build --symlink-install --packages-up-to caret_demos
 ```
 
 > Reason to build the target with CARET/rclcpp
-> Some tracepoints must be added to template implementation, which is referred by rclcpp, for CARET to measure performance.
+> Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to measure performance.
 > In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.
 > Therefore, CARET cannot measure performance of the application provided by Ubuntu's aptitude such as `demo_nodes_cpp`.
 > If you want to measure such pre-build packages, please build them again from source code.
@@ -43,7 +43,7 @@ ros2 trace -s e2e_sample -k -u "ros2*"
 # Start session with pressing Enter key
 
 # with "-s" option, you can give session name
-# the measurement result will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample
+# the measured data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample
 ```
 
 You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to [LTTng セッションの開始方法](../supplements/how_to_run_lttng_session.md).  
@@ -102,12 +102,12 @@ When you execute a LTTng session in one terminal, you have to open another termi
    You can finish the target application and LTTng session.
    LTTng session will be closed if you push `Enter` key on the terminal where the LTTng session runs.
 
-## Validating measurement result briefly
+## Validating measured data briefly
 
-You can check whether measurement is successful or not with `babeltrace` command before analyzing result data.
+You can check whether measurement is successful or not with `babeltrace` command before analyzing measured data.
 
 ```bash
-# To check which tracepoints are captured as result data
+# To check which tracepoints are captured as measured data
 $ babeltrace ~/ros2_ws/evaluate/e2e_sample/ | cut -d' ' -f 4 | sort -u
 ros2:callback_end:
 ros2:callback_start:

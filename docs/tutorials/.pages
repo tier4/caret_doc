@@ -1,5 +1,5 @@
 nav:
     - Installation: installation.md
     - Measurement: measurement.md
-    - 評価準備: create_architecture.md
+    - Architecture file creation: create_architecture.md
     - 性能評価: performance_evaluation.md

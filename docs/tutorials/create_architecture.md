@@ -1,221 +1,222 @@
-# 評価準備
+# Preparation for measuring node and path latency
 
-CARET は、評価する際にアーキテクチャファイルの作成が必要です。
+CARET can observe as following:
 
-トレース結果からアーキテクチャファイルの雛形を作成できますが、一部手作業での修正が必要になります。  
-ここでは、アーキテクチャファイルの作成方法とその修正方法を説明します。
+- callback latency
+- communication latency (inter-node)
+- node latency (intra-node)
+- path latency (intra-node & inter-node)
 
-## アーキテクチャファイルとは
+The following figure shows definition of node latency and path latency.
 
-アーキテクチャファイルとは、実際に実行されたノードの情報など、測定毎に不変な静的な情報のみを含んだ yaml 形式の設定ファイルです。  
-コールバックの実行時間などの動的な情報は含みません。  
-※ トピック名やタイマーの周期など、実行時のパラメータも一部含みます。
+![Definition node and path latency](../imgs/path_and_node_latency.svg)
 
-アーキテクチャファイルで記述した静的な情報と、  
-コールバックの実行時間などの測定結果と合わせることで、レイテンシの算出が行えるようになります。
+Callback latency can be defined as execution time of a callback function and can be measured with simple tracepoints. Communication latency between nodes can be defined as time from publish invoking to subscription callback invoking. Identifying callback and topic is not difficult so that their latency are calculated easily.  
+However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in ROS layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in a application is equaled to that of nodes combination, so that complicated and large application has large number of paths.  
+To deal with such difficulty of defining node and path latency mechanically, CARET requires users to define node and path latency manually via a configuration file, called "**architecture file**".
 
----
+## Overview of an architecture file
 
-アーキテクチャファイルの主な役割は以下の通りです。
+An architecture file has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. CARET can create a template architecture file including only application structure section. The application structure section remains same unless the structure is changed or component is renamed.
 
-1. 測定対象のパスを定義
-1. ノードおよびコールバックの実行方法（エグゼキューターの情報）を記述
-1. ノードレイテンシの算出方法（ノードの情報）を指定
+On the other hand, latency definition section in the template architecture file is empty just before users add any definition. Users are expected to add definitions of node latency and path latency in the template file. CARET helps users to add definition of path latency with Python API. However, users have to add definition of node latency manually with editing the architecture file.
 
-![パスの指定とノードレイテンシの算出方法指定](../imgs/path_and_node_latency.svg)
+The following sections explains how to create an architecture file and add latency definition.
 
-この内、① パスの情報は pythonAPI からの編集（直接 yaml ファイルからの編集も可）、② ノードの情報は直接 yaml ファイルの編集が必要です。
+## How to generate an architecture file
 
-## jupyter の起動
+This section explains how to generate an architecture file which has minimum description.
 
-本ページで説明する雛形の作成などの作業は、python API を使用して行います。
+1. Launch Jupyter Notebook (Jupyter Lab)
 
-以下の手順で jupyter を起動してください。
+   ```bash
+   mkdir -p ~/ros2_ws/evaluate && cd ~/ros2_ws/evaluate
 
-```bash
-mkdir -p ~/ros2_ws/evaluate && cd ~/ros2_ws/evaluate
+   source ~/ros2_caret_ws/install/setup.bash
+   jupyter-lab
+   ```
 
-source ~/ros2_caret_ws/install/setup.bash
-jupyter-lab
-```
+2. Generate an architecture file from measured data as below
 
-## 雛形の作成
+   ```python
+   from caret_analyze import Architecture
 
-雛形は python 以下のコードでトレース結果から生成できます。
+   # Read description of application's architecture from measured data
+   arch = Architecture('lttng', './e2e_sample')
 
-```python
-from caret_analyze import Architecture
+   # Save description as an architecture file
+   arch.export('architecture.yaml')
 
-# トレース結果からアーキテクチャファイルの読み込み
-arch = Architecture('lttng', './e2e_sample')
+   # Check if the architecture file is created
+   ! readlink -f ./architecture.yaml
+   # /home/user/ros2_caret_ws/eval/architecture.yaml
+   ```
 
-# アーキテクチャファイルの保存
-arch.export('architecture.yaml')
+## How to specify a target path
 
-# 生成されたファイルの確認
-! readlink -f ./architecture.yaml
-# /home/user/ros2_caret_ws/eval/architecture.yaml
-```
+1. Load the yaml-based architecture file as below
 
-## 測定対象のパスの指定
+   ```python
+   from caret_analyze import Architecture, check_procedure
+   arch = Architecture('yaml', './architecture.yaml')
+   ```
 
-生成したアーキテクチャファイルは以下のようにして読み込めます。
+2. Specify source node and destination node in a path
 
-```python
-from caret_analyze import Architecture, check_procedure
-arch = Architecture('yaml', './architecture.yaml')
-```
+   `arch.search_paths` extract all candidates of the path
 
-読み込んだ情報を元に、始点ノードから終点ノードまでのパスを全探索します。
+   ```python
+   paths = arch.search_paths(
+   '/sensor_dummy_node', # source node
+   '/actuator_dummy_node') # destination node
+   ```
 
-```python
-paths = arch.search_paths(
-    '/sensor_dummy_node', # パスの開始ノード
-    '/actuator_dummy_node') # パスの終了ノード
-```
+   If a target application is large and complicated, `arch.search_paths` method may consume time more than 1 minute.
+   For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to [パスの探索方法](../supplements/how_to_search_path.md) for more details.
 
-測定対象のアプリケーションが複雑な場合、探索に時間がかることがあります。  
-その際は、無関係なノードやトピックの枝刈りや、探索する深さを指定できます。 詳細は[パスの探索方法](../supplements/how_to_search_path.md)を参照ください。
+3. Check the path as you expected
 
-探索されたパスは複数見つかることがあります。  
-測定したいパスのインデックスを探すために、探索したパスの情報を確認します。
+   You will find multiple candidates of the path. You can check which candidate is expected as target. The following code is an example for users to check
 
-```python
-path = paths[0]
-path.summary.pprint()
+   ```python
+   path = paths[0]
+   path.summary.pprint()
 
----以下出力---
+   ---Output text as below---
 
-path:
-  - message_context: null # ノードレイテンシの定義。
-    node: /sensor_dummy_node
-  - topic: /topic1
-  - message_context:
-      publisher_topic_name: /topic2
-      subscription_topic_name: /topic1
-      type: callback_chain
-    node: /filter_node
-  - topic: /topic2
-  - message_context: null
-    node: /message_driven_node
-  - topic: /topic3
-  - message_context: null
-    node: /timer_driven_node
-  - topic: /topic4
-  - message_context: null
-    node: /actuator_dummy_node
-```
+   path:
+     - message_context: null # for definition of node latency
+       node: /sensor_dummy_node
+     - topic: /topic1
+     - message_context:
+         publisher_topic_name: /topic2
+         subscription_topic_name: /topic1
+         type: callback_chain
+       node: /filter_node
+     - topic: /topic2
+     - message_context: null
+       node: /message_driven_node
+     - topic: /topic3
+     - message_context: null
+       node: /timer_driven_node
+     - topic: /topic4
+     - message_context: null
+       node: /actuator_dummy_node
+   ```
 
-決定したパスに`target_path`と名前を付け、アーキテクチャファイルに保存します。
+4. Give a name to selected path and update architecture file
 
-```python
-arch.add_path('target_path', path)
-arch.export('./architecture.yaml', force=True)
-```
+   ```python
+   arch.add_path('target_path', path)
+   arch.export('./architecture.yaml', force=True)
+   ```
 
-アーキテクチャファイルには、以下のように記載されます。
+   The updated architecture file describes the path named as `target_path`.
 
-```yaml
-named_paths:
-  - path_name: target_path
-    node_chain:
-      - node_name: /sensor_dummy_node
-        publish_topic_name: /topic1
-        subscribe_topic_name: UNDEFINED
-      - node_name: /filter_node
-        publish_topic_name: /topic2
-        subscribe_topic_name: /topic1
-      - node_name: /message_driven_node
-        publish_topic_name: /topic3
-        subscribe_topic_name: /topic2
-      - node_name: /timer_driven_node
-        publish_topic_name: /topic4
-        subscribe_topic_name: /topic3
-      - node_name: /actuator_dummy_node
-        publish_topic_name: UNDEFINED
-        subscribe_topic_name: /topic4
-```
+   ```yaml
+   named_paths:
+     - path_name: target_path
+       node_chain:
+         - node_name: /sensor_dummy_node
+           publish_topic_name: /topic1
+           subscribe_topic_name: UNDEFINED
+         - node_name: /filter_node
+           publish_topic_name: /topic2
+           subscribe_topic_name: /topic1
+         - node_name: /message_driven_node
+           publish_topic_name: /topic3
+           subscribe_topic_name: /topic2
+         - node_name: /timer_driven_node
+           publish_topic_name: /topic4
+           subscribe_topic_name: /topic3
+         - node_name: /actuator_dummy_node
+           publish_topic_name: UNDEFINED
+           subscribe_topic_name: /topic4
+   ```
 
-## ノードレイテンシの定義指定
+## How to define latency of a single node
 
-ノードレイテンシは、「ノードがメッセージを subscribe し、コールバックが処理開始する時刻」から「ノードがメッセージを publish する時刻」までとしています。  
-ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。
+Latency of a single node, so called "node latency", is defined as elapsed time between 1. starting time and 2. publishing time as below.
 
-CARET ではいくつかのノードレイテンシの算出方法を提供しています。  
-ノードレイテンシの算出方法はアーキテクチャファイルでは、主に **message_context**という項目として指定します。
+1. starting time when node subscribes topic message and invokes a corresponding callback function
+2. publish time: when node publishes topic message
 
-### 修正対象の確認
+Definition of node latency depends on implementation pattern. Some nodes subscribe input messages and invoke callback function where they publish output messages. These nodes has direct relationship between input and output. Other nodes subscribe input messages and invoke callback functions where they buffer them, and invoke different callback functions consume input messages and publish output message. In the latter cases, relationship of input and output is indirect, and intra-node communication is performed with using multiple callback functions. [message_filters](http://wiki.ros.org/message_filters) is another cause to increase the number of implementation patterns.
 
-以下のように、`path.verify()`を実行し、パスに含まれるノードレイテンシの定義の情報が不足ていないか確認します。
+Therefore, CARET has to deal with several types of node implementation to measure node latency. CARET serve a function to define node latency with an architecture file. An architecture file has an item of **mesasge_context**, which indicates relation between input message and output message. This item should be defined by users as below.
 
-```python
-from caret_analyze import Architecture
+1. Check which node latency should be configured
 
-arch = Architecture('yaml', './architecture.yaml')
-path = arch.get_path('target_path')
-path.verify()
+   `path.verify()` method, as shown in the following example, tells you which node latency should be defined.
 
----以下出力---
-WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions.
-To see node definition and procedure,execute :
->> check_procedure('yaml', '/path/to/yaml', arch, '/message_driven_node')
-message_context: null
-node: /message_driven_node
-publish_topic_name: /topic3
-subscribe_topic_name: /topic2
+   ```python
+   from caret_analyze import Architecture
 
-WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions.
-To see node definition and procedure,execute :
->> check_procedure('yaml', '/path/to/yaml', arch, '/timer_driven_node')
-message_context: null
-node: /timer_driven_node
-publish_topic_name: /topic4
-subscribe_topic_name: /topic3
-```
+   arch = Architecture('yaml', './architecture.yaml')
+   path = arch.get_path('target_path')
+   path.verify()
 
-上記は、以下の修正が必要と警告しています
+   ---Output text as below---
+   WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions.
+   To see node definition and procedure,execute :
+   >> check_procedure('yaml', '/path/to/yaml', arch, '/message_driven_node')
+   message_context: null
+   node: /message_driven_node
+   publish_topic_name: /topic3
+   subscribe_topic_name: /topic2
 
-- `/message_driven_node`ノード、`/topic2`入力から`/topic3`出力のパス
-- `/timer_driven_node`ノード、`/topic3`入力から`/topic4`出力のパス
+   WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions.
+   To see node definition and procedure,execute :
+   >> check_procedure('yaml', '/path/to/yaml', arch, '/timer_driven_node')
+   message_context: null
+   node: /timer_driven_node
+   publish_topic_name: /topic4
+   subscribe_topic_name: /topic3
+   ```
 
-警告されたノードのパスについて、アーキテクチャファイル内の対応する message_context を編集する必要が有ります。
+   In the example, `path.verify()` tells you two nodes have undefined relationships of input and output.
 
-### ノードレイテンシの算出方法指定
+   - input `/topic2` and output `/topic3` in node `/message_driven_node`
+   - input `/topic3` and output `/topic4` in node `/timer_driven_node`
 
-サンプルのアプリケーションでは、以下の修正が必要になります。
+   Their relationships must be explicit with corresponding message_context items in the architecture file.
 
-```yaml
-# /message_driven_node内の項目
-message_contexts:
-  - context_type: use_latest_message # UNDEFINEDからuse_latest_messageへ変更
-    subscription_topic_name: /topic2
-    publisher_topic_name: /topic3
-```
+2. Define relationship between input and output
 
-```yaml
-# /timer_driven_node内の項目
-  message_contexts:　
-  - context_type: use_latest_message # UNDEFINEDからuse_latest_messageへ変更
-    subscription_topic_name: /topic3
-    publisher_topic_name: /topic4
+   You have to change message_contexts items as below for the sample.
 
-```
+   ```yaml
+   # in /message_driven_node
+   message_contexts:
+     - context_type: use_latest_message # changed from 'UNDEFINED' to 'use_latest_message'
+       subscription_topic_name: /topic2
+       publisher_topic_name: /topic3
+   ```
 
-### 修正結果の確認
+   ```yaml
+   # in /timer_driven_node
+     message_contexts:　
+     - context_type: use_latest_message # changed from 'UNDEFINED' to 'use_latest_message'
+       subscription_topic_name: /topic3
+       publisher_topic_name: /topic4
 
-ノードレイテンシの定義を与えた後、警告がでなくなることを確認します。
+   ```
 
-```python
-from caret_analyze import Architecture
+3. Check if node latency is defined
 
-arch = Architecture('yaml', './architecture.yaml')
-path = arch.get_path('target_path')
-path.verify()
-```
+   `path.verify()` tells you that there is no undefined node latency in the path.
 
-警告が出なければ、パスのレイテンシが算出できるということになります。  
-警告が出る箇所は、算出に必要な情報が不足している可能性があります。
+   ```python
+   from caret_analyze import Architecture
 
-最終的には以下のようなアーキテクチャファイルを用意します。
+   arch = Architecture('yaml', './architecture.yaml')
+   path = arch.get_path('target_path')
+   path.verify()
+   ```
 
-TODO: サンプルのアーキテクチャファイルへのリンクを追加。
+   If `path.verify()` returns `True`, CARET can calculate latency of the path. Otherwise, there is any lack of definition to calculate latency.
+
+<prettier-ignore-start>
+!!! todo
+        We'll provide the sample architecture file here, but it's not ready. Sorry for inconvenience.
+<prettier-ignore-end>
