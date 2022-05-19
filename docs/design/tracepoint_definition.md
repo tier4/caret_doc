@@ -501,9 +501,8 @@ graph RL
 
 ```
 
-コールバックのインスタンスのアドレス値が一意に決まれば、`timer_callback_added`など他のトレースポイントの値を紐付いていくことでノードの情報まで得ることができる。  
-If a certain of address of callback instance is unique, `timer_callback_added`
-逆に、node_handle が一意に決まれば、そのノードに含まれるコールバックも特定できる。
+If a certain of address of callback instance is unique, scanning the shared identification including `timer_callback_added` lets you identify a node to which the callback belongs.
+On the other hand, if `node_handle` is identified uniquely, callback in the node is identified as well.
 
 ### Tracepoints for representing structure of executor and callback group
 
@@ -558,7 +557,7 @@ graph RL
 
 A handler such as `timer_handle` and `subscription_handle` are assigned to a callback group. A callback group belongs to an executor.
 
-### Tracepoints for representing flow of message publish
+### Tracepoints for representing flow of message transmission
 
 ```mermaid
 
@@ -608,15 +607,15 @@ graph LR
 
 ```
 
-`publish`を実行した際、unique_ptr 型で複数の subscription がある場合などのケースでは、必要に応じてメッセージのコピーが発生する。  
-メッセージのコピーが発生した際は`message_construct`でコピー前とコピー後の変数のアドレスを紐付けられるようにしている。  
-rcl レイヤー以下ではメッセージのアドレスで対応付けられるようにし、DDS レイヤーで source_timestamp に紐付けられるようにしている。  
-source_timestamp は元々は QoS の Deadline などに使われる値で、全ての DDS 通信を行うメッセージに自動的に付与される値であり、subscription 側で同じ値が受信される。  
-受信側では source_timestamp の値を紐付けるための情報として利用している。
+If a topic message is defined with unique_ptr and transmitted to multiple subscription by `publish` method, the topic message may be copied.  
+CARET can associate an address of original message to that of copied one by `message_construct`.  
+A certain message is identified with an unique address in rcl layer, it is identified with `source_timestamp` in DDS layer.  
+All messages communicated via DDS have `source_timestamp` given automatically, which are introduced for QoS function.A pair of publish and subscription same `source_timestamp`.  
+CARET utilizes `source_timestamp` to map transmitted message to received one.
 
-message_addr（プロセス内通信）/source_timestamp（プロセス間通信）から publish までが一意に紐付けられる。
+CARET maps a `message_addr` to a published message for intra-process communication, and a `source_timestamp` to one for inter-communication.
 
-### Tracepoints for representing flow of callback execution after topic subscription
+### Tracepoints for representing flow of callback execution after message reception
 
 ```mermaid
 
@@ -648,11 +647,10 @@ graph LR
   source_timestamp_sub --> dispatch_subscription_callback
 ```
 
-プロセス内通信では publish されたメッセージのアドレスで紐づけを行う。  
-プロセス間通信では source_timestamp で紐づけを行う。
+As well as flow of message transmission, a message is identified by `message_addr` for intra-process communication, but `source_timestamp` for inter-process communication.
 
-callback_start から message_addr/source_timestamp までが一意に紐付けられる。  
-また、publisher 側のグラフで示した通り、message_addr/source_timestamp から publish までが一意に紐付けられる。  
-したがって、publish から callback_start までは一意に紐付けることができる。
+`message_addr` and `source_timestamp` is mapped a corresponding `callback_start`.  
+As explained, `message_addr` and `source_timestamp` are identifier for transmission flow using `publish` method.
+This means that a invoked `publish` method is mapped to a `callback_start`.
 
-ただし、コールバックの実行と publish の紐付けはできていないので注意。
+However this does not mean that CARET can map a `callback_start` to a corresponding `publish`. We can trace a certain flow from `publish` to `callback_start`, but the reversed flow is not out of CARET's capability.

@@ -1,5 +1,5 @@
 nav:
     - Architecture overview: architecture_overview.md
-    - トレースポイントの定義: tracepoint_definition.md
+    - Supported tracepoints: tracepoint_definition.md
     - galacticとの差分: diff.md
     - レイテンシの算出方法: how_to_calculate_latency.md
