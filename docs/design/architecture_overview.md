@@ -13,12 +13,11 @@ Architecture object and Runtime Data object are implemented as Python-based clas
 Architecture object serves APIs to search node chains and define node latency as mentioned in [tutorial/architecture file section](../tutorials/create_architecture.md). Architecture object is reusable after it is saved as a YAML-based file called "architecture file".  
 Runtime Data object serves APIs to retrieve `pandas.DataFrame`-based objects including callback latency or communication. Users can analyze temporal aspects of their applications, with visualization, as they expect. APIs for visualization are also served by CARET_analyze which plays main role to analyze trace data.
 
-## Co-design with TILDE, a framework tools to detect deadline overrun
+## Cooperation with TILDE, a framework tools to detect deadline overrun
 
-CARET can cooperate with TILDE, a framework tool to detect deadline overrun. TILDE lets CARET trace events in user applications which cannot be traced from ROS/DDS layer. 
+CARET can cooperate with TILDE, a framework tool to detect deadline overrun. TILDE lets CARET trace events in user applications which cannot be traced from ROS/DDS layer.
 
 One example of the events is consumption of message buffered in nodes. The event can be observed in only application layer, but CARET cannot observe the event. On the other hand, TILDE can trace application-layer events. It is able to trace execution of callback function to consume a certain buffered message since it annotate message consumption per single message. TILDE give this capability to CARET to trace consumption of buffered message.
-
 
 <prettier-ignore-start>
 !!! todo
