@@ -15,7 +15,10 @@ Runtime Data object serves APIs to retrieve `pandas.DataFrame`-based objects inc
 
 ## Co-design with TILDE, a framework tools to detect deadline overrun
 
-CARET can cooperate with TILDE, a framework tool to detect deadline overrun. As TILDE's tracepoints are embedded in user codes of target applications, TILDE lets CARET trace events in user applications which cannot be traced from ROS/DDS layer. One example of the events in user applications is consumption of topic messages buffered in nodes. CARET can observe subscription and publish of topic messages but not strictly trace consumption of topic messages buffered in nodes. TILDE is able to trace execution of callback function to consume a certain buffered message. With TILDE's capability, CARET can observe such events seen in application layer as well as ROS/DDS layer.
+CARET can cooperate with TILDE, a framework tool to detect deadline overrun. TILDE lets CARET trace events in user applications which cannot be traced from ROS/DDS layer. 
+
+One example of the events is consumption of message buffered in nodes. The event can be observed in only application layer, but CARET cannot observe the event. On the other hand, TILDE can trace application-layer events. It is able to trace execution of callback function to consume a certain buffered message since it annotate message consumption per single message. TILDE give this capability to CARET to trace consumption of buffered message.
+
 
 <prettier-ignore-start>
 !!! todo
