@@ -52,7 +52,7 @@ This section explains how to generate an architecture file which has minimum des
    # /home/user/ros2_caret_ws/eval/architecture.yaml
    ```
 
-## How to specify a target path
+## How to define a target path
 
 1. Load the yaml-based architecture file as below
 
@@ -61,7 +61,7 @@ This section explains how to generate an architecture file which has minimum des
    arch = Architecture('yaml', './architecture.yaml')
    ```
 
-2. Specify source node and destination node in a path
+2. Choose source node and destination node in a path
 
    `arch.search_paths` extract all candidates of the path
 

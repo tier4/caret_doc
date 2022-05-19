@@ -2,4 +2,4 @@ nav:
     - Installation: installation.md
     - Measurement: measurement.md
     - Architecture file creation: create_architecture.md
-    - 性能評価: performance_evaluation.md
+    - Performance visualization: performance_visualization.md
