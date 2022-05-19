@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/tutorials/performance_evaluation/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/tutorials/performance_visualization/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>性能評価 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Performance visualization - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#performance-visualization" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              性能評価
+              Performance visualization
             
           </span>
         </div>
@@ -422,12 +422,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          性能評価
+          Performance visualization
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        性能評価
+        Performance visualization
       </a>
       
         
@@ -446,22 +446,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    測定結果の読み込み
+  <a href="#how-to-locate-trace-data-on-jupyter-notebook" class="md-nav__link">
+    How to locate trace data on Jupyter notebook
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    基本的な API の説明
+  <a href="#basic-api-to-get-latency" class="md-nav__link">
+    Basic API to get latency
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    メッセージフローの可視化
+  <a href="#visualizing-latency-of-node-chain-with-message-flow" class="md-nav__link">
+    Visualizing latency of node chain with message flow
   </a>
   
 </li>
@@ -900,22 +900,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    測定結果の読み込み
+  <a href="#how-to-locate-trace-data-on-jupyter-notebook" class="md-nav__link">
+    How to locate trace data on Jupyter notebook
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    基本的な API の説明
+  <a href="#basic-api-to-get-latency" class="md-nav__link">
+    Basic API to get latency
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    メッセージフローの可視化
+  <a href="#visualizing-latency-of-node-chain-with-message-flow" class="md-nav__link">
+    Visualizing latency of node chain with message flow
   </a>
   
 </li>
@@ -932,68 +932,81 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/tutorials/performance_evaluation.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/tutorials/performance_visualization.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="_1">性能評価<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>測定結果の可視化方法を説明します。</p>
-<p>本ページの説明は jupyter 上を想定しています。<br />
-以下のコマンドで jupyter を起動してください。</p>
+<h1 id="performance-visualization">Performance visualization<a class="headerlink" href="#performance-visualization" title="Permanent link">#</a></h1>
+<p>CARET serves Python APIs to visualize trace data for users to analyze applications' performance.
+This section will show basic flow to visualize data with Jupyter notebook.</p>
+<h2 id="how-to-locate-trace-data-on-jupyter-notebook">How to locate trace data on Jupyter notebook<a class="headerlink" href="#how-to-locate-trace-data-on-jupyter-notebook" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Launching <code>jupyter-lab</code>
+   Launch <code>jupyter-lab</code> at first for learning how to visualize trace data.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
 
 <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
 jupyter-lab
 </code></pre></div>
-<p>CARET が備えている可視化には、bokeh を使用したものが有ります。<br />
-jupyter 上で表示させるには、以下を実行してください。</p>
+<p>CARET uses <a href="https://bokeh.org/"><code>bokeh</code></a> for some visualization APIs.
+ Execute the following code for loading <code>bokeh</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span>
 <span class="n">output_notebook</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="_2">測定結果の読み込み<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p>アーキテクチャファイルとトレース結果を読み込みます。</p>
+</li>
+<li>
+<p>Loading trace data onto Jupyter notebook</p>
+<p>Locate trace data on Jupyter notebook as well as the architecture file.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
-<span class="c1"># トレース結果からアーキテクチャファイルの読み込み</span>
+<span class="c1"># load the architecture file which is created in the previous page</span>
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
 
-<span class="c1"># トレース結果の読み込み</span>
+<span class="c1"># load measured data by CARET</span>
 <span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
 
-<span class="c1"># アーキテクチャ情報とトレース結果の結合</span>
+<span class="c1"># map the application architecture to measured data</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 </code></pre></div>
-<p>Application クラスはアーキテクチャファイルと同等の情報・インターフェースを持ち、レイテンシの情報も持ったクラスです。<br />
-app 経由で通信レイテンシやコールバックの実行時間など、様々な情報へアクセスします。</p>
-<h2 id="api">基本的な API の説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<p>app から、コールバック実行時間を取得する API を説明します。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># コールバックの測定結果のインスタンスを取得</span>
+<p>After execution of the code, users will often refer to the <code>app</code> object defined as <code>Application</code> class. The <code>app</code> objects provides users latency of callbacks, communication, and paths. <code>Application</code> class is similar to <code>Architecture</code> class which describes structure of the application and their interfaces are similar. In addition, <code>Application</code> class has interfaces to get latency.</p>
+</li>
+</ol>
+<h2 id="basic-api-to-get-latency">Basic API to get latency<a class="headerlink" href="#basic-api-to-get-latency" title="Permanent link">#</a></h2>
+<p>This section will explain APIs to get callback latency. The following code is one of examples to get callback latency.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get a callback instance, which has latency information, from app</span>
 <span class="n">callback</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/callback_0&#39;</span><span class="p">)</span>
 
-<span class="c1"># 時系列データの取得</span>
+<span class="c1"># Get time-series variation of latency</span>
 <span class="n">t</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">callback</span><span class="o">.</span><span class="n">to_timeseries</span><span class="p">()</span>
 
-<span class="c1"># ヒストグラムの取得</span>
+<span class="c1"># Get histogram of latency</span>
 <span class="n">bins</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">callback</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">()</span>
 </code></pre></div>
-<p><code>callback</code>のほか、<code>communication</code>なども同様なインターフェースがあります。</p>
-<p><code>callback.to_dataframe()</code> を実行すると、元データを<code>pandas.DataFrame</code>型で取得できます。</p>
-<h2 id="_3">メッセージフローの可視化<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<p>CARET ではいくつかの可視化を標準で備えています。<br />
-ここでは、測定結果を算出する上で基本となるメッセージフローの可視化を説明します。</p>
+<p>Though this example shows callback latency, CARET serves API to get communication latency.
+<code>callback.to_dataframe()</code> will provides <code>pandas.DataFrame</code> based object including raw timestamps which is obtained from tracepoints.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition todo">
+<p class="admonition-title">Todo<p>Sorry for not providing CARET's API list, but we'll provide it in the near future.</p>
+</p>
+</div>
+<p><prettier-ignore-end></p>
+<h2 id="visualizing-latency-of-node-chain-with-message-flow">Visualizing latency of node chain with message flow<a class="headerlink" href="#visualizing-latency-of-node-chain-with-message-flow" title="Permanent link">#</a></h2>
+<p>CARET provides some APIs to visualize measured data.
+With message flow, which is one of effective visualizations, users can understand what happens and where is bottleneck in target applications.
+Execute the following code for visualization with message flow.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">message_flow</span>
 
 <span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
 <span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </code></pre></div>
-<p>正常に測定されると、以下のような図が表示されます。</p>
+<p>The following figure will appear if <code>message_flow</code> method is successful.</p>
 <p><img alt="message_flow_sample" src="../../imgs/message_flow_with_cursor.png" /></p>
-<p>この図は横軸が時間、縦軸が上から下へ<code>taget_path</code>になっており、各線はメッセージの流れを示しています。<br />
-グレーの矩形はコールバックの実行時間を示しています。</p>
-<p>矩形や線にカーソルを重ねると、コールバックの実行時間やメッセージごとのパスのレイテンシが表示されます。</p>
-<p>他にも、いくつかの可視化を備えています。詳細は<a href="../../supplements/gallery/">ギャラリー</a>をご覧ください。</p>
+<p>The horizontal axis shows time line. On the other hand, the vertical axis shows elements of the node chain (<code>target_path</code>), which include callback functions and topic messages from input to output. Each colorful line shows how a certain input message is propagated to callback functions and topic communications. Gray rectangles show execution timing of callback functions.</p>
+<p>If your mouse pointer is put over one of gray rectangles, latency of callback functions will be shown. You can find latency of a target node chain as well if you put the mouse pointer onto one of colorful lines.</p>
+<p>CARET serves other APIs for visualization. Refer to <a href="../../supplements/gallery/">ギャラリー</a> for more details.</p>
 
               
             </article>
