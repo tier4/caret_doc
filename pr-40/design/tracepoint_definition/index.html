@@ -1053,37 +1053,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tracepoints-mapping" class="md-nav__link">
-    Tracepoints mapping
+  <a href="#structure-of-tracepoint-relationship" class="md-nav__link">
+    Structure of tracepoint relationship
   </a>
   
-    <nav class="md-nav" aria-label="Tracepoints mapping">
+    <nav class="md-nav" aria-label="Structure of tracepoint relationship">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#node-initialization" class="md-nav__link">
-    Node initialization
+  <a href="#tracepoints-for-representing-structure-of-a-node" class="md-nav__link">
+    Tracepoints for representing structure of a node
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    エグゼキューターやコールバックグループの初期化
+  <a href="#tracepoints-for-representing-structure-of-executor-and-callback-group" class="md-nav__link">
+    Tracepoints for representing structure of executor and callback group
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#publish" class="md-nav__link">
-    メッセージの publish まで
+  <a href="#tracepoints-for-representing-flow-of-message-publish" class="md-nav__link">
+    Tracepoints for representing flow of message publish
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    メッセージの受信からコールバック実行まで
+  <a href="#tracepoints-for-representing-flow-of-callback-execution-after-topic-subscription" class="md-nav__link">
+    Tracepoints for representing flow of callback execution after topic subscription
   </a>
   
 </li>
@@ -1406,37 +1406,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tracepoints-mapping" class="md-nav__link">
-    Tracepoints mapping
+  <a href="#structure-of-tracepoint-relationship" class="md-nav__link">
+    Structure of tracepoint relationship
   </a>
   
-    <nav class="md-nav" aria-label="Tracepoints mapping">
+    <nav class="md-nav" aria-label="Structure of tracepoint relationship">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#node-initialization" class="md-nav__link">
-    Node initialization
+  <a href="#tracepoints-for-representing-structure-of-a-node" class="md-nav__link">
+    Tracepoints for representing structure of a node
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    エグゼキューターやコールバックグループの初期化
+  <a href="#tracepoints-for-representing-structure-of-executor-and-callback-group" class="md-nav__link">
+    Tracepoints for representing structure of executor and callback group
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#publish" class="md-nav__link">
-    メッセージの publish まで
+  <a href="#tracepoints-for-representing-flow-of-message-publish" class="md-nav__link">
+    Tracepoints for representing flow of message publish
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    メッセージの受信からコールバック実行まで
+  <a href="#tracepoints-for-representing-flow-of-callback-execution-after-topic-subscription" class="md-nav__link">
+    Tracepoints for representing flow of callback execution after topic subscription
   </a>
   
 </li>
@@ -1487,7 +1487,7 @@ Before listing tracepoints.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Please read this section if you are interested in CARET-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. CARET would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Original rclpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.</p>
+<p>Please read this section if you are interested in CARET-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. CARET would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Original rclcpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="sequence-diagram-of-major-tracepoints">Sequence diagram of major tracepoints<a class="headerlink" href="#sequence-diagram-of-major-tracepoints" title="Permanent link">#</a></h2>
@@ -1746,10 +1746,9 @@ Before listing tracepoints.</p>
 <li>void * addr_to</li>
 </ul>
 <hr />
-<h2 id="tracepoints-mapping">Tracepoints mapping<a class="headerlink" href="#tracepoints-mapping" title="Permanent link">#</a></h2>
-<p>本ページで列挙しているトレースポイントはノード ID（<code>node_handle</code>）やコールバック ID（<code>コールバックのインスタンスのアドレス</code>）などの値を元に紐付けて利用する。<br />
-それぞれのトレースポイントの対応関係をグラフで示す。</p>
-<h3 id="node-initialization">Node initialization<a class="headerlink" href="#node-initialization" title="Permanent link">#</a></h3>
+<h2 id="structure-of-tracepoint-relationship">Structure of tracepoint relationship<a class="headerlink" href="#structure-of-tracepoint-relationship" title="Permanent link">#</a></h2>
+<p>Some tracepoints share a same identification, such as a node ID (<code>node_handle</code>) and an address of callback instance. The shared identification associates each tracepoint to another, the association constructs structure of tracepoint relationship. The following figures show four structures.</p>
+<h3 id="tracepoints-for-representing-structure-of-a-node">Tracepoints for representing structure of a node<a class="headerlink" href="#tracepoints-for-representing-structure-of-a-node" title="Permanent link">#</a></h3>
 <pre class="mermaid"><code>
 graph RL
   node_handle[[node_handle]]
@@ -1804,8 +1803,9 @@ graph RL
   rmw_implementation
 </code></pre>
 <p>コールバックのインスタンスのアドレス値が一意に決まれば、<code>timer_callback_added</code>など他のトレースポイントの値を紐付いていくことでノードの情報まで得ることができる。<br />
+If a certain of address of callback instance is unique, <code>timer_callback_added</code>
 逆に、node_handle が一意に決まれば、そのノードに含まれるコールバックも特定できる。</p>
-<h3 id="_1">エグゼキューターやコールバックグループの初期化<a class="headerlink" href="#_1" title="Permanent link">#</a></h3>
+<h3 id="tracepoints-for-representing-structure-of-executor-and-callback-group">Tracepoints for representing structure of executor and callback group<a class="headerlink" href="#tracepoints-for-representing-structure-of-executor-and-callback-group" title="Permanent link">#</a></h3>
 <pre class="mermaid"><code>
 graph RL
   subscription_handle[[subscription_handle]]
@@ -1852,8 +1852,8 @@ graph RL
 
   callback_group_add_client &lt;--&gt; callback_group_addr
   client_handle &lt;--&gt; callback_group_add_client</code></pre>
-<p>タイマーなどの各ハンドラはコールバックグループに追加され、エグゼキュータに紐付けられる。</p>
-<h3 id="publish">メッセージの publish まで<a class="headerlink" href="#publish" title="Permanent link">#</a></h3>
+<p>A handler such as <code>timer_handle</code> and <code>subscription_handle</code> are assigned to a callback group. A callback group belongs to an executor.</p>
+<h3 id="tracepoints-for-representing-flow-of-message-publish">Tracepoints for representing flow of message publish<a class="headerlink" href="#tracepoints-for-representing-flow-of-message-publish" title="Permanent link">#</a></h3>
 <pre class="mermaid"><code>
 graph LR
   source_timestamp[[source_timestamp]]
@@ -1905,7 +1905,7 @@ rcl レイヤー以下ではメッセージのアドレスで対応付けられ�
 source_timestamp は元々は QoS の Deadline などに使われる値で、全ての DDS 通信を行うメッセージに自動的に付与される値であり、subscription 側で同じ値が受信される。<br />
 受信側では source_timestamp の値を紐付けるための情報として利用している。</p>
 <p>message_addr（プロセス内通信）/source_timestamp（プロセス間通信）から publish までが一意に紐付けられる。</p>
-<h3 id="_2">メッセージの受信からコールバック実行まで<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<h3 id="tracepoints-for-representing-flow-of-callback-execution-after-topic-subscription">Tracepoints for representing flow of callback execution after topic subscription<a class="headerlink" href="#tracepoints-for-representing-flow-of-callback-execution-after-topic-subscription" title="Permanent link">#</a></h3>
 <pre class="mermaid"><code>
 graph LR
   source_timestamp[[source_timestamp]]
