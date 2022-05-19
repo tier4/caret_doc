@@ -17,7 +17,7 @@ Almost all of tracepoints supported by CARET are embedded in ROS and DDS layer. 
 
 <prettier-ignore-start>
 !!! info
-    Please read this section if you are interested in CARET-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. CARET would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Original rclpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.
+    Please read this section if you are interested in CARET-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. CARET would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Original rclcpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.
 <prettier-ignore-end>
 
 ## Sequence diagram of major tracepoints
@@ -439,12 +439,11 @@ Sampled items
 
 ---
 
-## Tracepoints mapping
+## Structure of tracepoint relationship
 
-本ページで列挙しているトレースポイントはノード ID（`node_handle`）やコールバック ID（`コールバックのインスタンスのアドレス`）などの値を元に紐付けて利用する。  
-それぞれのトレースポイントの対応関係をグラフで示す。
+Some tracepoints share a same identification, such as a node ID (`node_handle`) and an address of callback instance. The shared identification associates each tracepoint to another, the association constructs structure of tracepoint relationship. The following figures show four structures.
 
-### Node initialization
+### Tracepoints for representing structure of a node
 
 ```mermaid
 
@@ -503,9 +502,10 @@ graph RL
 ```
 
 コールバックのインスタンスのアドレス値が一意に決まれば、`timer_callback_added`など他のトレースポイントの値を紐付いていくことでノードの情報まで得ることができる。  
+If a certain of address of callback instance is unique, `timer_callback_added`
 逆に、node_handle が一意に決まれば、そのノードに含まれるコールバックも特定できる。
 
-### エグゼキューターやコールバックグループの初期化
+### Tracepoints for representing structure of executor and callback group
 
 ```mermaid
 
@@ -556,9 +556,9 @@ graph RL
   client_handle <--> callback_group_add_client
 ```
 
-タイマーなどの各ハンドラはコールバックグループに追加され、エグゼキュータに紐付けられる。
+A handler such as `timer_handle` and `subscription_handle` are assigned to a callback group. A callback group belongs to an executor.
 
-### メッセージの publish まで
+### Tracepoints for representing flow of message publish
 
 ```mermaid
 
@@ -616,7 +616,7 @@ source_timestamp は元々は QoS の Deadline などに使われる値で、全
 
 message_addr（プロセス内通信）/source_timestamp（プロセス間通信）から publish までが一意に紐付けられる。
 
-### メッセージの受信からコールバック実行まで
+### Tracepoints for representing flow of callback execution after topic subscription
 
 ```mermaid
 
