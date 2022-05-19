@@ -24,7 +24,7 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
 3. Run `setup_caret.sh`.
 
    ```bash
-   ./setup_caret.bash
+   ./setup_caret.sh
    ```
 
 4. Build the workspace.
