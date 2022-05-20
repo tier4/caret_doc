@@ -1019,13 +1019,16 @@ git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
 
 colcon build --symlink-install --packages-up-to caret_demos
 </code></pre></div>
-<blockquote>
-<p>Reason to build the target with CARET/rclcpp
-Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to trace a target application.
-In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.
-Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.
-If you want to trace such pre-build packages, please build them again from source code.</p>
-</blockquote>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Reason to build the target with CARET/rclcpp is explained here.<br />
+  Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to trace a target application.<br />
+  In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.<br />
+  Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.<br />
+  If you want to trace such pre-build packages, please build them again from source code.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="tracing-the-sample-application-with-caret">Tracing the sample application with CARET<a class="headerlink" href="#tracing-the-sample-application-with-caret" title="Permanent link">#</a></h2>
 <h3 id="starting-lttng-session">Starting LTTng session<a class="headerlink" href="#starting-lttng-session" title="Permanent link">#</a></h3>
 <p>CARET depends on LTTng for tracing applications. LTTng session has to be executed while a target application runs.
