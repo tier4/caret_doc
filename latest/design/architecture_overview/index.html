@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/design/design/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/design/architecture_overview/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>ソフトウェアアーキテクチャ - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Architecture overview - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#architecture-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ソフトウェアアーキテクチャ
+              Architecture overview
             
           </span>
         </div>
@@ -771,9 +771,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Architecture overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        ソフトウェアアーキテクチャ
+        Architecture overview
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cooperation-with-tilde-a-framework-tools-to-detect-deadline-overrun" class="md-nav__link">
+    Cooperation with TILDE, a framework tools to detect deadline overrun
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -848,6 +879,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cooperation-with-tilde-a-framework-tools-to-detect-deadline-overrun" class="md-nav__link">
+    Cooperation with TILDE, a framework tools to detect deadline overrun
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -858,22 +904,29 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/design.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/architecture_overview.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="_1">アーキテクチャ<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>CARET のアーキテクチャを以下に示します。</p>
+<h1 id="architecture-overview">Architecture overview<a class="headerlink" href="#architecture-overview" title="Permanent link">#</a></h1>
+<p>This section explains an overview of software architecture of CARET.</p>
 <p><img alt="architecture" src="../../imgs/architecture.png" /></p>
-<p>CARET はアプリケーション（App）、ROS、DDS のレイヤーにトレースポイントを埋め込むことで振舞いを Trace Data として記録します。<br />
-Trace Data に記録された情報は、CARET_analyze により、実行毎に不変な静的な情報（例：ノードの情報）を有する Architecture と、実行毎に可変な動的な情報（例：実行時間）を有する Runtime Data に格納されます。<br />
-Architecture と Runtime Data は、ノードやエグゼキュータなどの ROS の概念を意識したクラス構造を有する python のクラス群です。<br />
-ROS の概念を意識したクラス構造にすることで、通信／ノード／エグゼキュータといった評価対象を探しやすくしています。<br />
-Architecture はパスの探索やノードレイテンシの定義を行う API を提供しており、yaml ファイルへの保存および読み込みが可能で、評価毎に再利用が可能です。<br />
-Runtime Data は、コールバックの実行時間や通信レイテンシなどを pandas DataFrame 型で取得できる API を提供しており、目的に合わせた評価や解析が行えます。<br />
-また、CARET_analyze は、可視化モジュール（Plot）も提供しており、少ない手間で可視化が可能になっています。</p>
+<p>CARET collects data, which include timestamps, from tracepoints embedded in user application, ROS 2 and DDS. The data set is stored into a storage as "Trace Data".</p>
+<p>A set of trace data is divided into two sections by CARET_analyze package after loading trace data; Architecture and Runtime Data. Architecture object includes description of target application's structure. This object can be reused unless structure of the target application or name of the components is changed. Runtime Data object has data sampled during execution of the target application. The sampled data includes timestamps, whose value are different per execution, obtained from tracepoints.</p>
+<p>Architecture object and Runtime Data object are implemented as Python-based classes. The structure of their classes are designed based on the structure of ROS applications which are constructed of executors, nodes, callback functions, and topic messages. ROS-based structure makes CARET's API friendly for ROS users. They are able to find target nodes, topic messages, or executors if they know their application structure.</p>
+<p>Architecture object serves APIs to search node chains and define node latency as mentioned in <a href="../../tutorials/create_architecture/">tutorial/architecture file section</a>. Architecture object is reusable after it is saved as a YAML-based file called "architecture file".<br />
+Runtime Data object serves APIs to retrieve <code>pandas.DataFrame</code>-based objects including callback latency or communication. Users can analyze temporal aspects of their applications, with visualization, as they expect. APIs for visualization are also served by CARET_analyze which plays main role to analyze trace data.</p>
+<h2 id="cooperation-with-tilde-a-framework-tools-to-detect-deadline-overrun">Cooperation with TILDE, a framework tools to detect deadline overrun<a class="headerlink" href="#cooperation-with-tilde-a-framework-tools-to-detect-deadline-overrun" title="Permanent link">#</a></h2>
+<p>CARET can cooperate with TILDE, a framework tool to detect deadline overrun. TILDE lets CARET trace events in user applications which cannot be traced from ROS/DDS layer.</p>
+<p>One example of the events is consumption of message buffered in nodes. The events can be observed in only application layer, but CARET cannot observe the events. On the other hand, TILDE can trace application-layer events. It is able to trace execution of callback function to consume a certain buffered message since it annotate message consumption per single message. TILDE serves CARET this capability to trace consumption of buffered message.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition todo">
+<p class="admonition-title">Todo<p>TILDE is now under development. Please wait for more details.</p>
+</p>
+</div>
+<p><prettier-ignore-end></p>
 
               
             </article>
