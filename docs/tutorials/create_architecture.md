@@ -136,10 +136,10 @@ This section explains how to generate an architecture file which has minimum des
 
 ## How to define latency of a single node
 
-Latency of a single node, so called "node latency", is defined as elapsed time between 1. starting time and 2. publishing time as below.
+Latency of a single node, so called "node latency", is defined as elapsed time from 1. starting time to 2. publishing time as below.
 
 1. starting time when node subscribes topic message and invokes a corresponding callback function
-2. publish time: when node publishes topic message
+2. publishing time when node publishes topic message
 
 Definition of node latency depends on implementation pattern. Some nodes subscribe input messages and invoke callback function where they publish output messages. These nodes has direct relationship between input and output. Other nodes subscribe input messages and invoke callback functions where they buffer them, and invoke different callback functions consume input messages and publish output message. In the latter cases, relationship of input and output is indirect, and intra-node communication is performed with using multiple callback functions. [message_filters](http://wiki.ros.org/message_filters) is another cause to increase the number of implementation patterns.
 
