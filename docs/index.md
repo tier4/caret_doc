@@ -2,7 +2,7 @@
 
 CARET is one of performance analysis tool dedicated with ROS 2 applications. It is able to measure not only callback latency and communication latency, but also path latency, in other words, chain of node or callback. As additional tracepoints are introduced by function hook, tracing resolution is improved.
 
-Features and capability are shown below.
+Features and capabilities are shown below.
 
 Features:
 
@@ -11,7 +11,7 @@ Features:
 - Python-based API for flexible data analysis and visualization
 - Application-layer events tracing by cooperation with TILDE, runtime message tracer
 
-Capability:
+Capabilities:
 
 - Performance measurement from several aspects
   - Callback latency, frequency, and jitter
