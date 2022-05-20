@@ -6,7 +6,7 @@ CARET はいくつかの前提のもと、ノードレイテンシを算出で�
 
 ## callback_chain ポリシー
 
-[コールバックグラフについて](../supplements/about_callback_graph.md)もご参照ください。
+[コールバックグラフについて](../tips/about_callback_graph.md)もご参照ください。
 
 ### 想定
 
