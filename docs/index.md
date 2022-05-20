@@ -85,8 +85,8 @@ CARET is constructed of the following packages
 - [ros2caret](https://github.com/tier4/ros2caret.git) ｜ CLI commands like `ros2 caret`
 - [CARET_demos](https://github.com/tier4/CARET_demos) ｜ Demo programs for CARET
 - [CARET_doc](https://github.com/tier4/CARET_doc) ｜ Documentation
-- [rclcpp](https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added) ｜ the forked rclcpp including CARET-dedicated tracepoints
-- [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added)｜ rclcpp 追加のトレースポイントを定義した ros2_tracing
+- [rclcpp](https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added) ｜ the forked `rclcpp` including CARET-dedicated tracepoints
+- [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added)｜ the forked `ros2_tracing` including definition of CARET-dedicated tracepoints
 
 ---
 
