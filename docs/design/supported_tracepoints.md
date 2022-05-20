@@ -653,4 +653,4 @@ As well as flow of message transmission, a message is identified by `message_add
 As explained, `message_addr` and `source_timestamp` are identifier for transmission flow using `publish` method.
 This means that a invoked `publish` method is mapped to a `callback_start`.
 
-However this does not mean that CARET can map a `callback_start` to a corresponding `publish`. We can trace a certain flow from `publish` to `callback_start`, but the reversed flow is not out of CARET's capability.
+However this does not mean that CARET can map a `callback_start` to a corresponding `publish`. CARET can trace a certain flow from `publish` to `callback_start`, but the reversed mapping, from `callback_start` to `publish`, is not supported by CARET. The capability of mapping between callback_start and publish will be improved in v0.3.\* release or later.
