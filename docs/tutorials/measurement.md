@@ -49,7 +49,7 @@ ros2 trace -s e2e_sample -k -u "ros2*"
 # the trac data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample
 ```
 
-You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to [LTTng セッションの開始方法](../supplements/how_to_run_lttng_session.md).  
+You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to [LTTng セッションの開始方法](../tips/how_to_run_lttng_session.md).  
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by `ros2 launch` is a reasonable way to apply CARET repeatedly.
 
 ### Launching the target application
@@ -89,7 +89,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
    export CARET_IGNORE_TOPICS="/clock:/parameter_events"
    ```
 
-   CARET serves [trace filtering](../supplements/trace_filtering.md)(in Japanese). With configuration of trace filtering, CARET can ignore nodes and topics. This function is useful for a large application.
+   CARET serves [trace filtering](../tips/trace_filtering.md)(in Japanese). With configuration of trace filtering, CARET can ignore nodes and topics. This function is useful for a large application.
 
 5. Launch the target application, demos_end_to_end_sample
 

@@ -58,7 +58,7 @@ Refer to these page if you want to try.
 
 Design documents is prepared, but some are written in Japanese.
 
-- [Architecture overview](./design/design.md)
+- [Architecture overview](./design/architecture_overview.md)
 - [Supported tracepoints](./design/supported_tracepoints.md)
 <!-- - [records型について](./about_records_type.md) -->
 - [galactic との差分](./design/diff.md)
@@ -67,13 +67,13 @@ Design documents is prepared, but some are written in Japanese.
 
 Some useful tips to get accustomed to CARET, but almost all of them are written in Japanese.
 
-- [パスのレイテンシの定義](./supplements/latency_definition.md)
-- [ノードレイテンシの定義](./supplements/node_latency_definition.md)
-- [通信レイテンシの定義](./supplements/communication_latency_definition.md)
-- [トレースフィルタリングについて](./supplements/trace_filtering.md)
-- [ツール利用時の制約](./supplements/limits.md)
-- [ギャラリー](./supplements/gallery.md)
-- [トラブルシューティング](./supplements/trouble_shooting.md)
+- [パスのレイテンシの定義](./tips/latency_definition.md)
+- [ノードレイテンシの定義](./tips/node_latency_definition.md)
+- [通信レイテンシの定義](./tips/communication_latency_definition.md)
+- [トレースフィルタリングについて](./tips/trace_filtering.md)
+- [ツール利用時の制約](./tips/limits.md)
+- [ギャラリー](./tips/gallery.md)
+- [トラブルシューティング](./tips/trouble_shooting.md)
 
 ## Related repositories
 
