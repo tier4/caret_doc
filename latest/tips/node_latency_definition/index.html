@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/design/how_to_calculate_latency/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/tips/node_latency_definition/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>レイテンシの算出方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>ノードレイテンシの定義 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              レイテンシの算出方法
+              ノードレイテンシの定義
             
           </span>
         </div>
@@ -228,15 +228,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../architecture_overview/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../design/architecture_overview/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -246,13 +244,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../tips/gallery/" class="md-tabs__link">
+      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
         Tips
       </a>
     </li>
@@ -430,14 +430,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -470,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture_overview/" class="md-nav__link">
+      <a href="../../design/architecture_overview/" class="md-nav__link">
         Architecture overview
       </a>
     </li>
@@ -484,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tracepoint_definition/" class="md-nav__link">
+      <a href="../../design/tracepoint_definition/" class="md-nav__link">
         トレースポイントの定義
       </a>
     </li>
@@ -498,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../diff/" class="md-nav__link">
+      <a href="../../design/diff/" class="md-nav__link">
         galacticとの差分
       </a>
     </li>
@@ -510,105 +508,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          レイテンシの算出方法
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
         レイテンシの算出方法
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    通信レイテンシとノードレイテンシの算出方法
-  </a>
-  
-    <nav class="md-nav" aria-label="通信レイテンシとノードレイテンシの算出方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    通信レイテンシの算出方法
-  </a>
-  
-    <nav class="md-nav" aria-label="通信レイテンシの算出方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    プロセス内通信
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    プロセス間通信
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    ノードレイテンシの算出方法
-  </a>
-  
-    <nav class="md-nav" aria-label="ノードレイテンシの算出方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    コールバックチェーンの利用
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -626,12 +530,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -688,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/gallery/" class="md-nav__link">
+      <a href="../gallery/" class="md-nav__link">
         ギャラリー
       </a>
     </li>
@@ -702,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/latency_definition/" class="md-nav__link">
+      <a href="../latency_definition/" class="md-nav__link">
         パスのレイテンシの定義
       </a>
     </li>
@@ -714,11 +620,181 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../tips/node_latency_definition/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ノードレイテンシの定義
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         ノードレイテンシの定義
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#callback_chain" class="md-nav__link">
+    callback_chain ポリシー
+  </a>
+  
+    <nav class="md-nav" aria-label="callback_chain ポリシー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    想定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    長所
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    短所
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inherit_unique_stamp" class="md-nav__link">
+    inherit_unique_stamp ポリシー
+  </a>
+  
+    <nav class="md-nav" aria-label="inherit_unique_stamp ポリシー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+    <nav class="md-nav" aria-label="ノードレイテンシの定義">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    想定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    長所
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    短所
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use_latest_message" class="md-nav__link">
+    use_latest_message ポリシー
+  </a>
+  
+    <nav class="md-nav" aria-label="use_latest_message ポリシー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    各ポリシーの比較
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    ポリシーの選び方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    注意点
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -730,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/communication_latency_definition/" class="md-nav__link">
+      <a href="../communication_latency_definition/" class="md-nav__link">
         通信レイテンシの定義
       </a>
     </li>
@@ -744,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/about_callback_graph/" class="md-nav__link">
+      <a href="../about_callback_graph/" class="md-nav__link">
         コールバックグラフの説明
       </a>
     </li>
@@ -758,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/trace_filtering/" class="md-nav__link">
+      <a href="../trace_filtering/" class="md-nav__link">
         トレースフィルタリング
       </a>
     </li>
@@ -772,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/limits/" class="md-nav__link">
+      <a href="../limits/" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -786,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/how_to_search_path/" class="md-nav__link">
+      <a href="../how_to_search_path/" class="md-nav__link">
         パスの探索方法
       </a>
     </li>
@@ -800,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/about_treat_drop_as_delay/" class="md-nav__link">
+      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
         treat_drop_as_delayフラグの説明
       </a>
     </li>
@@ -814,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/architecture_format/" class="md-nav__link">
+      <a href="../architecture_format/" class="md-nav__link">
         アーキテクチャファイルフォーマット
       </a>
     </li>
@@ -828,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/how_to_run_lttng_session/" class="md-nav__link">
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
         Lttngセッションの開始方法
       </a>
     </li>
@@ -842,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/how_to_write_architecture/" class="md-nav__link">
+      <a href="../how_to_write_architecture/" class="md-nav__link">
         ノードレイテンシの算出方法の指定
       </a>
     </li>
@@ -856,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/lttng_event_filter/" class="md-nav__link">
+      <a href="../lttng_event_filter/" class="md-nav__link">
         LTTngEventFilterの使用方法
       </a>
     </li>
@@ -870,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/trouble_shooting/" class="md-nav__link">
+      <a href="../trouble_shooting/" class="md-nav__link">
         トラブルシューティング
       </a>
     </li>
@@ -884,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/use_sim_time/" class="md-nav__link">
+      <a href="../use_sim_time/" class="md-nav__link">
         sim_timeでの時系列データ評価
       </a>
     </li>
@@ -898,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/manual_installation/" class="md-nav__link">
+      <a href="../manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -939,31 +1015,86 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    通信レイテンシとノードレイテンシの算出方法
+  <a href="#callback_chain" class="md-nav__link">
+    callback_chain ポリシー
   </a>
   
-    <nav class="md-nav" aria-label="通信レイテンシとノードレイテンシの算出方法">
+    <nav class="md-nav" aria-label="callback_chain ポリシー">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    想定
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    通信レイテンシの算出方法
+    長所
   </a>
   
-    <nav class="md-nav" aria-label="通信レイテンシの算出方法">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    プロセス内通信
+    短所
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    プロセス間通信
+    ノードレイテンシの定義
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inherit_unique_stamp" class="md-nav__link">
+    inherit_unique_stamp ポリシー
+  </a>
+  
+    <nav class="md-nav" aria-label="inherit_unique_stamp ポリシー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ノードレイテンシの定義
+  </a>
+  
+    <nav class="md-nav" aria-label="ノードレイテンシの定義">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    想定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    長所
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    短所
   </a>
   
 </li>
@@ -979,22 +1110,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    ノードレイテンシの算出方法
+  <a href="#use_latest_message" class="md-nav__link">
+    use_latest_message ポリシー
   </a>
   
-    <nav class="md-nav" aria-label="ノードレイテンシの算出方法">
+    <nav class="md-nav" aria-label="use_latest_message ポリシー">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    コールバックチェーンの利用
+  <a href="#_11" class="md-nav__link">
+    ノードレイテンシの定義
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    各ポリシーの比較
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    ポリシーの選び方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    注意点
+  </a>
   
 </li>
       
@@ -1010,300 +1162,62 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/how_to_calculate_latency.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/tips/node_latency_definition.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="_1">レイテンシの計算方法<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<h2 id="_2">通信レイテンシとノードレイテンシの算出方法<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p>以下は通信レイテンシとノードレイテンシを表した図です。</p>
-<p><img alt="callback_and_node_latency" src="../../imgs/callback_and_node_latency.png" /></p>
-<p>ここでは通信レイテンシとノードレイテンシの算出方法について説明します。</p>
-<h3 id="_3">通信レイテンシの算出方法<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
-<p>通信レイテンシはコールバックの publish の時刻と、後続のコールバックが開始した時刻の差分で計算しています。</p>
-<h4 id="_4">プロセス内通信<a class="headerlink" href="#_4" title="Permanent link">#</a></h4>
-<p>次の表はプロセス内通信のトレースに必要なトレースポイントと、そのトレースポイントの引数（トレースデータとして出力されるもの）です。※簡易版</p>
-<table>
-<thead>
-<tr>
-<th>トレースポイント名</th>
-<th>引数 1</th>
-<th>引数 2</th>
-<th>時刻</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rclcpp_intra_publish</td>
-<td>publisher_handle_arg</td>
-<td><span style="color: red; ">message_arg</span></td>
-<td>time1</td>
-</tr>
-<tr>
-<td>dispatch_intra_process_subscription_callback</td>
-<td><span style="color: red; ">message_arg</span></td>
-<td><span style="color: green; ">callback_arg</span></td>
-<td>time2</td>
-</tr>
-<tr>
-<td>callback_start</td>
-<td><span style="color: green; ">callback_arg</span></td>
-<td>is_intra_process</td>
-<td>time3</td>
-</tr>
-</tbody>
-</table>
-<p>※<a href="https://tier4.github.io/CARET_doc/design/tracepoint_definition/">引数についてはこちらを参照</a></p>
-<p>message_arg と callback_arg にはメッセージのアドレス、コールバックのアドレスが格納されています。
-rclcpp_intra_publisher と dispatch_intra_process_subscription_callback は同じ message_arg を持つトレースポイント同士で紐づけ、dispatch_intra_process_subscription_callback と callback_start は同じ callback_arg を持つトレースポイント同士で紐づけることにより、下記のような表を作成します。
-最後に<code>callback_start - rclcpp_intra_publish</code>で<strong>プロセス内通信のレイテンシ</strong>を算出しています。</p>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>rclcpp_intra_publish</th>
-<th>dispatch_intra_process_subscription_callback</th>
-<th>callback_start</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>time1</td>
-<td>time2</td>
-<td>time3</td>
-</tr>
-<tr>
-<td>1</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<h4 id="_5">プロセス間通信<a class="headerlink" href="#_5" title="Permanent link">#</a></h4>
-<p>以下はプロセス間通信のトレースポイントとその引数です。</p>
-<table>
-<thead>
-<tr>
-<th>トレースポイント名</th>
-<th>引数 1</th>
-<th>引数 2</th>
-<th>引数 3</th>
-<th>時刻</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rclcpp_publish</td>
-<td>publisher_handle_arg</td>
-<td><span style="color: red; ">message_arg</span>@1</td>
-<td></td>
-<td>time1</td>
-</tr>
-<tr>
-<td>rcl_publish</td>
-<td>publisher_handle_arg</td>
-<td><span style="color: red; ">message_arg</span>@1</td>
-<td></td>
-<td>time2</td>
-</tr>
-<tr>
-<td>dds_write</td>
-<td>publisher_handle_arg</td>
-<td><span style="color: red; ">message_arg</span>@1</td>
-<td></td>
-<td>time3</td>
-</tr>
-<tr>
-<td>dds_bind_addr_to_stamp</td>
-<td><span style="color: red; ">message_arg</span>@1</td>
-<td><span style="color: green; ">stamp_arg</span></td>
-<td></td>
-<td>time4</td>
-</tr>
-<tr>
-<td>dispatch_subscription_callback</td>
-<td>messsage_arg@2</td>
-<td><span style="color: green; ">stamp_arg</span></td>
-<td><span style="color: blue; ">callback_arg</span></td>
-<td>time5</td>
-</tr>
-<tr>
-<td>callback_start</td>
-<td><span style="color: blue; ">callback_arg</span></td>
-<td>is_intra_process</td>
-<td></td>
-<td>time6</td>
-</tr>
-</tbody>
-</table>
-<p>プロセス内通信と同様に同じ引数を持つトレースポイント同士を紐づけていき、publish から callback_start までの表を作成します（下記表）。<br />
-1 行が 1 つのプロセス間通信のチェーンを表し、<code>callback_start - rclcpp_publish</code> にて<strong>プロセス間通信のレイテンシ</strong>を算出します。</p>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>rclcpp_publish</th>
-<th>rcl_publish</th>
-<th>dds_write</th>
-<th>dds_bind_addr_to_stamp</th>
-<th>dispatch_subscription_callback</th>
-<th>callback_start</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>time1</td>
-<td>time2</td>
-<td>time3</td>
-<td>time4</td>
-<td>time5</td>
-<td>time6</td>
-</tr>
-<tr>
-<td>1</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...　</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_6">ノードレイテンシの算出方法<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
-<p>ノードレイテンシの算出方法は 2 つあります。
-それぞれの手法・長所・短所を説明します。</p>
-<h3 id="_7">コールバックチェーンの利用<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
-<p>コールバックレイテンシの測定は、同じコールバックアドレスを持つ callback_start と rclcpp_publish の差分を使って算出します。<br />
-callback_start と rclcpp_publish の紐づけは、rclcpp_publish から見て一番近い callback_start と紐づけます。</p>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>callback_start (cb_A) [s]</th>
-<th>rclcpp_publish (cb_A) [s]</th>
-<th>callback_end (cb_A) [s]</th>
-<th>callback_arg (cb_A)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>3</td>
-<td>4</td>
-<td>0x1000</td>
-</tr>
-<tr>
-<td>1</td>
-<td>2</td>
-<td>5</td>
-<td>6</td>
-<td>0x1000</td>
-</tr>
-<tr>
-<td>2</td>
-<td>4</td>
-<td>7</td>
-<td>8</td>
-<td>0x1000</td>
-</tr>
-<tr>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>callback_start (cb_B) [s]</th>
-<th>rclcpp_publish (cb_B) [s]</th>
-<th>callback_end (cb_B) [s]</th>
-<th>callback_arg (cb_B)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>4</td>
-<td>8</td>
-<td>9</td>
-<td>0x2000</td>
-</tr>
-<tr>
-<td>1</td>
-<td>8</td>
-<td>12</td>
-<td>13</td>
-<td>0x2000</td>
-</tr>
-<tr>
-<td>2</td>
-<td>10</td>
-<td>14</td>
-<td>15</td>
-<td>0x2000</td>
-</tr>
-</tbody>
-</table>
-<p>上記表のようにコールバック A・B（cb_A・cb_B）が存在し、A→B と処理が続く時、cb_A の callback_end と cb_B の callback_start を結び付けて表を作ります。<br />
-最後の callback だけは publish の時の時刻を採用し、下記表のように一つのテーブルにします。</p>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>callback_start (cb_A) [s]</th>
-<th>callback_end (cb_A) [s]</th>
-<th>callback_start (cb_B) [s]</th>
-<th>rclcpp_publish (cb_B) [s]</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>4</td>
-<td>4</td>
-<td>8</td>
-</tr>
-<tr>
-<td>1</td>
-<td>2</td>
-<td>6</td>
-<td>Lost</td>
-<td>Lost</td>
-</tr>
-<tr>
-<td>2</td>
-<td>4</td>
-<td>8</td>
-<td>8</td>
-<td>12</td>
-</tr>
-<tr>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<p>上記のようにコールバックチェーンをつなぎ、<code>rclcpp_publish (cb_X) - callback_start (cb_Y)</code>で<strong>ノードレイテンシ</strong>を算出します。</p>
-<blockquote>
-<p>※ノード内にコールバックが１つの場合、X, Y は同じものを指します。<br />
-複数コールバックがある場合は、X が最後・Y が最初のコールバックを指します。</p>
-</blockquote>
+<h1 id="_1">ノードレイテンシについて<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p>ノードレイテンシは算出が困難です<br />
+直接メッセージの流れを追い、レイテンシを出すのは簡単ではありません。
+CARET はいくつかの前提のもと、ノードレイテンシを算出できるようにしています。</p>
+<h2 id="callback_chain">callback_chain ポリシー<a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h2>
+<p><a href="../about_callback_graph/">コールバックグラフについて</a>もご参照ください。</p>
+<h3 id="_2">想定<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<ul>
+<li>コールバック間のキューサイズ１を想定</li>
+<li>厳密に測定できるのは Single Threaded Executor のみ</li>
+</ul>
+<h3 id="_3">長所<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<ul>
+<li>ソースコードへの変更が不要</li>
+<li>任意のメッセージ型に適用可能</li>
+</ul>
+<h3 id="_4">短所<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
+<ul>
+<li>キューサイズが大きい時、レイテンシが小さめに出るケースがある。</li>
+<li>multi threaded executor では、レイテンシが大きめに出るケースがある。</li>
+<li>実装を読み解くのが難しい</li>
+</ul>
+<h3 id="_5">ノードレイテンシの定義<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<h2 id="_6">ノードレイテンシの定義<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
+<h2 id="inherit_unique_stamp">inherit_unique_stamp ポリシー<a class="headerlink" href="#inherit_unique_stamp" title="Permanent link">#</a></h2>
+<h3 id="_7">ノードレイテンシの定義<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
+<p>入出力のヘッダーでマッチングを取り、入力トピックと出力トピックの時刻の差分からノードレイテンシを算出します。</p>
+<h4 id="_8">想定<a class="headerlink" href="#_8" title="Permanent link">#</a></h4>
+<ul>
+<li>入出力のタイムスタンプの値でマッチングが取れること（値を書き換えずに、そのまま publish していること）</li>
+<li>入出力ともに header をもっていること</li>
+</ul>
+<h4 id="_9">長所<a class="headerlink" href="#_9" title="Permanent link">#</a></h4>
+<ul>
+<li>ソースコードへの変更が不要</li>
+<li>キューサイズに依らない</li>
+</ul>
+<h4 id="_10">短所<a class="headerlink" href="#_10" title="Permanent link">#</a></h4>
+<ul>
+<li>ヘッダーが必要</li>
+<li>publish 前に stamp=現在時刻としているケースは対応不可</li>
+</ul>
+<h2 id="use_latest_message">use_latest_message ポリシー<a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h2>
+<h3 id="_11">ノードレイテンシの定義<a class="headerlink" href="#_11" title="Permanent link">#</a></h3>
+<h2 id="_12">各ポリシーの比較<a class="headerlink" href="#_12" title="Permanent link">#</a></h2>
+<h2 id="_13">ポリシーの選び方<a class="headerlink" href="#_13" title="Permanent link">#</a></h2>
+<p>決定木が欲しい</p>
+<h2 id="_14">注意点<a class="headerlink" href="#_14" title="Permanent link">#</a></h2>
+<p>測定できないケース
+誤った値を算出するケース</p>
 
               
             </article>
@@ -1322,7 +1236,7 @@ callback_start と rclcpp_publish の紐づけは、rclcpp_publish から見て�
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../diff/" class="md-footer__link md-footer__link--prev" aria-label="Previous: galacticとの差分" rel="prev">
+        <a href="../latency_definition/" class="md-footer__link md-footer__link--prev" aria-label="Previous: パスのレイテンシの定義" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1331,20 +1245,20 @@ callback_start と rclcpp_publish の紐づけは、rclcpp_publish から見て�
               <span class="md-footer__direction">
                 Previous
               </span>
-              galacticとの差分
+              パスのレイテンシの定義
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../tips/gallery/" class="md-footer__link md-footer__link--next" aria-label="Next: ギャラリー" rel="next">
+        <a href="../communication_latency_definition/" class="md-footer__link md-footer__link--next" aria-label="Next: 通信レイテンシの定義" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ギャラリー
+              通信レイテンシの定義
             </div>
           </div>
           <div class="md-footer__button md-icon">
