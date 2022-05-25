@@ -22,7 +22,7 @@
 | dispatch_intra_process_subscription_callback | <span style="color: red; ">message_arg</span>    | <span style="color: green; ">callback_arg</span> | time2 |
 | callback_start                               | <span style="color: green; ">callback_arg</span> | is_intra_process                                 | time3 |
 
-※[引数についてはこちらを参照](https://tier4.github.io/CARET_doc/design/tracepoint_definition/)
+※[引数についてはこちらを参照](../design/supported_tracepoints.md)
 
 message_arg と callback_arg にはメッセージのアドレス、コールバックのアドレスが格納されています。
 rclcpp_intra_publisher と dispatch_intra_process_subscription_callback は同じ message_arg を持つトレースポイント同士で紐づけ、dispatch_intra_process_subscription_callback と callback_start は同じ callback_arg を持つトレースポイント同士で紐づけることにより、下記のような表を作成します。

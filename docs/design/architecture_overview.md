@@ -10,7 +10,7 @@ A set of trace data is divided into two sections by CARET_analyze package after 
 
 Architecture object and Runtime Data object are implemented as Python-based classes. The structure of their classes are designed based on the structure of ROS applications which are constructed of executors, nodes, callback functions, and topic messages. ROS-based structure makes CARET's API friendly for ROS users. They are able to find target nodes, topic messages, or executors if they know their application structure.
 
-Architecture object serves APIs to search node chains and define node latency as mentioned in [tutorial/architecture file section](../tutorials/create_architecture.md). Architecture object is reusable after it is saved as a YAML-based file called "architecture file".  
+Architecture object serves APIs to search node chains and define node latency as mentioned in [tutorial/architecture file section](../tutorials/configuration.md). Architecture object is reusable after it is saved as a YAML-based file called "architecture file".  
 Runtime Data object serves APIs to retrieve `pandas.DataFrame`-based objects including callback latency or communication. Users can analyze temporal aspects of their applications, with visualization, as they expect. APIs for visualization are also served by CARET_analyze which plays main role to analyze trace data.
 
 ## Cooperation with TILDE, a framework tools to detect deadline overrun
