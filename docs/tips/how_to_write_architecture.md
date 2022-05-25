@@ -148,7 +148,7 @@ ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
 
 コマンドを実行すると以下のようなコールバックグラフが出力されます。
 
-![callback_graph_cui_export](/imgs/callback_graph_cui_export.png)
+![callback_graph_cui_export](../imgs/callback_graph_cui_export.png)
 
 灰色は名前空間、角丸四角はノード、四角はコールバック、矢印はコールバック間の依存関係を示しています。
 赤矢印はトピックを publish しているコールバックが不明なトピック通信を示しています。
@@ -156,7 +156,7 @@ ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
 
 デフォルトの型は svg 形式で、 tooltip による情報の表示に対応しています。
 
-![tooltip_sample](../../imgs/tooltip_sample.png)
+![tooltip_sample](../imgs/tooltip_sample.png)
 
 カーソルをコールバックに合わせることで、コールバックのパラメータとシンボル名が表示されます。
 
@@ -190,7 +190,7 @@ caret はパスの探索にコールバックグラフを利用するので、�
   ```
 <!-- prettier-ignore-end -->
 
-![callback_graph_cui_export](../../imgs/callback_graph_modified.png)
+![callback_graph_cui_export](../imgs/callback_graph_modified.png)
 
 全ての矢印がコールバックからコールバックに繋がっていることに注意してください。
 

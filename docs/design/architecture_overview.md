@@ -2,7 +2,7 @@
 
 This section explains an overview of software architecture of CARET.
 
-![architecture](../../imgs/architecture.png)
+![architecture](../imgs/architecture.png)
 
 CARET collects data, which include timestamps, from tracepoints embedded in user application, ROS 2 and DDS. The data set is stored into a storage as "Trace Data".
 
