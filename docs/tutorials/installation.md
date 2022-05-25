@@ -12,7 +12,7 @@ CARET is confirmed to run on the platforms shown in the following table with sup
 | Linux Kernel       | 5.13.x            |
 | Python3            | 3.8.x             |
 
-[^1]: Planned to upgrade supported LTTng 2.13 or newer for CARET v.0.3.x.
+[^1]: Planned to support LTTng 2.13 or newer for CARET v.0.3.x.
 
 ## Installation
 
