@@ -82,7 +82,7 @@ CMakeLists.txt の find_package 後に以下の行を追加してください。
 include_directories(SYSTEM /home/autoware/ros2_caret_ws/install/rclcpp/include)
 ```
 
-フォークした rclcpp で追加したトレースポイントについては、 [トレースポイントの定義](../design/tracepoint_definition.md)の表内で、
+フォークした rclcpp で追加したトレースポイントについては、 [トレースポイントの定義](../design/supported_tracepoints.md)の表内で、
 トレースポイントの実装方法が「rclcpp パッケージ新規追加」となっている項目が対象になります。
 
 ## メッセージフローの図が途中で止まっている
