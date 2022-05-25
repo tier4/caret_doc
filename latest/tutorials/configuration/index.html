@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/tutorials/performance_visualization/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/tutorials/configuration/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>Performance visualization - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Configuration - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#performance-visualization" class="md-skip">
+        <a href="#configuration-for-measuring-node-and-path-latency" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Performance visualization
+              Configuration
             
           </span>
         </div>
@@ -396,20 +396,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../create_architecture/" class="md-nav__link">
-        Architecture file creation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -422,12 +408,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Performance visualization
+          Configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Performance visualization
+        Configuration
       </a>
       
         
@@ -446,22 +432,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-locate-trace-data-on-jupyter-notebook" class="md-nav__link">
-    How to locate trace data on Jupyter notebook
+  <a href="#overview-of-an-architecture-file" class="md-nav__link">
+    Overview of an architecture file
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-api-to-get-latency" class="md-nav__link">
-    Basic API to get latency
+  <a href="#how-to-generate-an-architecture-file" class="md-nav__link">
+    How to generate an architecture file
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#visualizing-latency-of-node-chain-with-message-flow" class="md-nav__link">
-    Visualizing latency of node chain with message flow
+  <a href="#how-to-define-a-target-path" class="md-nav__link">
+    How to define a target path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-define-latency-of-a-single-node" class="md-nav__link">
+    How to define latency of a single node
   </a>
   
 </li>
@@ -470,6 +463,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualization/" class="md-nav__link">
+        Visualization
+      </a>
     </li>
   
 
@@ -900,22 +907,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-locate-trace-data-on-jupyter-notebook" class="md-nav__link">
-    How to locate trace data on Jupyter notebook
+  <a href="#overview-of-an-architecture-file" class="md-nav__link">
+    Overview of an architecture file
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-api-to-get-latency" class="md-nav__link">
-    Basic API to get latency
+  <a href="#how-to-generate-an-architecture-file" class="md-nav__link">
+    How to generate an architecture file
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#visualizing-latency-of-node-chain-with-message-flow" class="md-nav__link">
-    Visualizing latency of node chain with message flow
+  <a href="#how-to-define-a-target-path" class="md-nav__link">
+    How to define a target path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-define-latency-of-a-single-node" class="md-nav__link">
+    How to define latency of a single node
   </a>
   
 </li>
@@ -932,81 +946,205 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/tutorials/performance_visualization.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/tutorials/configuration.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="performance-visualization">Performance visualization<a class="headerlink" href="#performance-visualization" title="Permanent link">#</a></h1>
-<p>CARET serves Python APIs to visualize trace data for users to analyze applications' performance.
-This section will show basic flow to visualize data with Jupyter notebook.</p>
-<h2 id="how-to-locate-trace-data-on-jupyter-notebook">How to locate trace data on Jupyter notebook<a class="headerlink" href="#how-to-locate-trace-data-on-jupyter-notebook" title="Permanent link">#</a></h2>
+<h1 id="configuration-for-measuring-node-and-path-latency">Configuration for measuring node and path latency<a class="headerlink" href="#configuration-for-measuring-node-and-path-latency" title="Permanent link">#</a></h1>
+<p>CARET can observe as following:</p>
+<ul>
+<li>callback latency</li>
+<li>communication latency (inter-node)</li>
+<li>node latency (intra-node)</li>
+<li>path latency (intra-node &amp; inter-node)</li>
+</ul>
+<p>The following figure shows definition of node latency and path latency.</p>
+<p><img alt="Definition node and path latency" src="../../imgs/path_and_node_latency.svg" /></p>
+<p>Callback latency can be defined as execution time of a callback function and can be measured with simple tracepoints. Communication latency between nodes can be defined as time from publish invoking to subscription callback invoking. Identifying callback and topic is not difficult so that their latency are calculated easily.<br />
+However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in ROS layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in a application is equaled to that of nodes combination, so that complicated and large application has large number of paths.<br />
+To deal with such difficulty of defining node and path latency mechanically, CARET requires users to define node and path latency manually via a configuration file, called "<strong>architecture file</strong>".</p>
+<h2 id="overview-of-an-architecture-file">Overview of an architecture file<a class="headerlink" href="#overview-of-an-architecture-file" title="Permanent link">#</a></h2>
+<p>An architecture file has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. CARET can create a template architecture file including only application structure section. The application structure section remains same unless the structure is changed or component is renamed.</p>
+<p>On the other hand, latency definition section in the template architecture file is empty just before users add any definition. Users are expected to add definitions of node latency and path latency in the template file. CARET helps users to add definition of path latency with Python API. However, users have to add definition of node latency manually with editing the architecture file.</p>
+<p>The following sections explains how to create an architecture file and add latency definition.</p>
+<h2 id="how-to-generate-an-architecture-file">How to generate an architecture file<a class="headerlink" href="#how-to-generate-an-architecture-file" title="Permanent link">#</a></h2>
+<p>This section explains how to generate an architecture file which has minimum description.</p>
 <ol>
 <li>
-<p>Launching <code>jupyter-lab</code>
-   Launch <code>jupyter-lab</code> at first for learning how to visualize trace data.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
+<p>Launch Jupyter Notebook (Jupyter Lab)</p>
+<div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/evaluate <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/ros2_ws/evaluate
 
 <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
 jupyter-lab
 </code></pre></div>
-<p>CARET uses <a href="https://bokeh.org/"><code>bokeh</code></a> for some visualization APIs.
- Execute the following code for loading <code>bokeh</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span>
-<span class="n">output_notebook</span><span class="p">()</span>
+</li>
+<li>
+<p>Generate an architecture file from measured data as below</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
+
+<span class="c1"># Read description of application&#39;s architecture from measured data</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save description as an architecture file</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s1">&#39;architecture.yaml&#39;</span><span class="p">)</span>
+
+<span class="c1"># Check if the architecture file is created</span>
+<span class="err">!</span> <span class="n">readlink</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">architecture</span><span class="o">.</span><span class="n">yaml</span>
+<span class="c1"># /home/user/ros2_caret_ws/eval/architecture.yaml</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="how-to-define-a-target-path">How to define a target path<a class="headerlink" href="#how-to-define-a-target-path" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Load the yaml-based architecture file as below</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">check_procedure</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
-<p>Loading trace data onto Jupyter notebook</p>
-<p>Locate trace data on Jupyter notebook as well as the architecture file.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
-
-<span class="c1"># load the architecture file which is created in the previous page</span>
-<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
-
-<span class="c1"># load measured data by CARET</span>
-<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
-
-<span class="c1"># map the application architecture to measured data</span>
-<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
+<p>Choose source node and destination node in a path</p>
+<p><code>arch.search_paths</code> extract all candidates of the path</p>
+<div class="highlight"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
+<span class="s1">&#39;/sensor_dummy_node&#39;</span><span class="p">,</span> <span class="c1"># source node</span>
+<span class="s1">&#39;/actuator_dummy_node&#39;</span><span class="p">)</span> <span class="c1"># destination node</span>
 </code></pre></div>
-<p>After execution of the code, users will often refer to the <code>app</code> object defined as <code>Application</code> class. The <code>app</code> objects provides users latency of callbacks, communication, and paths. <code>Application</code> class is similar to <code>Architecture</code> class which describes structure of the application and their interfaces are similar. In addition, <code>Application</code> class has interfaces to get latency.</p>
+<p>If a target application is large and complicated, <code>arch.search_paths</code> method may consume time more than 1 minute.
+ For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to <a href="../../tips/how_to_search_path/">パスの探索方法</a> for more details.</p>
+</li>
+<li>
+<p>Check the path as you expected</p>
+<p>You will find multiple candidates of the path. You can check which candidate is expected as target. The following code is an example for users to check</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">path</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">pprint</span><span class="p">()</span>
+
+<span class="o">---</span><span class="n">Output</span> <span class="n">text</span> <span class="k">as</span> <span class="n">below</span><span class="o">---</span>
+
+<span class="n">path</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span> <span class="c1"># for definition of node latency</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">sensor_dummy_node</span>
+  <span class="o">-</span> <span class="n">topic</span><span class="p">:</span> <span class="o">/</span><span class="n">topic1</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span>
+      <span class="n">publisher_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
+      <span class="n">subscription_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic1</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="n">callback_chain</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">filter_node</span>
+  <span class="o">-</span> <span class="n">topic</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">message_driven_node</span>
+  <span class="o">-</span> <span class="n">topic</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">timer_driven_node</span>
+  <span class="o">-</span> <span class="n">topic</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
+  <span class="o">-</span> <span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+    <span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">actuator_dummy_node</span>
+</code></pre></div>
+</li>
+<li>
+<p>Give a name to selected path and update architecture file</p>
+<div class="highlight"><pre><span></span><code><span class="n">arch</span><span class="o">.</span><span class="n">add_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>The updated architecture file describes the path named as <code>target_path</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">named_paths</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_path</span><span class="w"></span>
+<span class="w">    </span><span class="nt">node_chain</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sensor_dummy_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic1</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/filter_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic2</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic1</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/message_driven_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic2</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/timer_driven_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic4</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/actuator_dummy_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic4</span><span class="w"></span>
+</code></pre></div>
 </li>
 </ol>
-<h2 id="basic-api-to-get-latency">Basic API to get latency<a class="headerlink" href="#basic-api-to-get-latency" title="Permanent link">#</a></h2>
-<p>This section will explain APIs to get callback latency. The following code is one of examples to get callback latency.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get a callback instance, which has latency information, from app</span>
-<span class="n">callback</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/callback_0&#39;</span><span class="p">)</span>
+<h2 id="how-to-define-latency-of-a-single-node">How to define latency of a single node<a class="headerlink" href="#how-to-define-latency-of-a-single-node" title="Permanent link">#</a></h2>
+<p>Latency of a single node, so called "node latency", is defined as elapsed time from 1. starting time to 2. publishing time as below.</p>
+<ol>
+<li>starting time when node subscribes topic message and invokes a corresponding callback function</li>
+<li>publishing time when node publishes topic message</li>
+</ol>
+<p>Definition of node latency depends on implementation pattern. Some nodes subscribe input messages and invoke callback function where they publish output messages. These nodes has direct relationship between input and output. Other nodes subscribe input messages and invoke callback functions where they buffer them, and invoke different callback functions consume input messages and publish output message. In the latter cases, relationship of input and output is indirect, and intra-node communication is performed with using multiple callback functions. <a href="http://wiki.ros.org/message_filters">message_filters</a> is another cause to increase the number of implementation patterns.</p>
+<p>Therefore, CARET has to deal with several types of node implementation to measure node latency. CARET serve a function to define node latency with an architecture file. An architecture file has an item of <strong>mesasge_context</strong>, which indicates relation between input message and output message. This item should be defined by users as below.</p>
+<ol>
+<li>
+<p>Check which node latency should be configured</p>
+<p><code>path.verify()</code> method, as shown in the following example, tells you which node latency should be defined.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
 
-<span class="c1"># Get time-series variation of latency</span>
-<span class="n">t</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">callback</span><span class="o">.</span><span class="n">to_timeseries</span><span class="p">()</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
+<span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
 
-<span class="c1"># Get histogram of latency</span>
-<span class="n">bins</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">callback</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">()</span>
+<span class="o">---</span><span class="n">Output</span> <span class="n">text</span> <span class="k">as</span> <span class="n">below</span><span class="o">---</span>
+<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span>
+<span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span>
+<span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+<span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">message_driven_node</span>
+<span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
+<span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
+
+<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span>
+<span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/timer_driven_node&#39;</span><span class="p">)</span>
+<span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+<span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">timer_driven_node</span>
+<span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
+<span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
 </code></pre></div>
-<p>Though this example shows callback latency, CARET serves API to get communication latency.
-<code>callback.to_dataframe()</code> will provides <code>pandas.DataFrame</code> based object including raw timestamps which is obtained from tracepoints.</p>
+<p>In the example, <code>path.verify()</code> tells you two nodes have undefined relationships of input and output.</p>
+<ul>
+<li>input <code>/topic2</code> and output <code>/topic3</code> in node <code>/message_driven_node</code></li>
+<li>input <code>/topic3</code> and output <code>/topic4</code> in node <code>/timer_driven_node</code></li>
+</ul>
+<p>Their relationships must be explicit with corresponding message_context items in the architecture file.</p>
+</li>
+<li>
+<p>Define relationship between input and output</p>
+<p>You have to change message_contexts items as below for the sample.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># in /message_driven_node</span><span class="w"></span>
+<span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">use_latest_message</span><span class="w"> </span><span class="c1"># changed from &#39;UNDEFINED&#39; to &#39;use_latest_message&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># in /timer_driven_node</span><span class="w"></span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">message_contexts</span><span class="err">:　</span><span class="w"></span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- context_type</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">use_latest_message</span><span class="w"> </span><span class="c1"># changed from &#39;UNDEFINED&#39; to &#39;use_latest_message&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
+<span class="w">    </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic4</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Check if node latency is defined</p>
+<p><code>path.verify()</code> tells you that there is no undefined node latency in the path.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
+
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
+<span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
+</code></pre></div>
+<p>If <code>path.verify()</code> returns <code>True</code>, CARET can calculate latency of the path. Otherwise, there is any lack of definition to calculate latency.</p>
+</li>
+</ol>
 <p><prettier-ignore-start></p>
 <div class="admonition todo">
-<p class="admonition-title">Todo<p>Sorry for not providing CARET's API list, but we'll provide it in the near future.</p>
+<p class="admonition-title">Todo<p>We'll provide the sample architecture file here, but it's not ready. Sorry for inconvenience.</p>
 </p>
 </div>
 <p><prettier-ignore-end></p>
-<h2 id="visualizing-latency-of-node-chain-with-message-flow">Visualizing latency of node chain with message flow<a class="headerlink" href="#visualizing-latency-of-node-chain-with-message-flow" title="Permanent link">#</a></h2>
-<p>CARET provides some APIs to visualize measured data.
-With message flow, which is one of effective visualizations, users can understand what happens and where is bottleneck in target applications.
-Execute the following code for visualization with message flow.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">message_flow</span>
-
-<span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
-<span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</code></pre></div>
-<p>The following figure will appear if <code>message_flow</code> method is successful.</p>
-<p><img alt="message_flow_sample" src="../../imgs/message_flow_with_cursor.png" /></p>
-<p>The horizontal axis shows time line. On the other hand, the vertical axis shows elements of the node chain (<code>target_path</code>), which include callback functions and topic messages from input to output. Each colorful line shows how a certain input message is propagated to callback functions and topic communications. Gray rectangles show execution timing of callback functions.</p>
-<p>If your mouse pointer is put over one of gray rectangles, latency of callback functions will be shown. You can find latency of a target node chain as well if you put the mouse pointer onto one of colorful lines.</p>
-<p>CARET serves other APIs for visualization. Refer to <a href="../../tips/gallery/">ギャラリー</a> for more details.</p>
 
               
             </article>
@@ -1025,7 +1163,7 @@ Execute the following code for visualization with message flow.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../create_architecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Architecture file creation" rel="prev">
+        <a href="../measurement/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Measurement" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1034,20 +1172,20 @@ Execute the following code for visualization with message flow.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Architecture file creation
+              Measurement
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../design/architecture_overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Architecture overview" rel="next">
+        <a href="../visualization/" class="md-footer__link md-footer__link--next" aria-label="Next: Visualization" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Architecture overview
+              Visualization
             </div>
           </div>
           <div class="md-footer__button md-icon">
