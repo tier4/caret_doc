@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-46/tutorials/performance_visualization/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-46/tips/about_treat_drop_as_delay/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>Performance visualization - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>treat_drop_as_delayフラグの説明 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#performance-visualization" class="md-skip">
+        <a href="#treat_drop_as_delay" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Performance visualization
+              treat_drop_as_delayフラグの説明
             
           </span>
         </div>
@@ -212,15 +212,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../installation/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../tutorials/installation/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -246,13 +244,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../tips/gallery/" class="md-tabs__link">
+      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
         Tips
       </a>
     </li>
@@ -330,14 +330,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -370,7 +368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../tutorials/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -384,7 +382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../measurement/" class="md-nav__link">
+      <a href="../../tutorials/measurement/" class="md-nav__link">
         Measurement
       </a>
     </li>
@@ -398,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_architecture/" class="md-nav__link">
+      <a href="../../tutorials/create_architecture/" class="md-nav__link">
         Architecture file creation
       </a>
     </li>
@@ -410,66 +408,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Performance visualization
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorials/performance_visualization/" class="md-nav__link">
         Performance visualization
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-locate-trace-data-on-jupyter-notebook" class="md-nav__link">
-    How to locate trace data on Jupyter notebook
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-api-to-get-latency" class="md-nav__link">
-    Basic API to get latency
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#visualizing-latency-of-node-chain-with-message-flow" class="md-nav__link">
-    Visualizing latency of node chain with message flow
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -587,12 +530,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -649,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/gallery/" class="md-nav__link">
+      <a href="../gallery/" class="md-nav__link">
         ギャラリー
       </a>
     </li>
@@ -663,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/latency_definition/" class="md-nav__link">
+      <a href="../latency_definition/" class="md-nav__link">
         パスのレイテンシの定義
       </a>
     </li>
@@ -677,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/node_latency_definition/" class="md-nav__link">
+      <a href="../node_latency_definition/" class="md-nav__link">
         ノードレイテンシの定義
       </a>
     </li>
@@ -691,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/communication_latency_definition/" class="md-nav__link">
+      <a href="../communication_latency_definition/" class="md-nav__link">
         通信レイテンシの定義
       </a>
     </li>
@@ -705,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/about_callback_graph/" class="md-nav__link">
+      <a href="../about_callback_graph/" class="md-nav__link">
         コールバックグラフの説明
       </a>
     </li>
@@ -719,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/trace_filtering/" class="md-nav__link">
+      <a href="../trace_filtering/" class="md-nav__link">
         トレースフィルタリング
       </a>
     </li>
@@ -733,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/limits/" class="md-nav__link">
+      <a href="../limits/" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -747,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/how_to_search_path/" class="md-nav__link">
+      <a href="../how_to_search_path/" class="md-nav__link">
         パスの探索方法
       </a>
     </li>
@@ -759,11 +704,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../tips/about_treat_drop_as_delay/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         treat_drop_as_delayフラグの説明
       </a>
+      
     </li>
   
 
@@ -775,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/architecture_format/" class="md-nav__link">
+      <a href="../architecture_format/" class="md-nav__link">
         アーキテクチャファイルフォーマット
       </a>
     </li>
@@ -789,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/how_to_run_lttng_session/" class="md-nav__link">
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
         Lttngセッションの開始方法
       </a>
     </li>
@@ -803,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/how_to_write_architecture/" class="md-nav__link">
+      <a href="../how_to_write_architecture/" class="md-nav__link">
         ノードレイテンシの算出方法の指定
       </a>
     </li>
@@ -817,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/lttng_event_filter/" class="md-nav__link">
+      <a href="../lttng_event_filter/" class="md-nav__link">
         LTTngEventFilterの使用方法
       </a>
     </li>
@@ -831,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/trouble_shooting/" class="md-nav__link">
+      <a href="../trouble_shooting/" class="md-nav__link">
         トラブルシューティング
       </a>
     </li>
@@ -845,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/use_sim_time/" class="md-nav__link">
+      <a href="../use_sim_time/" class="md-nav__link">
         sim_timeでの時系列データ評価
       </a>
     </li>
@@ -859,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/manual_installation/" class="md-nav__link">
+      <a href="../manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -893,35 +848,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-locate-trace-data-on-jupyter-notebook" class="md-nav__link">
-    How to locate trace data on Jupyter notebook
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-api-to-get-latency" class="md-nav__link">
-    Basic API to get latency
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#visualizing-latency-of-node-chain-with-message-flow" class="md-nav__link">
-    Visualizing latency of node chain with message flow
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -932,81 +858,15 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/tutorials/performance_visualization.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/tips/about_treat_drop_as_delay.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="performance-visualization">Performance visualization<a class="headerlink" href="#performance-visualization" title="Permanent link">#</a></h1>
-<p>CARET serves Python APIs to visualize trace data for users to analyze applications' performance.
-This section will show basic flow to visualize data with Jupyter notebook.</p>
-<h2 id="how-to-locate-trace-data-on-jupyter-notebook">How to locate trace data on Jupyter notebook<a class="headerlink" href="#how-to-locate-trace-data-on-jupyter-notebook" title="Permanent link">#</a></h2>
-<ol>
-<li>
-<p>Launching <code>jupyter-lab</code>
-   Launch <code>jupyter-lab</code> at first for learning how to visualize trace data.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
-
-<span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
-jupyter-lab
-</code></pre></div>
-<p>CARET uses <a href="https://bokeh.org/"><code>bokeh</code></a> for some visualization APIs.
- Execute the following code for loading <code>bokeh</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span>
-<span class="n">output_notebook</span><span class="p">()</span>
-</code></pre></div>
-</li>
-<li>
-<p>Loading trace data onto Jupyter notebook</p>
-<p>Locate trace data on Jupyter notebook as well as the architecture file.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
-
-<span class="c1"># load the architecture file which is created in the previous page</span>
-<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
-
-<span class="c1"># load measured data by CARET</span>
-<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
-
-<span class="c1"># map the application architecture to measured data</span>
-<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
-</code></pre></div>
-<p>After execution of the code, users will often refer to the <code>app</code> object defined as <code>Application</code> class. The <code>app</code> objects provides users latency of callbacks, communication, and paths. <code>Application</code> class is similar to <code>Architecture</code> class which describes structure of the application and their interfaces are similar. In addition, <code>Application</code> class has interfaces to get latency.</p>
-</li>
-</ol>
-<h2 id="basic-api-to-get-latency">Basic API to get latency<a class="headerlink" href="#basic-api-to-get-latency" title="Permanent link">#</a></h2>
-<p>This section will explain APIs to get callback latency. The following code is one of examples to get callback latency.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get a callback instance, which has latency information, from app</span>
-<span class="n">callback</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/callback_0&#39;</span><span class="p">)</span>
-
-<span class="c1"># Get time-series variation of latency</span>
-<span class="n">t</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">callback</span><span class="o">.</span><span class="n">to_timeseries</span><span class="p">()</span>
-
-<span class="c1"># Get histogram of latency</span>
-<span class="n">bins</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">callback</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">()</span>
-</code></pre></div>
-<p>Though this example shows callback latency, CARET serves API to get communication latency.
-<code>callback.to_dataframe()</code> will provides <code>pandas.DataFrame</code> based object including raw timestamps which is obtained from tracepoints.</p>
-<p><prettier-ignore-start></p>
-<div class="admonition todo">
-<p class="admonition-title">Todo<p>Sorry for not providing CARET's API list, but we'll provide it in the near future.</p>
-</p>
-</div>
-<p><prettier-ignore-end></p>
-<h2 id="visualizing-latency-of-node-chain-with-message-flow">Visualizing latency of node chain with message flow<a class="headerlink" href="#visualizing-latency-of-node-chain-with-message-flow" title="Permanent link">#</a></h2>
-<p>CARET provides some APIs to visualize measured data.
-With message flow, which is one of effective visualizations, users can understand what happens and where is bottleneck in target applications.
-Execute the following code for visualization with message flow.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">message_flow</span>
-
-<span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
-<span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</code></pre></div>
-<p>The following figure will appear if <code>message_flow</code> method is successful.</p>
-<p><img alt="message_flow_sample" src="../../imgs/message_flow_with_cursor.png" /></p>
-<p>The horizontal axis shows time line. On the other hand, the vertical axis shows elements of the node chain (<code>target_path</code>), which include callback functions and topic messages from input to output. Each colorful line shows how a certain input message is propagated to callback functions and topic communications. Gray rectangles show execution timing of callback functions.</p>
-<p>If your mouse pointer is put over one of gray rectangles, latency of callback functions will be shown. You can find latency of a target node chain as well if you put the mouse pointer onto one of colorful lines.</p>
-<p>CARET serves other APIs for visualization. Refer to <a href="../../tips/gallery/">ギャラリー</a> for more details.</p>
+<h1 id="treat_drop_as_delay">treat_drop_as_delay フラグについて<a class="headerlink" href="#treat_drop_as_delay" title="Permanent link">#</a></h1>
+<p><code>treat_drop_as_delay=False</code>とした場合、メッセージがロスト（上書き）されたトレースポイントの箇所で途切れます。
+<code>treat_drop_as_delay=True</code>とした場合、ロスト箇所を遅延として算出できるように紐付けたフローを出力します。</p>
 
               
             </article>
@@ -1025,7 +885,7 @@ Execute the following code for visualization with message flow.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../create_architecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Architecture file creation" rel="prev">
+        <a href="../how_to_search_path/" class="md-footer__link md-footer__link--prev" aria-label="Previous: パスの探索方法" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1034,20 +894,20 @@ Execute the following code for visualization with message flow.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Architecture file creation
+              パスの探索方法
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../design/architecture_overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Architecture overview" rel="next">
+        <a href="../architecture_format/" class="md-footer__link md-footer__link--next" aria-label="Next: アーキテクチャファイルフォーマット" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Architecture overview
+              アーキテクチャファイルフォーマット
             </div>
           </div>
           <div class="md-footer__button md-icon">
