@@ -1,82 +1,92 @@
 # Chain-Aware ROS Evaluation Tool (CARET)
 
-コールバックチェーンを考慮した ROS 2 アプリケーションの性能評価ツールです。  
-フックでのトレースポイント追加により、メッセージのトラッキングをベースとした性能の評価が可能です。
+CARET is one of performance analysis tool dedicated with ROS 2 applications. It is able to measure not only callback latency and communication latency, but also path latency, in other words, chain of node or callback. As additional tracepoints are introduced by function hook, tracing resolution is improved.
 
-主な特徴
+Features and capabilities are shown below.
 
-- 以下の対象について、評価および測定が可能
+Features:
 
-  - コールバックの実行時間
-  - 通信レイテンシ
-    - メッセージのロスト
-  - ノードレイテンシ
-  - End-to-End レイテンシ
-  - エグゼキュータのスケジューリング
+- Low overhead with LTTng-based tracepoints for sampling events in ROS/DDS layer
+- Flexible tracepoints added by function hooking with LD_PRELOAD
+- Python-based API for flexible data analysis and visualization
+- Application-layer events tracing by cooperation with TILDE, runtime message tracer
 
-- LTTng (ros2_tracing) のトレースポイントによる低オーバーヘッド
+Capabilities:
 
-## 性能評価の流れ
+- Performance measurement from several aspects
+  - Callback latency, frequency, and jitter
+  - Topic communication latency, frequency, and jitter
+  - Node latency
+  - Path latency
+    - End-to-end latency of software if path from input to output is selected
+- Visualization of scheduling for callback execution
+- Filtering function to ignore specific nodes and topics
+- Search of target paths to trace
+- Trace of application events like consumption of buffered topic message
+  - `/tf` (planned for v0.3.x release)
+  - `message_filters` (supported by TILDE)
+  - `image_transport` (supported by TILDE)
+
+## Tracing flow with CARET
 
 ![measurement_flow](./imgs/measurement_flow.svg)
 
-CARET は ros2_tracing により追加されたトレースポイントに加え、  
-ROS や DDS の処理に対してトレースポイントを追加することで、様々な処理かかる時間の測定を可能にしています。
+CARET gives you capability of tracing your application with introducing new tracepoints to ROS and DDS layer while it utilized original tracepoints for [`ros2_tracing`](https://gitlab.com/ros-tracing/ros2_tracing).
 
-動的ライブラリの処理をフックするためのトレース用ライブラリに加え、  
-フォークしてトレースポイントを追加した ROS を必要とします。  
-現在はソースコードでの提供のみになっているため、これらパッケージのビルドが必要です。
+CARET is served as only source code, but not as `apt` package, so far.  
+CARET hooks dedicated functions to those defined in dynamic library in order to add tracepoints.  
+The fork of rclcpp which has CARET-dedicated tracepoints is delivered.
+You have to build CARET and your application if you want to use.
 
-測定を行うとトレース結果が得られ、この結果を元に、解析を行います。  
-解析前には、レイテンシの定義や測定対象のパスの定義を記述したアーキテクチャファイルが必要になります。
+After you run your application with CARET, you will get a set of trace data. You have to create an architecture file, in which you defines node latency and target path, before you analyze the data set.
 
-解析用のパッケージ、トレース結果、アーキテクチャファイルが揃い、性能の評価や解析が可能になります。  
-一部 CLI での可視化も対応していますが、主に jupyter 上での評価・解析することを想定しています。
+You will visualize trace data with the architecture file and `CARET_analyze` package, including API for data analysis.
+`CARET_analyze` is designed on assumption that users analyze trace data on Jupyter Notebook.
 
 ## ドキュメント一覧
 
-### チュートリアル
+### Tutorials
 
-CARET の基本的な使い方についての説明です。
+Refer to these page if you want to try.
 
-- [環境構築](./tutorials/setup.md)
-- [測定](./tutorials/measurement.md)
-- [評価準備](./tutorials/create_architecture.md)
-- [性能評価](./tutorials/performance_evaluation.md)
+- [Installation](./tutorials/installation.md)
+- [Measurement](./tutorials/measurement.md)
+- [Architecture file creation](./tutorials/create_architecture.md)
+- [Performance visualization](./tutorials/performance_visualization.md)
 
-### 補足資料
+### Design
 
-使用する上での補足資料です。
+Design documents is prepared, but some are written in Japanese.
 
-- [パスのレイテンシの定義](./supplements/latency_definition.md)
-- [ノードレイテンシの定義](./supplements/node_latency_definition.md)
-- [通信レイテンシの定義](./supplements/communication_latency_definition.md)
-- [トレースフィルタリングについて](./supplements/trace_filtering.md)
-- [ツール利用時の制約](./supplements/limits.md)
-- [ギャラリー](./supplements/gallery.md)
-- [トラブルシューティング](./supplements/trouble_shooting.md)
-
-### 設計資料
-
-内部の実装などに関する資料です。
-
-- [アーキテクチャ](./design/design.md)
-- [トレースポイントの定義](./design/tracepoint_definition.md)
+- [Architecture overview](./design/architecture_overview.md)
+- [Supported tracepoints](./design/supported_tracepoints.md)
 <!-- - [records型について](./about_records_type.md) -->
 - [galactic との差分](./design/diff.md)
 
-## リポジトリ一覧
+### Tips
 
-CARET は以下のパッケージから構成されています。
+Some useful tips to get accustomed to CARET, but almost all of them are written in Japanese.
 
-- [CARET_trace](https://github.com/tier4/CARET_trace) ｜ フックによるトレースポイント追加のリポジトリ
-- [CARET_analyze](https://github.com/tier4/CARET_analyze) ｜ トレース結果の解析スクリプトのリポジトリ
-- [CARET_analyze_cpp_impl](https://github.com/tier4/CARET_analyze_cpp_impl.git) ｜ トレース結果の解析スクリプトの C++実装版
-- [ros2caret](https://github.com/tier4/ros2caret.git) ｜ ros2 cli 用 リポジトリ
-- [CARET_demos](https://github.com/tier4/CARET_demos) ｜デモプログラム集のリポジトリ
-- [CARET_doc](https://github.com/tier4/CARET_doc) ｜本ドキュメントのリポジトリ
-- [rclcpp](https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added) ｜ トレースポイントを追加した rclcpp
-- [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added)｜ rclcpp 追加のトレースポイントを定義した ros2_tracing
+- [パスのレイテンシの定義](./tips/latency_definition.md)
+- [ノードレイテンシの定義](./tips/node_latency_definition.md)
+- [通信レイテンシの定義](./tips/communication_latency_definition.md)
+- [トレースフィルタリングについて](./tips/trace_filtering.md)
+- [ツール利用時の制約](./tips/limits.md)
+- [ギャラリー](./tips/gallery.md)
+- [トラブルシューティング](./tips/trouble_shooting.md)
+
+## Related repositories
+
+CARET is constructed of the following packages
+
+- [CARET_trace](https://github.com/tier4/CARET_trace) ｜ Define tracepoints added by function hooking
+- [CARET_analyze](https://github.com/tier4/CARET_analyze) ｜ Library for scripts to analyze and visualize data
+- [CARET_analyze_cpp_impl](https://github.com/tier4/CARET_analyze_cpp_impl.git) ｜ Efficient helper functions to analyze trace data written in C++
+- [ros2caret](https://github.com/tier4/ros2caret.git) ｜ CLI commands like `ros2 caret`
+- [CARET_demos](https://github.com/tier4/CARET_demos) ｜ Demo programs for CARET
+- [CARET_doc](https://github.com/tier4/CARET_doc) ｜ Documentation
+- [rclcpp](https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added) ｜ the forked `rclcpp` including CARET-dedicated tracepoints
+- [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added)｜ the forked `ros2_tracing` including definition of CARET-dedicated tracepoints
 
 ---
 
