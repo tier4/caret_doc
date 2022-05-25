@@ -195,9 +195,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="233.62513"
-     inkscape:cy="299.89615"
+     inkscape:zoom="1"
+     inkscape:cx="492.86559"
+     inkscape:cy="345.32388"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -208,9 +208,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1532"
+     inkscape:window-width="1916"
      inkscape:window-height="1041"
-     inkscape:window-x="2304"
+     inkscape:window-x="1920"
      inkscape:window-y="18"
      inkscape:window-maximized="0">
     <inkscape:grid
@@ -273,15 +273,15 @@
          ry="3.7774358" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:6.3499999px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         x="28.322166"
-         y="83.229019"
+         style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="24.088831"
+         y="82.964432"
          id="text830"><tspan
            sodipodi:role="line"
            id="tspan828"
-           x="28.322166"
-           y="83.229019"
-           style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">Setup</tspan></text>
+           x="24.088831"
+           y="82.964432"
+           style="font-size:4.93888903px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">Installation</tspan></text>
     </g>
     <rect
        ry="3.7774358"
@@ -293,15 +293,15 @@
        style="opacity:1;vector-effect:none;fill:#1687d5;fill-opacity:1;stroke:none;stroke-width:1.16499996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.31674212" />
     <text
        id="text846"
-       y="83.8619"
-       x="58.104332"
-       style="font-style:normal;font-weight:normal;font-size:6.3499999px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       y="83.068153"
+       x="54.929333"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
-         y="83.8619"
-         x="58.104332"
+         style="font-size:4.93888903px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="83.068153"
+         x="54.929333"
          id="tspan844"
-         sodipodi:role="line">Measure</tspan></text>
+         sodipodi:role="line">Measurement</tspan></text>
     <rect
        ry="3.7774358"
        y="74.353127"
@@ -312,17 +312,17 @@
        style="opacity:1;vector-effect:none;fill:#1687d5;fill-opacity:1;stroke:none;stroke-width:1.16499996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.31674212" />
     <text
        id="text854"
-       y="84.638832"
-       x="121.15099"
-       style="font-style:normal;font-weight:normal;font-size:6.3499999px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       y="83.315918"
+       x="120.09267"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
        inkscape:transform-center-x="-0.18708867"
        inkscape:transform-center-y="1.122532"><tspan
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
-         y="84.638832"
-         x="121.15099"
+         style="font-size:4.93888903px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="83.315918"
+         x="120.09267"
          id="tspan852"
-         sodipodi:role="line">Configure</tspan></text>
+         sodipodi:role="line">Configuration</tspan></text>
     <rect
        style="opacity:1;vector-effect:none;fill:#1687d5;fill-opacity:1;stroke:none;stroke-width:1.16499996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.31674212"
        id="rect815"
@@ -333,15 +333,15 @@
        ry="3.7774358" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:6.3499999px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="189.90842"
-       y="84.442207"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="186.73341"
+       y="83.64846"
        id="text819"><tspan
          sodipodi:role="line"
          id="tspan817"
-         x="189.90842"
-         y="84.442207"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">Evaluate</tspan></text>
+         x="186.73341"
+         y="83.64846"
+         style="font-size:4.93888903px;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">Visualization</tspan></text>
     <rect
        style="opacity:1;vector-effect:none;fill:#818181;fill-opacity:1;stroke:none;stroke-width:2.86500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1705"
@@ -392,15 +392,15 @@
        id="text1760"
        y="130.20088"
        x="5.5700116"
-       style="font-style:normal;font-weight:normal;font-size:3.68322277px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         style="font-size:3.68322277px;line-height:0em;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         style="font-size:2.82222223px;line-height:0em;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
          y="130.20088"
-         x="5.5700116"
+         x="5.5700121"
          sodipodi:role="line"
-         id="tspan1764">Analyze</tspan><tspan
-         style="font-size:3.68322277px;line-height:0em;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
-         y="134.80492"
+         id="tspan1764">Analyze &amp; Visualize</tspan><tspan
+         style="font-size:2.82222223px;line-height:0em;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="133.72865"
          x="5.5700116"
          sodipodi:role="line"
          id="tspan1007">Package</tspan></text>
@@ -484,5 +484,15 @@
        d="m 40.824887,98.416673 c 2.215248,-4.692817 5.874967,-9.579141 10.552184,-11.450025"
        style="fill:none;stroke:#d7933e;stroke-width:1.06500006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5139)"
        sodipodi:nodetypes="cc" />
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot953"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:24px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion955"><rect
+           id="rect957"
+           width="2.1213202"
+           height="56.568542"
+           x="548.00775"
+           y="-147.80836" /></flowRegion><flowPara
+         id="flowPara959"></flowPara></flowRoot>  </g>
 </svg>
