@@ -379,9 +379,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Installation
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -848,6 +886,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -865,6 +925,39 @@
 
 
 <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h1>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
+<p>CARET is confirmed to run on the platforms shown in the following table with supported version.</p>
+<table>
+<thead>
+<tr>
+<th>dependent platform</th>
+<th>supported version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ROS</td>
+<td>Galactic</td>
+</tr>
+<tr>
+<td>Ubuntu</td>
+<td>20.04</td>
+</tr>
+<tr>
+<td>LTTng</td>
+<td>stable-2.12<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
+</tr>
+<tr>
+<td>Linux Kernel</td>
+<td>5.13.x</td>
+</tr>
+<tr>
+<td>Python3</td>
+<td>3.8.x</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">#</a></h2>
 <p>Installation using meta repository is the least time-consuming way to install CARET.<br />
 With meta repository and Ansible, you can skip the labotorious manual setup which is explained in <a href="../../tips/manual_installation/">tips/manual installation</a> section (written in Japanese).</p>
 <p>Please execute the following steps on Ubuntu 20.04. The order is important so that you have to follow the steps in order.</p>
@@ -902,6 +995,14 @@ ros2 run tracetools status <span class="c1"># return Tracing enabled</span>
 </li>
 </ol>
 <p>If you see <code>Tracing enabled</code>, you can continue to apply CARET to your application.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Planned to support LTTng 2.13 or newer for CARET v.0.3.x.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
               
             </article>
