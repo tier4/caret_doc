@@ -1,4 +1,4 @@
-# Preparation for measuring node and path latency
+# Configuration for measuring node and path latency
 
 CARET can observe as following:
 

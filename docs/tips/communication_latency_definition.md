@@ -4,7 +4,7 @@ CARET で算出される通信レイテンシについて詳細を説明しま�
 
 ## レイテンシの定義
 
-![communication_latency](../../imgs/communication_latency.png)
+![communication_latency](../imgs/communication_latency.png)
 
 ### 通信イテンシの定義
 

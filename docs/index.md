@@ -38,7 +38,7 @@ CARET hooks dedicated functions to those defined in dynamic library in order to 
 The fork of rclcpp which has CARET-dedicated tracepoints is delivered.
 You have to build CARET and your application if you want to use.
 
-After you run your application with CARET, you will get a set of trace data. You have to create an architecture file, in which you defines node latency and target path, before you analyze the data set.
+After you run your application with CARET, you will measure (trace) your application get a set of trace data. You have to write a configuration fille, called architecture file, in which you defines node latency and target path, before you analyze the data set.
 
 You will visualize trace data with the architecture file and `CARET_analyze` package, including API for data analysis.
 `CARET_analyze` is designed on assumption that users analyze trace data on Jupyter Notebook.
@@ -51,8 +51,8 @@ Refer to these page if you want to try.
 
 - [Installation](./tutorials/installation.md)
 - [Measurement](./tutorials/measurement.md)
-- [Architecture file creation](./tutorials/create_architecture.md)
-- [Performance visualization](./tutorials/performance_visualization.md)
+- [Architecture file creation](./tutorials/configuration.md)
+- [Performance visualization](./tutorials/visualization.md)
 
 ### Design
 

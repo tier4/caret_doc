@@ -1,6 +1,6 @@
 # ROS 2 galactic との差分
 
-[caret.repos](https://github.com/tier4/CARET_doc/blob/main/caret.repos) には caret のリポジトリの他に、以下のリポジトリを含んでいます。
+[caret.repos](https://github.com/tier4/caret/blob/main/caret.repos) には caret のリポジトリの他に、以下のリポジトリを含んでいます。
 
 - <https://github.com/ros2/rcl.git>
 - <https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added>
@@ -18,7 +18,7 @@
 
 リポジトリ：<https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added>
 
-追加したトレースポイントについては、[トレースポイントの定義](./tracepoint_definition.md)の **[CARET フォーク実装]**となります。
+追加したトレースポイントについては、[トレースポイントの定義](./supported_tracepoints.md)の **[CARET フォーク実装]**となります。
 
 > rclcpp 実装の理由
 >

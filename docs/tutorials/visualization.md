@@ -80,7 +80,7 @@ message_flow(path)
 
 The following figure will appear if `message_flow` method is successful.
 
-![message_flow_sample](../../imgs/message_flow_with_cursor.png)
+![message_flow_sample](../imgs/message_flow_with_cursor.png)
 
 The horizontal axis shows time line. On the other hand, the vertical axis shows elements of the node chain (`target_path`), which include callback functions and topic messages from input to output. Each colorful line shows how a certain input message is propagated to callback functions and topic communications. Gray rectangles show execution timing of callback functions.
 
