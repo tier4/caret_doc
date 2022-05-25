@@ -1,4 +1,4 @@
-# Tracing with CARET
+# Measurement and Tracing with CARET
 
 This page explains usage of CARET with a sample application.
 The sample application is located on [CARET_demos](https://github.com/tier4/CARET_demos.git) repository.

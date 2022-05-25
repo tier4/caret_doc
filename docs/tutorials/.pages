@@ -1,5 +1,5 @@
 nav:
     - Installation: installation.md
     - Measurement: measurement.md
-    - Architecture file creation: create_architecture.md
-    - Performance visualization: performance_visualization.md
+    - Configuration: configuration.md
+    - Visualization: visualization.md
