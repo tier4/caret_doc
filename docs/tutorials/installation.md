@@ -1,5 +1,21 @@
 # Installation
 
+## Requirements
+
+CARET is confirmed to run on the platforms shown in the following table with supported version.
+
+| dependent platform | supported version |
+| ------------------ | ----------------- |
+| ROS                | Galactic          |
+| Ubuntu             | 20.04             |
+| LTTng              | stable-2.12[^1]   |
+| Linux Kernel       | 5.13.x            |
+| Python3            | 3.8.x             |
+
+[^1]: Planned to support LTTng 2.13 or newer for CARET v.0.3.x.
+
+## Installation
+
 Installation using meta repository is the least time-consuming way to install CARET.  
 With meta repository and Ansible, you can skip the labotorious manual setup which is explained in [tips/manual installation](../tips/manual_installation.md) section (written in Japanese).
 
