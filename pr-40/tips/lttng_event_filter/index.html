@@ -8,19 +8,21 @@
       
       
       
-      <link rel="icon" href="/CARET_doc/pr-40/assets/images/tier4.png">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-40/tips/lttng_event_filter/">
+      
+      <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>LTTngEventFilterの使用方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="/CARET_doc/pr-40/assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
       
         
-        <link rel="stylesheet" href="/CARET_doc/pr-40/assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -37,11 +39,11 @@
     
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
     
-      <link rel="stylesheet" href="/CARET_doc/pr-40/assets/css/extra.css">
+      <link rel="stylesheet" href="../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("/CARET_doc/pr-40",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#lttngeventfilter" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -86,7 +93,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/CARET_doc/pr-40/." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -105,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              LTTngEventFilterの使用方法
             
           </span>
         </div>
@@ -196,7 +203,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="/CARET_doc/pr-40/." class="md-tabs__link">
+    <a href="../.." class="md-tabs__link">
       Overview
     </a>
   </li>
@@ -211,7 +218,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/CARET_doc/pr-40/tutorials/installation/" class="md-tabs__link">
+      <a href="../../tutorials/installation/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -227,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/CARET_doc/pr-40/design/architecture_overview/" class="md-tabs__link">
+      <a href="../../design/architecture_overview/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -237,13 +244,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="/CARET_doc/pr-40/tips/gallery/" class="md-tabs__link">
+      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
         Tips
       </a>
     </li>
@@ -277,7 +286,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/CARET_doc/pr-40/." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -308,7 +317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Overview
       </a>
     </li>
@@ -359,7 +368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tutorials/installation/" class="md-nav__link">
+      <a href="../../tutorials/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -373,7 +382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tutorials/measurement/" class="md-nav__link">
+      <a href="../../tutorials/measurement/" class="md-nav__link">
         Measurement
       </a>
     </li>
@@ -387,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tutorials/create_architecture/" class="md-nav__link">
+      <a href="../../tutorials/create_architecture/" class="md-nav__link">
         Architecture file creation
       </a>
     </li>
@@ -401,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tutorials/performance_visualization/" class="md-nav__link">
+      <a href="../../tutorials/performance_visualization/" class="md-nav__link">
         Performance visualization
       </a>
     </li>
@@ -459,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/design/architecture_overview/" class="md-nav__link">
+      <a href="../../design/architecture_overview/" class="md-nav__link">
         Architecture overview
       </a>
     </li>
@@ -473,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/design/supported_tracepoints/" class="md-nav__link">
+      <a href="../../design/supported_tracepoints/" class="md-nav__link">
         Supported tracepoints
       </a>
     </li>
@@ -487,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/design/diff/" class="md-nav__link">
+      <a href="../../design/diff/" class="md-nav__link">
         galacticとの差分
       </a>
     </li>
@@ -501,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/design/how_to_calculate_latency/" class="md-nav__link">
+      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
         レイテンシの算出方法
       </a>
     </li>
@@ -521,12 +530,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -583,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/gallery/" class="md-nav__link">
+      <a href="../gallery/" class="md-nav__link">
         ギャラリー
       </a>
     </li>
@@ -597,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/latency_definition/" class="md-nav__link">
+      <a href="../latency_definition/" class="md-nav__link">
         パスのレイテンシの定義
       </a>
     </li>
@@ -611,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/node_latency_definition/" class="md-nav__link">
+      <a href="../node_latency_definition/" class="md-nav__link">
         ノードレイテンシの定義
       </a>
     </li>
@@ -625,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/communication_latency_definition/" class="md-nav__link">
+      <a href="../communication_latency_definition/" class="md-nav__link">
         通信レイテンシの定義
       </a>
     </li>
@@ -639,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/about_callback_graph/" class="md-nav__link">
+      <a href="../about_callback_graph/" class="md-nav__link">
         コールバックグラフの説明
       </a>
     </li>
@@ -653,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/trace_filtering/" class="md-nav__link">
+      <a href="../trace_filtering/" class="md-nav__link">
         トレースフィルタリング
       </a>
     </li>
@@ -667,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/limits/" class="md-nav__link">
+      <a href="../limits/" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -681,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/how_to_search_path/" class="md-nav__link">
+      <a href="../how_to_search_path/" class="md-nav__link">
         パスの探索方法
       </a>
     </li>
@@ -695,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/about_treat_drop_as_delay/" class="md-nav__link">
+      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
         treat_drop_as_delayフラグの説明
       </a>
     </li>
@@ -709,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/architecture_format/" class="md-nav__link">
+      <a href="../architecture_format/" class="md-nav__link">
         アーキテクチャファイルフォーマット
       </a>
     </li>
@@ -723,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/how_to_run_lttng_session/" class="md-nav__link">
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
         Lttngセッションの開始方法
       </a>
     </li>
@@ -737,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/how_to_write_architecture/" class="md-nav__link">
+      <a href="../how_to_write_architecture/" class="md-nav__link">
         ノードレイテンシの算出方法の指定
       </a>
     </li>
@@ -749,11 +760,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/lttng_event_filter/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LTTngEventFilterの使用方法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         LTTngEventFilterの使用方法
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API 説明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    使用例
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -765,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/trouble_shooting/" class="md-nav__link">
+      <a href="../trouble_shooting/" class="md-nav__link">
         トラブルシューティング
       </a>
     </li>
@@ -779,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/use_sim_time/" class="md-nav__link">
+      <a href="../use_sim_time/" class="md-nav__link">
         sim_timeでの時系列データ評価
       </a>
     </li>
@@ -793,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/CARET_doc/pr-40/tips/manual_installation/" class="md-nav__link">
+      <a href="../manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -824,6 +883,30 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API 説明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    使用例
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -834,8 +917,53 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+  <a href="https://github.com/tier4/CARET_doc/edit/main/tips/lttng_event_filter.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
 
+
+
+<h1 id="lttngeventfilter">LTTngEventFilter の使用<a class="headerlink" href="#lttngeventfilter" title="Permanent link">#</a></h1>
+<p>CARET は数分程度の測定や解析までを取り扱うことができます。<br />
+より長時間、十数分〜数十分程度の測定結果を取り扱う際には、メモリの使用量・解析時間・可視化時間などが問題となってきます。</p>
+<p>そこで、CARET は LTTng の読み込み時に不要な測定結果を省くための API(LTTngEventFilter)を備えています。<br />
+ここでは、LTTngEventFitler の使い方について説明します。</p>
+<p>LTTngEventFitler では、以下のフィルタを備えています。</p>
+<ul>
+<li>init_pass_filter</li>
+<li>duration_filter</li>
+<li>strip_filter</li>
+</ul>
+<h2 id="api">API 説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">init_pass_filter</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li>初期化時のトレースポイントのみを通します。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="n">duration_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">offset_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>[duration_s]秒間を測定対象にフィルタリング</li>
+<li>最初の[offset_s]秒間を無視</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">strip_filter</span><span class="p">(</span><span class="n">lsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">rsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span>
+</code></pre></div>
+<ul>
+<li>測定開始から[lsplit_s]秒間の測定結果を無視</li>
+<li>測定測定終了から[rsplit_s]秒間の測定結果を無視</li>
+</ul>
+<h2 id="_1">使用例<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
+
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/ctf&#39;</span><span class="p">,</span> <span class="n">event_filters</span><span class="o">=</span><span class="p">[</span>
+  <span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">])</span> <span class="c1"># 測定開始5秒後から10秒間にフィルタいrング</span>
+</code></pre></div>
+<p>event_filters は複数指定することもできます。<br />
+複数を入れた場合は、全てのフィルタが指定した区間のみにフィルタリングされます。</p>
+
+              
             </article>
           </div>
         </div>
@@ -848,6 +976,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../how_to_write_architecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ノードレイテンシの算出方法の指定" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              ノードレイテンシの算出方法の指定
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../trouble_shooting/" class="md-footer__link md-footer__link--next" aria-label="Next: トラブルシューティング" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              トラブルシューティング
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -873,10 +1036,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/CARET_doc/pr-40", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "/CARET_doc/pr-40/assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="/CARET_doc/pr-40/assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

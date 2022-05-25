@@ -2,127 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-40/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-40/design/architecture_overview/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-40/design/diff/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-40/design/how_to_calculate_latency/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-40/design/supported_tracepoints/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/about_callback_graph/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/about_callback_graph/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/about_treat_drop_as_delay/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/about_treat_drop_as_delay/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/architecture_format/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/architecture_format/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/communication_latency_definition/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/communication_latency_definition/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/gallery/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/gallery/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/how_to_run_lttng_session/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/how_to_run_lttng_session/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/how_to_search_path/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/how_to_search_path/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/how_to_write_architecture/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/how_to_write_architecture/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/latency_definition/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/latency_definition/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/limits/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/limits/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/lttng_event_filter/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/lttng_event_filter/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/manual_installation/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/manual_installation/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/node_latency_definition/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/node_latency_definition/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/trace_filtering/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/trace_filtering/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/trouble_shooting/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/trouble_shooting/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-40/supplements/use_sim_time/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <loc>https://tier4.github.io/CARET_doc/pr-40/tips/use_sim_time/</loc>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-40/tutorials/create_architecture/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-40/tutorials/installation/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-40/tutorials/measurement/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-40/tutorials/performance_visualization/</loc>
-         <lastmod>2022-05-20</lastmod>
+         <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
