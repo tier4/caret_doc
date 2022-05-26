@@ -51,8 +51,8 @@ Refer to these page if you want to try.
 
 - [Installation](./tutorials/installation.md)
 - [Measurement](./tutorials/measurement.md)
-- [Architecture file creation](./tutorials/configuration.md)
-- [Performance visualization](./tutorials/visualization.md)
+- [Configuration](./tutorials/configuration.md)
+- [Visualization](./tutorials/visualization.md)
 
 ### Design
 
