@@ -59,7 +59,7 @@ t, latency_ns = path.to_timeseries(remove_dropped=False, treat_drop_as_delay=Tru
 latency_ms = latency_ns * 1.0e-6
 
 p = figure()
-p.line(t, latency_ns)
+p.line(t, latency_ms)
 show(p)
 ```
 
