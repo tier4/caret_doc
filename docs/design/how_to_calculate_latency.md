@@ -48,7 +48,6 @@ rclcpp_intra_publisher と dispatch_intra_process_subscription_callback は同�
 | dispatch_subscription_callback | messsage_arg@2                                  | <span style="color: green; ">stamp_arg</span>   | <span style="color: blue; ">callback_arg</span> | time5 |
 | callback_start                 | <span style="color: blue; ">callback_arg</span> | is_intra_process                                |                                                 | time6 |
 
-
 プロセス内通信と同様に同じ引数を持つトレースポイント同士を紐づけていき、publish から callback_start までの表を作成します（下記表）。  
 1 行が 1 つのプロセス間通信のチェーンを表し、`callback_start - rclcpp_publish` にて**プロセス間通信のレイテンシ**を算出します。
 
@@ -79,7 +78,6 @@ callback_start と rclcpp_publish の紐づけは、rclcpp_publish から見て�
 | 0   | 4                         | 8                         | 9                       | 0x2000              |
 | 1   | 8                         | 12                        | 13                      | 0x2000              |
 | 2   | 10                        | 14                        | 15                      | 0x2000              |
-
 
 上記表のようにコールバック A・B（cb_A・cb_B）が存在し、A→B と処理が続く時、cb_A の callback_end と cb_B の callback_start を結び付けて表を作ります。  
 最後の callback だけは publish の時の時刻を採用し、下記表のように一つのテーブルにします。
