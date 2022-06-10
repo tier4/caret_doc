@@ -68,21 +68,21 @@ TraceResultAanalyzeError: Failed to find callback_object.node_name: /localizatio
   - period_ns：19999999
   - symbol：void (EKFLocalizer::?)()
 
+## 特定のノードだけ測定がされていない
 
-
-## 特定のノードだけ測定がされていない。
 一部のトレースポイントが見当たらない現象が残っており、これが原因の可能性があります。
 
-現在、フォークしたROSレイヤーに追加したトレースポイントが正しく測定されない問題が見つかっています。  
-これはビルドする際にフォークしたrclcppが参照されていないことが原因です。  
+現在、フォークした ROS レイヤーに追加したトレースポイントが正しく測定されない問題が見つかっています。  
+これはビルドする際にフォークした rclcpp が参照されていないことが原因です。
 
 上記手順でトレースポイントが不足している場合には、  
-CMakeLists.txtのfind_package後に以下の行を追加してください。  
-```
+CMakeLists.txt の find_package 後に以下の行を追加してください。
+
+```cmake
 include_directories(SYSTEM /home/autoware/ros2_caret_ws/install/rclcpp/include)
 ```
 
-フォークしたrclcppで追加したトレースポイントについては、 [トレースポイントの定義](../design/tracepoint_definition.md)の表内で、
-トレースポイントの実装方法が「rclcppパッケージ新規追加」となっている項目が対象になります。
+フォークした rclcpp で追加したトレースポイントについては、 [トレースポイントの定義](../design/supported_tracepoints.md)の表内で、
+トレースポイントの実装方法が「rclcpp パッケージ新規追加」となっている項目が対象になります。
 
-## メッセージフローの図が途中で止まっている。
+## メッセージフローの図が途中で止まっている

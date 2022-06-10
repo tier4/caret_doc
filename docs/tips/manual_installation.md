@@ -1,4 +1,4 @@
-# 環境構築
+# Manual installation
 
 ## パッケージのインストール
 
@@ -27,6 +27,7 @@ sudo apt update && sudo apt install -y \
   python3-rosdep \
   python3-setuptools \
   python3-vcstool \
+  python3-bt2 \
   wget
 
 python3 -m pip install -U \
@@ -87,7 +88,7 @@ python3 -m pip install -U \
 mkdir -p ~/ros2_caret_ws/src
 cd ~/ros2_caret_ws
 
-wget https://raw.githubusercontent.com/tier4/CARET_doc/main/caret.repos
+wget https://raw.githubusercontent.com/tier4/caret/main/caret.repos
 vcs import src < caret.repos --recursive
 
 rosdep install \

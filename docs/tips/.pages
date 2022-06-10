@@ -9,3 +9,4 @@ nav:
     - 通信レイテンシについて: about_communication_latency.md
     - トラブルシューティング: trouble_shooting.md
     - sim_timeでの時系列データ評価: use_sim_time.md
+    - Manual Installation: manual_installation.md

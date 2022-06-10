@@ -1,34 +1,26 @@
-# トレースポイントの定義
+# Tracepoints definition
 
-CARETはトピック名などの情報を得るための「初期化時の処理に対するトレースポイント」と、  
-測定をするための「ランタイムの処理に対するトレースポイント」があります。
+This section lists all tracepoints and their definition.
+Before listing tracepoints.
 
-本ページではそれぞれのトレースポイントの定義についてまとめています。
+Some tracepoints are used for collecting identification of executors, nodes, callbacks, and topics during application's initialization. They are called initialization tracepoints. The other tracepoints are embedded for sampling timestamps after completion of initialization, and called runtime tracepoints.
 
+Almost all of tracepoints supported by CARET are embedded in ROS and DDS layer. CARET utilizes some of the tracepoints embedded in original ROS 2 middleware, which are used for ros2-tracing. Some of the rest tracepoints are added to the fork of ROS 2's rclcpp, the other are introduced by function hooking with LD_PRELOAD. AS explained, tracepoints for CARET is embedded by three ways and they are identified as below.
 
-各トレースポイントには、その実装方法を区別するために以下の情報も記載しています。
+- Original tracepoints
+  - tracepoints embedded in original ROS 2 middleware which are utilized by ros2-tracing
+  - some of tracepoints, for service, action and lifecycle node, are not utilized by CARET
+- Extended tracepoints
+  - CARET-dedicated tracepoints added to the fork of rclcpp
+- Hooked tracepoints
+  - CARET-dedicated tracepoints introduced by function hooking with LD_PRELOAD
 
-- Galactic実装
-  - Galactic以降のROSにはデフォルトで実装されている、ros2 tracingが使用しているトレースポイントです。
-  - serviceやlifecycleなど、実装はされていてもCARETでは使われていないトレースポイントも有ります。
-- CARETフォーク実装
-  - rclcppリポジトリをフォークして追加しているトレースポイントです。
-- CARETフック実装
-  - LD_PRELOADによるフックで追加しているトレースポイントです。
+<prettier-ignore-start>
+!!! info
+    Please read this section if you are interested in CARET-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. CARET would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Original rclcpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.
+<prettier-ignore-end>
 
-
-> フォークとフックの２つの方法でトレースポイントを追加している理由  
->
-> CARETは基本的には実装と切り離すために、LD_PRELOADを利用したフックによるトレースポイントの追加をしています。  
-> ただし、rclcppには、プロセス内通信などのテンプレートによる実装を含み、LD_PRELOADではフックできない処理があります。  
-> LD_PRELOADは実行時の動的リンクに対しフックできる機能であるのに対し、  
-> テンプレートで実装された処理はコンパイルでバイナリ内に組み込まれてしまうためフックできません。  
-> このようなテンプレートで実装された処理に対してのみ、rclcppをフォークしてトレースポイントを追加しています。  
-> このような理由から、測定対象のアプリケーションを再ビルドする必要が生じています。
-
-
-## シーケンスと主要なトレースポイント
-
+## Sequence diagram of major tracepoints
 
 ```plantuml
 @startuml
@@ -101,346 +93,357 @@ deactivate ROS2
 @enduml
 ```
 
-## 初期化時のトレースポイント
+## Initialization tracepoints
 
 ---
 
 ### ros2:rcl_init
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * context_handle
+Sampled items
+
+- void \* context_handle
 
 ---
 
 ### ros2:rcl_node_init
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * node_handle
-- void * rmw_handle
-- char * node_name
-- char * node_namespace
+Sampled items
+
+- void \* node_handle
+- void \* rmw_handle
+- char \* node_name
+- char \* node_namespace
 
 ---
 
 ### ros2:rcl_publisher_init
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * publisher_handle
-- void * node_handle
-- void * rmw_publisher_handle
-- char * topic_name
+Sampled items
+
+- void \* publisher_handle
+- void \* node_handle
+- void \* rmw_publisher_handle
+- char \* topic_name
 - size_t queue_depth
-
 
 ---
 
 ### ros2:rcl_subscription_init
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * subscription_handle
-- void * node_handle
-- void * rmw_subscription_handle
-- char * topic_name
+Sampled items
+
+- void \* subscription_handle
+- void \* node_handle
+- void \* rmw_subscription_handle
+- char \* topic_name
 - size_t queue_depth
-
 
 ---
 
 ### ros2:rclcpp_subscription_init
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * subscription_handle
-- void * subscription
+Sampled items
 
+- void \* subscription_handle
+- void \* subscription
 
 ---
 
 ### ros2:rclcpp_subscription_callback_added
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * subscription
-- void * callback
+Sampled items
 
+- void \* subscription
+- void \* callback
 
 ---
 
 ### ros2:rcl_timer_init
-[Galactic実装]
 
-付加情報
-- void * timer_handle
+[Original tracepoints]
+
+Sampled items
+
+- void \* timer_handle
 - int64_t period
-
 
 ---
 
 ### ros2:rclcpp_timer_callback_added
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * timer_handle
-- void * callback
+Sampled items
 
+- void \* timer_handle
+- void \* callback
 
 ---
 
 ### ros2:rclcpp_timer_link_node
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * timer_handle
-- void * node_handle
+Sampled items
 
+- void \* timer_handle
+- void \* node_handle
 
 ---
 
 ### ros2:rclcpp_callback_register
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * callback
-- char * function_symbol
+Sampled items
 
+- void \* callback
+- char \* function_symbol
 
 ---
 
 ### ros2_caret:rmw_implementation
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
-- char * rmw_impl
+Sampled items
 
+- char \* rmw_impl
 
 ---
 
 ### ros2_caret:construct_executor
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
--  void * executor_addr
--  char * executor_type_name
+Sampled items
 
+- void \* executor_addr
+- char \* executor_type_name
 
 ---
 
 ### ros2_caret:construct_static_executor
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
-- void * executor_addr
-- void * entities_collector_addr
-- char * executor_type_name
+Sampled items
+
+- void \* executor_addr
+- void \* entities_collector_addr
+- char \* executor_type_name
 
 ---
 
 ### ros2_caret:add_callback_group
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
-- void * executor_addr
-- void * callback_group_addr
-- char * group_type_name
+Sampled items
+
+- void \* executor_addr
+- void \* callback_group_addr
+- char \* group_type_name
 
 ---
 
 ### ros2_caret:add_callback_group_static_executor
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
-- void * entities_collector_addr
-- void * callback_group_addr
-- char * group_type_name
+Sampled items
+
+- void \* entities_collector_addr
+- void \* callback_group_addr
+- char \* group_type_name
 
 ---
 
 ### ros2_caret:callback_group_add_timer
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
-- void * callback_group_addr
-- void * timer_handle
+Sampled items
+
+- void \* callback_group_addr
+- void \* timer_handle
 
 ---
 
 ### ros2_caret:callback_group_add_subscription
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
-- void * callback_group_addr
-- void * subscription_handle
+Sampled items
+
+- void \* callback_group_addr
+- void \* subscription_handle
 
 ---
 
 ### ros2_caret:callback_group_add_service
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
-- void * callback_group_addr
-- void * service_handle
+Sampled items
 
+- void \* callback_group_addr
+- void \* service_handle
 
 ---
 
 ### ros2_caret:callback_group_add_client
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
-- void * callback_group_addr
-- void * client_handle
+Sampled items
 
+- void \* callback_group_addr
+- void \* client_handle
 
 ---
 
-## ランタイム時のトレースポイント
+## Runtime tracepoints
 
 ### ros2:callback_start
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * callback
+Sampled items
+
+- void \* callback
 - bool is_intra_process
-
 
 ---
 
 ### ros2:callback_end
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
--  void * callback
+Sampled items
+
+- void \* callback
 
 ---
 
 ### ros2:message_construct
-[CARETフォーク実装]
 
-付加情報
+[Extended tracepoints]
 
-- void * original_message
-- void * constructed_message
+Sampled items
 
+- void \* original_message
+- void \* constructed_message
 
 ---
 
 ### ros2:rclcpp_intra_publish
-[CARETフォーク実装]
 
-付加情報
+[Extended tracepoints]
 
-- void * publisher_handle
-- void * message
+Sampled items
+
+- void \* publisher_handle
+- void \* message
 - uint64_t message_timestamp
-
 
 ---
 
 ### ros2:dispatch_subscription_callback
-[CARETフォーク実装]
 
-付加情報
+[Extended tracepoints]
 
-- void * message
-- void * callback
+Sampled items
+
+- void \* message
+- void \* callback
 - uint64_t source_timestamp
 - uint64_t message_timestamp
-
 
 ---
 
 ### ros2:dispatch_intra_process_subscription_callback
-[CARETフォーク実装]
 
-付加情報
+[Extended tracepoints]
 
-- void * message
-- void * callback
+Sampled items
+
+- void \* message
+- void \* callback
 - uint64_t message_timestamp
 
 ---
 
 ### ros2:rcl_publish
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * publisher_handle
-- void * message
+Sampled items
 
+- void \* publisher_handle
+- void \* message
 
 ---
 
 ### ros2:rclcpp_publish
-[Galactic実装]
 
-付加情報
+[Original tracepoints]
 
-- void * publisher_handle
-- void * message
+Sampled items
+
+- void \* publisher_handle
+- void \* message
 - uint64_t message_timestamp
 
 ### ros2_caret:dds_write
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
-- void * message
+Sampled items
+
+- void \* message
 
 ---
 
 ### ros2_caret:dds_bind_addr_to_stamp
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
--  void * addr
--  uint64_t source_stamp
+Sampled items
 
+- void \* addr
+- uint64_t source_stamp
 
 ---
-
 
 ### ros2_caret:dds_bind_addr_to_addr
-[CARETフック実装]
 
-付加情報
+[Hooked tracepoints]
 
--  void * addr_from
--  void * addr_to
+Sampled items
 
+- void \* addr_from
+- void \* addr_to
 
 ---
 
-## トレースポイントの紐付け
+## Structure of tracepoint relationship
 
-本ページで列挙しているトレースポイントはノードID（`node_handle`）やコールバックID（`コールバックのインスタンスのアドレス`）などの値を元に紐付けて利用する。  
-それぞれのトレースポイントの対応関係をグラフで示す。
-### ノードの初期化
+Some tracepoints share a same identification, such as a node ID (`node_handle`) and an address of callback instance. The shared identification associates each tracepoint to another, the association constructs structure of tracepoint relationship. The following figures show four structures.
+
+### Tracepoints for representing structure of a node
 
 ```mermaid
 
@@ -497,12 +500,13 @@ graph RL
   rmw_implementation
 
 ```
-コールバックのインスタンスのアドレス値が一意に決まれば、`timer_callback_added`など他のトレースポイントの値を紐付いていくことでノードの情報まで得ることができる。  
-逆に、node_handleが一意に決まれば、そのノードに含まれるコールバックも特定できる。
 
-### エグゼキューターやコールバックグループの初期化
+If a certain of address of callback instance is unique, scanning the shared identification including `timer_callback_added` lets you identify a node to which the callback belongs.
+On the other hand, if `node_handle` is identified uniquely, callback in the node is identified as well.
 
-``` mermaid
+### Tracepoints for representing structure of executor and callback group
+
+```mermaid
 
 graph RL
   subscription_handle[[subscription_handle]]
@@ -551,9 +555,9 @@ graph RL
   client_handle <--> callback_group_add_client
 ```
 
-タイマーなどの各ハンドラはコールバックグループに追加され、エグゼキュータに紐付けられる。
+A handler such as `timer_handle` and `subscription_handle` are assigned to a callback group. A callback group belongs to an executor.
 
-### メッセージのpublishまで
+### Tracepoints for representing flow of message transmission
 
 ```mermaid
 
@@ -603,15 +607,16 @@ graph LR
 
 ```
 
-`publish`を実行した際、unique_ptr型で複数のsubscriptionがある場合などのケースでは、必要に応じてメッセージのコピーが発生する。  
-メッセージのコピーが発生した際は`message_construct`でコピー前とコピー後の変数のアドレスを紐付けられるようにしている。  
-rclレイヤー以下ではメッセージのアドレスで対応付けられるようにし、DDSレイヤーでsource_timestampに紐付けられるようにしている。  
-source_timestampは元々はQoSのDeadlineなどに使われる値で、全てのDDS通信を行うメッセージに自動的に付与される値であり、subscription側で同じ値が受信される。  
-受信側ではsource_timestampの値を紐付けるための情報として利用している。
+If a topic message is defined with unique_ptr and transmitted to multiple subscription by `publish` method, the topic message may be copied.  
+CARET can associate an address of original message to that of copied one by `message_construct`.  
+A certain message is identified with an unique address in rcl layer, it is identified with `source_timestamp` in DDS layer.  
+All messages communicated via DDS have `source_timestamp` given automatically, which are introduced for QoS function.A pair of publish and subscription same `source_timestamp`.  
+CARET utilizes `source_timestamp` to map transmitted message to received one.
 
-message_addr（プロセス内通信）/source_timestamp（プロセス間通信）からpublishまでが一意に紐付けられる。
+CARET maps a `message_addr` to a published message for intra-process communication, and a `source_timestamp` to one for inter-communication.
 
-### メッセージの受信からコールバック実行まで
+### Tracepoints for representing flow of callback execution after message reception
+
 ```mermaid
 
 graph LR
@@ -642,11 +647,10 @@ graph LR
   source_timestamp_sub --> dispatch_subscription_callback
 ```
 
-プロセス内通信ではpublishされたメッセージのアドレスで紐づけを行う。  
-プロセス間通信ではsource_timestampで紐づけを行う。
+As well as flow of message transmission, a message is identified by `message_addr` for intra-process communication, but `source_timestamp` for inter-process communication.
 
-callback_startからmessage_addr/source_timestampまでが一意に紐付けられる。  
-また、publisher側のグラフで示した通り、message_addr/source_timestampからpublishまでが一意に紐付けられる。  
-したがって、publishからcallback_startまでは一意に紐付けることができる。  
+`message_addr` and `source_timestamp` is mapped a corresponding `callback_start`.  
+As explained, `message_addr` and `source_timestamp` are identifier for transmission flow using `publish` method.
+This means that a invoked `publish` method is mapped to a `callback_start`.
 
-ただし、コールバックの実行とpublishの紐付けはできていないので注意。
+However this does not mean that CARET can map a `callback_start` to a corresponding `publish`. CARET can trace a certain flow from `publish` to `callback_start`, but the reversed mapping, from `callback_start` to `publish`, is not supported by CARET. The capability of mapping between callback_start and publish will be improved in v0.3.\* release or later.

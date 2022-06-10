@@ -1,14 +1,14 @@
 # 通信レイテンシの定義
 
-CARETで算出される通信レイテンシについて詳細を説明します。
+CARET で算出される通信レイテンシについて詳細を説明します。
 
 ## レイテンシの定義
 
-![communication_latency](../../imgs/communication_latency.png)
+![communication_latency](../imgs/communication_latency.png)
 
 ### 通信イテンシの定義
 
-CARETが算出している通信レイテンシの定義は以下の通りです。
+CARET が算出している通信レイテンシの定義は以下の通りです。
 
 ```text
 Pub-Sub レイテンシ = Subscriptionコールバックの実行開始時刻 - Publisher::publish()実行開始時刻
