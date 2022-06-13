@@ -23,4 +23,4 @@ callbacks2 = get_callbacks('timer_driven_node/callbacks_?')
 callbacks3 = get_callbacks('timer_driven_node/*')
 ```
 
-This function may return similar name callbacks when there is no match callbacks.
+This function may print similar callbacks name when there is no match callbacks.
