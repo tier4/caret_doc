@@ -1,7 +1,7 @@
 # Using get_callbacks function
 
-CARET has a function that get callbacks.
-We describe get_callbacks().
+CARET has a function that get callbacks information.
+Callbacks information includes callback name, callback period[ns], callback type.
 
 
 ## API
@@ -10,8 +10,8 @@ We describe get_callbacks().
 get_callbacks(self, *callback_names: str)
 ```
 
-- It gets callbacks that match the string.
-- It can contain '*' or '?' as regular expression. NOTE: You can't use other regular expresion like '+'.
+- The 'get_callbacks()' gets callbacks that match the string.
+- The 'get_callbacks()' can contain '*' or '?' as regular expression. NOTE: User can't use other regular expresion like '+'.
 
 ## Usage
 
