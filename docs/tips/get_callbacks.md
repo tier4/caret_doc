@@ -10,8 +10,8 @@ Callbacks information includes callback name, callback period[ns], callback type
 get_callbacks(self, *callback_names: str)
 ```
 
-- The 'get_callbacks()' gets callbacks that match the string.
-- The 'get_callbacks()' can contain '*' or '?' as regular expression. NOTE: User can't use other regular expresion like '+'.
+- The 'get_callbacks()' function gets callbacks that match the string.
+- The 'get_callbacks()' function can contain '*' or '?' as regular expression. NOTE: User can't use other regular expresion like '+'.
 
 ## Usage
 
