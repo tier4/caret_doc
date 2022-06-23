@@ -1,6 +1,6 @@
 # Using get_callbacks function
 
-CARET has a function that get callbacks information.
+The get_callbacks() is a function that gets callback information.
 Callbacks information includes callback name, callback period[ns], callback type.
 
 
@@ -10,8 +10,8 @@ Callbacks information includes callback name, callback period[ns], callback type
 get_callbacks(self, *callback_names: str)
 ```
 
-- The 'get_callbacks()' function gets callbacks that match the string.
-- The 'get_callbacks()' function can contain '*' or '?' as regular expression. NOTE: User can't use other regular expresion like '+'.
+- The 'get_callbacks()' function gets callbacks that match the argument string and callback name.
+- The 'get_callbacks()' function can contain '*' or '?' as regular expression. NOTE: The 'get_callbacks()' function can't use other regular expresion like '+'.
 
 ## Usage
 
@@ -23,4 +23,5 @@ callbacks2 = get_callbacks('timer_driven_node/callbacks_?')
 callbacks3 = get_callbacks('timer_driven_node/*')
 ```
 
-This function may print similar callbacks name when there is no match callbacks.
+The 'get_callbacks()' function warn if there is no match callbacks.
+The 'get_callbacks()' function may show similar callbacks name when there is no match callbacks.
