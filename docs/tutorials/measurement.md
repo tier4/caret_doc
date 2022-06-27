@@ -72,7 +72,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
 
    ```bash
    # In case there are packages to which CARET/rclcpp is not applied
-   $ ros2 caret check_caret_rclcpp -workspace ~/ros2_ws/
+   $ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
    WARNING : 2022-06-12 12:25:26 | The following packages have not been built using caret-rclcpp:
       demo_nodes_cpp
       caret_demos
