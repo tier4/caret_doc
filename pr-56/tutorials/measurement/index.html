@@ -1063,7 +1063,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
 <p>The following command allows you to check whether CARET/rclcpp is applied to each package.
  If caret/rclcpp is not applied to the package you want to measure, please check which rclcpp is used for the target and your workspace's environment variables.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># In case there are packages to which CARET/rclcpp is not applied</span>
-$ ros2 caret check_caret_rclcpp -workspace ~/ros2_ws/
+$ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
 WARNING : <span class="m">2022</span>-06-12 <span class="m">12</span>:25:26 <span class="p">|</span> The following packages have not been built using caret-rclcpp:
    demo_nodes_cpp
    caret_demos
