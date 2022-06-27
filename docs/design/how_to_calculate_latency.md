@@ -1,13 +1,10 @@
-# End-to-Endレイテンシの測定方法
-CARETでは通信レイテンシ（Pub/Subレイテンシ）とノードレイテンシを結びつけてE2Eレイテンシを算出しています。
-ここでは通信レイテンシとノードレイテンシの算出方法について説明します。
-
+# レイテンシの計算方法
 
 ## 通信レイテンシとノードレイテンシの算出方法
 
 以下は通信レイテンシとノードレイテンシを表した図です。
 
-![callback_and_node_latency](../imgs/callback_and_node_latency.png){ width="1000" }
+![callback_and_node_latency](../imgs/callback_and_node_latency.png)
 
 
 ### 通信レイテンシの算出方法
