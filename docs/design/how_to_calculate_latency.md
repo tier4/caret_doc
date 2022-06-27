@@ -6,6 +6,7 @@
 
 ![callback_and_node_latency](../imgs/callback_and_node_latency.png)
 
+ここでは通信レイテンシとノードレイテンシの算出方法について説明します。
 
 ### 通信レイテンシの算出方法
 
