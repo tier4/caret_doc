@@ -77,3 +77,84 @@ show(p)
 ```
 
 ![history_sample](../imgs/history_sample.png)
+
+## API to get information about each callback
+
+CARET can visualize the execution frequency, jitter, and latency per unit time for each callback and obtain them in the pandas DataFrame format.
+Examples in a sample program are shown in subsequent sections.
+In each example, the following commands are executed in advance.
+```python
+from caret_analyze import Architecture, Application, Lttng
+
+arch = Architecture('lttng', './e2e_sample')
+lttng = Lttng('./e2e_sample')
+app = Application(arch, lttng)
+```
+
+Please see [CARET analyze API document](https://tier4.github.io/CARET_analyze/latest/plot/) for details on the arguments of this API.
+
+### Execution frequency
+```python
+# get dataframe
+plot = Plot.create_callback_frequency_plot(app)
+
+frequency_df = plot.to_dataframe()
+frequency_df
+
+---Output in jupyter-notebook as below---
+```
+![callback_frequency_df](../imgs/callback_frequency_df.png)
+
+```python
+# show time-line
+plot = Plot.create_callback_frequency_plot(app)
+
+plot.show()
+
+---Output in jupyter-notebook as below---
+```
+![callback_frequency_time_line](../imgs/callback_frequency_time_line.png)
+
+### Jitter
+```python
+# get dataframe
+plot = Plot.create_callback_jitter_plot(app)
+
+jitter_df = plot.to_dataframe()
+jitter_df
+
+---Output in jupyter-notebook as below---
+```
+![callback_jitter_df](../imgs/callback_jitter_df.png)
+
+```python
+# show time-line
+plot = Plot.create_callback_jitter_plot(app)
+
+plot.show()
+
+---Output in jupyter-notebook as below---
+```
+![callback_jitter_time_line](../imgs/callback_jitter_time_line.png)
+
+### latency
+```python
+# get dataframe
+plot = Plot.create_callback_latency_plot(app)
+
+latency_df = plot.to_dataframe()
+latency_df
+
+---Output in jupyter-notebook as below---
+```
+![callback_latency_df](../imgs/callback_latency_df.png)
+
+```python
+# show time-line
+plot = Plot.create_callback_latency_plot(app)
+
+plot.show()
+
+---Output in jupyter-notebook as below---
+```
+![callback_latency_time_line](../imgs/callback_latency_time_line.png)
