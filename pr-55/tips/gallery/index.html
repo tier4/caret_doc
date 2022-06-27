@@ -680,7 +680,7 @@
         
           <li class="md-nav__item">
   <a href="#latency" class="md-nav__link">
-    latency
+    Latency
   </a>
   
 </li>
@@ -993,7 +993,7 @@
         
           <li class="md-nav__item">
   <a href="#latency" class="md-nav__link">
-    latency
+    Latency
   </a>
   
 </li>
@@ -1080,10 +1080,11 @@ treat_drop_as_delay=True とすると、メッセージロストを遅延とし�
 </code></pre></div>
 <p><img alt="history_sample" src="../../imgs/history_sample.png" /></p>
 <h2 id="api-to-get-information-about-each-callback">API to get information about each callback<a class="headerlink" href="#api-to-get-information-about-each-callback" title="Permanent link">#</a></h2>
-<p>CARET can visualize the execution frequency, jitter, and latency per unit time for each callback and obtain them in the pandas DataFrame format.
+<p>CARET can visualize the execution frequency, jitter, and latency per unit time for each callback and provide them in the pandas DataFrame format.
 Examples in a sample program are shown in subsequent sections.
 In each example, the following commands are executed in advance.
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
+<span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
 <span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
@@ -1097,7 +1098,7 @@ In each example, the following commands are executed in advance.
 <span class="n">frequency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 <span class="n">frequency_df</span>
 
-<span class="o">---</span><span class="n">Output</span> <span class="ow">in</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">notebook</span> <span class="k">as</span> <span class="n">below</span><span class="o">---</span>
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <img alt="callback_frequency_df" src="../../imgs/callback_frequency_df.png" /></p>
 <p><div class="highlight"><pre><span></span><code><span class="c1"># show time-line</span>
@@ -1105,7 +1106,7 @@ In each example, the following commands are executed in advance.
 
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="o">---</span><span class="n">Output</span> <span class="ow">in</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">notebook</span> <span class="k">as</span> <span class="n">below</span><span class="o">---</span>
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <img alt="callback_frequency_time_line" src="../../imgs/callback_frequency_time_line.png" /></p>
 <h3 id="jitter">Jitter<a class="headerlink" href="#jitter" title="Permanent link">#</a></h3>
@@ -1115,7 +1116,7 @@ In each example, the following commands are executed in advance.
 <span class="n">jitter_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 <span class="n">jitter_df</span>
 
-<span class="o">---</span><span class="n">Output</span> <span class="ow">in</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">notebook</span> <span class="k">as</span> <span class="n">below</span><span class="o">---</span>
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <img alt="callback_jitter_df" src="../../imgs/callback_jitter_df.png" /></p>
 <p><div class="highlight"><pre><span></span><code><span class="c1"># show time-line</span>
@@ -1123,17 +1124,17 @@ In each example, the following commands are executed in advance.
 
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="o">---</span><span class="n">Output</span> <span class="ow">in</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">notebook</span> <span class="k">as</span> <span class="n">below</span><span class="o">---</span>
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <img alt="callback_jitter_time_line" src="../../imgs/callback_jitter_time_line.png" /></p>
-<h3 id="latency">latency<a class="headerlink" href="#latency" title="Permanent link">#</a></h3>
+<h3 id="latency">Latency<a class="headerlink" href="#latency" title="Permanent link">#</a></h3>
 <p><div class="highlight"><pre><span></span><code><span class="c1"># get dataframe</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_latency_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 <span class="n">latency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 <span class="n">latency_df</span>
 
-<span class="o">---</span><span class="n">Output</span> <span class="ow">in</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">notebook</span> <span class="k">as</span> <span class="n">below</span><span class="o">---</span>
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <img alt="callback_latency_df" src="../../imgs/callback_latency_df.png" /></p>
 <p><div class="highlight"><pre><span></span><code><span class="c1"># show time-line</span>
@@ -1141,7 +1142,7 @@ In each example, the following commands are executed in advance.
 
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="o">---</span><span class="n">Output</span> <span class="ow">in</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">notebook</span> <span class="k">as</span> <span class="n">below</span><span class="o">---</span>
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <img alt="callback_latency_time_line" src="../../imgs/callback_latency_time_line.png" /></p>
 
