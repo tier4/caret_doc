@@ -11,6 +11,7 @@ get_callbacks(self, *callback_names: str)
 ```
 
 - The 'get_callbacks()' function gets callbacks that match the argument string and callback name.
+- If there is no match callbacks, The 'get_callbacks()' function warn and may show similar callbacks name when there is no match callbacks.
 - The 'get_callbacks()' function can contain '*' or '?' as regular expression. NOTE: The 'get_callbacks()' function can't use other regular expresion like '+'.
 
 ## Usage
@@ -22,6 +23,3 @@ callbacks1 = get_callbacks('timer_driven_node/callbacks_0')
 callbacks2 = get_callbacks('timer_driven_node/callbacks_?')
 callbacks3 = get_callbacks('timer_driven_node/*')
 ```
-
-The 'get_callbacks()' function warn if there is no match callbacks.
-The 'get_callbacks()' function may show similar callbacks name when there is no match callbacks.
