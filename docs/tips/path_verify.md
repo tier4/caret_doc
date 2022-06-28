@@ -25,7 +25,7 @@ path.verify()
 ## Check items
 - Check whether using caret-rclcpp [path.verify()]
 
-    Target applications need to be builded based on the rclcpp provided by CARET, not ROS 2.
+    Target applications need to be built based on the rclcpp provided by CARET, not ROS 2.
     The 'path.verify()' command checks the based rclcpp.
 
 
@@ -34,5 +34,5 @@ path.verify()
     WARNING : 2022-03-18 12:53:54 | 'caret/rclcpp' may not be used in subscriber of '/localization/pose_estimator/ndt_scan_matcher'.
     ```
 
-- Check that path elements have a message_context value
+- Check that path elements have valid message_context values
 
