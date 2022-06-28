@@ -1,10 +1,11 @@
 # Summary of trace data
 
-CARET provides CLI that displays the number of trace points for each node/topic and the number of trace points for each trace point in a table format from the trace data.
+CARET provides CLI that displays the number of trace points for each node/topic and the number of each trace point from the trace data.
 
 ## node/topic summary
 
-This CLI checks the number of trace points for each node/topic and prevents lost traces by [trace filtering](trace_filtering.md) unnecessary nodes/topics.
+This CLI displays the number of trace points for each node/topic from the trace data.
+To prevent lost traces, the number of trace points can be reduced by [trace filtering](trace_filtering.md) unnecessary nodes/topics based on the output results.
 Examples of command execution are shown below.
 
 ```bash
