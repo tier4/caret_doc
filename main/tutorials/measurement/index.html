@@ -1059,12 +1059,20 @@ When you execute a LTTng session in one terminal, you have to open another termi
 </code></pre></div>
 </li>
 <li>
-<p>Check whether the target uses CARET/rclcpp</p>
-<div class="highlight"><pre><span></span><code>ldd ~/ros2_ws/build/caret_demos/end_to_end_sample  <span class="p">|</span> grep rclcpp
+<p>Check whether CARET/rclcpp is applied to each package</p>
+<p>The following command allows you to check whether CARET/rclcpp is applied to each package.
+ If caret/rclcpp is not applied to the package you want to measure, please check which rclcpp is used for the target and your workspace's environment variables.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In case there are packages to which CARET/rclcpp is not applied</span>
+$ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+WARNING : <span class="m">2022</span>-06-12 <span class="m">12</span>:25:26 <span class="p">|</span> The following packages have not been built using caret-rclcpp:
+   demo_nodes_cpp
+   caret_demos
+   intra_process_demo
 
-<span class="c1"># librclcpp.so =&gt; /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so</span>
+<span class="c1"># In case CARET/rclcpp is applied to all packages</span>
+$ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+INFO    : <span class="m">2022</span>-06-12 <span class="m">12</span>:26:49 <span class="p">|</span> All packages are built using caret-rclcpp.
 </code></pre></div>
-<p>if you confronted with another result, please check which rclcpp is used for the target and your workspace's environment variables.</p>
 </li>
 <li>
 <p>Set <code>LD_PRELOAD</code> for adding tracepoints provided by function hook</p>
