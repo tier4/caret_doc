@@ -65,15 +65,23 @@ When you execute a LTTng session in one terminal, you have to open another termi
    source ~/ros2_ws/install/local_setup.bash
    ```
 
-2. Check whether the target uses CARET/rclcpp
+2. Check whether CARET/rclcpp is applied to each package
+   
+   The following command allows you to check whether CARET/rclcpp is applied to each package.
+   If caret/rclcpp is not applied to the package you want to measure, please check which rclcpp is used for the target and your workspace's environment variables.
 
    ```bash
-   ldd ~/ros2_ws/build/caret_demos/end_to_end_sample  | grep rclcpp
+   # In case there are packages to which CARET/rclcpp is not applied
+   $ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+   WARNING : 2022-06-12 12:25:26 | The following packages have not been built using caret-rclcpp:
+      demo_nodes_cpp
+      caret_demos
+      intra_process_demo
 
-   # librclcpp.so => /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so
+   # In case CARET/rclcpp is applied to all packages
+   $ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+   INFO    : 2022-06-12 12:26:49 | All packages are built using caret-rclcpp.
    ```
-
-   if you confronted with another result, please check which rclcpp is used for the target and your workspace's environment variables.
 
 3. Set `LD_PRELOAD` for adding tracepoints provided by function hook
 
