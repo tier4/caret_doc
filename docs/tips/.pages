@@ -6,8 +6,14 @@ nav:
     - コールバックグラフの説明: about_callback_graph.md
     - トレースフィルタリング: trace_filtering.md
     - ツール利用時の制約: limits.md
-    - 通信レイテンシについて: about_communication_latency.md
+    - パスの探索方法: how_to_search_path.md
+    - treat_drop_as_delayフラグの説明: about_treat_drop_as_delay.md
+    - アーキテクチャファイルフォーマット: architecture_format.md
+    - Lttngセッションの開始方法: how_to_run_lttng_session.md
+    - ノードレイテンシの算出方法の指定: how_to_write_architecture.md
+    - LTTngEventFilterの使用方法: lttng_event_filter.md
     - トラブルシューティング: trouble_shooting.md
     - sim_timeでの時系列データ評価: use_sim_time.md
     - Manual Installation: manual_installation.md
+    - Path Verification: path_verify.md
     - how to use get_callbacks(): get_callbacks.md
