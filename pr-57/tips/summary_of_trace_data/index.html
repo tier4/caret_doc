@@ -942,10 +942,10 @@
 
 
 <h1 id="summary-of-trace-data">Summary of trace data<a class="headerlink" href="#summary-of-trace-data" title="Permanent link">#</a></h1>
-<p>CARET provides CLI that displays the number of trace points for each node/topic and the number of each trace point from the trace data.</p>
+<p>CARET provides CLI that displays the number of tracepoints for each node/topic/tracepoint from the trace data.</p>
 <h2 id="nodetopic-summary">node/topic summary<a class="headerlink" href="#nodetopic-summary" title="Permanent link">#</a></h2>
-<p>This CLI displays the number of trace points for each node/topic from the trace data.
-To prevent lost traces, the number of trace points can be reduced by <a href="../trace_filtering/">trace filtering</a> unnecessary nodes/topics based on the output results.
+<p>This CLI displays the number of tracepoints for each node/topic.
+To prevent lost traces, the number of trace points can be reduced by <a href="../trace_filtering/">trace filtering</a> unnecessary nodes/topics based on output results.
 Examples of command execution are shown below.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the number of trace points for each node</span>
 $ ros2 caret node_summary -d ~/ros2_ws/evaluate/e2e_sample/
@@ -978,7 +978,7 @@ unkown            <span class="p">|</span>                      <span class="m">
 /rosout           <span class="p">|</span>                        <span class="m">6</span>
 </code></pre></div>
 <h2 id="tracepoint-summary">tracepoint summary<a class="headerlink" href="#tracepoint-summary" title="Permanent link">#</a></h2>
-<p>The following command allows you to see all trace points included in the trace data and the number of each trace point.</p>
+<p>The following command allows you to see all tracepoints included in the trace data and the number of each tracepoint.</p>
 <div class="highlight"><pre><span></span><code>$ ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/
 
  trace_point                                       <span class="p">|</span>   number_of_trace_points
