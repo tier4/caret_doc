@@ -16,3 +16,4 @@ nav:
     - sim_timeでの時系列データ評価: use_sim_time.md
     - Manual Installation: manual_installation.md
     - Summary of trace data: summary_of_trace_data.md
+    - Path Verification: path_verify.md
