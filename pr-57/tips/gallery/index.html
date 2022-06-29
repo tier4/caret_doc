@@ -577,6 +577,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4">
@@ -654,6 +656,47 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     レイテンシのヒストグラム
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-to-get-information-about-each-callback" class="md-nav__link">
+    API to get information about each callback
+  </a>
+  
+    <nav class="md-nav" aria-label="API to get information about each callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-frequency" class="md-nav__link">
+    Execution frequency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jitter" class="md-nav__link">
+    Jitter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latency" class="md-nav__link">
+    Latency
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callback-scheduling-visualization" class="md-nav__link">
+    Callback Scheduling Visualization
   </a>
   
 </li>
@@ -891,6 +934,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../path_verify/" class="md-nav__link">
+        Path Verification
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -947,6 +1004,47 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     レイテンシのヒストグラム
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-to-get-information-about-each-callback" class="md-nav__link">
+    API to get information about each callback
+  </a>
+  
+    <nav class="md-nav" aria-label="API to get information about each callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-frequency" class="md-nav__link">
+    Execution frequency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jitter" class="md-nav__link">
+    Jitter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latency" class="md-nav__link">
+    Latency
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callback-scheduling-visualization" class="md-nav__link">
+    Callback Scheduling Visualization
   </a>
   
 </li>
@@ -1027,6 +1125,103 @@ treat_drop_as_delay=True とすると、メッセージロストを遅延とし�
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 <p><img alt="history_sample" src="../../imgs/history_sample.png" /></p>
+<h2 id="api-to-get-information-about-each-callback">API to get information about each callback<a class="headerlink" href="#api-to-get-information-about-each-callback" title="Permanent link">#</a></h2>
+<p>CARET can visualize the execution frequency, jitter, and latency per unit time for each callback and provide them in the pandas DataFrame format.
+Examples in a sample program are shown in subsequent sections.
+In each example, the following commands are executed in advance.
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
+<span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
+
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Please see <a href="https://tier4.github.io/CARET_analyze/latest/plot/">CARET analyze API document</a> for details on the arguments of this API.</p>
+<h3 id="execution-frequency">Execution frequency<a class="headerlink" href="#execution-frequency" title="Permanent link">#</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># get dataframe</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_frequency_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="n">frequency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">frequency_df</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<img alt="callback_frequency_df" src="../../imgs/callback_frequency_df.png" /></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># show time-line</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_frequency_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<img alt="callback_frequency_time_line" src="../../imgs/callback_frequency_time_line.png" /></p>
+<h3 id="jitter">Jitter<a class="headerlink" href="#jitter" title="Permanent link">#</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># get dataframe</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_jitter_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="n">jitter_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">jitter_df</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<img alt="callback_jitter_df" src="../../imgs/callback_jitter_df.png" /></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># show time-line</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_jitter_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<img alt="callback_jitter_time_line" src="../../imgs/callback_jitter_time_line.png" /></p>
+<h3 id="latency">Latency<a class="headerlink" href="#latency" title="Permanent link">#</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># get dataframe</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_latency_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="n">latency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">latency_df</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<img alt="callback_latency_df" src="../../imgs/callback_latency_df.png" /></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># show time-line</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_latency_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<img alt="callback_latency_time_line" src="../../imgs/callback_latency_time_line.png" /></p>
+<h2 id="callback-scheduling-visualization">Callback Scheduling Visualization<a class="headerlink" href="#callback-scheduling-visualization" title="Permanent link">#</a></h2>
+<p>Callback Scheduling Visualization can visualize the callback scheduling of targets such as a Node, Executor, and Callbackgroup.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
+<span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">callback_sched</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
+<span class="c1"># traget: node </span>
+<span class="n">node</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node_name&#39;</span><span class="p">)</span> <span class="c1"># get node object</span>
+<span class="n">callback_sched</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="c1"># traget: executor </span>
+<span class="n">executor</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_executor</span><span class="p">(</span><span class="s1">&#39;executor_name&#39;</span><span class="p">)</span> <span class="c1"># get executor object</span>
+<span class="n">callback_sched</span><span class="p">(</span><span class="n">executor</span><span class="p">)</span>
+<span class="c1"># traget: executor </span>
+<span class="n">cbg</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback_group</span><span class="p">(</span><span class="s1">&#39;cbg_name&#39;</span><span class="p">)</span> <span class="c1"># get callback group object</span>
+<span class="n">callback_sched</span><span class="p">(</span><span class="n">cbg</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="Callback_Scheduling_Visualization_sample" src="../../imgs/callback_sched_sample.png" /></p>
+<ul>
+<li>Callback Scheduling Visualization<ul>
+<li>The short rectangular indicates the callback execution time.</li>
+<li>When the mouse cursor hovers over the long rectangular, a tooltip containing information about the callback will be displayed.</li>
+</ul>
+</li>
+<li>Timer Event Visualization<ul>
+<li>The arrow location is the timer callback event start time.</li>
+<li>When the execution of the timer callback is delayed, a red arrow is displayed; for normal execution, it is marked with a white arrow.</li>
+<li>If the difference between the timer event fires and the timer callback starts exceeds 5 ms, the callback execution is considered to be delayed.</li>
+</ul>
+</li>
+</ul>
 
               
             </article>
