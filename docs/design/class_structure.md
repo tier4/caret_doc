@@ -1,6 +1,6 @@
 ```plantuml
 class Application {
-	+ [[https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.application.Application.get_callback get_callback(callback_name: int) Callback]]
+    + get_callback(callback_name: int) Callback [[[https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.application.Application.get_callback]]]
 }
 class Callback
 class Node
