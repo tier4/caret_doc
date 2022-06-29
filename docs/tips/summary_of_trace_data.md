@@ -1,11 +1,11 @@
 # Summary of trace data
 
-CARET provides CLI that displays the number of trace points for each node/topic and the number of each trace point from the trace data.
+CARET provides CLI that displays the number of tracepoints for each node/topic/tracepoint from the trace data.
 
 ## node/topic summary
 
-This CLI displays the number of trace points for each node/topic from the trace data.
-To prevent lost traces, the number of trace points can be reduced by [trace filtering](trace_filtering.md) unnecessary nodes/topics based on the output results.
+This CLI displays the number of tracepoints for each node/topic.
+To prevent lost traces, the number of trace points can be reduced by [trace filtering](trace_filtering.md) unnecessary nodes/topics based on output results.
 Examples of command execution are shown below.
 
 ```bash
@@ -42,7 +42,7 @@ unkown            |                      691
 
 ## tracepoint summary
 
-The following command allows you to see all trace points included in the trace data and the number of each trace point.
+The following command allows you to see all tracepoints included in the trace data and the number of each tracepoint.
 
 ```bash
 $ ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/
