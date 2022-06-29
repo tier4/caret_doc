@@ -15,5 +15,4 @@ nav:
     - トラブルシューティング: trouble_shooting.md
     - sim_timeでの時系列データ評価: use_sim_time.md
     - Manual Installation: manual_installation.md
-    - Path Verification: path_verify.md
     - how to use get_callbacks(): get_callbacks.md
