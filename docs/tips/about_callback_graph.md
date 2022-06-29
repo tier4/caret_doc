@@ -1,29 +1,18 @@
-# コールバックグラフについて
-
-ROS のアプリケーションは一般的にノードのグラフで記述され、それに伴いノード単位のレイテンシ（ノードレイテンシ）を把握したいケースが生じます。
-しかしながら、一つのノードにコールバックが複数存在するケースでは、ノードレイテンシを考えた際に不都合が生じます。
-
-![callback_graph](../imgs/callback_graph.png)
-
-上図は、 /lidar と /camera トピックをサブスクライブし、その２つの情報を統合したメッセージを /fusion にパブリッシュする TargetNode を例として示しています。
-/lidar のコールバックでは、メンバ変数にメッセージを格納し、/camera コールバック内で統合させています。
-※ CARET では 、変数を経由したコールバック間のメッセージ渡しを Variable Passing と呼び、アーキテクチャファイルへ記述させています。
-
-この時、 TargetNode のレイテンシは次の２つが考えられます。
-
-- コールバック C → コールバック D（/lidar トピック → /fusion トピックのパス）
-- コールバック D（/camera トピック → /fusion トピックのパス）
-
-このような一つのノードに複数コールバックが存在ケースでは、指定するパス毎にノードレイテンシを構成するコールバックが異なります。
-そのため、 CARET では ROS のアプリケーションをコールバックグラフとして記述しています。
-
-> ノード・コールバックの整理
->
-> A node is an executable that uses ROS to communicate with other nodes.  
-> (<http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes> より引用)
->
-> と言われているように、ノードは実行可能な単位です。  
-> 一方で、コールバックはスケジューリングされるタスクの単位として捉えることができます。  
-> 特に ROS 2 の場合、SingleThreadedExecutor を始めとするエグゼキュータが複数存在し、  
-> スレッド数の違いだけでなく、コールバックの実行順序が異なります。  
-> 性能を評価する上では、何のノードが何のエグゼキュータで実行されていたかも重要な観点です。
+nav:
+    - ギャラリー: gallery.md
+    - パスのレイテンシの定義: latency_definition.md
+    - ノードレイテンシの定義: node_latency_definition.md
+    - 通信レイテンシの定義: communication_latency_definition.md
+    - コールバックグラフの説明: about_callback_graph.md
+    - トレースフィルタリング: trace_filtering.md
+    - ツール利用時の制約: limits.md
+    - パスの探索方法: how_to_search_path.md
+    - treat_drop_as_delayフラグの説明: about_treat_drop_as_delay.md
+    - アーキテクチャファイルフォーマット: architecture_format.md
+    - Lttngセッションの開始方法: how_to_run_lttng_session.md
+    - ノードレイテンシの算出方法の指定: how_to_write_architecture.md
+    - LTTngEventFilterの使用方法: lttng_event_filter.md
+    - トラブルシューティング: trouble_shooting.md
+    - sim_timeでの時系列データ評価: use_sim_time.md
+    - Manual Installation: manual_installation.md
+    - Path Verification: path_verify.md
