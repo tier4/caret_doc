@@ -10,7 +10,7 @@ CARET provides a ROS-friendly class structure that allows the following classes 
 - Subscription
 - Timer
 
-Please refer to the API documentation (https://tier4.github.io/CARET_analyze/latest/) for information on what information can be obtained the target class.
+Please refer to the [API documentation](https://tier4.github.io/CARET_analyze/latest/) for information on what information can be obtained the target class.
 
 This section describes how to obtain the targeted class.
 
