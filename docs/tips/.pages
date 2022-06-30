@@ -17,7 +17,4 @@ nav:
     - Manual Installation: manual_installation.md
     - Summary of trace data: summary_of_trace_data.md
     - Path Verification: path_verify.md
-<<<<<<< kuboichi_doc
     - Detailed Behavior Investigation Methods: get_callbacks.md
-=======
->>>>>>> main
