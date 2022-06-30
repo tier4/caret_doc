@@ -21,11 +21,12 @@ The 'get_callback()' is a funtion that returns callback information such as call
 ## API
 
 ```python
-get_callback(self, callback_name: str) -> CallbackBase
+def get_callback(self, callback_name: str) -> CallbackBase
 ```
 
 - The 'get_callback()' function returns single callback that match the argument string and callback name.
-If no matching callbacks are found, get_callback raises a exception.
+    - callback name defined in architecture file.
+- If no matching callbacks are found, get_callback raises a exception.
 
 ## Usage
 
@@ -46,12 +47,12 @@ Callbacks information includes callback name, callback period[ns], callback type
 ## API
 
 ```python
-get_callbacks(self, *callback_names: str) -> List[CallbackBase]
+def get_callbacks(self, *callback_names: str) -> List[CallbackBase]
 ```
 
 - The 'get_callbacks()' function gets callbacks that match the argument string and callback name.
     - callback name defined in architecture file.
-- If concrete callback names are given and there is no match callbacks, The 'get_callbacks()' function warns and may notify similar callbacks name when there is no match callbacks.
+- If concrete callback names are given and there is no match callbacks, The 'get_callbacks()' function warns and may notify similar callbacks name.
 - The 'get_callbacks()' function can recognize UNIX filename pattern such as '*' or '?'.
 - If patterns are given, get_callbacks doesn't raise any exception, and returns empty list.
 
