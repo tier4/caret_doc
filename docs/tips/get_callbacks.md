@@ -10,31 +10,30 @@ CARET provides a ROS-friendly class structure that allows the following classes 
 - Subscription
 - Timer
 
-Please refer to the API documentation (link) for information on what information can be obtained from each class.
+Please refer to the API documentation (https://tier4.github.io/CARET_analyze/latest/) for information on what information can be obtained the target class.
 
 This section describes how to obtain the targeted class.
 
 ## Description of get_callback
 
-The 'get_callback()' funtion that gets callback information
-Callbacks information includes callback name, callback period[ns], callback type.
+The 'get_callback()' is a funtion that returns callback information such as callback name, callback period[ns], callback type.
 
 ## API
 
 ```python
-get_callback(self, callback_names: str)
+get_callback(self, callback_name: str) -> CallbackBase
 ```
 
-- The 'get_callbacks()' function gets callbacks that match the argument string and callback name.
-    - callback name defined in architecture file.
+- The 'get_callback()' function returns single callback that match the argument string and callback name.
+If no matching callbacks are found, get_callback raises a exception.
 
 ## Usage
 
 ```python
 from caret_analyze import Architecture, Application, Lttng
 
-callbacks1 = app.get_callback('timer_driven_node/callbacks_0')
-callbacks2 = app.get_callback('timer_driven_node/callbacks_1')
+callback1 = app.get_callback('timer_driven_node/callback_0')
+callback2 = app.get_callback('timer_driven_node/callback_1')
 ```
 
 
@@ -47,20 +46,21 @@ Callbacks information includes callback name, callback period[ns], callback type
 ## API
 
 ```python
-get_callbacks(self, *callback_names: str)
+get_callbacks(self, *callback_names: str) -> List[CallbackBase]
 ```
 
 - The 'get_callbacks()' function gets callbacks that match the argument string and callback name.
     - callback name defined in architecture file.
-- If there is no match callbacks, The 'get_callbacks()' function warn and may show similar callbacks name when there is no match callbacks.
-- The 'get_callbacks()' function can contain '*' or '?' as regular expression. NOTE: The 'get_callbacks()' function can't use other Unix filename pattern matching like '+'.
+- If concrete callback names are given and there is no match callbacks, The 'get_callbacks()' function warns and may notify similar callbacks name when there is no match callbacks.
+- The 'get_callbacks()' function can recognize UNIX filename pattern such as '*' or '?'.
+- If patterns are given, get_callbacks doesn't raise any exception, and returns empty list.
 
 ## Usage
 
 ```python
 from caret_analyze import Architecture, Application, Lttng
 
-callbacks1 = app.get_callbacks('timer_driven_node/callbacks_0')
-callbacks2 = app.get_callbacks('timer_driven_node/callbacks_?')
-callbacks3 = app.get_callbacks('timer_driven_node/*')
+callback1 = app.get_callbacks('timer_driven_node/callback_0')
+callback2 = app.get_callbacks('timer_driven_node/callback_?')
+callback3 = app.get_callbacks('timer_driven_node/*')
 ```
