@@ -665,6 +665,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4">
@@ -909,6 +911,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../tips/summary_of_trace_data/" class="md-nav__link">
+        Summary of trace data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../tips/path_verify/" class="md-nav__link">
         Path Verification
       </a>
@@ -1061,6 +1077,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># with &quot;-s&quot; option, you can give session name</span>
 <span class="c1"># the trac data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
 </code></pre></div>
+<p>Note that if you execute the target application before executing LTTng session will result in a lack of trace points.</p>
 <p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../tips/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by <code>ros2 launch</code> is a reasonable way to apply CARET repeatedly.</p>
 <h3 id="launching-the-target-application">Launching the target application<a class="headerlink" href="#launching-the-target-application" title="Permanent link">#</a></h3>
@@ -1117,58 +1134,30 @@ INFO    : <span class="m">2022</span>-06-12 <span class="m">12</span>:26:49 <spa
 </li>
 </ol>
 <h2 id="validating-trace-data-briefly">Validating trace data briefly<a class="headerlink" href="#validating-trace-data-briefly" title="Permanent link">#</a></h2>
-<p>You can check whether tracing is successful or not with <code>babeltrace</code> command before analyzing trace data.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># To check which tracepoints are captured as trace data</span>
-$ babeltrace ~/ros2_ws/evaluate/e2e_sample/ <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u
-ros2:callback_end:
-ros2:callback_start:
-ros2:dispatch_subscription_callback:
-ros2:rcl_init:
-ros2:rcl_node_init:
-ros2:rcl_publish:
-ros2:rcl_publisher_init:
-ros2:rcl_service_init:
-ros2:rcl_subscription_init:
-ros2:rcl_timer_init:
-ros2:rclcpp_callback_register:
-ros2:rclcpp_publish:
-ros2:rclcpp_service_callback_added:
-ros2:rclcpp_subscription_callback_added:
-ros2:rclcpp_subscription_init:
-ros2:rclcpp_timer_callback_added:
-ros2:rclcpp_timer_link_node:
-ros2_caret:add_callback_group:
-ros2_caret:callback_group_add_service:
-ros2_caret:callback_group_add_subscription:
-ros2_caret:callback_group_add_timer:
-ros2_caret:construct_executor:
-ros2_caret:dds_bind_addr_to_stamp:
-ros2_caret:dds_write:
-ros2_caret:rmw_implementation:
+<p>You can check whether tracing is successful or not with <code>ros2 caret check_ctf</code> command before analyzing trace data.</p>
+<div class="highlight"><pre><span></span><code>$ ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
+
+<span class="c1"># If there are problems with the trace data, warnings will be displayed.</span>
 </code></pre></div>
-<p>If there is loss of captured tracepoints, suspects the following.</p>
-<ul>
-<li>Outstandingly loss of <code>*_init</code> tracepoints<ul>
-<li>To avoid this, start LTTng session before your application is executed</li>
-</ul>
-</li>
-<li>Loss of <code>ros2_caret:*</code> tracepoints<ul>
-<li>Check whether CARET/rclcpp is applied or not</li>
-</ul>
-</li>
-</ul>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Executing the <code>ros2 caret check_ctf</code> command for long trace data or trace data of a large application takes a long time to complete execution.
+  Therefore, it is recommended to first execute the <code>ros2 caret check_ctf</code> command on a short duration of trace data to check the correctness of the settings before tracing for a longer duration of time.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h3 id="tracer-discarded-error">Tracer discarded error<a class="headerlink" href="#tracer-discarded-error" title="Permanent link">#</a></h3>
 <p><code>Tracer discarded</code> will be observed in some case, especially when applying CARET to a large application. If you find this error, CARET has failed in sampling tracepoints.</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>warning<span class="o">]</span> Tracer discarded <span class="m">328</span> events between <span class="o">[</span><span class="m">10</span>:46:15.566916889<span class="o">]</span> and <span class="o">[</span><span class="m">10</span>:46:15.620323777<span class="o">]</span>
-<span class="k">in</span> trace UUID 353a72bc12d4bcc85c9158dd8f88ef9, at path: <span class="s2">&quot;end_to_end_sample/ust/uid/10368/64-bit&quot;</span>,
-within stream id <span class="m">0</span>, at relative path: <span class="s2">&quot;ros2_3&quot;</span>.
-You should consider recording a new trace with larger buffers or with fewer events enabled.
+<div class="highlight"><pre><span></span><code>WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:08 <span class="p">|</span> Tracer discarded <span class="m">42</span> events between <span class="m">1650854449589056449</span> and <span class="m">1650854449603217243</span>.
+WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <span class="p">|</span> Tracer discarded <span class="m">29</span> events between <span class="m">1650854463006767890</span> and <span class="m">1650854463024865609</span>.
+WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <span class="p">|</span> Tracer discarded <span class="m">12</span> events between <span class="m">1650854463026376513</span> and <span class="m">1650854463044841704</span>.
 </code></pre></div>
 <p>LTTng session collects sampling data generated by tracepoints. Sampling data are stored into ring-buffer as explained <a href="https://lttng.org/man/7/lttng-concepts/v2.13/#doc-channel">LTTng documents</a>. After a piece of ring-buffer is occupied, sampling data is stored into next empty piece while the occupied piece is copied to file. If there is no room to store sampling data in all pieces of ring-buffer, sampling data will be discarded.</p>
 <p>You can avoid this error with the following two approach.</p>
 <ul>
 <li>to filter topics and nodes which can be ignored with trace filtering explained in the previous section<ul>
 <li>especially, filtering highly-frequent nodes and topics is effective</li>
+<li>highly-frequent nodes/topics can be identified by checking the <a href="../../tips/summary_of_trace_data/">summary of trace data</a></li>
 </ul>
 </li>
 <li>to increase size of ring buffer defined in <a href="https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F"><code>lttng_impl.py</code></a></li>
