@@ -51,11 +51,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-60/tips/get_callbacks/</loc>
-         <lastmod>2022-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-60/tips/how_to_run_lttng_session/</loc>
          <lastmod>2022-06-30</lastmod>
          <changefreq>daily</changefreq>
@@ -67,6 +62,11 @@
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-60/tips/how_to_write_architecture/</loc>
+         <lastmod>2022-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-60/tips/investigate_behavior/</loc>
          <lastmod>2022-06-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
