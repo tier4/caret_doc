@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/tutorials/measurement/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/tips/summary_of_trace_data/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
     
     
       
-        <title>Measurement - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Summary of trace data - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#measurement-and-tracing-with-caret" class="md-skip">
+        <a href="#summary-of-trace-data" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Measurement
+              Summary of trace data
             
           </span>
         </div>
@@ -213,15 +213,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../installation/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../tutorials/installation/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -247,13 +245,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../tips/gallery/" class="md-tabs__link">
+      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
         Tips
       </a>
     </li>
@@ -331,14 +331,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -371,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../tutorials/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -383,99 +381,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Measurement
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorials/measurement/" class="md-nav__link">
         Measurement
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#building-application-with-caret" class="md-nav__link">
-    Building application with CARET
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tracing-the-sample-application-with-caret" class="md-nav__link">
-    Tracing the sample application with CARET
-  </a>
-  
-    <nav class="md-nav" aria-label="Tracing the sample application with CARET">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#starting-lttng-session" class="md-nav__link">
-    Starting LTTng session
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#launching-the-target-application" class="md-nav__link">
-    Launching the target application
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validating-trace-data-briefly" class="md-nav__link">
-    Validating trace data briefly
-  </a>
-  
-    <nav class="md-nav" aria-label="Validating trace data briefly">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tracer-discarded-error" class="md-nav__link">
-    Tracer discarded error
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -487,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
+      <a href="../../tutorials/configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -501,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visualization/" class="md-nav__link">
+      <a href="../../tutorials/visualization/" class="md-nav__link">
         Visualization
       </a>
     </li>
@@ -621,12 +531,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -687,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/gallery/" class="md-nav__link">
+      <a href="../gallery/" class="md-nav__link">
         ギャラリー
       </a>
     </li>
@@ -701,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/latency_definition/" class="md-nav__link">
+      <a href="../latency_definition/" class="md-nav__link">
         パスのレイテンシの定義
       </a>
     </li>
@@ -715,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/node_latency_definition/" class="md-nav__link">
+      <a href="../node_latency_definition/" class="md-nav__link">
         ノードレイテンシの定義
       </a>
     </li>
@@ -729,7 +641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/communication_latency_definition/" class="md-nav__link">
+      <a href="../communication_latency_definition/" class="md-nav__link">
         通信レイテンシの定義
       </a>
     </li>
@@ -743,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/about_callback_graph/" class="md-nav__link">
+      <a href="../about_callback_graph/" class="md-nav__link">
         コールバックグラフの説明
       </a>
     </li>
@@ -757,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/trace_filtering/" class="md-nav__link">
+      <a href="../trace_filtering/" class="md-nav__link">
         トレースフィルタリング
       </a>
     </li>
@@ -771,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/limits/" class="md-nav__link">
+      <a href="../limits/" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -785,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/how_to_search_path/" class="md-nav__link">
+      <a href="../how_to_search_path/" class="md-nav__link">
         パスの探索方法
       </a>
     </li>
@@ -799,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/about_treat_drop_as_delay/" class="md-nav__link">
+      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
         treat_drop_as_delayフラグの説明
       </a>
     </li>
@@ -813,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/architecture_format/" class="md-nav__link">
+      <a href="../architecture_format/" class="md-nav__link">
         アーキテクチャファイルフォーマット
       </a>
     </li>
@@ -827,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/how_to_run_lttng_session/" class="md-nav__link">
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
         Lttngセッションの開始方法
       </a>
     </li>
@@ -841,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/how_to_write_architecture/" class="md-nav__link">
+      <a href="../how_to_write_architecture/" class="md-nav__link">
         ノードレイテンシの算出方法の指定
       </a>
     </li>
@@ -855,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/lttng_event_filter/" class="md-nav__link">
+      <a href="../lttng_event_filter/" class="md-nav__link">
         LTTngEventFilterの使用方法
       </a>
     </li>
@@ -869,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/trouble_shooting/" class="md-nav__link">
+      <a href="../trouble_shooting/" class="md-nav__link">
         トラブルシューティング
       </a>
     </li>
@@ -883,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/use_sim_time/" class="md-nav__link">
+      <a href="../use_sim_time/" class="md-nav__link">
         sim_timeでの時系列データ評価
       </a>
     </li>
@@ -897,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/manual_installation/" class="md-nav__link">
+      <a href="../manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -909,11 +821,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../tips/summary_of_trace_data/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Summary of trace data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Summary of trace data
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nodetopic-summary" class="md-nav__link">
+    node/topic summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracepoint-summary" class="md-nav__link">
+    tracepoint summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -925,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/path_verify/" class="md-nav__link">
+      <a href="../path_verify/" class="md-nav__link">
         Path Verification
       </a>
     </li>
@@ -966,56 +926,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#building-application-with-caret" class="md-nav__link">
-    Building application with CARET
+  <a href="#nodetopic-summary" class="md-nav__link">
+    node/topic summary
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tracing-the-sample-application-with-caret" class="md-nav__link">
-    Tracing the sample application with CARET
+  <a href="#tracepoint-summary" class="md-nav__link">
+    tracepoint summary
   </a>
-  
-    <nav class="md-nav" aria-label="Tracing the sample application with CARET">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#starting-lttng-session" class="md-nav__link">
-    Starting LTTng session
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#launching-the-target-application" class="md-nav__link">
-    Launching the target application
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validating-trace-data-briefly" class="md-nav__link">
-    Validating trace data briefly
-  </a>
-  
-    <nav class="md-nav" aria-label="Validating trace data briefly">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tracer-discarded-error" class="md-nav__link">
-    Tracer discarded error
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1031,137 +951,97 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/tutorials/measurement.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/tips/summary_of_trace_data.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="measurement-and-tracing-with-caret">Measurement and Tracing with CARET<a class="headerlink" href="#measurement-and-tracing-with-caret" title="Permanent link">#</a></h1>
-<p>This page explains usage of CARET with a sample application.
-The sample application is located on <a href="https://github.com/tier4/CARET_demos.git">CARET_demos</a> repository.</p>
-<h2 id="building-application-with-caret">Building application with CARET<a class="headerlink" href="#building-application-with-caret" title="Permanent link">#</a></h2>
-<p>To trace a target application, the target should be built with CARET/rclcpp. CARET/rclcpp is a fork of <a href="https://github.com/ros2/rclcpp">ROS 2-based rclcpp</a> which has some additional tracepoints defined by CARET. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again.</p>
-<p>For building the application with CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as shown below.</p>
-<div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/src
-<span class="nb">cd</span> ~/ros2_ws
+<h1 id="summary-of-trace-data">Summary of trace data<a class="headerlink" href="#summary-of-trace-data" title="Permanent link">#</a></h1>
+<p>CARET provides CLI that displays the number of tracepoints for each node/topic/tracepoint from the trace data.</p>
+<h2 id="nodetopic-summary">node/topic summary<a class="headerlink" href="#nodetopic-summary" title="Permanent link">#</a></h2>
+<p>This CLI displays the number of tracepoints for each node/topic.
+To prevent lost traces, the number of trace points can be reduced by <a href="../trace_filtering/">trace filtering</a> unnecessary nodes/topics based on output results.
+Examples of command execution are shown below.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display the number of trace points for each node</span>
+$ ros2 caret node_summary -d ~/ros2_ws/evaluate/e2e_sample/
 
-git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
-<span class="nb">source</span> /opt/ros/galactic/setup.bash
-<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash <span class="c1"># please keep the order after &#39;source /opt/ros/galactic/setup.bash&#39;</span>
+---Output text as below---
 
-colcon build --symlink-install --packages-up-to caret_demos
-</code></pre></div>
-<p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Reason to build the target with CARET/rclcpp is explained here.<br />
-  Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to trace a target application.<br />
-  In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.<br />
-  Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.<br />
-  If you want to trace such pre-build packages, please build them again from source code.</p>
-</div>
-<p><prettier-ignore-end></p>
-<h2 id="tracing-the-sample-application-with-caret">Tracing the sample application with CARET<a class="headerlink" href="#tracing-the-sample-application-with-caret" title="Permanent link">#</a></h2>
-<h3 id="starting-lttng-session">Starting LTTng session<a class="headerlink" href="#starting-lttng-session" title="Permanent link">#</a></h3>
-<p>CARET depends on LTTng for tracing applications. LTTng session has to be executed while a target application runs.
-You can execute LTTng session, for CARET, with a simple command interface as well as ros2-tracing.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/galactic/setup.bash
+node_name            <span class="p">|</span>   number_of_trace_points
+---------------------+--------------------------
+/message_driven_node <span class="p">|</span>                      <span class="m">600</span>
+/timer_driven_node   <span class="p">|</span>                      <span class="m">535</span>
+/drive_node          <span class="p">|</span>                      <span class="m">373</span>
+/filter_node         <span class="p">|</span>                      <span class="m">371</span>
+/sensor_dummy_node   <span class="p">|</span>                      <span class="m">371</span>
+/actuator_dummy_node <span class="p">|</span>                      <span class="m">200</span>
+unkown               <span class="p">|</span>                       <span class="m">16</span>
 
-<span class="c1"># set a destination directory. ~/.ros/tracing is default.</span>
-mkdir -p ~/ros2_ws/evaluate
-<span class="nb">export</span> <span class="nv">ROS_TRACE_DIR</span><span class="o">=</span>~/ros2_ws/evaluate
-ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
-<span class="c1"># Start session with pressing Enter key</span>
+<span class="c1"># Display the number of trace points for each topic</span>
+$ ros2 caret topic_summary -d ~/ros2_ws/evaluate/e2e_sample/
 
-<span class="c1"># with &quot;-s&quot; option, you can give session name</span>
-<span class="c1"># the trac data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
-</code></pre></div>
-<p>Note that if you execute the target application before executing LTTng session will result in a lack of trace points.</p>
-<p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../tips/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
-When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by <code>ros2 launch</code> is a reasonable way to apply CARET repeatedly.</p>
-<h3 id="launching-the-target-application">Launching the target application<a class="headerlink" href="#launching-the-target-application" title="Permanent link">#</a></h3>
-<ol>
-<li>
-<p>Open new terminal and run the target as shown in the following</p>
-<p>On the new terminal, as the target refers to CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># keep the order as below</span>
-<span class="nb">source</span> /opt/ros/galactic/setup.bash
-<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
-<span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
-</code></pre></div>
-</li>
-<li>
-<p>Check whether CARET/rclcpp is applied to each package</p>
-<p>The following command allows you to check whether CARET/rclcpp is applied to each package.
- If caret/rclcpp is not applied to the package you want to measure, please check which rclcpp is used for the target and your workspace's environment variables.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># In case there are packages to which CARET/rclcpp is not applied</span>
-$ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
-WARNING : <span class="m">2022</span>-06-12 <span class="m">12</span>:25:26 <span class="p">|</span> The following packages have not been built using caret-rclcpp:
-   demo_nodes_cpp
-   caret_demos
-   intra_process_demo
+---Output text as below---
 
-<span class="c1"># In case CARET/rclcpp is applied to all packages</span>
-$ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
-INFO    : <span class="m">2022</span>-06-12 <span class="m">12</span>:26:49 <span class="p">|</span> All packages are built using caret-rclcpp.
+topic_name        <span class="p">|</span>   number_of_trace_points
+------------------+--------------------------
+unkown            <span class="p">|</span>                      <span class="m">691</span>
+/topic3           <span class="p">|</span>                      <span class="m">391</span>
+/drive            <span class="p">|</span>                      <span class="m">343</span>
+/topic1           <span class="p">|</span>                      <span class="m">343</span>
+/topic2           <span class="p">|</span>                      <span class="m">341</span>
+/topic4           <span class="p">|</span>                      <span class="m">339</span>
+/rosout           <span class="p">|</span>                        <span class="m">6</span>
 </code></pre></div>
-</li>
-<li>
-<p>Set <code>LD_PRELOAD</code> for adding tracepoints provided by function hook</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Enable tracepoints which are defined hooked functions.</span>
-<span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
-</code></pre></div>
-</li>
-<li>
-<p>(Optional) Exclude nodes and topics which you are not concerned with</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
-<span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
-</code></pre></div>
-<p>CARET serves <a href="../../tips/trace_filtering/">trace filtering</a>(in Japanese). With configuration of trace filtering, CARET can ignore nodes and topics. This function is useful for a large application.</p>
-</li>
-<li>
-<p>Launch the target application, demos_end_to_end_sample</p>
-<div class="highlight"><pre><span></span><code>ros2 launch caret_demos end_to_end_sample.launch.py
-^C <span class="c1"># Finish with Ctrl+C after several seconds</span>
+<h2 id="tracepoint-summary">tracepoint summary<a class="headerlink" href="#tracepoint-summary" title="Permanent link">#</a></h2>
+<p>The following command allows you to see all tracepoints included in the trace data and the number of each tracepoint.</p>
+<div class="highlight"><pre><span></span><code>$ ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/
 
-<span class="o">[</span>WARNING<span class="o">]</span> <span class="o">[</span>launch<span class="o">]</span>: user interrupted with ctrl-c <span class="o">(</span>SIGINT<span class="o">)</span>
-<span class="o">[</span>end_to_end_sample-1<span class="o">]</span> <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span><span class="m">1631481246</span>.160958444<span class="o">]</span> <span class="o">[</span>rclcpp<span class="o">]</span>: signal_handler<span class="o">(</span><span class="nv">signal_value</span><span class="o">=</span><span class="m">2</span><span class="o">)</span>
-<span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>end_to_end_sample-1<span class="o">]</span>: process has finished cleanly <span class="o">[</span>pid <span class="m">722356</span><span class="o">]</span>
+ trace_point                                       <span class="p">|</span>   number_of_trace_points
+---------------------------------------------------+--------------------------
+ ros2:rclcpp_timer_callback_added                  <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_subscription_callback_added           <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_service_callback_added                <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_callback_register                     <span class="p">|</span>                       <span class="m">44</span>
+ ros2_caret:callback_group_add_service             <span class="p">|</span>                       <span class="m">36</span>
+ ros2:rcl_service_init                             <span class="p">|</span>                       <span class="m">36</span>
+ ros2:rcl_publisher_init                           <span class="p">|</span>                       <span class="m">17</span>
+ ros2_caret:callback_group_add_subscription        <span class="p">|</span>                       <span class="m">11</span>
+ ros2:rcl_node_init                                <span class="p">|</span>                        <span class="m">6</span>
+ ros2_caret:add_callback_group                     <span class="p">|</span>                        <span class="m">6</span>
+ ros2:rcl_subscription_init                        <span class="p">|</span>                        <span class="m">5</span>
+ ros2:rclcpp_subscription_init                     <span class="p">|</span>                        <span class="m">5</span>
+ ros2:rcl_timer_init                               <span class="p">|</span>                        <span class="m">3</span>
+ ros2:rclcpp_timer_link_node                       <span class="p">|</span>                        <span class="m">3</span>
+ ros2_caret:callback_group_add_timer               <span class="p">|</span>                        <span class="m">3</span>
+ ros2_caret:construct_executor                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2_caret:rmw_implementation                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2:rcl_init                                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2_caret:dds_bind_addr_to_stamp                 <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:dds_write                              <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscribe                        <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_publish                          <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:dds_bind_addr_to_addr                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:sim_time                               <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:construct_static_executor              <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:on_data_available                      <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscribe_added                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_publisher_init                   <span class="p">|</span>                        <span class="m">0</span>
+ ros2:callback_end                                 <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:callback_group_add_client              <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:add_callback_group_static_executor     <span class="p">|</span>                        <span class="m">0</span>
+ ros2:callback_start                               <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rclcpp_publish                               <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rclcpp_intra_publish                         <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_publish                                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_lifecycle_transition                     <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_lifecycle_state_machine_init             <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_client_init                              <span class="p">|</span>                        <span class="m">0</span>
+ ros2:message_construct                            <span class="p">|</span>                        <span class="m">0</span>
+ ros2:dispatch_subscription_callback               <span class="p">|</span>                        <span class="m">0</span>
+ ros2:dispatch_intra_process_subscription_callback <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscription_init                <span class="p">|</span>                        <span class="m">0</span>
 </code></pre></div>
-<p>You can finish the target application and LTTng session.
- LTTng session will be closed if you push <code>Enter</code> key on the terminal where the LTTng session runs.</p>
-</li>
-</ol>
-<h2 id="validating-trace-data-briefly">Validating trace data briefly<a class="headerlink" href="#validating-trace-data-briefly" title="Permanent link">#</a></h2>
-<p>You can check whether tracing is successful or not with <code>ros2 caret check_ctf</code> command before analyzing trace data.</p>
-<div class="highlight"><pre><span></span><code>$ ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
-
-<span class="c1"># If there are problems with the trace data, warnings will be displayed.</span>
-</code></pre></div>
-<p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Executing the <code>ros2 caret check_ctf</code> command for long trace data or trace data of a large application takes a long time to complete execution.
-  Therefore, it is recommended to first execute the <code>ros2 caret check_ctf</code> command on a short duration of trace data to check the correctness of the settings before tracing for a longer duration of time.</p>
-</div>
-<p><prettier-ignore-end></p>
-<h3 id="tracer-discarded-error">Tracer discarded error<a class="headerlink" href="#tracer-discarded-error" title="Permanent link">#</a></h3>
-<p><code>Tracer discarded</code> will be observed in some case, especially when applying CARET to a large application. If you find this error, CARET has failed in sampling tracepoints.</p>
-<div class="highlight"><pre><span></span><code>WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:08 <span class="p">|</span> Tracer discarded <span class="m">42</span> events between <span class="m">1650854449589056449</span> and <span class="m">1650854449603217243</span>.
-WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <span class="p">|</span> Tracer discarded <span class="m">29</span> events between <span class="m">1650854463006767890</span> and <span class="m">1650854463024865609</span>.
-WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <span class="p">|</span> Tracer discarded <span class="m">12</span> events between <span class="m">1650854463026376513</span> and <span class="m">1650854463044841704</span>.
-</code></pre></div>
-<p>LTTng session collects sampling data generated by tracepoints. Sampling data are stored into ring-buffer as explained <a href="https://lttng.org/man/7/lttng-concepts/v2.13/#doc-channel">LTTng documents</a>. After a piece of ring-buffer is occupied, sampling data is stored into next empty piece while the occupied piece is copied to file. If there is no room to store sampling data in all pieces of ring-buffer, sampling data will be discarded.</p>
-<p>You can avoid this error with the following two approach.</p>
-<ul>
-<li>to filter topics and nodes which can be ignored with trace filtering explained in the previous section<ul>
-<li>especially, filtering highly-frequent nodes and topics is effective</li>
-<li>highly-frequent nodes/topics can be identified by checking the <a href="../../tips/summary_of_trace_data/">summary of trace data</a></li>
-</ul>
-</li>
-<li>to increase size of ring buffer defined in <a href="https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F"><code>lttng_impl.py</code></a></li>
-</ul>
 
               
             </article>
@@ -1182,7 +1062,7 @@ WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <spa
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation" rel="prev">
+        <a href="../manual_installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Manual Installation" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1191,20 +1071,20 @@ WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <spa
               <span class="md-footer__direction">
                 Previous
               </span>
-              Installation
+              Manual Installation
             </div>
           </div>
         </a>
       
       
         
-        <a href="../configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration" rel="next">
+        <a href="../path_verify/" class="md-footer__link md-footer__link--next" aria-label="Next: Path Verification" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Configuration
+              Path Verification
             </div>
           </div>
           <div class="md-footer__button md-icon">
