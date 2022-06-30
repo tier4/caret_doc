@@ -21,7 +21,7 @@ The 'get_callback()' is a funtion that returns callback information such as call
 ## API
 
 ```python
-def get_callback(self, callback_name: str) -> CallbackBase
+# def get_callback(self, callback_name: str) -> CallbackBase
 ```
 
 - The 'get_callback()' function returns single callback that match the argument string and callback name.
@@ -47,7 +47,7 @@ Callbacks information includes callback name, callback period[ns], callback type
 ## API
 
 ```python
-def get_callbacks(self, *callback_names: str) -> List[CallbackBase]
+# def get_callbacks(self, *callback_names: str) -> List[CallbackBase]
 ```
 
 - The 'get_callbacks()' function gets callbacks that match the argument string and callback name.
