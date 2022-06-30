@@ -1048,8 +1048,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># def get_callback(self, callback_name: str) -&gt; CallbackBase</span>
 </code></pre></div>
 <ul>
-<li>The 'get_callback()' function returns single callback that match the argument string and callback name.
-    - callback name defined in architecture file.</li>
+<li>The 'get_callback()' function returns single callback that match the argument string and callback name (callback name defined in architecture file).</li>
 <li>If no matching callbacks are found, get_callback raises a exception.</li>
 </ul>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
@@ -1065,8 +1064,7 @@ Callbacks information includes callback name, callback period[ns], callback type
 <div class="highlight"><pre><span></span><code><span class="c1"># def get_callbacks(self, *callback_names: str) -&gt; List[CallbackBase]</span>
 </code></pre></div>
 <ul>
-<li>The 'get_callbacks()' function gets callbacks that match the argument string and callback name.
-    - callback name defined in architecture file.</li>
+<li>The 'get_callbacks()' function gets callbacks that match the argument string and callback name (callback name defined in architecture file).</li>
 <li>If concrete callback names are given and there is no match callbacks, The 'get_callbacks()' function warns and may notify similar callbacks name.</li>
 <li>The 'get_callbacks()' function can recognize UNIX filename pattern such as '*' or '?'.</li>
 <li>If patterns are given, get_callbacks doesn't raise any exception, and returns empty list.</li>
