@@ -49,6 +49,8 @@ ros2 trace -s e2e_sample -k -u "ros2*"
 # the trac data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample
 ```
 
+Note that if you execute the target application before executing LTTng session will result in a lack of trace points.
+
 You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to [LTTng セッションの開始方法](../tips/how_to_run_lttng_session.md).  
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by `ros2 launch` is a reasonable way to apply CARET repeatedly.
 
@@ -65,15 +67,23 @@ When you execute a LTTng session in one terminal, you have to open another termi
    source ~/ros2_ws/install/local_setup.bash
    ```
 
-2. Check whether the target uses CARET/rclcpp
+2. Check whether CARET/rclcpp is applied to each package
+   
+   The following command allows you to check whether CARET/rclcpp is applied to each package.
+   If caret/rclcpp is not applied to the package you want to measure, please check which rclcpp is used for the target and your workspace's environment variables.
 
    ```bash
-   ldd ~/ros2_ws/build/caret_demos/end_to_end_sample  | grep rclcpp
+   # In case there are packages to which CARET/rclcpp is not applied
+   $ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+   WARNING : 2022-06-12 12:25:26 | The following packages have not been built using caret-rclcpp:
+      demo_nodes_cpp
+      caret_demos
+      intra_process_demo
 
-   # librclcpp.so => /home/user_name/ros2_caret_ws/install/rclcpp/lib/librclcpp.so
+   # In case CARET/rclcpp is applied to all packages
+   $ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+   INFO    : 2022-06-12 12:26:49 | All packages are built using caret-rclcpp.
    ```
-
-   if you confronted with another result, please check which rclcpp is used for the target and your workspace's environment variables.
 
 3. Set `LD_PRELOAD` for adding tracepoints provided by function hook
 
@@ -107,54 +117,28 @@ When you execute a LTTng session in one terminal, you have to open another termi
 
 ## Validating trace data briefly
 
-You can check whether tracing is successful or not with `babeltrace` command before analyzing trace data.
+You can check whether tracing is successful or not with `ros2 caret check_ctf` command before analyzing trace data.
 
 ```bash
-# To check which tracepoints are captured as trace data
-$ babeltrace ~/ros2_ws/evaluate/e2e_sample/ | cut -d' ' -f 4 | sort -u
-ros2:callback_end:
-ros2:callback_start:
-ros2:dispatch_subscription_callback:
-ros2:rcl_init:
-ros2:rcl_node_init:
-ros2:rcl_publish:
-ros2:rcl_publisher_init:
-ros2:rcl_service_init:
-ros2:rcl_subscription_init:
-ros2:rcl_timer_init:
-ros2:rclcpp_callback_register:
-ros2:rclcpp_publish:
-ros2:rclcpp_service_callback_added:
-ros2:rclcpp_subscription_callback_added:
-ros2:rclcpp_subscription_init:
-ros2:rclcpp_timer_callback_added:
-ros2:rclcpp_timer_link_node:
-ros2_caret:add_callback_group:
-ros2_caret:callback_group_add_service:
-ros2_caret:callback_group_add_subscription:
-ros2_caret:callback_group_add_timer:
-ros2_caret:construct_executor:
-ros2_caret:dds_bind_addr_to_stamp:
-ros2_caret:dds_write:
-ros2_caret:rmw_implementation:
+$ ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
+
+# If there are problems with the trace data, warnings will be displayed.
 ```
 
-If there is loss of captured tracepoints, suspects the following.
-
-- Outstandingly loss of `*_init` tracepoints
-  - To avoid this, start LTTng session before your application is executed
-- Loss of `ros2_caret:*` tracepoints
-  - Check whether CARET/rclcpp is applied or not
+<prettier-ignore-start>
+!!!info
+      Executing the `ros2 caret check_ctf` command for long trace data or trace data of a large application takes a long time to complete execution.
+      Therefore, it is recommended to first execute the `ros2 caret check_ctf` command on a short duration of trace data to check the correctness of the settings before tracing for a longer duration of time.
+<prettier-ignore-end>
 
 ### Tracer discarded error
 
 `Tracer discarded` will be observed in some case, especially when applying CARET to a large application. If you find this error, CARET has failed in sampling tracepoints.
 
 ```bash
-[warning] Tracer discarded 328 events between [10:46:15.566916889] and [10:46:15.620323777]
-in trace UUID 353a72bc12d4bcc85c9158dd8f88ef9, at path: "end_to_end_sample/ust/uid/10368/64-bit",
-within stream id 0, at relative path: "ros2_3".
-You should consider recording a new trace with larger buffers or with fewer events enabled.
+WARNING : 2022-04-27 08:29:08 | Tracer discarded 42 events between 1650854449589056449 and 1650854449603217243.
+WARNING : 2022-04-27 08:29:14 | Tracer discarded 29 events between 1650854463006767890 and 1650854463024865609.
+WARNING : 2022-04-27 08:29:14 | Tracer discarded 12 events between 1650854463026376513 and 1650854463044841704.
 ```
 
 LTTng session collects sampling data generated by tracepoints. Sampling data are stored into ring-buffer as explained [LTTng documents](https://lttng.org/man/7/lttng-concepts/v2.13/#doc-channel). After a piece of ring-buffer is occupied, sampling data is stored into next empty piece while the occupied piece is copied to file. If there is no room to store sampling data in all pieces of ring-buffer, sampling data will be discarded.
@@ -163,4 +147,5 @@ You can avoid this error with the following two approach.
 
 - to filter topics and nodes which can be ignored with trace filtering explained in the previous section
   - especially, filtering highly-frequent nodes and topics is effective
+  - highly-frequent nodes/topics can be identified by checking the [summary of trace data](../tips/summary_of_trace_data.md)
 - to increase size of ring buffer defined in [`lttng_impl.py`](https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F)
