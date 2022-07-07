@@ -34,7 +34,7 @@
   - 以下のコマンドを実行し、エラー出力が出ないことを確認してください。
 
     ```bash
-    $ babeltrace autoware > /dev/null
+    babeltrace autoware > /dev/null
     [warning] Tracer discarded 3435 events between [15:05:22.967846940] and [15:05:23.025356129] in trace UUID 236d978f8bde4cbc9460b0f4e008081, at path: "autoware/ust/uid/1000/64-bit", within stream id 0, at relative path: "ros2_12". You should consider recording a new trace with larger buffers or with fewer events enabled.
     [warning] Tracer discarded 3910 events between [15:05:22.972199681] and [15:05:23.024463592] in trace UUID 236d978f8bde4cbc9460b0f4e008081, at path: "autoware/ust/uid/1000/64-bit", within stream id 0, at relative path: "ros2_6". You should consider recording a new trace with larger buffers or with fewer events enabled.
     ```

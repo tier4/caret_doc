@@ -74,14 +74,15 @@ When you execute a LTTng session in one terminal, you have to open another termi
 
    ```bash
    # In case there are packages to which CARET/rclcpp is not applied
-   $ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+   ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+   # The following message will be outputted
    WARNING : 2022-06-12 12:25:26 | The following packages have not been built using caret-rclcpp:
       demo_nodes_cpp
       caret_demos
       intra_process_demo
 
    # In case CARET/rclcpp is applied to all packages
-   $ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+   ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
    INFO    : 2022-06-12 12:26:49 | All packages are built using caret-rclcpp.
    ```
 
@@ -120,7 +121,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
 You can check whether tracing is successful or not with `ros2 caret check_ctf` command before analyzing trace data.
 
 ```bash
-$ ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
+ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
 
 # If there are problems with the trace data, warnings will be displayed.
 ```
