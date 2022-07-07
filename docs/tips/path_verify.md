@@ -1,10 +1,10 @@
-# path verify tools
+# Error detection using `path.verify()`
 
 CARET requires some setup and configuration that users should do.
-The `path.verify()` command can check the settings are completed.
-If ocuring errors or warnings, please follow the error and warning messages.
+`path.verify()` method can check the settings are completed.
+If any error or warning occurs, message from `path.verify()` give you some instruction to tackle it.
 
-## Use method
+## Usage
 
 ```python
 from caret_analyze import Architecture, Application, Lttng
@@ -22,17 +22,17 @@ path = app.get_path('target_path')
 path.verify()
 ```
 
-## Check items
+## What `path.verify()` checks
 
-- Check whether using caret-rclcpp [path.verify()]
+- Check whether using caret/rclcpp [path.verify()]
 
-  Target applications need to be built based on the rclcpp provided by CARET, not ROS 2.
-  The 'path.verify()' command checks the based rclcpp.
+  Your applications need to be built with `rclcpp` provided by CARET, not ROS 2.
+  `path.verify()` command checks which `rclcpp` is used for building your application.
 
-  If not caret/rclcpp, the following warning is occured.
+  If caret/rclcpp is not applied, the following warning message is outputted on your terminal or Jupyter notebook.
 
   ```bash
   WARNING : 2022-03-18 12:53:54 | 'caret/rclcpp' may not be used in subscriber of '/localization/pose_estimator/ndt_scan_matcher'.
   ```
 
-- Check that path elements have valid message_context values
+- Check if node latency can be calculated with referring to `message_context`
