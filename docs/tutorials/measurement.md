@@ -68,7 +68,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
    ```
 
 2. Check whether CARET/rclcpp is applied to each package
-   
+
    The following command allows you to check whether CARET/rclcpp is applied to each package.
    If caret/rclcpp is not applied to the package you want to measure, please check which rclcpp is used for the target and your workspace's environment variables.
 
