@@ -16,7 +16,7 @@ This section describes how to obtain the targeted class.
 
 ## Description of get_callback
 
-The 'get_callback()' is a funtion that returns callback information such as callback name, callback period[ns], callback type.
+The 'get_callback()' is a function that returns callback information such as callback name, callback period[ns], callback type.
 
 ### API
 
