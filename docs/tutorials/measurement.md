@@ -46,7 +46,7 @@ ros2 trace -s e2e_sample -k -u "ros2*"
 # Start session with pressing Enter key
 
 # with "-s" option, you can give session name
-# the trac data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample
+# the trace data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample
 ```
 
 Note that if you execute the target application before executing LTTng session will result in a lack of trace points.
@@ -123,13 +123,13 @@ You can check whether tracing is successful or not with `ros2 caret check_ctf` c
 ```bash
 ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
 
-# If there are problems with the trace data, warnings will be displayed.
+# If there are problems with the trace data, warning messages will be displayed.
 ```
 
 <prettier-ignore-start>
 !!!info
       Executing the `ros2 caret check_ctf` command for long trace data or trace data of a large application takes a long time to complete execution.
-      Therefore, it is recommended to first execute the `ros2 caret check_ctf` command on a short duration of trace data to check the correctness of the settings before tracing for a longer duration of time.
+      Therefore, it is recommended to execute the `ros2 caret check_ctf` command on a short duration of trace data before collecting trace data for a long time.
 <prettier-ignore-end>
 
 ### Tracer discarded error

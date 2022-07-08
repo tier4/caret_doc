@@ -17,7 +17,7 @@ CARET is confirmed to run on the platforms shown in the following table with sup
 ## Installation
 
 Installation using meta repository is the least time-consuming way to install CARET.  
-With meta repository and Ansible, you can skip the labotorious manual setup which is explained in [tips/manual installation](../tips/manual_installation.md) section (written in Japanese).
+With meta repository and Ansible, you can skip the laborious manual setup which is explained in [tips/manual installation](../tips/manual_installation.md) section (written in Japanese).
 
 Please execute the following steps on Ubuntu 20.04. The order is important so that you have to follow the steps in order.
 
