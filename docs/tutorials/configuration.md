@@ -143,7 +143,7 @@ Latency of a single node, so called "node latency", is defined as elapsed time f
 
 Definition of node latency depends on implementation pattern. Some nodes subscribe input messages and invoke callback function where they publish output messages. These nodes has direct relationship between input and output. Other nodes subscribe input messages and invoke callback functions where they buffer them, and invoke different callback functions consume input messages and publish output message. In the latter cases, relationship of input and output is indirect, and intra-node communication is performed with using multiple callback functions. [message_filters](http://wiki.ros.org/message_filters) is another cause to increase the number of implementation patterns.
 
-Therefore, CARET has to deal with several types of node implementation to measure node latency. CARET serve a function to define node latency with an architecture file. An architecture file has an item of **mesasge_context**, which indicates relation between input message and output message. This item should be defined by users as below.
+Therefore, CARET has to deal with several types of node implementation to measure node latency. CARET serve a function to define node latency with an architecture file. An architecture file has an item of **message_context**, which indicates relation between input message and output message. This item should be defined by users as below.
 
 1. Check which node latency should be configured
 

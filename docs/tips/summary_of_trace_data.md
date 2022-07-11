@@ -1,16 +1,16 @@
 # Summary of trace data
 
-CARET provides CLI that displays the number of tracepoints for each node/topic/tracepoint from the trace data.
+CARET provides CLI that displays the number of collected events, including trace data, per node, topic, or tracepoint.
 
 ## node/topic summary
 
-This CLI displays the number of tracepoints for each node/topic.
-To prevent lost traces, the number of trace points can be reduced by [trace filtering](trace_filtering.md) unnecessary nodes/topics based on output results.
-Examples of command execution are shown below.
+This CLI displays the number of events per node or topic.
+If the number of event is too huge to handle, [trace filtering](trace_filtering.md) is a reasonable choice to exclude unnecessary nodes/topics based on output result.
+The following sample codes show command execution as examples.
 
 ```bash
 # Display the number of trace points for each node
-$ ros2 caret node_summary -d ~/ros2_ws/evaluate/e2e_sample/
+ros2 caret node_summary -d ~/ros2_ws/evaluate/e2e_sample/
 
 ---Output text as below---
 
@@ -25,7 +25,7 @@ node_name            |   number_of_trace_points
 unkown               |                       16
 
 # Display the number of trace points for each topic
-$ ros2 caret topic_summary -d ~/ros2_ws/evaluate/e2e_sample/
+ros2 caret topic_summary -d ~/ros2_ws/evaluate/e2e_sample/
 
 ---Output text as below---
 
@@ -42,7 +42,7 @@ unkown            |                      691
 
 ## tracepoint summary
 
-The following command allows you to see all tracepoints included in the trace data and the number of each tracepoint.
+The following command allows you to see all tracepoints included in the trace data and the number of events collected by tracepoints.
 
 ```bash
 $ ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/
