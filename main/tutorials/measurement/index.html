@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/main/tutorials/measurement/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
@@ -1091,7 +1091,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># Start session with pressing Enter key</span>
 
 <span class="c1"># with &quot;-s&quot; option, you can give session name</span>
-<span class="c1"># the trac data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
+<span class="c1"># the trace data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
 </code></pre></div>
 <p>Note that if you execute the target application before executing LTTng session will result in a lack of trace points.</p>
 <p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../tips/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
@@ -1112,14 +1112,15 @@ When you execute a LTTng session in one terminal, you have to open another termi
 <p>The following command allows you to check whether CARET/rclcpp is applied to each package.
  If caret/rclcpp is not applied to the package you want to measure, please check which rclcpp is used for the target and your workspace's environment variables.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># In case there are packages to which CARET/rclcpp is not applied</span>
-$ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+<span class="c1"># The following message will be outputted</span>
 WARNING : <span class="m">2022</span>-06-12 <span class="m">12</span>:25:26 <span class="p">|</span> The following packages have not been built using caret-rclcpp:
    demo_nodes_cpp
    caret_demos
    intra_process_demo
 
 <span class="c1"># In case CARET/rclcpp is applied to all packages</span>
-$ ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
 INFO    : <span class="m">2022</span>-06-12 <span class="m">12</span>:26:49 <span class="p">|</span> All packages are built using caret-rclcpp.
 </code></pre></div>
 </li>
@@ -1151,15 +1152,15 @@ INFO    : <span class="m">2022</span>-06-12 <span class="m">12</span>:26:49 <spa
 </ol>
 <h2 id="validating-trace-data-briefly">Validating trace data briefly<a class="headerlink" href="#validating-trace-data-briefly" title="Permanent link">#</a></h2>
 <p>You can check whether tracing is successful or not with <code>ros2 caret check_ctf</code> command before analyzing trace data.</p>
-<div class="highlight"><pre><span></span><code>$ ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
+<div class="highlight"><pre><span></span><code>ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
 
-<span class="c1"># If there are problems with the trace data, warnings will be displayed.</span>
+<span class="c1"># If there are problems with the trace data, warning messages will be displayed.</span>
 </code></pre></div>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Executing the <code>ros2 caret check_ctf</code> command for long trace data or trace data of a large application takes a long time to complete execution.
-  Therefore, it is recommended to first execute the <code>ros2 caret check_ctf</code> command on a short duration of trace data to check the correctness of the settings before tracing for a longer duration of time.</p>
+  Therefore, it is recommended to execute the <code>ros2 caret check_ctf</code> command on a short duration of trace data before collecting trace data for a long time.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h3 id="tracer-discarded-error">Tracer discarded error<a class="headerlink" href="#tracer-discarded-error" title="Permanent link">#</a></h3>
@@ -1257,7 +1258,7 @@ WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <spa
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
