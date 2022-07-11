@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/tips/investigate_behavior/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
@@ -891,19 +891,25 @@
     Description of get_callback
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Description of get_callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
     API
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -912,19 +918,25 @@
     Description of get_callbacks
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Description of get_callbacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#api_1" class="md-nav__link">
     API
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#usage_1" class="md-nav__link">
     Usage
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -974,19 +986,25 @@
     Description of get_callback
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Description of get_callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
     API
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -995,19 +1013,25 @@
     Description of get_callbacks
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Description of get_callbacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#api_1" class="md-nav__link">
     API
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#usage_1" class="md-nav__link">
     Usage
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1043,15 +1067,15 @@
 <p>Please refer to the <a href="https://tier4.github.io/CARET_analyze/latest/">API documentation</a> for information on what information can be obtained the target class.</p>
 <p>This section describes how to obtain the targeted class.</p>
 <h2 id="description-of-get_callback">Description of get_callback<a class="headerlink" href="#description-of-get_callback" title="Permanent link">#</a></h2>
-<p>The 'get_callback()' is a funtion that returns callback information such as callback name, callback period[ns], callback type.</p>
-<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
+<p>The 'get_callback()' is a function that returns callback information such as callback name, callback period[ns], callback type.</p>
+<h3 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># def get_callback(self, callback_name: str) -&gt; CallbackBase</span>
 </code></pre></div>
 <ul>
 <li>The 'get_callback()' function returns single callback that match the argument string and callback name (callback name defined in architecture file).</li>
 <li>If no matching callbacks are found, get_callback raises a exception.</li>
 </ul>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
 <span class="n">callback1</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_0&#39;</span><span class="p">)</span>
@@ -1060,7 +1084,7 @@
 <h2 id="description-of-get_callbacks">Description of get_callbacks<a class="headerlink" href="#description-of-get_callbacks" title="Permanent link">#</a></h2>
 <p>The get_callbacks() is a function that gets callback information.
 Callbacks information includes callback name, callback period[ns], callback type.</p>
-<h2 id="api_1">API<a class="headerlink" href="#api_1" title="Permanent link">#</a></h2>
+<h3 id="api_1">API<a class="headerlink" href="#api_1" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># def get_callbacks(self, *callback_names: str) -&gt; List[CallbackBase]</span>
 </code></pre></div>
 <ul>
@@ -1069,7 +1093,7 @@ Callbacks information includes callback name, callback period[ns], callback type
 <li>The 'get_callbacks()' function can recognize UNIX filename pattern such as '*' or '?'.</li>
 <li>If patterns are given, get_callbacks doesn't raise any exception, and returns empty list.</li>
 </ul>
-<h2 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h2>
+<h3 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
 <span class="n">callback1</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_0&#39;</span><span class="p">)</span>
@@ -1140,7 +1164,7 @@ Callbacks information includes callback name, callback period[ns], callback type
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
