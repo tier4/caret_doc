@@ -17,7 +17,7 @@ git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
 source /opt/ros/galactic/setup.bash
 source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/galactic/setup.bash'
 
-colcon build --symlink-install --packages-up-to caret_demos
+colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
 ```
 
 <prettier-ignore-start>
@@ -27,6 +27,16 @@ colcon build --symlink-install --packages-up-to caret_demos
       In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.  
       Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as `demo_nodes_cpp`.  
       If you want to trace such pre-build packages, please build them again from source code.
+<prettier-ignore-end>
+
+<prettier-ignore-start>
+!!!info
+      Reason for giving -DBUILD_TESTING=OFF.
+      To use CARET, you need to use forked shared libraries and headers such as caret-rclcpp.
+      In the test codes, caret-rclcpp is not available due to loading priority issues for headers.
+      Depending on the version of CARET, conflicts may occur between the shared libraries of
+      ros-rclcpp and the headers of cadret-rclcpp, resulting in compile errors.
+      Therefore, the test codes are excluded from building.
 <prettier-ignore-end>
 
 ## Tracing the sample application with CARET
