@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/main/tips/summary_of_trace_data/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
@@ -860,14 +860,21 @@
       
         <li class="md-nav__item">
   <a href="#nodetopic-summary" class="md-nav__link">
-    node/topic summary
+    Node/topic summary
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#tracepoint-summary" class="md-nav__link">
-    tracepoint summary
+    Tracepoint summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-summary-ranges" class="md-nav__link">
+    Filtering summary ranges
   </a>
   
 </li>
@@ -943,14 +950,21 @@
       
         <li class="md-nav__item">
   <a href="#nodetopic-summary" class="md-nav__link">
-    node/topic summary
+    Node/topic summary
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#tracepoint-summary" class="md-nav__link">
-    tracepoint summary
+    Tracepoint summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-summary-ranges" class="md-nav__link">
+    Filtering summary ranges
   </a>
   
 </li>
@@ -975,50 +989,76 @@
 
 <h1 id="summary-of-trace-data">Summary of trace data<a class="headerlink" href="#summary-of-trace-data" title="Permanent link">#</a></h1>
 <p>CARET provides CLI that displays the number of collected events, including trace data, per node, topic, or tracepoint.</p>
-<h2 id="nodetopic-summary">node/topic summary<a class="headerlink" href="#nodetopic-summary" title="Permanent link">#</a></h2>
+<h2 id="nodetopic-summary">Node/topic summary<a class="headerlink" href="#nodetopic-summary" title="Permanent link">#</a></h2>
 <p>This CLI displays the number of events per node or topic.
-If the number of event is too huge to handle, <a href="../trace_filtering/">trace filtering</a> is a reasonable choice to exclude unnecessary nodes/topics based on output result.
+If the number of events is too huge to handle, <a href="../trace_filtering/">trace filtering</a> is a reasonable choice to exclude unnecessary nodes/topics based on the output result.
 The following sample codes show command execution as examples.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Display the number of trace points for each node</span>
 ros2 caret node_summary -d ~/ros2_ws/evaluate/e2e_sample/
 
 ---Output text as below---
 
-node_name            <span class="p">|</span>   number_of_trace_points
----------------------+--------------------------
-/message_driven_node <span class="p">|</span>                      <span class="m">600</span>
-/timer_driven_node   <span class="p">|</span>                      <span class="m">535</span>
-/drive_node          <span class="p">|</span>                      <span class="m">373</span>
-/filter_node         <span class="p">|</span>                      <span class="m">371</span>
-/sensor_dummy_node   <span class="p">|</span>                      <span class="m">371</span>
-/actuator_dummy_node <span class="p">|</span>                      <span class="m">200</span>
-unkown               <span class="p">|</span>                       <span class="m">16</span>
+<span class="o">=============================================</span>
+Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
+Trace range             <span class="p">|</span> <span class="m">17</span>:34:07 ~ <span class="m">17</span>:35:08
+Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
+<span class="o">=============================================</span>
+
+ node_name            <span class="p">|</span>   number_of_trace_points
+----------------------+--------------------------
+ /message_driven_node <span class="p">|</span>                     <span class="m">4207</span>
+ /timer_driven_node   <span class="p">|</span>                     <span class="m">3630</span>
+ /filter_node         <span class="p">|</span>                     <span class="m">2680</span>
+ /drive_node          <span class="p">|</span>                     <span class="m">2146</span>
+ /sensor_dummy_node   <span class="p">|</span>                     <span class="m">2144</span>
+ /actuator_dummy_node <span class="p">|</span>                     <span class="m">1609</span>
 
 <span class="c1"># Display the number of trace points for each topic</span>
 ros2 caret topic_summary -d ~/ros2_ws/evaluate/e2e_sample/
 
 ---Output text as below---
 
-topic_name        <span class="p">|</span>   number_of_trace_points
-------------------+--------------------------
-unkown            <span class="p">|</span>                      <span class="m">691</span>
-/topic3           <span class="p">|</span>                      <span class="m">391</span>
-/drive            <span class="p">|</span>                      <span class="m">343</span>
-/topic1           <span class="p">|</span>                      <span class="m">343</span>
-/topic2           <span class="p">|</span>                      <span class="m">341</span>
-/topic4           <span class="p">|</span>                      <span class="m">339</span>
-/rosout           <span class="p">|</span>                        <span class="m">6</span>
+<span class="o">=============================================</span>
+Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
+Trace range             <span class="p">|</span> <span class="m">17</span>:34:07 ~ <span class="m">17</span>:35:08
+Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
+<span class="o">=============================================</span>
+
+ topic_name        <span class="p">|</span>   number_of_trace_points
+-------------------+--------------------------
+ /drive            <span class="p">|</span>                     <span class="m">2668</span>
+ /topic1           <span class="p">|</span>                     <span class="m">2668</span>
+ /topic2           <span class="p">|</span>                     <span class="m">2668</span>
+ /topic4           <span class="p">|</span>                     <span class="m">2658</span>
+ /topic3           <span class="p">|</span>                     <span class="m">2478</span>
+ /parameter_events <span class="p">|</span>                       <span class="m">66</span>
+ /rosout           <span class="p">|</span>                        <span class="m">6</span>
 </code></pre></div>
-<h2 id="tracepoint-summary">tracepoint summary<a class="headerlink" href="#tracepoint-summary" title="Permanent link">#</a></h2>
+<h2 id="tracepoint-summary">Tracepoint summary<a class="headerlink" href="#tracepoint-summary" title="Permanent link">#</a></h2>
 <p>The following command allows you to see all tracepoints included in the trace data and the number of events collected by tracepoints.</p>
-<div class="highlight"><pre><span></span><code>$ ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/
+
+---Output text as below---
+
+<span class="o">=============================================</span>
+Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
+Trace range             <span class="p">|</span> <span class="m">17</span>:34:07 ~ <span class="m">17</span>:35:08
+Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
+<span class="o">=============================================</span>
 
  trace_point                                       <span class="p">|</span>   number_of_trace_points
 ---------------------------------------------------+--------------------------
- ros2:rclcpp_timer_callback_added                  <span class="p">|</span>                       <span class="m">44</span>
+ ros2:callback_end                                 <span class="p">|</span>                     <span class="m">4216</span>
+ ros2:callback_start                               <span class="p">|</span>                     <span class="m">4216</span>
+ ros2_caret:dds_write                              <span class="p">|</span>                     <span class="m">2790</span>
+ ros2_caret:dds_bind_addr_to_stamp                 <span class="p">|</span>                     <span class="m">2790</span>
+ ros2:rcl_publish                                  <span class="p">|</span>                     <span class="m">2650</span>
+ ros2:rclcpp_publish                               <span class="p">|</span>                     <span class="m">2650</span>
+ ros2:dispatch_subscription_callback               <span class="p">|</span>                     <span class="m">2620</span>
  ros2:rclcpp_subscription_callback_added           <span class="p">|</span>                       <span class="m">44</span>
  ros2:rclcpp_service_callback_added                <span class="p">|</span>                       <span class="m">44</span>
  ros2:rclcpp_callback_register                     <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_timer_callback_added                  <span class="p">|</span>                       <span class="m">44</span>
  ros2_caret:callback_group_add_service             <span class="p">|</span>                       <span class="m">36</span>
  ros2:rcl_service_init                             <span class="p">|</span>                       <span class="m">36</span>
  ros2:rcl_publisher_init                           <span class="p">|</span>                       <span class="m">17</span>
@@ -1033,29 +1073,94 @@ unkown            <span class="p">|</span>                      <span class="m">
  ros2_caret:construct_executor                     <span class="p">|</span>                        <span class="m">1</span>
  ros2_caret:rmw_implementation                     <span class="p">|</span>                        <span class="m">1</span>
  ros2:rcl_init                                     <span class="p">|</span>                        <span class="m">1</span>
- ros2_caret:dds_bind_addr_to_stamp                 <span class="p">|</span>                        <span class="m">0</span>
- ros2_caret:dds_write                              <span class="p">|</span>                        <span class="m">0</span>
- ros2_caret:tilde_subscribe                        <span class="p">|</span>                        <span class="m">0</span>
- ros2_caret:tilde_publish                          <span class="p">|</span>                        <span class="m">0</span>
- ros2_caret:dds_bind_addr_to_addr                  <span class="p">|</span>                        <span class="m">0</span>
- ros2_caret:sim_time                               <span class="p">|</span>                        <span class="m">0</span>
- ros2_caret:construct_static_executor              <span class="p">|</span>                        <span class="m">0</span>
- ros2_caret:on_data_available                      <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_client_init                              <span class="p">|</span>                        <span class="m">0</span>
+ ros2:dispatch_intra_process_subscription_callback <span class="p">|</span>                        <span class="m">0</span>
  ros2_caret:tilde_subscribe_added                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscribe                        <span class="p">|</span>                        <span class="m">0</span>
  ros2_caret:tilde_publisher_init                   <span class="p">|</span>                        <span class="m">0</span>
- ros2:callback_end                                 <span class="p">|</span>                        <span class="m">0</span>
- ros2_caret:callback_group_add_client              <span class="p">|</span>                        <span class="m">0</span>
- ros2_caret:add_callback_group_static_executor     <span class="p">|</span>                        <span class="m">0</span>
- ros2:callback_start                               <span class="p">|</span>                        <span class="m">0</span>
- ros2:rclcpp_publish                               <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_publish                          <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:sim_time                               <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:on_data_available                      <span class="p">|</span>                        <span class="m">0</span>
+ ros2:message_construct                            <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:dds_bind_addr_to_addr                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:construct_static_executor              <span class="p">|</span>                        <span class="m">0</span>
  ros2:rclcpp_intra_publish                         <span class="p">|</span>                        <span class="m">0</span>
- ros2:rcl_publish                                  <span class="p">|</span>                        <span class="m">0</span>
  ros2:rcl_lifecycle_transition                     <span class="p">|</span>                        <span class="m">0</span>
  ros2:rcl_lifecycle_state_machine_init             <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:callback_group_add_client              <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:add_callback_group_static_executor     <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscription_init                <span class="p">|</span>                        <span class="m">0</span>
+</code></pre></div>
+<h2 id="filtering-summary-ranges">Filtering summary ranges<a class="headerlink" href="#filtering-summary-ranges" title="Permanent link">#</a></h2>
+<p>Summary display of long trace data (e.g., more than 10 minutes) takes time.
+The following two options allow you to filter the load range of trace data used for summary output.
+In both options, the argument type is float and the unit of time is second.</p>
+<ul>
+<li><code>--duration_filter [DURATION] [OFFSET]</code><ul>
+<li>Load only this [DURATION] from [OFFSET].</li>
+</ul>
+</li>
+<li><code>--strip_filter [LSTRIP] [RSTRIP]</code><ul>
+<li>Ignore trace data for specified seconds from start/end.</li>
+</ul>
+</li>
+</ul>
+<p>An example run with the filtering option is shown below.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/ --duration_filter <span class="m">30</span> <span class="m">5</span>
+
+---Output text as below---
+
+<span class="o">=============================================</span>
+Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
+Trace range             <span class="p">|</span> <span class="m">17</span>:34:07 ~ <span class="m">17</span>:35:08
+Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
+Filtered trace range    <span class="p">|</span> <span class="m">17</span>:34:15 ~ <span class="m">17</span>:34:45
+Filtered trace duration <span class="p">|</span> <span class="m">0</span>:00:29
+<span class="o">=============================================</span>
+
+ trace_point                                       <span class="p">|</span>   number_of_trace_points
+---------------------------------------------------+--------------------------
+ ros2:callback_end                                 <span class="p">|</span>                     <span class="m">2385</span>
+ ros2:callback_start                               <span class="p">|</span>                     <span class="m">2385</span>
+ ros2:dispatch_subscription_callback               <span class="p">|</span>                     <span class="m">1485</span>
+ ros2:rcl_publish                                  <span class="p">|</span>                     <span class="m">1484</span>
+ ros2_caret:dds_write                              <span class="p">|</span>                     <span class="m">1484</span>
+ ros2_caret:dds_bind_addr_to_stamp                 <span class="p">|</span>                     <span class="m">1484</span>
+ ros2:rclcpp_publish                               <span class="p">|</span>                     <span class="m">1484</span>
+ ros2:rclcpp_subscription_callback_added           <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_service_callback_added                <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_callback_register                     <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_timer_callback_added                  <span class="p">|</span>                       <span class="m">44</span>
+ ros2_caret:callback_group_add_service             <span class="p">|</span>                       <span class="m">36</span>
+ ros2:rcl_service_init                             <span class="p">|</span>                       <span class="m">36</span>
+ ros2:rcl_publisher_init                           <span class="p">|</span>                       <span class="m">17</span>
+ ros2_caret:callback_group_add_subscription        <span class="p">|</span>                       <span class="m">11</span>
+ ros2:rcl_node_init                                <span class="p">|</span>                        <span class="m">6</span>
+ ros2_caret:add_callback_group                     <span class="p">|</span>                        <span class="m">6</span>
+ ros2:rcl_subscription_init                        <span class="p">|</span>                        <span class="m">5</span>
+ ros2:rclcpp_subscription_init                     <span class="p">|</span>                        <span class="m">5</span>
+ ros2:rcl_timer_init                               <span class="p">|</span>                        <span class="m">3</span>
+ ros2:rclcpp_timer_link_node                       <span class="p">|</span>                        <span class="m">3</span>
+ ros2_caret:callback_group_add_timer               <span class="p">|</span>                        <span class="m">3</span>
+ ros2_caret:construct_executor                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2_caret:rmw_implementation                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2:rcl_init                                     <span class="p">|</span>                        <span class="m">1</span>
  ros2:rcl_client_init                              <span class="p">|</span>                        <span class="m">0</span>
- ros2:message_construct                            <span class="p">|</span>                        <span class="m">0</span>
- ros2:dispatch_subscription_callback               <span class="p">|</span>                        <span class="m">0</span>
  ros2:dispatch_intra_process_subscription_callback <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscribe_added                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscribe                        <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_publisher_init                   <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_publish                          <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:sim_time                               <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:on_data_available                      <span class="p">|</span>                        <span class="m">0</span>
+ ros2:message_construct                            <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:dds_bind_addr_to_addr                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:construct_static_executor              <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rclcpp_intra_publish                         <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_lifecycle_transition                     <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_lifecycle_state_machine_init             <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:callback_group_add_client              <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:add_callback_group_static_executor     <span class="p">|</span>                        <span class="m">0</span>
  ros2_caret:tilde_subscription_init                <span class="p">|</span>                        <span class="m">0</span>
 </code></pre></div>
 
