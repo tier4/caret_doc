@@ -43,7 +43,7 @@ After you run your application with CARET, you will measure (trace) your applica
 You will visualize trace data with the architecture file and `CARET_analyze` package, including API for data analysis.
 `CARET_analyze` is designed on assumption that users analyze trace data on Jupyter Notebook.
 
-## ドキュメント一覧
+## Contents list
 
 ### Tutorials
 
@@ -74,6 +74,14 @@ Some useful tips to get accustomed to CARET, but almost all of them are written 
 - [ツール利用時の制約](./tips/limits.md)
 - [ギャラリー](./tips/gallery.md)
 - [トラブルシューティング](./tips/trouble_shooting.md)
+
+### API list
+
+CARET serves powerful API to visualize and analyze performance. API list is located on the other repository, `CARET_analyze`.
+
+- [API list](https://tier4.github.io/CARET_analyze/latest/) (external link)
+
+There are two types of APIs: [for user](https://tier4.github.io/CARET_analyze/latest/architecture/) and [for developer](https://tier4.github.io/CARET_analyze/latest/common/).
 
 ## Related repositories
 
