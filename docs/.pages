@@ -1,5 +1,7 @@
 nav:
-    - Overview: index.md
+    - Overview:
+      - Overview: index.md
+      - Changelog: changelog.md
     - Tutorials: tutorials
     - Design: design
     - Tips: tips
