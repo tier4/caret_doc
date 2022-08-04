@@ -2,6 +2,7 @@ nav:
     - Overview:
       - Overview: index.md
       - Changelog: changelog.md
+      - Vesion Table: version_table.md
     - Tutorials: tutorials
     - Design: design
     - Tips: tips
