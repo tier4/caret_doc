@@ -23,5 +23,10 @@
     "version": "latest",
     "title": "latest",
     "aliases": []
+  },
+  {
+    "version": "rc-v0.2.3",
+    "title": "rc-v0.2.3",
+    "aliases": []
   }
 ]
