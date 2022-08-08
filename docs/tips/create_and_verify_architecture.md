@@ -5,7 +5,7 @@ CARET provides CLI to create architecture files and verify paths.
 ## Creation of architecture file
 
 The architecture file describes the application structure and latency definitions.
-The following commands can be used to create a template architecture file including only the application structure section.
+The following commands can create an architecture file template including only the application structure section.
 
 ```bash
 ros2 caret create_architecture_file [PATH_TO_CTF] -o [OUTPUT_PATH]
