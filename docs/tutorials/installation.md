@@ -34,7 +34,7 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
 
    ```bash
    mkdir src
-   vcs import src < caret.repos --recursive
+   vcs import src < caret.repos
    ```
 
 3. Run `setup_caret.sh`.
