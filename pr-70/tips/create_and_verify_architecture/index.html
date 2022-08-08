@@ -992,19 +992,21 @@
 <h1 id="creation-and-verification-of-architecture-files-with-cli">Creation and verification of architecture files with CLI<a class="headerlink" href="#creation-and-verification-of-architecture-files-with-cli" title="Permanent link">#</a></h1>
 <p>CARET provides CLI to create architecture files and verify paths.</p>
 <h2 id="creation-of-architecture-file">Creation of architecture file<a class="headerlink" href="#creation-of-architecture-file" title="Permanent link">#</a></h2>
-<p>The following commands can be used to create an architecture file that has minimum descriptions from trace data.</p>
+<p>The architecture file describes the application structure and latency definitions.
+The following commands can be used to create a template architecture file including only the application structure section.</p>
 <div class="highlight"><pre><span></span><code>ros2 caret create_architecture_file <span class="o">[</span>PATH_TO_CTF<span class="o">]</span> -o <span class="o">[</span>OUTPUT_PATH<span class="o">]</span>
 </code></pre></div>
 <p>After creating the architecture file, please refer to <a href="https://tier4.github.io/CARET_doc/latest/tutorials/configuration/#how-to-define-a-target-path">How to define a target path</a>.</p>
 <h2 id="verification-of-paths">Verification of paths<a class="headerlink" href="#verification-of-paths" title="Permanent link">#</a></h2>
-<p>The following command executes the <code>path.verify()</code> method on paths defined in the architecture file.</p>
+<p>The following command verifies whether latency definitions are set sufficiently.</p>
 <div class="highlight"><pre><span></span><code>ros2 caret verify_paths <span class="o">[</span>PATH_TO_ARCHITECTURE_FILE<span class="o">]</span> -p <span class="o">[</span>DEFINED_PATH_NAMES<span class="o">]</span>
 </code></pre></div>
 <ul>
-<li><code>-p</code> is optional; by default, <code>path.verify()</code> is executed for all defined paths.</li>
+<li><code>-p</code> is optional; by default, all defined paths are verified.</li>
 <li>Any number of [DEFINED_PATH_NAMES] can be inputted.</li>
 </ul>
-<p>Please refer to <a href="https://tier4.github.io/CARET_doc/latest/tutorials/configuration/#how-to-define-latency-of-a-single-node">How to define latency of a single node</a> for details on the <code>path.verify()</code> method and how to handle output warnings.</p>
+<p>This command executes the <code>path.verify()</code> method.
+Please refer to <a href="https://tier4.github.io/CARET_doc/latest/tutorials/configuration/#how-to-define-latency-of-a-single-node">How to define latency of a single node</a> for details on the <code>path.verify()</code> method and how to handle output warnings.</p>
 
               
             </article>
