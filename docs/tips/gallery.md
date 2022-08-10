@@ -80,7 +80,7 @@ show(p)
 
 ## API to get information about each callback
 
-CARET can visualize execution frequency, jitter and latency along time for each callback and provide them in the pandas DataFrame format.
+CARET can visualize execution frequency, period and latency along time for each callback and provide them in the pandas DataFrame format.
 Several sets of sample program and output are shown in subsequent sections.
 In each example, the following commands are executed in advance.
 
@@ -120,30 +120,30 @@ plot.show()
 
 ![callback_frequency_time_line](../imgs/callback_frequency_time_line.png)
 
-### Jitter
+### Period
 
 ```python
 # get dataframe
-plot = Plot.create_callback_jitter_plot(app)
+plot = Plot.create_callback_period_plot(app)
 
-jitter_df = plot.to_dataframe()
-jitter_df
+period_df = plot.to_dataframe()
+period_df
 
 # ---Output in jupyter-notebook as below---
 ```
 
-![callback_jitter_df](../imgs/callback_jitter_df.png)
+![callback_period_df](../imgs/callback_period_df.png)
 
 ```python
 # show time-line
-plot = Plot.create_callback_jitter_plot(app)
+plot = Plot.create_callback_period_plot(app)
 
 plot.show()
 
 # ---Output in jupyter-notebook as below---
 ```
 
-![callback_jitter_time_line](../imgs/callback_jitter_time_line.png)
+![callback_period_time_line](../imgs/callback_period_time_line.png)
 
 ### Latency
 

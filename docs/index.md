@@ -14,8 +14,8 @@ Features:
 Capabilities:
 
 - Performance measurement from several aspects
-  - Callback latency, frequency, and jitter
-  - Topic communication latency, frequency, and jitter
+  - Callback latency, frequency, and period
+  - Topic communication latency, frequency, and period
   - Node latency
   - Path latency
     - End-to-end latency of software if path from input to output is selected
