@@ -15,6 +15,7 @@ nav:
     - トラブルシューティング: trouble_shooting.md
     - sim_timeでの時系列データ評価: use_sim_time.md
     - Manual Installation: manual_installation.md
-    - Summary of trace data: summary_of_trace_data.md
+    - Summary of Trace Data: summary_of_trace_data.md
     - Path Verification: path_verify.md
     - Detailed Behavior Investigation Methods: investigate_behavior.md
+    - Creation and Verification of Architecture Files with CLI: create_and_verify_architecture.md
