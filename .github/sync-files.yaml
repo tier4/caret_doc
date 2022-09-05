@@ -19,3 +19,7 @@
   files:
     - source: .github/workflows/deploy-docs.yaml
     - source: .github/workflows/delete-closed-pr-docs.yaml
+
+- repository: tier4/caret_common
+  files:
+    - source: .cspell.json
