@@ -45,11 +45,16 @@ You will visualize trace data with the architecture file and `CARET_analyze` pac
 
 ## Contents list
 
+### Installation
+
+Installation with Ansible is provided as the following page shows.
+
+- [Installation](./installation/installation.md)
+
 ### Tutorials
 
 Refer to these page if you want to try.
 
-- [Installation](./tutorials/installation.md)
 - [Measurement](./tutorials/measurement.md)
 - [Configuration](./tutorials/configuration.md)
 - [Visualization](./tutorials/visualization.md)
