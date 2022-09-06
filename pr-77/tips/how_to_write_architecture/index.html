@@ -568,6 +568,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4">
@@ -629,9 +631,110 @@
   
   
   
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          レイテンシ定義
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="レイテンシ定義" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          レイテンシ定義
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
-        レイテンシの算出方法
+        レイテンシ算出方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/latency_definition/" class="md-nav__link">
+        パスレイテンシ定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/node_latency_definition/" class="md-nav__link">
+        ノードレイテンシ定義
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/about_callback_graph/" class="md-nav__link">
+        コールバックグラフについて
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/limits/" class="md-nav__link">
+        ツール利用時の制約
       </a>
     </li>
   
@@ -661,14 +764,6 @@
       
       
       
-        
-          
-        
-          
-        
-          
-        
-          
         
           
         
@@ -736,62 +831,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../latency_definition/" class="md-nav__link">
-        パスのレイテンシの定義
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../node_latency_definition/" class="md-nav__link">
-        ノードレイテンシの定義
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../communication_latency_definition/" class="md-nav__link">
-        通信レイテンシの定義
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../about_callback_graph/" class="md-nav__link">
-        コールバックグラフの説明
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../trace_filtering/" class="md-nav__link">
         トレースフィルタリング
       </a>
@@ -806,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../limits/" class="md-nav__link">
+      <a href="../../limits.md" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -1350,7 +1389,7 @@ subscribe: None, publish: /topic3, message_context: None
 </ul>
 <p>それぞれレイテンシの算出方法が異なり、測定できる粒度の違いや、測定できるケース・できないケースが異なります。
 従って、ノードの実装を確認し、どのポリシーでノードレイテンシを算出させるか、を使い分ける必要が有ります。<br />
-それぞれの詳細については<a href="../node_latency_definition/">ノードレイテンシについて</a>を参照してください。</p>
+それぞれの詳細については<a href="../../design/node_latency_definition/">ノードレイテンシについて</a>を参照してください。</p>
 <p>本節ではアーキテクチャファイルへの記述方法をを説明します。</p>
 <h3 id="callback_chain">callback_chain<a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h3>
 <p>callback_chain は、コールバックの実行間からノードレイテンシを算出する方法です。<br />

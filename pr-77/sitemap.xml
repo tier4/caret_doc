@@ -11,7 +11,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/design/about_callback_graph/</loc>
+         <lastmod>2022-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-77/design/architecture_overview/</loc>
+         <lastmod>2022-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/design/communication_latency_definition/</loc>
          <lastmod>2022-09-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -22,6 +32,21 @@
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-77/design/how_to_calculate_latency/</loc>
+         <lastmod>2022-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/design/latency_definition/</loc>
+         <lastmod>2022-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/design/limits/</loc>
+         <lastmod>2022-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/design/node_latency_definition/</loc>
          <lastmod>2022-09-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -41,22 +66,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/tips/about_callback_graph/</loc>
-         <lastmod>2022-09-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-77/tips/about_treat_drop_as_delay/</loc>
          <lastmod>2022-09-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-77/tips/architecture_format/</loc>
-         <lastmod>2022-09-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/tips/communication_latency_definition/</loc>
          <lastmod>2022-09-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -91,22 +106,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/tips/latency_definition/</loc>
-         <lastmod>2022-09-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/tips/limits/</loc>
-         <lastmod>2022-09-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-77/tips/lttng_event_filter/</loc>
-         <lastmod>2022-09-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/tips/node_latency_definition/</loc>
          <lastmod>2022-09-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
