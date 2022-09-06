@@ -36,12 +36,12 @@ This section explains how to generate an architecture file which has minimum des
    jupyter-lab
    ```
 
-2. Generate an architecture file from measured data as below
+2. Generate an architecture file from recorded data as below
 
    ```python
    from caret_analyze import Architecture
 
-   # Read description of application's architecture from measured data
+   # Read description of application's architecture from recorded data
    arch = Architecture('lttng', './e2e_sample')
 
    # Save description as an architecture file

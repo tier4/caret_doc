@@ -6,7 +6,7 @@ This section will show basic flow to visualize data with Jupyter notebook.
 ## How to locate trace data on Jupyter notebook
 
 1. Launching `jupyter-lab`
-   Launch `jupyter-lab` at first for learning how to visualize trace data.
+   Launch `jupyter-lab` at first for learning how to visualize recorded data.
 
    ```bash
    cd ~/ros2_ws/evaluate
@@ -33,10 +33,10 @@ This section will show basic flow to visualize data with Jupyter notebook.
    # load the architecture file which is created in the previous page
    arch = Architecture('yaml', './architecture.yaml')
 
-   # load measured data by CARET
+   # load recorded data by CARET
    lttng = Lttng('./e2e_sample')
 
-   # map the application architecture to measured data
+   # map the application architecture to recorded data
    app = Application(arch, lttng)
    ```
 

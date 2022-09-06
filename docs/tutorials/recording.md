@@ -1,4 +1,4 @@
-# Measurement and Tracing with CARET
+# Recording with CARET
 
 This page explains usage of CARET with a sample application.
 The sample application is located on [CARET_demos](https://github.com/tier4/CARET_demos.git) repository.
@@ -23,7 +23,7 @@ colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD
 <prettier-ignore-start>
 !!!info
       Reason to build the target with CARET/rclcpp is explained here.  
-      Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to trace a target application.  
+      Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to record a target application.  
       In order to apply rclcpp which has the additional tracepoints, the target have to be built with CARET/rclcpp again.  
       Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as `demo_nodes_cpp`.  
       If you want to trace such pre-build packages, please build them again from source code.
@@ -56,7 +56,7 @@ ros2 trace -s e2e_sample -k -u "ros2*"
 # Start session with pressing Enter key
 
 # with "-s" option, you can give session name
-# the trace data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample
+# the recorded data will be stored into ~/ros_ws/evaluate/e2e_sample in this sample
 ```
 
 Note that if you execute the target application before executing LTTng session will result in a lack of trace points.
@@ -80,7 +80,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
 2. Check whether CARET/rclcpp is applied to each package
 
    The following command allows you to check whether CARET/rclcpp is applied to each package.
-   If caret/rclcpp is not applied to the package you want to measure, please check which rclcpp is used for the target and your workspace's environment variables.
+   If caret/rclcpp is not applied to the package you want to record, please check which rclcpp is used for the target and your workspace's environment variables.
 
    ```bash
    # In case there are packages to which CARET/rclcpp is not applied
@@ -126,20 +126,20 @@ When you execute a LTTng session in one terminal, you have to open another termi
    You can finish the target application and LTTng session.
    LTTng session will be closed if you push `Enter` key on the terminal where the LTTng session runs.
 
-## Validating trace data briefly
+## Validating recorded data briefly
 
-You can check whether tracing is successful or not with `ros2 caret check_ctf` command before analyzing trace data.
+You can check whether tracing is successful or not with `ros2 caret check_ctf` command before analyzing recorded data.
 
 ```bash
 ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
 
-# If there are problems with the trace data, warning messages will be displayed.
+# If there are problems with the recorded data, warning messages will be displayed.
 ```
 
 <prettier-ignore-start>
 !!!info
-      Executing the `ros2 caret check_ctf` command for long trace data or trace data of a large application takes a long time to complete execution.
-      Therefore, it is recommended to execute the `ros2 caret check_ctf` command on a short duration of trace data before collecting trace data for a long time.
+      Executing the `ros2 caret check_ctf` command for long recorded data or recorded data of a large application takes a long time to complete execution.
+      Therefore, it is recommended to execute the `ros2 caret check_ctf` command on a short duration of recorded data before long-time recording.
 <prettier-ignore-end>
 
 ### Tracer discarded error
