@@ -48,7 +48,7 @@
     export CARET_IGNORE_TOPICS="/clock:/parameter_events"
     ```
 
-    設定については、[トレースフィルタリング](./trace_filtering.md)をご覧ください。
+    設定については、[トレースフィルタリング](../recording/trace_filtering.md)をご覧ください。
 
 ## TraceResultAanalyzeError: Failed to find のエラーが出る
 

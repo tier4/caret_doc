@@ -5,7 +5,7 @@ CARET provides CLI that displays the number of collected events, including trace
 ## Node/topic summary
 
 This CLI displays the number of events per node or topic.
-If the number of events is too huge to handle, [trace filtering](trace_filtering.md) is a reasonable choice to exclude unnecessary nodes/topics based on the output result.
+If the number of events is too huge to handle, [trace filtering](../recording/trace_filtering.md) is a reasonable choice to exclude unnecessary nodes/topics based on the output result.
 The following sample codes show command execution as examples.
 
 ```bash
