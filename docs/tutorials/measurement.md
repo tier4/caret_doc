@@ -158,5 +158,5 @@ You can avoid this error with the following two approach.
 
 - to filter topics and nodes which can be ignored with trace filtering explained in the previous section
   - especially, filtering highly-frequent nodes and topics is effective
-  - highly-frequent nodes/topics can be identified by checking the [summary of trace data](../tips/summary_of_trace_data.md)
+  - highly-frequent nodes/topics can be identified by checking the [summary of trace data](../recording/summary_of_trace_data.md)
 - to increase size of ring buffer defined in [`lttng_impl.py`](https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F)

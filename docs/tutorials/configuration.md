@@ -72,7 +72,7 @@ This section explains how to generate an architecture file which has minimum des
    ```
 
    If a target application is large and complicated, `arch.search_paths` method may consume time more than 1 minute.
-   For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to [パスの探索方法](../tips/how_to_search_path.md) for more details.
+   For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to [パスの探索方法](../configuration/how_to_search_path.md) for more details.
 
 3. Check the path as you expected
 

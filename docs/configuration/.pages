@@ -1,0 +1,6 @@
+nav:
+    - Configuration: index.md
+    - アーキテクチャファイルフォーマット: architecture_format.md
+    - パスの探索方法: how_to_search_path.md
+    - ノードレイテンシの算出方法の指定: how_to_write_architecture.md
+    - Creation and Verification of Architecture file with CLI: create_and_verify_architecture.md

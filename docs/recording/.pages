@@ -1,3 +1,6 @@
 nav:
+    - Recording: index.md
     - Lttngセッションの開始方法: how_to_run_lttng_session.md
     - トレースフィルタリング: trace_filtering.md
+    - Summary of Trace Data: summary_of_trace_data.md
+    - sim_timeでの時系列データ評価: use_sim_time.md

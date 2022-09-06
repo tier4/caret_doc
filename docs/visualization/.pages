@@ -1,0 +1,8 @@
+nav:
+    - Visualization: index.md
+    - ギャラリー: gallery.md
+    - LTTngEventFilterの使用方法: lttng_event_filter.md
+    - treat_drop_as_delayフラグの説明: about_treat_drop_as_delay.md
+    - トラブルシューティング: trouble_shooting.md
+    - Path Verification: path_verify.md
+    - Detailed Behavior Investigation Methods: investigate_behavior.md

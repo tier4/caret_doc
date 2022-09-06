@@ -75,19 +75,13 @@ Design documents is prepared, but some are written in Japanese.
   - [コールバックグラフについて](./design/about_callback_graph.md)
 - [ツール利用時の制約](./design/limits.md)
 
-### Recording
+### Details of each step for analysis
 
-Refer to the following links if you are interested in recording your application behavior with CARET.
+CARET serves helpful functions for you to analyze your application efficiently. Please refer to detailed explanation of each step for analysis.
 
-- [Lttng セッションの開始方法](./recording/how_to_run_lttng_session.md)
-- [トレースフィルタリングについて](./recording/trace_filtering.md)
-
-### Tips
-
-Some useful tips to get accustomed to CARET, but almost all of them are written in Japanese.
-
-- [ギャラリー](./tips/gallery.md)
-- [トラブルシューティング](./tips/trouble_shooting.md)
+- [Recording](./recording)
+- [Configuration](./configuration)
+- [Visualization](./visualization/)
 
 ### API list
 
