@@ -1,9 +1,5 @@
 nav:
     - ギャラリー: gallery.md
-    - パスのレイテンシの定義: latency_definition.md
-    - ノードレイテンシの定義: node_latency_definition.md
-    - 通信レイテンシの定義: communication_latency_definition.md
-    - コールバックグラフの説明: about_callback_graph.md
     - トレースフィルタリング: trace_filtering.md
     - ツール利用時の制約: limits.md
     - パスの探索方法: how_to_search_path.md
