@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/tips/how_to_search_path/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/visualization/lttng_event_filter/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
-        <title>パスの探索方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>LTTngEventFilterの使用方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#lttngeventfilter" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              パスの探索方法
+              LTTngEventFilterの使用方法
             
           </span>
         </div>
@@ -263,6 +263,38 @@
         
   
   
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../recording/" class="md-tabs__link">
+        Recording
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../configuration/" class="md-tabs__link">
+        Configuration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
     
   
 
@@ -271,8 +303,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
-        Tips
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Visualization
       </a>
     </li>
   
@@ -769,36 +801,18 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
+            
           
         
           
@@ -811,17 +825,25 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5">
-          Tips
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../recording/">Recording</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
-      <nav class="md-nav" aria-label="Tips" data-md-level="1">
+      <nav class="md-nav" aria-label="Recording" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Tips
+          Recording
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -829,8 +851,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../gallery/" class="md-nav__link">
-        ギャラリー
+      <a href="../../recording/how_to_run_lttng_session/" class="md-nav__link">
+        Lttngセッションの開始方法
       </a>
     </li>
   
@@ -843,8 +865,224 @@
   
   
     <li class="md-nav__item">
-      <a href="../../limits.md" class="md-nav__link">
-        ツール利用時の制約
+      <a href="../../recording/trace_filtering/" class="md-nav__link">
+        トレースフィルタリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recording/summary_of_trace_data/" class="md-nav__link">
+        Summary of Trace Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recording/use_sim_time/" class="md-nav__link">
+        sim_timeでの時系列データ評価
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../configuration/">Configuration</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/architecture_format/" class="md-nav__link">
+        アーキテクチャファイルフォーマット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/how_to_search_path/" class="md-nav__link">
+        パスの探索方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/how_to_write_architecture/" class="md-nav__link">
+        ノードレイテンシの算出方法の指定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/create_and_verify_architecture/" class="md-nav__link">
+        Creation and Verification of Architecture file with CLI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Visualization</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Visualization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Visualization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        ギャラリー
       </a>
     </li>
   
@@ -867,12 +1105,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          パスの探索方法
+          LTTngEventFilterの使用方法
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        パスの探索方法
+        LTTngEventFilterの使用方法
       </a>
       
         
@@ -892,14 +1130,14 @@
       
         <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
-    API
+    API 説明
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    例
+  <a href="#_1" class="md-nav__link">
+    使用例
   </a>
   
 </li>
@@ -933,92 +1171,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture_format/" class="md-nav__link">
-        アーキテクチャファイルフォーマット
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_to_write_architecture/" class="md-nav__link">
-        ノードレイテンシの算出方法の指定
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lttng_event_filter/" class="md-nav__link">
-        LTTngEventFilterの使用方法
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../trouble_shooting/" class="md-nav__link">
         トラブルシューティング
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../use_sim_time/" class="md-nav__link">
-        sim_timeでの時系列データ評価
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../manual_installation.md" class="md-nav__link">
-        Manual Installation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../summary_of_trace_data/" class="md-nav__link">
-        Summary of Trace Data
       </a>
     </li>
   
@@ -1047,20 +1201,6 @@
     <li class="md-nav__item">
       <a href="../investigate_behavior/" class="md-nav__link">
         Detailed Behavior Investigation Methods
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../create_and_verify_architecture/" class="md-nav__link">
-        Creation and Verification of Architecture Files with CLI
       </a>
     </li>
   
@@ -1101,14 +1241,14 @@
       
         <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
-    API
+    API 説明
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    例
+  <a href="#_1" class="md-nav__link">
+    使用例
   </a>
   
 </li>
@@ -1125,66 +1265,50 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/tips/how_to_search_path.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/visualization/lttng_event_filter.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="_1">パス探索の高速化<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p><code>search_paths</code>メソッドはノード図を描き、始点に設定したノードから終点に設定したノードまでを一筆書きで辿れる経路（パス）を全探索し、
-見つかった経路（パス）を全て返却する関数です。</p>
-<p>ノード図から全ての探索できるパスを全探索するため、対象のアプリケーションによっては処理に時間がかかりすぎてしまうケースがあります。<br />
-このようなケースで、高速に目的とするパスを探索する方法を説明します。</p>
-<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<p>search_paths では、このような時間がかかりすぎてしまうケースを避けるための API が備わっています。</p>
-<div class="highlight"><pre><span></span><code><span class="n">search_paths</span><span class="p">(</span>
-    <span class="n">start_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
-    <span class="n">end_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
-    <span class="n">max_node_depth</span><span class="p">:</span> <span class="s1">&#39;Optional[int]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">node_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">communication_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;List[PathStructValue]&#39;</span>
+<h1 id="lttngeventfilter">LTTngEventFilter の使用<a class="headerlink" href="#lttngeventfilter" title="Permanent link">#</a></h1>
+<p>CARET は数分程度の測定や解析までを取り扱うことができます。<br />
+より長時間、十数分〜数十分程度の測定結果を取り扱う際には、メモリの使用量・解析時間・可視化時間などが問題となってきます。</p>
+<p>そこで、CARET は LTTng の読み込み時に不要な測定結果を省くための API(LTTngEventFilter)を備えています。<br />
+ここでは、LTTngEventFitler の使い方について説明します。</p>
+<p>LTTngEventFitler では、以下のフィルタを備えています。</p>
+<ul>
+<li>init_pass_filter</li>
+<li>duration_filter</li>
+<li>strip_filter</li>
+</ul>
+<h2 id="api">API 説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">init_pass_filter</span><span class="p">()</span>
 </code></pre></div>
 <ul>
-<li>start_node_name : 探索の始点となるノード名</li>
-<li>end_node_name : 探索の終点となるノード名</li>
-<li>max_node_depth : 探索するパスが含む最大ノード数。小さいほど探索範囲が狭くなります</li>
-<li>node_filter: 探索対象のノードをフィルタする関数。True を返却した場合は探索対象になります。</li>
-<li>communication_filter: 探索対象の通信をフィルタする関数。True を返却した場合は探索対象になります。</li>
+<li>初期化時のトレースポイントのみを通します。</li>
 </ul>
-<h2 id="_2">例<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
-
-<span class="c1"># 正規表現に一致するノード名を探索から除外する</span>
-<span class="n">node_filters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/_ros2cli_/*&#39;</span><span class="p">),</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/launch_ros_*&#39;</span><span class="p">),</span>
-<span class="p">]</span>
-
-<span class="c1"># 正規表現に一致するトピック名を探索から除外する</span>
-<span class="n">comm_filters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/tf/*&#39;</span><span class="p">),</span>
-<span class="p">]</span>
-<span class="k">def</span> <span class="nf">comm_filter</span><span class="p">(</span><span class="n">topic_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">for</span> <span class="n">comm_filter</span> <span class="ow">in</span> <span class="n">comm_filters</span><span class="p">:</span>
-        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">comm_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">topic_name</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">can_pass</span>
-
-<span class="k">def</span> <span class="nf">node_filter</span><span class="p">(</span><span class="n">node_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">for</span> <span class="n">node_filter</span> <span class="ow">in</span> <span class="n">node_filters</span><span class="p">:</span>
-        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">node_name</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">can_pass</span>
-
-<span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
-    <span class="s1">&#39;/start_node&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;/end_node&#39;</span><span class="p">,</span>
-    <span class="n">max_node_depth</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-    <span class="n">node_filter</span> <span class="o">=</span> <span class="n">node_filter</span><span class="p">,</span>
-    <span class="n">communication_filter</span> <span class="o">=</span> <span class="n">comm_filter</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="n">duration_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">offset_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span>
 </code></pre></div>
+<ul>
+<li>[duration_s]秒間を測定対象にフィルタリング</li>
+<li>最初の[offset_s]秒間を無視</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">strip_filter</span><span class="p">(</span><span class="n">lsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">rsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span>
+</code></pre></div>
+<ul>
+<li>測定開始から[lsplit_s]秒間の測定結果を無視</li>
+<li>測定測定終了から[rsplit_s]秒間の測定結果を無視</li>
+</ul>
+<h2 id="_1">使用例<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
+
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/ctf&#39;</span><span class="p">,</span> <span class="n">event_filters</span><span class="o">=</span><span class="p">[</span>
+  <span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">])</span> <span class="c1"># 測定開始5秒後から10秒間にフィルタいrング</span>
+</code></pre></div>
+<p>event_filters は複数指定することもできます。<br />
+複数を入れた場合は、全てのフィルタが指定した区間のみにフィルタリングされます。</p>
 
 
 

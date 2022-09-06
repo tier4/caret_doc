@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/tips/lttng_event_filter/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/recording/use_sim_time/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
-        <title>LTTngEventFilterの使用方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>sim_timeでの時系列データ評価 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lttngeventfilter" class="md-skip">
+        <a href="#sim_time" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LTTngEventFilterの使用方法
+              sim_timeでの時系列データ評価
             
           </span>
         </div>
@@ -271,8 +271,40 @@
   
   
     <li class="md-tabs__item">
-      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
-        Tips
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Recording
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../configuration/" class="md-tabs__link">
+        Configuration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../visualization/" class="md-tabs__link">
+        Visualization
       </a>
     </li>
   
@@ -782,23 +814,7 @@
       
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
+            
           
         
           
@@ -811,26 +827,34 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5">
-          Tips
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Recording</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
-      <nav class="md-nav" aria-label="Tips" data-md-level="1">
+      <nav class="md-nav" aria-label="Recording" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Tips
+          Recording
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+          
+            
               
   
   
   
     <li class="md-nav__item">
-      <a href="../gallery/" class="md-nav__link">
-        ギャラリー
+      <a href="../how_to_run_lttng_session/" class="md-nav__link">
+        Lttngセッションの開始方法
       </a>
     </li>
   
@@ -843,168 +867,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../limits.md" class="md-nav__link">
-        ツール利用時の制約
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_to_search_path/" class="md-nav__link">
-        パスの探索方法
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
-        treat_drop_as_delayフラグの説明
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture_format/" class="md-nav__link">
-        アーキテクチャファイルフォーマット
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_to_write_architecture/" class="md-nav__link">
-        ノードレイテンシの算出方法の指定
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          LTTngEventFilterの使用方法
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        LTTngEventFilterの使用方法
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API 説明
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    使用例
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trouble_shooting/" class="md-nav__link">
-        トラブルシューティング
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../use_sim_time/" class="md-nav__link">
-        sim_timeでの時系列データ評価
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../manual_installation.md" class="md-nav__link">
-        Manual Installation
+      <a href="../trace_filtering/" class="md-nav__link">
+        トレースフィルタリング
       </a>
     </li>
   
@@ -1029,9 +893,299 @@
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          sim_timeでの時系列データ評価
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        sim_timeでの時系列データ評価
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sim_time_1" class="md-nav__link">
+    sim_time の記録
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sim_time_2" class="md-nav__link">
+    sim_time を使った可視化
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../configuration/">Configuration</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
-      <a href="../path_verify/" class="md-nav__link">
+      <a href="../../configuration/architecture_format/" class="md-nav__link">
+        アーキテクチャファイルフォーマット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/how_to_search_path/" class="md-nav__link">
+        パスの探索方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/how_to_write_architecture/" class="md-nav__link">
+        ノードレイテンシの算出方法の指定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/create_and_verify_architecture/" class="md-nav__link">
+        Creation and Verification of Architecture file with CLI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../visualization/">Visualization</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Visualization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Visualization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/gallery/" class="md-nav__link">
+        ギャラリー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/lttng_event_filter/" class="md-nav__link">
+        LTTngEventFilterの使用方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/about_treat_drop_as_delay/" class="md-nav__link">
+        treat_drop_as_delayフラグの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/trouble_shooting/" class="md-nav__link">
+        トラブルシューティング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/path_verify/" class="md-nav__link">
         Path Verification
       </a>
     </li>
@@ -1045,22 +1199,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../investigate_behavior/" class="md-nav__link">
+      <a href="../../visualization/investigate_behavior/" class="md-nav__link">
         Detailed Behavior Investigation Methods
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../create_and_verify_architecture/" class="md-nav__link">
-        Creation and Verification of Architecture Files with CLI
       </a>
     </li>
   
@@ -1100,15 +1240,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API 説明
+  <a href="#sim_time_1" class="md-nav__link">
+    sim_time の記録
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    使用例
+  <a href="#sim_time_2" class="md-nav__link">
+    sim_time を使った可視化
   </a>
   
 </li>
@@ -1125,50 +1265,50 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/tips/lttng_event_filter.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/recording/use_sim_time.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="lttngeventfilter">LTTngEventFilter の使用<a class="headerlink" href="#lttngeventfilter" title="Permanent link">#</a></h1>
-<p>CARET は数分程度の測定や解析までを取り扱うことができます。<br />
-より長時間、十数分〜数十分程度の測定結果を取り扱う際には、メモリの使用量・解析時間・可視化時間などが問題となってきます。</p>
-<p>そこで、CARET は LTTng の読み込み時に不要な測定結果を省くための API(LTTngEventFilter)を備えています。<br />
-ここでは、LTTngEventFitler の使い方について説明します。</p>
-<p>LTTngEventFitler では、以下のフィルタを備えています。</p>
-<ul>
-<li>init_pass_filter</li>
-<li>duration_filter</li>
-<li>strip_filter</li>
-</ul>
-<h2 id="api">API 説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">init_pass_filter</span><span class="p">()</span>
+<h1 id="sim_time">sim_time での時系列データ評価<a class="headerlink" href="#sim_time" title="Permanent link">#</a></h1>
+<p>CARET のデフォルト（LTTng）では、システム時間で測定結果が出力されます。<br />
+この場合、同じ条件で繰り返し測定する場合などでは、時間がズレてしまい、並べて比較するのが困難です。<br />
+そのような場合には、sim_time で時刻を一致させることで、同条件下での評価が可能になります。<br />
+本ページでは、時系列データの時刻を sim_time に時刻を揃えて評価する方法を説明します。</p>
+<h2 id="sim_time_1">sim_time の記録<a class="headerlink" href="#sim_time_1" title="Permanent link">#</a></h2>
+<p>sim_time を使った評価を行う際には、測定時に特定のノードを実行させておく必要が有ります。</p>
+<div class="highlight"><pre><span></span><code>ros2 run caret_trace clock_recorder
 </code></pre></div>
-<ul>
-<li>初期化時のトレースポイントのみを通します。</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="n">duration_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">offset_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span>
+<p><code>clock_recorder</code>ノードを起動させておくことで、<code>ros2_caret:simime</code>トレースが有効になります。</p>
+<p>以下のようにコマンドを実行することで、トレースポイントが記録されていることを確認できます。</p>
+<div class="highlight"><pre><span></span><code>$ babeltrace ~/.ros/tracing/ctf_path <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+ros2_caret:sim_time:
 </code></pre></div>
-<ul>
-<li>[duration_s]秒間を測定対象にフィルタリング</li>
-<li>最初の[offset_s]秒間を無視</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">strip_filter</span><span class="p">(</span><span class="n">lsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">rsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span>
-</code></pre></div>
-<ul>
-<li>測定開始から[lsplit_s]秒間の測定結果を無視</li>
-<li>測定測定終了から[rsplit_s]秒間の測定結果を無視</li>
-</ul>
-<h2 id="_1">使用例<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
+<p>なお、sim_time は<code>/clock</code>トピックが publish されている間のみ記録されます。</p>
+<h2 id="sim_time_2">sim_time を使った可視化<a class="headerlink" href="#sim_time_2" title="Permanent link">#</a></h2>
+<p><code>caret_analyze.plot</code>配下の可視化では、時間軸を sim_time にした可視化が可能です。<br />
+最新版 v.0.2.1 では、<code>callback_sched</code>と<code>message_flow</code>が sim_time の時刻を使用した可視化に対応しています。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">callback_sched</span><span class="p">(</span>
+    <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Node</span><span class="p">,</span> <span class="n">CallbackGroup</span><span class="p">,</span> <span class="n">Executor</span><span class="p">],</span>
+    <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">coloring_rule</span><span class="o">=</span><span class="s1">&#39;callback&#39;</span><span class="p">,</span>
+    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="p">):</span>
 
-<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/ctf&#39;</span><span class="p">,</span> <span class="n">event_filters</span><span class="o">=</span><span class="p">[</span>
-  <span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="p">])</span> <span class="c1"># 測定開始5秒後から10秒間にフィルタいrング</span>
+<span class="k">def</span> <span class="nf">message_flow</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">granularity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span>
 </code></pre></div>
-<p>event_filters は複数指定することもできます。<br />
-複数を入れた場合は、全てのフィルタが指定した区間のみにフィルタリングされます。</p>
+<p>オプション引数の<code>use_sim_time = True</code>とすることで、横軸が sim_time のグラフを描画できます。<br />
+なお、<code>ros2_caret:sim_time</code>トレースポイントが見つからない場合には、エラーが出るようになっています。</p>
 
 
 
@@ -1192,7 +1332,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../how_to_write_architecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ノードレイテンシの算出方法の指定" rel="prev">
+        <a href="../summary_of_trace_data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Summary of Trace Data" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1201,20 +1341,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              ノードレイテンシの算出方法の指定
+              Summary of Trace Data
             </div>
           </div>
         </a>
       
       
         
-        <a href="../trouble_shooting/" class="md-footer__link md-footer__link--next" aria-label="Next: トラブルシューティング" rel="next">
+        <a href="../../configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              トラブルシューティング
+              Configuration
             </div>
           </div>
           <div class="md-footer__button md-icon">

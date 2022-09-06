@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/design/latency_definition/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/visualization/investigate_behavior/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
-        <title>パスレイテンシ定義 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Detailed Behavior Investigation Methods - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#detailed-behavior-investigation-methods" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              パスレイテンシ定義
+              Detailed Behavior Investigation Methods
             
           </span>
         </div>
@@ -247,15 +247,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../architecture_overview/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../design/architecture_overview/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -297,13 +295,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../visualization/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Visualization
       </a>
     </li>
@@ -582,14 +582,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -624,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture_overview/" class="md-nav__link">
+      <a href="../../design/architecture_overview/" class="md-nav__link">
         Architecture overview
       </a>
     </li>
@@ -638,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../supported_tracepoints/" class="md-nav__link">
+      <a href="../../design/supported_tracepoints/" class="md-nav__link">
         Supported tracepoints
       </a>
     </li>
@@ -652,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../diff/" class="md-nav__link">
+      <a href="../../design/diff/" class="md-nav__link">
         galacticとの差分
       </a>
     </li>
@@ -664,16 +662,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
       
       
       
@@ -708,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_to_calculate_latency/" class="md-nav__link">
+      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
         レイテンシ算出方法
       </a>
     </li>
@@ -720,21 +716,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../design/latency_definition/" class="md-nav__link">
         パスレイテンシ定義
       </a>
-      
     </li>
   
 
@@ -746,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../node_latency_definition/" class="md-nav__link">
+      <a href="../../design/node_latency_definition/" class="md-nav__link">
         ノードレイテンシ定義
       </a>
     </li>
@@ -760,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../communication_latency_definition/" class="md-nav__link">
+      <a href="../../design/communication_latency_definition/" class="md-nav__link">
         通信レイテンシの定義
       </a>
     </li>
@@ -774,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about_callback_graph/" class="md-nav__link">
+      <a href="../../design/about_callback_graph/" class="md-nav__link">
         コールバックグラフについて
       </a>
     </li>
@@ -795,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../limits/" class="md-nav__link">
+      <a href="../../design/limits/" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -1039,12 +1025,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -1070,7 +1058,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../visualization/">Visualization</a>
+          <a href="../">Visualization</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -1093,7 +1081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/gallery/" class="md-nav__link">
+      <a href="../gallery/" class="md-nav__link">
         ギャラリー
       </a>
     </li>
@@ -1107,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/lttng_event_filter/" class="md-nav__link">
+      <a href="../lttng_event_filter/" class="md-nav__link">
         LTTngEventFilterの使用方法
       </a>
     </li>
@@ -1121,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/about_treat_drop_as_delay/" class="md-nav__link">
+      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
         treat_drop_as_delayフラグの説明
       </a>
     </li>
@@ -1135,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/trouble_shooting/" class="md-nav__link">
+      <a href="../trouble_shooting/" class="md-nav__link">
         トラブルシューティング
       </a>
     </li>
@@ -1149,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/path_verify/" class="md-nav__link">
+      <a href="../path_verify/" class="md-nav__link">
         Path Verification
       </a>
     </li>
@@ -1161,11 +1149,99 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../visualization/investigate_behavior/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Detailed Behavior Investigation Methods
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Detailed Behavior Investigation Methods
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description-of-get_callback" class="md-nav__link">
+    Description of get_callback
+  </a>
+  
+    <nav class="md-nav" aria-label="Description of get_callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description-of-get_callbacks" class="md-nav__link">
+    Description of get_callbacks
+  </a>
+  
+    <nav class="md-nav" aria-label="Description of get_callbacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api_1" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1197,6 +1273,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description-of-get_callback" class="md-nav__link">
+    Description of get_callback
+  </a>
+  
+    <nav class="md-nav" aria-label="Description of get_callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description-of-get_callbacks" class="md-nav__link">
+    Description of get_callbacks
+  </a>
+  
+    <nav class="md-nav" aria-label="Description of get_callbacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api_1" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1207,13 +1345,59 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/latency_definition.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/visualization/investigate_behavior.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="_1">レイテンシの定義<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<h1 id="detailed-behavior-investigation-methods">Detailed Behavior Investigation Methods<a class="headerlink" href="#detailed-behavior-investigation-methods" title="Permanent link">#</a></h1>
+<p>CARET provides a ROS-friendly class structure that allows the following classes to obtain detailed execution information.</p>
+<ul>
+<li>Executor</li>
+<li>Node</li>
+<li>CallbackGroup</li>
+<li>Callback</li>
+<li>Publisher</li>
+<li>Subscription</li>
+<li>Timer</li>
+</ul>
+<p>Please refer to the <a href="https://tier4.github.io/CARET_analyze/latest/">API documentation</a> for information on what information can be obtained the target class.</p>
+<p>This section describes how to obtain the targeted class.</p>
+<h2 id="description-of-get_callback">Description of get_callback<a class="headerlink" href="#description-of-get_callback" title="Permanent link">#</a></h2>
+<p>The 'get_callback()' is a function that returns callback information such as callback name, callback period[ns], callback type.</p>
+<h3 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># def get_callback(self, callback_name: str) -&gt; CallbackBase</span>
+</code></pre></div>
+<ul>
+<li>The 'get_callback()' function returns single callback that match the argument string and callback name (callback name defined in architecture file).</li>
+<li>If no matching callbacks are found, get_callback raises a exception.</li>
+</ul>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
+
+<span class="n">callback1</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_0&#39;</span><span class="p">)</span>
+<span class="n">callback2</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_1&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="description-of-get_callbacks">Description of get_callbacks<a class="headerlink" href="#description-of-get_callbacks" title="Permanent link">#</a></h2>
+<p>The get_callbacks() is a function that gets callback information.
+Callbacks information includes callback name, callback period[ns], callback type.</p>
+<h3 id="api_1">API<a class="headerlink" href="#api_1" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># def get_callbacks(self, *callback_names: str) -&gt; List[CallbackBase]</span>
+</code></pre></div>
+<ul>
+<li>The 'get_callbacks()' function gets callbacks that match the argument string and callback name (callback name defined in architecture file).</li>
+<li>If concrete callback names are given and there is no match callbacks, The 'get_callbacks()' function warns and may notify similar callbacks name.</li>
+<li>The 'get_callbacks()' function can recognize UNIX filename pattern such as '*' or '?'.</li>
+<li>If patterns are given, get_callbacks doesn't raise any exception, and returns empty list.</li>
+</ul>
+<h3 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
+
+<span class="n">callback1</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_0&#39;</span><span class="p">)</span>
+<span class="n">callback2</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_?&#39;</span><span class="p">)</span>
+<span class="n">callback3</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/*&#39;</span><span class="p">)</span>
+</code></pre></div>
 
 
 
@@ -1237,7 +1421,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../how_to_calculate_latency/" class="md-footer__link md-footer__link--prev" aria-label="Previous: レイテンシ算出方法" rel="prev">
+        <a href="../path_verify/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Path Verification" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1246,26 +1430,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              レイテンシ算出方法
+              Path Verification
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../node_latency_definition/" class="md-footer__link md-footer__link--next" aria-label="Next: ノードレイテンシ定義" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              ノードレイテンシ定義
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   

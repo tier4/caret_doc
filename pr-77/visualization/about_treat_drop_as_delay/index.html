@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/tips/trouble_shooting/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/visualization/about_treat_drop_as_delay/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
-        <title>トラブルシューティング - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>treat_drop_as_delayフラグの説明 - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#treat_drop_as_delay" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              トラブルシューティング
+              treat_drop_as_delayフラグの説明
             
           </span>
         </div>
@@ -263,6 +263,38 @@
         
   
   
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../recording/" class="md-tabs__link">
+        Recording
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../configuration/" class="md-tabs__link">
+        Configuration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
     
   
 
@@ -271,8 +303,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../gallery/" class="md-tabs__link md-tabs__link--active">
-        Tips
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Visualization
       </a>
     </li>
   
@@ -769,36 +801,18 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
+            
           
         
           
@@ -811,26 +825,34 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5">
-          Tips
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../recording/">Recording</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
-      <nav class="md-nav" aria-label="Tips" data-md-level="1">
+      <nav class="md-nav" aria-label="Recording" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Tips
+          Recording
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+          
+            
               
   
   
   
     <li class="md-nav__item">
-      <a href="../gallery/" class="md-nav__link">
-        ギャラリー
+      <a href="../../recording/how_to_run_lttng_session/" class="md-nav__link">
+        Lttngセッションの開始方法
       </a>
     </li>
   
@@ -843,8 +865,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../limits.md" class="md-nav__link">
-        ツール利用時の制約
+      <a href="../../recording/trace_filtering/" class="md-nav__link">
+        トレースフィルタリング
       </a>
     </li>
   
@@ -857,8 +879,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_to_search_path/" class="md-nav__link">
-        パスの探索方法
+      <a href="../../recording/summary_of_trace_data/" class="md-nav__link">
+        Summary of Trace Data
       </a>
     </li>
   
@@ -871,12 +893,68 @@
   
   
     <li class="md-nav__item">
-      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
-        treat_drop_as_delayフラグの説明
+      <a href="../../recording/use_sim_time/" class="md-nav__link">
+        sim_timeでの時系列データ評価
       </a>
     </li>
   
 
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../configuration/">Configuration</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
           
             
@@ -885,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture_format/" class="md-nav__link">
+      <a href="../../configuration/architecture_format/" class="md-nav__link">
         アーキテクチャファイルフォーマット
       </a>
     </li>
@@ -899,8 +977,112 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_to_write_architecture/" class="md-nav__link">
+      <a href="../../configuration/how_to_search_path/" class="md-nav__link">
+        パスの探索方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/how_to_write_architecture/" class="md-nav__link">
         ノードレイテンシの算出方法の指定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/create_and_verify_architecture/" class="md-nav__link">
+        Creation and Verification of Architecture file with CLI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Visualization</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Visualization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Visualization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        ギャラリー
       </a>
     </li>
   
@@ -936,110 +1118,23 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          トラブルシューティング
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
+        treat_drop_as_delayフラグの説明
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trouble_shooting/" class="md-nav__link">
         トラブルシューティング
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    メッセージフローが表示されないなど、可視化時に問題がある
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    測定結果が明らかにおかしい
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#traceresultaanalyzeerror-failed-to-find" class="md-nav__link">
-    TraceResultAanalyzeError: Failed to find のエラーが出る
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    特定のノードだけ測定がされていない
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    メッセージフローの図が途中で止まっている
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../use_sim_time/" class="md-nav__link">
-        sim_timeでの時系列データ評価
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../manual_installation.md" class="md-nav__link">
-        Manual Installation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../summary_of_trace_data/" class="md-nav__link">
-        Summary of Trace Data
       </a>
     </li>
   
@@ -1074,20 +1169,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../create_and_verify_architecture/" class="md-nav__link">
-        Creation and Verification of Architecture Files with CLI
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1114,49 +1195,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    メッセージフローが表示されないなど、可視化時に問題がある
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    測定結果が明らかにおかしい
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#traceresultaanalyzeerror-failed-to-find" class="md-nav__link">
-    TraceResultAanalyzeError: Failed to find のエラーが出る
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    特定のノードだけ測定がされていない
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    メッセージフローの図が途中で止まっている
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1167,98 +1205,15 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/tips/trouble_shooting.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/visualization/about_treat_drop_as_delay.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="_1">トラブルシューティング<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<h2 id="_2">メッセージフローが表示されないなど、可視化時に問題がある<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p>以下が考えられます</p>
-<ul>
-<li>環境変数 LD_PRELOAD が設定されていない</li>
-</ul>
-<ul>
-<li>
-<p>初期化時のログが記録されていない</p>
-<ul>
-<li>ros2 tracing コマンドでログを記録する場合、
-  ros2 tracing コマンド実行 →Enter でスタートさせた後、
-  測定対象のアプリケーション実行が必要になります。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>対象のアプリケーションをトレースポイント追加済み rclcpp でビルドし直ししていない</p>
-<ul>
-<li>
-<p>caret は ros レイヤーにも一部トレースポイントを追加しています。
-  これらトレースポイントを有効にするためには、以下の手順でアプリケーションを再ビルドする必要があります。</p>
-<div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/src
-<span class="nb">cd</span> ~/ros2_ws
-git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
-<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
-colcon build --symlink-install
-</code></pre></div>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="_3">測定結果が明らかにおかしい<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<p>以下が考えられます。</p>
-<ul>
-<li>
-<p>トレース結果の保存が間に合わずロストしている</p>
-<ul>
-<li>
-<p>以下のコマンドを実行し、エラー出力が出ないことを確認してください。</p>
-<div class="highlight"><pre><span></span><code>babeltrace autoware &gt; /dev/null
-<span class="o">[</span>warning<span class="o">]</span> Tracer discarded <span class="m">3435</span> events between <span class="o">[</span><span class="m">15</span>:05:22.967846940<span class="o">]</span> and <span class="o">[</span><span class="m">15</span>:05:23.025356129<span class="o">]</span> <span class="k">in</span> trace UUID 236d978f8bde4cbc9460b0f4e008081, at path: <span class="s2">&quot;autoware/ust/uid/1000/64-bit&quot;</span>, within stream id <span class="m">0</span>, at relative path: <span class="s2">&quot;ros2_12&quot;</span>. You should consider recording a new trace with larger buffers or with fewer events enabled.
-<span class="o">[</span>warning<span class="o">]</span> Tracer discarded <span class="m">3910</span> events between <span class="o">[</span><span class="m">15</span>:05:22.972199681<span class="o">]</span> and <span class="o">[</span><span class="m">15</span>:05:23.024463592<span class="o">]</span> <span class="k">in</span> trace UUID 236d978f8bde4cbc9460b0f4e008081, at path: <span class="s2">&quot;autoware/ust/uid/1000/64-bit&quot;</span>, within stream id <span class="m">0</span>, at relative path: <span class="s2">&quot;ros2_6&quot;</span>. You should consider recording a new trace with larger buffers or with fewer events enabled.
-</code></pre></div>
-<p>上記のように <code>Tracer discarded 3435 events</code>と出ている場合には、測定結果が正しくでない可能性があります</p>
-</li>
-</ul>
-<ul>
-<li>
-<p>トレース結果の保存が間に合わない場合には、以下のように環境変数を設定して、再度測定してください。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
-<span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
-</code></pre></div>
-<p>設定については、<a href="../../recording/trace_filtering/">トレースフィルタリング</a>をご覧ください。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="traceresultaanalyzeerror-failed-to-find">TraceResultAanalyzeError: Failed to find のエラーが出る<a class="headerlink" href="#traceresultaanalyzeerror-failed-to-find" title="Permanent link">#</a></h2>
-<p>アーキテクチャファイルに記載された情報がトレース結果上で見つからない際に生じるエラーです。
-アーキテクチャファイルとトレース結果が一致しないことを指しています。
-表示されたエラー文を参考に、アーキテクチャファイルまたは測定方法を見直してください。</p>
-<p>例</p>
-<div class="highlight"><pre><span></span><code>TraceResultAanalyzeError: Failed to find callback_object.node_name: /localization/pose_twist_fusion_filter/ekf_localizer, callback_name: timer_callback_0, period_ns: 19999999, symbol: void (EKFLocalizer::?)()
-</code></pre></div>
-<ul>
-<li>コールバック情報が見つかりませんでした。<ul>
-<li>node_name：/localization/pose_twist_fusion_filter/ekf_localizer</li>
-<li>callback_name：timer_callback_0</li>
-<li>period_ns：19999999</li>
-<li>symbol：void (EKFLocalizer::?)()</li>
-</ul>
-</li>
-</ul>
-<h2 id="_4">特定のノードだけ測定がされていない<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
-<p>一部のトレースポイントが見当たらない現象が残っており、これが原因の可能性があります。</p>
-<p>現在、フォークした ROS レイヤーに追加したトレースポイントが正しく測定されない問題が見つかっています。<br />
-これはビルドする際にフォークした rclcpp が参照されていないことが原因です。</p>
-<p>上記手順でトレースポイントが不足している場合には、<br />
-CMakeLists.txt の find_package 後に以下の行を追加してください。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">include_directories</span><span class="p">(</span><span class="s">SYSTEM</span><span class="w"> </span><span class="s">/home/autoware/ros2_caret_ws/install/rclcpp/include</span><span class="p">)</span>
-</code></pre></div>
-<p>フォークした rclcpp で追加したトレースポイントについては、 <a href="../../design/supported_tracepoints/">トレースポイントの定義</a>の表内で、
-トレースポイントの実装方法が「rclcpp パッケージ新規追加」となっている項目が対象になります。</p>
-<h2 id="_5">メッセージフローの図が途中で止まっている<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
+<h1 id="treat_drop_as_delay">treat_drop_as_delay フラグについて<a class="headerlink" href="#treat_drop_as_delay" title="Permanent link">#</a></h1>
+<p><code>treat_drop_as_delay=False</code>とした場合、メッセージがロスト（上書き）されたトレースポイントの箇所で途切れます。
+<code>treat_drop_as_delay=True</code>とした場合、ロスト箇所を遅延として算出できるように紐付けたフローを出力します。</p>
 
 
 
@@ -1298,13 +1253,13 @@ CMakeLists.txt の find_package 後に以下の行を追加してください。
       
       
         
-        <a href="../use_sim_time/" class="md-footer__link md-footer__link--next" aria-label="Next: sim_timeでの時系列データ評価" rel="next">
+        <a href="../trouble_shooting/" class="md-footer__link md-footer__link--next" aria-label="Next: トラブルシューティング" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              sim_timeでの時系列データ評価
+              トラブルシューティング
             </div>
           </div>
           <div class="md-footer__button md-icon">
