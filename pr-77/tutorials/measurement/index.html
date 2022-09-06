@@ -897,10 +897,6 @@
         
           
         
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_5">
@@ -923,20 +919,6 @@
     <li class="md-nav__item">
       <a href="../../tips/gallery/" class="md-nav__link">
         ギャラリー
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tips/trace_filtering/" class="md-nav__link">
-        トレースフィルタリング
       </a>
     </li>
   
@@ -993,20 +975,6 @@
     <li class="md-nav__item">
       <a href="../../tips/architecture_format/" class="md-nav__link">
         アーキテクチャファイルフォーマット
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tips/how_to_run_lttng_session/" class="md-nav__link">
-        Lttngセッションの開始方法
       </a>
     </li>
   
@@ -1295,7 +1263,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># the trace data will be recorded in ~/ros_ws/evaluate/e2e_sample in this sample</span>
 </code></pre></div>
 <p>Note that if you execute the target application before executing LTTng session will result in a lack of trace points.</p>
-<p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../tips/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
+<p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../recording/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by <code>ros2 launch</code> is a reasonable way to apply CARET repeatedly.</p>
 <h3 id="launching-the-target-application">Launching the target application<a class="headerlink" href="#launching-the-target-application" title="Permanent link">#</a></h3>
 <ol>
@@ -1336,7 +1304,7 @@ INFO    : <span class="m">2022</span>-06-12 <span class="m">12</span>:26:49 <spa
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
 </code></pre></div>
-<p>CARET serves <a href="../../tips/trace_filtering/">trace filtering</a>(in Japanese). With configuration of trace filtering, CARET can ignore nodes and topics. This function is useful for a large application.</p>
+<p>CARET serves <a href="../../recording/trace_filtering/">trace filtering</a>(in Japanese). With configuration of trace filtering, CARET can ignore nodes and topics. This function is useful for a large application.</p>
 </li>
 <li>
 <p>Launch the target application, demos_end_to_end_sample</p>

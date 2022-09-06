@@ -66,6 +66,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/recording/how_to_run_lttng_session/</loc>
+         <lastmod>2022-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/recording/trace_filtering/</loc>
+         <lastmod>2022-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-77/tips/about_treat_drop_as_delay/</loc>
          <lastmod>2022-09-06</lastmod>
          <changefreq>daily</changefreq>
@@ -82,11 +92,6 @@
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-77/tips/gallery/</loc>
-         <lastmod>2022-09-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/tips/how_to_run_lttng_session/</loc>
          <lastmod>2022-09-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -117,11 +122,6 @@
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-77/tips/summary_of_trace_data/</loc>
-         <lastmod>2022-09-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/tips/trace_filtering/</loc>
          <lastmod>2022-09-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
