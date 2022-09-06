@@ -71,15 +71,13 @@ Design documents is prepared, but some are written in Japanese.
   - [レイテンシ算出方法](./design/how_to_calculate_latency.md)
   - [パスレイテンシ定義](./design/latency_definition.md)
   - [ノードレイテンシ定義](./design/node_latency_definition.md)
+  - [通信レイテンシの定義](./design/communication_latency_definition.md)
   - [コールバックグラフについて](./design/about_callback_graph.md)
 
 ### Tips
 
 Some useful tips to get accustomed to CARET, but almost all of them are written in Japanese.
 
-- [パスのレイテンシの定義](./tips/latency_.md)
-- [ノードレイテンシの定義](./tips/node_latency_definition.md)
-- [通信レイテンシの定義](./tips/communication_latency_definition.md)
 - [トレースフィルタリングについて](./tips/trace_filtering.md)
 - [ツール利用時の制約](./tips/limits.md)
 - [ギャラリー](./tips/gallery.md)

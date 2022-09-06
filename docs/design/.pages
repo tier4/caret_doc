@@ -6,5 +6,6 @@ nav:
         - レイテンシ算出方法: how_to_calculate_latency.md
         - パスレイテンシ定義: latency_definition.md
         - ノードレイテンシ定義: node_latency_definition.md
+        - 通信レイテンシの定義: communication_latency_definition.md
         - コールバックグラフについて: about_callback_graph.md
     - ツール利用時の制約: limits.md
