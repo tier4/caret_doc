@@ -239,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../measurement/" class="md-tabs__link md-tabs__link--active">
+      <a href="../recording/" class="md-tabs__link md-tabs__link--active">
         Tutorials
       </a>
     </li>
@@ -536,8 +536,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../measurement/" class="md-nav__link">
-        Measurement
+      <a href="../recording/" class="md-nav__link">
+        Recording
       </a>
     </li>
   
@@ -1292,7 +1292,7 @@ This section will show basic flow to visualize data with Jupyter notebook.</p>
 <ol>
 <li>
 <p>Launching <code>jupyter-lab</code>
-   Launch <code>jupyter-lab</code> at first for learning how to visualize trace data.</p>
+   Launch <code>jupyter-lab</code> at first for learning how to visualize recorded data.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
 
 <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
@@ -1312,10 +1312,10 @@ jupyter-lab
 <span class="c1"># load the architecture file which is created in the previous page</span>
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
 
-<span class="c1"># load measured data by CARET</span>
+<span class="c1"># load recorded data by CARET</span>
 <span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
 
-<span class="c1"># map the application architecture to measured data</span>
+<span class="c1"># map the application architecture to recorded data</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 </code></pre></div>
 <p>After execution of the code, users will often refer to the <code>app</code> object defined as <code>Application</code> class. The <code>app</code> objects provides users latency of callbacks, communication, and paths. <code>Application</code> class is similar to <code>Architecture</code> class which describes structure of the application and their interfaces are similar. In addition, <code>Application</code> class has interfaces to get latency.</p>
