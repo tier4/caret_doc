@@ -131,7 +131,6 @@ When you execute a LTTng session in one terminal, you have to open another termi
       You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like [Autoware](https://github.com/autowarefoundation/autoware) which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with `ulimit -n` command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; `ulimit -n 65536`.
 <prettier-ignore-end>
 
-
 ## Validating trace data briefly
 
 You can check whether tracing is successful or not with `ros2 caret check_ctf` command before analyzing trace data.
