@@ -8,7 +8,7 @@ LTTng のインストール
 ```bash
 sudo apt-add-repository ppa:lttng/stable-2.12
 sudo apt-get update
-sudo apt-get install lttng-tools lttng-modules-dkms liblttng-ust-dev
+sudo apt-get install lttng-tools liblttng-ust-dev
 sudo apt-get install python3-babeltrace python3-lttng
 ```
 
