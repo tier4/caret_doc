@@ -89,7 +89,7 @@ mkdir -p ~/ros2_caret_ws/src
 cd ~/ros2_caret_ws
 
 wget https://raw.githubusercontent.com/tier4/caret/main/caret.repos
-vcs import src < caret.repos --recursive
+vcs import src < caret.repos
 
 rosdep install \
   --from-paths src --ignore-src \

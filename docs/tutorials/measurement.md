@@ -13,7 +13,7 @@ For building the application with CARET/rclcpp, CARET's `local_setup.bash` shoul
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws
 
-git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
+git clone https://github.com/tier4/CARET_demos.git src/CARET_demos
 source /opt/ros/humble/setup.bash
 source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/humble/setup.bash'
 
