@@ -29,6 +29,8 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    cd ros2_caret_ws
    ```
 
+   `main` branch is dedicated for ROS 2 Humble. If you want to use CARET for ROS 2 Galactic, please execute `git checkout galactic` in `ros2_caret_ws` directory.
+
 2. Create the src directory and clone repositories into it.
 
    CARET uses vcstool to construct workspaces.
