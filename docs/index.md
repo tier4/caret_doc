@@ -66,7 +66,7 @@ Design documents is prepared, but some are written in Japanese.
 - [Architecture overview](./design/architecture_overview.md)
 - [Supported tracepoints](./design/supported_tracepoints.md)
 <!-- - [records型について](./about_records_type.md) -->
-- [galactic との差分](./design/diff.md)
+- [galactic との差分(staled)](./design/diff.md)
 - レイテンシ定義
   - [レイテンシ算出方法](./design/how_to_calculate_latency.md)
   - [パスレイテンシ定義](./design/latency_definition.md)
@@ -101,8 +101,8 @@ CARET is constructed of the following packages
 - [ros2caret](https://github.com/tier4/ros2caret.git) ｜ CLI commands like `ros2 caret`
 - [CARET_demos](https://github.com/tier4/CARET_demos) ｜ Demo programs for CARET
 - [CARET_doc](https://github.com/tier4/CARET_doc) ｜ Documentation
-- [rclcpp](https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added) ｜ the forked `rclcpp` including CARET-dedicated tracepoints
-- [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added)｜ the forked `ros2_tracing` including definition of CARET-dedicated tracepoints
+- [rclcpp](https://github.com/tier4/rclcpp/tree/rc/v0.3.0) ｜ the forked `rclcpp` including CARET-dedicated tracepoints
+- [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/rc/v0.3.0)｜ the forked `ros2_tracing` including definition of CARET-dedicated tracepoints
 
 ---
 

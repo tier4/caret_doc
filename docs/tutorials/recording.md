@@ -13,9 +13,9 @@ For building the application with CARET/rclcpp, CARET's `local_setup.bash` shoul
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws
 
-git clone https://github.com/tier4/CARET_demos.git src/CARET_demos --recursive
-source /opt/ros/galactic/setup.bash
-source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/galactic/setup.bash'
+git clone https://github.com/tier4/CARET_demos.git src/CARET_demos
+source /opt/ros/humble/setup.bash
+source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/humble/setup.bash'
 
 colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
 ```
@@ -47,7 +47,7 @@ CARET depends on LTTng for tracing applications. LTTng session has to be execute
 You can execute LTTng session, for CARET, with a simple command interface as well as ros2-tracing.
 
 ```bash
-source /opt/ros/galactic/setup.bash
+source /opt/ros/humble/setup.bash
 
 # set a destination directory. ~/.ros/tracing is default.
 mkdir -p ~/ros2_ws/evaluate
@@ -72,7 +72,7 @@ When you execute a LTTng session in one terminal, you have to open another termi
 
    ```bash
    # keep the order as below
-   source /opt/ros/galactic/setup.bash
+   source /opt/ros/humble/setup.bash
    source ~/ros2_caret_ws/install/local_setup.bash
    source ~/ros2_ws/install/local_setup.bash
    ```
@@ -125,6 +125,12 @@ When you execute a LTTng session in one terminal, you have to open another termi
 
    You can finish the target application and LTTng session.
    LTTng session will be closed if you push `Enter` key on the terminal where the LTTng session runs.
+
+
+<prettier-ignore-start>
+!!!info
+      You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like [Autoware](https://github.com/autowarefoundation/autoware) which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with `ulimit -n` command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; `ulimit -n 65536`.
+<prettier-ignore-end>
 
 ## Validating recorded data briefly
 

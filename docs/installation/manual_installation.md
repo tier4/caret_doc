@@ -8,12 +8,12 @@ LTTng のインストール
 ```bash
 sudo apt-add-repository ppa:lttng/stable-2.12
 sudo apt-get update
-sudo apt-get install lttng-tools lttng-modules-dkms liblttng-ust-dev
+sudo apt-get install lttng-tools liblttng-ust-dev
 sudo apt-get install python3-babeltrace python3-lttng
 ```
 
-ROS 2 galactic のインストール、依存パッケージのインストール。
-詳細は [ROS2 公式ドキュメント](https://docs.ros.org/en/galactic/Installation/Ubuntu-Development-Setup.html) を参照。
+ROS 2 Humble のインストール、依存パッケージのインストール。
+詳細は [ROS2 公式ドキュメント](https://docs.ros.org/en/humble/Installation/Ubuntu-Development-Setup.html) を参照。
 
 ```bash
 sudo apt update && sudo apt install -y \
@@ -45,21 +45,21 @@ python3 -m pip install -U \
   setuptools \
   colorcet
 
-sudo apt install ros-galactic-desktop
+sudo apt install ros-humble-desktop
 ```
 
 ros2 trace 関連のパッケージをインストール
 
 ```bash
 sudo apt install -y \
-  ros-galactic-ros2trace \
-  ros-galactic-ros2trace-analysis \
-  ros-galactic-tracetools \
-  ros-galactic-tracetools-analysis \
-  ros-galactic-tracetools-launch \
-  ros-galactic-tracetools-read \
-  ros-galactic-tracetools-test \
-  ros-galactic-tracetools-trace
+  ros-humble-ros2trace \
+  ros-humble-ros2trace-analysis \
+  ros-humble-tracetools \
+  ros-humble-tracetools-analysis \
+  ros-humble-tracetools-launch \
+  ros-humble-tracetools-read \
+  ros-humble-tracetools-test \
+  ros-humble-tracetools-trace
 ```
 
 caret の依存パッケージをインストール
@@ -89,17 +89,17 @@ mkdir -p ~/ros2_caret_ws/src
 cd ~/ros2_caret_ws
 
 wget https://raw.githubusercontent.com/tier4/caret/main/caret.repos
-vcs import src < caret.repos --recursive
+vcs import src < caret.repos
 
 rosdep install \
   --from-paths src --ignore-src \
-  --rosdistro galactic -y \
+  --rosdistro humble -y \
   --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
 # [ERROR: the following packages/stacks could not have their rosdep keys resolved] と出る場合は、以下を試すこと
 # rosdep init
 # rosdep update
-source /opt/ros/galactic/setup.bash
+source /opt/ros/humble/setup.bash
 
 # フォークしたパッケージのヘッダーファイルを使用させるためのシンボリックリンクを作成
 ln -sf ~/ros2_caret_ws/src/ros-tracing/ros2_tracing/tracetools/include/tracetools ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
