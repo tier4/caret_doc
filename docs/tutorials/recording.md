@@ -126,7 +126,6 @@ When you execute a LTTng session in one terminal, you have to open another termi
    You can finish the target application and LTTng session.
    LTTng session will be closed if you push `Enter` key on the terminal where the LTTng session runs.
 
-
 <prettier-ignore-start>
 !!!info
       You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like [Autoware](https://github.com/autowarefoundation/autoware) which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with `ulimit -n` command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; `ulimit -n 65536`.
