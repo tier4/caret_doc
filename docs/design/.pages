@@ -1,7 +1,7 @@
 nav:
     - Architecture overview: architecture_overview.md
     - Supported tracepoints: supported_tracepoints.md
-    - galacticとの差分: diff.md
+    - galacticとの差分(staled): diff.md
     - レイテンシ定義:
         - レイテンシ算出方法: how_to_calculate_latency.md
         - パスレイテンシ定義: latency_definition.md
