@@ -101,17 +101,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/filter_trace_points/</loc>
-         <lastmod>2022-09-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/hook/</loc>
          <lastmod>2022-09-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/overview/</loc>
+         <lastmod>2022-09-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/tracepoint_filtering/</loc>
          <lastmod>2022-09-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -136,12 +136,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/trace_points/diff_galactic/</loc>
-         <lastmod>2022-09-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/trace_points/diff_humble/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/trace_points/diff/</loc>
          <lastmod>2022-09-22</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#merge" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -802,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runtime_processing/filter_trace_points" class="md-nav__link">
+      <a href="../../runtime_processing/tracepoint_filtering" class="md-nav__link">
         Tracepoint filtering
       </a>
     </li>
@@ -912,8 +917,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_4_5">
@@ -990,22 +993,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trace_points/diff_galactic" class="md-nav__link">
-        Diff(galactic)
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trace_points/diff_humble" class="md-nav__link">
-        Diff(humble)
+      <a href="../../trace_points/diff" class="md-nav__link">
+        Differences from original ROS
       </a>
     </li>
   
@@ -1647,6 +1636,42 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#merge" class="md-nav__link">
+    merge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge_sequential" class="md-nav__link">
+    merge_sequential
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge_sequential_for_addr_trck" class="md-nav__link">
+    merge_sequential_for_addr_trck
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_dataframe" class="md-nav__link">
+    to_dataframe
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1667,7 +1692,19 @@
 
   <h1>Records</h1>
 
-
+<p>CARET ではレイテンシ算出に関わるトレースデータの加工をテーブルで行っています。</p>
+<p>pandas.DataFrame-like な API を備えており、処理速度を早くした C++実装版もあります。</p>
+<p>ここではいくつかの主な API について説明します。</p>
+<h2 id="merge">merge<a class="headerlink" href="#merge" title="Permanent link">#</a></h2>
+<p>テーブルの内部結合、外部結合です。</p>
+<h2 id="merge_sequential">merge_sequential<a class="headerlink" href="#merge_sequential" title="Permanent link">#</a></h2>
+<p>時系列的なマージです。
+特に thread による逐次的な処理を結合する際に使います。</p>
+<h2 id="merge_sequential_for_addr_trck">merge_sequential_for_addr_trck<a class="headerlink" href="#merge_sequential_for_addr_trck" title="Permanent link">#</a></h2>
+<p>アドレスを元に紐付けを行い、コピーが発生する際に使うマージです。</p>
+<h2 id="to_dataframe">to_dataframe<a class="headerlink" href="#to_dataframe" title="Permanent link">#</a></h2>
+<p>pandas.DataFrame に変換する関数です。
+特に可視化や自前で評価する際には、こちらが使えます。</p>
 
 
 

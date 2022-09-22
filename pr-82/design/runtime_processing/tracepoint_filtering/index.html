@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/trace_points/diff_galactic/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/tracepoint_filtering/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
     
     
       
-        <title>ROS 2 galactic との差分 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Tracepoint filtering - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ros-2-galactic" class="md-skip">
+        <a href="#tracepoint-filtering" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ROS 2 galactic との差分
+              Tracepoint filtering
             
           </span>
         </div>
@@ -779,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runtime_processing/overview" class="md-nav__link">
+      <a href="../overview" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -793,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runtime_processing/hook" class="md-nav__link">
+      <a href="../hook" class="md-nav__link">
         Hook
       </a>
     </li>
@@ -807,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runtime_processing/filter_trace_points" class="md-nav__link">
+      <a href="." class="md-nav__link">
         Tracepoint filtering
       </a>
     </li>
@@ -917,8 +917,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_4_5">
@@ -939,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview" class="md-nav__link">
+      <a href="../../trace_points/overview" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -953,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../initialization_trace_points" class="md-nav__link">
+      <a href="../../trace_points/initialization_trace_points" class="md-nav__link">
         Initialization tracepoints
       </a>
     </li>
@@ -967,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime_trace_points" class="md-nav__link">
+      <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
       </a>
     </li>
@@ -981,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../message_tracking" class="md-nav__link">
+      <a href="../../trace_points/message_tracking" class="md-nav__link">
         Message tracking
       </a>
     </li>
@@ -995,22 +993,8 @@
   
   
     <li class="md-nav__item">
-      <a href="." class="md-nav__link">
-        Diff(galactic)
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../diff_humble" class="md-nav__link">
-        Diff(humble)
+      <a href="../../trace_points/diff" class="md-nav__link">
+        Differences from original ROS
       </a>
     </li>
   
@@ -1654,35 +1638,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#rcl" class="md-nav__link">
-    rcl
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rclcpp" class="md-nav__link">
-    rclcpp
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ros2_tracing" class="md-nav__link">
-    ros2_tracing
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1695,45 +1650,25 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/trace_points/diff_galactic.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/runtime_processing/tracepoint_filtering.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="ros-2-galactic">ROS 2 galactic との差分<a class="headerlink" href="#ros-2-galactic" title="Permanent link">#</a></h1>
-<p><a href="https://github.com/tier4/caret/blob/main/caret.repos">caret.repos</a> には caret のリポジトリの他に、以下のリポジトリを含んでいます。</p>
-<ul>
-<li><a href="https://github.com/ros2/rcl.git">https://github.com/ros2/rcl.git</a></li>
-<li><a href="https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added">https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added</a></li>
-<li><a href="https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added">https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added</a></li>
-</ul>
-<p>それぞれのリポジトリの差分について説明します。</p>
-<h2 id="rcl">rcl<a class="headerlink" href="#rcl" title="Permanent link">#</a></h2>
-<p>ソースコードの変更なし。
-トレースポイントを有効にするための再ビルド。</p>
-<h2 id="rclcpp">rclcpp<a class="headerlink" href="#rclcpp" title="Permanent link">#</a></h2>
-<p>リポジトリ：<a href="https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added">https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added</a></p>
-<p>追加したトレースポイントについては、<a href="./supported_tracepoints.md">トレースポイントの定義</a>の <strong>[CARET フォーク実装]</strong>となります。</p>
-<blockquote>
-<p>rclcpp 実装の理由</p>
-<p>上記トレースポイントはテンプレートで実装された関数内に挿入しています。<br />
-テンプレート実装はヘッダーに含まれ、アプリケーションのバイナリ内に生成されます<br />
-LD_PRELOAD でのフックが不可能な測定箇所なため、 rclcpp にトレースポイントの追加しています。</p>
-</blockquote>
-<p>また、ビルドを通すために ros2_tracing の include ファイルを追加しています。</p>
-<blockquote>
-<p>rclcpp に ros2_tracing の include ファイルを追加した理由</p>
-<p>LD_PRELOAD では実行開始直後にカスタムの共有ライブラリを優先して読み込ませることが可能になります。<br />
-一方で、上記のようなヘッダーに追加されたトレースポイントには、ビルド時のヘッダー探索にトレースポイント追加版ヘッダーが優先して読み込まれる必要あります。<br />
-gcc の -I フラグや CPATH などを検討しましたが、トレースポイント追加版 rclcpp/include, /opt/ros/galactic/include （ros2_tracing 含む）,トレースポイント追加版 tracetools/include の順となり、追加したトレースポイント未定義のエラーでビルドが通せません。<br />
-そのため、 トレースポイント追加版 tracetools/include に追加されていないトレースポイントは、一時的に rclcpp/include 配下に追加しました。<br />
-ros2 本家へのトレースポイントのマージを検討していく際には、rclcpp への ros2_tracing の include ファイル追加は必要ありません。</p>
-</blockquote>
-<h2 id="ros2_tracing">ros2_tracing<a class="headerlink" href="#ros2_tracing" title="Permanent link">#</a></h2>
-<p>rclcpp で追加したトレースポイントの定義を追加</p>
-<p>リポジトリ：<a href="https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added">https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added</a></p>
-<p>フックではなく、rclcpp へトレースポイントを追加した理由については、「rclcpp 実装の理由」を参照。</p>
+<h1 id="tracepoint-filtering">Tracepoint filtering<a class="headerlink" href="#tracepoint-filtering" title="Permanent link">#</a></h1>
+<p>Autoware のように、多数のノードで構成されたシステムを計測すると、トレースによるデータ量が非常に大きくなります。
+Lttng はシステムへの影響を小さくするため、Discard モードで扱っています。
+そのため、トレースデータが多くなると、トレースデータの Discard が発生していまします。</p>
+<p>CARET では、特定のトピックやノードに関連するトレースポイントだけを無効化する機能を提供しています。
+これにより、rviz ノードに関連するトレースデータや、tf トピックに関連するトレースデータだけを記録対象から外せるようになり、 規模の大きなシステムでも CARET による測定が可能になります。</p>
+<p>このフィルタリング機能は set で扱っているので、オーバーヘッドは非常に小さいです。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ros_tracing_callback_start</span><span class="p">(</span><span class="n">args</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">is_callback_enabled</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">record</span><span class="p">(</span><span class="n">args</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 
 
 
@@ -1759,7 +1694,7 @@ ros2 本家へのトレースポイントのマージを検討していく際に
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../software_architecture/tilde/" class="md-footer__link md-footer__link--prev" aria-label="Previous: TILDE" rel="prev">
+        <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1768,20 +1703,20 @@ ros2 本家へのトレースポイントのマージを検討していく際に
               <span class="md-footer__direction">
                 Previous
               </span>
-              TILDE
+              Overview
             </div>
           </div>
         </a>
       
       
         
-        <a href="../diff_humble/" class="md-footer__link md-footer__link--next" aria-label="Next: ROS 2 galactic との差分" rel="next">
+        <a href="../../software_architecture/caret_analyze/" class="md-footer__link md-footer__link--next" aria-label="Next: CARET_analyze" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ROS 2 galactic との差分
+              CARET_analyze
             </div>
           </div>
           <div class="md-footer__button md-icon">

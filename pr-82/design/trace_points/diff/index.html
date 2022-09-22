@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/trace_points/diff_humble/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/trace_points/diff/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
     
     
       
-        <title>ROS 2 galactic との差分 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Differences from original ROS - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ros-2-galactic" class="md-skip">
+        <a href="#differences-from-original-ros" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ROS 2 galactic との差分
+              Differences from original ROS
             
           </span>
         </div>
@@ -807,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runtime_processing/filter_trace_points" class="md-nav__link">
+      <a href="../../runtime_processing/tracepoint_filtering" class="md-nav__link">
         Tracepoint filtering
       </a>
     </li>
@@ -917,8 +917,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_4_5">
@@ -995,22 +993,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../diff_galactic" class="md-nav__link">
-        Diff(galactic)
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="." class="md-nav__link">
-        Diff(humble)
+        Differences from original ROS
       </a>
     </li>
   
@@ -1661,29 +1645,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#v02-vs-galactic" class="md-nav__link">
+    v0.2 vs galactic
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.2 vs galactic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#rcl" class="md-nav__link">
     rcl
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#rclcpp" class="md-nav__link">
     rclcpp
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#ros2_tracing" class="md-nav__link">
     ros2_tracing
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#cyclonedds" class="md-nav__link">
-    cyclonedds
+  <a href="#v03-vs-humble" class="md-nav__link">
+    v0.3 vs humble
   </a>
   
 </li>
@@ -1702,25 +1699,25 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/trace_points/diff_humble.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/trace_points/diff.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="ros-2-galactic">ROS 2 galactic との差分<a class="headerlink" href="#ros-2-galactic" title="Permanent link">#</a></h1>
+<h1 id="differences-from-original-ros">Differences from original ROS<a class="headerlink" href="#differences-from-original-ros" title="Permanent link">#</a></h1>
+<h2 id="v02-vs-galactic">v0.2 vs galactic<a class="headerlink" href="#v02-vs-galactic" title="Permanent link">#</a></h2>
 <p><a href="https://github.com/tier4/caret/blob/main/caret.repos">caret.repos</a> には caret のリポジトリの他に、以下のリポジトリを含んでいます。</p>
 <ul>
 <li><a href="https://github.com/ros2/rcl.git">https://github.com/ros2/rcl.git</a></li>
 <li><a href="https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added">https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added</a></li>
 <li><a href="https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added">https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added</a></li>
-<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds.git">https://github.com/eclipse-cyclonedds/cyclonedds.git</a></li>
 </ul>
 <p>それぞれのリポジトリの差分について説明します。</p>
-<h2 id="rcl">rcl<a class="headerlink" href="#rcl" title="Permanent link">#</a></h2>
+<h3 id="rcl">rcl<a class="headerlink" href="#rcl" title="Permanent link">#</a></h3>
 <p>ソースコードの変更なし。
 トレースポイントを有効にするための再ビルド。</p>
-<h2 id="rclcpp">rclcpp<a class="headerlink" href="#rclcpp" title="Permanent link">#</a></h2>
+<h3 id="rclcpp">rclcpp<a class="headerlink" href="#rclcpp" title="Permanent link">#</a></h3>
 <p>リポジトリ：<a href="https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added">https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added</a></p>
 <p>追加したトレースポイントについては、<a href="./supported_tracepoints.md">トレースポイントの定義</a>の <strong>[CARET フォーク実装]</strong>となります。</p>
 <blockquote>
@@ -1738,29 +1735,11 @@ gcc の -I フラグや CPATH などを検討しましたが、トレースポ�
 そのため、 トレースポイント追加版 tracetools/include に追加されていないトレースポイントは、一時的に rclcpp/include 配下に追加しました。<br />
 ros2 本家へのトレースポイントのマージを検討していく際には、rclcpp への ros2_tracing の include ファイル追加は必要ありません。</p>
 </blockquote>
-<h2 id="ros2_tracing">ros2_tracing<a class="headerlink" href="#ros2_tracing" title="Permanent link">#</a></h2>
+<h3 id="ros2_tracing">ros2_tracing<a class="headerlink" href="#ros2_tracing" title="Permanent link">#</a></h3>
 <p>rclcpp で追加したトレースポイントの定義を追加</p>
 <p>リポジトリ：<a href="https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added">https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added</a></p>
 <p>フックではなく、rclcpp へトレースポイントを追加した理由については、「rclcpp 実装の理由」を参照。</p>
-<h2 id="cyclonedds">cyclonedds<a class="headerlink" href="#cyclonedds" title="Permanent link">#</a></h2>
-<p>ソースコードの変更なし。</p>
-<p>DDS レイテンシ算出のための試験導入</p>
-<!-- --- -->
-
-<!-- CycloneDDS 内のフック箇所を有効にするために Debug ビルドが必要。
-Release ビルドを行った場合、Segmentation Fault が発生するので注意。
-
-> Segmentation Fault が発生する理由：
->
-> DDS-layer レイテンシの測定は、on_data_available の実行時に source_timestamp などのメッセージ情報のみを取得し、出力させている。
-> ただし、CycloneDDS には メッセージ本体は読み込まず、メッセージ情報のみを取得する API が存在しない。
-> メッセージ本体とその情報をセットで読み込ませることは可能ではあるが、余計なコピーが発生してしまい、性能の低下を招く。
-> そのため、サイズの小さな仮のバッファにメッセージ本体の一部を読み込ませるようにして、メッセージ情報を取得している。
-> このとき、「仮のバッファにメッセージ本体の一部を読み込ませた」ことでキャスト時に不都合が発生させない実装もフックで対応している。
-> Release ビルドにすると、このフックをしていたインライン関数がフック出来なくなり、キャスト時に Segmantation Fault が発生してしまう。（何らかの最適化を有効にすると PLT から削除されてしまう模様）
->
-> ソースコードの変更をさせないために Debug ビルドとしたが、Cyclone DDS の性能低下が懸念される。
-> フックしていたインライン関数だけ最適化の影響を受けないような実装に手を加えれば、Release ビルドとしても良い。 -->
+<h2 id="v03-vs-humble">v0.3 vs humble<a class="headerlink" href="#v03-vs-humble" title="Permanent link">#</a></h2>
 
 
 
@@ -1786,7 +1765,7 @@ Release ビルドを行った場合、Segmentation Fault が発生するので�
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../diff_galactic/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ROS 2 galactic との差分" rel="prev">
+        <a href="../../software_architecture/tilde/" class="md-footer__link md-footer__link--prev" aria-label="Previous: TILDE" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1795,7 +1774,7 @@ Release ビルドを行った場合、Segmentation Fault が発生するので�
               <span class="md-footer__direction">
                 Previous
               </span>
-              ROS 2 galactic との差分
+              TILDE
             </div>
           </div>
         </a>
