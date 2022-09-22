@@ -1678,7 +1678,7 @@
 
   <h1>Communication latency</h1>
 
-<p>CARETでは、通信レイテンシを以下のように定義しています。　</p>
+<p>CARET では、通信レイテンシを以下のように定義しています。</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 l^{comm} = t^{msg}_{in} - t^{msg}_{out}
@@ -1688,11 +1688,11 @@ l^{comm} = t^{msg}_{in} - t^{msg}_{out}
 </script>
 </div>
 <p>メッセージがノードまたはコールバックの所有権に出る時刻から、入る時刻までとなっています。</p>
-<p>これは将来tfを含めたレイテンシでも計測するためになっています。</p>
+<p>これは将来 tf を含めたレイテンシでも計測するためになっています。</p>
 <ul>
 <li>スケジューリングによって影響を受ける時間になっています。</li>
 </ul>
-<p>特に、publish-subscriptionの場合には、以下のように定義されます。</p>
+<p>特に、publish-subscription の場合には、以下のように定義されます。</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 l^{comm} = t_{sub} - t_{pub}
