@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/software_architecture/tilde/</loc>
+         <lastmod>2022-09-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-82/design/trace_points/diff_galactic/</loc>
          <lastmod>2022-09-22</lastmod>
          <changefreq>daily</changefreq>
