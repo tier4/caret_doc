@@ -1659,10 +1659,18 @@
 <h1 id="architecture-overview">Architecture overview<a class="headerlink" href="#architecture-overview" title="Permanent link">#</a></h1>
 <p>This section explains an overview of software architecture of CARET.</p>
 <p><img alt="architecture" src="../../../imgs/architecture.drawio.png" /></p>
-<p>Architecture object serves APIs to search node chains and define node latency as mentioned in <a href="../tutorials/configuration.md">tutorial/architecture file section</a>. Architecture object is reusable after it is saved as a YAML-based file called "architecture file".<br />
-Runtime Data object serves APIs to retrieve <code>pandas.DataFrame</code>-based objects including callback latency or communication. Users can analyze temporal aspects of their applications, with visualization, as they expect. APIs for visualization are also served by CARET_analyze which plays main role to analyze trace data.</p>
-<p>A set of trace data is divided into two sections by CARET_analyze package after loading trace data; Architecture and Runtime Data. Architecture object includes description of target application's structure. This object can be reused unless structure of the target application or name of the components is changed. Runtime Data object has data sampled during execution of the target application. The sampled data includes timestamps, whose value are different per execution, obtained from tracepoints.</p>
-<p>Architecture object and Runtime Data object are implemented as Python-based classes. The structure of their classes are designed based on the structure of ROS applications which are constructed of executors, nodes, callback functions, and topic messages. ROS-based structure makes CARET's API friendly for ROS users. They are able to find target nodes, topic messages, or executors if they know their application structure.</p>
+<p>CARET は ROS2 に組み込まれたトレースポイントに加え、いくつかの方法によりトレースポイントを追加します; CARET_trace, CARET_rclcpp, TILDE
+柔軟性をもたせるために、可能な限りフックによるトレースポイントの追加を行い、補助的に他の方法でトレースポイントを追加しています。</p>
+<p>トレースポイントで取得した情報は、TraceData として全て保存されます。</p>
+<p>A set of trace data is divided into two sections by CARET_analyze package after loading trace data; Architecture and Runtime Data.</p>
+<p>Architecture データはパスの定義などを記述しています。
+評価対象のパスの定義などは、デベロッパーが指定する必要があります。
+一度設定した Architecture 情報は yaml ファイルとして保存し、次回から使用が可能です。</p>
+<p>Runtime Data は測定値など測定毎に変化する情報です。
+実行時の情報は事前に定義した Architecture 情報と結び付けられ、評価しやすい形の python-API としてデベロッパーに提供されます。</p>
+<p>CARET_analyze は PythonAPI を提供することが重要な役割としてありますが、
+jupyter 上での評価を簡単にするための可視化も提供しています。</p>
+<p>それぞれのパッケージと主な役割を以下にまとめます。</p>
 <table>
 <thead>
 <tr>
@@ -1718,7 +1726,7 @@ Runtime Data object serves APIs to retrieve <code>pandas.DataFrame</code>-based 
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../caret_trace/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Caret trace" rel="prev">
+        <a href="../caret_trace/" class="md-footer__link md-footer__link--prev" aria-label="Previous: caret_trace" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1727,7 +1735,7 @@ Runtime Data object serves APIs to retrieve <code>pandas.DataFrame</code>-based 
               <span class="md-footer__direction">
                 Previous
               </span>
-              Caret trace
+              caret_trace
             </div>
           </div>
         </a>

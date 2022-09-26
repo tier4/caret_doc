@@ -1652,10 +1652,11 @@
   <h1>Design</h1>
 
 <p>Design では、CARET の内部について説明します。
-以下に、各パッケージを書き加えた測定フローを示します。</p>
+以下に、Tracing Flow に各パッケージを書き加えた測定フローを示します。</p>
 <p><img alt="architecture" src="../imgs/design.drawio.png" /></p>
 <p>CARET collects data, which include timestamps, from tracepoints embedded in user application, ROS 2 and DDS. The data set is stored into a storage as "Trace Data".</p>
-<p>CARET は以下を行います。</p>
+<p>CARET は Trace Data を解析し、デベロッパーに結果を提供します。</p>
+<p>Design の各章では、CARET が行う以下の工程の方針や内部処理について説明をします。</p>
 <ol>
 <li>トレースポイントの実行時処理</li>
 <li>トレースポイントの追加</li>
@@ -1663,7 +1664,7 @@
 <li>レイテンシの算出</li>
 <li>可視化</li>
 </ol>
-<p>上記の方針や内部処理に加え、以下についても記述します。</p>
+<p>また、以下についても説明します。</p>
 <ul>
 <li>ソフトウェアアーキテクチャ</li>
 <li>レイテンシの定義</li>

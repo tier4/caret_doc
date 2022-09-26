@@ -1662,13 +1662,8 @@ Lttng はシステムへの影響を小さくするため、Discard モードで
 そのため、トレースデータが多くなると、トレースデータの Discard が発生していまします。</p>
 <p>CARET では、特定のトピックやノードに関連するトレースポイントだけを無効化する機能を提供しています。
 これにより、rviz ノードに関連するトレースデータや、tf トピックに関連するトレースデータだけを記録対象から外せるようになり、 規模の大きなシステムでも CARET による測定が可能になります。</p>
-<p>このフィルタリング機能は set で扱っているので、オーバーヘッドは非常に小さいです。</p>
-<div class="highlight"><pre><span></span><code><span class="n">ros_tracing_callback_start</span><span class="p">(</span><span class="n">args</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="n">is_callback_enabled</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">record</span><span class="p">(</span><span class="n">args</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
+<p>このフィルタリング機能は set で扱っているので、オーバーヘッドは非常に小さいです。
+詳細については、<a href="../../software_architecture/caret_trace/">caret_trace</a>をご覧ください。</p>
 
 
 
