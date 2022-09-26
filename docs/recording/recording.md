@@ -1,6 +1,15 @@
-# LTTng セッションの開始方法
+# Recording with CARET
 
-## 別途ターミナルで開始
+## Set LD_PRELOAD
+
+```
+# Enable tracepoints which are defined hooked functions.
+export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
+```
+
+## Start LTTng session
+
+### 別途ターミナルで開始
 
 ターミナル上でセッションを開始できます。  
 ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれる関数にもトレースポイントを挿入しています。
@@ -25,7 +34,7 @@ ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれ
 終了する際の順番に指定はありません。  
 `ros2 trace` を実行しているターミナルは `Enter` を再度押して終了してください。
 
-## Launch システムでの開始
+### Launch システムでの開始
 
 LTTng のセッション開始を launch ファイルに記述します。  
 launch ファイル内へ、`tracetools_launch.action.Trace` を追加します。

@@ -22,3 +22,7 @@ export CARET_IGNORE_TOPICS="/clock:/parameter_events"
 > 現時点の CARET では、トレースフィルタリングによる除外は完全ではありません。  
 > 特に DDS レイヤーのトレースポイントはフィルタリングされていません。  
 > これは、フィルタリングの判定にトピック名やノード名を使っていることが理由です。
+
+## Filter setting file
+
+dummy
