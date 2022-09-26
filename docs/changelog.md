@@ -2,12 +2,13 @@
 
 ## CARET
 
-### v0.3.0 <small>\_ July 14, 2022</small> {id = "0.3.0"}
+### v0.3.0 <small>\_ Sept 26, 2022</small> {id = "0.3.0"}
 
 - Supported OS: Ubuntu 22.04
 - Supported ROS Dist.: ROS Humble
 - Imported to Ubuntu 22.04 and ROS Humble
 - Added new feature to show response time ([CARET_analyze #96](https://github.com/tier4/CARET_analyze/pull/96))
+- Added new APIs to visualize frequency, period, and latency ([CARET_analyze #124](https://github.com/tier4/CARET_analyze/pull/124#pullrequestreview-1098527296), [#130](https://github.com/tier4/CARET_analyze/pull/130), [#133](https://github.com/tier4/CARET_analyze/pull/133), [#134](https://github.com/tier4/CARET_analyze/pull/134), [#136](https://github.com/tier4/CARET_analyze/pull/136), [#140](https://github.com/tier4/CARET_analyze/pull/140))
 - Reduced memory consumption wasted for recorded data ([CARET_analyze #100](https://github.com/tier4/CARET_analyze/pull/100))
 - Launched [CARET_analyze API document](https://tier4.github.io/CARET_analyze/latest/)
 - Added small fixes
