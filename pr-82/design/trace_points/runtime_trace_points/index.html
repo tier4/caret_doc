@@ -1756,50 +1756,72 @@
   <h1>Runtime trace points</h1>
 
 <h3 id="tracepoints-for-representing-flow-of-message-transmission">Tracepoints for representing flow of message transmission<a class="headerlink" href="#tracepoints-for-representing-flow-of-message-transmission" title="Permanent link">#</a></h3>
-<pre class="mermaid"><code>
-graph LR
-  source_timestamp[[source_timestamp]]
-  message_dds[[message_addr]]
-  message_intra[[message_addr]]
-  message_inter[[message_addr]]
-  publish(("publish(message)"))
-  source_timestamp[[source_timestamp]]
-  message_intra_sub[[message_addr]]
+<pre class="mermaid"><code>erDiagram
 
-  rclcpp_intra_publish[rclcpp_intra_publish&lt;ul&gt;&lt;li&gt;publisher_handle&lt;/li&gt;&lt;li&gt;message_addr&lt;/li&gt;&lt;li&gt;message_timestamp&lt;/li&gt;&lt;/ul&gt;]
+ callback_start{
+ address callback
+ bool is_intra_process
+ }
 
-  message_construct_intra[message_construct&lt;ul&gt;&lt;li&gt;original_message_addr&lt;/li&gt;&lt;li&gt;constructed_message_addr&lt;/li&gt;&lt;/ul&gt;]
-  message_construct_inter[message_construct&lt;ul&gt;&lt;li&gt;original_message_addr&lt;/li&gt;&lt;li&gt;constructed_message_addr&lt;/li&gt;&lt;/ul&gt;]
+ callback_end{
+ address callback
+ }
 
-  rclcpp_publish[rclcpp_publish&lt;ul&gt;&lt;li&gt;publisher_handle&lt;/li&gt;&lt;li&gt;message_addr&lt;/li&gt;&lt;li&gt;message_timestamp&lt;/li&gt;&lt;/ul&gt;]
+ message_construct{
+ address original_message
+ address constructed_message
+ }
 
-  rcl_publish[rcl_publish&lt;ul&gt;&lt;li&gt;publisher_handle&lt;/li&gt;&lt;li&gt;message_addr&lt;/li&gt;&lt;/ul&gt;]
-  dds_write[dds_write&lt;ul&gt;&lt;li&gt;message_addr&lt;/li&gt;&lt;/ul&gt;]
-  dds_bind_addr_to_addr[dds_bind_addr_to_addr&lt;ul&gt;&lt;li&gt;addr_from&lt;/li&gt;&lt;li&gt;addr_to&lt;/li&gt;&lt;/ul&gt;]
-  dds_bind_addr_to_stamp[dds_bind_addr_to_stamp&lt;ul&gt;&lt;li&gt;message_addr&lt;/li&gt;&lt;li&gt;source_timestamp&lt;/li&gt;&lt;/ul&gt;]
+ rclcpp_intra_publish{
+ address publisher_handle
+ address message
+ uint64_t message_timestamp
+ }
 
-  publish --&gt;  rclcpp_intra_publish
-  publish --&gt;  rclcpp_publish
+ dispatch_subscription_callback{
+ address message
+ address callback
+ uint64_t source_timestamp
+ uint64_t message_timestamp
+ }
 
-  subgraph message_copy_if_necessary
-    rclcpp_intra_publish &lt;--&gt; message_intra
-    rclcpp_publish &lt;--&gt; message_inter
-    message_construct_intra -.-&gt; message_intra
-    message_intra -.-&gt; message_construct_intra
-    message_construct_inter -.-&gt; message_inter
-    message_inter -.-&gt; message_construct_inter
-  end
+ dispatch_intra_process_subscription_callback{
+ address message
+ address callback
+ uint64_t message_timestamp
+ }
+
+ rcl_publish{
+ address publisher_handle
+ address message
+ }
+
+ rclcpp_publish{
+ address publisher_handle
+ address message
+ uint64_t message_timestamp
+ }
+
+ dds_write{
+ address message
+ }
+
+ dds_bind_addr_to_stamp{
+ address addr
+ uint64_t source_stamp
+ }
+
+    rclcpp_intra_publish ||--|| dispatch_intra_process_subscription_callback: message_addr
+    rclcpp_publish ||--|| rcl_publish: message_addr
+    rcl_publish ||--|| dds_write: message_addr
+    dds_write ||--|| dds_bind_addr_to_stamp: message_addr
+
+    dds_bind_addr_to_stamp ||--|| dispatch_subscription_callback: source_timestamp
 
 
-  message_inter &lt;--&gt; rcl_publish
-  message_inter &lt;--&gt; dds_write
-  dds_write &lt;--&gt; message_dds
-
-  message_dds &lt;--&gt;  dds_bind_addr_to_stamp
-  dds_bind_addr_to_stamp &lt;--&gt; source_timestamp
-
-  dds_bind_addr_to_addr -.-&gt; message_dds
-  message_dds -.-&gt; dds_bind_addr_to_addr
+    dispatch_intra_process_subscription_callback ||--|| callback_start: callback
+    dispatch_subscription_callback ||--|| callback_start: callback
+    callback_start ||--|| callback_end: callback
 </code></pre>
 <p>If a topic message is defined with unique_ptr and transmitted to multiple subscription by <code>publish</code> method, the topic message may be copied.<br />
 CARET can associate an address of original message to that of copied one by <code>message_construct</code>.<br />
@@ -1808,33 +1830,6 @@ All messages communicated via DDS have <code>source_timestamp</code> given autom
 CARET utilizes <code>source_timestamp</code> to map transmitted message to received one.</p>
 <p>CARET maps a <code>message_addr</code> to a published message for intra-process communication, and a <code>source_timestamp</code> to one for inter-communication.</p>
 <h3 id="tracepoints-for-representing-flow-of-callback-execution-after-message-reception">Tracepoints for representing flow of callback execution after message reception<a class="headerlink" href="#tracepoints-for-representing-flow-of-callback-execution-after-message-reception" title="Permanent link">#</a></h3>
-<pre class="mermaid"><code>
-graph LR
-  source_timestamp[[source_timestamp]]
-  message_intra_sub[[message_addr]]
-  message_intra[[message_addr]]
-  callback[[callback]]
-  source_timestamp[[source_timestamp]]
-  source_timestamp_sub[source_timestamp]
-
-  dispatch_subscription_callback[dispatch_subscription_callback&lt;ul&gt;&lt;li&gt;message_addr&lt;/li&gt;&lt;li&gt;callback&lt;/li&gt;&lt;li&gt;source_timestamp&lt;/li&gt;&lt;li&gt;message_timestamp&lt;/li&gt;&lt;/ul&gt;]
-  dispatch_intra_process_subscription_callback[dispatch_intra_process_subscription_callback&lt;ul&gt;&lt;li&gt;message_addr&lt;/li&gt;&lt;li&gt;callback&lt;/li&gt;&lt;li&gt;message_timestamp&lt;/li&gt;&lt;/ul&gt;]
-
-  callback_end_[callback_end&lt;ul&gt;&lt;li&gt;callback&lt;/li&gt;&lt;/ul&gt;]
-  callback_start[callback_start&lt;ul&gt;&lt;li&gt;callback&lt;/li&gt;&lt;li&gt;is_intra_process&lt;/li&gt;&lt;/ul&gt;]
-
-
-  source_timestamp --Inter Process Communication--&gt; source_timestamp_sub
-  message_intra --Intra Process Communication--&gt; message_intra_sub
-  message_intra_sub --&gt; dispatch_intra_process_subscription_callback
-
-  dispatch_intra_process_subscription_callback --&gt; callback
-
-  callback --&gt; callback_start
-  callback --&gt; callback_end_
-
-  dispatch_subscription_callback --&gt; callback
-  source_timestamp_sub --&gt; dispatch_subscription_callback</code></pre>
 <p>As well as flow of message transmission, a message is identified by <code>message_addr</code> for intra-process communication, but <code>source_timestamp</code> for inter-process communication.</p>
 <p><code>message_addr</code> and <code>source_timestamp</code> is mapped a corresponding <code>callback_start</code>.<br />
 As explained, <code>message_addr</code> and <code>source_timestamp</code> are identifier for transmission flow using <code>publish</code> method.
