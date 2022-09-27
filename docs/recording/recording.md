@@ -2,7 +2,7 @@
 
 ## Set LD_PRELOAD
 
-```
+```sh
 # Enable tracepoints which are defined hooked functions.
 export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
 ```

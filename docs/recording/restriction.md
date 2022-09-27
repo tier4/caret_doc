@@ -22,8 +22,6 @@
 
 ### How to fix
 
-# Other warnings
-
 ## Multiple executors using the same callback group
 
 ```txt
