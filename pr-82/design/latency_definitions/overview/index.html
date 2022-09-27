@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/overview/">
       
-      <link rel="icon" href="assets/images/tier4.png">
+      <link rel="icon" href="../../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
     
     
       
-        <title>Overview - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Latency definitions - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7a952b86.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -41,11 +41,11 @@
     
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
     
-      <link rel="stylesheet" href="assets/css/extra.css">
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chain-aware-ros-evaluation-tool-caret" class="md-skip">
+        <a href="#latency-definitions" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288c0-17.7-14.3-32-32-32s-32 14.3-32 32 14.3 32 32 32 32-14.3 32-32zm288 32c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Latency definitions
             
           </span>
         </div>
@@ -201,15 +201,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         Overview
       </a>
     </li>
@@ -225,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="installation/installation/" class="md-tabs__link">
+      <a href="../../../installation/installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -241,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="tutorials/recording/" class="md-tabs__link">
+      <a href="../../../tutorials/recording/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -251,13 +249,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="design/" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Design
       </a>
     </li>
@@ -273,7 +273,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="recording/" class="md-tabs__link">
+      <a href="../../../recording/" class="md-tabs__link">
         Recording
       </a>
     </li>
@@ -289,7 +289,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="configuration/" class="md-tabs__link">
+      <a href="../../../configuration/" class="md-tabs__link">
         Configuration
       </a>
     </li>
@@ -305,7 +305,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="visualization/" class="md-tabs__link">
+      <a href="../../../visualization/" class="md-tabs__link">
         Visualization
       </a>
     </li>
@@ -339,7 +339,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288c0-17.7-14.3-32-32-32s-32 14.3-32 32 14.3 32 32 32 32-14.3 32-32zm288 32c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -368,14 +368,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -390,8 +388,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href=".">Overview</a>
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">Overview</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -414,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="changelog/" class="md-nav__link">
+      <a href="../../../changelog/" class="md-nav__link">
         Changelog
       </a>
     </li>
@@ -468,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="installation/installation/" class="md-nav__link">
+      <a href="../../../installation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -482,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="installation/manual_installation/" class="md-nav__link">
+      <a href="../../../installation/manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -538,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/recording/" class="md-nav__link">
+      <a href="../../../tutorials/recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -552,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/configuration/" class="md-nav__link">
+      <a href="../../../tutorials/configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -566,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/visualization/" class="md-nav__link">
+      <a href="../../../tutorials/visualization/" class="md-nav__link">
         Visualization
       </a>
     </li>
@@ -586,12 +584,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -619,7 +619,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="design/">Design</a>
+          <a href="../../">Design</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -680,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/software_architecture/overview" class="md-nav__link">
+      <a href="../../software_architecture/overview" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -694,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/software_architecture/caret_analyze" class="md-nav__link">
+      <a href="../../software_architecture/caret_analyze" class="md-nav__link">
         caret_analyze
       </a>
     </li>
@@ -708,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/software_architecture/caret_trace" class="md-nav__link">
+      <a href="../../software_architecture/caret_trace" class="md-nav__link">
         caret_trace
       </a>
     </li>
@@ -722,7 +722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/software_architecture/tilde" class="md-nav__link">
+      <a href="../../software_architecture/tilde" class="md-nav__link">
         tilde
       </a>
     </li>
@@ -779,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/runtime_processing/overview" class="md-nav__link">
+      <a href="../../runtime_processing/overview" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -793,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/runtime_processing/hook" class="md-nav__link">
+      <a href="../../runtime_processing/hook" class="md-nav__link">
         Hook
       </a>
     </li>
@@ -807,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/runtime_processing/tracepoint_filtering" class="md-nav__link">
+      <a href="../../runtime_processing/tracepoint_filtering" class="md-nav__link">
         Tracepoint filtering
       </a>
     </li>
@@ -862,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/processing_trace_data/records" class="md-nav__link">
+      <a href="../../processing_trace_data/records" class="md-nav__link">
         Records
       </a>
     </li>
@@ -876,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/processing_trace_data/response_time" class="md-nav__link">
+      <a href="../../processing_trace_data/response_time" class="md-nav__link">
         Response time
       </a>
     </li>
@@ -937,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/trace_points/overview" class="md-nav__link">
+      <a href="../../trace_points/overview" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -951,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/trace_points/initialization_trace_points" class="md-nav__link">
+      <a href="../../trace_points/initialization_trace_points" class="md-nav__link">
         Initialization tracepoints
       </a>
     </li>
@@ -965,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/trace_points/runtime_trace_points" class="md-nav__link">
+      <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
       </a>
     </li>
@@ -979,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/trace_points/message_tracking" class="md-nav__link">
+      <a href="../../trace_points/message_tracking" class="md-nav__link">
         Message tracking
       </a>
     </li>
@@ -993,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/trace_points/diff" class="md-nav__link">
+      <a href="../../trace_points/diff" class="md-nav__link">
         Differences from original ROS
       </a>
     </li>
@@ -1054,7 +1054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/latency_definitions/overview" class="md-nav__link">
+      <a href="." class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1068,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/latency_definitions/callback_latency" class="md-nav__link">
+      <a href="../callback_latency" class="md-nav__link">
         Callback Latency
       </a>
     </li>
@@ -1082,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/latency_definitions/communication_latency" class="md-nav__link">
+      <a href="../communication_latency" class="md-nav__link">
         Communication Latency
       </a>
     </li>
@@ -1096,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/latency_definitions/node_latency" class="md-nav__link">
+      <a href="../node_latency" class="md-nav__link">
         Node Latency
       </a>
     </li>
@@ -1110,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/latency_definitions/path_latency" class="md-nav__link">
+      <a href="../path_latency" class="md-nav__link">
         Path Latency
       </a>
     </li>
@@ -1163,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="design/visualizations/policy" class="md-nav__link">
+      <a href="../../visualizations/policy" class="md-nav__link">
         Policy
       </a>
     </li>
@@ -1233,7 +1233,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="design/limits/">Limits</a>
+          <a href="../../limits/">Limits</a>
           
         </div>
       
@@ -1299,7 +1299,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="recording/">Recording</a>
+          <a href="../../../recording/">Recording</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1322,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recording/how_to_run_lttng_session/" class="md-nav__link">
+      <a href="../../../recording/how_to_run_lttng_session/" class="md-nav__link">
         Lttngセッションの開始方法
       </a>
     </li>
@@ -1336,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recording/trace_filtering/" class="md-nav__link">
+      <a href="../../../recording/trace_filtering/" class="md-nav__link">
         トレースフィルタリング
       </a>
     </li>
@@ -1350,7 +1350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recording/summary_of_trace_data/" class="md-nav__link">
+      <a href="../../../recording/summary_of_trace_data/" class="md-nav__link">
         Summary of Trace Data
       </a>
     </li>
@@ -1364,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recording/use_sim_time/" class="md-nav__link">
+      <a href="../../../recording/use_sim_time/" class="md-nav__link">
         sim_timeでの時系列データ評価
       </a>
     </li>
@@ -1411,7 +1411,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="configuration/">Configuration</a>
+          <a href="../../../configuration/">Configuration</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1434,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="configuration/architecture_format/" class="md-nav__link">
+      <a href="../../../configuration/architecture_format/" class="md-nav__link">
         アーキテクチャファイルフォーマット
       </a>
     </li>
@@ -1448,7 +1448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="configuration/how_to_search_path/" class="md-nav__link">
+      <a href="../../../configuration/how_to_search_path/" class="md-nav__link">
         パスの探索方法
       </a>
     </li>
@@ -1462,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="configuration/how_to_write_architecture/" class="md-nav__link">
+      <a href="../../../configuration/how_to_write_architecture/" class="md-nav__link">
         ノードレイテンシの算出方法の指定
       </a>
     </li>
@@ -1476,7 +1476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="configuration/create_and_verify_architecture/" class="md-nav__link">
+      <a href="../../../configuration/create_and_verify_architecture/" class="md-nav__link">
         Creation and Verification of Architecture file with CLI
       </a>
     </li>
@@ -1527,7 +1527,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="visualization/">Visualization</a>
+          <a href="../../../visualization/">Visualization</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -1550,7 +1550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="visualization/gallery/" class="md-nav__link">
+      <a href="../../../visualization/gallery/" class="md-nav__link">
         ギャラリー
       </a>
     </li>
@@ -1564,7 +1564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="visualization/lttng_event_filter/" class="md-nav__link">
+      <a href="../../../visualization/lttng_event_filter/" class="md-nav__link">
         LTTngEventFilterの使用方法
       </a>
     </li>
@@ -1578,7 +1578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="visualization/about_treat_drop_as_delay/" class="md-nav__link">
+      <a href="../../../visualization/about_treat_drop_as_delay/" class="md-nav__link">
         treat_drop_as_delayフラグの説明
       </a>
     </li>
@@ -1592,7 +1592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="visualization/trouble_shooting/" class="md-nav__link">
+      <a href="../../../visualization/trouble_shooting/" class="md-nav__link">
         トラブルシューティング
       </a>
     </li>
@@ -1606,7 +1606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="visualization/path_verify/" class="md-nav__link">
+      <a href="../../../visualization/path_verify/" class="md-nav__link">
         Path Verification
       </a>
     </li>
@@ -1620,7 +1620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="visualization/investigate_behavior/" class="md-nav__link">
+      <a href="../../../visualization/investigate_behavior/" class="md-nav__link">
         Detailed Behavior Investigation Methods
       </a>
     </li>
@@ -1654,76 +1654,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tracing-flow-with-caret" class="md-nav__link">
-    Tracing flow with CARET
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contents-list" class="md-nav__link">
-    Contents list
-  </a>
-  
-    <nav class="md-nav" aria-label="Contents list">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tutorials" class="md-nav__link">
-    Tutorials
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#design" class="md-nav__link">
-    Design
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#details-of-each-step-for-analysis" class="md-nav__link">
-    Details of each step for analysis
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-list" class="md-nav__link">
-    API list
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-repositories" class="md-nav__link">
-    Related repositories
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1736,113 +1666,14 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/index.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/latency_definitions/overview.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="chain-aware-ros-evaluation-tool-caret">Chain-Aware ROS Evaluation Tool (CARET)<a class="headerlink" href="#chain-aware-ros-evaluation-tool-caret" title="Permanent link">#</a></h1>
-<p>CARET is one of performance analysis tool dedicated with ROS 2 applications. It is able to measure not only callback latency and communication latency, but also path latency, in other words, chain of node or callback. As additional tracepoints are introduced by function hook, tracing resolution is improved.</p>
-<p>Features and capabilities are shown below.</p>
-<p>Features:</p>
-<ul>
-<li>Low overhead with LTTng-based tracepoints for sampling events in ROS/DDS layer</li>
-<li>Flexible tracepoints added by function hooking with LD_PRELOAD</li>
-<li>Python-based API for flexible data analysis and visualization</li>
-<li>Application-layer events tracing by cooperation with TILDE, runtime message tracer</li>
-</ul>
-<p>Capabilities:</p>
-<ul>
-<li>Performance measurement from several aspects<ul>
-<li>Callback latency, frequency, and period</li>
-<li>Topic communication latency, frequency, and period</li>
-<li>Node latency</li>
-<li>Path latency<ul>
-<li>End-to-end latency of software if path from input to output is selected</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Visualization of scheduling for callback execution</li>
-<li>Filtering function to ignore specific nodes and topics</li>
-<li>Search of target paths to trace</li>
-<li>Trace of application events like consumption of buffered topic message<ul>
-<li><code>/tf</code> (planned for v0.3.x release)</li>
-<li><code>message_filters</code> (supported by TILDE)</li>
-<li><code>image_transport</code> (supported by TILDE)</li>
-</ul>
-</li>
-</ul>
-<h2 id="tracing-flow-with-caret">Tracing flow with CARET<a class="headerlink" href="#tracing-flow-with-caret" title="Permanent link">#</a></h2>
-<p><img alt="measurement_flow" src="imgs/measurement_flow.svg" /></p>
-<p>CARET gives you capability of tracing your application with introducing new tracepoints to ROS and DDS layer while it utilized original tracepoints for <a href="https://gitlab.com/ros-tracing/ros2_tracing"><code>ros2_tracing</code></a>.</p>
-<p>CARET is served as only source code, but not as <code>apt</code> package, so far.<br />
-CARET hooks dedicated functions to those defined in dynamic library in order to add tracepoints.<br />
-The fork of rclcpp which has CARET-dedicated tracepoints is delivered.
-You have to build CARET and your application if you want to use.</p>
-<p>After you run your application with CARET, you will get recorded data which includes events, metadata and timestamp. You have to write a configuration file, called architecture file, in which you defines node latency and target path, before you analyze the data set.</p>
-<p>You will visualize trace data with the architecture file and <code>CARET_analyze</code> package, including API for data analysis.
-<code>CARET_analyze</code> is designed on assumption that users analyze trace data on Jupyter Notebook.</p>
-<h2 id="contents-list">Contents list<a class="headerlink" href="#contents-list" title="Permanent link">#</a></h2>
-<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h3>
-<p>Installation with Ansible is provided as the following page shows.</p>
-<ul>
-<li><a href="installation/installation/">Installation</a></li>
-</ul>
-<h3 id="tutorials">Tutorials<a class="headerlink" href="#tutorials" title="Permanent link">#</a></h3>
-<p>Refer to these page if you want to try.</p>
-<ul>
-<li><a href="tutorials/recording/">Recording</a></li>
-<li><a href="tutorials/configuration/">Configuration</a></li>
-<li><a href="tutorials/visualization/">Visualization</a></li>
-</ul>
-<h3 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h3>
-<p>Design documents is prepared, but some are written in Japanese.</p>
-<ul>
-<li><a href="./design/architecture_overview.md">Architecture overview</a></li>
-<li><a href="./design/supported_tracepoints.md">Supported tracepoints</a></li>
-</ul>
-<!-- - [records型について](./about_records_type.md) -->
-<ul>
-<li><a href="./design/diff.md">galactic との差分(staled)</a></li>
-<li>レイテンシ定義<ul>
-<li><a href="./design/how_to_calculate_latency.md">レイテンシ算出方法</a></li>
-<li><a href="./design/latency_definition.md">パスレイテンシ定義</a></li>
-<li><a href="./design/node_latency_definition.md">ノードレイテンシ定義</a></li>
-<li><a href="./design/communication_latency_definition.md">通信レイテンシの定義</a></li>
-<li><a href="./design/about_callback_graph.md">コールバックグラフについて</a></li>
-</ul>
-</li>
-<li><a href="./design/limits.md">ツール利用時の制約</a></li>
-</ul>
-<h3 id="details-of-each-step-for-analysis">Details of each step for analysis<a class="headerlink" href="#details-of-each-step-for-analysis" title="Permanent link">#</a></h3>
-<p>CARET serves helpful functions for you to analyze your application efficiently. Please refer to detailed explanation of each step for analysis.</p>
-<ul>
-<li><a href="./recording">Recording</a></li>
-<li><a href="./configuration">Configuration</a></li>
-<li><a href="./visualization/">Visualization</a></li>
-</ul>
-<h3 id="api-list">API list<a class="headerlink" href="#api-list" title="Permanent link">#</a></h3>
-<p>CARET serves powerful API to visualize and analyze performance. API list is located on the other repository, <code>CARET_analyze</code>.</p>
-<ul>
-<li><a href="https://tier4.github.io/CARET_analyze/latest/">API list</a> (external link)</li>
-</ul>
-<p>There are two types of APIs: <a href="https://tier4.github.io/CARET_analyze/latest/architecture/">for user</a> and <a href="https://tier4.github.io/CARET_analyze/latest/common/">for developer</a>.</p>
-<h2 id="related-repositories">Related repositories<a class="headerlink" href="#related-repositories" title="Permanent link">#</a></h2>
-<p>CARET is constructed of the following packages</p>
-<ul>
-<li><a href="https://github.com/tier4/CARET_trace">CARET_trace</a> ｜ Define tracepoints added by function hooking</li>
-<li><a href="https://github.com/tier4/CARET_analyze">CARET_analyze</a> ｜ Library for scripts to analyze and visualize data</li>
-<li><a href="https://github.com/tier4/CARET_analyze_cpp_impl.git">CARET_analyze_cpp_impl</a> ｜ Efficient helper functions to analyze trace data written in C++</li>
-<li><a href="https://github.com/tier4/ros2caret.git">ros2caret</a> ｜ CLI commands like <code>ros2 caret</code></li>
-<li><a href="https://github.com/tier4/CARET_demos">CARET_demos</a> ｜ Demo programs for CARET</li>
-<li><a href="https://github.com/tier4/CARET_doc">CARET_doc</a> ｜ Documentation</li>
-<li><a href="https://github.com/tier4/rclcpp/tree/rc/v0.3.0">rclcpp</a> ｜ the forked <code>rclcpp</code> including CARET-dedicated tracepoints</li>
-<li><a href="https://github.com/tier4/ros2_tracing/tree/rc/v0.3.0">ros2_tracing</a>｜ the forked <code>ros2_tracing</code> including definition of CARET-dedicated tracepoints</li>
-</ul>
-<hr />
-<p>This software is based on results obtained from a project subsidized by the New Energy and Industrial Technology Development Organization (NEDO).</p>
+<h1 id="latency-definitions">Latency definitions<a class="headerlink" href="#latency-definitions" title="Permanent link">#</a></h1>
+<p><img alt="Latency overview" src="../../../imgs/latency_overview.png" /></p>
 
 
 
@@ -1867,15 +1698,30 @@ You have to build CARET and your application if you want to use.</p>
     
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
+        
+        <a href="../node_latency/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Node latency" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Node latency
+            </div>
+          </div>
+        </a>
+      
       
         
-        <a href="changelog/" class="md-footer__link md-footer__link--next" aria-label="Next: Changelog" rel="next">
+        <a href="../path_latency/" class="md-footer__link md-footer__link--next" aria-label="Next: Path latency" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Changelog
+              Path latency
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1910,10 +1756,10 @@ You have to build CARET and your application if you want to use.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.37e9125f.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
