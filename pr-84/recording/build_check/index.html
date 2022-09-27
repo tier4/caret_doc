@@ -868,9 +868,54 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Build and check
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Build and check
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-application-with-caret_1" class="md-nav__link">
+    Build application with CARET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-whether-caretrclcpp-is-applied-to-each-package" class="md-nav__link">
+    Check whether CARET/rclcpp is applied to each package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-fix" class="md-nav__link">
+    How to fix
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1229,6 +1274,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-application-with-caret_1" class="md-nav__link">
+    Build application with CARET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-whether-caretrclcpp-is-applied-to-each-package" class="md-nav__link">
+    Check whether CARET/rclcpp is applied to each package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-fix" class="md-nav__link">
+    How to fix
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1248,6 +1322,7 @@
 
 
 <h1 id="build-application-with-caret">Build application with CARET<a class="headerlink" href="#build-application-with-caret" title="Permanent link">#</a></h1>
+<h2 id="build-application-with-caret_1">Build application with CARET<a class="headerlink" href="#build-application-with-caret_1" title="Permanent link">#</a></h2>
 <p>A target application should be built with CARET/rclcpp to record trace data. If you have already built the application without CARET/rclcpp, you have to build the application with CARET/rclcpp again.</p>
 <p>For building the application with CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as shown below. Also, <code>-DBUILD_TESTING=OFF</code> should be given to build option.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> &lt;path-to-project&gt;
@@ -1279,7 +1354,7 @@ colcon build --symlink-install --cmake-args -DBUILD_TESTING<span class="o">=</sp
   Therefore, the test codes are excluded from building.</p>
 </div>
 <p><prettier-ignore-end></p>
-<h1 id="check-whether-caretrclcpp-is-applied-to-each-package">Check whether CARET/rclcpp is applied to each package<a class="headerlink" href="#check-whether-caretrclcpp-is-applied-to-each-package" title="Permanent link">#</a></h1>
+<h2 id="check-whether-caretrclcpp-is-applied-to-each-package">Check whether CARET/rclcpp is applied to each package<a class="headerlink" href="#check-whether-caretrclcpp-is-applied-to-each-package" title="Permanent link">#</a></h2>
 <p>You can check whether a target application is successfully built with CARET/rclcpp using <code>ros2 caret check_caret_rclcpp</code> command.</p>
 <div class="highlight"><pre><span></span><code>ros2 caret check_caret_rclcpp --workspace &lt;path-to-project&gt;
 </code></pre></div>

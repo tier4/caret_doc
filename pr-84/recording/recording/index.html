@@ -1349,8 +1349,8 @@
 
 <h1 id="recording-with-caret">Recording with CARET<a class="headerlink" href="#recording-with-caret" title="Permanent link">#</a></h1>
 <h2 id="set-ld_preload">Set LD_PRELOAD<a class="headerlink" href="#set-ld_preload" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code># Enable tracepoints which are defined hooked functions.
-export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
+<div class="highlight"><pre><span></span><code><span class="c1"># Enable tracepoints which are defined hooked functions.</span>
+<span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
 </code></pre></div>
 <h2 id="start-lttng-session">Start LTTng session<a class="headerlink" href="#start-lttng-session" title="Permanent link">#</a></h2>
 <h3 id="_1">別途ターミナルで開始<a class="headerlink" href="#_1" title="Permanent link">#</a></h3>
