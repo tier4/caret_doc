@@ -81,27 +81,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/old/about_callback_graph/</loc>
-         <lastmod>2022-09-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/old/communication_latency_definition/</loc>
-         <lastmod>2022-09-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/old/how_to_calculate_latency/</loc>
-         <lastmod>2022-09-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/old/node_latency_definition/</loc>
-         <lastmod>2022-09-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/processing_trace_data/overview/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/processing_trace_data/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -116,17 +96,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/</loc>
+         <lastmod>2022-09-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/hook/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/overview/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/tracepoint_filtering/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/tracepoint_filtering/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/software_architecture/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -141,12 +126,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/software_architecture/overview/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/software_architecture/tilde/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/software_architecture/tilde/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/trace_points/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -166,12 +151,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/trace_points/overview/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/trace_points/runtime_trace_points/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/trace_points/runtime_trace_points/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/visualizations/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
