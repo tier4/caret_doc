@@ -1248,12 +1248,80 @@
 
 
 <h1 id="build-application-with-caret">Build application with CARET<a class="headerlink" href="#build-application-with-caret" title="Permanent link">#</a></h1>
-<p>dummy</p>
-<p>todo: Move <code>Info</code> from Tutorials</p>
+<p>A target application should be built with CARET/rclcpp to record trace data. If you have already built the application without CARET/rclcpp, you have to build the application with CARET/rclcpp again.</p>
+<p>For building the application with CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as shown below. Also, <code>-DBUILD_TESTING=OFF</code> should be given to build option.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> &lt;path-to-project&gt;
+
+<span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash  <span class="c1"># please keep the order after ROS 2&#39;s setup.bash</span>
+
+colcon build --symlink-install --cmake-args -DBUILD_TESTING<span class="o">=</span>OFF
+</code></pre></div>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Reason for building a target application with CARET/rclcpp<br />
+  CARET/rclcpp is a fork of <a href="https://github.com/ros2/rclcpp">ROS 2-based rclcpp</a> which has some additional tracepoints defined by CARET.
+  Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to record a target application.
+  In order to apply rclcpp which has the additional tracepoints, the application have to be built with CARET/rclcpp again.
+  Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.
+  If you want to trace such pre-build packages, please build them again from source code.</p>
+</div>
+<p><prettier-ignore-end></p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Reason for giving <code>-DBUILD_TESTING=OFF</code><br />
+  To use CARET, you need to use forked shared libraries and headers such as CARET/rclcpp.
+  In the test codes, CARET/rclcpp is not available due to loading priority issues for headers.
+  Depending on the version of CARET, conflicts may occur between the shared libraries of
+  ros-rclcpp and the headers of CARET/rclcpp, resulting in compile errors.
+  Therefore, the test codes are excluded from building.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h1 id="check-whether-caretrclcpp-is-applied-to-each-package">Check whether CARET/rclcpp is applied to each package<a class="headerlink" href="#check-whether-caretrclcpp-is-applied-to-each-package" title="Permanent link">#</a></h1>
-<p>dummy</p>
+<p>You can check whether a target application is successfully built with CARET/rclcpp using <code>ros2 caret check_caret_rclcpp</code> command.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret check_caret_rclcpp --workspace &lt;path-to-project&gt;
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Output Message</th>
+<th>Desciption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>All packages are built using caret-rclcpp</code></td>
+<td>There is no problem</td>
+</tr>
+<tr>
+<td><code>The following packages have not been built using caret-rclcpp</code></td>
+<td>CARET/rclcpp is not applied to the listed packages<br> (Please read the next section to fix it)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="how-to-fix">How to fix<a class="headerlink" href="#how-to-fix" title="Permanent link">#</a></h2>
-<p>add rclcpp to package.xml</p>
+<p>In case CARET/rclcpp is not applied to the package you want to analyze, you need to fix it. The followings show possible causes and remedies.</p>
+<ul>
+<li>Case 1: All packages are listed as CARET/rclcpp is not applied<ul>
+<li>Please make sure you applied CARET's <code>local_setup.bash</code> after ROS2's <code>setup.bash</code> (keep the order)</li>
+</ul>
+</li>
+<li>Case 2: Not all (but some) packages are listed as CARET/rclcpp is not applied<ul>
+<li>Plese make sure you have the following line in <code>package.xml</code> in the package<ul>
+<li><code>&lt;depend&gt;rclcpp&lt;/depend&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The listed packages are not traced while other packages built with CARET/rclcpp are properly traced. Therefore, you can ignore this message if you don't need to trace/analyze the listed packages.</p>
+</div>
+<p><prettier-ignore-end></p>
 
 
 
