@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/restriction/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/validating/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
     
     
       
-        <title>CARET restrictions - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Validating - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#caret-restrictions" class="md-skip">
+        <a href="#validating-trace-data" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CARET restrictions
+              Validating
             
           </span>
         </div>
@@ -871,143 +871,6 @@
               
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          CARET restrictions
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        CARET restrictions
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#timer-callbacks" class="md-nav__link">
-    Timer Callbacks
-  </a>
-  
-    <nav class="md-nav" aria-label="Timer Callbacks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#about" class="md-nav__link">
-    About
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#error-message" class="md-nav__link">
-    Error message
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-fix" class="md-nav__link">
-    How to fix
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#subscription-callbacks" class="md-nav__link">
-    Subscription Callbacks
-  </a>
-  
-    <nav class="md-nav" aria-label="Subscription Callbacks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#about_1" class="md-nav__link">
-    About
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#error-message_1" class="md-nav__link">
-    Error message
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-fix_1" class="md-nav__link">
-    How to fix
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-executors-using-the-same-callback-group" class="md-nav__link">
-    Multiple executors using the same callback group
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#failed-to-identify-subscription-several-candidates-were-found" class="md-nav__link">
-    Failed to identify subscription. Several candidates were found
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#failed-to-find-callback-group" class="md-nav__link">
-    Failed to find callback group
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
   
     <li class="md-nav__item">
       <a href="../trace_filtering/" class="md-nav__link">
@@ -1027,6 +890,136 @@
       <a href="../recording/" class="md-nav__link">
         Recording
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Validating
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Validating
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#validating-trace-data_1" class="md-nav__link">
+    Validating trace data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warnings-due-to-wrong-procedure" class="md-nav__link">
+    Warnings due to wrong procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="Warnings due to wrong procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-find-trace-point-added-by-caret-rclcpp" class="md-nav__link">
+    Failed to find trace point added by caret-rclcpp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-find-trace-point-added-by-ld_preload" class="md-nav__link">
+    Failed to find trace point added by LD_PRELOAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracer-discarded" class="md-nav__link">
+    Tracer discarded
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warnings-due-to-caret-limitations" class="md-nav__link">
+    Warnings due to CARET limitations
+  </a>
+  
+    <nav class="md-nav" aria-label="Warnings due to CARET limitations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#duplicate-parameter-callback-found" class="md-nav__link">
+    Duplicate parameter callback found
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-identify-subscription-several-candidates-were-found" class="md-nav__link">
+    Failed to identify subscription. Several candidates were found
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-executors-using-the-same-callback-group-were-detected" class="md-nav__link">
+    Multiple executors using the same callback group were detected
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-find-callback-group" class="md-nav__link">
+    Failed to find callback group
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1349,30 +1342,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#timer-callbacks" class="md-nav__link">
-    Timer Callbacks
+  <a href="#validating-trace-data_1" class="md-nav__link">
+    Validating trace data
   </a>
   
-    <nav class="md-nav" aria-label="Timer Callbacks">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warnings-due-to-wrong-procedure" class="md-nav__link">
+    Warnings due to wrong procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="Warnings due to wrong procedure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#about" class="md-nav__link">
-    About
+  <a href="#failed-to-find-trace-point-added-by-caret-rclcpp" class="md-nav__link">
+    Failed to find trace point added by caret-rclcpp
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#error-message" class="md-nav__link">
-    Error message
+  <a href="#failed-to-find-trace-point-added-by-ld_preload" class="md-nav__link">
+    Failed to find trace point added by LD_PRELOAD
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-fix" class="md-nav__link">
-    How to fix
+  <a href="#tracer-discarded" class="md-nav__link">
+    Tracer discarded
   </a>
   
 </li>
@@ -1383,57 +1383,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#subscription-callbacks" class="md-nav__link">
-    Subscription Callbacks
+  <a href="#warnings-due-to-caret-limitations" class="md-nav__link">
+    Warnings due to CARET limitations
   </a>
   
-    <nav class="md-nav" aria-label="Subscription Callbacks">
+    <nav class="md-nav" aria-label="Warnings due to CARET limitations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#about_1" class="md-nav__link">
-    About
+  <a href="#duplicate-parameter-callback-found" class="md-nav__link">
+    Duplicate parameter callback found
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#error-message_1" class="md-nav__link">
-    Error message
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-fix_1" class="md-nav__link">
-    How to fix
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-executors-using-the-same-callback-group" class="md-nav__link">
-    Multiple executors using the same callback group
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#failed-to-identify-subscription-several-candidates-were-found" class="md-nav__link">
     Failed to identify subscription. Several candidates were found
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-executors-using-the-same-callback-group-were-detected" class="md-nav__link">
+    Multiple executors using the same callback group were detected
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#failed-to-find-callback-group" class="md-nav__link">
     Failed to find callback group
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1451,48 +1437,122 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/recording/restriction.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/recording/validating.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="caret-restrictions">CARET Restrictions<a class="headerlink" href="#caret-restrictions" title="Permanent link">#</a></h1>
+<h1 id="validating-trace-data">Validating trace data<a class="headerlink" href="#validating-trace-data" title="Permanent link">#</a></h1>
+<h2 id="validating-trace-data_1">Validating trace data<a class="headerlink" href="#validating-trace-data_1" title="Permanent link">#</a></h2>
+<p>You can check whether recording is successful with <code>ros2 caret check_ctf</code> command before analyzing recorded data. CARET provides helpful commands to check recorded trace data. See <a href="../cli_tool">CLI tools</a> to find more details.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret check_ctf -d &lt;path-to-tracedata&gt;
+</code></pre></div>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Executing the <code>ros2 caret check_ctf</code> command for long recorded data or recorded data of a large application takes a long time.
+  Therefore, it is recommended to execute the <code>ros2 caret check_ctf</code> command on a short duration of recorded data before long-time recording.</p>
+</div>
+<p><prettier-ignore-end></p>
+<h2 id="warnings-due-to-wrong-procedure">Warnings due to wrong procedure<a class="headerlink" href="#warnings-due-to-wrong-procedure" title="Permanent link">#</a></h2>
+<h3 id="failed-to-find-trace-point-added-by-caret-rclcpp"><code>Failed to find trace point added by caret-rclcpp</code><a class="headerlink" href="#failed-to-find-trace-point-added-by-caret-rclcpp" title="Permanent link">#</a></h3>
 <ul>
-<li>CARET identifies callback functions using the following information<ul>
+<li>Cause<ul>
+<li>CARET/rclcpp is not applied when you built a target application</li>
+</ul>
+</li>
+<li>Solution<ul>
+<li>Build the application with CARET (See <a href="../build_check">build section</a>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="failed-to-find-trace-point-added-by-ld_preload"><code>Failed to find trace point added by LD_PRELOAD</code><a class="headerlink" href="#failed-to-find-trace-point-added-by-ld_preload" title="Permanent link">#</a></h3>
+<ul>
+<li>Cause<ul>
+<li>Hooked tracepoints were not found. <code>LD_PRELOAD</code> may be missed</li>
+</ul>
+</li>
+<li>Solution<ul>
+<li>Set <code>LD_PRELOAD</code> before running the application (See <a href="../recording">recording section</a>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="tracer-discarded"><code>Tracer discarded</code><a class="headerlink" href="#tracer-discarded" title="Permanent link">#</a></h3>
+<ul>
+<li>Cause<ul>
+<li>Trace data lost occured while recording due to too many trace data</li>
+<li>This warning will be observed in some case, especially when applying CARET to a large application</li>
+<li>Details<ul>
+<li>LTTng session collects sampling data generated by tracepoints. Sampling data are stored into ring-buffer as explained <a href="https://lttng.org/man/7/lttng-concepts/v2.13/#doc-channel">LTTng documents</a>. After a piece of ring-buffer is occupied, sampling data is stored into next empty piece while the occupied piece is copied to file. If there is no room to store sampling data in all pieces of ring-buffer, sampling data will be discarded.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Solution<ul>
+<li>Apply trace filter, or modify trace filter setting to ignore more topics/nodes  (See <a href="../trace_filtering">trace filtering section</a>)</li>
+<li>Increase <a href="https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F">size of ring-buffer in CARET</a> if a target device has enough memory<ul>
+<li><a href="https://github.com/tier4/ros2_tracing/pull/1/files">example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="warnings-due-to-caret-limitations">Warnings due to CARET limitations<a class="headerlink" href="#warnings-due-to-caret-limitations" title="Permanent link">#</a></h2>
+<ul>
+<li>CARET identifies callback functions using the following parameters. In case a node has several callback functions whose parameters are idential, such node is ignored because CARET cannot analyze it.<ul>
 <li>Timer callback functions: timer period</li>
 <li>Subscription callback functinos: topic name</li>
 </ul>
 </li>
-<li>Therefore, if there are several callbacks whose parameters are the same in a node, CARET cannot analyze the node correctly. As a result, those nodes are ignored</li>
-<li>In case you see warnings and the relevant node need to be analyzed, please modify the code</li>
 </ul>
-<h2 id="timer-callbacks">Timer Callbacks<a class="headerlink" href="#timer-callbacks" title="Permanent link">#</a></h2>
-<h3 id="about">About<a class="headerlink" href="#about" title="Permanent link">#</a></h3>
-<h3 id="error-message">Error message<a class="headerlink" href="#error-message" title="Permanent link">#</a></h3>
-<h3 id="how-to-fix">How to fix<a class="headerlink" href="#how-to-fix" title="Permanent link">#</a></h3>
-<h2 id="subscription-callbacks">Subscription Callbacks<a class="headerlink" href="#subscription-callbacks" title="Permanent link">#</a></h2>
-<h3 id="about_1">About<a class="headerlink" href="#about_1" title="Permanent link">#</a></h3>
-<h3 id="error-message_1">Error message<a class="headerlink" href="#error-message_1" title="Permanent link">#</a></h3>
-<h3 id="how-to-fix_1">How to fix<a class="headerlink" href="#how-to-fix_1" title="Permanent link">#</a></h3>
-<h2 id="multiple-executors-using-the-same-callback-group">Multiple executors using the same callback group<a class="headerlink" href="#multiple-executors-using-the-same-callback-group" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>Multiple executors using the same callback group were detected.The last executor will be used. executor address: [94351911253008, 140728133491392]
-</code></pre></div>
-<p>A callback group is added to several executors</p>
-<div class="highlight"><pre><span></span><code><span class="n">exec1</span><span class="p">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"></span>
-<span class="n">exec2</span><span class="p">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="w"></span>
-</code></pre></div>
-<h2 id="failed-to-identify-subscription-several-candidates-were-found">Failed to identify subscription. Several candidates were found<a class="headerlink" href="#failed-to-identify-subscription-several-candidates-were-found" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>Failed to identify subscription. Several candidates were found. node_name: /abc, topic_name: /xyz
-</code></pre></div>
-<p>A node creates several subscription callback functions with the same topic name.</p>
-<div class="highlight"><pre><span></span><code><span class="n">node_abc</span><span class="p">.</span><span class="n">create_subscription</span><span class="p">(</span><span class="s">&quot;/xyz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">callback1</span><span class="p">);</span><span class="w"></span>
-<span class="n">node_abc</span><span class="p">.</span><span class="n">create_subscription</span><span class="p">(</span><span class="s">&quot;/xyz&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">callback2</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<h2 id="failed-to-find-callback-group">Failed to find callback group<a class="headerlink" href="#failed-to-find-callback-group" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>Failed to find callback group. callback_group_id=callback_group_93827282066928
-</code></pre></div>
-<p>CARET failed to bind callback groups, callbacks and executors. It mainly because of "service". "Service" is not supported by CARET.</p>
+<h3 id="duplicate-parameter-callback-found"><code>Duplicate parameter callback found</code><a class="headerlink" href="#duplicate-parameter-callback-found" title="Permanent link">#</a></h3>
+<ul>
+<li>Cause<ul>
+<li>Several timer callback functions which have the same timer period exist in a node</li>
+<li>In other words, <code>rclcpp::create_timer()</code> with the same timer period is called more than once</li>
+</ul>
+</li>
+<li>Solution (workaround)<ul>
+<li>Modify code to avoid using the same timer period (You can slightly change timer period value)</li>
+<li>Or, this warning can be ignored unless the node needs to be analyzed</li>
+</ul>
+</li>
+</ul>
+<h3 id="failed-to-identify-subscription-several-candidates-were-found"><code>Failed to identify subscription. Several candidates were found</code><a class="headerlink" href="#failed-to-identify-subscription-several-candidates-were-found" title="Permanent link">#</a></h3>
+<ul>
+<li>Cause<ul>
+<li>Several subscription callback functions which have the same topic name exist in a node</li>
+<li>In other words, <code>rclcpp::create_subscription()</code> with the same topic name is called more than once</li>
+</ul>
+</li>
+<li>Solution (workaround)<ul>
+<li>Modify code to avoid creating more than one subscription callback function with the same topic name</li>
+</ul>
+</li>
+</ul>
+<h3 id="multiple-executors-using-the-same-callback-group-were-detected"><code>Multiple executors using the same callback group were detected</code><a class="headerlink" href="#multiple-executors-using-the-same-callback-group-were-detected" title="Permanent link">#</a></h3>
+<ul>
+<li>Cause<ul>
+<li>A callback group is added to several executors</li>
+</ul>
+</li>
+<li>Solution<ul>
+<li>There is no solution so far. CARET uses the last executor to analyze</li>
+</ul>
+</li>
+</ul>
+<h3 id="failed-to-find-callback-group"><code>Failed to find callback group</code><a class="headerlink" href="#failed-to-find-callback-group" title="Permanent link">#</a></h3>
+<ul>
+<li>Cause<ul>
+<li>CARET failed to bind callback groups, callbacks and executors. It mainly because of ROS 2 "service". "Service" is not supported by CARET</li>
+</ul>
+</li>
+<li>Solution<ul>
+<li>There is no solution so far</li>
+</ul>
+</li>
+</ul>
 
 
 
@@ -1518,7 +1578,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../build_check/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Build and check" rel="prev">
+        <a href="../recording/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Recording" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1527,20 +1587,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Build and check
+              Recording
             </div>
           </div>
         </a>
       
       
         
-        <a href="../trace_filtering/" class="md-footer__link md-footer__link--next" aria-label="Next: Trace filtering" rel="next">
+        <a href="../cli_tool/" class="md-footer__link md-footer__link--next" aria-label="Next: CLI tools" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Trace filtering
+              CLI tools
             </div>
           </div>
           <div class="md-footer__button md-icon">
