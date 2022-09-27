@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/old/communication_latency_definition/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/processing_trace_data/overview/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
     
     
       
-        <title>通信レイテンシの定義 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Processing trace data - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#processing-trace-data" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              通信レイテンシの定義
+              Processing trace data
             
           </span>
         </div>
@@ -864,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../processing_trace_data/overview" class="md-nav__link">
+      <a href="." class="md-nav__link">
         Overview
       </a>
     </li>
@@ -878,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../processing_trace_data/records" class="md-nav__link">
+      <a href="../records" class="md-nav__link">
         Records
       </a>
     </li>
@@ -892,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../processing_trace_data/response_time" class="md-nav__link">
+      <a href="../response_time" class="md-nav__link">
         Response time
       </a>
     </li>
@@ -1670,34 +1670,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    レイテンシの定義
-  </a>
-  
-    <nav class="md-nav" aria-label="レイテンシの定義">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    通信イテンシの定義
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1710,64 +1682,15 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/old/communication_latency_definition.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/processing_trace_data/overview.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">通信レイテンシの定義<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>CARET で算出される通信レイテンシについて詳細を説明します。</p>
-<h2 id="_2">レイテンシの定義<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p><img alt="communication_latency" src="../imgs/communication_latency.png" /></p>
-<h3 id="_3">通信イテンシの定義<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
-<p>CARET が算出している通信レイテンシの定義は以下の通りです。</p>
-<div class="highlight"><pre><span></span><code>Pub-Sub レイテンシ = Subscriptionコールバックの実行開始時刻 - Publisher::publish()実行開始時刻
-</code></pre></div>
-<p>この値は、ros2 topic delay や、topic statistics で測定される値に対応します。</p>
-<div class="highlight"><pre><span></span><code>通信レイテンシ = 現在時刻 - msg.header.stamp
-</code></pre></div>
-<!-- また、プロセス内通信とプロセス間通信で、レイテンシの構成が変わってきます。
-Pub-Sub レイテンシはプロセス内通信・プロセス間通信両方で算出されます。
-
-Pub-Sub レイテンシは、ユーザーコード（コールバック）の実行以外によるレイテンシを全て含んだ値です。
-概ねコールバック終了からコールバック開始までの時間です。
-publish 後、subscription コールバック実行開始までは、エグゼキューターによるスケジューリングの遅延が発生します。
-プロセス間通信に対する Pub-Sub レイテンシとは、このスケジューリングによる遅延のことをさします。
-大まかなシーケンス図を書きます。 -->
-
-<!-- DDS によるレイテンシと、エグゼキューターによる遅延を指します -->
-<!-- ### DDS-layer レイテンシの定義
-
-DDS-layer レイテンシの定義は以下の通りです。
-
-<div class="highlight"><pre><span></span><code>DDS-layer レイテンシ = on_data_availableの実行開始時刻 - dds_writeの実行開始時刻
-</code></pre></div>
-
-DDS-layer レイテンシは、プロセス間通信のみ算出されます。
-
-dds_write は rmw が DDS に書き込む時刻、
-on_data_available は DDS が RMW に通知する時刻になります。
-
-※ CycloneDDS は on_data_available をエグゼキューターの起床に使用していません。
-そのため、on_data_availale と subscription callback の実行開始の前後の時間関係がズレる可能性があります。
-
-## Pub-Sub レイテンシと DDS-layer レイテンシの違い
-
-Pub-Sub レイテンシと DDS-layer レイテンシはどちらも通信レイテンシと捉えることができます。
-
-レイテンシの観測開始地点である、rclcpp_publish と dds_write は同じスレッドで実行されており、ほとんど差はありません。
-callback_start はコールバックスレッドが実行します。そのため、他のコールバックが実行完了し、対象の Subscription コールバックの実行開始順番が回ってくるまで待たされる可能性があります。
-例えば、タイマーコールバックと subscription コールバックがほぼ同時に発火した場合、Pub-sub レイテンシにはタイマーコールバックの実行時間も含まれます。
-
-一方で、観測の終了地点である、on_data_available と callback_start は、実行するスレッドが異なります。
-on_data_available は DDS スレッドが実行します。 従って、DDS-layer レイテンシは他のコールバックの実行時間は含みません。
-
-Pub-Sub レイテンシに大きな値が算出された場合、DDS-Layer レイテンシも確認することで、他のコールバックによる影響か判断することができます。 -->
-
-<p>エグゼキュータのスケジューリングについては、こちらの論文も参照ください。<br />
-<a href="https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf">Response-Time Analysis of ROS 2 Processing
-Chains Under Reservation-Based Scheduling</a></p>
+<h1 id="processing-trace-data">Processing trace data<a class="headerlink" href="#processing-trace-data" title="Permanent link">#</a></h1>
+<p>CARET は Trace Data は加工しています。
+加工の詳細について説明します。</p>
 
 
 
@@ -1793,7 +1716,7 @@ Chains Under Reservation-Based Scheduling</a></p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../about_callback_graph/" class="md-footer__link md-footer__link--prev" aria-label="Previous: コールバックグラフについて" rel="prev">
+        <a href="../../old/node_latency_definition/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ノードレイテンシについて" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1802,20 +1725,20 @@ Chains Under Reservation-Based Scheduling</a></p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              コールバックグラフについて
+              ノードレイテンシについて
             </div>
           </div>
         </a>
       
       
         
-        <a href="../how_to_calculate_latency/" class="md-footer__link md-footer__link--next" aria-label="Next: レイテンシの計算方法" rel="next">
+        <a href="../records/" class="md-footer__link md-footer__link--next" aria-label="Next: Records" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              レイテンシの計算方法
+              Records
             </div>
           </div>
           <div class="md-footer__button md-icon">
