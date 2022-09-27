@@ -1657,8 +1657,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#merge_sequential_for_addr_trck" class="md-nav__link">
-    merge_sequential_for_addr_trck
+  <a href="#merge_sequential_for_addr_track" class="md-nav__link">
+    merge_sequential_for_addr_track
   </a>
   
 </li>
@@ -1696,15 +1696,41 @@
 <p>pandas.DataFrame-like な API を備えており、処理速度を早くした C++実装版もあります。</p>
 <p>ここではいくつかの主な API について説明します。</p>
 <h2 id="merge">merge<a class="headerlink" href="#merge" title="Permanent link">#</a></h2>
-<p>テーブルの内部結合、外部結合です。</p>
+<p><img alt="merge" src="../../../imgs/records_merge.drawio.png" />
+一般的なテーブルの内部結合、外部結合です。</p>
+<p>See also</p>
+<ul>
+<li><a href="https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge">API:merge</a></li>
+</ul>
 <h2 id="merge_sequential">merge_sequential<a class="headerlink" href="#merge_sequential" title="Permanent link">#</a></h2>
+<p><img alt="merge_sequential" src="../../../imgs/records_merge_sequential.drawio.png" /></p>
 <p>時系列的なマージです。
 特に thread による逐次的な処理を結合する際に使います。</p>
-<h2 id="merge_sequential_for_addr_trck">merge_sequential_for_addr_trck<a class="headerlink" href="#merge_sequential_for_addr_trck" title="Permanent link">#</a></h2>
+<p>CARET はこのような結合を行い、レイテンシを算出しています。</p>
+<p>See also</p>
+<ul>
+<li><a href="https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential">API:merge</a></li>
+<li><a href="../../latency_definitions/callback_latency/">Callback Latency</a></li>
+</ul>
+<h2 id="merge_sequential_for_addr_track">merge_sequential_for_addr_track<a class="headerlink" href="#merge_sequential_for_addr_track" title="Permanent link">#</a></h2>
+<p><img alt="merge_sequential_for_addr_track" src="../../../imgs/records_merge_sequential_for_addr_track.drawio.png" /></p>
 <p>アドレスを元に紐付けを行い、コピーが発生する際に使うマージです。</p>
+<p>See also</p>
+<ul>
+<li><a href="https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential_for_addr_track">API:merge_sequential_for_addr_track</a></li>
+</ul>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>このmergeは、処理が遅く、caret-rclcppが使われていないノードがpublishした際に不整合が起こってしまいます。
+できる限り、merge_sequentialで事足りるようにトレースポイントを設計すべきです。</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="to_dataframe">to_dataframe<a class="headerlink" href="#to_dataframe" title="Permanent link">#</a></h2>
 <p>pandas.DataFrame に変換する関数です。
 特に可視化や自前で評価する際には、こちらが使えます。</p>
+<p>ただし、pandas.DataFrame は object を含む様々な型を入れられるようになっており、バグの要因になります。
+CARET 内部ではできる限り Records で処理し、最後に DataFrame に変換するのが望ましいです。</p>
 
 
 
