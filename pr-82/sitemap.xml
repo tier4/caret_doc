@@ -41,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/architecture_file/</loc>
+         <lastmod>2022-09-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
@@ -71,7 +76,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/limits/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/limits_and_constraints/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
