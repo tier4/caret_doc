@@ -1,8 +1,8 @@
 nav:
     - Recording: index.md
     - Build and check: build_check.md
-    - CARET restrictions: restriction.md
     - Trace filtering: trace_filtering.md
     - Recording: recording.md
+    - Validating: validating.md
     - CLI tools: cli_tool.md
     - Recording with sim_time: sim_time.md
