@@ -1,5 +1,6 @@
 nav:
     - Configuration: index.md
+    - Background of configuration: background.md
     - アーキテクチャファイルフォーマット: architecture_format.md
     - パスの探索方法: how_to_search_path.md
     - ノードレイテンシの算出方法の指定: how_to_write_architecture.md
