@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/architecture_file/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/configuration/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
     
     
       
-        <title>Architecture file - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Configuration - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#architecture-file" class="md-skip">
+        <a href="#configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Architecture file
+              Configuration
             
           </span>
         </div>
@@ -1563,14 +1563,14 @@
       
       
         <label class="md-nav__link" for="__nav_7_6">
-          Architecture file
+          Configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Architecture file" data-md-level="2">
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_6">
           <span class="md-nav__icon md-icon"></span>
-          Architecture file
+          Configuration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1587,6 +1587,8 @@
       
       
       
+        
+          
         
           
         
@@ -1611,6 +1613,20 @@
   
     <li class="md-nav__item">
       <a href="." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture_file" class="md-nav__link">
         File format
       </a>
     </li>
@@ -1963,6 +1979,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lttng" class="md-nav__link">
+    lttng
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml" class="md-nav__link">
+    yaml
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1975,68 +2013,22 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/architecture_file/index.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/configuration/index.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="architecture-file">Architecture file<a class="headerlink" href="#architecture-file" title="Permanent link">#</a></h1>
-<p><em>の付いた項目は、測定対象のアプリケーションの実装を確認の上、手作業での修正が必要な項目です。<br />
-</em>の付いていない項目は雛形として自動的に記載されます</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">named_paths:【パス情報】</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">- path_name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_path【パスの名前】</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">node_chain</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node 【ノード名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/chatter 【ノードがpublishするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED【ノードがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong_node</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/chatter</span><span class="w"></span>
-
-<span class="l l-Scalar l-Scalar-Plain">executors:【エグゼキューター情報】</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- executor_type</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single_threaded_executor【エグゼキューター種別】</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">executor_name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">【エグゼキューター名】</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">callback_group_names</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_group_0 【追加されたコールバックグループ名】</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong_node/callback_group_0</span><span class="w"></span>
-
-<span class="l l-Scalar l-Scalar-Plain">nodes:【ノード情報】</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node【ノード名】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">callback_groups:【コールバックグループの情報】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">callback_group_type:【コールバックグループの種別】</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">callback_group_name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_group_0 【コールバックグループ名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_0 【追加されたコールバック名】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">callbacks:【コールバックの情報】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback【コールバックの種別】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3【トピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">symbol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}【コールバック関数のシンボル名】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback【コールバックの種類】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">period_ns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100000000【タイマーコールバックの周期】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">symbol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}【コールバック関数のシンボル名】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">variable_passings:【変数を介したコールバック間のメッセージ渡し】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名*】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_name_read</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">publishes:【パブリッシュの情報】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【トピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">subscribes:【サブスクライブの情報】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【トピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">message_contexts:【ノードレイテンシの定義】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">use_latest_message【算出方法の種別*】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードへの入力トピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードからの出力トピック名】</span><span class="w"></span>
-</code></pre></div>
+<h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h1>
+<p>一部は python API からいじります。
+その他は直接 yaml をいじります。</p>
+<p>結構大変なので、今後の改善が必要です。</p>
+<h2 id="lttng">lttng<a class="headerlink" href="#lttng" title="Permanent link">#</a></h2>
+<p>パスの定義は無いです。
+callback や communication レイテンシ等であればこれで OK です。</p>
+<h2 id="yaml">yaml<a class="headerlink" href="#yaml" title="Permanent link">#</a></h2>
+<p>パスの定義等が必要な時にこれを使うことになります。</p>
+<p>アーキテクチャファイルのフォーマットについては<a href="architecture_file/">architecture file</a>をご覧ください。</p>
 
 
 
@@ -2078,13 +2070,13 @@
       
       
         
-        <a href="../latency_definitions/" class="md-footer__link md-footer__link--next" aria-label="Next: Latency definition index" rel="next">
+        <a href="architecture_file/" class="md-footer__link md-footer__link--next" aria-label="Next: Architecture file" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Latency definition index
+              Architecture file
             </div>
           </div>
           <div class="md-footer__button md-icon">
