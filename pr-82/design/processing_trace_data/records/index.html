@@ -1704,6 +1704,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7_7_1">
@@ -1738,8 +1744,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../latency_definitions/callback_latency" class="md-nav__link">
-        Callback Latency
+      <a href="../../latency_definitions/callback" class="md-nav__link">
+        Callback
       </a>
     </li>
   
@@ -1752,8 +1758,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../latency_definitions/communication_latency" class="md-nav__link">
-        Communication Latency
+      <a href="../../latency_definitions/communication" class="md-nav__link">
+        Communication
       </a>
     </li>
   
@@ -1766,8 +1772,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../latency_definitions/node_latency" class="md-nav__link">
-        Node Latency
+      <a href="../../latency_definitions/node" class="md-nav__link">
+        Node
       </a>
     </li>
   
@@ -1780,8 +1786,50 @@
   
   
     <li class="md-nav__item">
-      <a href="../../latency_definitions/path_latency" class="md-nav__link">
-        Path Latency
+      <a href="../../latency_definitions/path" class="md-nav__link">
+        Path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../latency_definitions/timer" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../latency_definitions/publisher" class="md-nav__link">
+        Publisher
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../latency_definitions/subscription" class="md-nav__link">
+        Subscription
       </a>
     </li>
   
@@ -2051,7 +2099,7 @@
 <p>See also</p>
 <ul>
 <li><a href="https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential">API:merge</a></li>
-<li><a href="../../latency_definitions/callback_latency/">Callback Latency</a></li>
+<li><a href="../latency_definitions/callback_latency.md">Callback Latency</a></li>
 </ul>
 <h2 id="merge_sequential_for_addr_track">merge_sequential_for_addr_track<a class="headerlink" href="#merge_sequential_for_addr_track" title="Permanent link">#</a></h2>
 <p><img alt="merge_sequential_for_addr_track" src="../../../imgs/records_merge_sequential_for_addr_track.drawio.png" /></p>
@@ -2061,8 +2109,8 @@
 <li><a href="https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential_for_addr_track">API:merge_sequential_for_addr_track</a></li>
 </ul>
 <p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>このmergeは、処理が遅く、caret-rclcppが使われていないノードがpublishした際に不整合が起こってしまいます。
 できる限り、merge_sequentialで事足りるようにトレースポイントを設計すべきです。</p>
 </div>

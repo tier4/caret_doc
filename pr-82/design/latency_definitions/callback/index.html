@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/node_latency/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/callback/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
     
     
       
-        <title>Node latency - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Callback - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#callback" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Node latency
+              Callback
             
           </span>
         </div>
@@ -1704,6 +1704,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7_7_1">
@@ -1738,36 +1744,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../callback_latency" class="md-nav__link">
-        Callback Latency
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../communication_latency" class="md-nav__link">
-        Communication Latency
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="." class="md-nav__link">
-        Node Latency
+        Callback
       </a>
     </li>
   
@@ -1780,8 +1758,78 @@
   
   
     <li class="md-nav__item">
-      <a href="../path_latency" class="md-nav__link">
-        Path Latency
+      <a href="../communication" class="md-nav__link">
+        Communication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node" class="md-nav__link">
+        Node
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../path" class="md-nav__link">
+        Path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timer" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../publisher" class="md-nav__link">
+        Publisher
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subscription" class="md-nav__link">
+        Subscription
       </a>
     </li>
   
@@ -1991,93 +2039,34 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/latency_definitions/node_latency.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/latency_definitions/callback.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
+<h1 id="callback">Callback<a class="headerlink" href="#callback" title="Permanent link">#</a></h1>
 <div class="arithmatex">
 <div class="MathJax_Preview">
-l^{comm} = t^{msg}_{out} - t^{msg}_{in}
+l^{cb} = t^{cb}_{end} - t^{cb}_{start}
 </div>
 <script type="math/tex; mode=display">
-l^{comm} = t^{msg}_{out} - t^{msg}_{in}
+l^{cb} = t^{cb}_{end} - t^{cb}_{start}
 </script>
 </div>
-<p>メッセージがノードまたはコールバックの所有権に入る時刻から、出る時刻までが</p>
-<h1 id="_1">コールバックグラフについて<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>ROS のアプリケーションは一般的にノードのグラフで記述され、それに伴いノード単位のレイテンシ（ノードレイテンシ）を把握したいケースが生じます。
-しかしながら、一つのノードにコールバックが複数存在するケースでは、ノードレイテンシを考えた際に不都合が生じます。</p>
-<!-- ![callback_graph](../imgs/callback_graph.png) -->
-
-<p>上図は、 /lidar と /camera トピックをサブスクライブし、その２つの情報を統合したメッセージを /fusion にパブリッシュする TargetNode を例として示しています。
-/lidar のコールバックでは、メンバ変数にメッセージを格納し、/camera コールバック内で統合させています。
-※ CARET では 、変数を経由したコールバック間のメッセージ渡しを Variable Passing と呼び、アーキテクチャファイルへ記述させています。</p>
-<p>この時、 TargetNode のレイテンシは次の２つが考えられます。</p>
+<p>コールバックの開始時刻から終了時刻までの時間差です。</p>
+<p>関連トレースポイント</p>
 <ul>
-<li>コールバック C → コールバック D（/lidar トピック → /fusion トピックのパス）</li>
-<li>コールバック D（/camera トピック → /fusion トピックのパス）</li>
+<li><a href="../../trace_points/runtime_trace_points/#ros2callback_start">callback_start</a></li>
+<li><a href="../../trace_points/runtime_trace_points/#ros2callback_start">callback_end</a></li>
 </ul>
-<p>このような一つのノードに複数コールバックが存在ケースでは、指定するパス毎にノードレイテンシを構成するコールバックが異なります。
-そのため、 CARET では ROS のアプリケーションをコールバックグラフとして記述しています。</p>
-<blockquote>
-<p>ノード・コールバックの整理</p>
-<p>A node is an executable that uses ROS to communicate with other nodes.<br />
-(<a href="http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes">http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes</a> より引用)</p>
-<p>と言われているように、ノードは実行可能な単位です。<br />
-一方で、コールバックはスケジューリングされるタスクの単位として捉えることができます。<br />
-特に ROS 2 の場合、SingleThreadedExecutor を始めとするエグゼキュータが複数存在し、<br />
-スレッド数の違いだけでなく、コールバックの実行順序が異なります。<br />
-性能を評価する上では、何のノードが何のエグゼキュータで実行されていたかも重要な観点です。</p>
-</blockquote>
-<h1 id="message-context">message context について<a class="headerlink" href="#message-context" title="Permanent link">#</a></h1>
-<h2 id="callback_chain">callback_chain ポリシー<a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h2>
-<p>コールバックグラフについてもご参照ください。</p>
-<h3 id="_2">想定<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
-<ul>
-<li>コールバック間のキューサイズ１を想定</li>
-<li>厳密に測定できるのは Single Threaded Executor のみ</li>
-</ul>
-<h3 id="_3">長所<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
-<ul>
-<li>ソースコードへの変更が不要</li>
-<li>任意のメッセージ型に適用可能</li>
-</ul>
-<h3 id="_4">短所<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
-<ul>
-<li>キューサイズが大きい時、レイテンシが小さめに出るケースがある。</li>
-<li>multi threaded executor では、レイテンシが大きめに出るケースがある。</li>
-<li>実装を読み解くのが難しい</li>
-</ul>
-<h3 id="_5">ノードレイテンシの定義<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
-<h2 id="_6">ノードレイテンシの定義<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
-<h2 id="inherit_unique_stamp">inherit_unique_stamp ポリシー<a class="headerlink" href="#inherit_unique_stamp" title="Permanent link">#</a></h2>
-<h3 id="_7">ノードレイテンシの定義<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
-<p>入出力のヘッダーでマッチングを取り、入力トピックと出力トピックの時刻の差分からノードレイテンシを算出します。</p>
-<h4 id="_8">想定<a class="headerlink" href="#_8" title="Permanent link">#</a></h4>
-<ul>
-<li>入出力のタイムスタンプの値でマッチングが取れること（値を書き換えずに、そのまま publish していること）</li>
-<li>入出力ともに header をもっていること</li>
-</ul>
-<h4 id="_9">長所<a class="headerlink" href="#_9" title="Permanent link">#</a></h4>
-<ul>
-<li>ソースコードへの変更が不要</li>
-<li>キューサイズに依らない</li>
-</ul>
-<h4 id="_10">短所<a class="headerlink" href="#_10" title="Permanent link">#</a></h4>
-<ul>
-<li>ヘッダーが必要</li>
-<li>publish 前に stamp=現在時刻としているケースは対応不可</li>
-</ul>
-<h2 id="use_latest_message">use_latest_message ポリシー<a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h2>
-<h3 id="_11">ノードレイテンシの定義<a class="headerlink" href="#_11" title="Permanent link">#</a></h3>
-<h2 id="_12">各ポリシーの比較<a class="headerlink" href="#_12" title="Permanent link">#</a></h2>
-<h2 id="_13">ポリシーの選び方<a class="headerlink" href="#_13" title="Permanent link">#</a></h2>
-<p>決定木が欲しい</p>
-<h2 id="_14">注意点<a class="headerlink" href="#_14" title="Permanent link">#</a></h2>
-<p>測定できないケース
-誤った値を算出するケース</p>
+<p><prettier-ignore-start></p>
+<div class="admonition todo">
+<p class="admonition-title">Todo<p>コールバックはエグゼキュータによりスケジューリングされる「タスク」です。
+エグゼキュータのスケジューリングには左右されないレイテンシです。</p>
+</p>
+</div>
+<p><prettier-ignore-end></p>
 
 
 
@@ -2103,7 +2092,7 @@ l^{comm} = t^{msg}_{out} - t^{msg}_{in}
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../communication_latency/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Communication latency" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Latency definition" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2112,20 +2101,20 @@ l^{comm} = t^{msg}_{out} - t^{msg}_{in}
               <span class="md-footer__direction">
                 Previous
               </span>
-              Communication latency
+              Latency definition
             </div>
           </div>
         </a>
       
       
         
-        <a href="../overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Latency definitions" rel="next">
+        <a href="../communication/" class="md-footer__link md-footer__link--next" aria-label="Next: Communication" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Latency definitions
+              Communication
             </div>
           </div>
           <div class="md-footer__button md-icon">

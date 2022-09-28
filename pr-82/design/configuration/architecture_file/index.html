@@ -1704,6 +1704,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7_7_1">
@@ -1738,8 +1744,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../latency_definitions/callback_latency" class="md-nav__link">
-        Callback Latency
+      <a href="../../latency_definitions/callback" class="md-nav__link">
+        Callback
       </a>
     </li>
   
@@ -1752,8 +1758,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../latency_definitions/communication_latency" class="md-nav__link">
-        Communication Latency
+      <a href="../../latency_definitions/communication" class="md-nav__link">
+        Communication
       </a>
     </li>
   
@@ -1766,8 +1772,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../latency_definitions/node_latency" class="md-nav__link">
-        Node Latency
+      <a href="../../latency_definitions/node" class="md-nav__link">
+        Node
       </a>
     </li>
   
@@ -1780,8 +1786,50 @@
   
   
     <li class="md-nav__item">
-      <a href="../../latency_definitions/path_latency" class="md-nav__link">
-        Path Latency
+      <a href="../../latency_definitions/path" class="md-nav__link">
+        Path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../latency_definitions/timer" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../latency_definitions/publisher" class="md-nav__link">
+        Publisher
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../latency_definitions/subscription" class="md-nav__link">
+        Subscription
       </a>
     </li>
   
@@ -1979,6 +2027,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-format" class="md-nav__link">
+    File format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-sample" class="md-nav__link">
+    File sample
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1998,33 +2068,281 @@
 
 
 <h1 id="architecture-file">Architecture file<a class="headerlink" href="#architecture-file" title="Permanent link">#</a></h1>
-<div class="highlight"><pre><span></span><code><span class="nt">named_paths</span><span class="p">:</span><span class="w"> </span><span class="c1">#  path definitions</span><span class="w"></span>
+<p>See also</p>
+<ul>
+<li><a href="../configuration/">Configuration</a></li>
+</ul>
+<h2 id="file-format">File format<a class="headerlink" href="#file-format" title="Permanent link">#</a></h2>
+<p>A sample of the architecture file is as follows.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Auto generate? <br> (Configuration method)</th>
+<th>Note / Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>named_paths</td>
+<td>List</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Path definitions to evaluate.</td>
+</tr>
+<tr>
+<td>&emsp; path_name</td>
+<td>String</td>
+<td>Yes</td>
+<td>No (Edit via Python-API)</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; node_chain</td>
+<td>List</td>
+<td>Yes</td>
+<td>No (Edit via Python-API)</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; node_name</td>
+<td>String</td>
+<td>Yes</td>
+<td>No (Edit via Python-API)</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; publish_topic_name</td>
+<td>String</td>
+<td>Reqqired if node is not end of the path.</td>
+<td>No (Edit via Python-API)</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; subscribe_topic_name</td>
+<td>String</td>
+<td>Required if node is not start of the path.</td>
+<td>No (Edit via Python-API)</td>
+<td></td>
+</tr>
+<tr>
+<td>executors</td>
+<td>List</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; executor_type</td>
+<td>String</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>single_threaded_executor / multi_threaded_executor</td>
+</tr>
+<tr>
+<td>&emsp; executor_name</td>
+<td>String</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; callback_group_names</td>
+<td>List(String)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>nodes</td>
+<td>List</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; node_name</td>
+<td>String</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; callback_groups</td>
+<td>List</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; callback_group_type</td>
+<td>String</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>mutually_exclusive / reentrant</td>
+</tr>
+<tr>
+<td>&emsp; &emsp; callback_group_name</td>
+<td>String</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; callbacks</td>
+<td>List</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; callback_type</td>
+<td>String</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>timer_callback / subscription_callback</td>
+</tr>
+<tr>
+<td>&emsp; &emsp; symbol</td>
+<td>String</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>symbol for callback function.</td>
+</tr>
+<tr>
+<td>&emsp; &emsp; period_ns</td>
+<td>int</td>
+<td>Required for timer_callback only.</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; topic_name</td>
+<td>String</td>
+<td>Required for subscription_callback only.</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; variable_passings</td>
+<td>List</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; callback_name_write</td>
+<td>String</td>
+<td>No</td>
+<td>No (Edit architecture file)</td>
+<td>default value = UNDEFINED</td>
+</tr>
+<tr>
+<td>&emsp; &emsp; callback_name_read</td>
+<td>String</td>
+<td>No</td>
+<td>No (Edit architecture file)</td>
+<td>default value = UNDEFINED</td>
+</tr>
+<tr>
+<td>&emsp; publishes</td>
+<td>List</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; topic_name</td>
+<td>String</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; callback_names</td>
+<td>List(String)</td>
+<td>No</td>
+<td>No (Edit architecture file)</td>
+<td>callbacks which publish the topic.</td>
+</tr>
+<tr>
+<td>&emsp; subscribes</td>
+<td>List</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; topic_name</td>
+<td>String</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; callback_name</td>
+<td>String</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; message_contexts</td>
+<td>List</td>
+<td>No</td>
+<td>Yes</td>
+<td>Field to define node latency</td>
+</tr>
+<tr>
+<td>&emsp; &emsp; context_type</td>
+<td>String</td>
+<td>No</td>
+<td>No (Edit architecture file)</td>
+<td>default value = UNDEFINED</td>
+</tr>
+<tr>
+<td>&emsp; &emsp; subscription_topic_name</td>
+<td>String</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp; &emsp; publisher_topic_name</td>
+<td>String</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="file-sample">File sample<a class="headerlink" href="#file-sample" title="Permanent link">#</a></h2>
+<p>A sample of the architecture file is as follows.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">named_paths</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_path</span><span class="w"></span>
 <span class="w">    </span><span class="nt">node_chain</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node</span><span class="w"> </span><span class="c1"># node name</span><span class="w"></span>
-<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/chatter</span><span class="w"> </span><span class="c1"># topic name node publishes</span><span class="w"></span>
-<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"> </span><span class="c1"># topic name node subscbies</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node</span><span class="w"></span>
+<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/chatter</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong_node</span><span class="w"></span>
 <span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
 <span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/chatter</span><span class="w"></span>
-
-<span class="nt">executors</span><span class="p">:</span><span class="w"> </span><span class="c1"># executor definitions</span><span class="w"></span>
+<span class="nt">executors</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">executor_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single_threaded_executor</span><span class="w"></span>
 <span class="w">    </span><span class="nt">executor_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">executor_0</span><span class="w"></span>
 <span class="w">    </span><span class="nt">callback_group_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_group_0</span><span class="w"> </span><span class="c1"># callback group names added to the executor</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_group_0</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong_node/callback_group_0</span><span class="w"></span>
-
-<span class="nt">nodes</span><span class="p">:</span><span class="w"> </span><span class="c1"># node definitions</span><span class="w"></span>
+<span class="nt">nodes</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node</span><span class="w"></span>
-
-<span class="w">    </span><span class="nt">callback_groups</span><span class="p">:</span><span class="w"> </span><span class="c1"># callback group definition</span><span class="w"></span>
+<span class="w">    </span><span class="nt">callback_groups</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_group_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mutually_exclusive</span><span class="w"></span>
 <span class="w">        </span><span class="nt">callback_group_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_group_0</span><span class="w"></span>
 <span class="w">        </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_0</span><span class="w"> </span><span class="c1"># callback name added the callback group</span><span class="w"></span>
-
-<span class="w">    </span><span class="nt">callbacks</span><span class="p">:</span><span class="w"> </span><span class="c1"># callback definitions</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_0</span><span class="w"></span>
+<span class="w">    </span><span class="nt">callbacks</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0</span><span class="w"></span>
 <span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback</span><span class="w"></span>
 <span class="w">        </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3</span><span class="w"></span>
@@ -2033,222 +2351,21 @@
 <span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback</span><span class="w"></span>
 <span class="w">        </span><span class="nt">period_ns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100000000</span><span class="w"></span>
 <span class="w">        </span><span class="nt">symbol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}</span><span class="w"></span>
-
-<span class="w">    </span><span class="nt">variable_passings</span><span class="p">:</span><span class="w"> </span><span class="c1"># message passing via member variables</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0</span><span class="w"> </span><span class="c1"># callback name on write-side</span><span class="w"></span>
-<span class="w">        </span><span class="nt">callback_name_read</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span><span class="w"> </span><span class="c1"># callback name on read-side</span><span class="w"></span>
-
-<span class="w">    </span><span class="nt">publishes</span><span class="p">:</span><span class="w"> </span><span class="c1"># publisher definitions</span><span class="w"></span>
+<span class="w">    </span><span class="nt">variable_passings</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0</span><span class="w"></span>
+<span class="w">        </span><span class="nt">callback_name_read</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span><span class="w"></span>
+<span class="w">    </span><span class="nt">publishes</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping</span><span class="w"></span>
 <span class="w">        </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribes</span><span class="p">:</span><span class="w"> </span><span class="c1"># subscription definitions</span><span class="w"></span>
+<span class="w">    </span><span class="nt">subscribes</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong</span><span class="w"></span>
 <span class="w">        </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span><span class="w"></span>
-
-<span class="w">    </span><span class="nt">message_contexts</span><span class="p">:</span><span class="w"> </span><span class="c1"># node latency definitions</span><span class="w"></span>
+<span class="w">    </span><span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">use_latest_message</span><span class="w"></span>
 <span class="w">        </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong</span><span class="w"></span>
 <span class="w">        </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping</span><span class="w"></span>
 </code></pre></div>
-<table>
-<thead>
-<tr>
-<th>key</th>
-<th>type</th>
-<th>description</th>
-<th>required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>named_paths</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; path_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; node_chain</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; node_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; publish_topic_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; subscribe_topic_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>executors</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; executor_type</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; executor_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; callback_group_names</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>nodes</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; node_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; callback_groups</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; callbacks</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; callback_type</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; type</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; topic_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; symbol</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; period_ns</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; topic_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; variable_passings</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; callback_name_write</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; callback_name_read</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; publishes</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; subscribes</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; topic_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; callback_names</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; message_contexts</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; context_type</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; subscription_topic_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&emsp; &emsp; publisher_topic_name</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
 
 
@@ -2290,13 +2407,13 @@
       
       
         
-        <a href="../../latency_definitions/" class="md-footer__link md-footer__link--next" aria-label="Next: Latency definition index" rel="next">
+        <a href="../../latency_definitions/" class="md-footer__link md-footer__link--next" aria-label="Next: Latency definition" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Latency definition index
+              Latency definition
             </div>
           </div>
           <div class="md-footer__button md-icon">

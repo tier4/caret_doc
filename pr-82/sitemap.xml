@@ -56,17 +56,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/callback_latency/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/callback/</loc>
          <lastmod>2022-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/communication_latency/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/communication/</loc>
          <lastmod>2022-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/node_latency/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/node/</loc>
          <lastmod>2022-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -76,7 +76,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/path_latency/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/path/</loc>
+         <lastmod>2022-09-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/publisher/</loc>
+         <lastmod>2022-09-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/subscription/</loc>
+         <lastmod>2022-09-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/timer/</loc>
          <lastmod>2022-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
