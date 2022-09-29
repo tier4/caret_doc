@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/trace_filtering/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
     
     
       
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#trace-filtering" class="md-skip">
           Skip to content
         </a>
       
@@ -907,8 +907,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#filter-setting-file" class="md-nav__link">
-    Filter setting file
+  <a href="#trace-filtering_1" class="md-nav__link">
+    Trace filtering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace-filter-configuration" class="md-nav__link">
+    Trace filter configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace-filter-setting-file" class="md-nav__link">
+    Trace filter setting file
   </a>
   
 </li>
@@ -1267,8 +1281,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#filter-setting-file" class="md-nav__link">
-    Filter setting file
+  <a href="#trace-filtering_1" class="md-nav__link">
+    Trace filtering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace-filter-configuration" class="md-nav__link">
+    Trace filter configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace-filter-setting-file" class="md-nav__link">
+    Trace filter setting file
   </a>
   
 </li>
@@ -1293,33 +1321,63 @@
   </a>
 
 
-<h1 id="_1">トレースフィルタリング<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p>IGNORE と SELECT が両方設定された場合、SELECT が優先されます。<br />
-<code>:（コロン）</code> 区切りで複数指定。正規表現が利用可（例：/topic*:/parameter_events:/rosout）</p>
+<h1 id="trace-filtering">Trace filtering<a class="headerlink" href="#trace-filtering" title="Permanent link">#</a></h1>
+<h2 id="trace-filtering_1">Trace filtering<a class="headerlink" href="#trace-filtering_1" title="Permanent link">#</a></h2>
+<p>CARET provides a trace filtering function to exclude specific nodes and topics. Trace data lost may occur when recording a large application like Autoware due to too many data to be recorded, and a warning will happen when validating/analyzing the recorded trace data (See <a href="../validating/#tracer-discarded">valiating</a>). By applying trace filter, unconcerned events like <code>/tf</code> are ignored and the size of recorded data decreases.</p>
+<h2 id="trace-filter-configuration">Trace filter configuration<a class="headerlink" href="#trace-filter-configuration" title="Permanent link">#</a></h2>
 <ul>
-<li>CARET_SELECT_NODES : トレース対象のノード名</li>
+<li>Trace filter configurtion is performed by setting the following environment variables<ul>
+<li><code>CARET_SELECT_NODES</code> : node names to be recorded</li>
+<li><code>CARET_IGNORE_NODES</code> : node names to be ignored</li>
+<li><code>CARET_SELECT_TOPICS</code> : topic names to be recorded</li>
+<li><code>CARET_IGNORE_TOPICS</code> : topic names to be ignored</li>
 </ul>
-<ul>
-<li>CARET_IGNORE_NODES : トレースから除外されるノード名</li>
+</li>
+<li>"SELECT" settings override "IGNORE" settings if both are used</li>
+<li>Colon "<code>:</code>" is used to set more than one nodes/topics</li>
+<li>Regular expressions are supported</li>
+<li>These variables need to be set in the same terminal as a target application running</li>
+<li>In most cases, nodes related to <code>/rviz</code>, <code>/clock</code> topic and <code>/parameter_events</code> topic are unnecessary to analyze an application. It's recommended to ignore these nodes/topics</li>
 </ul>
-<ul>
-<li>CARET_SELECT_TOPICS : トレース対象のトピック名</li>
-</ul>
-<ul>
-<li>CARET_IGNORE_TOPICS : トレースから除外されるノード名</li>
-</ul>
-<p>rviz ノード関連や、/clock トピック・/parameter_events トピックは多くの場合不要になります。<br />
-以下のような環境変数を設定しておくことで、無駄なトレースログを減らすことができます。</p>
+<p>The following shows sample settings</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
 </code></pre></div>
-<blockquote>
-<p>現時点の CARET では、トレースフィルタリングによる除外は完全ではありません。<br />
-特に DDS レイヤーのトレースポイントはフィルタリングされていません。<br />
-これは、フィルタリングの判定にトピック名やノード名を使っていることが理由です。</p>
-</blockquote>
-<h2 id="filter-setting-file">Filter setting file<a class="headerlink" href="#filter-setting-file" title="Permanent link">#</a></h2>
-<p>dummy</p>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Trace filtering doesn't exclude all events of the specified nodes/topics with current implementation. Events in certain layers, especially DDS layer, won't be ignored.</p>
+</div>
+<p><prettier-ignore-end></p>
+<h2 id="trace-filter-setting-file">Trace filter setting file<a class="headerlink" href="#trace-filter-setting-file" title="Permanent link">#</a></h2>
+<p>It will be handy to prepare trace filter setting file like the following.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># caret_topic_filter.bash</span>
+<span class="c1">#!/bin/bash</span>
+
+<span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="se">\</span>
+<span class="s2">&quot;\</span>
+<span class="s2">/rviz*\</span>
+<span class="s2">&quot;</span>
+
+<span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="se">\</span>
+<span class="s2">&quot;\</span>
+<span class="s2">/clock:\</span>
+<span class="s2">/parameter_events\</span>
+<span class="s2">&quot;</span>
+
+<span class="c1"># if you want to select nodes or topics,</span>
+<span class="c1"># please remove comment out of the followings.</span>
+<span class="c1"># export CARET_SELECT_NODES=\</span>
+<span class="c1"># &quot;\</span>
+<span class="c1"># /rviz*\</span>
+<span class="c1"># &quot;</span>
+
+<span class="c1"># export CARET_SELECT_TOPICS=\</span>
+<span class="c1"># &quot;\</span>
+<span class="c1"># /clock:\</span>
+<span class="c1"># /parameter_events\</span>
+<span class="c1"># &quot;</span>
+</code></pre></div>
 
 
 

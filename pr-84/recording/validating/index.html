@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/validating/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
     
     
       
@@ -1490,7 +1490,11 @@
 </ul>
 </li>
 <li>Solution<ul>
-<li>Apply trace filter, or modify trace filter setting to ignore more topics/nodes (See <a href="../trace_filtering">trace filtering section</a>)</li>
+<li>Apply trace filter, or modify trace filter setting to ignore more topics/nodes (See <a href="../trace_filtering">trace filtering section</a>)<ul>
+<li>especially, filtering highly-frequent nodes and topics is effective</li>
+<li>highly-frequent nodes/topics can be identified by checking the <a href="todo">summary of trace data</a></li>
+</ul>
+</li>
 <li>Increase <a href="https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F">size of ring-buffer in CARET</a> if a target device has enough memory<ul>
 <li><a href="https://github.com/tier4/ros2_tracing/pull/1/files">example</a></li>
 </ul>
