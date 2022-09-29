@@ -1342,13 +1342,13 @@
 <h2 id="starting-lttng-session-manually">Starting LTTng session manually<a class="headerlink" href="#starting-lttng-session-manually" title="Permanent link">#</a></h2>
 <p>Two terminals are needed for this method: One for starting a LTTng session, another for running a target application.</p>
 <ol>
-<li>Open a terminal and start a LTTng session with the following commands</li>
-</ol>
+<li>
+<p>Open a terminal and start a LTTng session with the following commands</p>
 <ul>
 <li>(Optional) <code>ROS_TRACE_DIR</code> variable is a destination directory where a recorded trace data will be stored. Default is <code>~/.ros/tracing</code></li>
 <li>With "<code>-s</code>" option, you can give session name. The recorded trace data will be stored into <code>~/ros_ws/evaluate/e2e_sample</code> in this sample</li>
-<li>
-<p>Press "Enter" key to start a session</p>
+<li>Press "Enter" key to start a session</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 
 <span class="c1"># (Optional) Set a destination directory. ~/.ros/tracing is default.</span>
@@ -1358,21 +1358,12 @@ mkdir -p ~/ros2_ws/evaluate
 ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># Start session with pressing Enter key</span>
 </code></pre></div>
-<p><prettier-ignore-start></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will be failed later.</p>
-</div>
-<p><prettier-ignore-end></p>
 </li>
-</ul>
-<ol>
-<li>Open another terminal and launch a target application</li>
-</ol>
-<ul>
-<li>Perform environment settings in the same order as below</li>
 <li>
-<p>CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as the target application refers to CARET/rclcpp</p>
+<p>Open another terminal and launch a target application</p>
+<ul>
+<li>
+<p>Perform environment settings in the same order as below. CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as the target application refers to CARET/rclcpp</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Environment settings (keep the order as below)</span>
 <span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
@@ -1389,19 +1380,14 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 </ul>
 <ul>
 <li>
-<p>(Optional) Apply trace filtering</p>
-<ul>
-<li>
-<p>CARET serves <a href="../trace_filtering.md">trace filtering</a>. With configuration of trace filtering, CARET can ignore unnecessary nodes/topics. This function is useful for a large application</p>
+<p>(Optional) Apply trace filtering. CARET serves <a href="../trace_filtering.md">trace filtering</a>. With configuration of trace filtering, CARET can ignore unnecessary nodes/topics. This function is useful for a large application</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Apply filter directly</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
 
-<span class="c1"># Apply filter from a setting file</span>
+<span class="c1"># Apply filter using a setting file</span>
 <span class="nb">source</span> ./caret_topic_filter.bash
 </code></pre></div>
-</li>
-</ul>
 </li>
 </ul>
 <ul>
@@ -1411,25 +1397,31 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 </code></pre></div>
 </li>
 </ul>
-<ol>
+</li>
 <li>
 <p>Stop the target application</p>
 </li>
 <li>
 <p>Press "Enter" key to stop the LTTng session in the terminal where the LTTng session runs</p>
+</li>
+</ol>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will be failed later.</p>
+</div>
+<p><prettier-ignore-end></p>
 <p><prettier-ignore-start></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like <a href="https://github.com/autowarefoundation/autoware">Autoware</a> which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with <code>ulimit -n</code> command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; <code>ulimit -n 65536</code>.</p>
 </div>
 <p><prettier-ignore-end></p>
-</li>
-</ol>
 <h2 id="starting-lttng-session-using-ros-launch">Starting LTTng session using ROS launch<a class="headerlink" href="#starting-lttng-session-using-ros-launch" title="Permanent link">#</a></h2>
-<p>You can execute LTTng session via ROS launch system. When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application as explained above. Operating multiple terminals is laborious for users. Launch LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.</p>
+<p>You can execute LTTng session via ROS launch system. When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application as explained above. Operating multiple terminals is laborious for users. Launching LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.</p>
 <ol>
-<li>Create a launch file for a target application in a ROS general manner</li>
-</ol>
+<li>
+<p>Create a launch file for a target application in ROS general manner</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch/sample.launch.py</span>
 <span class="kn">import</span> <span class="nn">launch</span>
 <span class="kn">import</span> <span class="nn">launch_ros.actions</span>
@@ -1441,9 +1433,9 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
             <span class="n">package</span><span class="o">=</span><span class="s1">&#39;caret_demos&#39;</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;end_to_end_sample&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span><span class="p">),</span>
     <span class="p">])</span>
 </code></pre></div>
-<ol>
-<li>Add description to start a LTTng session</li>
-</ol>
+</li>
+<li>
+<p>Add description to start a LTTng session</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch/sample_with_lttng.launch.py</span>
 <span class="kn">import</span> <span class="nn">launch</span>
 <span class="kn">import</span> <span class="nn">launch_ros.actions</span>
@@ -1461,12 +1453,12 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
             <span class="n">package</span><span class="o">=</span><span class="s1">&#39;caret_demos&#39;</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;end_to_end_sample&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span><span class="p">),</span>
     <span class="p">])</span>
 </code></pre></div>
-<ol>
-<li>Launch a target application and a LTTng session via the launch file</li>
-</ol>
-<ul>
+</li>
 <li>
-<p>Environment settings are still needed, but all operations are performed in just one terminal</p>
+<p>Launch a target application and a LTTng session via the launch file</p>
+<ul>
+<li>Environment settings are still needed, but all operations are performed in just one terminal</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
@@ -1478,13 +1470,13 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 ros2 launch caret_demos sample_with_lttng.launch.py
 </code></pre></div>
 </li>
-</ul>
+</ol>
 <h2 id="advanced-useful-settings-for-launch-file">Advanced: Useful settings for launch file<a class="headerlink" href="#advanced-useful-settings-for-launch-file" title="Permanent link">#</a></h2>
 <ul>
 <li>The following shows advanced settings for a launch file</li>
 <li><code>caret_session</code> option is used to set a session name. If not assigned, datetime (YYYYMMDD-HHMMSS) is used</li>
-<li>
-<p><code>caret_light</code> option is used to add another event filter. If "1" is set, detailed events (e.g. events in DDS layer, rclc layer) are ignored</p>
+<li><code>caret_light</code> option is used to add another event filter. If "1" is set, detailed events (e.g. events in DDS layer, rclc layer) are ignored</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch/sample_with_lttng.launch.py</span>
 <span class="kn">import</span> <span class="nn">launch</span>
 <span class="kn">import</span> <span class="nn">launch_ros.actions</span>
@@ -1534,8 +1526,6 @@ ros2 launch caret_demos sample_with_lttng.launch.py
         <span class="n">package</span><span class="o">=</span><span class="s1">&#39;caret_demos&#39;</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;end_to_end_sample&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span><span class="p">),</span>
   <span class="p">])</span>
 </code></pre></div>
-</li>
-</ul>
 
 
 
