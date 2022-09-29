@@ -1,65 +1,189 @@
-# Recording with CARET
+# Recording
 
-## Set LD_PRELOAD
+## Recording with CARET
 
-```sh
-# Enable tracepoints which are defined hooked functions.
-export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
-```
+CARET uses LTTng for tracing a target application. A LTTng session has to be started before running the application. This page explains two differet ways for it: Starting LTTng session manually and Starting LTTng session using ROS launch system.
 
-## Start LTTng session
+Explanation in this page assumes CARET is installed to `~/ros2_caret_ws` and the sample application used in the tutorial section is located in `~/ros2_ws`.
 
-### 別途ターミナルで開始
+## Starting LTTng session manually
 
-ターミナル上でセッションを開始できます。  
-ros2 trace や caret は ROS アプリケーションの初期化時に呼ばれる関数にもトレースポイントを挿入しています。
+Two terminals are needed for this method: One for starting a LTTng session, another for running a target application.
 
-以下の順番で起動を行ってください。
+1. Open a terminal and start a LTTng session with the following commands
 
-1. セッション開始
+   - (Optional) `ROS_TRACE_DIR` variable is a destination directory where a recorded trace data will be stored. Default is `~/.ros/tracing`
+   - With "`-s`" option, you can give session name. The recorded trace data will be stored into `~/ros_ws/evaluate/e2e_sample` in this sample
+   - Press "Enter" key to start a session
 
-   ```bash
-   ros2 trace -s end_to_end_sample -k -u "ros2*"
-   # ヘルプは ros2 trace -h
+   ```sh
+   source /opt/ros/humble/setup.bash
+
+   # (Optional) Set a destination directory. ~/.ros/tracing is default.
+   mkdir -p ~/ros2_ws/evaluate
+   export ROS_TRACE_DIR=~/ros2_ws/evaluate
+
+   ros2 trace -s e2e_sample -k -u "ros2*"
+   # Start session with pressing Enter key
    ```
 
-2. アプリケーションの実行
+2. Open another terminal and launch a target application
 
-   ```bash
-   $ ros2 launch caret_demos end_to_end_sample.launch.py
-   　# end_to_end_sample.launch.py には tracetools_launch.action.Trace が追加済みです。
-     # 自動でros2 trace同等の事を行ってくれるので、ros2 trace コマンドの実行は不要です。
+   - Perform environment settings in the same order as below. CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as the target application refers to CARET/rclcpp
+
+     ```sh
+     # Environment settings (keep the order as below)
+     source /opt/ros/humble/setup.bash
+     source ~/ros2_caret_ws/install/local_setup.bash
+     source ~/ros2_ws/install/local_setup.bash
+     ```
+
+   - Set `LD_PRELOAD` to enable tracepoints provided by function hook
+
+     ```sh
+     export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
+     ```
+
+   - (Optional) Apply trace filtering. CARET serves [trace filtering](../trace_filtering.md). With configuration of trace filtering, CARET can ignore unnecessary nodes/topics. This function is useful for a large application
+
+     ```sh
+     # Apply filter directly
+     export CARET_IGNORE_NODES="/rviz*"
+     export CARET_IGNORE_TOPICS="/clock:/parameter_events"
+
+     # Apply filter using a setting file
+     source ./caret_topic_filter.bash
+     ```
+
+   - Launch the target application
+
+     ```sh
+     ros2 run caret_demos end_to_end_sample
+     ```
+
+3. Stop the target application
+
+4. Press "Enter" key to stop the LTTng session in the terminal where the LTTng session runs
+
+<prettier-ignore-start>
+!!!note
+      A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will be failed later.
+<prettier-ignore-end>
+
+<prettier-ignore-start>
+!!!note
+      You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like [Autoware](https://github.com/autowarefoundation/autoware) which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with `ulimit -n` command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; `ulimit -n 65536`.
+<prettier-ignore-end>
+
+## Starting LTTng session using ROS launch
+
+You can execute LTTng session via ROS launch system. When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application as explained above. Operating multiple terminals is laborious for users. Launching LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.
+
+1. Create a launch file for a target application in ROS general manner
+
+   ```py
+   # launch/sample.launch.py
+   import launch
+   import launch_ros.actions
+
+
+   def generate_launch_description():
+       return launch.LaunchDescription([
+           launch_ros.actions.Node(
+               package='caret_demos', executable='end_to_end_sample', output='screen'),
+       ])
    ```
 
-終了する際の順番に指定はありません。  
-`ros2 trace` を実行しているターミナルは `Enter` を再度押して終了してください。
+2. Add description to start a LTTng session
 
-### Launch システムでの開始
+   ```py
+   # launch/sample_with_lttng.launch.py
+   import launch
+   import launch_ros.actions
+   from tracetools_launch.action import Trace
 
-LTTng のセッション開始を launch ファイルに記述します。  
-launch ファイル内へ、`tracetools_launch.action.Trace` を追加します。
 
-CARET_demos の launch ファイルでは記述済みです。  
-参考のために追加箇所を示します。
+   def generate_launch_description():
+       return launch.LaunchDescription([
+           Trace(
+               session_name='end_to_end_sample',
+               events_kernel=[],
+               events_ust=['ros2*']
+           ),
+           launch_ros.actions.Node(
+               package='caret_demos', executable='end_to_end_sample', output='screen'),
+       ])
+   ```
 
-```python
-$ cat ~/ros2_ws/src/CARET_demos/caret_demos/launch/end_to_end_sample.launch.py
+3. Launch a target application and a LTTng session via the launch file
+
+   - Environment settings are still needed, but all operations are performed in just one terminal
+
+   ```sh
+   source /opt/ros/humble/setup.bash
+   source ~/ros2_caret_ws/install/local_setup.bash
+   source ~/ros2_ws/install/local_setup.bash
+
+   export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
+
+   source ./caret_topic_filter.bash
+
+   ros2 launch caret_demos sample_with_lttng.launch.py
+   ```
+
+## Advanced: Useful settings for launch file
+
+- The following shows advanced settings for a launch file
+- `caret_session` option is used to set a session name. If not assigned, datetime (YYYYMMDD-HHMMSS) is used
+- `caret_light` option is used to add another event filter. If "1" is set, detailed events (e.g. events in DDS layer, rclc layer) are ignored
+
+```py
+# launch/sample_with_lttng.launch.py
 import launch
-import launch.actions
-import launch.substitutions
 import launch_ros.actions
 from tracetools_launch.action import Trace
 
+import sys
+import datetime
+from distutils.util import strtobool
+
+
 def generate_launch_description():
-    return launch.LaunchDescription([
-     ## Trace 追加 -- ここから --
-        Trace(
-            session_name='end_to_end_sample',　# LTTng のセッション名。
-            events_kernel=[], # カーネルイベントは無効化
-            events_ust=['ros2*'] # ros2 と caret のトレースポイントを有効化]
-        ),
-        ## Trace 追加 -- ここまで --
-        launch_ros.actions.Node(
-            package='caret_demos', executable='end_to_end_sample', output='screen'),
-    ])
+  caret_session = ""
+  caret_event = ["ros2*"]
+  caret_light = True
+
+  for arg in sys.argv:
+    if arg.startswith("caret_session:="):
+      caret_session = arg.split(":=")[1]
+    elif arg.startswith("caret_light:="):
+      try:
+        caret_light = strtobool(arg.split(":=")[1]) # 0 or 1
+      except:
+        print("Invalid arguments 'caret_light'.")
+        print("Start tracing with 'ros2*'.")
+
+  if caret_light:
+    caret_event = [ "ros2:*callback*",
+            "ros2:dispatch*",
+            "ros2:rclcpp*" ,
+            "ros2_caret:rmw*",
+            "*callback_group*",
+            "ros2_caret:*executor",
+            "ros2_caret:dds_bind*",
+            "ros2:rcl_*init"]
+
+  if caret_session == "":
+    dt_now = datetime.datetime.now()
+    caret_session = "autoware_launch_trace_" + dt_now.strftime("%Y%m%d-%H%M%S")
+
+  return launch.LaunchDescription([
+    Trace(
+      session_name=caret_session,
+      events_kernel=[],
+      events_ust=caret_event
+    ),
+    launch_ros.actions.Node(
+        package='caret_demos', executable='end_to_end_sample', output='screen'),
+  ])
 ```
