@@ -1,8 +1,8 @@
 # Recording with CARET
 
-## Steps to record trace data using CARET
+## Steps to record trace data with CARET
 
-The following shows detailed steps to record trace data using CARET
+The following shows detailed steps to record trace data with CARET
 
 - Preparation
 
