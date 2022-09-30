@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sim_time" class="md-skip">
+        <a href="#ros-time-sim_time-support" class="md-skip">
           Skip to content
         </a>
       
@@ -963,16 +963,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sim_time_1" class="md-nav__link">
-    sim_time の記録
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sim_time_2" class="md-nav__link">
-    sim_time を使った可視化
+  <a href="#recording-clock-topic" class="md-nav__link">
+    Recording /clock topic
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-using-sim_time" class="md-nav__link">
+    Visualization using sim_time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-project-to-use-sim_time" class="md-nav__link">
+    Sample project to use sim_time
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample project to use sim_time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#record-rosbag" class="md-nav__link">
+    Record rosbag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-trace-data" class="md-nav__link">
+    Record trace data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization-using-sim_time_1" class="md-nav__link">
+    Visualization using sim_time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1274,16 +1315,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sim_time_1" class="md-nav__link">
-    sim_time の記録
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sim_time_2" class="md-nav__link">
-    sim_time を使った可視化
+  <a href="#recording-clock-topic" class="md-nav__link">
+    Recording /clock topic
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-using-sim_time" class="md-nav__link">
+    Visualization using sim_time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-project-to-use-sim_time" class="md-nav__link">
+    Sample project to use sim_time
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample project to use sim_time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#record-rosbag" class="md-nav__link">
+    Record rosbag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-trace-data" class="md-nav__link">
+    Record trace data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualization-using-sim_time_1" class="md-nav__link">
+    Visualization using sim_time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1307,31 +1389,45 @@
   </a>
 
 
-<h1 id="sim_time">sim_time での時系列データ評価<a class="headerlink" href="#sim_time" title="Permanent link">#</a></h1>
-<p>CARET のデフォルト（LTTng）では、システム時間で測定結果が出力されます。<br />
-この場合、同じ条件で繰り返し測定する場合などでは、時間がズレてしまい、並べて比較するのが困難です。<br />
-そのような場合には、sim_time で時刻を一致させることで、同条件下での評価が可能になります。<br />
-本ページでは、時系列データの時刻を sim_time に時刻を揃えて評価する方法を説明します。</p>
-<h2 id="sim_time_1">sim_time の記録<a class="headerlink" href="#sim_time_1" title="Permanent link">#</a></h2>
-<p>sim_time を使った評価を行う際には、測定時に特定のノードを実行させておく必要が有ります。</p>
-<div class="highlight"><pre><span></span><code>ros2 run caret_trace clock_recorder
+<h1 id="ros-time-sim_time-support">ROS time (sim_time) support<a class="headerlink" href="#ros-time-sim_time-support" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>CARET uses system time to analyze trace data by default. It may be inconvenient, especially when treating trace data recorded with rosbag. These are examples:</p>
+<ul>
+<li>The flow of time in analysis results is different compared to that of ROS when playing rosbag with <code>[-r RATE]</code> option. For instance, 10 Hz becomes 2 Hz when rosbag was played with <code>[-r 0.2]</code> but analysis uses system time</li>
+<li>Time becomes different at every recording even if you use the same rosbag file, which makes comparing experimental results difficult</li>
+</ul>
+<p>This page explains how to use sim_time.</p>
+<h2 id="recording-clock-topic">Recording <code>/clock</code> topic<a class="headerlink" href="#recording-clock-topic" title="Permanent link">#</a></h2>
+<p><code>/clock</code> topic needs to be recorded in a trace data. <code>/clock</code> topis is recorded as <code>ros2_caret:sim_time</code> event in trace data.</p>
+<p>Open a new terminal and run the following commands before recording and running a target application.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>- Remember to set <code>use_sim_time=true</code> for each node when launching a taret application
+  - Remember to add <code>--clock</code> option when playing rosbag</p>
+</div>
+<p><prettier-ignore-end></p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+ros2 run caret_trace clock_recorder
 </code></pre></div>
-<p><code>clock_recorder</code>ノードを起動させておくことで、<code>ros2_caret:simime</code>トレースが有効になります。</p>
-<p>以下のようにコマンドを実行することで、トレースポイントが記録されていることを確認できます。</p>
-<div class="highlight"><pre><span></span><code>$ babeltrace ~/.ros/tracing/ctf_path <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+<p>You can check whether <code>/clock</code> is successfully recorded by the following command.</p>
+<div class="highlight"><pre><span></span><code>babeltrace &lt;path-to-tracedata&gt; <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Expected output text as below---
+
 ros2_caret:sim_time:
 </code></pre></div>
-<p>なお、sim_time は<code>/clock</code>トピックが publish されている間のみ記録されます。</p>
-<h2 id="sim_time_2">sim_time を使った可視化<a class="headerlink" href="#sim_time_2" title="Permanent link">#</a></h2>
-<p><code>caret_analyze.plot</code>配下の可視化では、時間軸を sim_time にした可視化が可能です。<br />
-最新版 v.0.2.1 では、<code>callback_sched</code>と<code>message_flow</code>が sim_time の時刻を使用した可視化に対応しています。</p>
+<h2 id="visualization-using-sim_time">Visualization using sim_time<a class="headerlink" href="#visualization-using-sim_time" title="Permanent link">#</a></h2>
+<p>By setting <code>use_sim_time=True</code> or <code>xaxis_type='sim_time'</code>, sim_time is used instead of system time for the following APIs.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">callback_sched</span><span class="p">(</span>
-    <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Node</span><span class="p">,</span> <span class="n">CallbackGroup</span><span class="p">,</span> <span class="n">Executor</span><span class="p">],</span>
+    <span class="n">target</span><span class="p">:</span> <span class="n">CallbackGroupTypes</span><span class="p">,</span>
     <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">coloring_rule</span><span class="o">=</span><span class="s1">&#39;callback&#39;</span><span class="p">,</span>
-    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-<span class="p">):</span>
+    <span class="n">coloring_rule</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;callback&#39;</span><span class="p">,</span>
+    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
 
 <span class="k">def</span> <span class="nf">message_flow</span><span class="p">(</span>
     <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
@@ -1341,10 +1437,113 @@ ros2_caret:sim_time:
     <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="p">)</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
+
+<span class="k">def</span> <span class="nf">show</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">xaxis_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;system_time&#39;</span><span class="p">,</span>
+    <span class="n">ywheel_zoom</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">full_legends</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
 </code></pre></div>
-<p>オプション引数の<code>use_sim_time = True</code>とすることで、横軸が sim_time のグラフを描画できます。<br />
-なお、<code>ros2_caret:sim_time</code>トレースポイントが見つからない場合には、エラーが出るようになっています。</p>
+<p>In case <code>/clock</code> topic is not recorded in trace data, the following error will occur.</p>
+<div class="highlight"><pre><span></span><code><span class="n">InvalidArgumentError</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">sim_time</span><span class="o">.</span> <span class="n">Please</span> <span class="n">measure</span> <span class="n">again</span> <span class="k">with</span> <span class="n">clock_recorder</span> <span class="n">running</span><span class="o">.</span>
+</code></pre></div>
+<h2 id="sample-project-to-use-sim_time">Sample project to use sim_time<a class="headerlink" href="#sample-project-to-use-sim_time" title="Permanent link">#</a></h2>
+<p>Explanation below assumes CARET is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
+<h3 id="record-rosbag">Record rosbag<a class="headerlink" href="#record-rosbag" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>Open a terminal and run the following commands</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+ros2 run caret_trace clock_recorder
+</code></pre></div>
+</li>
+<li>
+<p>Open another terminal to run a target application to record rosbag</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+ros2 run caret_demos end_to_end_sample
+</code></pre></div>
+</li>
+<li>
+<p>Open another terminal to record rosbag</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+ros2 bag record /topic1 /drive
+</code></pre></div>
+<p>You can check if rosbag is successfully recorded</p>
+<div class="highlight"><pre><span></span><code>ros2 bag info rosbag2_2022_09_30-10_57_06
+
+Files:             rosbag2_2022_09_30-10_57_06_0.db3
+Bag size:          <span class="m">29</span>.3 KiB
+Storage id:        sqlite3
+Duration:          <span class="m">9</span>.601s
+Start:             Sep <span class="m">30</span> <span class="m">2022</span> <span class="m">10</span>:57:08.952 <span class="o">(</span><span class="m">1664503028</span>.952<span class="o">)</span>
+End:               Sep <span class="m">30</span> <span class="m">2022</span> <span class="m">10</span>:57:18.554 <span class="o">(</span><span class="m">1664503038</span>.554<span class="o">)</span>
+Messages:          <span class="m">194</span>
+Topic information: Topic: /drive <span class="p">|</span> Type: sensor_msgs/msg/Image <span class="p">|</span> Count: <span class="m">97</span> <span class="p">|</span> Serialization Format: cdr
+                Topic: /topic1 <span class="p">|</span> Type: sensor_msgs/msg/Image <span class="p">|</span> Count: <span class="m">97</span> <span class="p">|</span> Serialization Format: cdr
+</code></pre></div>
+</li>
+</ol>
+<h3 id="record-trace-data">Record trace data<a class="headerlink" href="#record-trace-data" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>Open another terminal to run a target application to record tracedata with CARET</p>
+<p>In the launch file, <code>use_sim_time</code> is set to true and source nodes are disabled.</p>
+<div class="highlight"><pre><span></span><code> <span class="nb">source</span> /opt/ros/humble/setup.bash
+ <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+ <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+ <span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
+
+ ros2 launch caret_demos end_to_end_sample_with_lttng_session_use_sim.launch.py use_sim_time:<span class="o">=</span><span class="nb">true</span> use_rosbag:<span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+</li>
+<li>
+<p>Open another terminal to play the rosbag</p>
+<p>In the launch file, <code>use_sim_time</code> is set to true and source nodes are disabled.</p>
+<div class="highlight"><pre><span></span><code> <span class="nb">source</span> /opt/ros/humble/setup.bash
+ <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+ ros2 bag play rosbag2_2022_09_30-10_57_06 --clock -r <span class="m">0</span>.2
+</code></pre></div>
+</li>
+<li>
+<p>Stop the application and the rosbag</p>
+</li>
+<li>
+<p>Check if <code>/clock</code> topic is recorded in trace data as <code>sim_time</code></p>
+<div class="highlight"><pre><span></span><code>babeltrace ./e2e_sample <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+ros2_caret:sim_time:
+</code></pre></div>
+</li>
+</ol>
+<h3 id="visualization-using-sim_time_1">Visualization using sim_time<a class="headerlink" href="#visualization-using-sim_time_1" title="Permanent link">#</a></h3>
+<ol>
+<li>Launch Jupyter Notebook and run the following scripts</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Read trace data</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+
+<span class="c1"># Search and add path</span>
+<span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
+    <span class="s1">&#39;/filter_node&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">add_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">,</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
+
+<span class="c1"># Draw message_flow</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
+<span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">use_sim_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Draw node info</span>
+<span class="n">node</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;/filter_node&#39;</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_period_plot</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;sim_time&#39;</span><span class="p">)</span>
+</code></pre></div>
 
 
 
