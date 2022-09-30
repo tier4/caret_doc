@@ -25,7 +25,7 @@ export CARET_IGNORE_TOPICS="/clock:/parameter_events"
 ```
 
 <prettier-ignore-start>
-!!!note
+!!!info
       Trace filtering doesn't exclude all events of the specified nodes/topics with current implementation. Events in certain layers, especially DDS layer, won't be ignored.
 <prettier-ignore-end>
 

@@ -2,7 +2,7 @@
 
 ## Validating trace data
 
-You can check whether recording is successful with `ros2 caret check_ctf` command before analyzing recorded data. CARET provides helpful commands to check recorded trace data. See [CLI tools](../cli_tool) to find more details.
+You can check whether recording is successful with `ros2 caret check_ctf` command before analyzing recorded data.
 
 ```sh
 ros2 caret check_ctf -d <path-to-tracedata>
@@ -40,7 +40,7 @@ ros2 caret check_ctf -d <path-to-tracedata>
 - Solution
   - Apply trace filter, or modify trace filter setting to ignore more topics/nodes (See [trace filtering section](../trace_filtering))
     - especially, filtering highly-frequent nodes and topics is effective
-    - highly-frequent nodes/topics can be identified by checking the [summary of trace data](todo)
+    - highly-frequent nodes/topics can be identified by checking the [summary of trace data](../cli_tool/#node-summary)
   - Increase [size of ring-buffer in CARET](https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F) if a target device has enough memory
     - [example](https://github.com/tier4/ros2_tracing/pull/1/files)
 

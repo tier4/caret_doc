@@ -66,12 +66,12 @@ Two terminals are needed for this method: One for starting a LTTng session, anot
 4. Press "Enter" key to stop the LTTng session in the terminal where the LTTng session runs
 
 <prettier-ignore-start>
-!!!note
+!!!info
       A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will be failed later.
 <prettier-ignore-end>
 
 <prettier-ignore-start>
-!!!note
+!!!info
       You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like [Autoware](https://github.com/autowarefoundation/autoware) which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with `ulimit -n` command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; `ulimit -n 65536`.
 <prettier-ignore-end>
 
