@@ -15,7 +15,7 @@
     
     
       
-        <title>Recording with sim_time - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>ROS time (sim_time) support - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Recording with sim_time
+              ROS time (sim_time) support
             
           </span>
         </div>
@@ -939,12 +939,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Recording with sim_time
+          ROS time (sim_time) support
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Recording with sim_time
+        ROS time (sim_time) support
       </a>
       
         
@@ -1393,7 +1393,7 @@
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <p>CARET uses system time to analyze trace data by default. It may be inconvenient, especially when treating trace data recorded with rosbag. These are examples:</p>
 <ul>
-<li>The flow of time in analysis results is different compared to that of ROS when playing rosbag with <code>[-r RATE]</code> option. For instance, 10 Hz becomes 2 Hz when rosbag was played with <code>[-r 0.2]</code> but analysis uses system time</li>
+<li>The flow of time in analysis results is different from that of ROS when playing rosbag with <code>[-r RATE]</code> option. For instance, 10 Hz becomes 2 Hz when rosbag was played with <code>[-r 0.2]</code> but analysis uses system time</li>
 <li>Time becomes different at every recording even if you use the same rosbag file, which makes comparing experimental results difficult</li>
 </ul>
 <p>This page explains how to use sim_time.</p>
@@ -1403,8 +1403,8 @@
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>- Remember to set <code>use_sim_time=true</code> for each node when launching a taret application
-  - Remember to add <code>--clock</code> option when playing rosbag</p>
+<p>Remember to set <code>use_sim_time=true</code> for each node when launching a taret application<br />
+  Remember to add <code>--clock</code> option when playing rosbag</p>
 </div>
 <p><prettier-ignore-end></p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
@@ -1455,16 +1455,11 @@ ros2_caret:sim_time:
 <h3 id="record-rosbag">Record rosbag<a class="headerlink" href="#record-rosbag" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>Open a terminal and run the following commands</p>
+<p>Open a terminal to run a target application to record rosbag</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
-ros2 run caret_trace clock_recorder
-</code></pre></div>
-</li>
-<li>
-<p>Open another terminal to run a target application to record rosbag</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+<span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
 ros2 run caret_demos end_to_end_sample
 </code></pre></div>
 </li>
@@ -1489,8 +1484,22 @@ Topic information: Topic: /drive <span class="p">|</span> Type: sensor_msgs/msg/
 </code></pre></div>
 </li>
 </ol>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The above steps can be performed eigher with or without CARET.
+  If you have built a target application without CARET, you don't need to set environment for CARET and LD_PRELOAD.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h3 id="record-trace-data">Record trace data<a class="headerlink" href="#record-trace-data" title="Permanent link">#</a></h3>
 <ol>
+<li>
+<p>Open another terminal and run the following commands</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+ros2 run caret_trace clock_recorder
+</code></pre></div>
+</li>
 <li>
 <p>Open another terminal to run a target application to record tracedata with CARET</p>
 <p>In the launch file, <code>use_sim_time</code> is set to true and source nodes are disabled.</p>
@@ -1499,7 +1508,7 @@ Topic information: Topic: /drive <span class="p">|</span> Type: sensor_msgs/msg/
  <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
  <span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
 
- ros2 launch caret_demos end_to_end_sample_with_lttng_session_use_sim.launch.py use_sim_time:<span class="o">=</span><span class="nb">true</span> use_rosbag:<span class="o">=</span><span class="nb">false</span>
+ ros2 launch caret_demos end_to_end_sample_with_lttng_session_use_sim.launch.py use_sim_time:<span class="o">=</span><span class="nb">true</span> use_rosbag:<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
 </li>
 <li>
@@ -1515,18 +1524,26 @@ Topic information: Topic: /drive <span class="p">|</span> Type: sensor_msgs/msg/
 </li>
 <li>
 <p>Check if <code>/clock</code> topic is recorded in trace data as <code>sim_time</code></p>
-<div class="highlight"><pre><span></span><code>babeltrace ./e2e_sample <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+<div class="highlight"><pre><span></span><code>babeltrace ~/ros2_ws/evaluate/end_to_end_sample <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
 ros2_caret:sim_time:
 </code></pre></div>
 </li>
 </ol>
 <h3 id="visualization-using-sim_time_1">Visualization using sim_time<a class="headerlink" href="#visualization-using-sim_time_1" title="Permanent link">#</a></h3>
 <ol>
-<li>Launch Jupyter Notebook and run the following scripts</li>
+<li>Launch Jupyter Notebook in <code>~/ros2_ws/evaluate</code> and run the following scripts<ul>
+<li>Reference: <a href="../tutorials/visualization/">the Tutorial</a></li>
+</ul>
+</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Read trace data</span>
-<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
-<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span>
+<span class="n">output_notebook</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
+<span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span><span class="p">,</span> <span class="n">message_flow</span>
+
+<span class="c1"># Read trace data</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./end_to_end_sample&#39;</span><span class="p">)</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./end_to_end_sample&#39;</span><span class="p">)</span>
 
 <span class="c1"># Search and add path</span>
 <span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
