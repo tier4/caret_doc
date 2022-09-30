@@ -5,4 +5,4 @@ nav:
     - Recording: recording.md
     - Validating: validating.md
     - CLI tools: cli_tool.md
-    - Recording with sim_time: sim_time.md
+    - ROS time (sim_time) support: sim_time.md

@@ -10,4 +10,4 @@
 ## Other tips
 
 - [CLI tools](./cli_tool)
-- [Recording with sim_time](./sim_time)
+- [ROS time (sim_time) support](./sim_time)
