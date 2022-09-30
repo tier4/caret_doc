@@ -1445,7 +1445,7 @@
 
 <h1 id="validating-trace-data">Validating trace data<a class="headerlink" href="#validating-trace-data" title="Permanent link">#</a></h1>
 <h2 id="validating-trace-data_1">Validating trace data<a class="headerlink" href="#validating-trace-data_1" title="Permanent link">#</a></h2>
-<p>You can check whether recording is successful with <code>ros2 caret check_ctf</code> command before analyzing recorded data. CARET provides helpful commands to check recorded trace data. See <a href="../cli_tool">CLI tools</a> to find more details.</p>
+<p>You can check whether recording is successful with <code>ros2 caret check_ctf</code> command before analyzing recorded data.</p>
 <div class="highlight"><pre><span></span><code>ros2 caret check_ctf -d &lt;path-to-tracedata&gt;
 </code></pre></div>
 <p><prettier-ignore-start></p>
@@ -1492,7 +1492,7 @@
 <li>Solution<ul>
 <li>Apply trace filter, or modify trace filter setting to ignore more topics/nodes (See <a href="../trace_filtering">trace filtering section</a>)<ul>
 <li>especially, filtering highly-frequent nodes and topics is effective</li>
-<li>highly-frequent nodes/topics can be identified by checking the <a href="todo">summary of trace data</a></li>
+<li>highly-frequent nodes/topics can be identified by checking the <a href="../cli_tool/#node-summary">summary of trace data</a></li>
 </ul>
 </li>
 <li>Increase <a href="https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F">size of ring-buffer in CARET</a> if a target device has enough memory<ul>

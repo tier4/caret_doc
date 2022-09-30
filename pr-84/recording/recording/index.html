@@ -1406,14 +1406,14 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 </li>
 </ol>
 <p><prettier-ignore-start></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will be failed later.</p>
 </div>
 <p><prettier-ignore-end></p>
 <p><prettier-ignore-start></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like <a href="https://github.com/autowarefoundation/autoware">Autoware</a> which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with <code>ulimit -n</code> command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; <code>ulimit -n 65536</code>.</p>
 </div>
 <p><prettier-ignore-end></p>

@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#summary-of-trace-data" class="md-skip">
+        <a href="#cli-tools-for-recording" class="md-skip">
           Skip to content
         </a>
       
@@ -949,8 +949,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nodetopic-summary" class="md-nav__link">
-    Node/topic summary
+  <a href="#build-results-validation" class="md-nav__link">
+    Build results validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracedata-validation" class="md-nav__link">
+    Tracedata validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-summary" class="md-nav__link">
+    Node summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topic-summary" class="md-nav__link">
+    Topic summary
   </a>
   
 </li>
@@ -963,8 +984,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filtering-summary-ranges" class="md-nav__link">
-    Filtering summary ranges
+  <a href="#filtering-for-summary-commands" class="md-nav__link">
+    Filtering for summary commands
   </a>
   
 </li>
@@ -1281,8 +1302,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nodetopic-summary" class="md-nav__link">
-    Node/topic summary
+  <a href="#build-results-validation" class="md-nav__link">
+    Build results validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracedata-validation" class="md-nav__link">
+    Tracedata validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-summary" class="md-nav__link">
+    Node summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topic-summary" class="md-nav__link">
+    Topic summary
   </a>
   
 </li>
@@ -1295,8 +1337,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filtering-summary-ranges" class="md-nav__link">
-    Filtering summary ranges
+  <a href="#filtering-for-summary-commands" class="md-nav__link">
+    Filtering for summary commands
   </a>
   
 </li>
@@ -1321,16 +1363,26 @@
   </a>
 
 
-<h1 id="summary-of-trace-data">Summary of trace data<a class="headerlink" href="#summary-of-trace-data" title="Permanent link">#</a></h1>
-<p>CARET provides CLI that displays the number of collected events, including trace data, per node, topic, or tracepoint.</p>
-<h2 id="nodetopic-summary">Node/topic summary<a class="headerlink" href="#nodetopic-summary" title="Permanent link">#</a></h2>
-<p>This CLI displays the number of events per node or topic.
-If the number of events is too huge to handle, <a href="../trace_filtering/">trace filtering</a> is a reasonable choice to exclude unnecessary nodes/topics based on the output result.
-The following sample codes show command execution as examples.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Display the number of trace points for each node</span>
-ros2 caret node_summary -d ~/ros2_ws/evaluate/e2e_sample/
+<h1 id="cli-tools-for-recording">CLI tools for recording<a class="headerlink" href="#cli-tools-for-recording" title="Permanent link">#</a></h1>
+<p>CARET provides CLI tools which can be utilized at recording process.</p>
+<h2 id="build-results-validation">Build results validation<a class="headerlink" href="#build-results-validation" title="Permanent link">#</a></h2>
+<p>This command checks whether a target application is successfully built with CARET/rclcpp. (<a href="../build_check/#check-whether-caretrclcpp-is-applied-to-each-package">See details</a>)</p>
+<div class="highlight"><pre><span></span><code>ros2 caret check_caret_rclcpp --workspace &lt;path-to-project&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
----Output text as below---
+INFO    : <span class="m">2022</span>-09-29 <span class="m">20</span>:18:43 <span class="p">|</span> All packages are built using caret-rclcpp.
+</code></pre></div>
+<h2 id="tracedata-validation">Tracedata validation<a class="headerlink" href="#tracedata-validation" title="Permanent link">#</a></h2>
+<p>This command checks whether a recording is successful. (<a href="../validating/#validating-trace-data">See details</a>)</p>
+<p>If there are problems with the recorded data, warning messages will be displayed. You can ignore warnings related to Python language.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret check_ctf --trace_dir &lt;path-to-tracedata&gt;
+</code></pre></div>
+<h2 id="node-summary">Node summary<a class="headerlink" href="#node-summary" title="Permanent link">#</a></h2>
+<p>This command displays the number of events per node.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret node_summary --trace_dir &lt;path-to-tracedata&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
 <span class="o">=============================================</span>
 Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
@@ -1346,11 +1398,12 @@ Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
  /drive_node          <span class="p">|</span>                     <span class="m">2146</span>
  /sensor_dummy_node   <span class="p">|</span>                     <span class="m">2144</span>
  /actuator_dummy_node <span class="p">|</span>                     <span class="m">1609</span>
-
-<span class="c1"># Display the number of trace points for each topic</span>
-ros2 caret topic_summary -d ~/ros2_ws/evaluate/e2e_sample/
-
----Output text as below---
+</code></pre></div>
+<h2 id="topic-summary">Topic summary<a class="headerlink" href="#topic-summary" title="Permanent link">#</a></h2>
+<p>This command displays the number of events per topic.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret topic_summary --trace_dir &lt;path-to-tracedata&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
 <span class="o">=============================================</span>
 Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
@@ -1368,11 +1421,17 @@ Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
  /parameter_events <span class="p">|</span>                       <span class="m">66</span>
  /rosout           <span class="p">|</span>                        <span class="m">6</span>
 </code></pre></div>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If the number of events is too huge to handle, <a href="../trace_filtering/">trace filtering</a> is a reasonable choice to exclude unnecessary nodes/topics based on the output result.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="tracepoint-summary">Tracepoint summary<a class="headerlink" href="#tracepoint-summary" title="Permanent link">#</a></h2>
-<p>The following command allows you to see all tracepoints included in the trace data and the number of events collected by tracepoints.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/
-
----Output text as below---
+<p>This command displays all tracepoints included in the trace data and the number of events collected by tracepoints.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-tracedata&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
 <span class="o">=============================================</span>
 Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
@@ -1425,10 +1484,13 @@ Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
  ros2_caret:add_callback_group_static_executor     <span class="p">|</span>                        <span class="m">0</span>
  ros2_caret:tilde_subscription_init                <span class="p">|</span>                        <span class="m">0</span>
 </code></pre></div>
-<h2 id="filtering-summary-ranges">Filtering summary ranges<a class="headerlink" href="#filtering-summary-ranges" title="Permanent link">#</a></h2>
-<p>Summary display of long trace data (e.g., more than 10 minutes) takes time.
+<h2 id="filtering-for-summary-commands">Filtering for summary commands<a class="headerlink" href="#filtering-for-summary-commands" title="Permanent link">#</a></h2>
+<p>Executing a summary command for a huge trace data (e.g., more than 10 minutes) takes time.
 The following two options allow you to filter the load range of trace data used for summary output.
 In both options, the argument type is float and the unit of time is second.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-tracedata&gt; --duration_filter &lt;DURATION&gt; &lt;OFFSET&gt;
+ros2 caret trace_point_summary --trace_dir &lt;path-to-tracedata&gt; --strip_filter &lt;LSTRIP&gt; &lt;RSTRIP&gt;
+</code></pre></div>
 <ul>
 <li><code>--duration_filter [DURATION] [OFFSET]</code><ul>
 <li>Load only this [DURATION] from [OFFSET].</li>
@@ -1439,10 +1501,7 @@ In both options, the argument type is float and the unit of time is second.</p>
 </ul>
 </li>
 </ul>
-<p>An example run with the filtering option is shown below.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/ --duration_filter <span class="m">30</span> <span class="m">5</span>
-
----Output text as below---
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
 <span class="o">=============================================</span>
 Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
