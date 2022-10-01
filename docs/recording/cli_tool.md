@@ -4,7 +4,7 @@ CARET provides CLI tools which can be utilized at recording process.
 
 ## Build results validation
 
-This command checks whether a target application is successfully built with CARET/rclcpp. ([See details](../build_check/#check-whether-caretrclcpp-is-applied-to-each-package))
+This command checks whether a target application is successfully built with CARET/rclcpp. ([See details](./build_check.md#check-whether-caretrclcpp-is-applied-to-each-package))
 
 ```bash
 ros2 caret check_caret_rclcpp --workspace <path-to-project>
@@ -16,14 +16,14 @@ ros2 caret check_caret_rclcpp --workspace <path-to-project>
 INFO    : 2022-09-29 20:18:43 | All packages are built using caret-rclcpp.
 ```
 
-## Tracedata validation
+## Trace data validation
 
-This command checks whether a recording is successful. ([See details](../validating/#validating-trace-data))
+This command checks whether a recording is successful. ([See details](./validating.md#validating-trace-data))
 
-If there are problems with the recorded data, warning messages will be displayed. You can ignore warnings related to Python language.
+If there are problems with the recorded data, warning messages will be displayed
 
 ```bash
-ros2 caret check_ctf --trace_dir <path-to-tracedata>
+ros2 caret check_ctf --trace_dir <path-to-trace-data>
 ```
 
 ## Node summary
@@ -31,7 +31,7 @@ ros2 caret check_ctf --trace_dir <path-to-tracedata>
 This command displays the number of events per node.
 
 ```bash
-ros2 caret node_summary --trace_dir <path-to-tracedata>
+ros2 caret node_summary --trace_dir <path-to-trace-data>
 ```
 
 ```bash
@@ -58,7 +58,7 @@ Trace duration          | 0:01:00
 This command displays the number of events per topic.
 
 ```bash
-ros2 caret topic_summary --trace_dir <path-to-tracedata>
+ros2 caret topic_summary --trace_dir <path-to-trace-data>
 ```
 
 ```bash
@@ -83,7 +83,7 @@ Trace duration          | 0:01:00
 
 <prettier-ignore-start>
 !!!info
-      If the number of events is too huge to handle, [trace filtering](../recording/trace_filtering.md) is a reasonable choice to exclude unnecessary nodes/topics based on the output result.
+      If the number of events is too huge to handle, [trace filtering](./trace_filtering.md) is a reasonable choice to exclude unnecessary nodes/topics based on the output result.
 <prettier-ignore-end>
 
 ## Tracepoint summary
@@ -91,7 +91,7 @@ Trace duration          | 0:01:00
 This command displays all tracepoints included in the trace data and the number of events collected by tracepoints.
 
 ```bash
-ros2 caret trace_point_summary --trace_dir <path-to-tracedata>
+ros2 caret trace_point_summary --trace_dir <path-to-trace-data>
 ```
 
 ```bash
@@ -151,13 +151,13 @@ Trace duration          | 0:01:00
 
 ## Filtering for summary commands
 
-Executing a summary command for a huge trace data (e.g., more than 10 minutes) takes time.
+Executing a summary command for huge trace data (e.g., more than 10 minutes) takes time.
 The following two options allow you to filter the load range of trace data used for summary output.
 In both options, the argument type is float and the unit of time is second.
 
 ```bash
-ros2 caret trace_point_summary --trace_dir <path-to-tracedata> --duration_filter <DURATION> <OFFSET>
-ros2 caret trace_point_summary --trace_dir <path-to-tracedata> --strip_filter <LSTRIP> <RSTRIP>
+ros2 caret trace_point_summary --trace_dir <path-to-trace-data> --duration_filter <DURATION> <OFFSET>
+ros2 caret trace_point_summary --trace_dir <path-to-trace-data> --strip_filter <LSTRIP> <RSTRIP>
 ```
 
 - `--duration_filter [DURATION] [OFFSET]`

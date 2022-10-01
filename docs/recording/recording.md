@@ -2,7 +2,7 @@
 
 ## Recording with CARET
 
-CARET uses LTTng for tracing a target application. A LTTng session has to be started before running the application. This page explains two differet ways for it: Starting LTTng session manually and Starting LTTng session using ROS launch system.
+CARET uses LTTng for tracing a target application. A LTTng session has to be started before running the application. This page explains two different ways for it: Starting LTTng session manually and Starting LTTng session using ROS launch system.
 
 Explanation in this page assumes CARET is installed to `~/ros2_caret_ws` and the sample application used in the tutorial section is located in `~/ros2_ws`.
 
@@ -12,14 +12,14 @@ Two terminals are needed for this method: One for starting a LTTng session, anot
 
 1. Open a terminal and start a LTTng session with the following commands
 
-   - (Optional) `ROS_TRACE_DIR` variable is a destination directory where a recorded trace data will be stored. Default is `~/.ros/tracing`
+   - (Optional) `ROS_TRACE_DIR` variable is a destination directory where recorded trace data will be stored. Default is `~/.ros/tracing`
    - With "`-s`" option, you can give session name. The recorded trace data will be stored into `~/ros_ws/evaluate/e2e_sample` in this sample
    - Press "Enter" key to start a session
 
    ```sh
    source /opt/ros/humble/setup.bash
 
-   # (Optional) Set a destination directory. ~/.ros/tracing is default.
+   # (Optional) Set a destination directory
    mkdir -p ~/ros2_ws/evaluate
    export ROS_TRACE_DIR=~/ros2_ws/evaluate
 
@@ -44,7 +44,7 @@ Two terminals are needed for this method: One for starting a LTTng session, anot
      export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
      ```
 
-   - (Optional) Apply trace filtering. CARET serves [trace filtering](../trace_filtering.md). With configuration of trace filtering, CARET can ignore unnecessary nodes/topics. This function is useful for a large application
+   - (Optional) Apply [trace filtering](./trace_filtering.md). With configuration of trace filtering, CARET can ignore unnecessary nodes/topics. This function is useful for a large application
 
      ```sh
      # Apply filter directly
@@ -67,7 +67,7 @@ Two terminals are needed for this method: One for starting a LTTng session, anot
 
 <prettier-ignore-start>
 !!!info
-      A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will be failed later.
+      A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will fail later.
 <prettier-ignore-end>
 
 <prettier-ignore-start>
@@ -75,14 +75,14 @@ Two terminals are needed for this method: One for starting a LTTng session, anot
       You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like [Autoware](https://github.com/autowarefoundation/autoware) which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with `ulimit -n` command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; `ulimit -n 65536`.
 <prettier-ignore-end>
 
-## Starting LTTng session using ROS launch
+## Starting LTTng session via ROS launch
 
-You can execute LTTng session via ROS launch system. When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application as explained above. Operating multiple terminals is laborious for users. Launching LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.
+You can start LTTng session using ROS launch system. When you start a LTTng session in one terminal, you have to open another terminal for executing a target application as explained above. Operating multiple terminals is laborious for users. Launching LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.
 
-1. Create a launch file for a target application in ROS general manner
+1. Create a launch file for a target application in ROS general manner if you haven't made it
 
    ```py
-   # launch/sample.launch.py
+   # launch/end_to_end_sample.launch.py
    import launch
    import launch_ros.actions
 
@@ -97,7 +97,7 @@ You can execute LTTng session via ROS launch system. When you execute a LTTng se
 2. Add description to start a LTTng session
 
    ```py
-   # launch/sample_with_lttng.launch.py
+   # launch/end_to_end_sample_with_lttng_session.launch.py
    import launch
    import launch_ros.actions
    from tracetools_launch.action import Trace
@@ -106,7 +106,7 @@ You can execute LTTng session via ROS launch system. When you execute a LTTng se
    def generate_launch_description():
        return launch.LaunchDescription([
            Trace(
-               session_name='end_to_end_sample',
+               session_name='e2e_sample',
                events_kernel=[],
                events_ust=['ros2*']
            ),
@@ -128,17 +128,17 @@ You can execute LTTng session via ROS launch system. When you execute a LTTng se
 
    source ./caret_topic_filter.bash
 
-   ros2 launch caret_demos sample_with_lttng.launch.py
+   ros2 launch caret_demos end_to_end_sample_with_lttng_session.launch.py
    ```
 
 ## Advanced: Useful settings for launch file
 
 - The following shows advanced settings for a launch file
 - `caret_session` option is used to set a session name. If not assigned, datetime (YYYYMMDD-HHMMSS) is used
-- `caret_light` option is used to add another event filter. If "1" is set, detailed events (e.g. events in DDS layer, rclc layer) are ignored
+- `caret_light` option is used to add another event filter. If "true" is set, detailed events (e.g. events in DDS layer, rclc layer) are ignored
 
 ```py
-# launch/sample_with_lttng.launch.py
+# launch/end_to_end_sample_with_lttng_session.launch.py
 import launch
 import launch_ros.actions
 from tracetools_launch.action import Trace

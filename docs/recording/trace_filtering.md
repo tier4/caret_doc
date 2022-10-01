@@ -2,11 +2,11 @@
 
 ## Trace filtering
 
-CARET provides a trace filtering function to exclude specific nodes and topics. Trace data lost may occur when recording a large application like Autoware due to too many data to be recorded, and a warning will happen when validating/analyzing the recorded trace data (See [valiating](../validating/#tracer-discarded)). By applying trace filter, unconcerned events like `/tf` are ignored and the size of recorded data decreases.
+CARET provides a trace filtering function to exclude specific nodes and topics. Trace data may be discarded when recording a large application like Autoware due to too many data to be recorded, and a warning will occur when validating/analyzing the recorded trace data (See [validating](./validating.md#tracer-discarded)). By applying trace filter, unconcerned events like `/tf` are ignored and the size of recorded data decreases.
 
 ## Trace filter configuration
 
-- Trace filter configurtion is performed by setting the following environment variables
+- Trace filter configuration is performed by setting the following environment variables
   - `CARET_SELECT_NODES` : node names to be recorded
   - `CARET_IGNORE_NODES` : node names to be ignored
   - `CARET_SELECT_TOPICS` : topic names to be recorded
@@ -26,12 +26,12 @@ export CARET_IGNORE_TOPICS="/clock:/parameter_events"
 
 <prettier-ignore-start>
 !!!info
-      Trace filtering doesn't exclude all events of the specified nodes/topics with current implementation. Events in certain layers, especially DDS layer, won't be ignored.
+      Trace filter doesn't exclude all events of the specified nodes/topics. Events in certain layers, especially DDS layer, won't be ignored.It is one of limitations with current implementation.
 <prettier-ignore-end>
 
 ## Trace filter setting file
 
-It will be handy to prepare trace filter setting file like the following.
+It will be handy to prepare a trace filter setting file like the following.
 
 ```sh
 # caret_topic_filter.bash
