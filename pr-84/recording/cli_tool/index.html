@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/cli_tool/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.4">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -956,8 +956,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tracedata-validation" class="md-nav__link">
-    Tracedata validation
+  <a href="#trace-data-validation" class="md-nav__link">
+    Trace data validation
   </a>
   
 </li>
@@ -1309,8 +1309,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tracedata-validation" class="md-nav__link">
-    Tracedata validation
+  <a href="#trace-data-validation" class="md-nav__link">
+    Trace data validation
   </a>
   
 </li>
@@ -1373,14 +1373,14 @@
 
 INFO    : <span class="m">2022</span>-09-29 <span class="m">20</span>:18:43 <span class="p">|</span> All packages are built using caret-rclcpp.
 </code></pre></div>
-<h2 id="tracedata-validation">Tracedata validation<a class="headerlink" href="#tracedata-validation" title="Permanent link">#</a></h2>
+<h2 id="trace-data-validation">Trace data validation<a class="headerlink" href="#trace-data-validation" title="Permanent link">#</a></h2>
 <p>This command checks whether a recording is successful. (<a href="../validating/#validating-trace-data">See details</a>)</p>
-<p>If there are problems with the recorded data, warning messages will be displayed. You can ignore warnings related to Python language.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret check_ctf --trace_dir &lt;path-to-tracedata&gt;
+<p>If there are problems with the recorded data, warning messages will be displayed</p>
+<div class="highlight"><pre><span></span><code>ros2 caret check_ctf --trace_dir &lt;path-to-trace-data&gt;
 </code></pre></div>
 <h2 id="node-summary">Node summary<a class="headerlink" href="#node-summary" title="Permanent link">#</a></h2>
 <p>This command displays the number of events per node.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret node_summary --trace_dir &lt;path-to-tracedata&gt;
+<div class="highlight"><pre><span></span><code>ros2 caret node_summary --trace_dir &lt;path-to-trace-data&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>---Output text as below---
 
@@ -1401,7 +1401,7 @@ Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
 </code></pre></div>
 <h2 id="topic-summary">Topic summary<a class="headerlink" href="#topic-summary" title="Permanent link">#</a></h2>
 <p>This command displays the number of events per topic.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret topic_summary --trace_dir &lt;path-to-tracedata&gt;
+<div class="highlight"><pre><span></span><code>ros2 caret topic_summary --trace_dir &lt;path-to-trace-data&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>---Output text as below---
 
@@ -1429,7 +1429,7 @@ Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
 <p><prettier-ignore-end></p>
 <h2 id="tracepoint-summary">Tracepoint summary<a class="headerlink" href="#tracepoint-summary" title="Permanent link">#</a></h2>
 <p>This command displays all tracepoints included in the trace data and the number of events collected by tracepoints.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-tracedata&gt;
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-trace-data&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>---Output text as below---
 
@@ -1485,11 +1485,11 @@ Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
  ros2_caret:tilde_subscription_init                <span class="p">|</span>                        <span class="m">0</span>
 </code></pre></div>
 <h2 id="filtering-for-summary-commands">Filtering for summary commands<a class="headerlink" href="#filtering-for-summary-commands" title="Permanent link">#</a></h2>
-<p>Executing a summary command for a huge trace data (e.g., more than 10 minutes) takes time.
+<p>Executing a summary command for huge trace data (e.g., more than 10 minutes) takes time.
 The following two options allow you to filter the load range of trace data used for summary output.
 In both options, the argument type is float and the unit of time is second.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-tracedata&gt; --duration_filter &lt;DURATION&gt; &lt;OFFSET&gt;
-ros2 caret trace_point_summary --trace_dir &lt;path-to-tracedata&gt; --strip_filter &lt;LSTRIP&gt; &lt;RSTRIP&gt;
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-trace-data&gt; --duration_filter &lt;DURATION&gt; &lt;OFFSET&gt;
+ros2 caret trace_point_summary --trace_dir &lt;path-to-trace-data&gt; --strip_filter &lt;LSTRIP&gt; &lt;RSTRIP&gt;
 </code></pre></div>
 <ul>
 <li><code>--duration_filter [DURATION] [OFFSET]</code><ul>
@@ -1641,7 +1641,7 @@ Filtered trace duration <span class="p">|</span> <span class="m">0</span>:00:29
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

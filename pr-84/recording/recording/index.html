@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/recording/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.4">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -935,8 +935,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#starting-lttng-session-using-ros-launch" class="md-nav__link">
-    Starting LTTng session using ROS launch
+  <a href="#starting-lttng-session-via-ros-launch" class="md-nav__link">
+    Starting LTTng session via ROS launch
   </a>
   
 </li>
@@ -1302,8 +1302,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#starting-lttng-session-using-ros-launch" class="md-nav__link">
-    Starting LTTng session using ROS launch
+  <a href="#starting-lttng-session-via-ros-launch" class="md-nav__link">
+    Starting LTTng session via ROS launch
   </a>
   
 </li>
@@ -1337,7 +1337,7 @@
 
 <h1 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h1>
 <h2 id="recording-with-caret">Recording with CARET<a class="headerlink" href="#recording-with-caret" title="Permanent link">#</a></h2>
-<p>CARET uses LTTng for tracing a target application. A LTTng session has to be started before running the application. This page explains two differet ways for it: Starting LTTng session manually and Starting LTTng session using ROS launch system.</p>
+<p>CARET uses LTTng for tracing a target application. A LTTng session has to be started before running the application. This page explains two different ways for it: Starting LTTng session manually and Starting LTTng session using ROS launch system.</p>
 <p>Explanation in this page assumes CARET is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
 <h2 id="starting-lttng-session-manually">Starting LTTng session manually<a class="headerlink" href="#starting-lttng-session-manually" title="Permanent link">#</a></h2>
 <p>Two terminals are needed for this method: One for starting a LTTng session, another for running a target application.</p>
@@ -1345,13 +1345,13 @@
 <li>
 <p>Open a terminal and start a LTTng session with the following commands</p>
 <ul>
-<li>(Optional) <code>ROS_TRACE_DIR</code> variable is a destination directory where a recorded trace data will be stored. Default is <code>~/.ros/tracing</code></li>
+<li>(Optional) <code>ROS_TRACE_DIR</code> variable is a destination directory where recorded trace data will be stored. Default is <code>~/.ros/tracing</code></li>
 <li>With "<code>-s</code>" option, you can give session name. The recorded trace data will be stored into <code>~/ros_ws/evaluate/e2e_sample</code> in this sample</li>
 <li>Press "Enter" key to start a session</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 
-<span class="c1"># (Optional) Set a destination directory. ~/.ros/tracing is default.</span>
+<span class="c1"># (Optional) Set a destination directory</span>
 mkdir -p ~/ros2_ws/evaluate
 <span class="nb">export</span> <span class="nv">ROS_TRACE_DIR</span><span class="o">=</span>~/ros2_ws/evaluate
 
@@ -1380,7 +1380,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 </ul>
 <ul>
 <li>
-<p>(Optional) Apply trace filtering. CARET serves <a href="../trace_filtering.md">trace filtering</a>. With configuration of trace filtering, CARET can ignore unnecessary nodes/topics. This function is useful for a large application</p>
+<p>(Optional) Apply <a href="../trace_filtering/">trace filtering</a>. With configuration of trace filtering, CARET can ignore unnecessary nodes/topics. This function is useful for a large application</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Apply filter directly</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
@@ -1408,7 +1408,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will be failed later.</p>
+<p>A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will fail later.</p>
 </div>
 <p><prettier-ignore-end></p>
 <p><prettier-ignore-start></p>
@@ -1417,12 +1417,12 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <p>You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like <a href="https://github.com/autowarefoundation/autoware">Autoware</a> which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with <code>ulimit -n</code> command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; <code>ulimit -n 65536</code>.</p>
 </div>
 <p><prettier-ignore-end></p>
-<h2 id="starting-lttng-session-using-ros-launch">Starting LTTng session using ROS launch<a class="headerlink" href="#starting-lttng-session-using-ros-launch" title="Permanent link">#</a></h2>
-<p>You can execute LTTng session via ROS launch system. When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application as explained above. Operating multiple terminals is laborious for users. Launching LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.</p>
+<h2 id="starting-lttng-session-via-ros-launch">Starting LTTng session via ROS launch<a class="headerlink" href="#starting-lttng-session-via-ros-launch" title="Permanent link">#</a></h2>
+<p>You can start LTTng session using ROS launch system. When you start a LTTng session in one terminal, you have to open another terminal for executing a target application as explained above. Operating multiple terminals is laborious for users. Launching LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.</p>
 <ol>
 <li>
-<p>Create a launch file for a target application in ROS general manner</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># launch/sample.launch.py</span>
+<p>Create a launch file for a target application in ROS general manner if you haven't made it</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># launch/end_to_end_sample.launch.py</span>
 <span class="kn">import</span> <span class="nn">launch</span>
 <span class="kn">import</span> <span class="nn">launch_ros.actions</span>
 
@@ -1436,7 +1436,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 </li>
 <li>
 <p>Add description to start a LTTng session</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># launch/sample_with_lttng.launch.py</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># launch/end_to_end_sample_with_lttng_session.launch.py</span>
 <span class="kn">import</span> <span class="nn">launch</span>
 <span class="kn">import</span> <span class="nn">launch_ros.actions</span>
 <span class="kn">from</span> <span class="nn">tracetools_launch.action</span> <span class="kn">import</span> <span class="n">Trace</span>
@@ -1445,7 +1445,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">launch</span><span class="o">.</span><span class="n">LaunchDescription</span><span class="p">([</span>
         <span class="n">Trace</span><span class="p">(</span>
-            <span class="n">session_name</span><span class="o">=</span><span class="s1">&#39;end_to_end_sample&#39;</span><span class="p">,</span>
+            <span class="n">session_name</span><span class="o">=</span><span class="s1">&#39;e2e_sample&#39;</span><span class="p">,</span>
             <span class="n">events_kernel</span><span class="o">=</span><span class="p">[],</span>
             <span class="n">events_ust</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ros2*&#39;</span><span class="p">]</span>
         <span class="p">),</span>
@@ -1467,7 +1467,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 
 <span class="nb">source</span> ./caret_topic_filter.bash
 
-ros2 launch caret_demos sample_with_lttng.launch.py
+ros2 launch caret_demos end_to_end_sample_with_lttng_session.launch.py
 </code></pre></div>
 </li>
 </ol>
@@ -1475,9 +1475,9 @@ ros2 launch caret_demos sample_with_lttng.launch.py
 <ul>
 <li>The following shows advanced settings for a launch file</li>
 <li><code>caret_session</code> option is used to set a session name. If not assigned, datetime (YYYYMMDD-HHMMSS) is used</li>
-<li><code>caret_light</code> option is used to add another event filter. If "1" is set, detailed events (e.g. events in DDS layer, rclc layer) are ignored</li>
+<li><code>caret_light</code> option is used to add another event filter. If "true" is set, detailed events (e.g. events in DDS layer, rclc layer) are ignored</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1"># launch/sample_with_lttng.launch.py</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># launch/end_to_end_sample_with_lttng_session.launch.py</span>
 <span class="kn">import</span> <span class="nn">launch</span>
 <span class="kn">import</span> <span class="nn">launch_ros.actions</span>
 <span class="kn">from</span> <span class="nn">tracetools_launch.action</span> <span class="kn">import</span> <span class="n">Trace</span>
@@ -1611,7 +1611,7 @@ ros2 launch caret_demos sample_with_lttng.launch.py
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/sim_time/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.4">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -984,11 +984,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-project-to-use-sim_time" class="md-nav__link">
-    Sample project to use sim_time
+  <a href="#sample-to-use-sim_time" class="md-nav__link">
+    Sample to use sim_time
   </a>
   
-    <nav class="md-nav" aria-label="Sample project to use sim_time">
+    <nav class="md-nav" aria-label="Sample to use sim_time">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1006,8 +1006,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visualization-using-sim_time_1" class="md-nav__link">
-    Visualization using sim_time
+  <a href="#visualize-results-using-sim_time" class="md-nav__link">
+    Visualize results using sim_time
   </a>
   
 </li>
@@ -1336,11 +1336,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-project-to-use-sim_time" class="md-nav__link">
-    Sample project to use sim_time
+  <a href="#sample-to-use-sim_time" class="md-nav__link">
+    Sample to use sim_time
   </a>
   
-    <nav class="md-nav" aria-label="Sample project to use sim_time">
+    <nav class="md-nav" aria-label="Sample to use sim_time">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1358,8 +1358,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#visualization-using-sim_time_1" class="md-nav__link">
-    Visualization using sim_time
+  <a href="#visualize-results-using-sim_time" class="md-nav__link">
+    Visualize results using sim_time
   </a>
   
 </li>
@@ -1393,26 +1393,27 @@
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <p>CARET uses system time to analyze trace data by default. It may be inconvenient, especially when treating trace data recorded with rosbag. These are examples:</p>
 <ul>
-<li>The flow of time in analysis results is different from that of ROS when playing rosbag with <code>[-r RATE]</code> option. For instance, 10 Hz becomes 2 Hz when rosbag was played with <code>[-r 0.2]</code> but analysis uses system time</li>
+<li>The flow of time in analysis results (e.g., time series graph) is different from that of ROS when playing rosbag with <code>[-r RATE]</code> option. For instance, 10 Hz becomes 2 Hz when rosbag was played with <code>[-r 0.2]</code> but analysis uses system time</li>
 <li>Time becomes different at every recording even if you use the same rosbag file, which makes comparing experimental results difficult</li>
 </ul>
 <p>This page explains how to use sim_time.</p>
 <h2 id="recording-clock-topic">Recording <code>/clock</code> topic<a class="headerlink" href="#recording-clock-topic" title="Permanent link">#</a></h2>
-<p><code>/clock</code> topic needs to be recorded in a trace data. <code>/clock</code> topis is recorded as <code>ros2_caret:sim_time</code> event in trace data.</p>
+<p><code>/clock</code> topic needs to be recorded in trace data. <code>/clock</code> topis is recorded as <code>ros2_caret:sim_time</code> event in trace data.</p>
 <p>Open a new terminal and run the following commands before recording and running a target application.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Remember to set <code>use_sim_time=true</code> for each node when launching a taret application<br />
+<p>Remember to set <code>use_sim_time=true</code> for each node when launching a target application<br />
   Remember to add <code>--clock</code> option when playing rosbag</p>
 </div>
 <p><prettier-ignore-end></p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+
 ros2 run caret_trace clock_recorder
 </code></pre></div>
 <p>You can check whether <code>/clock</code> is successfully recorded by the following command.</p>
-<div class="highlight"><pre><span></span><code>babeltrace &lt;path-to-tracedata&gt; <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+<div class="highlight"><pre><span></span><code>babeltrace &lt;path-to-trace-data&gt; <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>---Expected output text as below---
 
@@ -1450,9 +1451,10 @@ ros2_caret:sim_time:
 <p>In case <code>/clock</code> topic is not recorded in trace data, the following error will occur.</p>
 <div class="highlight"><pre><span></span><code><span class="n">InvalidArgumentError</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">sim_time</span><span class="o">.</span> <span class="n">Please</span> <span class="n">measure</span> <span class="n">again</span> <span class="k">with</span> <span class="n">clock_recorder</span> <span class="n">running</span><span class="o">.</span>
 </code></pre></div>
-<h2 id="sample-project-to-use-sim_time">Sample project to use sim_time<a class="headerlink" href="#sample-project-to-use-sim_time" title="Permanent link">#</a></h2>
+<h2 id="sample-to-use-sim_time">Sample to use sim_time<a class="headerlink" href="#sample-to-use-sim_time" title="Permanent link">#</a></h2>
 <p>Explanation below assumes CARET is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
 <h3 id="record-rosbag">Record rosbag<a class="headerlink" href="#record-rosbag" title="Permanent link">#</a></h3>
+<p>The following steps can be performed either with or without CARET. If you have built a target application without CARET, you don't need to set environment for CARET and LD_PRELOAD.</p>
 <ol>
 <li>
 <p>Open a terminal to run a target application to record rosbag</p>
@@ -1460,6 +1462,7 @@ ros2_caret:sim_time:
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
 <span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
+
 ros2 run caret_demos end_to_end_sample
 </code></pre></div>
 </li>
@@ -1467,9 +1470,11 @@ ros2 run caret_demos end_to_end_sample
 <p>Open another terminal to record rosbag</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+
 ros2 bag record /topic1 /drive
 </code></pre></div>
-<p>You can check if rosbag is successfully recorded</p>
+<p>Here, <code>/topic1</code> and <code>/drive</code> are source topics of the sample application.<br />
+ You can check if rosbag is successfully recorded.</p>
 <div class="highlight"><pre><span></span><code>ros2 bag info rosbag2_2022_09_30-10_57_06
 
 Files:             rosbag2_2022_09_30-10_57_06_0.db3
@@ -1484,24 +1489,18 @@ Topic information: Topic: /drive <span class="p">|</span> Type: sensor_msgs/msg/
 </code></pre></div>
 </li>
 </ol>
-<p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The above steps can be performed eigher with or without CARET.
-  If you have built a target application without CARET, you don't need to set environment for CARET and LD_PRELOAD.</p>
-</div>
-<p><prettier-ignore-end></p>
 <h3 id="record-trace-data">Record trace data<a class="headerlink" href="#record-trace-data" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>Open another terminal and run the following commands</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+
 ros2 run caret_trace clock_recorder
 </code></pre></div>
 </li>
 <li>
-<p>Open another terminal to run a target application to record tracedata with CARET</p>
+<p>Open another terminal to run a target application to record trace data with CARET</p>
 <p>In the launch file, <code>use_sim_time</code> is set to true and source nodes are disabled.</p>
 <div class="highlight"><pre><span></span><code> <span class="nb">source</span> /opt/ros/humble/setup.bash
  <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
@@ -1513,9 +1512,9 @@ ros2 run caret_trace clock_recorder
 </li>
 <li>
 <p>Open another terminal to play the rosbag</p>
-<p>In the launch file, <code>use_sim_time</code> is set to true and source nodes are disabled.</p>
 <div class="highlight"><pre><span></span><code> <span class="nb">source</span> /opt/ros/humble/setup.bash
  <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+
  ros2 bag play rosbag2_2022_09_30-10_57_06 --clock -r <span class="m">0</span>.2
 </code></pre></div>
 </li>
@@ -1524,15 +1523,15 @@ ros2 run caret_trace clock_recorder
 </li>
 <li>
 <p>Check if <code>/clock</code> topic is recorded in trace data as <code>sim_time</code></p>
-<div class="highlight"><pre><span></span><code>babeltrace ~/ros2_ws/evaluate/end_to_end_sample <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+<div class="highlight"><pre><span></span><code>babeltrace ~/ros2_ws/evaluate/e2e_sample <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
 ros2_caret:sim_time:
 </code></pre></div>
 </li>
 </ol>
-<h3 id="visualization-using-sim_time_1">Visualization using sim_time<a class="headerlink" href="#visualization-using-sim_time_1" title="Permanent link">#</a></h3>
+<h3 id="visualize-results-using-sim_time">Visualize results using sim_time<a class="headerlink" href="#visualize-results-using-sim_time" title="Permanent link">#</a></h3>
 <ol>
 <li>Launch Jupyter Notebook in <code>~/ros2_ws/evaluate</code> and run the following scripts<ul>
-<li>Reference: <a href="../tutorials/visualization/">the Tutorial</a></li>
+<li>Reference: <a href="../../tutorials/visualization/">the tutorial</a></li>
 </ul>
 </li>
 </ol>
@@ -1542,8 +1541,8 @@ ros2_caret:sim_time:
 <span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span><span class="p">,</span> <span class="n">message_flow</span>
 
 <span class="c1"># Read trace data</span>
-<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./end_to_end_sample&#39;</span><span class="p">)</span>
-<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./end_to_end_sample&#39;</span><span class="p">)</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
 
 <span class="c1"># Search and add path</span>
 <span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
@@ -1646,7 +1645,7 @@ ros2_caret:sim_time:
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

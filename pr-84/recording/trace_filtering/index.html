@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/trace_filtering/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.4">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1323,10 +1323,10 @@
 
 <h1 id="trace-filtering">Trace filtering<a class="headerlink" href="#trace-filtering" title="Permanent link">#</a></h1>
 <h2 id="trace-filtering_1">Trace filtering<a class="headerlink" href="#trace-filtering_1" title="Permanent link">#</a></h2>
-<p>CARET provides a trace filtering function to exclude specific nodes and topics. Trace data lost may occur when recording a large application like Autoware due to too many data to be recorded, and a warning will happen when validating/analyzing the recorded trace data (See <a href="../validating/#tracer-discarded">valiating</a>). By applying trace filter, unconcerned events like <code>/tf</code> are ignored and the size of recorded data decreases.</p>
+<p>CARET provides a trace filtering function to exclude specific nodes and topics. Trace data may be discarded when recording a large application like Autoware due to too many data to be recorded, and a warning will occur when validating/analyzing the recorded trace data (See <a href="../validating/#tracer-discarded">validating</a>). By applying trace filter, unconcerned events like <code>/tf</code> are ignored and the size of recorded data decreases.</p>
 <h2 id="trace-filter-configuration">Trace filter configuration<a class="headerlink" href="#trace-filter-configuration" title="Permanent link">#</a></h2>
 <ul>
-<li>Trace filter configurtion is performed by setting the following environment variables<ul>
+<li>Trace filter configuration is performed by setting the following environment variables<ul>
 <li><code>CARET_SELECT_NODES</code> : node names to be recorded</li>
 <li><code>CARET_IGNORE_NODES</code> : node names to be ignored</li>
 <li><code>CARET_SELECT_TOPICS</code> : topic names to be recorded</li>
@@ -1346,11 +1346,11 @@
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Trace filtering doesn't exclude all events of the specified nodes/topics with current implementation. Events in certain layers, especially DDS layer, won't be ignored.</p>
+<p>Trace filter doesn't exclude all events of the specified nodes/topics. Events in certain layers, especially DDS layer, won't be ignored.It is one of limitations with current implementation.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="trace-filter-setting-file">Trace filter setting file<a class="headerlink" href="#trace-filter-setting-file" title="Permanent link">#</a></h2>
-<p>It will be handy to prepare trace filter setting file like the following.</p>
+<p>It will be handy to prepare a trace filter setting file like the following.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># caret_topic_filter.bash</span>
 <span class="c1">#!/bin/bash</span>
 
@@ -1463,7 +1463,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
