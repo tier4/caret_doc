@@ -5,7 +5,7 @@ CARET can handle measurements and analysis up to several minutes. When handling 
 Therefore, CARET has an API (LTTngEventFilter) to omit unnecessary measurement results when reading LTTng.  
 This section describes how to use the LTTngEventFilter.
 
-LTTngEventFitler has the following filters
+LTTngEventFilter has the following filters
 
 - init_pass_filter
 - duration_filter

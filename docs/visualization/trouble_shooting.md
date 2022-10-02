@@ -49,7 +49,7 @@ The following are possible
 
     For more information about settings, see the [trace filtering](../recording/trace_filtering.md).
 
-## TraceResultAanalyzeError: Failed to find Error
+## TraceResultAnalyzeError: Failed to find Error
 
 This is an error that occurs when the information in the architecture file is not found in the trace results.
 It refers to a mismatch between the architecture file and the trace results.
@@ -58,7 +58,7 @@ Please review the architecture file or measurement method with reference to the 
 Example
 
 ```text
-TraceResultAanalyzeError: Failed to find callback_object.node_name: /localization/pose_twist_fusion_filter/ekf_localizer, callback_name: timer_callback_0, period_ns: 19999999, symbol: void (EKFLocalizer::?)()
+TraceResultAnalyzeError: Failed to find callback_object.node_name: /localization/pose_twist_fusion_filter/ekf_localizer, callback_name: timer_callback_0, period_ns: 19999999, symbol: void (EKFLocalizer::?)()
 ```
 
 - Callback information not found.
