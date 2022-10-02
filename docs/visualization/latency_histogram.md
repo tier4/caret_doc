@@ -10,4 +10,3 @@ show(p)
 ```
 
 ![history_sample](../imgs/history_sample.png)
-

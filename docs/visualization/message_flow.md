@@ -24,4 +24,3 @@ In addition to the basic operations of bokeh, the message flow diagram allows th
   - Scale adjustments can be made only on the X-axis or only on the Y-axis by operating the wheel on the axis labels.
 - View detailed information
   - Move the cursor over the lines in the message flow or the gray rectangular area can see the detail information of callback and message.
-

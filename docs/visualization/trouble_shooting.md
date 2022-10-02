@@ -24,7 +24,7 @@ The following are possible
     colcon build --symlink-install
     ```
 
-## The measurement results are wrong.
+## The measurement results are wrong
 
 The following are possible
 
