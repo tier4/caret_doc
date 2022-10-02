@@ -12,4 +12,3 @@ If `treat_drop_as_delay=False`, the latency of messages that reach the end point
 If `treat_drop_as_delay=True`, the latency of messages calculated with the lost point as the delay.
 
 ![chain_latency_sample](../imgs/chain_latency_sample.png)
-

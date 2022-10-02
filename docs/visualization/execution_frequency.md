@@ -72,4 +72,3 @@ plot.show()
 ```
 
 ![callback_latency_time_line](../imgs/callback_latency_time_line.png)
-

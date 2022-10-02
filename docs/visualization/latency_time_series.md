@@ -10,4 +10,3 @@ show(p)
 ```
 
 ![time_series_sample](../imgs/time_series_sample.png)
-

@@ -17,7 +17,7 @@ LTTngEventFitler has the following filters
 LttngEventFilter.init_pass_filter()
 ```
 
-- Filter the trace points at initialization 
+- Filter the trace points at initialization
 
 ```python
 LttngEventFilter.duration_filter(duration_s: float, offset_s: float)
