@@ -1,4 +1,4 @@
-# treat_drop_as_delay フラグについて
+# About the treat_drop_as_delay flag
 
-`treat_drop_as_delay=False`とした場合、メッセージがロスト（上書き）されたトレースポイントの箇所で途切れます。
-`treat_drop_as_delay=True`とした場合、ロスト箇所を遅延として算出できるように紐付けたフローを出力します。
+If `treat_drop_as_delay=False`, the latency of messages that reach the end point without being lost will be output.
+If `treat_drop_as_delay=True`, the latency of messages calculated with the lost point as the delay.
