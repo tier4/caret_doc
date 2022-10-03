@@ -15,7 +15,7 @@
     
     
       
-        <title>ギャラリー - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Gallery - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ギャラリー
+              Gallery
             
           </span>
         </div>
@@ -1055,6 +1055,18 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         
@@ -1093,12 +1105,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          ギャラリー
+          Gallery
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        ギャラリー
+        Gallery
       </a>
       
         
@@ -1193,8 +1205,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../lttng_event_filter/" class="md-nav__link">
-        LTTngEventFilterの使用方法
+      <a href="../message_flow/" class="md-nav__link">
+        Message flow
       </a>
     </li>
   
@@ -1207,8 +1219,92 @@
   
   
     <li class="md-nav__item">
-      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
-        treat_drop_as_delayフラグの説明
+      <a href="../chain_latency/" class="md-nav__link">
+        Chain latency
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../latency_time_series/" class="md-nav__link">
+        Latency time series
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../latency_histogram/" class="md-nav__link">
+        Latency histogram
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execution_frequency/" class="md-nav__link">
+        Execution frequency
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../callback_scheduling_visualization/" class="md-nav__link">
+        Callback Scheduling Visualization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API_to_get_info_of_callback/" class="md-nav__link">
+        API to get information about each callback
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lttng_event_filter/" class="md-nav__link">
+        Usage of LTTngEventFilter
       </a>
     </li>
   
@@ -1222,7 +1318,7 @@
   
     <li class="md-nav__item">
       <a href="../trouble_shooting/" class="md-nav__link">
-        トラブルシューティング
+        Trouble shooting
       </a>
     </li>
   
@@ -1379,20 +1475,20 @@ In order to display bokeh graphs on jupyter-notebook, the following commands mus
 <span class="n">output_notebook</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="message-flow">Message flow<a class="headerlink" href="#message-flow" title="Permanent link">#</a></h2>
-<p><img alt="message_flow" src="../../imgs/message_flow_sample.png" />
+<p><img alt="message_flow" src="../../imgs/message_flow_sample.png" /><br>
 Source code : <a href="https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/plot/bokeh/message_flow.py">Message flow</a></p>
 <h2 id="chain-latency">Chain latency<a class="headerlink" href="#chain-latency" title="Permanent link">#</a></h2>
-<p><img alt="chain_latency_sample" src="../../imgs/chain_latency_sample.png" />
+<p><img alt="chain_latency_sample" src="../../imgs/chain_latency_sample.png" /><br>
 Source code : <a href="https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/plot/graphviz/chain_latency.py">Chain latency</a></p>
 <h2 id="latency-timeseries">Latency timeseries<a class="headerlink" href="#latency-timeseries" title="Permanent link">#</a></h2>
-<p><img alt="time_series_sample" src="../../imgs/time_series_sample.png" />
+<p><img alt="time_series_sample" src="../../imgs/time_series_sample.png" /><br>
 Source code : <a href="https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/runtime/path_base.py">Latency timeseries</a></p>
 <h2 id="latency-histogram">Latency histogram<a class="headerlink" href="#latency-histogram" title="Permanent link">#</a></h2>
 <p><img alt="history_sample" src="../../imgs/history_sample.png" />
-Source code : <a href="https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/runtime/path_base.py">Latency histogram</a></p>
+Source code : <a href="https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/runtime/path_base.py">Latency histogram</a><br></p>
 <h3 id="execution-frequency">Execution frequency<a class="headerlink" href="#execution-frequency" title="Permanent link">#</a></h3>
 <p><img alt="callback_frequency_df" src="../../imgs/callback_frequency_df.png" /></p>
-<p><img alt="callback_frequency_time_line" src="../../imgs/callback_frequency_time_line.png" />
+<p><img alt="callback_frequency_time_line" src="../../imgs/callback_frequency_time_line.png" /><br>
 Source code : <a href="https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/plot/bokeh/callback_info.py">Execution frequency</a></p>
 <h3 id="period">Period<a class="headerlink" href="#period" title="Permanent link">#</a></h3>
 <p><img alt="callback_period_df" src="../../imgs/callback_period_df.png" /></p>
@@ -1401,7 +1497,7 @@ Source code : <a href="https://github.com/tier4/CARET_analyze/blob/main/src/care
 <p><img alt="callback_latency_df" src="../../imgs/callback_latency_df.png" /></p>
 <p><img alt="callback_latency_time_line" src="../../imgs/callback_latency_time_line.png" /></p>
 <h2 id="callback-scheduling-visualization">Callback Scheduling Visualization<a class="headerlink" href="#callback-scheduling-visualization" title="Permanent link">#</a></h2>
-<p><img alt="Callback_Scheduling_Visualization_sample" src="../../imgs/callback_sched_sample.png" />
+<p><img alt="Callback_Scheduling_Visualization_sample" src="../../imgs/callback_sched_sample.png" /><br>
 Source code : <a href="https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/plot/bokeh/callback_sched.py">Callback Scheduling Visualization</a></p>
 
 
@@ -1444,13 +1540,13 @@ Source code : <a href="https://github.com/tier4/CARET_analyze/blob/main/src/care
       
       
         
-        <a href="../lttng_event_filter/" class="md-footer__link md-footer__link--next" aria-label="Next: LTTngEventFilterの使用方法" rel="next">
+        <a href="../message_flow/" class="md-footer__link md-footer__link--next" aria-label="Next: Message flow" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              LTTngEventFilterの使用方法
+              Message flow
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -141,11 +141,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-88/visualization/about_treat_drop_as_delay/</loc>
-         <lastmod>2022-10-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-88/visualization/callback_scheduling_visualization/</loc>
          <lastmod>2022-10-03</lastmod>
          <changefreq>daily</changefreq>
