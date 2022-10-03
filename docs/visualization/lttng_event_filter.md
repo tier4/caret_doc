@@ -1,6 +1,6 @@
 # Usage of LTTngEventFilter
 
-CARET can handle measurements and analysis up to several minutes. When handling measurement results of longer duration, from tens of minutes to several tens of minutes, memory usage, analysis time, visualization time, etc. become issues.
+CARET can handle measurements and analysis up to several minutes. When leveraging measurement results of longer duration, from tens of minutes to several tens of minutes, memory usage, analysis time, visualization time, etc. become issues.
 
 Therefore, CARET has an API (LTTngEventFilter) to omit unnecessary measurement results when reading LTTng.  
 This section describes how to use the LTTngEventFilter.
@@ -33,7 +33,7 @@ LttngEventFilter.strip_filter(lsplit_s: Optional[float], rsplit_s: Optional[floa
 - Ignore measurement results for [lsplit_s] from the start of the measurement
 - Ignore measurement results for [rsplit_s] seconds after measurement ends
 
-## Example of use
+## Use cases
 
 ```python
 from caret_analyze import Lttng, LttngEventFilter

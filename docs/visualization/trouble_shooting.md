@@ -2,14 +2,14 @@
 
 ## Problems during visualization, such as message flow not being displayed
 
-The following are possible
+The following causes are possible
 
 - Environment variable LD_PRELOAD is not set
 
 - No logs were recorded at the time of initialization.
 
-  - Log with the ros2 tracing command
-    Execute ros2 tracing command →Enter to start, then it is necessary to execute the application to be measured.
+  - Log with the ros2_tracing command
+    Execute the ros2_tracing command by pressing the Enter key to start, then it is necessary to execute the application to be measured.
 
 - Target application is not rebuilt with rclcpp with tracepoints added
 
@@ -26,7 +26,7 @@ The following are possible
 
 ## The measurement results are wrong
 
-The following are possible
+The following causes are possible
 
 - Trace results are not saved in time and are lost
 
@@ -49,7 +49,7 @@ The following are possible
 
     For more information about settings, see the [trace filtering](../recording/trace_filtering.md).
 
-## TraceResultAnalyzeError: Failed to find Error
+## TraceResultAnalyzeError: Failed to find
 
 This is an error that occurs when the information in the architecture file is not found in the trace results.
 It refers to a mismatch between the architecture file and the trace results.

@@ -1,8 +1,8 @@
 # Gallery
 
-Here is an example of a diagram that can be visualized with CARET.
-The visualization is done in jupyter.  
-In order to display bokeh graphs on notebook, the following commands must be executed beforehand.
+This page shows examples of figures that can be visualized in CARET.
+CARET visualizes these figures on jupyter-notebook. 
+In order to display bokeh graphs on jupyter-notebook, the following commands must be executed beforehand.
 
 ```python
 from bokeh.plotting import output_notebook, figure, show
