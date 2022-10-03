@@ -43,5 +43,10 @@
     "version": "rc-v0.2.3",
     "title": "rc-v0.2.3",
     "aliases": []
+  },
+  {
+    "version": "rc-document-reconstruction-visualization",
+    "title": "rc-document-reconstruction-visualization",
+    "aliases": []
   }
 ]
