@@ -1,7 +1,7 @@
 # Gallery
 
 This page shows examples of figures that can be visualized in CARET.
-CARET visualizes these figures on jupyter-notebook. 
+CARET visualizes these figures on jupyter-notebook.
 In order to display bokeh graphs on jupyter-notebook, the following commands must be executed beforehand.
 
 ```python
