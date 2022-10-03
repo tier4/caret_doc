@@ -1390,14 +1390,14 @@ This section describes how to use the LTTngEventFilter.</p>
 <div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="n">duration_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">offset_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span>
 </code></pre></div>
 <ul>
-<li>[duration_s] : Seconds filtered for measurement</li>
+<li>[duration_s] : Measure durtion</li>
 <li>[offset_s] : Ignore seconds from start</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">strip_filter</span><span class="p">(</span><span class="n">lsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">rsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span>
 </code></pre></div>
 <ul>
 <li>Ignore measurement results for [lsplit_s] from the start of the measurement</li>
-<li>Ignore measurement results for [rsplit_s] seconds after measurement ends</li>
+<li>Ignore measurement results for [rsplit_s] seconds before measurement ends</li>
 </ul>
 <h2 id="use-cases">Use cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
