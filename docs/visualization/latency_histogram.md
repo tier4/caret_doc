@@ -1,4 +1,4 @@
-## Latency histogram
+# Latency histogram
 
 Histograms can be visualized as follows
 

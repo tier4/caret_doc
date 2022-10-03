@@ -1,4 +1,4 @@
-## Latency timeseries
+# Latency timeseries
 
 ```python
 t, latency_ns = path.to_timeseries(remove_dropped=False, treat_drop_as_delay=True)

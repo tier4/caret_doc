@@ -1,4 +1,4 @@
-## Chain latency
+# Chain latency
 Chain latency can show the latency of each node in the end-to-end path and the communication time between nodes.
 
 ```python

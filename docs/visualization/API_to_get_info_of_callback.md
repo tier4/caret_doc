@@ -1,4 +1,4 @@
-## API to get information about each callback
+# API to get information about each callback
 
 CARET can visualize execution frequency, period and latency along time for each callback and provide them in the pandas DataFrame format.
 Several sets of sample program and output are shown in subsequent sections.

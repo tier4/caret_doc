@@ -1,4 +1,4 @@
-## Message flow
+# Message flow
 
 Visualizing the processing of each message at any point in time.
 
