@@ -1138,8 +1138,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-of-use" class="md-nav__link">
-    Example of use
+  <a href="#use-cases" class="md-nav__link">
+    Use cases
   </a>
   
 </li>
@@ -1249,8 +1249,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-of-use" class="md-nav__link">
-    Example of use
+  <a href="#use-cases" class="md-nav__link">
+    Use cases
   </a>
   
 </li>
@@ -1276,7 +1276,7 @@
 
 
 <h1 id="usage-of-lttngeventfilter">Usage of LTTngEventFilter<a class="headerlink" href="#usage-of-lttngeventfilter" title="Permanent link">#</a></h1>
-<p>CARET can handle measurements and analysis up to several minutes. When handling measurement results of longer duration, from tens of minutes to several tens of minutes, memory usage, analysis time, visualization time, etc. become issues.</p>
+<p>CARET can handle measurements and analysis up to several minutes. When leveraging measurement results of longer duration, from tens of minutes to several tens of minutes, memory usage, analysis time, visualization time, etc. become issues.</p>
 <p>Therefore, CARET has an API (LTTngEventFilter) to omit unnecessary measurement results when reading LTTng.<br />
 This section describes how to use the LTTngEventFilter.</p>
 <p>LTTngEventFilter has the following filters</p>
@@ -1303,7 +1303,7 @@ This section describes how to use the LTTngEventFilter.</p>
 <li>Ignore measurement results for [lsplit_s] from the start of the measurement</li>
 <li>Ignore measurement results for [rsplit_s] seconds after measurement ends</li>
 </ul>
-<h2 id="example-of-use">Example of use<a class="headerlink" href="#example-of-use" title="Permanent link">#</a></h2>
+<h2 id="use-cases">Use cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
 
 <span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/ctf&#39;</span><span class="p">,</span> <span class="n">event_filters</span><span class="o">=</span><span class="p">[</span>
