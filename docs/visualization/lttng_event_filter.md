@@ -23,7 +23,7 @@ LttngEventFilter.init_pass_filter()
 LttngEventFilter.duration_filter(duration_s: float, offset_s: float)
 ```
 
-- [duration_s] : Seconds filtered for measurement
+- [duration_s] : Measure durtion
 - [offset_s] : Ignore seconds from start
 
 ```python
@@ -31,7 +31,7 @@ LttngEventFilter.strip_filter(lsplit_s: Optional[float], rsplit_s: Optional[floa
 ```
 
 - Ignore measurement results for [lsplit_s] from the start of the measurement
-- Ignore measurement results for [rsplit_s] seconds after measurement ends
+- Ignore measurement results for [rsplit_s] seconds before measurement ends
 
 ## Use cases
 

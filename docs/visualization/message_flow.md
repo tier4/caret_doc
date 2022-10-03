@@ -15,9 +15,6 @@ message_flow(path, granularity='node', treat_drop_as_delay=False, lstrip_s=1, rs
 The vertical axis goes from top to bottom, corresponding to the beginning to the end of the path.
 Each line represents a message flow. The gray rectangular area indicates the callback execution time.
 
-If `treat_drop_as_delay=False`, the latency of messages that reach the end point without being lost will be output.
-If `treat_drop_as_delay=True`, the latency of messages calculated with the lost point as the delay.
-
 In addition to the basic operations of bokeh, the message flow diagram allows the following operations
 
 - Scale adjustment of xaxis/yaxis

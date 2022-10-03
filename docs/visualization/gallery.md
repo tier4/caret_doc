@@ -26,15 +26,14 @@ Source code : [Latency timeseries](https://github.com/tier4/CARET_analyze/blob/m
 
 ## Latency histogram
 
-![history_sample](../imgs/history_sample.png)
-Source code : [Latency histogram](https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/runtime/path_base.py)<br>
+![history_sample](../imgs/history_sample.png)<br>
+Source code : [Latency histogram](https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/runtime/path_base.py)
 
 ### Execution frequency
 
 ![callback_frequency_df](../imgs/callback_frequency_df.png)
 
-![callback_frequency_time_line](../imgs/callback_frequency_time_line.png)<br>
-Source code : [Execution frequency](https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/plot/bokeh/callback_info.py)
+![callback_frequency_time_line](../imgs/callback_frequency_time_line.png)
 
 ### Period
 
@@ -46,7 +45,8 @@ Source code : [Execution frequency](https://github.com/tier4/CARET_analyze/blob/
 
 ![callback_latency_df](../imgs/callback_latency_df.png)
 
-![callback_latency_time_line](../imgs/callback_latency_time_line.png)
+![callback_latency_time_line](../imgs/callback_latency_time_line.png)<br>
+Source code : [Execution frequency](https://github.com/tier4/CARET_analyze/blob/main/src/caret_analyze/plot/bokeh/callback_info.py)
 
 ## Callback Scheduling Visualization
 
