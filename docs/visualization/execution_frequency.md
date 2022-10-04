@@ -23,7 +23,7 @@ plot.show()
 
 ![callback_frequency_time_line](../imgs/callback_frequency_time_line.png)
 
-### Period
+## Period
 
 ```python
 # get dataframe
@@ -48,7 +48,7 @@ plot.show()
 
 ![callback_period_time_line](../imgs/callback_period_time_line.png)
 
-### Latency
+## Latency
 
 ```python
 # get dataframe
