@@ -1258,6 +1258,26 @@
     Installation
   </a>
   
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-fails-in-ros-2-galactic-ubuntu-2004" class="md-nav__link">
+    Setup fails in ROS 2 Galactic, Ubuntu 20.04
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-tool-doesnt-work" class="md-nav__link">
+    CLI tool doesn't work
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1282,7 +1302,22 @@
 
 <h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">#</a></h1>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
-<p>test</p>
+<h3 id="setup-fails-in-ros-2-galactic-ubuntu-2004">Setup fails in ROS 2 Galactic, Ubuntu 20.04<a class="headerlink" href="#setup-fails-in-ros-2-galactic-ubuntu-2004" title="Permanent link">#</a></h3>
+<p>In case you encounter errors during setup or build process, please make sure to use <code>galactic</code> branch.</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/tier4/caret.git -b galactic ros2_caret_ws
+<span class="nb">cd</span> ros2_caret_ws
+mkdir src
+vcs import src &lt; caret.repos
+./setup_caret.sh
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</code></pre></div>
+<h3 id="cli-tool-doesnt-work">CLI tool doesn't work<a class="headerlink" href="#cli-tool-doesnt-work" title="Permanent link">#</a></h3>
+<p>In case CLI tool execution fails, please make sure to perform CARET environment settings.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+
+ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
+</code></pre></div>
 
 
 
