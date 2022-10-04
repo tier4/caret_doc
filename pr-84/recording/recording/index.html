@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/recording/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1473,9 +1473,12 @@ ros2 launch caret_demos end_to_end_sample_with_lttng_session.launch.py
 </ol>
 <h2 id="advanced-useful-settings-for-launch-file">Advanced: Useful settings for launch file<a class="headerlink" href="#advanced-useful-settings-for-launch-file" title="Permanent link">#</a></h2>
 <ul>
-<li>The following shows advanced settings for a launch file</li>
+<li>The following script shows advanced settings for a launch file</li>
 <li><code>caret_session</code> option is used to set a session name. If not assigned, datetime (YYYYMMDD-HHMMSS) is used</li>
-<li><code>caret_light</code> option is used to add another event filter. If "true" is set, detailed events (e.g. events in DDS layer, rclc layer) are ignored</li>
+<li><code>caret_light</code> option is used to add another event filter. Only events specified in <code>caret_event</code> variable are recorded. In this exsample, high level events, such as ros2:rclcpp layer, are recorded if <code>caret_light</code> is set to "true".<ul>
+<li>Please refer to <a href="../cli_tool/#tracepoint-summary">tracepoint summary</a> to find which events are recorded, and modify <code>caret_event</code> as you want.</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch/end_to_end_sample_with_lttng_session.launch.py</span>
 <span class="kn">import</span> <span class="nn">launch</span>

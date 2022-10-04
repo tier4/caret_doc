@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/build_check/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1325,7 +1325,7 @@
 <h2 id="build-a-target-application-with-caret">Build a target application with CARET<a class="headerlink" href="#build-a-target-application-with-caret" title="Permanent link">#</a></h2>
 <p>A target application should be built with CARET/rclcpp to record trace data. If you have already built the application without CARET/rclcpp, you have to build the application with CARET/rclcpp again.</p>
 <p>For building the application with CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as shown below. Also, <code>-DBUILD_TESTING=OFF</code> should be given to build option.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> &lt;path-to-project&gt;
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> &lt;path-to-workspace&gt;
 
 <span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash  <span class="c1"># please keep the order after ROS 2&#39;s setup.bash</span>

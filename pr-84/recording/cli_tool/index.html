@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-84/recording/cli_tool/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1365,9 +1365,18 @@
 
 <h1 id="cli-tools-for-recording">CLI tools for recording<a class="headerlink" href="#cli-tools-for-recording" title="Permanent link">#</a></h1>
 <p>CARET provides CLI tools which can be utilized at recording process.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>CARET environment settings need to be performed to use these CLI tools by the following commands.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+</code></pre></div>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="build-results-validation">Build results validation<a class="headerlink" href="#build-results-validation" title="Permanent link">#</a></h2>
 <p>This command checks whether a target application is successfully built with CARET/rclcpp. (<a href="../build_check/#check-whether-caretrclcpp-is-applied-to-each-package">See details</a>)</p>
-<div class="highlight"><pre><span></span><code>ros2 caret check_caret_rclcpp --workspace &lt;path-to-project&gt;
+<div class="highlight"><pre><span></span><code>ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>---Output text as below---
 
