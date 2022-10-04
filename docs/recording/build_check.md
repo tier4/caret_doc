@@ -7,7 +7,7 @@ A target application should be built with CARET/rclcpp to record trace data. If 
 For building the application with CARET/rclcpp, CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as shown below. Also, `-DBUILD_TESTING=OFF` should be given to build option.
 
 ```sh
-cd <path-to-project>
+cd <path-to-workspace>
 
 source /opt/ros/humble/setup.bash
 source ~/ros2_caret_ws/install/local_setup.bash  # please keep the order after ROS 2's setup.bash
@@ -38,7 +38,7 @@ colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF
 You can check whether a target application is successfully built with CARET/rclcpp using `ros2 caret check_caret_rclcpp` command.
 
 ```sh
-ros2 caret check_caret_rclcpp --workspace <path-to-project>
+ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
 ```
 
 | Output Message                                                  | Description                                                                                     |

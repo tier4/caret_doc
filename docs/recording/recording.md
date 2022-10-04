@@ -133,9 +133,10 @@ You can start LTTng session using ROS launch system. When you start a LTTng sess
 
 ## Advanced: Useful settings for launch file
 
-- The following shows advanced settings for a launch file
+- The following script shows advanced settings for a launch file
 - `caret_session` option is used to set a session name. If not assigned, datetime (YYYYMMDD-HHMMSS) is used
-- `caret_light` option is used to add another event filter. If "true" is set, detailed events (e.g. events in DDS layer, rclc layer) are ignored
+- `caret_light` option is used to add another event filter. Only events specified in `caret_event` variable are recorded. In this exsample, high level events, such as ros2:rclcpp layer, are recorded if `caret_light` is set to "true". This setting will be helpful to record a huge application.
+  - Please refer to [tracepoint summary](./cli_tool.md#tracepoint-summary) to find which events are recorded, and modify `caret_event` as you want.
 
 ```py
 # launch/end_to_end_sample_with_lttng_session.launch.py

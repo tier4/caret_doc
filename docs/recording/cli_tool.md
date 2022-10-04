@@ -2,12 +2,23 @@
 
 CARET provides CLI tools which can be utilized at recording process.
 
+<prettier-ignore-start>
+!!!info
+      CARET environment settings need to be performed to use these CLI tools by the following commands.
+
+      ```bash
+      source /opt/ros/humble/setup.bash
+      source ~/ros2_caret_ws/install/local_setup.bash
+      ```
+
+<prettier-ignore-end>
+
 ## Build results validation
 
 This command checks whether a target application is successfully built with CARET/rclcpp. ([See details](./build_check.md#check-whether-caretrclcpp-is-applied-to-each-package))
 
 ```bash
-ros2 caret check_caret_rclcpp --workspace <path-to-project>
+ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
 ```
 
 ```bash
