@@ -1,6 +1,6 @@
 # Usage of LTTngEventFilter
 
-CARET can handle measurements and analysis up to several minutes. When leveraging measurement results of longer duration, from tens of minutes to several tens of minutes, memory usage, analysis time, visualization time, etc. become issues.
+CARET can handle measurements and analysis up to several minutes. Memory usage, analysis time, and visualization time, etc., will be issues when leveraging measurement results of longer duration.
 
 Therefore, CARET has an API (LTTngEventFilter) to omit unnecessary measurement results when reading LTTng.  
 This section describes how to use the LTTngEventFilter.
