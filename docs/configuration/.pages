@@ -4,4 +4,3 @@ nav:
     - How to load and save: load_and_save.md
     - How to define inter-node data path: inter_node_data_path.md
     - How to defined intra-node data path: intra_node_data_path.md
-
