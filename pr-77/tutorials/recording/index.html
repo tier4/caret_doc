@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/tutorials/recording/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2e8b5541.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -915,6 +915,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -943,8 +947,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/how_to_run_lttng_session/" class="md-nav__link">
-        Lttngセッションの開始方法
+      <a href="../../recording/build_check/" class="md-nav__link">
+        Build and check
       </a>
     </li>
   
@@ -958,7 +962,7 @@
   
     <li class="md-nav__item">
       <a href="../../recording/trace_filtering/" class="md-nav__link">
-        トレースフィルタリング
+        Trace filtering
       </a>
     </li>
   
@@ -971,8 +975,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/summary_of_trace_data/" class="md-nav__link">
-        Summary of Trace Data
+      <a href="../../recording/recording/" class="md-nav__link">
+        Recording
       </a>
     </li>
   
@@ -985,8 +989,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/use_sim_time/" class="md-nav__link">
-        sim_timeでの時系列データ評価
+      <a href="../../recording/validating/" class="md-nav__link">
+        Validating
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recording/cli_tool/" class="md-nav__link">
+        CLI tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recording/sim_time/" class="md-nav__link">
+        ROS time (sim_time) support
       </a>
     </li>
   
@@ -1407,7 +1439,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># the recorded data will be stored into ~/ros_ws/evaluate/e2e_sample in this sample</span>
 </code></pre></div>
 <p>Note that if you execute the target application before executing LTTng session will result in a lack of trace points.</p>
-<p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../recording/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
+<p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../recording/how_to_run_lttng_session.md">LTTng セッションの開始方法</a>.<br />
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by <code>ros2 launch</code> is a reasonable way to apply CARET repeatedly.</p>
 <h3 id="launching-the-target-application">Launching the target application<a class="headerlink" href="#launching-the-target-application" title="Permanent link">#</a></h3>
 <ol>
@@ -1493,7 +1525,7 @@ WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <spa
 <ul>
 <li>to filter topics and nodes which can be ignored with trace filtering explained in the previous section<ul>
 <li>especially, filtering highly-frequent nodes and topics is effective</li>
-<li>highly-frequent nodes/topics can be identified by checking the <a href="../../recording/summary_of_trace_data/">summary of trace data</a></li>
+<li>highly-frequent nodes/topics can be identified by checking the <a href="../recording/summary_of_trace_data.md">summary of trace data</a></li>
 </ul>
 </li>
 <li>to increase size of ring buffer defined in <a href="https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F"><code>lttng_impl.py</code></a></li>
@@ -1580,10 +1612,10 @@ WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <spa
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.48f2be22.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

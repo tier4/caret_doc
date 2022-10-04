@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/design/how_to_calculate_latency/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/recording/cli_tool/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
-        <title>レイテンシ算出方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>CLI tools - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#cli-tools-for-recording" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              レイテンシ算出方法
+              CLI tools
             
           </span>
         </div>
@@ -249,15 +249,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../architecture_overview/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../design/architecture_overview/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -267,13 +265,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../recording/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Recording
       </a>
     </li>
@@ -584,14 +584,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -626,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture_overview/" class="md-nav__link">
+      <a href="../../design/architecture_overview/" class="md-nav__link">
         Architecture overview
       </a>
     </li>
@@ -640,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../supported_tracepoints/" class="md-nav__link">
+      <a href="../../design/supported_tracepoints/" class="md-nav__link">
         Supported tracepoints
       </a>
     </li>
@@ -654,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../diff/" class="md-nav__link">
+      <a href="../../design/diff/" class="md-nav__link">
         galacticとの差分(staled)
       </a>
     </li>
@@ -666,16 +664,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
       
       
       
@@ -708,105 +704,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          レイテンシ算出方法
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
         レイテンシ算出方法
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    通信レイテンシとノードレイテンシの算出方法
-  </a>
-  
-    <nav class="md-nav" aria-label="通信レイテンシとノードレイテンシの算出方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    通信レイテンシの算出方法
-  </a>
-  
-    <nav class="md-nav" aria-label="通信レイテンシの算出方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    プロセス内通信
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    プロセス間通信
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    ノードレイテンシの算出方法
-  </a>
-  
-    <nav class="md-nav" aria-label="ノードレイテンシの算出方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    コールバックチェーンの利用
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -818,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../latency_definition/" class="md-nav__link">
+      <a href="../../design/latency_definition/" class="md-nav__link">
         パスレイテンシ定義
       </a>
     </li>
@@ -832,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../node_latency_definition/" class="md-nav__link">
+      <a href="../../design/node_latency_definition/" class="md-nav__link">
         ノードレイテンシ定義
       </a>
     </li>
@@ -846,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../communication_latency_definition/" class="md-nav__link">
+      <a href="../../design/communication_latency_definition/" class="md-nav__link">
         通信レイテンシの定義
       </a>
     </li>
@@ -860,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about_callback_graph/" class="md-nav__link">
+      <a href="../../design/about_callback_graph/" class="md-nav__link">
         コールバックグラフについて
       </a>
     </li>
@@ -881,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../limits/" class="md-nav__link">
+      <a href="../../design/limits/" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -901,12 +803,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -932,7 +836,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../recording/">Recording</a>
+          <a href="../">Recording</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -955,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/build_check/" class="md-nav__link">
+      <a href="../build_check/" class="md-nav__link">
         Build and check
       </a>
     </li>
@@ -969,7 +873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/trace_filtering/" class="md-nav__link">
+      <a href="../trace_filtering/" class="md-nav__link">
         Trace filtering
       </a>
     </li>
@@ -983,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/recording/" class="md-nav__link">
+      <a href="../recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -997,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/validating/" class="md-nav__link">
+      <a href="../validating/" class="md-nav__link">
         Validating
       </a>
     </li>
@@ -1009,11 +913,87 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../recording/cli_tool/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CLI tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         CLI tools
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-results-validation" class="md-nav__link">
+    Build results validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace-data-validation" class="md-nav__link">
+    Trace data validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-summary" class="md-nav__link">
+    Node summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topic-summary" class="md-nav__link">
+    Topic summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracepoint-summary" class="md-nav__link">
+    Tracepoint summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-for-summary-commands" class="md-nav__link">
+    Filtering for summary commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1025,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/sim_time/" class="md-nav__link">
+      <a href="../sim_time/" class="md-nav__link">
         ROS time (sim_time) support
       </a>
     </li>
@@ -1322,62 +1302,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    通信レイテンシとノードレイテンシの算出方法
+  <a href="#build-results-validation" class="md-nav__link">
+    Build results validation
   </a>
-  
-    <nav class="md-nav" aria-label="通信レイテンシとノードレイテンシの算出方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    通信レイテンシの算出方法
-  </a>
-  
-    <nav class="md-nav" aria-label="通信レイテンシの算出方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    プロセス内通信
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    プロセス間通信
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    ノードレイテンシの算出方法
-  </a>
-  
-    <nav class="md-nav" aria-label="ノードレイテンシの算出方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    コールバックチェーンの利用
+  <a href="#trace-data-validation" class="md-nav__link">
+    Trace data validation
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#node-summary" class="md-nav__link">
+    Node summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topic-summary" class="md-nav__link">
+    Topic summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracepoint-summary" class="md-nav__link">
+    Tracepoint summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-for-summary-commands" class="md-nav__link">
+    Filtering for summary commands
+  </a>
   
 </li>
       
@@ -1395,300 +1357,214 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/how_to_calculate_latency.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/recording/cli_tool.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">レイテンシの計算方法<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<h2 id="_2">通信レイテンシとノードレイテンシの算出方法<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<p>以下は通信レイテンシとノードレイテンシを表した図です。</p>
-<p><img alt="callback_and_node_latency" src="../../imgs/callback_and_node_latency.png" /></p>
-<p>ここでは通信レイテンシとノードレイテンシの算出方法について説明します。</p>
-<h3 id="_3">通信レイテンシの算出方法<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
-<p>通信レイテンシはコールバックの publish の時刻と、後続のコールバックが開始した時刻の差分で計算しています。</p>
-<h4 id="_4">プロセス内通信<a class="headerlink" href="#_4" title="Permanent link">#</a></h4>
-<p>次の表はプロセス内通信のトレースに必要なトレースポイントと、そのトレースポイントの引数（トレースデータとして出力されるもの）です。※簡易版</p>
-<table>
-<thead>
-<tr>
-<th>トレースポイント名</th>
-<th>引数 1</th>
-<th>引数 2</th>
-<th>時刻</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rclcpp_intra_publish</td>
-<td>publisher_handle_arg</td>
-<td><span style="color: red; ">message_arg</span></td>
-<td>time1</td>
-</tr>
-<tr>
-<td>dispatch_intra_process_subscription_callback</td>
-<td><span style="color: red; ">message_arg</span></td>
-<td><span style="color: green; ">callback_arg</span></td>
-<td>time2</td>
-</tr>
-<tr>
-<td>callback_start</td>
-<td><span style="color: green; ">callback_arg</span></td>
-<td>is_intra_process</td>
-<td>time3</td>
-</tr>
-</tbody>
-</table>
-<p>※<a href="../supported_tracepoints/">引数についてはこちらを参照</a></p>
-<p>message_arg と callback_arg にはメッセージのアドレス、コールバックのアドレスが格納されています。
-rclcpp_intra_publisher と dispatch_intra_process_subscription_callback は同じ message_arg を持つトレースポイント同士で紐づけ、dispatch_intra_process_subscription_callback と callback_start は同じ callback_arg を持つトレースポイント同士で紐づけることにより、下記のような表を作成します。
-最後に<code>callback_start - rclcpp_intra_publish</code>で<strong>プロセス内通信のレイテンシ</strong>を算出しています。</p>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>rclcpp_intra_publish</th>
-<th>dispatch_intra_process_subscription_callback</th>
-<th>callback_start</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>time1</td>
-<td>time2</td>
-<td>time3</td>
-</tr>
-<tr>
-<td>1</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<h4 id="_5">プロセス間通信<a class="headerlink" href="#_5" title="Permanent link">#</a></h4>
-<p>以下はプロセス間通信のトレースポイントとその引数です。</p>
-<table>
-<thead>
-<tr>
-<th>トレースポイント名</th>
-<th>引数 1</th>
-<th>引数 2</th>
-<th>引数 3</th>
-<th>時刻</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rclcpp_publish</td>
-<td>publisher_handle_arg</td>
-<td><span style="color: red; ">message_arg</span>@1</td>
-<td></td>
-<td>time1</td>
-</tr>
-<tr>
-<td>rcl_publish</td>
-<td>publisher_handle_arg</td>
-<td><span style="color: red; ">message_arg</span>@1</td>
-<td></td>
-<td>time2</td>
-</tr>
-<tr>
-<td>dds_write</td>
-<td>publisher_handle_arg</td>
-<td><span style="color: red; ">message_arg</span>@1</td>
-<td></td>
-<td>time3</td>
-</tr>
-<tr>
-<td>dds_bind_addr_to_stamp</td>
-<td><span style="color: red; ">message_arg</span>@1</td>
-<td><span style="color: green; ">stamp_arg</span></td>
-<td></td>
-<td>time4</td>
-</tr>
-<tr>
-<td>dispatch_subscription_callback</td>
-<td>messsage_arg@2</td>
-<td><span style="color: green; ">stamp_arg</span></td>
-<td><span style="color: blue; ">callback_arg</span></td>
-<td>time5</td>
-</tr>
-<tr>
-<td>callback_start</td>
-<td><span style="color: blue; ">callback_arg</span></td>
-<td>is_intra_process</td>
-<td></td>
-<td>time6</td>
-</tr>
-</tbody>
-</table>
-<p>プロセス内通信と同様に同じ引数を持つトレースポイント同士を紐づけていき、publish から callback_start までの表を作成します（下記表）。<br />
-1 行が 1 つのプロセス間通信のチェーンを表し、<code>callback_start - rclcpp_publish</code> にて<strong>プロセス間通信のレイテンシ</strong>を算出します。</p>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>rclcpp_publish</th>
-<th>rcl_publish</th>
-<th>dds_write</th>
-<th>dds_bind_addr_to_stamp</th>
-<th>dispatch_subscription_callback</th>
-<th>callback_start</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>time1</td>
-<td>time2</td>
-<td>time3</td>
-<td>time4</td>
-<td>time5</td>
-<td>time6</td>
-</tr>
-<tr>
-<td>1</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...　</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_6">ノードレイテンシの算出方法<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
-<p>ノードレイテンシの算出方法は 2 つあります。
-それぞれの手法・長所・短所を説明します。</p>
-<h3 id="_7">コールバックチェーンの利用<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
-<p>コールバックレイテンシの測定は、同じコールバックアドレスを持つ callback_start と rclcpp_publish の差分を使って算出します。<br />
-callback_start と rclcpp_publish の紐づけは、rclcpp_publish から見て一番近い callback_start と紐づけます。</p>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>callback_start (cb_A) [s]</th>
-<th>rclcpp_publish (cb_A) [s]</th>
-<th>callback_end (cb_A) [s]</th>
-<th>callback_arg (cb_A)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>3</td>
-<td>4</td>
-<td>0x1000</td>
-</tr>
-<tr>
-<td>1</td>
-<td>2</td>
-<td>5</td>
-<td>6</td>
-<td>0x1000</td>
-</tr>
-<tr>
-<td>2</td>
-<td>4</td>
-<td>7</td>
-<td>8</td>
-<td>0x1000</td>
-</tr>
-<tr>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>callback_start (cb_B) [s]</th>
-<th>rclcpp_publish (cb_B) [s]</th>
-<th>callback_end (cb_B) [s]</th>
-<th>callback_arg (cb_B)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>4</td>
-<td>8</td>
-<td>9</td>
-<td>0x2000</td>
-</tr>
-<tr>
-<td>1</td>
-<td>8</td>
-<td>12</td>
-<td>13</td>
-<td>0x2000</td>
-</tr>
-<tr>
-<td>2</td>
-<td>10</td>
-<td>14</td>
-<td>15</td>
-<td>0x2000</td>
-</tr>
-</tbody>
-</table>
-<p>上記表のようにコールバック A・B（cb_A・cb_B）が存在し、A→B と処理が続く時、cb_A の callback_end と cb_B の callback_start を結び付けて表を作ります。<br />
-最後の callback だけは publish の時の時刻を採用し、下記表のように一つのテーブルにします。</p>
-<table>
-<thead>
-<tr>
-<th>idx</th>
-<th>callback_start (cb_A) [s]</th>
-<th>callback_end (cb_A) [s]</th>
-<th>callback_start (cb_B) [s]</th>
-<th>rclcpp_publish (cb_B) [s]</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>4</td>
-<td>4</td>
-<td>8</td>
-</tr>
-<tr>
-<td>1</td>
-<td>2</td>
-<td>6</td>
-<td>Lost</td>
-<td>Lost</td>
-</tr>
-<tr>
-<td>2</td>
-<td>4</td>
-<td>8</td>
-<td>8</td>
-<td>12</td>
-</tr>
-<tr>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<p>上記のようにコールバックチェーンをつなぎ、<code>rclcpp_publish (cb_X) - callback_start (cb_Y)</code>で<strong>ノードレイテンシ</strong>を算出します。</p>
-<blockquote>
-<p>※ノード内にコールバックが１つの場合、X, Y は同じものを指します。<br />
-複数コールバックがある場合は、X が最後・Y が最初のコールバックを指します。</p>
-</blockquote>
+<h1 id="cli-tools-for-recording">CLI tools for recording<a class="headerlink" href="#cli-tools-for-recording" title="Permanent link">#</a></h1>
+<p>CARET provides CLI tools which can be utilized at recording process.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>CARET environment settings need to be performed to use these CLI tools by the following commands.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+</code></pre></div>
+</div>
+<p><prettier-ignore-end></p>
+<h2 id="build-results-validation">Build results validation<a class="headerlink" href="#build-results-validation" title="Permanent link">#</a></h2>
+<p>This command checks whether a target application is successfully built with CARET/rclcpp. (<a href="../build_check/#check-whether-caretrclcpp-is-applied-to-each-package">See details</a>)</p>
+<div class="highlight"><pre><span></span><code>ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
+
+INFO    : <span class="m">2022</span>-09-29 <span class="m">20</span>:18:43 <span class="p">|</span> All packages are built using caret-rclcpp.
+</code></pre></div>
+<h2 id="trace-data-validation">Trace data validation<a class="headerlink" href="#trace-data-validation" title="Permanent link">#</a></h2>
+<p>This command checks whether a recording is successful. (<a href="../validating/#validating-trace-data">See details</a>)</p>
+<p>If there are problems with the recorded data, warning messages will be displayed</p>
+<div class="highlight"><pre><span></span><code>ros2 caret check_ctf --trace_dir &lt;path-to-trace-data&gt;
+</code></pre></div>
+<h2 id="node-summary">Node summary<a class="headerlink" href="#node-summary" title="Permanent link">#</a></h2>
+<p>This command displays the number of events per node.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret node_summary --trace_dir &lt;path-to-trace-data&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
+
+<span class="o">=============================================</span>
+Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
+Trace range             <span class="p">|</span> <span class="m">17</span>:34:07 ~ <span class="m">17</span>:35:08
+Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
+<span class="o">=============================================</span>
+
+ node_name            <span class="p">|</span>   number_of_trace_points
+----------------------+--------------------------
+ /message_driven_node <span class="p">|</span>                     <span class="m">4207</span>
+ /timer_driven_node   <span class="p">|</span>                     <span class="m">3630</span>
+ /filter_node         <span class="p">|</span>                     <span class="m">2680</span>
+ /drive_node          <span class="p">|</span>                     <span class="m">2146</span>
+ /sensor_dummy_node   <span class="p">|</span>                     <span class="m">2144</span>
+ /actuator_dummy_node <span class="p">|</span>                     <span class="m">1609</span>
+</code></pre></div>
+<h2 id="topic-summary">Topic summary<a class="headerlink" href="#topic-summary" title="Permanent link">#</a></h2>
+<p>This command displays the number of events per topic.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret topic_summary --trace_dir &lt;path-to-trace-data&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
+
+<span class="o">=============================================</span>
+Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
+Trace range             <span class="p">|</span> <span class="m">17</span>:34:07 ~ <span class="m">17</span>:35:08
+Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
+<span class="o">=============================================</span>
+
+ topic_name        <span class="p">|</span>   number_of_trace_points
+-------------------+--------------------------
+ /drive            <span class="p">|</span>                     <span class="m">2668</span>
+ /topic1           <span class="p">|</span>                     <span class="m">2668</span>
+ /topic2           <span class="p">|</span>                     <span class="m">2668</span>
+ /topic4           <span class="p">|</span>                     <span class="m">2658</span>
+ /topic3           <span class="p">|</span>                     <span class="m">2478</span>
+ /parameter_events <span class="p">|</span>                       <span class="m">66</span>
+ /rosout           <span class="p">|</span>                        <span class="m">6</span>
+</code></pre></div>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If the number of events is too huge to handle, <a href="../trace_filtering/">trace filtering</a> is a reasonable choice to exclude unnecessary nodes/topics based on the output result.</p>
+</div>
+<p><prettier-ignore-end></p>
+<h2 id="tracepoint-summary">Tracepoint summary<a class="headerlink" href="#tracepoint-summary" title="Permanent link">#</a></h2>
+<p>This command displays all tracepoints included in the trace data and the number of events collected by tracepoints.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-trace-data&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
+
+<span class="o">=============================================</span>
+Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
+Trace range             <span class="p">|</span> <span class="m">17</span>:34:07 ~ <span class="m">17</span>:35:08
+Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
+<span class="o">=============================================</span>
+
+ trace_point                                       <span class="p">|</span>   number_of_trace_points
+---------------------------------------------------+--------------------------
+ ros2:callback_end                                 <span class="p">|</span>                     <span class="m">4216</span>
+ ros2:callback_start                               <span class="p">|</span>                     <span class="m">4216</span>
+ ros2_caret:dds_write                              <span class="p">|</span>                     <span class="m">2790</span>
+ ros2_caret:dds_bind_addr_to_stamp                 <span class="p">|</span>                     <span class="m">2790</span>
+ ros2:rcl_publish                                  <span class="p">|</span>                     <span class="m">2650</span>
+ ros2:rclcpp_publish                               <span class="p">|</span>                     <span class="m">2650</span>
+ ros2:dispatch_subscription_callback               <span class="p">|</span>                     <span class="m">2620</span>
+ ros2:rclcpp_subscription_callback_added           <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_service_callback_added                <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_callback_register                     <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_timer_callback_added                  <span class="p">|</span>                       <span class="m">44</span>
+ ros2_caret:callback_group_add_service             <span class="p">|</span>                       <span class="m">36</span>
+ ros2:rcl_service_init                             <span class="p">|</span>                       <span class="m">36</span>
+ ros2:rcl_publisher_init                           <span class="p">|</span>                       <span class="m">17</span>
+ ros2_caret:callback_group_add_subscription        <span class="p">|</span>                       <span class="m">11</span>
+ ros2:rcl_node_init                                <span class="p">|</span>                        <span class="m">6</span>
+ ros2_caret:add_callback_group                     <span class="p">|</span>                        <span class="m">6</span>
+ ros2:rcl_subscription_init                        <span class="p">|</span>                        <span class="m">5</span>
+ ros2:rclcpp_subscription_init                     <span class="p">|</span>                        <span class="m">5</span>
+ ros2:rcl_timer_init                               <span class="p">|</span>                        <span class="m">3</span>
+ ros2:rclcpp_timer_link_node                       <span class="p">|</span>                        <span class="m">3</span>
+ ros2_caret:callback_group_add_timer               <span class="p">|</span>                        <span class="m">3</span>
+ ros2_caret:construct_executor                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2_caret:rmw_implementation                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2:rcl_init                                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2:rcl_client_init                              <span class="p">|</span>                        <span class="m">0</span>
+ ros2:dispatch_intra_process_subscription_callback <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscribe_added                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscribe                        <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_publisher_init                   <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_publish                          <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:sim_time                               <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:on_data_available                      <span class="p">|</span>                        <span class="m">0</span>
+ ros2:message_construct                            <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:dds_bind_addr_to_addr                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:construct_static_executor              <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rclcpp_intra_publish                         <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_lifecycle_transition                     <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_lifecycle_state_machine_init             <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:callback_group_add_client              <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:add_callback_group_static_executor     <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscription_init                <span class="p">|</span>                        <span class="m">0</span>
+</code></pre></div>
+<h2 id="filtering-for-summary-commands">Filtering for summary commands<a class="headerlink" href="#filtering-for-summary-commands" title="Permanent link">#</a></h2>
+<p>Executing a summary command for huge trace data (e.g., more than 10 minutes) takes time.
+The following two options allow you to filter the load range of trace data used for summary output.
+In both options, the argument type is float and the unit of time is second.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-trace-data&gt; --duration_filter &lt;DURATION&gt; &lt;OFFSET&gt;
+ros2 caret trace_point_summary --trace_dir &lt;path-to-trace-data&gt; --strip_filter &lt;LSTRIP&gt; &lt;RSTRIP&gt;
+</code></pre></div>
+<ul>
+<li><code>--duration_filter [DURATION] [OFFSET]</code><ul>
+<li>Load only this [DURATION] from [OFFSET].</li>
+</ul>
+</li>
+<li><code>--strip_filter [LSTRIP] [RSTRIP]</code><ul>
+<li>Ignore trace data for specified seconds from start/end.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>---Output text as below---
+
+<span class="o">=============================================</span>
+Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
+Trace range             <span class="p">|</span> <span class="m">17</span>:34:07 ~ <span class="m">17</span>:35:08
+Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
+Filtered trace range    <span class="p">|</span> <span class="m">17</span>:34:15 ~ <span class="m">17</span>:34:45
+Filtered trace duration <span class="p">|</span> <span class="m">0</span>:00:29
+<span class="o">=============================================</span>
+
+ trace_point                                       <span class="p">|</span>   number_of_trace_points
+---------------------------------------------------+--------------------------
+ ros2:callback_end                                 <span class="p">|</span>                     <span class="m">2385</span>
+ ros2:callback_start                               <span class="p">|</span>                     <span class="m">2385</span>
+ ros2:dispatch_subscription_callback               <span class="p">|</span>                     <span class="m">1485</span>
+ ros2:rcl_publish                                  <span class="p">|</span>                     <span class="m">1484</span>
+ ros2_caret:dds_write                              <span class="p">|</span>                     <span class="m">1484</span>
+ ros2_caret:dds_bind_addr_to_stamp                 <span class="p">|</span>                     <span class="m">1484</span>
+ ros2:rclcpp_publish                               <span class="p">|</span>                     <span class="m">1484</span>
+ ros2:rclcpp_subscription_callback_added           <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_service_callback_added                <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_callback_register                     <span class="p">|</span>                       <span class="m">44</span>
+ ros2:rclcpp_timer_callback_added                  <span class="p">|</span>                       <span class="m">44</span>
+ ros2_caret:callback_group_add_service             <span class="p">|</span>                       <span class="m">36</span>
+ ros2:rcl_service_init                             <span class="p">|</span>                       <span class="m">36</span>
+ ros2:rcl_publisher_init                           <span class="p">|</span>                       <span class="m">17</span>
+ ros2_caret:callback_group_add_subscription        <span class="p">|</span>                       <span class="m">11</span>
+ ros2:rcl_node_init                                <span class="p">|</span>                        <span class="m">6</span>
+ ros2_caret:add_callback_group                     <span class="p">|</span>                        <span class="m">6</span>
+ ros2:rcl_subscription_init                        <span class="p">|</span>                        <span class="m">5</span>
+ ros2:rclcpp_subscription_init                     <span class="p">|</span>                        <span class="m">5</span>
+ ros2:rcl_timer_init                               <span class="p">|</span>                        <span class="m">3</span>
+ ros2:rclcpp_timer_link_node                       <span class="p">|</span>                        <span class="m">3</span>
+ ros2_caret:callback_group_add_timer               <span class="p">|</span>                        <span class="m">3</span>
+ ros2_caret:construct_executor                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2_caret:rmw_implementation                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2:rcl_init                                     <span class="p">|</span>                        <span class="m">1</span>
+ ros2:rcl_client_init                              <span class="p">|</span>                        <span class="m">0</span>
+ ros2:dispatch_intra_process_subscription_callback <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscribe_added                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscribe                        <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_publisher_init                   <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_publish                          <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:sim_time                               <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:on_data_available                      <span class="p">|</span>                        <span class="m">0</span>
+ ros2:message_construct                            <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:dds_bind_addr_to_addr                  <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:construct_static_executor              <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rclcpp_intra_publish                         <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_lifecycle_transition                     <span class="p">|</span>                        <span class="m">0</span>
+ ros2:rcl_lifecycle_state_machine_init             <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:callback_group_add_client              <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:add_callback_group_static_executor     <span class="p">|</span>                        <span class="m">0</span>
+ ros2_caret:tilde_subscription_init                <span class="p">|</span>                        <span class="m">0</span>
+</code></pre></div>
 
 
 
@@ -1714,7 +1590,7 @@ callback_start と rclcpp_publish の紐づけは、rclcpp_publish から見て�
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../diff/" class="md-footer__link md-footer__link--prev" aria-label="Previous: galacticとの差分(staled)" rel="prev">
+        <a href="../validating/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Validating" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1723,20 +1599,20 @@ callback_start と rclcpp_publish の紐づけは、rclcpp_publish から見て�
               <span class="md-footer__direction">
                 Previous
               </span>
-              galacticとの差分(staled)
+              Validating
             </div>
           </div>
         </a>
       
       
         
-        <a href="../latency_definition/" class="md-footer__link md-footer__link--next" aria-label="Next: パスレイテンシ定義" rel="next">
+        <a href="../sim_time/" class="md-footer__link md-footer__link--next" aria-label="Next: ROS time (sim_time) support" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              パスレイテンシ定義
+              ROS time (sim_time) support
             </div>
           </div>
           <div class="md-footer__button md-icon">
