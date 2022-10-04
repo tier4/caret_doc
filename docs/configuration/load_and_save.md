@@ -2,7 +2,7 @@
 
 The first step of configuration is to load an architecture object from a set of CTF-based recorded data onto memory. You can update the architecture object as the following section explains. After you finish updating it, you can save it to a yaml-based file, called "architecture file" to reuse the updated object.
 
-An architecture file has structure of a targeted application.  [`dear_ros_node_viewer`](https://github.com/takeshi-iwanari/dear_ros_node_viewer) help you to comprehend structure of the application with the architecture file.
+An architecture file has structure of a targeted application. [`dear_ros_node_viewer`](https://github.com/takeshi-iwanari/dear_ros_node_viewer) help you to comprehend structure of the application with the architecture file.
 
 ## Python API
 
@@ -20,7 +20,7 @@ from caret_analyze import Architecture
 arch = Architecture('lttng', '/path/to/ctf-based_recorded_data')
 ```
 
-You will find `caret_analyze.architecture.architecture.Architecture`-based object, named '`arch`'.  
+You will find `caret_analyze.architecture.architecture.Architecture`-based object, named '`arch`'.
 
 Loading an architecture object from CTF-based recorded data tends to be time-consuming task.
 
