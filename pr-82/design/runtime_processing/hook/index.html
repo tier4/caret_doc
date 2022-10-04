@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/hook/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -72,6 +72,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#hook" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -1160,14 +1165,14 @@
       
       
         <label class="md-nav__link" for="__nav_7_3">
-          Runtime Processing
+          Runtime processing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Runtime Processing" data-md-level="2">
+      <nav class="md-nav" aria-label="Runtime processing" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_3">
           <span class="md-nav__icon md-icon"></span>
-          Runtime Processing
+          Runtime processing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2019,6 +2024,50 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#advantage-of-hook" class="md-nav__link">
+    Advantage of Hook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ld_preload" class="md-nav__link">
+    LD_PRELOAD
+  </a>
+  
+    <nav class="md-nav" aria-label="LD_PRELOAD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantage-of-ld_preload" class="md-nav__link">
+    Advantage of LD_PRELOAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limits-of-ld_preload" class="md-nav__link">
+    Limits of LD_PRELOAD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2038,30 +2087,58 @@
   </a>
 
 
-  <h1>Hook</h1>
-
-<p>フックは CARET が行っている重要なテクニックの一つです。</p>
-<p>フックレイヤーを利用することで、ros レイヤーから DDS レイヤーまで横断的に処理を行えるようになっています。</p>
+<h1 id="hook">Hook<a class="headerlink" href="#hook" title="Permanent link">#</a></h1>
+<p>Hooking is one of the key techniques performed by CARET.
+This section describes hooks from CARET's point of view.</p>
+<p>See also</p>
 <ul>
-<li>LD_PRELOAD</li>
-<li>PLT</li>
-<li>nm コマンド</li>
-<li>c++filt コマンド</li>
+<li><a href="../../software_architecture/caret_trace/">CARET_trace</a></li>
 </ul>
+<h2 id="advantage-of-hook">Advantage of Hook<a class="headerlink" href="#advantage-of-hook" title="Permanent link">#</a></h2>
+<p>ROS 2 is being developed separately from DDS thanks to RMW.
+On the other hand, each is developed for different purposes, which may make it difficult to achieve consistent evaluation of all layers, including DDS.
+CARET handles these layers across by hooks to add and manage consistent trace points.</p>
+<p><img alt="trace_points" src="../../../imgs/control_trace_points_via_hook.drawio.png" /></p>
+<p>See also</p>
 <ul>
-<li>API として外部に公開されていない関数であってもフックが可能です。</li>
-<li>フックできないケースや困難なケースもあります。<ul>
-<li>テンプレートによりシンボルが多数存在するケース</li>
-<li>インライン展開されるケース</li>
-<li>ヘッダーで実装されたケース</li>
+<li><a href="../../trace_points/">Tracepoints definition</a></li>
 </ul>
-</li>
-</ul>
-<p>具体的にはプロセス内通信は LD_PRELOAD によるフックではできません。</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If possible, it is a better option for users if tracepoints are added as built-in rather than hooks.
+However, CARET's priority is to evaluate software running on the current version of ROS rather than to gradually add tracepoints.
+For this reason, we have adopted a hook that allows users to add tracepoints in a flexible manner.</p>
+</div>
+<p><prettier-ignore-end></p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The advantage of being able to handle all layers across the board is not well utilized in the current CARET.
+In the future, we plan to use thread local memory to reduce trace points.</p>
+</div>
+<p><prettier-ignore-end></p>
+<h2 id="ld_preload">LD_PRELOAD<a class="headerlink" href="#ld_preload" title="Permanent link">#</a></h2>
+<h3 id="advantage-of-ld_preload">Advantage of LD_PRELOAD<a class="headerlink" href="#advantage-of-ld_preload" title="Permanent link">#</a></h3>
+<p>LD_PRELOAD can be hooked even if the function is not exposed externally as an API.</p>
+<p>The trace points themselves, which are built into the ros layer, can also be hooked.
+This enables trace filtering.</p>
+<p>Hooking by eBPF is also an option.
+However, eBPF requires a context switch from user space to kernel space.
+Hooking with LD_PRELOAD can be completed in user space, reducing the overhead.</p>
+<p>See also</p>
 <ul>
-<li>eBPF によるフックも選択肢には挙げられますが、LD_PRELOAD によるフックではユーザー空間で完結できるため、オーバーヘッドを減らせることが期待できます。</li>
-<li>ros レイヤーに組み込まれているトレースポイント自体もフックが可能です。　これによりトレースフィルタリングを実現しています。</li>
+<li><a href="../tracepoint_filtering/">Tracepoint filtering</a></li>
 </ul>
+<h3 id="limits-of-ld_preload">Limits of LD_PRELOAD<a class="headerlink" href="#limits-of-ld_preload" title="Permanent link">#</a></h3>
+<p>There are some cases that cannot or are difficult to hook with LD_PRELOAD.</p>
+<ul>
+<li>Functions with many symbols depending on the template</li>
+<li>Hooks for functions that are expanded inline</li>
+<li>Hooks for functions implemented in headers</li>
+</ul>
+<p>Specifically, intra-process communication cannot be hooked by LD_PRELOAD.
+In CARET, trace points for intra-process communication are added in the forked rclcpp.</p>
 
 
 
@@ -2087,7 +2164,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Index" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Runtime processing" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2096,7 +2173,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Index
+              Runtime processing
             </div>
           </div>
         </a>
@@ -2147,7 +2224,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

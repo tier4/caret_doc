@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/limits_and_constraints/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1165,14 +1165,14 @@
       
       
         <label class="md-nav__link" for="__nav_7_3">
-          Runtime Processing
+          Runtime processing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Runtime Processing" data-md-level="2">
+      <nav class="md-nav" aria-label="Runtime processing" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_3">
           <span class="md-nav__icon md-icon"></span>
-          Runtime Processing
+          Runtime processing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2029,6 +2029,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    Environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros-2-functions" class="md-nav__link">
+    ROS 2 functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2048,20 +2077,28 @@
 
 
 <h1 id="limits-and-constraints">Limits and constraints<a class="headerlink" href="#limits-and-constraints" title="Permanent link">#</a></h1>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">#</a></h2>
+<p>CARET only supports environments as follows.</p>
 <ul>
-<li>任意のノードペアの間はプロセス内通信・プロセス間通信は固定。トピック毎に指定していないこと。</li>
-<li>/rosout や/parameter_event はパスには含まない。</li>
-<li>同じ名前空間を持つ、同じノード名は一つのみ。</li>
-<li>ROS レイヤーをラップしている。</li>
-<li>同じスレッドでなければならないペアが存在する。同じスレッドでの実行を前提にしている　トレースポイントのペアがある。</li>
-<li>reentrant で実行していない</li>
-<li>アプリケーションの再ビルドが必要（rclcpp のヘッダーにトレースポイントを追加したため）</li>
-<li>Linux のみの対応（LTTng を使用していることによるもの）</li>
-<li>サービス</li>
-<li>アクション</li>
-<li>ホスト単体</li>
-<li>FastDDS/CycloneDDS のみ対応（DDS-layer 測定のために DDS 内のフックも行っているため）</li>
-<li>galatic と Humble に 対応</li>
+<li>Only host measurements.</li>
+<li>FastDDS or CycloneDDS only.</li>
+<li>Support for Linux only.</li>
+<li>Support for Galatic and Humble.</li>
+<li>Required rebuilding the application.</li>
+</ul>
+<h2 id="ros-2-functions">ROS 2 functions<a class="headerlink" href="#ros-2-functions" title="Permanent link">#</a></h2>
+<p>CARET cannot support functions as follows.</p>
+<ul>
+<li>/rosout and /parameter_event topic</li>
+<li>Services</li>
+<li>Actions</li>
+</ul>
+<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h2>
+<p>CARET cannot support implementations as follows.</p>
+<ul>
+<li>There exist several nodes which have the same namespace and node name.</li>
+<li>wrapper for ROS layers.</li>
+<li>Reentrant callback group.</li>
 </ul>
 
 
@@ -2133,7 +2170,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

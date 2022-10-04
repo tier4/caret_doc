@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/tracepoint_filtering/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1165,14 +1165,14 @@
       
       
         <label class="md-nav__link" for="__nav_7_3">
-          Runtime Processing
+          Runtime processing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Runtime Processing" data-md-level="2">
+      <nav class="md-nav" aria-label="Runtime processing" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_3">
           <span class="md-nav__icon md-icon"></span>
-          Runtime Processing
+          Runtime processing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2046,13 +2046,28 @@
 
 
 <h1 id="tracepoint-filtering">Tracepoint filtering<a class="headerlink" href="#tracepoint-filtering" title="Permanent link">#</a></h1>
-<p>Autoware のように、多数のノードで構成されたシステムを計測すると、トレースによるデータ量が非常に大きくなります。
-Lttng はシステムへの影響を小さくするため、Discard モードで扱っています。
-そのため、トレースデータが多くなると、トレースデータの Discard が発生していまします。</p>
-<p>CARET では、特定のトピックやノードに関連するトレースポイントだけを無効化する機能を提供しています。
-これにより、rviz ノードに関連するトレースデータや、tf トピックに関連するトレースデータだけを記録対象から外せるようになり、 規模の大きなシステムでも CARET による測定が可能になります。</p>
-<p>このフィルタリング機能は set で扱っているので、オーバーヘッドは非常に小さいです。
-詳細については、<a href="../../software_architecture/caret_trace/">caret_trace</a>をご覧ください。</p>
+<p>When measuring a system composed of many nodes, such as Autoware, the amount of data from tracing can be very large.</p>
+<p>Lttng is handled in Discard mode to minimize the impact on the system.
+Therefore, when there is a large amount of trace data, trace data discarding occurs.</p>
+<p>CARET provides the ability to disable trace points associated with specific topics or nodes.
+This makes it possible to exclude from recording only trace data related to rviz nodes or tf topics, allowing CARET measurements even on large systems.</p>
+<p>This filtering function looks at the instance addresses of callback and publisher to see if they are included in the filter.
+This check is O1 fast because it uses std::unordered_map.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">ros_trace_callback_start</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_intra_process</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Singleton</span><span class="o">&lt;</span><span class="n">TracingController</span><span class="o">&gt;::</span><span class="n">get_instance</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Record trace data only if current callback is allowed to record</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">controller</span><span class="p">.</span><span class="n">is_allowed_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ORIG_FUNC</span><span class="o">::</span><span class="n">ros_trace_callback_start</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="n">is_intra_process</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>See also</p>
+<ul>
+<li><a href="../software_architecture/caret_trace">caret_trace</a></li>
+<li><a href="../../trace_points/">Tracepoint</a></li>
+<li><a href="../../recording/trace_filtering">Recording trace filtering</a></li>
+</ul>
 
 
 
@@ -2138,7 +2153,7 @@ Lttng はシステムへの影響を小さくするため、Discard モードで
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/software_architecture/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1165,14 +1165,14 @@
       
       
         <label class="md-nav__link" for="__nav_7_3">
-          Runtime Processing
+          Runtime processing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Runtime Processing" data-md-level="2">
+      <nav class="md-nav" aria-label="Runtime processing" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_3">
           <span class="md-nav__icon md-icon"></span>
-          Runtime Processing
+          Runtime processing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2084,14 +2084,19 @@
 <h1 id="software-architecture">Software architecture<a class="headerlink" href="#software-architecture" title="Permanent link">#</a></h1>
 <p>This section explains an overview of software architecture.</p>
 <p><img alt="architecture" src="../../imgs/architecture.drawio.png" /></p>
-<p>CARET is divided into two phase; recording phase and analyzing phase.</p>
+<p>CARET is divided into three phases; recording phase, configuration phase and analyzing phase.</p>
 <h2 id="recording-phase">Recording Phase<a class="headerlink" href="#recording-phase" title="Permanent link">#</a></h2>
-<p>In Recording phase, CARET records system execution data from trace points.</p>
+<p>In the recording phase, CARET records system execution data from tracepoints.</p>
 <p>In addition to the tracepoints built into ROS2, CARET adds tracepoints by several methods; CARET_trace CARET_rclcpp and TILDE.
 For flexibility in adding tracepoints, tracepoints are added by hooks as possible.
 Only if it is not possible to add tracepoints by hooks, tracepoints are added by other methods as a supplementary method.</p>
 <p>All recorded data is stored as TraceData and used in the analyzing phase.</p>
 <p>CARET utilizes LTTng as a trace mechanism.</p>
+<p>In CARET, packages related to recording phase are followings.</p>
+<ul>
+<li><a href="caret_trace/">caret_trace</a></li>
+<li><a href="tilde/">TILDE</a></li>
+</ul>
 <p>See also</p>
 <ul>
 <li><a href="../trace_points">Tracepoints</a></li>
@@ -2099,10 +2104,14 @@ Only if it is not possible to add tracepoints by hooks, tracepoints are added by
 <li><a href="https://lttng.org/docs/">The LTTng Documentation</a></li>
 </ul>
 <h2 id="configuration-phase">Configuration Phase<a class="headerlink" href="#configuration-phase" title="Permanent link">#</a></h2>
-<p>In configuration phase, CARET needs configurations to calculate latency.</p>
+<p>In the configuration phase, CARET needs configurations to calculate latency.</p>
 <p>Some of the configurations can be defined via the Python API.
-Configuration can be saved as a yaml file (Architecture file) and edited in yaml.
+Configuration can be saved as a YAML file (Architecture file) and edited.
 The architecture file is used repeatedly in the analyzing phase.</p>
+<p>In CARET, packages related to configuration phase are followings.</p>
+<ul>
+<li><a href="caret_analyze/">caret_analyze</a></li>
+</ul>
 <p>See also</p>
 <ul>
 <li><a href="../configuration/">Configuration</a></li>
@@ -2111,16 +2120,20 @@ The architecture file is used repeatedly in the analyzing phase.</p>
 <p>In analyzing phase, CARET analyzes trace data to provide system execution information.</p>
 <p>CARET_analyze provides a Python class that can access a variety of time series information.
 Developers can get the necessary information for evaluation from this class and perform evaluation according to their objectives.</p>
-<p>CARET_analyze also provides visualizations for evaluation on jupyter.</p>
+<p>CARET_analyze also provides visualizations for the evaluation of Jupyter.</p>
+<p>In CARET, packages related to configuration phase are followings.</p>
+<ul>
+<li><a href="caret_analyze/">caret_analyze</a></li>
+</ul>
 <p>See also</p>
 <ul>
-<li><a href="../processing_trace_data">Processing trace data | Overview</a></li>
-<li><a href="../latency_definitions">Latency definitions | Overview</a></li>
-<li><a href="../visualizations">Visualizations | Policy</a></li>
+<li><a href="../processing_trace_data">Processing trace data</a></li>
+<li><a href="../latency_definitions">Latency definitions</a></li>
+<li><a href="../visualizations">Visualizations</a></li>
 <li><a href="https://docs.bokeh.org/">Bokeh</a></li>
 </ul>
 <h2 id="ros-2-packages">ROS 2 Packages<a class="headerlink" href="#ros-2-packages" title="Permanent link">#</a></h2>
-<p>Followings are CARET-related packages.</p>
+<p>The followings are CARET-related packages.</p>
 <table>
 <thead>
 <tr>
@@ -2247,7 +2260,7 @@ Developers can get the necessary information for evaluation from this class and 
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

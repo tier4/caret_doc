@@ -11,15 +11,15 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
-        <title>Index - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Runtime processing - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#runtime-processing" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -108,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Runtime processing
             
           </span>
         </div>
@@ -1160,14 +1165,14 @@
       
       
         <label class="md-nav__link" for="__nav_7_3">
-          Runtime Processing
+          Runtime processing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Runtime Processing" data-md-level="2">
+      <nav class="md-nav" aria-label="Runtime processing" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_3">
           <span class="md-nav__icon md-icon"></span>
-          Runtime Processing
+          Runtime processing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2019,6 +2024,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -2038,12 +2045,16 @@
   </a>
 
 
-  <h1>Index</h1>
-
-<p>CARET は実行時に以下を行います。</p>
+<h1 id="runtime-processing">Runtime processing<a class="headerlink" href="#runtime-processing" title="Permanent link">#</a></h1>
+<p>CARET process followings at runtime.</p>
 <ul>
-<li>トレースポイントの追加</li>
-<li>トレースフィルタリングの実現</li>
+<li><a href="hook/">Adds trace points via hooks</a></li>
+<li><a href="tracepoint_filtering/">Implement trace filtering</a></li>
+</ul>
+<p>LTTng is also multifunctional, but CARET specializes ROS-aware functionality.</p>
+<p>See also</p>
+<ul>
+<li><a href="../trace_points/">Tracepoint</a></li>
 </ul>
 
 
@@ -2130,7 +2141,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
