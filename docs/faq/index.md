@@ -1,0 +1,5 @@
+# FAQ
+
+## Installation
+
+test

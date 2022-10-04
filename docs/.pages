@@ -4,7 +4,8 @@ nav:
       - Changelog: changelog.md
     - Installation: installation
     - Tutorials: tutorials
-    - Design: design
     - Recording: recording
     - Configuration: configuration
     - Visualization: visualization
+    - Design: design
+    - FAQ: faq
