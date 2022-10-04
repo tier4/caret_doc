@@ -1475,7 +1475,7 @@ ros2 launch caret_demos end_to_end_sample_with_lttng_session.launch.py
 <ul>
 <li>The following script shows advanced settings for a launch file</li>
 <li><code>caret_session</code> option is used to set a session name. If not assigned, datetime (YYYYMMDD-HHMMSS) is used</li>
-<li><code>caret_light</code> option is used to add another event filter. Only events specified in <code>caret_event</code> variable are recorded. In this exsample, high level events, such as ros2:rclcpp layer, are recorded if <code>caret_light</code> is set to "true".<ul>
+<li><code>caret_light</code> option is used to add another event filter. Only events specified in <code>caret_event</code> variable are recorded. In this exsample, high level events, such as ros2:rclcpp layer, are recorded if <code>caret_light</code> is set to "true". This setting will be helpful to record a huge application.<ul>
 <li>Please refer to <a href="../cli_tool/#tracepoint-summary">tracepoint summary</a> to find which events are recorded, and modify <code>caret_event</code> as you want.</li>
 </ul>
 </li>
