@@ -384,6 +384,8 @@
         
           
         
+          
+        
       
       
         
@@ -414,6 +416,20 @@
     <li class="md-nav__item">
       <a href="../../changelog/" class="md-nav__link">
         Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gallery/" class="md-nav__link">
+        Gallery
       </a>
     </li>
   
@@ -1065,8 +1081,6 @@
         
           
         
-          
-        
       
       
         
@@ -1087,20 +1101,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gallery/" class="md-nav__link">
-        Gallery
-      </a>
-    </li>
-  
-
             
           
             
@@ -1313,7 +1313,7 @@
 
 <h1 id="latency-histogram">Latency histogram<a class="headerlink" href="#latency-histogram" title="Permanent link">#</a></h1>
 <p>Histograms can be visualized as follows</p>
-<div class="highlight"><pre><span></span><code><span class="n">bins</span><span class="p">,</span> <span class="n">hist</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">(</span><span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">bins</span><span class="p">,</span> <span class="n">hist</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">()</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
 <span class="n">p</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">bins</span><span class="p">)</span>
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>

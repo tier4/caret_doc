@@ -384,6 +384,8 @@
         
           
         
+          
+        
       
       
         
@@ -414,6 +416,20 @@
     <li class="md-nav__item">
       <a href="../../changelog/" class="md-nav__link">
         Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gallery/" class="md-nav__link">
+        Gallery
       </a>
     </li>
   
@@ -1065,8 +1081,6 @@
         
           
         
-          
-        
       
       
         
@@ -1087,20 +1101,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gallery/" class="md-nav__link">
-        Gallery
-      </a>
-    </li>
-  
-
             
           
             
@@ -1312,7 +1312,7 @@
 
 
 <h1 id="latency-timeseries">Latency timeseries<a class="headerlink" href="#latency-timeseries" title="Permanent link">#</a></h1>
-<div class="highlight"><pre><span></span><code><span class="n">t</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">to_timeseries</span><span class="p">(</span><span class="n">remove_dropped</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">t</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">to_timeseries</span><span class="p">(</span><span class="n">remove_dropped</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">latency_ms</span> <span class="o">=</span> <span class="n">latency_ns</span> <span class="o">*</span> <span class="mf">1.0e-6</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
