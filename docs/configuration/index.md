@@ -4,7 +4,7 @@
 
 Configuration is a phase where users tell CARET which data path is targeted.
 
-CARET is capable of recording enormous numbers of events even when a large application runs. The large application may have lots of data paths, but most users must not want to observe all of data paths. If CARET kindly shows analysis results for all of possible data paths, users will be overwhelmed and exhausted to deal with large amount of results.  
+CARET is capable of recording enormous numbers of events even when a large application runs. The large application may have lots of data paths, but most users must not want to observe all of data paths. If CARET kindly shows analysis results for all of possible data paths, users will be overwhelmed and exhausted to deal with large amount of results.
 
 For delivering efficient analysis, CARET is designed to show analysis results on demand. CARET serves user functions to select target data paths to fulfill their interests.
 

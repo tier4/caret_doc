@@ -4,12 +4,12 @@ Latency definition section is empty just after an architecture object is loaded 
 
 ## Basic usage to find and add target path
 
-Listing nodes and topics by their names is laborious. CARET serve a helpful method, `arch.search_paths`,  to search candidates that you want to observe.
+Listing nodes and topics by their names is laborious. CARET serve a helpful method, `arch.search_paths`, to search candidates that you want to observe.
 
 The following sample code shows usage of `arch.search_paths` method.
 
 ```python
-# Architecture object is loaded to variable of arch 
+# Architecture object is loaded to variable of arch
 
 paths = arch.search_paths('source_node',
                           'destination_node')
@@ -46,7 +46,3 @@ The list size will be too large to find target path if application has large num
 1. Adding another node on the way from source to destination
 2. Adding possible maximum length of path with `max_node_depth`
 3. Adding node filter
-
-
-
-
