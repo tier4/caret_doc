@@ -73,7 +73,7 @@ With the functions I introduced above, you can create a YAML-based file includin
 
 The following sample code shows how to use `create_architecture_file` command.
 
-```python
+```bash
 source /path/to/ros2_caret_ws/install/setup.bash
 
 ros2 caret create_architecture_file /path/to/ctf-based_recorded_data -o /path/to/destination/architecture.yaml

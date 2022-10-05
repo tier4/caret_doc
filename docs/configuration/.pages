@@ -1,6 +1,7 @@
 nav:
     - Configuration: index.md
-      - Background of configuration: background.md
-    - How to load and save: load_and_save.md
-    - How to define inter-node data path: inter_node_data_path.md
-    - How to defined intra-node data path: intra_node_data_path.md
+    - Background of configuration: background.md
+    - Load and save: load_and_save.md
+    - Define inter-node data path: inter_node_data_path.md
+    - Define intra-node data path: intra_node_data_path.md
+    - Visualize application structure: visualize_application_structure.md

@@ -19,13 +19,6 @@ To deal with such difficulty of defining node and path latency mechanically, CAR
 
 An architecture object has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. CARET can load an architecture object including only application structure section from [CTF](https://diamon.org/ctf/)-based recorded data. The application structure section remains same unless the structure is changed or component is renamed.
 
-<<<<<<< HEAD
 On the other hand, latency definition section in the original architecture object is empty just before users add any definition. Users are expected to add definitions of node latency and path latency to the original architecture object. CARET helps users to add definition of node and path latency.
 
-# The following sections explains how to load an architecture object and add latency definition
-
-On the other hand, latency definition section in the template architecture file is empty just before users add any definition. Users are expected to add definitions of node latency and path latency in the template file. CARET helps users to add definition of path latency with Python API. However, users have to add definition of node latency manually with editing the architecture file.
-
-The following sections explains how to create an architecture file and add latency definition.
-
-> > > > > > > takam5f2/add-and-refine-configuration-chapter
+The following sections explains how to load an architecture object and add latency definition.
