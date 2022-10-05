@@ -8,8 +8,7 @@ The following causes are possible
 
 - No logs were recorded at the time of initialization.
 
-  - Log with the ros2_tracing command
-    Execute the ros2_tracing command by pressing the Enter key to start, then it is necessary to execute the application to be measured.
+  - When logging with the ros2 tracing command, user needs to execute the ros2 tracing command by pressing the Enter key to start, then it is necessary to execute the application to be measured.
 
 - Target application is not rebuilt with rclcpp with tracepoints added
 

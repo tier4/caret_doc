@@ -7,7 +7,7 @@ from caret_analyze.plot import message_flow
 
 path = app.get_path('target_path')
 
-message_flow(path, granularity='node', treat_drop_as_delay=False, lstrip_s=1, rstrip_s=1)
+message_flow(path, granularity='node', lstrip_s=1, rstrip_s=1)
 ```
 
 ![message_flow](../imgs/message_flow_sample.png)

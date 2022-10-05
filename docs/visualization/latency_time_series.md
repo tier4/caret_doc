@@ -1,7 +1,7 @@
 # Latency timeseries
 
 ```python
-t, latency_ns = path.to_timeseries(remove_dropped=False, treat_drop_as_delay=True)
+t, latency_ns = path.to_timeseries(remove_dropped=False)
 latency_ms = latency_ns * 1.0e-6
 
 p = figure()

@@ -1,6 +1,5 @@
 nav:
     - Visualization: index.md
-    - Gallery: gallery.md
     - Message flow: message_flow.md
     - Chain latency: chain_latency.md
     - Latency time series: latency_time_series.md
