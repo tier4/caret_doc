@@ -18,7 +18,7 @@ type(paths) # list of multiple paths
 paths[0].summary.pprint() # shows nodes and topics in paths[0]
 ```
 
-In the sample, `paths` is a list including all possible paths between `source_node` and `destination_node`. If you are satisfied with output from `paths[0].summary.pprint()`, you have to add `paths[0]` to the `arch` object as below.
+In the sample, `paths` is a list including all possible paths between `source_node` and `destination_node`, whose type is `PathStructValue`. If you are satisfied with output from `paths[0].summary.pprint()`, you have to add `paths[0]` to the `arch` object as below.
 
 ```python
 arch.add_path('target_path', paths[0])
@@ -36,13 +36,47 @@ arch = Architecture('yaml', 'new_architecture_with_path.yaml')
 path = arch.get_path('target_path') # path object is same as paths[0] in the previous sample
 ```
 
-### Efficient search target path
+### Efficient target path search
 
 As explained above, `Architecture.search_paths()` returns list of multiple paths.
 The list size will be too large to find target path if application has large numbers of nodes and distance between source and destination node is long. In worse case, `Architecture.search_paths()` keep searching and does not return `paths` variable after hours passes.
 
-`Architecture.search_paths` method serves four options to narrow down possible paths as below.
+`Architecture.search_paths()` method serves four options to narrow down possible paths as below.
 
-1. Adding another node on the way from source to destination
-2. Adding possible maximum length of path with `max_node_depth`
-3. Adding node filter
+1. **Additional nodes** as variable length arguments
+2. **`max_node_depth`** for limiting maximum number of nodes in path
+3. **Node filter** which excludes paths including specific nodes
+4. **Topic filter** which excludes paths including specific topics
+
+In short, `Architecture.search_paths` is defined as follows.
+
+```python
+search_paths(
+    *node_names: 'str',
+    max_node_depth: 'Optional[int]' = None,
+    node_filter: 'Optional[Callable[[str], bool]]' = None,
+    communication_filter: 'Optional[Callable[[str], bool]]' = None
+) -> 'List[PathStructValue]'
+```
+
+
+The following sub-sections will explain their roles and usages in details.
+
+#### Additional nodes
+
+In the previous example, `Architecture.search_paths()` had two arguments `source_node` and `destination_node`. However, the number of nodes given to `Architecture.search_paths()` is variable and not always two. You can add other nodes to `Architecture.search_paths()` as below, and you will get a list including multiple paths which passes all given nodes.
+
+```python
+# Architecture object is loaded to variable of arch
+
+paths = arch.search_paths('source_node',
+                          'intermediate_node_1',
+                          'intermediate_node_2',
+                          'destination_node')
+```
+
+#### `max_node_depth`
+
+#### Node and topic filter
+
+As node filter is similar to topic filter, they are explained in this section.
