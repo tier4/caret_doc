@@ -59,7 +59,6 @@ search_paths(
 ) -> 'List[PathStructValue]'
 ```
 
-
 The following sub-sections will explain their roles and usages in details.
 
 #### Additional nodes
