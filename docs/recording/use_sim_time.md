@@ -42,7 +42,6 @@ def message_flow(
     path: Path,
     export_path: Optional[str] = None,
     granularity: Optional[str] = None,
-    treat_drop_as_delay=False,
     lstrip_s: float = 0,
     rstrip_s: float = 0,
     use_sim_time: bool = False

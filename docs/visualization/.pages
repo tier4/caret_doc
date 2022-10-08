@@ -1,8 +1,13 @@
 nav:
     - Visualization: index.md
-    - ギャラリー: gallery.md
-    - LTTngEventFilterの使用方法: lttng_event_filter.md
-    - treat_drop_as_delayフラグの説明: about_treat_drop_as_delay.md
-    - トラブルシューティング: trouble_shooting.md
+    - Message flow: message_flow.md
+    - Chain latency: chain_latency.md
+    - Latency time series: latency_time_series.md
+    - Latency histogram: latency_histogram.md
+    - Execution frequency: execution_frequency.md
+    - Callback Scheduling Visualization: callback_scheduling_visualization.md
+    - API to get information about each callback: API_to_get_info_of_callback.md
+    - Usage of LTTngEventFilter: lttng_event_filter.md
+    - Trouble shooting: trouble_shooting.md
     - Path Verification: path_verify.md
     - Detailed Behavior Investigation Methods: investigate_behavior.md
