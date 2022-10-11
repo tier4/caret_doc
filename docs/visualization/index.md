@@ -1,12 +1,13 @@
 # Visualization
 
-
 ## Basic APIs Concept
+
 - [Basic APIs Concept](./basic_api_concept.md/#CARETの可視化方針) provided by CARET
 
 ## Provided APIs
 
 ### APIs in Plot Class
+
 - create_callback_frequency_plot
 - create_callback_jitter_plot
 - create_callback_period_plot
@@ -17,13 +18,10 @@
 - create_communication_frequency_plot
 - create_communication_period_plot
 
-
-
 ### APIs in other than Plot Class
+
 Note: These APIs will be implementated to Plot Class.
 
 - message_flow
 - callback_sched
 - response_time_frequency
-
-
