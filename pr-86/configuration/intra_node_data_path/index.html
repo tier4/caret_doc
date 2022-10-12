@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#how-to-define-intra-node-data-path" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1012,10 +1017,77 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Define intra-node data path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Define intra-node data path
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#find-which-intra-node-data-path-to-define" class="md-nav__link">
+    Find which intra-node data path to define
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-add-definition-intra-node-data-path-to-architecture-object" class="md-nav__link">
+    How to add definition intra-node data path to Architecture object
+  </a>
+  
+    <nav class="md-nav" aria-label="How to add definition intra-node data path to Architecture object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-api" class="md-nav__link">
+    Python API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-file-editing" class="md-nav__link">
+    Architecture file editing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitation" class="md-nav__link">
+    Limitation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1203,6 +1275,57 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#find-which-intra-node-data-path-to-define" class="md-nav__link">
+    Find which intra-node data path to define
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-add-definition-intra-node-data-path-to-architecture-object" class="md-nav__link">
+    How to add definition intra-node data path to Architecture object
+  </a>
+  
+    <nav class="md-nav" aria-label="How to add definition intra-node data path to Architecture object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-api" class="md-nav__link">
+    Python API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-file-editing" class="md-nav__link">
+    Architecture file editing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitation" class="md-nav__link">
+    Limitation
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1222,9 +1345,39 @@
   </a>
 
 
-  <h1>Define intra-node data path</h1>
+<h1 id="how-to-define-intra-node-data-path">How to define intra-node data path<a class="headerlink" href="#how-to-define-intra-node-data-path" title="Permanent link">#</a></h1>
+<p>In the previous section, you learned how to define inter-node data path. However, response time for path cannot be calculated with only inter-node data path definition. As you will see in the chapter, you have to define intra-node data path.</p>
+<p>CARET assume that intra-node data path is duration from topic subscription to topic publish in a node. This is not defined simply because the definition depends on implementation.</p>
+<p>This section will explain how to find which intra-node data path you have to define, and how to define it.</p>
+<h2 id="find-which-intra-node-data-path-to-define">Find which intra-node data path to define<a class="headerlink" href="#find-which-intra-node-data-path-to-define" title="Permanent link">#</a></h2>
+<p>Before defining intra-node data path, you have to check whether latency of the target path is calculable. This can be checked with <code>Path.verify()</code> method as the following sample code shows.</p>
+<div class="highlight"><pre><span></span><code><span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/architecture.yaml&#39;</span><span class="p">)</span>
 
+<span class="n">path</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
+<span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
+</code></pre></div>
+<p>Here, <code>path.verify()</code> returns <code>True</code> if path latency for <code>path</code> is calculable. Otherwise, you will confront with warning messages as shown below.</p>
+<div class="highlight"><pre><span></span><code><span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span>
+<span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span>
+<span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+<span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">message_driven_node</span>
+<span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
+<span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic2</span>
 
+<span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span>
+<span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
+<span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/timer_driven_node&#39;</span><span class="p">)</span>
+<span class="n">message_context</span><span class="p">:</span> <span class="n">null</span>
+<span class="n">node</span><span class="p">:</span> <span class="o">/</span><span class="n">timer_driven_node</span>
+<span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
+<span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
+</code></pre></div>
+<p>On the sample warning message, <code>/message_driven_node</code> and <code>/timer_driven_node</code> have undefined intra-node data path. You will add the intra-node data path in next step.</p>
+<h2 id="how-to-add-definition-intra-node-data-path-to-architecture-object">How to add definition intra-node data path to Architecture object<a class="headerlink" href="#how-to-add-definition-intra-node-data-path-to-architecture-object" title="Permanent link">#</a></h2>
+<h3 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h3>
+<h3 id="architecture-file-editing">Architecture file editing<a class="headerlink" href="#architecture-file-editing" title="Permanent link">#</a></h3>
+<h2 id="limitation">Limitation<a class="headerlink" href="#limitation" title="Permanent link">#</a></h2>
 
 
 

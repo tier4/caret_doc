@@ -1389,7 +1389,7 @@ The list size will be too large to find target path if application has large num
 <li><strong>Additional nodes</strong> as variable length arguments</li>
 <li><strong><code>max_node_depth</code></strong> for limiting maximum number of nodes in path</li>
 <li><strong>Node filter</strong> which excludes paths including specific nodes</li>
-<li><strong>Topic filter</strong> which excludes paths including specific topics</li>
+<li><strong>Communication filter</strong> which excludes paths including specific topics</li>
 </ol>
 <p>In short, <code>Architecture.search_paths</code> is defined as follows.</p>
 <div class="highlight"><pre><span></span><code><span class="n">search_paths</span><span class="p">(</span>
@@ -1409,9 +1409,53 @@ The list size will be too large to find target path if application has large num
                           <span class="s1">&#39;intermediate_node_2&#39;</span><span class="p">,</span>
                           <span class="s1">&#39;destination_node&#39;</span><span class="p">)</span>
 </code></pre></div>
+<p><code>paths</code> is a list including multiple paths which pass <code>source_node</code>, <code>intermediate_node_1</code>, <code>intermediate_node_2</code>, and <code>destination_node</code>. They are allowed to pass another node, but all chosen nodes are passed in order.</p>
 <h4 id="max_node_depth"><code>max_node_depth</code><a class="headerlink" href="#max_node_depth" title="Permanent link">#</a></h4>
+<p><code>Architecture.search_paths()</code> will scan all paths as possible if you don't give <code>max_node_depth</code> argument. <code>max_node_depth</code> means maximum number of nodes including a path. The number of candidate paths will be suppressed by this argument.</p>
+<p>This argument will be helpful When you waste much time for <code>Architecture.search_paths()</code>.</p>
+<p>The usage is shown as below. This can be used with another approach to filter candidates.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Architecture object is loaded to variable of arch</span>
+
+<span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span><span class="s1">&#39;source_node&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;intermediate_node_&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;destination_node&#39;</span><span class="p">,</span>
+                          <span class="n">max_node_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
 <h4 id="node-and-topic-filter">Node and topic filter<a class="headerlink" href="#node-and-topic-filter" title="Permanent link">#</a></h4>
-<p>As node filter is similar to topic filter, they are explained in this section.</p>
+<p>As node filter is similar to communication filter, they are explained together in this section.</p>
+<p>With node filter and communication filter, <code>Architecture.search_paths()</code> excludes paths which includes selected nodes and topics. They support regular expression.</p>
+<p>The following sample code shows usage.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># name list of nodes to be excluded</span>
+<span class="n">node_filters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/_ros2cli_/*&#39;</span><span class="p">),</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/launch_ros_*&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="c1"># name list of topics to be excluded</span>
+<span class="n">comm_filters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/tf/*&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="k">def</span> <span class="nf">comm_filter</span><span class="p">(</span><span class="n">topic_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">for</span> <span class="n">comm_filter</span> <span class="ow">in</span> <span class="n">comm_filters</span><span class="p">:</span>
+        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">comm_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">topic_name</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">can_pass</span>
+
+<span class="k">def</span> <span class="nf">node_filter</span><span class="p">(</span><span class="n">node_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">for</span> <span class="n">node_filter</span> <span class="ow">in</span> <span class="n">node_filters</span><span class="p">:</span>
+        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">node_name</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">can_pass</span>
+
+<span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
+    <span class="s1">&#39;/start_node&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/end_node&#39;</span><span class="p">,</span>
+    <span class="n">max_node_depth</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">node_filter</span> <span class="o">=</span> <span class="n">node_filter</span><span class="p">,</span>
+    <span class="n">communication_filter</span> <span class="o">=</span> <span class="n">comm_filter</span><span class="p">)</span>
+</code></pre></div>
 
 
 
