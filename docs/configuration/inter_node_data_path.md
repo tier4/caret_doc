@@ -46,7 +46,7 @@ The list size will be too large to find target path if application has large num
 1. **Additional nodes** as variable length arguments
 2. **`max_node_depth`** for limiting maximum number of nodes in path
 3. **Node filter** which excludes paths including specific nodes
-4. **Topic filter** which excludes paths including specific topics
+4. **Communication filter** which excludes paths including specific topics
 
 In short, `Architecture.search_paths` is defined as follows.
 
@@ -74,8 +74,63 @@ paths = arch.search_paths('source_node',
                           'destination_node')
 ```
 
+`paths` is a list including multiple paths which pass `source_node`, `intermediate_node_1`, `intermediate_node_2`, and `destination_node`. They are allowed to pass another node, but all chosen nodes are passed in order.
+
 #### `max_node_depth`
+
+`Architecture.search_paths()` will scan all paths as possible if you don't give `max_node_depth` argument. `max_node_depth` means maximum number of nodes including a path. The number of candidate paths will be suppressed by this argument.
+
+This argument will be helpful When you waste much time for `Architecture.search_paths()`.
+
+The usage is shown as below. This can be used with another approach to filter candidates.
+
+```python
+# Architecture object is loaded to variable of arch
+
+paths = arch.search_paths('source_node',
+                          'intermediate_node_',
+                          'destination_node',
+                          max_node_depth=10)
+
+```
 
 #### Node and topic filter
 
-As node filter is similar to topic filter, they are explained in this section.
+As node filter is similar to communication filter, they are explained together in this section.
+
+With node filter and communication filter, `Architecture.search_paths()` excludes paths which includes selected nodes and topics. They support regular expression.
+
+The following sample code shows usage.
+
+```python
+import re
+
+# name list of nodes to be excluded
+node_filters = [
+    re.compile(r'/_ros2cli_/*'),
+    re.compile(r'/launch_ros_*'),
+]
+
+# name list of topics to be excluded
+comm_filters = [
+    re.compile(r'/tf/*'),
+]
+def comm_filter(topic_name: str) -> bool:
+    can_pass = True
+    for comm_filter in comm_filters:
+        can_pass &= not bool(comm_filter.search(topic_name))
+    return can_pass
+
+def node_filter(node_name: str) -> bool:
+    can_pass = True
+    for node_filter in node_filters:
+        can_pass &= not bool(node_filter.search(node_name))
+    return can_pass
+
+paths = arch.search_paths(
+    '/start_node',
+    '/end_node',
+    max_node_depth=30,
+    node_filter = node_filter,
+    communication_filter = comm_filter)
+```
