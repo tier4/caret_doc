@@ -45,6 +45,4 @@ On the sample warning message, `/message_driven_node` and `/timer_driven_node` h
 
 ### Architecture file editing
 
-
 ## Limitation
-
