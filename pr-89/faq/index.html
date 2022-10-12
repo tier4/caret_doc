@@ -1535,7 +1535,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </ul>
 </li>
 <li>Message flow (<code>Node_B</code> -&gt; <code>Node_C</code> -&gt; <code>Node_D</code>) looks split at <code>Node_C</code>. It's because <code>Node_C</code> publishes 5 topics while receiving 1 topic from <code>Node_B</code></li>
-<li>Note: A similar phenomenon happens if <code>Callback c0</code> is a timer callback</li>
+<li>Note: A similar phenomenon will happen even if <code>Callback c0</code> is a timer callback</li>
 </ul>
 <p><img alt="node_structure_split" src="imgs/node_structure_split.drawio.png" /></p>
 <p><img alt="message_flow_split_graph" src="imgs/message_flow_split_graph.png" /></p>
@@ -1547,7 +1547,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </ul>
 </li>
 <li>Message flow (<code>Node_B</code> -&gt; <code>Node_C</code> -&gt; <code>Node_D</code>) looks disconnected at <code>Node_C</code> four times every five messages. It's because <code>Node_C</code> publishes 1 topic while receiving 5 topics from <code>Node_B</code>. So 4 topics don't have a corresponding topic to be published to <code>Node_D</code></li>
-<li>Note: A similar phenomenon happens if <code>Callback c0</code> is a timer callback</li>
+<li>Note: A similar phenomenon will happen even if <code>Callback c0</code> is a timer callback</li>
 </ul>
 <p><img alt="node_structure_drop" src="imgs/node_structure_drop.drawio.png" /></p>
 <p><img alt="message_flow_split_drop" src="imgs/message_flow_drop_graph.png" /></p>
