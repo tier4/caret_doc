@@ -1289,8 +1289,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#result-plot-message_flow-etc-is-not-displayed-or-there-seems-something-wrong-with-the-result" class="md-nav__link">
-    Result (plot, message_flow, etc.) is not displayed, or there seems something wrong with the result
+  <a href="#result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result" class="md-nav__link">
+    Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parts-of-results-are-not-outputted" class="md-nav__link">
+    Parts of results are not outputted
   </a>
   
 </li>
@@ -1301,6 +1308,19 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-callback" class="md-nav__link">
+    Visualization (callback)
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualization (callback)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#callback-frequency-is-smaller-than-expected-value" class="md-nav__link">
@@ -1315,6 +1335,19 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-message-flow" class="md-nav__link">
+    Visualization (message flow)
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualization (message flow)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#message-flow-is-discontinued" class="md-nav__link">
@@ -1392,29 +1425,26 @@
 <li>ROS 2 Humble, Ubuntu 22.04: main branch</li>
 </ul>
 </li>
-<li>It's also important to delete <code>./build</code> <code>./install</code> and <code>./src</code> directory before rebuilding CARET if you have built CARET using wrong environment</li>
+<li>It's also important to delete <code>./build</code> <code>./install</code> and <code>./src</code> directory before rebuilding CARET if you have built CARET using wrong settings</li>
 </ul>
 <h3 id="cli-tool-doesnt-work">CLI tool doesn't work<a class="headerlink" href="#cli-tool-doesnt-work" title="Permanent link">#</a></h3>
-<p>In case CLI tool execution fails, please make sure to perform CARET environment settings.</p>
+<p>In case CLI tool execution fails, please make sure to perform CARET environment settings</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 
 ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
-<h3 id="result-plot-message_flow-etc-is-not-displayed-or-there-seems-something-wrong-with-the-result">Result (plot, message_flow, etc.) is not displayed, or there seems something wrong with the result<a class="headerlink" href="#result-plot-message_flow-etc-is-not-displayed-or-there-seems-something-wrong-with-the-result" title="Permanent link">#</a></h3>
+<h3 id="result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result">Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result<a class="headerlink" href="#result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result" title="Permanent link">#</a></h3>
 <ul>
 <li>Please use the following commands for verification<ul>
 <li><code>ros2 caret check_caret_rclcpp</code> to check if a target application is built with CARET/rclcpp</li>
-<li><code>ros2 caret check_ctf</code> to check if recording is performed properly</li>
+<li><code>ros2 caret check_ctf</code> to check if tracing data is recorded properly</li>
 </ul>
 </li>
-<li>Please make sure the followings<ul>
-<li>A target application is built with CARET/rclcpp<ul>
-<li>In case certain nodes are not traced but some nodes are traced, some packages may be built without CARET/rclcpp. Please make sure <code>&lt;depend&gt;rclcpp&lt;/depend&gt;</code> is described in <code>package.xml</code></li>
-</ul>
-</li>
-<li>CARET environment is set properly before recording<ul>
+<li>Please make sure the followings:<ul>
+<li>A target application is built with CARET/rclcpp</li>
+<li>CARET environment is set properly before running a target application<ul>
 <li><code>export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)</code></li>
 <li><code>source ~/ros2_caret_ws/install/local_setup.bash</code></li>
 </ul>
@@ -1429,12 +1459,22 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </ul>
 </li>
 <li>The size of trace data is proper<ul>
-<li>If the size of trace data is extremely small (e.g. only few KByte) and a target application has lots of nodes, the maximum number of file descriptors may be not enough. It can be increased by <code>ulimit -n 65536</code></li>
+<li>If the size of trace data is extremely small (e.g. only few KByte) and a target application has lots of nodes, the maximum number of file descriptors may not be enough. It can be increased by <code>ulimit -n 65536</code></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>See <a href="../recording/">Recording</a> for more details</li>
+</ul>
+<h3 id="parts-of-results-are-not-outputted">Parts of results are not outputted<a class="headerlink" href="#parts-of-results-are-not-outputted" title="Permanent link">#</a></h3>
+<ul>
+<li>If certain nodes are not traced but some nodes are traced, some packages may be built without CARET/rclcpp. Please make sure <code>&lt;depend&gt;rclcpp&lt;/depend&gt;</code> is described in <code>package.xml</code></li>
+<li>Another possibility is that some nodes can't be analyzed due to CARET's limitations:<ul>
+<li>CARET cannot analyze a node which has two or more timer callbacks with the same period time setting</li>
+<li>CARET cannot analyze a node which has two or more subscription callbacks with the same topic name</li>
+</ul>
+</li>
+<li>Callback information in such nodes are not outputted. Also, message flow will be discontinued at such nodes</li>
 </ul>
 <h3 id="traceresultanalyzeerror-failed-to-find-error-occurs"><code>TraceResultAnalyzeError: Failed to find</code> error occurs<a class="headerlink" href="#traceresultanalyzeerror-failed-to-find-error-occurs" title="Permanent link">#</a></h3>
 <ul>
@@ -1445,6 +1485,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </ul>
 </li>
 </ul>
+<h2 id="visualization-callback">Visualization (callback)<a class="headerlink" href="#visualization-callback" title="Permanent link">#</a></h2>
 <h3 id="callback-frequency-is-smaller-than-expected-value">Callback frequency is smaller than expected value<a class="headerlink" href="#callback-frequency-is-smaller-than-expected-value" title="Permanent link">#</a></h3>
 <ul>
 <li><code>Plot.create_callback_frequency_plot</code> calculates frequency from one second to one second. It counts how many times a callback function is called for a second, and just uses the count as frequency. Therefore, the frequency on the last term tends to small because the last term is usually shorter than one second</li>
@@ -1454,10 +1495,14 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <ul>
 <li>Some nodes may run initialization process. In this case, the latency time calculated by <code>Plot.create_callback_latency_plot</code> is huge on the first execution</li>
 </ul>
+<h2 id="visualization-message-flow">Visualization (message flow)<a class="headerlink" href="#visualization-message-flow" title="Permanent link">#</a></h2>
 <h3 id="message-flow-is-discontinued">Message flow is discontinued<a class="headerlink" href="#message-flow-is-discontinued" title="Permanent link">#</a></h3>
 <ul>
-<li>If parts of nodes/communications don't run at all during recording, message flow stops on the way and such nodes/communications are not displayed on y-axis</li>
+<li>If parts of nodes/communications don't run at all during recording, message flow stops on the way and such nodes/communications are not displayed on y-axis<ul>
 <li>Please make sure that all nodes/communications in a target path run during recording, or modify a target path to analyze actually working path</li>
+</ul>
+</li>
+<li>Another possibility is that a target path includes a node which CARET cannot analyze due to its limitations as explained above</li>
 </ul>
 <h3 id="what-is-a-gray-color-rectangle-in-a-message-flow-diagram">What is a gray color rectangle in a message flow diagram?<a class="headerlink" href="#what-is-a-gray-color-rectangle-in-a-message-flow-diagram" title="Permanent link">#</a></h3>
 <ul>
@@ -1469,7 +1514,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <ul>
 <li>In a message flow diagram, term from <code>ooo/rclcpp_publish</code> to <code>ooo/callback_start</code> means latency from when a topic is published to when the following callback starts</li>
 <li>It includes the following time:<ul>
-<li>Communication(topic) latency</li>
+<li>Communication (topic) latency</li>
 <li>Wait by ROS scheduler</li>
 <li>Wait by OS scheduler</li>
 </ul>
@@ -1484,7 +1529,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </ul>
 <h3 id="message-flow-looks-split">Message flow looks split<a class="headerlink" href="#message-flow-looks-split" title="Permanent link">#</a></h3>
 <ul>
-<li>Take the following system for example<ul>
+<li>Take the following system for example;<ul>
 <li><code>Node_C</code> publishes a topic when it receives a topic from <code>Node_A</code></li>
 <li><code>Node_A</code> publishes a topic with a rate of 50 Hz, while <code>Node_B</code> publishes a topic at 10 Hz</li>
 </ul>
@@ -1495,21 +1540,21 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <p><img alt="message_flow_split_graph" src="imgs/message_flow_split_graph.png" /></p>
 <h3 id="message-flow-looks-dropped">Message flow looks dropped<a class="headerlink" href="#message-flow-looks-dropped" title="Permanent link">#</a></h3>
 <ul>
-<li>Take the following system for example<ul>
+<li>Take the following system for example;<ul>
 <li><code>Node_C</code> publishes a topic when it receives a topic from <code>Node_A</code></li>
 <li><code>Node_A</code> publishes a topic with a rate of 10 Hz, while <code>Node_B</code> publishes a topic at 50 Hz</li>
 </ul>
 </li>
-<li>Message flow (<code>Node_B</code> -&gt; <code>Node_C</code> -&gt; <code>Node_D</code>) looks disconnected at <code>Node_C</code> four times every five messages. It's because <code>Node_C</code> publishes 1 topic while receiving 5 topics from <code>Node_B</code>. So some received topics don't have a corresponding topic to be published to <code>Node_D</code></li>
+<li>Message flow (<code>Node_B</code> -&gt; <code>Node_C</code> -&gt; <code>Node_D</code>) looks disconnected at <code>Node_C</code> four times every five messages. It's because <code>Node_C</code> publishes 1 topic while receiving 5 topics from <code>Node_B</code>. So 4 topics don't have a corresponding topic to be published to <code>Node_D</code></li>
 </ul>
 <p><img alt="node_structure_drop" src="imgs/node_structure_drop.drawio.png" /></p>
 <p><img alt="message_flow_split_drop" src="imgs/message_flow_drop_graph.png" /></p>
 <h3 id="how-response-time-is-calculated">How response time is calculated?<a class="headerlink" href="#how-response-time-is-calculated" title="Permanent link">#</a></h3>
 <ul>
-<li>Response time calculated by CARET is time it takes for input information to arrive at the last node. It doesn't include latency at the last node nor an actuator. It's calculated as the sum of callback processing time and communication latency time<ul>
+<li>Response time calculated by CARET is time it takes for input information to arrive at the last node. It doesn't include processing time at the last node nor latency of an actuator. It's calculated as the sum of callback processing time and communication latency time in a path<ul>
 <li>In the following diagram, input data at point A is first reflected with output at point X (<code>ResponseTime_Best</code>)</li>
 <li><code>ResponseTime_Best</code> can be considered as a path latency time</li>
-<li><code>ResponseTime_Best</code> can be considered as a happy case scenario, which is contrary to the following worst case</li>
+<li><code>ResponseTime_Best</code> can be considered as a happy case, which is contrary to the following worst case scenario</li>
 </ul>
 </li>
 <li>Assuming that input information is created by a sensor such as an object detection sensor, delay in a sensor should be considered. For instance, if a new object appears at point B, the time from point B to point A should added to the response time. The worst case scenario is that a new object appears just after the previous flow (point C). Response time for the worst case is shown as <code>ResponseTime_Worst</code></li>
