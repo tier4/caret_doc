@@ -1521,8 +1521,8 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </li>
 <li>In most cases, it doesn't take so much time. In case the time is huge, the followings are possible causes:<ul>
 <li>There is a problem in communication</li>
-<li>An executor cannot wakes up because other processes occupy CPU</li>
-<li>A callback cannot wakes up because other callbacks in the same callback group occupy the executor</li>
+<li>An executor cannot wake up because other processes occupy CPU</li>
+<li>A callback cannot wake up because other callbacks in the same callback group occupy the executor</li>
 <li>Processing time of a callback is longer than topic subscription period</li>
 </ul>
 </li>
@@ -1535,6 +1535,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </ul>
 </li>
 <li>Message flow (<code>Node_B</code> -&gt; <code>Node_C</code> -&gt; <code>Node_D</code>) looks split at <code>Node_C</code>. It's because <code>Node_C</code> publishes 5 topics while receiving 1 topic from <code>Node_B</code></li>
+<li>Note: A similar phenomenon happens if <code>Callback c0</code> is a timer callback</li>
 </ul>
 <p><img alt="node_structure_split" src="imgs/node_structure_split.drawio.png" /></p>
 <p><img alt="message_flow_split_graph" src="imgs/message_flow_split_graph.png" /></p>
@@ -1546,6 +1547,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </ul>
 </li>
 <li>Message flow (<code>Node_B</code> -&gt; <code>Node_C</code> -&gt; <code>Node_D</code>) looks disconnected at <code>Node_C</code> four times every five messages. It's because <code>Node_C</code> publishes 1 topic while receiving 5 topics from <code>Node_B</code>. So 4 topics don't have a corresponding topic to be published to <code>Node_D</code></li>
+<li>Note: A similar phenomenon happens if <code>Callback c0</code> is a timer callback</li>
 </ul>
 <p><img alt="node_structure_drop" src="imgs/node_structure_drop.drawio.png" /></p>
 <p><img alt="message_flow_split_drop" src="imgs/message_flow_drop_graph.png" /></p>
