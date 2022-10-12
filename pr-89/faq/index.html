@@ -1280,6 +1280,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    Visualization
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#result-plot-message_flow-etc-is-not-displayed-or-there-seems-something-wrong-with-the-result" class="md-nav__link">
+    Result (plot, message_flow, etc.) is not displayed, or there seems something wrong with the result
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traceresultanalyzeerror-failed-to-find-error-occurs" class="md-nav__link">
+    TraceResultAnalyzeError: Failed to find error occurs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequency-is-smaller-than-expected-value" class="md-nav__link">
+    Frequency is smaller than expected value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latency-is-bigger-than-expected-value" class="md-nav__link">
+    Latency is bigger than expected value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-flow-is-discontinued" class="md-nav__link">
+    Message flow is discontinued
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-gray-color-rectangle-in-a-message-flow-diagram" class="md-nav__link">
+    What is a gray color rectangle in a message flow diagram?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#huge-delay-between-topic-publication-and-callback-start" class="md-nav__link">
+    Huge delay between topic publication and callback start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-flow-looks-split" class="md-nav__link">
+    Message flow looks split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-flow-looks-dropped" class="md-nav__link">
+    Message flow looks dropped
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-response-time-is-calculated" class="md-nav__link">
+    How response time is calculated?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1303,7 +1386,10 @@
 <h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">#</a></h1>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <h3 id="setup-fails-in-ros-2-galactic-ubuntu-2004">Setup fails in ROS 2 Galactic, Ubuntu 20.04<a class="headerlink" href="#setup-fails-in-ros-2-galactic-ubuntu-2004" title="Permanent link">#</a></h3>
-<p>In case you encounter errors during setup or build process, please make sure to use <code>galactic</code> branch.</p>
+<ul>
+<li>In case you encounter errors during setup or build process, please make sure to use <code>galactic</code> branch. Main branch is for ROS 2 Humble, Ubuntu 22.04</li>
+<li>It's also important to delete <code>./build</code> <code>./install</code> and <code>./src</code> directory before rebuilding CARET if you have built CARET using wrong environment</li>
+</ul>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/tier4/caret.git -b galactic ros2_caret_ws
 <span class="nb">cd</span> ros2_caret_ws
 mkdir src
@@ -1318,6 +1404,126 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=<
 
 ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </code></pre></div>
+<h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
+<h3 id="result-plot-message_flow-etc-is-not-displayed-or-there-seems-something-wrong-with-the-result">Result (plot, message_flow, etc.) is not displayed, or there seems something wrong with the result<a class="headerlink" href="#result-plot-message_flow-etc-is-not-displayed-or-there-seems-something-wrong-with-the-result" title="Permanent link">#</a></h3>
+<ul>
+<li>Please use the following commands for verification<ul>
+<li><code>ros2 caret check_caret_rclcpp</code> to check if a target application is built with CARET/rclcpp</li>
+<li><code>ros2 caret check_ctf</code> to check if recording is performed properly</li>
+</ul>
+</li>
+<li>Please make sure the followings<ul>
+<li>A target application is built with CARET/rclcpp<ul>
+<li>In case certain nodes are not traced but some nodes are traced, some packages may be built without CARET/rclcpp. Please make sure <code>&lt;depend&gt;rclcpp&lt;/depend&gt;</code> is described in <code>package.xml</code></li>
+</ul>
+</li>
+<li>CARET environment is set properly before recording<ul>
+<li><code>export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)</code></li>
+<li><code>source ~/ros2_caret_ws/install/local_setup.bash</code></li>
+</ul>
+</li>
+<li>LTTng trace is started before running a target application<ul>
+<li><code>ros2 trace -s e2e_sample -k -u "ros2*"</code></li>
+<li>or consider to use launch file</li>
+</ul>
+</li>
+<li>Trace data is not discarded<ul>
+<li>In case trace data is discarded, use <a href="../recording/trace_filtering/">Trace filter</a></li>
+</ul>
+</li>
+<li>The size of trace data is proper<ul>
+<li>If the size of trace data is extremely small (e.g., only few KByte) and a target application has lots of nodes, the maximum number of file descriptors may be not enough. It can be increased by <code>ulimit -n 65536</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>See <a href="../recording/">Recording</a> for more details</li>
+</ul>
+<h3 id="traceresultanalyzeerror-failed-to-find-error-occurs"><code>TraceResultAnalyzeError: Failed to find</code> error occurs<a class="headerlink" href="#traceresultanalyzeerror-failed-to-find-error-occurs" title="Permanent link">#</a></h3>
+<ul>
+<li>The error occurs if information in an architecture file and trace data are inconsistent with each other</li>
+<li>Please modify the architecture file or check recording process</li>
+<li>e.g.<ul>
+<li><code>TraceResultAnalyzeError: Failed to find callback_object.node_name: /localization/pose_twist_fusion_filter/ekf_localizer, callback_name: timer_callback_0, period_ns: 19999999, symbol: void (EKFLocalizer::?)()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="frequency-is-smaller-than-expected-value">Frequency is smaller than expected value<a class="headerlink" href="#frequency-is-smaller-than-expected-value" title="Permanent link">#</a></h3>
+<ul>
+<li><code>Plot.create_callback_frequency_plot</code> calculates frequency from one second to one second. It counts how many times a callback function is called for a second, and just use the counts as frequency. Therefore, the frequency at the last time tends to small because the last term usually smaller than one second</li>
+<li>Another possibility is that the frequency of a subscription callback will be small if it receives topics not periodically but infrequently. Also, the frequency of a timer callback will be small if the timer dynamically stops/starts</li>
+</ul>
+<h3 id="latency-is-bigger-than-expected-value">Latency is bigger than expected value<a class="headerlink" href="#latency-is-bigger-than-expected-value" title="Permanent link">#</a></h3>
+<ul>
+<li>Some nodes may take time at the first time for initialization process. In this case, latency time calculated by <code>Plot.create_callback_latency_plot</code> is huge at the first time</li>
+</ul>
+<h3 id="message-flow-is-discontinued">Message flow is discontinued<a class="headerlink" href="#message-flow-is-discontinued" title="Permanent link">#</a></h3>
+<ul>
+<li>If parts of nodes/communications don't run at all during recording, message flow stops on the way</li>
+<li>Please make sure that all nodes/communications in a target path run during recording. Or, change a target path to analyze actually working path</li>
+</ul>
+<h3 id="what-is-a-gray-color-rectangle-in-a-message-flow-diagram">What is a gray color rectangle in a message flow diagram?<a class="headerlink" href="#what-is-a-gray-color-rectangle-in-a-message-flow-diagram" title="Permanent link">#</a></h3>
+<ul>
+<li>A rectangle in a message flow diagram indicates a period from the entry to the exit of a callback function, while a line shows a flow of topics</li>
+<li>Note: a rectangle is not always displayed</li>
+</ul>
+<p><img alt="message_flow_rect" src="imgs/message_flow_rect.png" /></p>
+<h3 id="huge-delay-between-topic-publication-and-callback-start">Huge delay between topic publication and callback start<a class="headerlink" href="#huge-delay-between-topic-publication-and-callback-start" title="Permanent link">#</a></h3>
+<ul>
+<li>Term from <code>ooo/rclcpp_publish</code> to <code>ooo/callback_start</code> means latency from when a topic is published to when the following callback starts</li>
+<li>It includes the following time:<ul>
+<li>Communication(topic) latency</li>
+<li>Wait by ROS scheduler</li>
+<li>Wait by OS scheduler</li>
+</ul>
+</li>
+<li>In most cases, it doesn't take so much time. In case the time is huge, the followings are possible causes:<ul>
+<li>There is a problem in communication</li>
+<li>An executor cannot wakes up because other processes occupy CPU</li>
+<li>A callback cannot wakes up because other callbacks in the same callback group occupy the executor</li>
+<li>Processing time of a callback is longer than topic subscription period</li>
+</ul>
+</li>
+</ul>
+<h3 id="message-flow-looks-split">Message flow looks split<a class="headerlink" href="#message-flow-looks-split" title="Permanent link">#</a></h3>
+<ul>
+<li>Take the following system for example<ul>
+<li><code>Node_C</code> publishes a topic when it receives a topic from <code>Node_A</code></li>
+<li><code>Node_A</code> publishes a topic with a rate of 50 Hz, while <code>Node_B</code> publishes a topic at 10 Hz</li>
+</ul>
+</li>
+<li>Message flow (Node_B -&gt; Node_C -&gt; Node_D) looks split at <code>Node_C</code>. It's because <code>Node_C</code> publishes 5 topics while receiving 1 topic from <code>Node_B</code></li>
+</ul>
+<p><img alt="node_structure_split" src="imgs/node_structure_split.drawio.png" /></p>
+<p><img alt="message_flow_split_graph" src="imgs/message_flow_split_graph.png" /></p>
+<h3 id="message-flow-looks-dropped">Message flow looks dropped<a class="headerlink" href="#message-flow-looks-dropped" title="Permanent link">#</a></h3>
+<ul>
+<li>Take the following system for example<ul>
+<li><code>Node_C</code> publishes a topic when it receives a topic from <code>Node_A</code></li>
+<li><code>Node_A</code> publishes a topic with a rate of 10 Hz, while <code>Node_B</code> publishes a topic at 50 Hz</li>
+</ul>
+</li>
+<li>Message flow (Node_B -&gt; Node_C -&gt; Node_D) looks disconnected at <code>Node_C</code> once every five messages. It's because <code>Node_C</code> publishes 1 topic while receiving 5 topics from <code>Node_B</code>. So some received topics don't have a corresponding topic to be published to <code>Node_D</code></li>
+</ul>
+<p><img alt="node_structure_drop" src="imgs/node_structure_drop.drawio.png" /></p>
+<p><img alt="message_flow_split_drop" src="imgs/message_flow_drop_graph.png" /></p>
+<h3 id="how-response-time-is-calculated">How response time is calculated?<a class="headerlink" href="#how-response-time-is-calculated" title="Permanent link">#</a></h3>
+<ul>
+<li>Response time is time it takes for input information to arrive at the last node. Response time calculated by CARET doesn't include latency at the last node nor an actuator. It's calculated as the sum of callback processing time and communication latency time<ul>
+<li>In the following diagram, input data at point A is first reflected with output at point X (ResponseTime_Best)</li>
+<li>ResponseTime_Best can be considered as a path latency time</li>
+<li>ResponseTime_Best can be considered as a happy case scenario, which is contrary to the following worst case</li>
+</ul>
+</li>
+<li>Assuming that input information is created by a sensor such as an object detection sensor, delay in a sensor should be considered. For instance, if a new object appears at point B, the time from point B to point A should added to the response time. The worst case scenario is that a new object appears just after the previous flow (point C). Response time for this worst case is shown as ResponseTime_Worst</li>
+<li>CARET can calculate both ResponseTime_Best and ResponseTime_Worst using the following APIs:<ul>
+<li><code>response_time.to_best_case_timeseries()</code> , <code>response_time.to_best_case_histogram()</code></li>
+<li><code>response_time.to_worst_case_timeseries()</code> , <code>response_time.to_best_worst_histogram()</code></li>
+</ul>
+</li>
+<li>CARET also provides <code>response_time.to_histogram()</code> API. It creates histogram assuming a new object appears from point C to point A at intervals of histogram bin size</li>
+</ul>
+<p><img alt="response_time" src="imgs/response_time.drawio.png" /></p>
 
 
 
