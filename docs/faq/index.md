@@ -121,9 +121,9 @@ ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
 
 ### How response time is calculated?
 
-- Response time calculated by CARET is time it takes for input information to arrive at the last node. It doesn't include processing time at the last node nor latency of an actuator. It's calculated as the sum of callback processing time and communication latency time in a path
+- In general, response time is the time a system or functional unit takes to react to a given input ([reference](https://en.wikipedia.org/wiki/Response_time_(technology))). Response time calculated by CARET is the time it takes for input data to arrive at the last node. It doesn't include processing time at the last node nor latency of an actuator. It's calculated as the sum of callback processing time and communication latency time in a path
   - In the following diagram, input data at point A is first reflected with output at point X (`ResponseTime_Best`)
-  - `ResponseTime_Best` can be considered as a path latency time
+  - `ResponseTime_Best` can be considered as a path (dataflow) latency time
   - `ResponseTime_Best` can be considered as a happy case, which is contrary to the following worst case scenario
 - Assuming that input information is created by a sensor such as an object detection sensor, delay in a sensor should be considered. For instance, if a new object appears at point B, the time from point B to point A should added to the response time. The worst case scenario is that a new object appears just after the previous flow (point C). Response time for the worst case is shown as `ResponseTime_Worst`
 - CARET can calculate both `ResponseTime_Best` and `ResponseTime_Worst` using the following APIs:
