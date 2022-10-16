@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-86/configuration/intra_node_data_path/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1375,7 +1375,16 @@
 </code></pre></div>
 <p>On the sample warning message, <code>/message_driven_node</code> and <code>/timer_driven_node</code> have undefined intra-node data path. You will add the intra-node data path in next step.</p>
 <h2 id="how-to-add-definition-intra-node-data-path-to-architecture-object">How to add definition intra-node data path to Architecture object<a class="headerlink" href="#how-to-add-definition-intra-node-data-path-to-architecture-object" title="Permanent link">#</a></h2>
+<p>CARET assumes that node latency is defined as duration from subscription time to publish time. The definition looks simple, but node latency is difficult to define mechanically because some nodes have multiple inputs or multiple outputs.</p>
+<p>CARET require users to define <strong><code>message_context</code></strong> to calculate node latency. One of the following policies is acceptable for <code>message_context</code>.</p>
+<ul>
+<li><code>callback_chain</code></li>
+<li><code>inherit_unique_stamp</code></li>
+<li><code>use_latest_message</code></li>
+</ul>
+<p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency. </p>
 <h3 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h3>
+<p>Python API is not implemented so far. Python API support is planned in 2023.</p>
 <h3 id="architecture-file-editing">Architecture file editing<a class="headerlink" href="#architecture-file-editing" title="Permanent link">#</a></h3>
 <h2 id="limitation">Limitation<a class="headerlink" href="#limitation" title="Permanent link">#</a></h2>
 
