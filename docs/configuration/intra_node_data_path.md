@@ -49,7 +49,7 @@ CARET require users to define **`message_context`** to calculate node latency. O
 - `inherit_unique_stamp`
 - `use_latest_message`
 
-They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency. 
+They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency.
 
 ### Python API
 
