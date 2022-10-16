@@ -41,9 +41,23 @@ On the sample warning message, `/message_driven_node` and `/timer_driven_node` h
 
 ## How to add definition intra-node data path to Architecture object
 
+CARET assumes that node latency is defined as duration from subscription time to publish time. The definition looks simple, but node latency is difficult to define mechanically because some nodes have multiple inputs or multiple outputs.
+
+CARET require users to define **`message_context`** to calculate node latency. One of the following policies is acceptable for `message_context`.
+
+- `callback_chain`
+- `inherit_unique_stamp`
+- `use_latest_message`
+
+They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency. 
+
 ### Python API
 
+Python API is not implemented so far. Python API support is planned in 2023.
+
 ### Architecture file editing
+
+
 
 
 ## Limitation

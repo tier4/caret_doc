@@ -129,6 +129,7 @@ def node_filter(node_name: str) -> bool:
 
 paths = arch.search_paths(
     '/start_node',
+    '/intermediate_node'
     '/end_node',
     max_node_depth=30,
     node_filter = node_filter,
