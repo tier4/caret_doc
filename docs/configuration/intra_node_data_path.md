@@ -57,8 +57,4 @@ Python API is not implemented so far. Python API support is planned in 2023.
 
 ### Architecture file editing
 
-
-
-
 ## Limitation
-
