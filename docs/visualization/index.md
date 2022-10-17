@@ -3,20 +3,21 @@
 ## Basic APIs Concept
 
 - [Basic APIs Concept](./basic_api_concept.md) provided by CARET
+- [Gallery](../gallery.md)
 
 ## Provided APIs
 
 ### APIs in Plot Class
 
-- [create_callback_frequency_plot](./visualization_api/execution_frequency#execution-frequency)
-- [create_callback_period_plot](./visualization_api/execution_frequency#period)
-- [create_callback_latency_plot](./visualization_api/execution_frequency#latency)
+- [create_callback_frequency_plot](./visualization_api/callback_information#execution-frequency)
+- [create_callback_period_plot](./visualization_api/callback_information#period)
+- [create_callback_latency_plot](./visualization_api/callback_information#latency)
 - [create_publish_subscription_period_plot](./visualization_api/pub_sub_information)
 - [create_publish_subscription_frequency_plot](./visualization_api/pub_sub_information)
 - [create_communication_latency_plot](./visualization_api/communication_information)
 - [create_communication_frequency_plot](./visualization_api/communication_information)
 - [create_communication_period_plot](./visualization_api/communication_information)
-- [create_response_time_histogram_plot](./)
+- [create_response_time_histogram_plot](./visualization_api/response_time)
 
 ### APIs in other than Plot Class
 

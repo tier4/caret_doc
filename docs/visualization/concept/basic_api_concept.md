@@ -16,9 +16,7 @@ plot.to_dataframe()
 ```
 
 The variable "plot" has two functions, show() and to_dataframe().
-
 The function "show()" outputs a figure and returns the figure's handler.
-
 The function "to_dataframe()" returns a table summarizing the data.
 This function is mainly used to analyze based on specific figures.
 
