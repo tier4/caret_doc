@@ -1,4 +1,17 @@
 # Callback Information
+
+Execute these commands in advance.
+```python
+from caret_analyze.plot import Plot
+from caret_analyze import Application, Architecture, Lttng
+from bokeh.plotting import output_notebook, figure, show
+output_notebook()
+
+arch = Architecture('yaml', '/path/to/architecture_file')
+lttng = Lttng('/path/to/trace_data')
+app = Application(arch, lttng)
+```
+
 ## Execution frequency
 
 ```python
