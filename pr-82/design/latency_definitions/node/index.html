@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/node/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1442,8 +1442,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_7_5_1">
@@ -1494,20 +1492,6 @@
     <li class="md-nav__item">
       <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trace_points/message_tracking" class="md-nav__link">
-        Message tracking
       </a>
     </li>
   
@@ -2069,6 +2053,13 @@ l^{comm} = t^{msg}_{out} - t^{msg}_{in}
 </ul>
 <p>このような一つのノードに複数コールバックが存在ケースでは、指定するパス毎にノードレイテンシを構成するコールバックが異なります。
 そのため、 CARET では ROS のアプリケーションをコールバックグラフとして記述しています。</p>
+<p><prettier-ignore-start></p>
+<div class="admonition todo">
+<p class="admonition-title">Todo<p>受信が完了してから送信が完了するまでの方が本当はよいかもしれない。
+ただし、今後tf対応などを行う場合にはコールバックが所有権を持っている時にした方が統一的な定義が可能。</p>
+</p>
+</div>
+<p><prettier-ignore-end></p>
 <blockquote>
 <p>ノード・コールバックの整理</p>
 <p>A node is an executable that uses ROS to communicate with other nodes.<br />

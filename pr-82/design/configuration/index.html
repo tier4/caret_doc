@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/configuration/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1442,8 +1442,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_7_5_1">
@@ -1494,20 +1492,6 @@
     <li class="md-nav__item">
       <a href="../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trace_points/message_tracking" class="md-nav__link">
-        Message tracking
       </a>
     </li>
   
@@ -2027,28 +2011,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#lttng" class="md-nav__link">
-    lttng
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yaml" class="md-nav__link">
-    yaml
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2068,15 +2030,10 @@
 
 
 <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h1>
-<p>一部は python API からいじります。
-その他は直接 yaml をいじります。</p>
-<p>結構大変なので、今後の改善が必要です。</p>
-<h2 id="lttng">lttng<a class="headerlink" href="#lttng" title="Permanent link">#</a></h2>
-<p>パスの定義は無いです。
-callback や communication レイテンシ等であればこれで OK です。</p>
-<h2 id="yaml">yaml<a class="headerlink" href="#yaml" title="Permanent link">#</a></h2>
-<p>パスの定義等が必要な時にこれを使うことになります。</p>
-<p>アーキテクチャファイルのフォーマットについては<a href="architecture_file/">architecture file</a>をご覧ください。</p>
+<p>CARET requires several kinds of information for visualization.
+Configuration set up the information needed for visualization.</p>
+<p>Some of the information can be configured via Python API and jupyter, but there are also items that require direct modification of the architecture file.</p>
+<p>For the format of the architecture file, see <a href="./architecture_file">architecture file</a> for the format of the architecture file.</p>
 
 
 

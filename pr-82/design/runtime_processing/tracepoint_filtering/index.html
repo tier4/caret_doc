@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/tracepoint_filtering/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1442,8 +1442,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_7_5_1">
@@ -1494,20 +1492,6 @@
     <li class="md-nav__item">
       <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trace_points/message_tracking" class="md-nav__link">
-        Message tracking
       </a>
     </li>
   
@@ -2047,12 +2031,11 @@
 
 <h1 id="tracepoint-filtering">Tracepoint filtering<a class="headerlink" href="#tracepoint-filtering" title="Permanent link">#</a></h1>
 <p>When measuring a system composed of many nodes, such as Autoware, the amount of data from tracing can be very large.</p>
-<p>Lttng is handled in Discard mode to minimize the impact on the system.
-Therefore, when there is a large amount of trace data, trace data discarding occurs.</p>
+<p>Trace data discarding occurs during a large amount of recording because Lttng is discard mode to minimize effect to the system.</p>
 <p>CARET provides the ability to disable trace points associated with specific topics or nodes.
 This makes it possible to exclude from recording only trace data related to rviz nodes or tf topics, allowing CARET measurements even on large systems.</p>
-<p>This filtering function looks at the instance addresses of callback and publisher to see if they are included in the filter.
-This check is O1 fast because it uses std::unordered_map.</p>
+<p>This filtering function looks at the instance addresses (e.g. callback or publisher) to see if they are included in the filter.
+This check is done in O1 order because it uses std::unordered_map.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">ros_trace_callback_start</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_intra_process</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Singleton</span><span class="o">&lt;</span><span class="n">TracingController</span><span class="o">&gt;::</span><span class="n">get_instance</span><span class="p">();</span><span class="w"></span>
 

@@ -11,11 +11,11 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/processing_trace_data/records/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
-        <title>Records - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Record Object - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#merge" class="md-skip">
+        <a href="#record-object" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Records
+              Record Object
             
           </span>
         </div>
@@ -1442,8 +1442,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_7_5_1">
@@ -1494,20 +1492,6 @@
     <li class="md-nav__item">
       <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trace_points/message_tracking" class="md-nav__link">
-        Message tracking
       </a>
     </li>
   
@@ -2024,6 +2008,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2079,23 +2065,30 @@
   </a>
 
 
-  <h1>Records</h1>
-
-<p>CARET ではレイテンシ算出に関わるトレースデータの加工をテーブルで行っています。</p>
-<p>pandas.DataFrame-like な API を備えており、処理速度を早くした C++実装版もあります。</p>
-<p>ここではいくつかの主な API について説明します。</p>
+<h1 id="record-object">Record Object<a class="headerlink" href="#record-object" title="Permanent link">#</a></h1>
+<p>In CARET, trace data is stored in tables, and latency calculation is performed by processing the tables.
+In addition to general table join processing, CARET defines classes which has originally defined join processing for latency calculation.</p>
+<p>This sections describes Record object which stores trace data and latency is.</p>
+<p>The rest of this section describes the main APIs provided by the record object.</p>
+<ul>
+<li>merge</li>
+<li>merge_sequential</li>
+<li>merge_sequential_for_addr_track</li>
+<li>to_dataframe</li>
+</ul>
 <h2 id="merge">merge<a class="headerlink" href="#merge" title="Permanent link">#</a></h2>
-<p><img alt="merge" src="../../../imgs/records_merge.drawio.png" />
-一般的なテーブルの内部結合、外部結合です。</p>
+<p><img alt="merge" src="../../../imgs/records_merge.drawio.png" /></p>
+<p>This is an inner join and outer join of general tables.
+In particular, it is used to join initialization-related trace data that can be bound by address only.</p>
 <p>See also</p>
 <ul>
 <li><a href="https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge">API:merge</a></li>
 </ul>
 <h2 id="merge_sequential">merge_sequential<a class="headerlink" href="#merge_sequential" title="Permanent link">#</a></h2>
 <p><img alt="merge_sequential" src="../../../imgs/records_merge_sequential.drawio.png" /></p>
-<p>時系列的なマージです。
-特に thread による逐次的な処理を結合する際に使います。</p>
-<p>CARET はこのような結合を行い、レイテンシを算出しています。</p>
+<p>This is a chronological merge.
+It is especially used to merge sequential processing by threads.</p>
+<p>CARET mainly performs this merging and calculates latency.</p>
 <p>See also</p>
 <ul>
 <li><a href="https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential">API:merge</a></li>
@@ -2103,7 +2096,7 @@
 </ul>
 <h2 id="merge_sequential_for_addr_track">merge_sequential_for_addr_track<a class="headerlink" href="#merge_sequential_for_addr_track" title="Permanent link">#</a></h2>
 <p><img alt="merge_sequential_for_addr_track" src="../../../imgs/records_merge_sequential_for_addr_track.drawio.png" /></p>
-<p>アドレスを元に紐付けを行い、コピーが発生する際に使うマージです。</p>
+<p>This merge is used when binding is done based on addresses and copying occurs in the middle of the process.</p>
 <p>See also</p>
 <ul>
 <li><a href="https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential_for_addr_track">API:merge_sequential_for_addr_track</a></li>
@@ -2111,15 +2104,13 @@
 <p><prettier-ignore-start></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>このmergeは、処理が遅く、caret-rclcppが使われていないノードがpublishした際に不整合が起こってしまいます。
-できる限り、merge_sequentialで事足りるようにトレースポイントを設計すべきです。</p>
+<p>This merge is slow and causes inconsistencies when nodes not using caret-rclcpp are published.
+As much as possible, trace points should be designed so that merge_sequential is sufficient.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="to_dataframe">to_dataframe<a class="headerlink" href="#to_dataframe" title="Permanent link">#</a></h2>
-<p>pandas.DataFrame に変換する関数です。
-特に可視化や自前で評価する際には、こちらが使えます。</p>
-<p>ただし、pandas.DataFrame は object を含む様々な型を入れられるようになっており、バグの要因になります。
-CARET 内部ではできる限り Records で処理し、最後に DataFrame に変換するのが望ましいです。</p>
+<p>Function to convert to a pandas.DataFrame.
+This is especially useful for unique visualization and evaluation by developers.</p>
 
 
 

@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/latency_definitions/callback/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1442,8 +1442,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_7_5_1">
@@ -1494,20 +1492,6 @@
     <li class="md-nav__item">
       <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trace_points/message_tracking" class="md-nav__link">
-        Message tracking
       </a>
     </li>
   
@@ -2046,27 +2030,39 @@
 
 
 <h1 id="callback">Callback<a class="headerlink" href="#callback" title="Permanent link">#</a></h1>
+<p>コールバックの開始時刻から終了時刻までの時間差です。</p>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSIyMjVweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjMzM3B4O2hlaWdodDoyMjVweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMzMgMjI1IiB3aWR0aD0iMzMzcHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iNDMiIHk9IjExMi44NTk0Ii8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIxMDIuMzk4NCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjE3OSIgeT0iNjIuNTkzOCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41O3N0cm9rZS1kYXNoYXJyYXk6NS4wLDUuMDsiIHgxPSI0OCIgeDI9IjQ4IiB5MT0iNTIuNTkzOCIgeTI9IjE3My45OTIyIi8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7c3Ryb2tlLWRhc2hhcnJheTo1LjAsNS4wOyIgeDE9IjE4NCIgeDI9IjE4NCIgeTE9IjUyLjU5MzgiIHkyPSIxNzMuOTkyMiIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41O3N0cm9rZS1kYXNoYXJyYXk6NS4wLDUuMDsiIHgxPSIyOTgiIHgyPSIyOTgiIHkxPSI1Mi41OTM4IiB5Mj0iMTczLjk5MjIiLz48cmVjdCBmaWxsPSIjRTJFMkYwIiBoZWlnaHQ9IjQ2LjU5MzgiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9Ijg2IiB4PSI1IiB5PSI1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNjgiIHg9IjEyIiB5PSIyNC45OTUxIj5Vc2VyQ29kZTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2MSIgeD0iMTkuNSIgeT0iNDEuMjkyIj5DYWxsYmFjazwvdGV4dD48cmVjdCBmaWxsPSIjRTJFMkYwIiBoZWlnaHQ9IjQ2LjU5MzgiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9Ijg2IiB4PSI1IiB5PSIxNzIuOTkyMiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjY4IiB4PSIxMiIgeT0iMTkyLjk4NzMiPlVzZXJDb2RlPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjYxIiB4PSIxOS41IiB5PSIyMDkuMjg0MiI+Q2FsbGJhY2s8L3RleHQ+PHJlY3QgZmlsbD0iI0UyRTJGMCIgaGVpZ2h0PSIzMC4yOTY5IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI2MCIgeD0iMTU0IiB5PSIyMS4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDYiIHg9IjE2MSIgeT0iNDEuMjkyIj5yY2xjcHA8L3RleHQ+PHJlY3QgZmlsbD0iI0UyRTJGMCIgaGVpZ2h0PSIzMC4yOTY5IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI2MCIgeD0iMTU0IiB5PSIxNzIuOTkyMiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQ2IiB4PSIxNjEiIHk9IjE5Mi45ODczIj5yY2xjcHA8L3RleHQ+PHJlY3QgZmlsbD0iI0UyRTJGMCIgaGVpZ2h0PSIzMC4yOTY5IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI1OCIgeD0iMjY5IiB5PSIyMS4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDQiIHg9IjI3NiIgeT0iNDEuMjkyIj5MVFRuZzwvdGV4dD48cmVjdCBmaWxsPSIjRTJFMkYwIiBoZWlnaHQ9IjMwLjI5NjkiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjU4IiB4PSIyNjkiIHk9IjE3Mi45OTIyIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDQiIHg9IjI3NiIgeT0iMTkyLjk4NzMiPkxUVG5nPC90ZXh0PjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMTQiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSI0MyIgeT0iMTEyLjg1OTQiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjEwMi4zOTg0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iMTc5IiB5PSI2Mi41OTM4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIyODYsNzkuNzI2NiwyOTYsODMuNzI2NiwyODYsODcuNzI2NiwyOTAsODMuNzI2NiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTg5IiB4Mj0iMjkyIiB5MT0iODMuNzI2NiIgeTI9IjgzLjcyNjYiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4NSIgeD0iMTk2IiB5PSI3OC42NjA2Ij5jYWxsYmFjayBzdGFydDwvdGV4dD48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjY0LDEwOC44NTk0LDU0LDExMi44NTk0LDY0LDExNi44NTk0LDYwLDExMi44NTk0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSI1OCIgeDI9IjE3OCIgeTE9IjExMi44NTk0IiB5Mj0iMTEyLjg1OTQiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDciIHg9IjcwIiB5PSIxMDcuNzkzNSI+ZXhlY3V0ZSBjYWxsYmFjazwvdGV4dD48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE2NywxMjIuODU5NCwxNzcsMTI2Ljg1OTQsMTY3LDEzMC44NTk0LDE3MSwxMjYuODU5NCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iNDgiIHgyPSIxNzMiIHkxPSIxMjYuODU5NCIgeTI9IjEyNi44NTk0Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIyODYsMTUxLjk5MjIsMjk2LDE1NS45OTIyLDI4NiwxNTkuOTkyMiwyOTAsMTU1Ljk5MjIiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE4OSIgeDI9IjI5MiIgeTE9IjE1NS45OTIyIiB5Mj0iMTU1Ljk5MjIiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI3OSIgeD0iMTk2IiB5PSIxNTAuOTI2MyI+Y2FsbGJhY2sgZW5kPC90ZXh0PjwhLS1NRDU9WzBiNWFjY2Y2ZGU5ZWI5YzVlYmY3ZDc5OGJjYmViYTQxXQpAc3RhcnR1bWwNCnBhcnRpY2lwYW50ICJVc2VyQ29kZSBcbiBDYWxsYmFjayIgYXMgQ2FsbGJhY2sNCnBhcnRpY2lwYW50ICJyY2xjcHAiIGFzIFJjbGNwcA0KcGFydGljaXBhbnQgTFRUbmcNCg0KYWN0aXZhdGUgUmNsY3BwDQoNClJjbGNwcCAtPiBMVFRuZyA6IGNhbGxiYWNrIHN0YXJ0DQpSY2xjcHAgLT4gQ2FsbGJhY2sgOiBleGVjdXRlIGNhbGxiYWNrDQoNCmFjdGl2YXRlIENhbGxiYWNrDQpDYWxsYmFjayAtPiBSY2xjcHANCmRlYWN0aXZhdGUgQ2FsbGJhY2sNClJjbGNwcCAtPiBMVFRuZyA6IGNhbGxiYWNrIGVuZA0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIyLjEwYmV0YTEoVW5rbm93biBjb21waWxlIHRpbWUpCihHUEwgc291cmNlIGRpc3RyaWJ1dGlvbikKSmF2YSBSdW50aW1lOiBKYXZhKFRNKSBTRSBSdW50aW1lIEVudmlyb25tZW50CkpWTTogSmF2YSBIb3RTcG90KFRNKSA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IFVURi04Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" class="uml" alt="uml diagram" title="" /></p>
+<p>ここで、コールバックのレイテンシは callback start から callback end までの時間です。</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
-l^{cb} = t^{cb}_{end} - t^{cb}_{start}
+l_{\rm{callback}} = t_{\rm{callback\ end}} - t_{\rm{callback\ start}}
 </div>
 <script type="math/tex; mode=display">
-l^{cb} = t^{cb}_{end} - t^{cb}_{start}
+l_{\rm{callback}} = t_{\rm{callback\ end}} - t_{\rm{callback\ start}}
 </script>
 </div>
-<p>コールバックの開始時刻から終了時刻までの時間差です。</p>
-<p>関連トレースポイント</p>
+<table>
+<thead>
+<tr>
+<th>trace points</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../trace_points/runtime_trace_points#ros2callback_start">callback_start</a></td>
+<td>callback start time</td>
+</tr>
+<tr>
+<td><a href="../../trace_points/runtime_trace_points#ros2callback_end">callback_end</a></td>
+<td>callback end time</td>
+</tr>
+</tbody>
+</table>
+<p>See also</p>
 <ul>
-<li><a href="../../trace_points/runtime_trace_points/#ros2callback_start">callback_start</a></li>
-<li><a href="../../trace_points/runtime_trace_points/#ros2callback_start">callback_end</a></li>
+<li><a href="https://tier4.github.io/CARET_analyze/latest/infra/#caret_analyze.infra.lttng.lttng.Lttng.compose_callback_records">RuntimeDataProvider API</a></li>
 </ul>
-<p><prettier-ignore-start></p>
-<div class="admonition todo">
-<p class="admonition-title">Todo<p>コールバックはエグゼキュータによりスケジューリングされる「タスク」です。
-エグゼキュータのスケジューリングには左右されないレイテンシです。</p>
-</p>
-</div>
-<p><prettier-ignore-end></p>
 
 
 

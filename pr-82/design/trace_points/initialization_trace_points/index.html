@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/trace_points/initialization_trace_points/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tracepoints-for-representing-structure-of-a-node" class="md-skip">
+        <a href="#relationships-for-each-initialization-trace-points" class="md-skip">
           Skip to content
         </a>
       
@@ -1442,8 +1442,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_7_5_1">
@@ -1494,20 +1492,6 @@
     <li class="md-nav__item">
       <a href="../runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../message_tracking" class="md-nav__link">
-        Message tracking
       </a>
     </li>
   
@@ -2032,8 +2016,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tracepoints-for-representing-structure-of-a-node" class="md-nav__link">
-    Tracepoints for representing structure of a node
+  <a href="#relationships-for-each-initialization-trace-points" class="md-nav__link">
+    Relationships for each initialization trace points
   </a>
   
 </li>
@@ -2200,8 +2184,10 @@
 
   <h1>Initialization trace points</h1>
 
-<p>Some tracepoints share a same identification, such as a node ID (<code>node_handle</code>) and an address of callback instance. The shared identification associates each tracepoint to another, the association constructs structure of tracepoint relationship. The following figures show four structures.</p>
-<h3 id="tracepoints-for-representing-structure-of-a-node">Tracepoints for representing structure of a node<a class="headerlink" href="#tracepoints-for-representing-structure-of-a-node" title="Permanent link">#</a></h3>
+<p>Some tracepoints share a same identification, such as a node ID (<code>node_handle</code>) and an address of callback instance.
+The shared identification associates each tracepoint to another, the association constructs structure of tracepoint relationship.</p>
+<h3 id="relationships-for-each-initialization-trace-points">Relationships for each initialization trace points<a class="headerlink" href="#relationships-for-each-initialization-trace-points" title="Permanent link">#</a></h3>
+<p>Relationships of each trace point related to a single node are shown as follows.</p>
 <pre class="mermaid"><code>erDiagram
  rcl_init{
  address context_handle
@@ -2264,14 +2250,9 @@
  string rmw_impl
  }
 
-    rcl_node_init ||--|| rcl_publisher_init : node_handle
-    rcl_node_init ||--|| rcl_subscription_init : node_handle
-    rcl_node_init ||--|| rclcpp_timer_link_node : node_handle
-
-    rcl_node_init ||--|| rcl_publisher_init : node_handle
-    rcl_node_init ||--|| rcl_subscription_init : node_handle
-    rcl_node_init ||--|| rclcpp_timer_link_node : node_handle
-
+    rcl_node_init ||--o{ rcl_publisher_init : node_handle
+    rcl_node_init ||--o{ rcl_subscription_init : node_handle
+    rcl_node_init ||--o{ rclcpp_timer_link_node : node_handle
 
     rcl_publisher_init ||--|| PUBLISHER_HANDLE : node_handle
     rcl_subscription_init ||--|| SUBSCRIPTION_HANDLE : node_handle
@@ -2285,15 +2266,8 @@
 
     rclcpp_timer_callback_added ||--|| rcl_timer_init : timer_handle
     rclcpp_timer_link_node ||--|| rcl_timer_init: timer_handle
-
-
-
-
-
-
-
-
 </code></pre>
+<p>Relationships of each trace point related to executors are shown as follows.</p>
 <pre class="mermaid"><code>erDiagram
  construct_executor{
  address executor_addr
@@ -2339,17 +2313,17 @@
  }
 
 
- construct_executor ||--|| add_callback_group : executor_addr
- construct_static_executor ||--|| add_callback_group_static_executor : entities_collector_addr
+ construct_executor ||--o{ add_callback_group : executor_addr
+ construct_static_executor ||--o{ add_callback_group_static_executor : entities_collector_addr
 
-    add_callback_group_static_executor ||--|| callback_group_add_timer : callback_group_addr
-    add_callback_group_static_executor ||--|| callback_group_add_subscription : callback_group_addr
-    add_callback_group_static_executor ||--|| callback_group_add_service : callback_group_addr
-    add_callback_group_static_executor ||--|| callback_group_add_client : callback_group_addr
-    add_callback_group ||--|| callback_group_add_timer : callback_group_addr
-    add_callback_group ||--|| callback_group_add_subscription : callback_group_addr
-    add_callback_group ||--|| callback_group_add_service : callback_group_addr
-    add_callback_group ||--|| callback_group_add_client : callback_group_addr
+    add_callback_group_static_executor ||--o{ callback_group_add_timer : callback_group_addr
+    add_callback_group_static_executor ||--o{ callback_group_add_subscription : callback_group_addr
+    add_callback_group_static_executor ||--o{ callback_group_add_service : callback_group_addr
+    add_callback_group_static_executor ||--o{ callback_group_add_client : callback_group_addr
+    add_callback_group ||--o{ callback_group_add_timer : callback_group_addr
+    add_callback_group ||--o{ callback_group_add_subscription : callback_group_addr
+    add_callback_group ||--o{ callback_group_add_service : callback_group_addr
+    add_callback_group ||--o{ callback_group_add_client : callback_group_addr
 
      callback_group_add_timer ||--|| TIMER_HANDLE : callback_group_addr
     callback_group_add_subscription ||--|| SUBSCRIPTION_HANDLE : callback_group_addr
@@ -2562,13 +2536,13 @@ On the other hand, if <code>node_handle</code> is identified uniquely, callback 
       
       
         
-        <a href="../message_tracking/" class="md-footer__link md-footer__link--next" aria-label="Next: Message tracking" rel="next">
+        <a href="../runtime_trace_points/" class="md-footer__link md-footer__link--next" aria-label="Next: Runtime trace points" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Message tracking
+              Runtime trace points
             </div>
           </div>
           <div class="md-footer__button md-icon">

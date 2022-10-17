@@ -11,11 +11,11 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/software_architecture/tilde/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
-        <title>TILDE - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>TILDE, a framework tools to detect deadline overrun - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tilde" class="md-skip">
+        <a href="#tilde-a-framework-tools-to-detect-deadline-overrun" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TILDE
+              TILDE, a framework tools to detect deadline overrun
             
           </span>
         </div>
@@ -1442,8 +1442,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_7_5_1">
@@ -1494,20 +1492,6 @@
     <li class="md-nav__item">
       <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trace_points/message_tracking" class="md-nav__link">
-        Message tracking
       </a>
     </li>
   
@@ -2027,21 +2011,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cooperation-with-tilde-a-framework-tools-to-detect-deadline-overrun" class="md-nav__link">
-    Cooperation with TILDE, a framework tools to detect deadline overrun
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2060,29 +2029,30 @@
   </a>
 
 
-<h1 id="tilde">TILDE<a class="headerlink" href="#tilde" title="Permanent link">#</a></h1>
-<p>ROS のノードには任意の処理が記述されます。
-そのため、ひとえにノードレイテンシといっても、その定義は多様に存在します。</p>
-<p>たとえば、こういう実装です。</p>
-<ul>
-<li>subscribe して publish するまでにバッファが入っているケース</li>
-<li>message filter を使用しているケース</li>
-</ul>
-<p>CARET では、デフォルトの挙動として use_latest_message を提供していますが、<a href="../limits_and_constraints/">Limits and constraints</a>で挙げている通り、正しく計測できないです。
-CARET ではこのような任意のノードレイテンシに対して対応するために、ノードへの実装変更を必要とします。
-実装変更としては、姉妹ツールの TILDE を使います。</p>
-<p>TILDE については<a href="https://github.com/tier4/TILDE">TILDE の公式サイト</a>をご覧ください。</p>
-<h2 id="cooperation-with-tilde-a-framework-tools-to-detect-deadline-overrun">Cooperation with TILDE, a framework tools to detect deadline overrun<a class="headerlink" href="#cooperation-with-tilde-a-framework-tools-to-detect-deadline-overrun" title="Permanent link">#</a></h2>
-<p>CARET can cooperate with TILDE, a framework tool to detect deadline overrun. TILDE lets CARET trace events in user applications which cannot be traced from ROS/DDS layer.</p>
-<p>One example of the events is consumption of message buffered in nodes. The events can be observed in only application layer, but CARET cannot observe the events. On the other hand, TILDE can trace application-layer events. It is able to trace execution of callback function to consume a certain buffered message since it annotate message consumption per single message. TILDE serves CARET this capability to trace consumption of buffered message.</p>
+<h1 id="tilde-a-framework-tools-to-detect-deadline-overrun">TILDE, a framework tools to detect deadline overrun<a class="headerlink" href="#tilde-a-framework-tools-to-detect-deadline-overrun" title="Permanent link">#</a></h1>
+<p>CARET can cooperate with TILDE, a framework tool to detect deadline overrun.
+TILDE lets CARET trace events in user applications which cannot be traced from ROS/DDS layer.</p>
 <p><prettier-ignore-start></p>
-<div class="admonition todo">
-<p class="admonition-title">Todo<p>TILDE is now under development. Please wait for more details.</p>
+<div class="admonition notice">
+<p class="admonition-title">Notice<p>TILDE is now under development.</p>
 </p>
 </div>
 <p><prettier-ignore-end></p>
-<p>ノードレイテンシについては、<a href="../latency_definitions/node_latency.md">ノードレイテンシの定義</a>をご覧ください。</p>
-<p>CARET では、TILDE の内部にもトレースポイントを追加し、subscribe したメッセージと publish したメッセージの依存関係を取得できるようにしています。</p>
+<p>Since ROS nodes can implement arbitrary processing, some nodes are difficult to calculate node latency.</p>
+<p>Examples of implementations for which node latency is difficult to calculate are as follows.</p>
+<ul>
+<li>Message buffering case between subscribe and publish</li>
+<li>Using message filter case</li>
+</ul>
+<p>the latencies can be observed in only application layer, but CARET cannot observe the events.</p>
+<p>On the other hand, TILDE can trace application-layer events.
+It is able to trace execution of callback function to consume a certain buffered message since it annotate message consumption per single message.</p>
+<p>TILDE serves CARET this capability to trace consumption of buffered messages.</p>
+<p>See also</p>
+<ul>
+<li><a href="https://github.com/tier4/TILDE">TILDE official page</a></li>
+<li><a href="../../latency_definitions/node_latency">Node latency definition</a></li>
+</ul>
 
 
 

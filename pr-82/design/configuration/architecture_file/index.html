@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/configuration/architecture_file/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1442,8 +1442,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_7_5_1">
@@ -1494,20 +1492,6 @@
     <li class="md-nav__item">
       <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trace_points/message_tracking" class="md-nav__link">
-        Message tracking
       </a>
     </li>
   
@@ -2041,8 +2025,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#file-sample" class="md-nav__link">
-    File sample
+  <a href="#sample" class="md-nav__link">
+    Sample
   </a>
   
 </li>
@@ -2068,9 +2052,15 @@
 
 
 <h1 id="architecture-file">Architecture file<a class="headerlink" href="#architecture-file" title="Permanent link">#</a></h1>
-<p>See also</p>
+<p>An architecture file is a yaml file with the necessary information for visualization.</p>
+<p>An architecture file contains the following information</p>
 <ul>
-<li><a href="../configuration/">Configuration</a></li>
+<li>Definition of the node-path to be measured</li>
+<li>Information about the structure of the software to be measured<ul>
+<li>Executor information</li>
+<li>Node information (e.g. node latency definition)</li>
+</ul>
+</li>
 </ul>
 <h2 id="file-format">File format<a class="headerlink" href="#file-format" title="Permanent link">#</a></h2>
 <p>A sample of the architecture file is as follows.</p>
@@ -2318,7 +2308,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="file-sample">File sample<a class="headerlink" href="#file-sample" title="Permanent link">#</a></h2>
+<h2 id="sample">Sample<a class="headerlink" href="#sample" title="Permanent link">#</a></h2>
 <p>A sample of the architecture file is as follows.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">named_paths</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_path</span><span class="w"></span>

@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/runtime_processing/hook/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1442,8 +1442,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_7_5_1">
@@ -1494,20 +1492,6 @@
     <li class="md-nav__item">
       <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trace_points/message_tracking" class="md-nav__link">
-        Message tracking
       </a>
     </li>
   
@@ -2096,8 +2080,8 @@ This section describes hooks from CARET's point of view.</p>
 </ul>
 <h2 id="advantage-of-hook">Advantage of Hook<a class="headerlink" href="#advantage-of-hook" title="Permanent link">#</a></h2>
 <p>ROS 2 is being developed separately from DDS thanks to RMW.
-On the other hand, each is developed for different purposes, which may make it difficult to achieve consistent evaluation of all layers, including DDS.
-CARET handles these layers across by hooks to add and manage consistent trace points.</p>
+On the other hand, each implementation may be developed for different purposes, which makes it difficult to achieve consistent evaluation of all layers, including DDS.
+CARET handles these layers across by hooks to add and manage trace points consistently.</p>
 <p><img alt="trace_points" src="../../../imgs/control_trace_points_via_hook.drawio.png" /></p>
 <p>See also</p>
 <ul>
@@ -2106,8 +2090,8 @@ CARET handles these layers across by hooks to add and manage consistent trace po
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>If possible, it is a better option for users if tracepoints are added as built-in rather than hooks.
-However, CARET's priority is to evaluate software running on the current version of ROS rather than to gradually add tracepoints.
+<p>If possible, it is better to add tracepoints as built-in rather than hooks for users.
+However, CARET's priority is to evaluate software running on the current version of ROS rather than to gradually add trace points.
 For this reason, we have adopted a hook that allows users to add tracepoints in a flexible manner.</p>
 </div>
 <p><prettier-ignore-end></p>
@@ -2121,10 +2105,9 @@ In the future, we plan to use thread local memory to reduce trace points.</p>
 <h2 id="ld_preload">LD_PRELOAD<a class="headerlink" href="#ld_preload" title="Permanent link">#</a></h2>
 <h3 id="advantage-of-ld_preload">Advantage of LD_PRELOAD<a class="headerlink" href="#advantage-of-ld_preload" title="Permanent link">#</a></h3>
 <p>LD_PRELOAD can be hooked even if the function is not exposed externally as an API.</p>
-<p>The trace points themselves, which are built into the ros layer, can also be hooked.
+<p>The trace points themselves, which are built into the ROS layer, can also be hooked.
 This enables trace filtering.</p>
-<p>Hooking by eBPF is also an option.
-However, eBPF requires a context switch from user space to kernel space.
+<p>Though you might come up with using eBPF to hook, eBPF requires a context switch from user space to kernel space.
 Hooking with LD_PRELOAD can be completed in user space, reducing the overhead.</p>
 <p>See also</p>
 <ul>
@@ -2133,11 +2116,11 @@ Hooking with LD_PRELOAD can be completed in user space, reducing the overhead.</
 <h3 id="limits-of-ld_preload">Limits of LD_PRELOAD<a class="headerlink" href="#limits-of-ld_preload" title="Permanent link">#</a></h3>
 <p>There are some cases that cannot or are difficult to hook with LD_PRELOAD.</p>
 <ul>
-<li>Functions with many symbols depending on the template</li>
-<li>Hooks for functions that are expanded inline</li>
+<li>Functions with many symbols by cpp template</li>
+<li>Hooks for functions that are expanded as inline code</li>
 <li>Hooks for functions implemented in headers</li>
 </ul>
-<p>Specifically, intra-process communication cannot be hooked by LD_PRELOAD.
+<p>Specifically, intra-process publish cannot be hooked by LD_PRELOAD.
 In CARET, trace points for intra-process communication are added in the forked rclcpp.</p>
 
 
