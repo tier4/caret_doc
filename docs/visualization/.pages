@@ -18,5 +18,3 @@ nav:
             - Usage of LTTngEventFilter: visualization/investigation_api/lttng_event_filter
             - Path Verification: visualization/investigation_api/path_verify
             - Detailed Behavior Investigation Methods: visualization/investigation_api/investigate_behavior
-    - Trouble shooting: trouble_shooting.md
-    - API to get information about each callback: API_to_get_info_of_callback.md
