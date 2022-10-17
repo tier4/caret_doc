@@ -8,19 +8,29 @@
 
 ### APIs in Plot Class
 
-- [create_callback_frequency_plot
-- [create_callback_period_plot
-- [create_callback_latency_plot
-- [create_publish_subscription_period_plot
-- [create_publish_subscription_frequency_plot
-- [create_communication_latency_plot
-- [create_communication_frequency_plot
-- [create_communication_period_plot
-- [create_response_time_histogram_plot
+- [create_callback_frequency_plot](./visualization_api/execution_frequency.md#execution-frequency)
+- [create_callback_period_plot](./visualization_api/execution_frequency.md#period)
+- [create_callback_latency_plot](./visualization_api/execution_frequency.md#latency)
+- [create_publish_subscription_period_plot](./visualization_api/pub_sub_information)
+- [create_publish_subscription_frequency_plot](./visualization_api/pub_sub_information)
+- [create_communication_latency_plot](./visualization_api/communication_information)
+- [create_communication_frequency_plot](./visualization_api/communication_information )
+- [create_communication_period_plot](./visualization_api/communication_information)
+- [create_response_time_histogram_plot](./)
 
 ### APIs in other than Plot Class
 
 Note: These APIs will be implemented to Plot Class.
 
-- message_flow
-- callback_sched
+- [message_flow](./visualization_api/message_flow.md)
+- [callback_sched](./visualization_api/callback_scheduling_visualization.md)
+
+
+### Investigation APIs
+
+CARET provides some APIs to investigate more detail.
+
+- [LTTngEventFilter](./investigation_api/lttng_event_filter.md)
+- [get_callbacks](./investigation_api/investigate_behavior.md)
+
+Note: Investigation APIs are written in [CARET analyze API document](https://tier4.github.io/CARET_analyze/).
