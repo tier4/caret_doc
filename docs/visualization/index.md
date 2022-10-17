@@ -2,7 +2,7 @@
 
 ## Basic APIs Concept
 
-- [Basic APIs Concept](./basic_api_concept.md) provided by CARET
+- [Basic APIs Concept](./concept/basic_api_concept.md)
 - [Gallery](../gallery.md)
 
 ## Provided APIs
