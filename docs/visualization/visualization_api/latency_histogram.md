@@ -9,4 +9,4 @@ p.step(hist[1:], bins)
 show(p)
 ```
 
-![history_sample](../imgs/history_sample.png)
+![history_sample](../../imgs/history_sample.png)

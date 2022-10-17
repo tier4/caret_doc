@@ -10,7 +10,7 @@ frequency_df
 # ---Output in jupyter-notebook as below---
 ```
 
-![callback_frequency_df](../imgs/callback_frequency_df.png)
+![callback_frequency_df](../../imgs/callback_frequency_df.png)
 
 ```python
 # show time-line
@@ -21,7 +21,7 @@ plot.show()
 # ---Output in jupyter-notebook as below---
 ```
 
-![callback_frequency_time_line](../imgs/callback_frequency_time_line.png)
+![callback_frequency_time_line](../../imgs/callback_frequency_time_line.png)
 
 ## Period
 
@@ -35,7 +35,7 @@ period_df
 # ---Output in jupyter-notebook as below---
 ```
 
-![callback_period_df](../imgs/callback_period_df.png)
+![callback_period_df](../../imgs/callback_period_df.png)
 
 ```python
 # show time-line
@@ -46,7 +46,7 @@ plot.show()
 # ---Output in jupyter-notebook as below---
 ```
 
-![callback_period_time_line](../imgs/callback_period_time_line.png)
+![callback_period_time_line](../../imgs/callback_period_time_line.png)
 
 ## Latency
 
@@ -60,7 +60,7 @@ latency_df
 # ---Output in jupyter-notebook as below---
 ```
 
-![callback_latency_df](../imgs/callback_latency_df.png)
+![callback_latency_df](../../imgs/callback_latency_df.png)
 
 ```python
 # show time-line
@@ -71,4 +71,4 @@ plot.show()
 # ---Output in jupyter-notebook as below---
 ```
 
-![callback_latency_time_line](../imgs/callback_latency_time_line.png)
+![callback_latency_time_line](../../imgs/callback_latency_time_line.png)

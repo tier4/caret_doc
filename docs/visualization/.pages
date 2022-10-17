@@ -1,6 +1,6 @@
 nav:
     - Visualization: index.md
-    - Basic APIs Concept: visualization/concept/basic_api_concept.md
+    - Basic APIs Concept: concept/basic_api_concept.md
     - Visualization APIs: 
         - List:
             - Message flow: visualization/visualization_api/message_flow

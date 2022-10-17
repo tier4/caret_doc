@@ -9,4 +9,4 @@ p.line(t, latency_ms)
 show(p)
 ```
 
-![time_series_sample](../imgs/time_series_sample.png)
+![time_series_sample](../../imgs/time_series_sample.png)

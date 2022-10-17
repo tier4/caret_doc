@@ -10,7 +10,7 @@ path = app.get_path('target_path')
 message_flow(path, granularity='node', lstrip_s=1, rstrip_s=1)
 ```
 
-![message_flow](../imgs/message_flow_sample.png)
+![message_flow](../../imgs/message_flow_sample.png)
 
 The vertical axis goes from top to bottom, corresponding to the beginning to the end of the path.
 Each line represents a message flow. The gray rectangular area indicates the callback execution time.

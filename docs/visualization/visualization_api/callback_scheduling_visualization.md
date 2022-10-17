@@ -19,7 +19,7 @@ cbg = app.get_callback_group('cbg_name') # get callback group object
 callback_sched(cbg)
 ```
 
-![Callback_Scheduling_Visualization_sample](../imgs/callback_sched_sample.png)
+![Callback_Scheduling_Visualization_sample](../../imgs/callback_sched_sample.png)
 
 - Callback Scheduling Visualization
   - Short rectangles indicate the callback execution time
