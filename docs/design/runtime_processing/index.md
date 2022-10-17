@@ -9,4 +9,4 @@ Though LTTng provides a variety of functions, CARET specializes ROS-aware functi
 
 See also
 
-- [Tracepoint](../trace_points/)
+- [Tracepoint](../trace_points/index.md)

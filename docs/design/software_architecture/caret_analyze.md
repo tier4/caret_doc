@@ -183,18 +183,18 @@ Executor o-- CallbackGroup
 There are classes that can calculate latency and classes as collections.
 The following is a list of each class and the classes which can calculate latency.
 
-| Class         | API                                                                                                   | has latency definition?                                      |
-| ------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| Application   | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Application)   | No                                                           |
-| Executor      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Executor)      | No                                                           |
-| Node          | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Node)          | No                                                           |
-| Path          | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Path)          | Yes ([Definitions](../../latency_definitions/path))          |
-| NodePath      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.NodePath)      | Yes ([Definitions](../../latency_definitions/node_path))     |
-| Communication | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Communication) | Yes ([Definitions](../../latency_definitions/communication)) |
-| Timer         | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Timer)         | Yes ([Definitions](../../latency_definitions/timer))         |
-| Subscription  | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Subscription)  | Yes ([Definitions](../../latency_definitions/subscription))  |
-| Publisher     | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Publisher)     | Yes ([Definitions](../../latency_definitions/publisher))     |
-| Callback      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Callback)      | Yes ([Definitions](../../latency_definitions/callback))      |
+| Class         | API                                                                                                   | has latency definition? |
+| ------------- | ----------------------------------------------------------------------------------------------------- | ----------------------- |
+| Application   | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Application)   | No                      |
+| Executor      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Executor)      | No                      |
+| Node          | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Node)          | No                      |
+| Path          | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Path)          | Yes                     |
+| NodePath      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.NodePath)      | Yes                     |
+| Communication | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Communication) | Yes                     |
+| Timer         | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Timer)         | Yes                     |
+| Subscription  | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Subscription)  | Yes                     |
+| Publisher     | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Publisher)     | Yes                     |
+| Callback      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Callback)      | Yes                     |
 
 ## value_objects
 
@@ -213,7 +213,7 @@ The records package defines tables with their own join processing.
 
 See also
 
-- [Records](../../processing_trace_data/records)
+- [Records](../../processing_trace_data/records.md)
 
 ## common
 

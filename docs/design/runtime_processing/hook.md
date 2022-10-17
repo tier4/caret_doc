@@ -17,7 +17,7 @@ CARET handles these layers across by hooks to add and manage trace points consis
 
 See also
 
-- [Tracepoints definition](../../trace_points/)
+- [Tracepoints definition](../trace_points/index.md)
 
 <prettier-ignore-start>
 !!!Info

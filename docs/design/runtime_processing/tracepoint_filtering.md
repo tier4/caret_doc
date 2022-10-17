@@ -23,6 +23,6 @@ void ros_trace_callback_start(const void * callback, bool is_intra_process) {
 
 See also
 
-- [caret_trace](../software_architecture/caret_trace)
-- [Tracepoint](../../trace_points/)
-- [Recording trace filtering](../../recording/trace_filtering)
+- [caret_trace](../software_architecture/caret_trace.md)
+- [Tracepoint](../trace_points/index.md)
+- [Recording trace filtering](../../recording/trace_filtering.md)

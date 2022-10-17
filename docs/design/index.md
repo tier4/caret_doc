@@ -11,24 +11,22 @@ This design section describes policies and internal processes for each step list
 
 Recording phase
 
-1. [Runtime processing](./runtime_processing/)
-1. [Tracepoints](./trace_points/)
+1. [Runtime processing](./runtime_processing/index.md)
+1. [Tracepoints](./trace_points/index.md)
 
 Configuration phase
 
-1. [Configuration](./configuration/)
+1. [Configuration](./configuration/index.md)
 
 Analyzing phase
 
 1. [Processing trace data](./processing_trace_data/)
-1. [Latency calculation](./latency_definitions/)
-1. [Visualization](./visualizations/)
 
 In addition, the followings are explained.
 
-- [Software architecture](./software_architecture/)
-- [Latency definition](./latency_definitions/)
-- [Limits and constraints](./latency_definitions/)
+- [Software architecture](./software_architecture/index.md)
+- [Latency definition](./latency_definitions/index.md)
+- [Limits and constraints](./latency_definitions/index.md)
 
 See also
 

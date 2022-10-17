@@ -62,12 +62,12 @@ Refer to these page if you want to try.
 ### Design
 
 - [Index](./design)
-- [Software architecture](./design/software_architecture)
-- [Processing trace data](./design/processing_trace_data)
-- [Runtime processing](./design/runtime_processing)
-- [Tracepoints](./design/trace_points)
-- [Configuration](./design/configuration)
-- [Limits and constraints](./design/limits_and_constraints)
+- [Software architecture](./design/software_architecture/index.md)
+- [Processing trace data](./design/processing_trace_data/index.md)
+- [Runtime processing](./design/runtime_processing/index.md)
+- [Tracepoints](./design/trace_points/index.md)
+- [Configuration](./design/configuration/index.md)
+- [Limits and constraints](./design/limits_and_constraints/index.md)
 
 ### Details of each step for analysis
 
