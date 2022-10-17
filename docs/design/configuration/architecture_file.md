@@ -19,7 +19,7 @@ A sample of the architecture file is as follows.
 | &emsp; path_name                      | String       | Yes                                        | No (Edit via Python-API)                   |                                                    |
 | &emsp; node_chain                     | List         | Yes                                        | No (Edit via Python-API)                   |                                                    |
 | &emsp; &emsp; node_name               | String       | Yes                                        | No (Edit via Python-API)                   |                                                    |
-| &emsp; &emsp; publish_topic_name      | String       | Reqqired if node is not end of the path.   | No (Edit via Python-API)                   |                                                    |
+| &emsp; &emsp; publish_topic_name      | String       | Required if node is not end of the path.   | No (Edit via Python-API)                   |                                                    |
 | &emsp; &emsp; subscribe_topic_name    | String       | Required if node is not start of the path. | No (Edit via Python-API)                   |                                                    |
 | executors                             | List         | Yes                                        | Yes                                        |                                                    |
 | &emsp; executor_type                  | String       | Yes                                        | Yes                                        | single_threaded_executor / multi_threaded_executor |
