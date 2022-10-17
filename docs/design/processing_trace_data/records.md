@@ -35,7 +35,6 @@ CARET mainly performs this merging and calculates latency.
 See also
 
 - [API:merge](https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential)
-- [Callback Latency](../latency_definitions/callback_latency.md)
 
 ## merge_sequential_for_addr_track
 

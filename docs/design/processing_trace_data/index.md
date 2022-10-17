@@ -12,4 +12,4 @@ The following are processing using Records object.
 See also
 
 - [Latency definition](../latency_definitions/)
-- [caret_analyze](../software_architecture/caret_analyze.md)
+- [Software architecture | caret_analyze](../software_architecture/caret_analyze)

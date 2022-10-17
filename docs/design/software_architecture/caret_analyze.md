@@ -77,7 +77,7 @@ architecture o-- NodeStructValue
 Irecords <.. infra : use
 ```
 
-Architecture object provides APIs to search node paths and define node latency as mentioned in [tutorial/architecture file section](../tutorials/configuration.md). The architecture object is reusable after it is saved as a YAML-based file called "architecture file".
+Architecture object provides APIs to search node paths and define node latency as mentioned in [tutorial/architecture file section](../tutorials/configuration). The architecture object is reusable after it is saved as a YAML-based file called "architecture file".
 
 Runtime Data object provides APIs to retrieve `pandas.DataFrame`-based objects including callback latency or communication. Users can analyze temporal aspects of their applications, with visualization, as they expect. APIs for visualization are also served by CARET_analyze which plays the main role to analyze trace data.
 
@@ -206,10 +206,6 @@ The Value class has the information for binding, and the StructValue class has t
 There are classes associated with the display.
 The visualization provided by CARET_analyze is based on bokeh and graphviz.
 
-See also
-
-- [Visualizations](../visualizations/)
-
 ## records
 
 In CARET, latency is calculated by joining process of tables uniquely defined.
@@ -217,7 +213,7 @@ The records package defines tables with their own join processing.
 
 See also
 
-- [Records](../processing_trace_data/records.md)
+- [Records](../../processing_trace_data/records)
 
 ## common
 

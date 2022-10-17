@@ -20,8 +20,8 @@ CARET utilizes LTTng as a trace mechanism.
 
 In CARET, packages related to recording phase are followings.
 
-- [caret_trace](./caret_trace.md)
-- [TILDE](./tilde.md)
+- [caret_trace](./caret_trace)
+- [TILDE](./tilde)
 
 See also
 
@@ -39,7 +39,7 @@ The architecture file is used repeatedly in the analyzing phase.
 
 In CARET, packages related to configuration phase are followings.
 
-- [caret_analyze](./caret_analyze.md)
+- [caret_analyze](./caret_analyze)
 
 See also
 
@@ -56,7 +56,7 @@ CARET_analyze also provides visualizations for the evaluation of Jupyter.
 
 In CARET, packages related to configuration phase are followings.
 
-- [caret_analyze](./caret_analyze.md)
+- [caret_analyze](./caret_analyze)
 
 See also
 
@@ -69,11 +69,11 @@ See also
 
 The followings are CARET-related packages.
 
-| Package                             | Role                                             | Repository                                                                                           |
-| ----------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| [CARET_trace](./caret_trace.md)     | Add trace points via hooks. Control tracepoints. | [https://github.com/tier4/CARET_trace/](https://github.com/tier4/CARET_trace/)                       |
-| CARET_rclcpp                        | Add trace points by fork                         | [https://github.com/tier4/rclcpp](https://github.com/tier4/rclcpp)                                   |
-| ros2caret                           | Provide CARET CLI                                | [https://github.com/tier4/ros2caret/](https://github.com/tier4/ros2caret/)                           |
-| [CARET_analyze](./caret_analyze.md) | Analyze trace data                               | [https://github.com/tier4/CARET_analyze/](https://github.com/tier4/CARET_analyze/)                   |
-| CARET_analyze_cpp_impl              | Accelerate CARET_analyze                         | [https://github.com/tier4/CARET_analyze_cpp_impl/](https://github.com/tier4/CARET_analyze_cpp_impl/) |
-| [TILDE](./tilde.md)                 | Add tracepoints within the system to be measure  | [https://github.com/tier4/TILDE](https://github.com/tier4/TILDE)                                     |
+| Package                          | Role                                             | Repository                                                                                           |
+| -------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| [CARET_trace](./caret_trace)     | Add trace points via hooks. Control tracepoints. | [https://github.com/tier4/CARET_trace/](https://github.com/tier4/CARET_trace/)                       |
+| CARET_rclcpp                     | Add trace points by fork                         | [https://github.com/tier4/rclcpp](https://github.com/tier4/rclcpp)                                   |
+| ros2caret                        | Provide CARET CLI                                | [https://github.com/tier4/ros2caret/](https://github.com/tier4/ros2caret/)                           |
+| [CARET_analyze](./caret_analyze) | Analyze trace data                               | [https://github.com/tier4/CARET_analyze/](https://github.com/tier4/CARET_analyze/)                   |
+| CARET_analyze_cpp_impl           | Accelerate CARET_analyze                         | [https://github.com/tier4/CARET_analyze_cpp_impl/](https://github.com/tier4/CARET_analyze_cpp_impl/) |
+| [TILDE](./tilde)                 | Add tracepoints within the system to be measure  | [https://github.com/tier4/TILDE](https://github.com/tier4/TILDE)                                     |

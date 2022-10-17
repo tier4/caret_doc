@@ -26,3 +26,4 @@ nav:
         - Design:
             - Overview: design/configuration
             - File format: design/configuration/architecture_file
+    - Limits and constraints: limits_and_constraints
