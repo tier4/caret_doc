@@ -1243,29 +1243,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-visualization-policy-of-caret" class="md-nav__link">
-    The Visualization Policy of CARET
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#design-policy-for-the-plot-class-visualization-class" class="md-nav__link">
-    Design policy for the Plot class (visualization class)
-  </a>
-  
-    <nav class="md-nav" aria-label="Design policy for the Plot class (visualization class)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#the-main-basic-design-of-the-plot-class" class="md-nav__link">
     The main basic design of the Plot class
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1367,29 +1347,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-visualization-policy-of-caret" class="md-nav__link">
-    The Visualization Policy of CARET
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#design-policy-for-the-plot-class-visualization-class" class="md-nav__link">
-    Design policy for the Plot class (visualization class)
-  </a>
-  
-    <nav class="md-nav" aria-label="Design policy for the Plot class (visualization class)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#the-main-basic-design-of-the-plot-class" class="md-nav__link">
     The main basic design of the Plot class
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1414,18 +1374,9 @@
 
 
 <h1 id="basic-apis-concept">Basic APIs Concept<a class="headerlink" href="#basic-apis-concept" title="Permanent link">#</a></h1>
-<h2 id="the-visualization-policy-of-caret">The Visualization Policy of CARET<a class="headerlink" href="#the-visualization-policy-of-caret" title="Permanent link">#</a></h2>
-<p>CARET provides a number of visualization APIs.
-Figure 1 shows the API design principles。</p>
-<p>（図 1）横軸が測定粒度で縦軸がシステムレベルの図</p>
-<p>The horizontal axis represents the granularity of visualization and the vertical axis represents the granularity of the system being measured.<br />
-In the figure, the more the api is to the left, the more detailed can be visualized and the lower the api in the figure, the finer the system to be visualized.</p>
-<p>One of the features of CARET is the ability to evaluate systems while flexibly changing the granularity of visualization and target systems.
-If the visualization results show a problem in the system, repeat the visualization toward the lower left of the figure can help identify the problem area by usin this feature.</p>
-<h2 id="design-policy-for-the-plot-class-visualization-class">Design policy for the Plot class (visualization class)<a class="headerlink" href="#design-policy-for-the-plot-class-visualization-class" title="Permanent link">#</a></h2>
-<p>The visualization tools provided by CARET are implemented in the Plot class.</p>
-<h3 id="the-main-basic-design-of-the-plot-class">The main basic design of the Plot class<a class="headerlink" href="#the-main-basic-design-of-the-plot-class" title="Permanent link">#</a></h3>
-<p>The usage of each API of the Plot class is unified as follows:</p>
+<h2 id="the-main-basic-design-of-the-plot-class">The main basic design of the Plot class<a class="headerlink" href="#the-main-basic-design-of-the-plot-class" title="Permanent link">#</a></h2>
+<p>The visualization tools provided by CARET are implemented in the Plot class.
+The usage of each API of the Plot class is unified as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 
 <span class="o">...</span> <span class="c1"># Processing input data</span>
@@ -1435,10 +1386,10 @@ If the visualization results show a problem in the system, repeat the visualizat
 <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 </code></pre></div>
 <p>The returned plot has two functions: show() and to_dataframe().</p>
-<p>The show() function outputs a figure which able to understand the behavior of the system in chronological order.</p>
-<p>to_dataframe() returns a table summarizing the data.
+<p>The "show()" function outputs a figure and returns the figure's handler.</p>
+<p>The "to_dataframe()" returns a table summarizing the data.
 This function is mainly used when analyzing based on specific figures.</p>
-<p>Note: For detailed input/output options, see<a href="https://tier4.github.io/CARET_analyze/latest/plot/#caret_analyze.plot.TimeSeriesPlot">TimeSeriesPlot</a>。</p>
+<p>Note: For detailed input/output options, see<a href="https://tier4.github.io/CARET_analyze/latest/plot/#caret_analyze.plot.TimeSeriesPlot">TimeSeriesPlot</a>.</p>
 
 
 
