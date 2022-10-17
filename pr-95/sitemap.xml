@@ -171,17 +171,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/visualization_api/callback_information/</loc>
+         <lastmod>2022-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/visualization_api/callback_scheduling_visualization/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/visualization_api/chain_latency/</loc>
-         <lastmod>2022-10-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/visualization_api/execution_frequency/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
     </url>

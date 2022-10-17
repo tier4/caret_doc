@@ -1163,6 +1163,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7_3_1">
@@ -1185,6 +1191,20 @@
     <li class="md-nav__item">
       <a href="visualization_api/message_flow" class="md-nav__link">
         Message flow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="visualization_api/callback_scheduling_visualization" class="md-nav__link">
+        Callback Scheduling Visualization
       </a>
     </li>
   
@@ -1239,8 +1259,8 @@
   
   
     <li class="md-nav__item">
-      <a href="visualization_api/execution_frequency" class="md-nav__link">
-        Execution frequency
+      <a href="visualization_api/callback_information" class="md-nav__link">
+        Callback Information
       </a>
     </li>
   
@@ -1253,8 +1273,36 @@
   
   
     <li class="md-nav__item">
-      <a href="visualization_api/callback_scheduling_visualization" class="md-nav__link">
-        Callback Scheduling Visualization
+      <a href="visualization_api/pub_sub_information" class="md-nav__link">
+        Publish/Subscription Information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="visualization_api/communication_information" class="md-nav__link">
+        Communication Information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="visualization_api/response_time" class="md-nav__link">
+        Response Time
       </a>
     </li>
   
@@ -1486,6 +1534,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#investigation-apis" class="md-nav__link">
+    Investigation APIs
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1519,22 +1574,29 @@
 <h2 id="provided-apis">Provided APIs<a class="headerlink" href="#provided-apis" title="Permanent link">#</a></h2>
 <h3 id="apis-in-plot-class">APIs in Plot Class<a class="headerlink" href="#apis-in-plot-class" title="Permanent link">#</a></h3>
 <ul>
-<li>[create_callback_frequency_plot</li>
-<li>[create_callback_period_plot</li>
-<li>[create_callback_latency_plot</li>
-<li>[create_publish_subscription_period_plot</li>
-<li>[create_publish_subscription_frequency_plot</li>
-<li>[create_communication_latency_plot</li>
-<li>[create_communication_frequency_plot</li>
-<li>[create_communication_period_plot</li>
-<li>[create_response_time_histogram_plot</li>
+<li><a href="./visualization_api/execution_frequency.md#execution-frequency">create_callback_frequency_plot</a></li>
+<li><a href="./visualization_api/execution_frequency.md#period">create_callback_period_plot</a></li>
+<li><a href="./visualization_api/execution_frequency.md#latency">create_callback_latency_plot</a></li>
+<li><a href="./visualization_api/pub_sub_information">create_publish_subscription_period_plot</a></li>
+<li><a href="./visualization_api/pub_sub_information">create_publish_subscription_frequency_plot</a></li>
+<li><a href="./visualization_api/communication_information">create_communication_latency_plot</a></li>
+<li><a href="./visualization_api/communication_information">create_communication_frequency_plot</a></li>
+<li><a href="./visualization_api/communication_information">create_communication_period_plot</a></li>
+<li><a href="./">create_response_time_histogram_plot</a></li>
 </ul>
 <h3 id="apis-in-other-than-plot-class">APIs in other than Plot Class<a class="headerlink" href="#apis-in-other-than-plot-class" title="Permanent link">#</a></h3>
 <p>Note: These APIs will be implemented to Plot Class.</p>
 <ul>
-<li>message_flow</li>
-<li>callback_sched</li>
+<li><a href="visualization_api/message_flow/">message_flow</a></li>
+<li><a href="visualization_api/callback_scheduling_visualization/">callback_sched</a></li>
 </ul>
+<h3 id="investigation-apis">Investigation APIs<a class="headerlink" href="#investigation-apis" title="Permanent link">#</a></h3>
+<p>CARET provides some APIs to investigate more detail.</p>
+<ul>
+<li><a href="investigation_api/lttng_event_filter/">LTTngEventFilter</a></li>
+<li><a href="investigation_api/investigate_behavior/">get_callbacks</a></li>
+</ul>
+<p>Note: Investigation APIs are written in <a href="https://tier4.github.io/CARET_analyze/">CARET analyze API document</a>.</p>
 
 
 
