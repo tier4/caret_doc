@@ -1696,8 +1696,8 @@
 <h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
-<span class="n">callback1</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_0&#39;</span><span class="p">)</span>
-<span class="n">callback2</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_1&#39;</span><span class="p">)</span>
+<span class="n">callback1</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/callback_0&#39;</span><span class="p">)</span>
+<span class="n">callback2</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callback</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/callback_1&#39;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="description-of-get_callbacks">Description of get_callbacks<a class="headerlink" href="#description-of-get_callbacks" title="Permanent link">#</a></h2>
 <p>The get_callbacks() is a function that gets callback information.
@@ -1714,9 +1714,9 @@ Callbacks information includes callback name, callback period[ns], callback type
 <h3 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
-<span class="n">callback1</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_0&#39;</span><span class="p">)</span>
-<span class="n">callback2</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/callback_?&#39;</span><span class="p">)</span>
-<span class="n">callback3</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;timer_driven_node/*&#39;</span><span class="p">)</span>
+<span class="n">callback1</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/callback_0&#39;</span><span class="p">)</span>
+<span class="n">callback2</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/callback_?&#39;</span><span class="p">)</span>
+<span class="n">callback3</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_callbacks</span><span class="p">(</span><span class="s1">&#39;/timer_driven_node/*&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 
