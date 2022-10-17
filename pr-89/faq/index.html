@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-89/faq/">
       
       <link rel="icon" href="../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1434,6 +1434,12 @@
 
 ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </code></pre></div>
+<p><prettier-ignore-start></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>CARET CLI tool doesn't work properly in Anaconda environment. Please use pure Python.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
 <h3 id="result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result">Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result<a class="headerlink" href="#result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result" title="Permanent link">#</a></h3>
 <ul>
@@ -1553,7 +1559,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <p><img alt="message_flow_split_drop" src="imgs/message_flow_drop_graph.png" /></p>
 <h3 id="how-response-time-is-calculated">How response time is calculated?<a class="headerlink" href="#how-response-time-is-calculated" title="Permanent link">#</a></h3>
 <ul>
-<li>In general, response time is the time a system or functional unit takes to react to a given input (<a href="https://en.wikipedia.org/wiki/Response_time_(technology)">reference</a>). Response time calculated by CARET is the time it takes for input data to arrive at the last node. It doesn't include processing time at the last node nor latency of an actuator. It's calculated as the sum of callback processing time and communication latency time in a path<ul>
+<li>In general, response time is the time a system or functional unit takes to react to a given input (<a href="https://en.wikipedia.org/wiki/Response_time_(technology)">reference</a>). Response time calculated by CARET is the time it takes for input data to arrive at the last node. It doesn't include processing time at the first/last node nor latency of an actuator. It's calculated as the sum of communication latency time (from the time when a node publishes a topic to the time when the following node subscribes the topic) and node latency time (from the time when a node subscribes a topic to the time when it publishes a new topic) in a path.<ul>
 <li>In the following diagram, input data at point A is first reflected with output at point X (<code>ResponseTime_Best</code>)</li>
 <li><code>ResponseTime_Best</code> can be considered as a path (dataflow) latency time</li>
 <li><code>ResponseTime_Best</code> can be considered as a happy case, which is contrary to the following worst case scenario</li>
