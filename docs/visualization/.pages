@@ -3,7 +3,7 @@ nav:
     - Concept:
         - Basic APIs Concept: visualization/concept/basic_api_concept.md
     - Visualization APIs:
-        - Message flow: visualization/visualization_api/message_flow.md
+        - Message flow: visualization/visualization_api/message_flow
         - Chain latency: visualization/visualization_api/chain_latency.md
         - Latency time series: visualization/visualization_api/latency_time_series.md
         - Latency histogram: visualization/visualization_api/latency_histogram.md
