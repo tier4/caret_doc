@@ -17,3 +17,7 @@ nav:
             - Initialization tracepoints: design/trace_points/initialization_trace_points
             - Runtime tracepoints: design/trace_points/runtime_trace_points
             - Differences from original ROS: design/trace_points/diff
+    - Configuration:
+        - Design:
+            - Overview: design/configuration
+            - File format: design/configuration/architecture_file
