@@ -2,7 +2,7 @@
 
 ## Basic APIs Concept
 
-- [Basic APIs Concept](./basic_api_concept.md/#The Visualization Policy of CARET) provided by CARET
+- [Basic APIs Concept](./basic_api_concept.md) provided by CARET
 
 ## Provided APIs
 
