@@ -7,6 +7,7 @@ nav:
     - Execution frequency: execution_frequency.md
     - Callback Scheduling Visualization: callback_scheduling_visualization.md
     - API to get information about each callback: API_to_get_info_of_callback.md
+    - Basic APIs Concept: basic_api_concept.md
     - Usage of LTTngEventFilter: lttng_event_filter.md
     - Trouble shooting: trouble_shooting.md
     - Path Verification: path_verify.md
