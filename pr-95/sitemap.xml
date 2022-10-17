@@ -86,6 +86,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/faq/</loc>
+         <lastmod>2022-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-95/installation/installation/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
@@ -101,12 +106,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-95/recording/how_to_run_lttng_session/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/recording/build_check/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-95/recording/summary_of_trace_data/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/recording/cli_tool/</loc>
+         <lastmod>2022-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/recording/recording/</loc>
+         <lastmod>2022-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/recording/sim_time/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -121,12 +136,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/recording/validating/</loc>
+         <lastmod>2022-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-95/tutorials/configuration/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-95/tutorials/recording/</loc>
+         <lastmod>2022-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/tutorials/recording_modified/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
     </url>

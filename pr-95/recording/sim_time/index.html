@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-95/configuration/how_to_search_path/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-95/recording/sim_time/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
-        <title>パスの探索方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>ROS time (sim_time) support - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#ros-time-sim_time-support" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              パスの探索方法
+              ROS time (sim_time) support
             
           </span>
         </div>
@@ -249,22 +249,6 @@
         
   
   
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../recording/" class="md-tabs__link">
-        Recording
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
     
   
 
@@ -274,6 +258,22 @@
   
     <li class="md-tabs__item">
       <a href="../" class="md-tabs__link md-tabs__link--active">
+        Recording
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../configuration/" class="md-tabs__link">
         Configuration
       </a>
     </li>
@@ -616,12 +616,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -647,7 +649,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../recording/">Recording</a>
+          <a href="../">Recording</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -670,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/build_check/" class="md-nav__link">
+      <a href="../build_check/" class="md-nav__link">
         Build and check
       </a>
     </li>
@@ -684,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/trace_filtering/" class="md-nav__link">
+      <a href="../trace_filtering/" class="md-nav__link">
         Trace filtering
       </a>
     </li>
@@ -698,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/recording/" class="md-nav__link">
+      <a href="../recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -712,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/validating/" class="md-nav__link">
+      <a href="../validating/" class="md-nav__link">
         Validating
       </a>
     </li>
@@ -726,94 +728,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/cli_tool/" class="md-nav__link">
+      <a href="../cli_tool/" class="md-nav__link">
         CLI tools
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recording/sim_time/" class="md-nav__link">
-        ROS time (sim_time) support
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Configuration</a>
-          
-            <label for="__nav_5">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Configuration" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Configuration
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture_format/" class="md-nav__link">
-        アーキテクチャファイルフォーマット
       </a>
     </li>
   
@@ -836,12 +752,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          パスの探索方法
+          ROS time (sim_time) support
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        パスの探索方法
+        ROS time (sim_time) support
       </a>
       
         
@@ -860,16 +776,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    例
+  <a href="#recording-clock-topic" class="md-nav__link">
+    Recording /clock topic
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-using-sim_time" class="md-nav__link">
+    Visualization using sim_time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-to-use-sim_time" class="md-nav__link">
+    Sample to use sim_time
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample to use sim_time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#record-rosbag" class="md-nav__link">
+    Record rosbag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-trace-data" class="md-nav__link">
+    Record trace data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualize-results-using-sim_time" class="md-nav__link">
+    Visualize results using sim_time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -882,13 +839,97 @@
 
             
           
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../configuration/">Configuration</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
             
               
   
   
   
     <li class="md-nav__item">
-      <a href="../how_to_write_architecture/" class="md-nav__link">
+      <a href="../../configuration/architecture_format/" class="md-nav__link">
+        アーキテクチャファイルフォーマット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/how_to_search_path/" class="md-nav__link">
+        パスの探索方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/how_to_write_architecture/" class="md-nav__link">
         ノードレイテンシの算出方法の指定
       </a>
     </li>
@@ -902,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_and_verify_architecture/" class="md-nav__link">
+      <a href="../../configuration/create_and_verify_architecture/" class="md-nav__link">
         Creation and Verification of Architecture file with CLI
       </a>
     </li>
@@ -1646,16 +1687,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    例
+  <a href="#recording-clock-topic" class="md-nav__link">
+    Recording /clock topic
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-using-sim_time" class="md-nav__link">
+    Visualization using sim_time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-to-use-sim_time" class="md-nav__link">
+    Sample to use sim_time
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample to use sim_time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#record-rosbag" class="md-nav__link">
+    Record rosbag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-trace-data" class="md-nav__link">
+    Record trace data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualize-results-using-sim_time" class="md-nav__link">
+    Visualize results using sim_time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1673,65 +1755,182 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/configuration/how_to_search_path.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/recording/sim_time.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">パス探索の高速化<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p><code>search_paths</code>メソッドはノード図を描き、始点に設定したノードから終点に設定したノードまでを一筆書きで辿れる経路（パス）を全探索し、
-見つかった経路（パス）を全て返却する関数です。</p>
-<p>ノード図から全ての探索できるパスを全探索するため、対象のアプリケーションによっては処理に時間がかかりすぎてしまうケースがあります。<br />
-このようなケースで、高速に目的とするパスを探索する方法を説明します。</p>
-<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<p>search_paths では、このような時間がかかりすぎてしまうケースを避けるための API が備わっています。</p>
-<div class="highlight"><pre><span></span><code><span class="n">search_paths</span><span class="p">(</span>
-    <span class="n">start_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
-    <span class="n">end_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
-    <span class="n">max_node_depth</span><span class="p">:</span> <span class="s1">&#39;Optional[int]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">node_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">communication_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;List[PathStructValue]&#39;</span>
-</code></pre></div>
+<h1 id="ros-time-sim_time-support">ROS time (sim_time) support<a class="headerlink" href="#ros-time-sim_time-support" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>CARET uses system time to analyze trace data by default. It may be inconvenient, especially when treating trace data recorded with rosbag. These are examples:</p>
 <ul>
-<li>start_node_name : 探索の始点となるノード名</li>
-<li>end_node_name : 探索の終点となるノード名</li>
-<li>max_node_depth : 探索するパスが含む最大ノード数。小さいほど探索範囲が狭くなります</li>
-<li>node_filter: 探索対象のノードをフィルタする関数。True を返却した場合は探索対象になります。</li>
-<li>communication_filter: 探索対象の通信をフィルタする関数。True を返却した場合は探索対象になります。</li>
+<li>The flow of time in analysis results (e.g., time series graph) is different from that of ROS when playing rosbag with <code>[-r RATE]</code> option. For instance, 10 Hz becomes 2 Hz when rosbag was played with <code>[-r 0.2]</code> but analysis uses system time</li>
+<li>Time becomes different at every recording even if you use the same rosbag file, which makes comparing experimental results difficult</li>
 </ul>
-<h2 id="_2">例<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<p>This page explains how to use sim_time.</p>
+<h2 id="recording-clock-topic">Recording <code>/clock</code> topic<a class="headerlink" href="#recording-clock-topic" title="Permanent link">#</a></h2>
+<p><code>/clock</code> topic needs to be recorded in trace data. <code>/clock</code> topis is recorded as <code>ros2_caret:sim_time</code> event in trace data.</p>
+<p>Open a new terminal and run the following commands before recording and running a target application.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Remember to set <code>use_sim_time=true</code> for each node when launching a target application<br />
+  Remember to add <code>--clock</code> option when playing rosbag</p>
+</div>
+<p><prettier-ignore-end></p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 
-<span class="c1"># 正規表現に一致するノード名を探索から除外する</span>
-<span class="n">node_filters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/_ros2cli_/*&#39;</span><span class="p">),</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/launch_ros_*&#39;</span><span class="p">),</span>
-<span class="p">]</span>
+ros2 run caret_trace clock_recorder
+</code></pre></div>
+<p>You can check whether <code>/clock</code> is successfully recorded by the following command.</p>
+<div class="highlight"><pre><span></span><code>babeltrace &lt;path-to-trace-data&gt; <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Expected output text as below---
 
-<span class="c1"># 正規表現に一致するトピック名を探索から除外する</span>
-<span class="n">comm_filters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/tf/*&#39;</span><span class="p">),</span>
-<span class="p">]</span>
-<span class="k">def</span> <span class="nf">comm_filter</span><span class="p">(</span><span class="n">topic_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">for</span> <span class="n">comm_filter</span> <span class="ow">in</span> <span class="n">comm_filters</span><span class="p">:</span>
-        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">comm_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">topic_name</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">can_pass</span>
+ros2_caret:sim_time:
+</code></pre></div>
+<h2 id="visualization-using-sim_time">Visualization using sim_time<a class="headerlink" href="#visualization-using-sim_time" title="Permanent link">#</a></h2>
+<p>By setting <code>use_sim_time=True</code> or <code>xaxis_type='sim_time'</code>, sim_time is used instead of system time for the following APIs.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">callback_sched</span><span class="p">(</span>
+    <span class="n">target</span><span class="p">:</span> <span class="n">CallbackGroupTypes</span><span class="p">,</span>
+    <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">coloring_rule</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;callback&#39;</span><span class="p">,</span>
+    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
 
-<span class="k">def</span> <span class="nf">node_filter</span><span class="p">(</span><span class="n">node_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">for</span> <span class="n">node_filter</span> <span class="ow">in</span> <span class="n">node_filters</span><span class="p">:</span>
-        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">node_name</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">can_pass</span>
+<span class="k">def</span> <span class="nf">message_flow</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">granularity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
 
+<span class="k">def</span> <span class="nf">show</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">xaxis_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;system_time&#39;</span><span class="p">,</span>
+    <span class="n">ywheel_zoom</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">full_legends</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
+</code></pre></div>
+<p>In case <code>/clock</code> topic is not recorded in trace data, the following error will occur.</p>
+<div class="highlight"><pre><span></span><code><span class="n">InvalidArgumentError</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">sim_time</span><span class="o">.</span> <span class="n">Please</span> <span class="n">measure</span> <span class="n">again</span> <span class="k">with</span> <span class="n">clock_recorder</span> <span class="n">running</span><span class="o">.</span>
+</code></pre></div>
+<h2 id="sample-to-use-sim_time">Sample to use sim_time<a class="headerlink" href="#sample-to-use-sim_time" title="Permanent link">#</a></h2>
+<p>Explanation below assumes CARET is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
+<h3 id="record-rosbag">Record rosbag<a class="headerlink" href="#record-rosbag" title="Permanent link">#</a></h3>
+<p>The following steps can be performed either with or without CARET. If you have built a target application without CARET, you don't need to set environment for CARET and LD_PRELOAD.</p>
+<ol>
+<li>
+<p>Open a terminal to run a target application to record rosbag</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+<span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+<span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
+
+ros2 run caret_demos end_to_end_sample
+</code></pre></div>
+</li>
+<li>
+<p>Open another terminal to record rosbag</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+
+ros2 bag record /topic1 /drive
+</code></pre></div>
+<p>Here, <code>/topic1</code> and <code>/drive</code> are source topics of the sample application.<br />
+ You can check if rosbag is successfully recorded.</p>
+<div class="highlight"><pre><span></span><code>ros2 bag info rosbag2_2022_09_30-10_57_06
+
+Files:             rosbag2_2022_09_30-10_57_06_0.db3
+Bag size:          <span class="m">29</span>.3 KiB
+Storage id:        sqlite3
+Duration:          <span class="m">9</span>.601s
+Start:             Sep <span class="m">30</span> <span class="m">2022</span> <span class="m">10</span>:57:08.952 <span class="o">(</span><span class="m">1664503028</span>.952<span class="o">)</span>
+End:               Sep <span class="m">30</span> <span class="m">2022</span> <span class="m">10</span>:57:18.554 <span class="o">(</span><span class="m">1664503038</span>.554<span class="o">)</span>
+Messages:          <span class="m">194</span>
+Topic information: Topic: /drive <span class="p">|</span> Type: sensor_msgs/msg/Image <span class="p">|</span> Count: <span class="m">97</span> <span class="p">|</span> Serialization Format: cdr
+                Topic: /topic1 <span class="p">|</span> Type: sensor_msgs/msg/Image <span class="p">|</span> Count: <span class="m">97</span> <span class="p">|</span> Serialization Format: cdr
+</code></pre></div>
+</li>
+</ol>
+<h3 id="record-trace-data">Record trace data<a class="headerlink" href="#record-trace-data" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>Open another terminal and run the following commands</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+
+ros2 run caret_trace clock_recorder
+</code></pre></div>
+</li>
+<li>
+<p>Open another terminal to run a target application to record trace data with CARET</p>
+<p>In the launch file, <code>use_sim_time</code> is set to true and source nodes are disabled.</p>
+<div class="highlight"><pre><span></span><code> <span class="nb">source</span> /opt/ros/humble/setup.bash
+ <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+ <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+ <span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
+
+ ros2 launch caret_demos end_to_end_sample_with_lttng_session_use_sim.launch.py use_sim_time:<span class="o">=</span><span class="nb">true</span> use_rosbag:<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+</li>
+<li>
+<p>Open another terminal to play the rosbag</p>
+<div class="highlight"><pre><span></span><code> <span class="nb">source</span> /opt/ros/humble/setup.bash
+ <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+
+ ros2 bag play rosbag2_2022_09_30-10_57_06 --clock -r <span class="m">0</span>.2
+</code></pre></div>
+</li>
+<li>
+<p>Stop the application and the rosbag</p>
+</li>
+<li>
+<p>Check if <code>/clock</code> topic is recorded in trace data as <code>sim_time</code></p>
+<div class="highlight"><pre><span></span><code>babeltrace ~/ros2_ws/evaluate/e2e_sample <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+ros2_caret:sim_time:
+</code></pre></div>
+</li>
+</ol>
+<h3 id="visualize-results-using-sim_time">Visualize results using sim_time<a class="headerlink" href="#visualize-results-using-sim_time" title="Permanent link">#</a></h3>
+<ol>
+<li>Launch Jupyter Notebook in <code>~/ros2_ws/evaluate</code> and run the following scripts<ul>
+<li>Reference: <a href="../../tutorials/visualization/">the tutorial</a></li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span>
+<span class="n">output_notebook</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
+<span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span><span class="p">,</span> <span class="n">message_flow</span>
+
+<span class="c1"># Read trace data</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
+
+<span class="c1"># Search and add path</span>
 <span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
-    <span class="s1">&#39;/start_node&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;/end_node&#39;</span><span class="p">,</span>
-    <span class="n">max_node_depth</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-    <span class="n">node_filter</span> <span class="o">=</span> <span class="n">node_filter</span><span class="p">,</span>
-    <span class="n">communication_filter</span> <span class="o">=</span> <span class="n">comm_filter</span><span class="p">)</span>
+    <span class="s1">&#39;/filter_node&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">add_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">,</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
+
+<span class="c1"># Draw message_flow</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
+<span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">use_sim_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Draw node info</span>
+<span class="n">node</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;/filter_node&#39;</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_period_plot</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;sim_time&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -1758,7 +1957,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../architecture_format/" class="md-footer__link md-footer__link--prev" aria-label="Previous: アーキテクチャファイルフォーマット" rel="prev">
+        <a href="../cli_tool/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CLI tools" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1767,20 +1966,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              アーキテクチャファイルフォーマット
+              CLI tools
             </div>
           </div>
         </a>
       
       
         
-        <a href="../how_to_write_architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: ノードレイテンシの算出方法の指定" rel="next">
+        <a href="../../configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ノードレイテンシの算出方法の指定
+              Configuration
             </div>
           </div>
           <div class="md-footer__button md-icon">
