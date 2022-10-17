@@ -32,8 +32,8 @@ The 'get_callback()' is a function that returns callback information such as cal
 ```python
 from caret_analyze import Architecture, Application, Lttng
 
-callback1 = app.get_callback('timer_driven_node/callback_0')
-callback2 = app.get_callback('timer_driven_node/callback_1')
+callback1 = app.get_callback('/timer_driven_node/callback_0')
+callback2 = app.get_callback('/timer_driven_node/callback_1')
 ```
 
 ## Description of get_callbacks
@@ -57,7 +57,7 @@ Callbacks information includes callback name, callback period[ns], callback type
 ```python
 from caret_analyze import Architecture, Application, Lttng
 
-callback1 = app.get_callbacks('timer_driven_node/callback_0')
-callback2 = app.get_callbacks('timer_driven_node/callback_?')
-callback3 = app.get_callbacks('timer_driven_node/*')
+callback1 = app.get_callbacks('/timer_driven_node/callback_0')
+callback2 = app.get_callbacks('/timer_driven_node/callback_?')
+callback3 = app.get_callbacks('/timer_driven_node/*')
 ```
