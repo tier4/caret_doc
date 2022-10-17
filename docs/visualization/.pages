@@ -2,16 +2,16 @@ nav:
     - Visualization: index.md
     - Concept:
         - Basic APIs Concept: visualization/concept/basic_api_concept.md
-    - Visualization APIs:
-        - List:
-            - Message flow: visualization/visualization_api/message_flow
-            - Chain latency: visualization/visualization_api/chain_latency
-            - Latency time series: visualization/visualization_api/latency_time_series
-            - Latency histogram: visualization/visualization_api/latency_histogram
-            - Execution frequency: visualization/visualization_api/execution_frequency
-            - Callback Scheduling Visualization: visualization/visualization_api/callback_scheduling_visualization
+    - Visualization APIs: visualization/visualization_api
+        - Message flow: visualization/visualization_api/message_flow
+        - Chain latency: visualization/visualization_api/chain_latency
+        - Latency time series: visualization/visualization_api/latency_time_series
+        - Latency histogram: visualization/visualization_api/latency_histogram
+        - Execution frequency: visualization/visualization_api/execution_frequency
+        - Callback Scheduling Visualization: visualization/visualization_api/callback_scheduling_visualization
     - Investigation APIs:
         - List:
+            - Overview: visualization/investigation_api
             - Usage of LTTngEventFilter: visualization/investigation_api/lttng_event_filter
             - Path Verification: visualization/investigation_api/path_verify
             - Detailed Behavior Investigation Methods: visualization/investigation_api/investigate_behavior
