@@ -1612,7 +1612,7 @@
 <h1 id="plot-response-time">Plot Response Time<a class="headerlink" href="#plot-response-time" title="Permanent link">#</a></h1>
 <p>Response Time is shown in Histogram.
 Response Time has 3 cases ([default, best, worst]).
-The difference is described in <a href="../../faq/index#how-response-time-is-calculated">Here</a>.</p>
+The difference is described in <a href="../../../faq/index#how-response-time-is-calculated">Here</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 <span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
@@ -1623,15 +1623,18 @@ The difference is described in <a href="../../faq/index#how-response-time-is-cal
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
 
+<span class="c1"># plot default case</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_histogram_plot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="response_time_default_histoguram" src="../../../imgs/response_time_default_histogram.png" /></p>
-<div class="highlight"><pre><span></span><code><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_histogram_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># plot best case</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_histogram_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="response_time_best_histoguram" src="../../../imgs/response_time_best_histogram.png" /></p>
-<div class="highlight"><pre><span></span><code><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_histogram_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;worst&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># plot worst case</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_histogram_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;worst&#39;</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="response_time_worst_histoguram" src="../../../imgs/response_time_worst_histogram.png" /></p>
