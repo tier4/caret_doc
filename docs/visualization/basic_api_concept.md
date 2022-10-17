@@ -1,7 +1,7 @@
 # Basic APIs Concept
 
-
 ## The main basic design of the Plot class
+
 The visualization tools provided by CARET are implemented in the Plot class.
 The usage of each API of the Plot class is unified as follows:
 
