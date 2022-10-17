@@ -15,11 +15,11 @@ plot.show()
 plot.to_dataframe()
 ```
 
-The returned plot has two functions: show() and to_dataframe().
+The variable "plot" has two functions, show() and to_dataframe().
 
-The "show()" function outputs a figure and returns the figure's handler.
+The function "show()" outputs a figure and returns the figure's handler.
 
-The "to_dataframe()" returns a table summarizing the data.
-This function is mainly used when analyzing based on specific figures.
+The function "to_dataframe()" returns a table summarizing the data.
+This function is mainly used to analyze based on specific figures.
 
 Note: For detailed input/output options, see[TimeSeriesPlot](https://tier4.github.io/CARET_analyze/latest/plot/#caret_analyze.plot.TimeSeriesPlot).
