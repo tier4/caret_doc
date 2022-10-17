@@ -186,6 +186,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/visualization_api/communication_information/</loc>
+         <lastmod>2022-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/visualization_api/latency_histogram/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
@@ -197,6 +202,16 @@
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/visualization_api/message_flow/</loc>
+         <lastmod>2022-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/visualization_api/pub_sub_information/</loc>
+         <lastmod>2022-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/visualization_api/response_time/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
