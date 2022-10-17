@@ -1,5 +1,6 @@
 # Callback Information
 
+CARET can visualize the callback frequency, period, and latency. 
 Execute these commands in advance.
 
 ```python

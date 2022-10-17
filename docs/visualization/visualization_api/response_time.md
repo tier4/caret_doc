@@ -2,7 +2,7 @@
 
 Response Time is shown in Histogram.
 Response Time has 3 cases ([default, best, worst]).
-The difference is described in [Here](../../faq/index#how-response-time-is-calculated).
+The difference is described in [Here](../../../faq/index#how-response-time-is-calculated).
 
 ```python
 from caret_analyze.plot import Plot
@@ -15,6 +15,7 @@ lttng = Lttng('/path/to/trace_data')
 app = Application(arch, lttng)
 path = app.get_path('target_path')
 
+# plot default case
 plot = Plot.create_response_time_histogram_plot(path)
 plot.show()
 ```
@@ -22,6 +23,7 @@ plot.show()
 ![response_time_default_histoguram](../../imgs/response_time_default_histogram.png)
 
 ```python
+# plot best case
 plot = Plot.create_response_time_histogram_plot(path, case='best')
 plot.show()
 ```
@@ -29,6 +31,7 @@ plot.show()
 ![response_time_best_histoguram](../../imgs/response_time_best_histogram.png)
 
 ```python
+# plot worst case
 plot = Plot.create_response_time_histogram_plot(path, case='worst')
 plot.show()
 ```

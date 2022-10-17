@@ -1,5 +1,6 @@
 # Communication Information
 
+CARET can visualize the communication frequency, period, and latency. 
 Execute these commands in advance.
 
 ```python
