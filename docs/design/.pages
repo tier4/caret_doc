@@ -6,3 +6,8 @@ nav:
             - caret_analyze: design/software_architecture/caret_analyze
             - caret_trace: design/software_architecture/caret_trace
             - tilde: design/software_architecture/tilde
+    - Runtime processing:
+        - Design:
+            - Overview: design/runtime_processing
+            - Hook: design/runtime_processing/hook
+            - Tracepoint filtering: design/runtime_processing/tracepoint_filtering
