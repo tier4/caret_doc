@@ -166,16 +166,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/API_to_get_info_of_callback/</loc>
-         <lastmod>2022-10-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/trouble_shooting/</loc>
-         <lastmod>2022-10-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-95/visualization/concept/basic_api_concept/</loc>
          <lastmod>2022-10-17</lastmod>
          <changefreq>daily</changefreq>
