@@ -1,2 +1,8 @@
 nav:
     - Design: index.md
+    - Software architecture:
+        - Design:
+            - Overview: design/software_architecture
+            - caret_analyze: design/software_architecture/caret_analyze
+            - caret_trace: design/software_architecture/caret_trace
+            - tilde: design/software_architecture/tilde
