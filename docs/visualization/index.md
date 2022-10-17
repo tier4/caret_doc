@@ -8,9 +8,9 @@
 
 ### APIs in Plot Class
 
-- [create_callback_frequency_plot](./visualization_api/execution_frequency.md#execution-frequency)
-- [create_callback_period_plot](./visualization_api/execution_frequency.md#period)
-- [create_callback_latency_plot](./visualization_api/execution_frequency.md#latency)
+- [create_callback_frequency_plot](./visualization_api/execution_frequency#execution-frequency)
+- [create_callback_period_plot](./visualization_api/execution_frequency#period)
+- [create_callback_latency_plot](./visualization_api/execution_frequency#latency)
 - [create_publish_subscription_period_plot](./visualization_api/pub_sub_information)
 - [create_publish_subscription_frequency_plot](./visualization_api/pub_sub_information)
 - [create_communication_latency_plot](./visualization_api/communication_information)
