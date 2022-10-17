@@ -1,6 +1,6 @@
 nav:
     - Visualization: index.md
-    - Basic APIs Concept: concept/basic_api_concept.md
+    - Basic APIs Concept: visualization/concept/basic_api_concept
     - Visualization APIs: 
         - List:
             - Message flow: visualization/visualization_api/message_flow
@@ -11,7 +11,6 @@ nav:
             - Callback Scheduling Visualization: visualization/visualization_api/callback_scheduling_visualization
     - Investigation APIs:
         - List:
-            - Overview: visualization/investigation_api
             - Usage of LTTngEventFilter: visualization/investigation_api/lttng_event_filter
             - Path Verification: visualization/investigation_api/path_verify
             - Detailed Behavior Investigation Methods: visualization/investigation_api/investigate_behavior
