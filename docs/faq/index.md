@@ -20,6 +20,11 @@ source ~/ros2_caret_ws/install/local_setup.bash
 ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
 ```
 
+<prettier-ignore-start>
+!!!warning
+      CARET CLI tool doesn't work properly in Anaconda environment. Please use pure Python.
+<prettier-ignore-end>
+
 ## Visualization
 
 ### Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result
@@ -121,7 +126,7 @@ ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
 
 ### How response time is calculated?
 
-- In general, response time is the time a system or functional unit takes to react to a given input ([reference](<https://en.wikipedia.org/wiki/Response_time_(technology)>)). Response time calculated by CARET is the time it takes for input data to arrive at the last node. It doesn't include processing time at the last node nor latency of an actuator. It's calculated as the sum of callback processing time and communication latency time in a path
+- In general, response time is the time a system or functional unit takes to react to a given input ([reference](<https://en.wikipedia.org/wiki/Response_time_(technology)>)). Response time calculated by CARET is the time it takes for input data to arrive at the last node. It doesn't include processing time at the first/last node nor latency of an actuator. It's calculated as the sum of communication latency time (from the time when a node publishes a topic to the time when the following node subscribes the topic) and node latency time (from the time when a node subscribes a topic to the time when it publishes another topic) in a path
   - In the following diagram, input data at point A is first reflected with output at point X (`ResponseTime_Best`)
   - `ResponseTime_Best` can be considered as a path (dataflow) latency time
   - `ResponseTime_Best` can be considered as a happy case, which is contrary to the following worst case scenario
