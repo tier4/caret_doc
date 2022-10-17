@@ -1,4 +1,4 @@
-# Plot Response Time 
+# Plot Response Time
 
 Response Time is shown in Histogram.
 Response Time has 3 cases ([default, best, worst]).
@@ -21,15 +21,12 @@ plot.show()
 
 ![response_time_default_histoguram](../../imgs/response_time_default_histogram.png)
 
-
-
 ```python
 plot = Plot.create_response_time_histogram_plot(path, case='best')
 plot.show()
 ```
 
 ![response_time_best_histoguram](../../imgs/response_time_best_histogram.png)
-
 
 ```python
 plot = Plot.create_response_time_histogram_plot(path, case='worst')

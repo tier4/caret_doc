@@ -1,6 +1,7 @@
 # Communication Information
 
 Execute these commands in advance.
+
 ```python
 from caret_analyze.plot import Plot
 from caret_analyze import Application, Architecture, Lttng
@@ -14,6 +15,7 @@ comm = app.get_communications('topic_name')
 comm = comm[0]
 # or comm = app.get_communication('pub_node', 'sub_node', 'topic_name')
 ```
+
 ## Frequency
 
 ```python

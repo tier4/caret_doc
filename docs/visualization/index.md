@@ -14,7 +14,7 @@
 - [create_publish_subscription_period_plot](./visualization_api/pub_sub_information)
 - [create_publish_subscription_frequency_plot](./visualization_api/pub_sub_information)
 - [create_communication_latency_plot](./visualization_api/communication_information)
-- [create_communication_frequency_plot](./visualization_api/communication_information )
+- [create_communication_frequency_plot](./visualization_api/communication_information)
 - [create_communication_period_plot](./visualization_api/communication_information)
 - [create_response_time_histogram_plot](./)
 
@@ -24,7 +24,6 @@ Note: These APIs will be implemented to Plot Class.
 
 - [message_flow](./visualization_api/message_flow.md)
 - [callback_sched](./visualization_api/callback_scheduling_visualization.md)
-
 
 ### Investigation APIs
 

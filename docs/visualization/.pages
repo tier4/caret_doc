@@ -1,7 +1,7 @@
 nav:
     - Visualization: index.md
     - Basic APIs Concept: visualization/concept/basic_api_concept
-    - Visualization APIs: 
+    - Visualization APIs:
         - List:
             - Message flow: visualization/visualization_api/message_flow
             - Callback Scheduling Visualization: visualization/visualization_api/callback_scheduling_visualization
@@ -12,7 +12,7 @@ nav:
             - Publish/Subscription Information: visualization/visualization_api/pub_sub_information
             - Communication Information: visualization/visualization_api/communication_information
             - Response Time: visualization/visualization_api/response_time
-            
+
     - Investigation APIs:
         - List:
             - Usage of LTTngEventFilter: visualization/investigation_api/lttng_event_filter

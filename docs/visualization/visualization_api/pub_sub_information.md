@@ -1,6 +1,7 @@
 # Publish/Subscription Information
 
 Execute these commands in advance.
+
 ```python
 from caret_analyze.plot import Plot
 from caret_analyze import Application, Architecture, Lttng
