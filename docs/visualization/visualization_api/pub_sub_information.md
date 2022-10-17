@@ -1,6 +1,6 @@
 # Publish/Subscription Information
 
-CARET can visualize the publish/subscribe frequency and period. 
+CARET can visualize the publish/subscribe frequency and period.
 Execute these commands in advance.
 
 ```python
