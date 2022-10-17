@@ -11,6 +11,11 @@ nav:
             - Overview: design/runtime_processing
             - Hook: design/runtime_processing/hook
             - Tracepoint filtering: design/runtime_processing/tracepoint_filtering
+    - Processing trace data:
+        - Design:
+            - Overview: design/processing_trace_data
+            - Records: design/processing_trace_data/records
+            - Response time: design/processing_trace_data/response_time
     - Tracepoints:
         - Design:
             - Overview: design/trace_points
