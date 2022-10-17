@@ -9,7 +9,6 @@
 ### APIs in Plot Class
 
 - create_callback_frequency_plot
-- create_callback_jitter_plot
 - create_callback_period_plot
 - create_callback_latency_plot
 - create_publish_subscription_period_plot
@@ -20,7 +19,7 @@
 
 ### APIs in other than Plot Class
 
-Note: These APIs will be implementated to Plot Class.
+Note: These APIs will be implemented to Plot Class.
 
 - message_flow
 - callback_sched
