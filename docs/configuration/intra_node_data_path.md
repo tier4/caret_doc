@@ -65,7 +65,7 @@ The next items are explaining `/ping_node` and `/pong_node`.
   - it transmits message of `/pong` topic to another node
   - it is composed of two callback functions; `subscription_callback_0` and `timer_callback_1`
   - it receives messages of `/ping` topic from `/pong_node` via `subscription_callback_0`
-  - `subscription_callback_0` shares messages `/ping` topic with  `timer_callback_1` via shared variable
+  - `subscription_callback_0` shares messages `/ping` topic with `timer_callback_1` via shared variable
   - `timer_callback_1` produces `/pong` with the shared messages
 
 CARET is concerned which input topic message is mapped to an output message. `message_context` is provided to map input messages to output messages.
@@ -74,16 +74,12 @@ CARET is concerned which input topic message is mapped to an output message. `me
 
 `use_latest_message` policy will map a most recent input message to output message.
 
-
 ### `callback_chain`
-
 
 ### Python API
 
 Python API is not implemented so far. Python API support is planned in 2023.
 
 ### Architecture file editing
-
-
 
 ## Limitation
