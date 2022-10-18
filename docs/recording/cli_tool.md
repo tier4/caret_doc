@@ -1,17 +1,51 @@
-# Summary of trace data
+# CLI tools for recording
 
-CARET provides CLI that displays the number of collected events, including trace data, per node, topic, or tracepoint.
+CARET provides CLI tools which can be utilized at recording process.
 
-## Node/topic summary
+<prettier-ignore-start>
+!!!info
+      CARET environment settings need to be performed to use these CLI tools by the following commands.
 
-This CLI displays the number of events per node or topic.
-If the number of events is too huge to handle, [trace filtering](../recording/trace_filtering.md) is a reasonable choice to exclude unnecessary nodes/topics based on the output result.
-The following sample codes show command execution as examples.
+      ```bash
+      source /opt/ros/humble/setup.bash
+      source ~/ros2_caret_ws/install/local_setup.bash
+      ```
+
+<prettier-ignore-end>
+
+## Build results validation
+
+This command checks whether a target application is successfully built with CARET/rclcpp. ([See details](./build_check.md#check-whether-caretrclcpp-is-applied-to-each-package))
 
 ```bash
-# Display the number of trace points for each node
-ros2 caret node_summary -d ~/ros2_ws/evaluate/e2e_sample/
+ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
+```
 
+```bash
+---Output text as below---
+
+INFO    : 2022-09-29 20:18:43 | All packages are built using caret-rclcpp.
+```
+
+## Trace data validation
+
+This command checks whether a recording is successful. ([See details](./validating.md#validating-trace-data))
+
+If there are problems with the recorded data, warning messages will be displayed
+
+```bash
+ros2 caret check_ctf --trace_dir <path-to-trace-data>
+```
+
+## Node summary
+
+This command displays the number of events per node.
+
+```bash
+ros2 caret node_summary --trace_dir <path-to-trace-data>
+```
+
+```bash
 ---Output text as below---
 
 =============================================
@@ -28,10 +62,17 @@ Trace duration          | 0:01:00
  /drive_node          |                     2146
  /sensor_dummy_node   |                     2144
  /actuator_dummy_node |                     1609
+```
 
-# Display the number of trace points for each topic
-ros2 caret topic_summary -d ~/ros2_ws/evaluate/e2e_sample/
+## Topic summary
 
+This command displays the number of events per topic.
+
+```bash
+ros2 caret topic_summary --trace_dir <path-to-trace-data>
+```
+
+```bash
 ---Output text as below---
 
 =============================================
@@ -51,13 +92,20 @@ Trace duration          | 0:01:00
  /rosout           |                        6
 ```
 
+<prettier-ignore-start>
+!!!info
+      If the number of events is too huge to handle, [trace filtering](./trace_filtering.md) is a reasonable choice to exclude unnecessary nodes/topics based on the output result.
+<prettier-ignore-end>
+
 ## Tracepoint summary
 
-The following command allows you to see all tracepoints included in the trace data and the number of events collected by tracepoints.
+This command displays all tracepoints included in the trace data and the number of events collected by tracepoints.
 
 ```bash
-ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/
+ros2 caret trace_point_summary --trace_dir <path-to-trace-data>
+```
 
+```bash
 ---Output text as below---
 
 =============================================
@@ -112,22 +160,23 @@ Trace duration          | 0:01:00
  ros2_caret:tilde_subscription_init                |                        0
 ```
 
-## Filtering summary ranges
+## Filtering for summary commands
 
-Summary display of long trace data (e.g., more than 10 minutes) takes time.
+Executing a summary command for huge trace data (e.g., more than 10 minutes) takes time.
 The following two options allow you to filter the load range of trace data used for summary output.
 In both options, the argument type is float and the unit of time is second.
+
+```bash
+ros2 caret trace_point_summary --trace_dir <path-to-trace-data> --duration_filter <DURATION> <OFFSET>
+ros2 caret trace_point_summary --trace_dir <path-to-trace-data> --strip_filter <LSTRIP> <RSTRIP>
+```
 
 - `--duration_filter [DURATION] [OFFSET]`
   - Load only this [DURATION] from [OFFSET].
 - `--strip_filter [LSTRIP] [RSTRIP]`
   - Ignore trace data for specified seconds from start/end.
 
-An example run with the filtering option is shown below.
-
 ```bash
-ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/ --duration_filter 30 5
-
 ---Output text as below---
 
 =============================================
