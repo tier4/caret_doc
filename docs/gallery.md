@@ -3,7 +3,6 @@
 This page shows examples of figures that can be visualized in CARET.
 CARET visualizes these figures on jupyter-notebook.
 
-
 ## Message flow
 
 ![message_flow](./imgs/message_flow_sample.png)<br>
