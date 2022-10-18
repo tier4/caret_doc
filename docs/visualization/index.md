@@ -30,8 +30,8 @@
 
 **Path**
 
-- [create_response_time_histogram_plot](./visualization_api/response_time)
 - [message_flow](./visualization_api/message_flow.md)
+- [create_response_time_histogram_plot](./visualization_api/response_time)
 
 ### Investigation APIs
 
