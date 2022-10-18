@@ -2,16 +2,19 @@ nav:
     - Visualization: index.md
     - Basic APIs Concept: visualization/concept/basic_api_concept
     - Visualization APIs:
-        - List:
+        - Callback:
+            - Freq/Period/Latency(Execution time): visualization/visualization_api/callback_information
+            - Scheduling: visualization/visualization_api/callback_scheduling_visualization
+        - Node:
+            - Publish/Subscription Information: visualization/visualization_api/pub_sub_information
+        - Communication:
+            - Freq/Period/Latency(Execution time): visualization/visualization_api/communication_information
+        - Path:
             - Message flow: visualization/visualization_api/message_flow
-            - Callback Scheduling Visualization: visualization/visualization_api/callback_scheduling_visualization
+            - Response Time: visualization/visualization_api/response_time
             - Chain latency: visualization/visualization_api/chain_latency
             - Latency time series: visualization/visualization_api/latency_time_series
             - Latency histogram: visualization/visualization_api/latency_histogram
-            - Callback Information: visualization/visualization_api/callback_information
-            - Publish/Subscription Information: visualization/visualization_api/pub_sub_information
-            - Communication Information: visualization/visualization_api/communication_information
-            - Response Time: visualization/visualization_api/response_time
 
     - Investigation APIs:
         - List:

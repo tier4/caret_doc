@@ -1,8 +1,8 @@
 nav:
     - Overview:
       - Overview: index.md
-      - Changelog: changelog.md
       - Gallery: gallery.md
+      - Changelog: changelog.md
     - Installation: installation
     - Tutorials: tutorials
     - Recording: recording
