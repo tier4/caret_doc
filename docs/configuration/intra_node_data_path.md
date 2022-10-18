@@ -39,22 +39,51 @@ subscribe_topic_name: /topic3
 
 On the sample warning message, `/message_driven_node` and `/timer_driven_node` have undefined intra-node data path. You will add the intra-node data path in next step.
 
-## How to add definition intra-node data path to Architecture object
+## Message Context
 
 CARET assumes that node latency is defined as duration from subscription time to publish time. The definition looks simple, but node latency is difficult to define mechanically because some nodes have multiple inputs or multiple outputs.
 
 CARET require users to define **`message_context`** to calculate node latency. One of the following policies is acceptable for `message_context`.
 
-- `callback_chain`
-- `inherit_unique_stamp`
 - `use_latest_message`
+- `callback_chain`
 
-They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency.
+They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency. However, `message_context` is a little difficult for the beginner of CARET without any example. The subsequence section introduces an example issue before explaining the policies.
+
+### Example issue to explain
+
+An example issue on `/ping_node` and `/pong_node` is given as the below figure shows.
+
+![Example Issue](../imgs/message_context_sample_issue.png)
+
+The next items are explaining `/ping_node` and `/pong_node`.
+
+- `/ping_node`
+  - it transmit messages of `/ping` topic to `/pong_node`
+  - it is composed of a single callback function
+- `/pong_node`
+  - it transmits message of `/pong` topic to another node
+  - it is composed of two callback functions; `subscription_callback_0` and `timer_callback_1`
+  - it receives messages of `/ping` topic from `/pong_node` via `subscription_callback_0`
+  - `subscription_callback_0` shares messages `/ping` topic with  `timer_callback_1` via shared variable
+  - `timer_callback_1` produces `/pong` with the shared messages
+
+CARET is concerned which input topic message is mapped to an output message. `message_context` is provided to map input messages to output messages.
+
+### `use_latest_message`
+
+`use_latest_message` policy will map a most recent input message to output message.
+
+
+### `callback_chain`
+
 
 ### Python API
 
 Python API is not implemented so far. Python API support is planned in 2023.
 
 ### Architecture file editing
+
+
 
 ## Limitation
