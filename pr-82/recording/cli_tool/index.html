@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/recording/summary_of_trace_data/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/recording/cli_tool/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
-        <title>Summary of Trace Data - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>CLI tools - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#summary-of-trace-data" class="md-skip">
+        <a href="#cli-tools-for-recording" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Summary of Trace Data
+              CLI tools
             
           </span>
         </div>
@@ -307,6 +307,22 @@
     <li class="md-tabs__item">
       <a href="../../design/" class="md-tabs__link">
         Design
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        FAQ
       </a>
     </li>
   
@@ -608,6 +624,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -636,8 +656,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_to_run_lttng_session/" class="md-nav__link">
-        Lttngセッションの開始方法
+      <a href="../build_check/" class="md-nav__link">
+        Build and check
       </a>
     </li>
   
@@ -651,7 +671,35 @@
   
     <li class="md-nav__item">
       <a href="../trace_filtering/" class="md-nav__link">
-        トレースフィルタリング
+        Trace filtering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recording/" class="md-nav__link">
+        Recording
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validating/" class="md-nav__link">
+        Validating
       </a>
     </li>
   
@@ -674,12 +722,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Summary of Trace Data
+          CLI tools
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Summary of Trace Data
+        CLI tools
       </a>
       
         
@@ -698,8 +746,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nodetopic-summary" class="md-nav__link">
-    Node/topic summary
+  <a href="#build-results-validation" class="md-nav__link">
+    Build results validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace-data-validation" class="md-nav__link">
+    Trace data validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-summary" class="md-nav__link">
+    Node summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topic-summary" class="md-nav__link">
+    Topic summary
   </a>
   
 </li>
@@ -712,8 +781,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filtering-summary-ranges" class="md-nav__link">
-    Filtering summary ranges
+  <a href="#filtering-for-summary-commands" class="md-nav__link">
+    Filtering for summary commands
   </a>
   
 </li>
@@ -733,8 +802,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../use_sim_time/" class="md-nav__link">
-        sim_timeでの時系列データ評価
+      <a href="../sim_time/" class="md-nav__link">
+        ROS time (sim_time) support
       </a>
     </li>
   
@@ -1734,6 +1803,50 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../faq/">FAQ</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1761,8 +1874,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nodetopic-summary" class="md-nav__link">
-    Node/topic summary
+  <a href="#build-results-validation" class="md-nav__link">
+    Build results validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace-data-validation" class="md-nav__link">
+    Trace data validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-summary" class="md-nav__link">
+    Node summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topic-summary" class="md-nav__link">
+    Topic summary
   </a>
   
 </li>
@@ -1775,8 +1909,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filtering-summary-ranges" class="md-nav__link">
-    Filtering summary ranges
+  <a href="#filtering-for-summary-commands" class="md-nav__link">
+    Filtering for summary commands
   </a>
   
 </li>
@@ -1795,22 +1929,41 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/recording/summary_of_trace_data.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/recording/cli_tool.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="summary-of-trace-data">Summary of trace data<a class="headerlink" href="#summary-of-trace-data" title="Permanent link">#</a></h1>
-<p>CARET provides CLI that displays the number of collected events, including trace data, per node, topic, or tracepoint.</p>
-<h2 id="nodetopic-summary">Node/topic summary<a class="headerlink" href="#nodetopic-summary" title="Permanent link">#</a></h2>
-<p>This CLI displays the number of events per node or topic.
-If the number of events is too huge to handle, <a href="../trace_filtering/">trace filtering</a> is a reasonable choice to exclude unnecessary nodes/topics based on the output result.
-The following sample codes show command execution as examples.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Display the number of trace points for each node</span>
-ros2 caret node_summary -d ~/ros2_ws/evaluate/e2e_sample/
+<h1 id="cli-tools-for-recording">CLI tools for recording<a class="headerlink" href="#cli-tools-for-recording" title="Permanent link">#</a></h1>
+<p>CARET provides CLI tools which can be utilized at recording process.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>CARET environment settings need to be performed to use these CLI tools by the following commands.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
+<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+</code></pre></div>
+</div>
+<p><prettier-ignore-end></p>
+<h2 id="build-results-validation">Build results validation<a class="headerlink" href="#build-results-validation" title="Permanent link">#</a></h2>
+<p>This command checks whether a target application is successfully built with CARET/rclcpp. (<a href="../build_check/#check-whether-caretrclcpp-is-applied-to-each-package">See details</a>)</p>
+<div class="highlight"><pre><span></span><code>ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
----Output text as below---
+INFO    : <span class="m">2022</span>-09-29 <span class="m">20</span>:18:43 <span class="p">|</span> All packages are built using caret-rclcpp.
+</code></pre></div>
+<h2 id="trace-data-validation">Trace data validation<a class="headerlink" href="#trace-data-validation" title="Permanent link">#</a></h2>
+<p>This command checks whether a recording is successful. (<a href="../validating/#validating-trace-data">See details</a>)</p>
+<p>If there are problems with the recorded data, warning messages will be displayed</p>
+<div class="highlight"><pre><span></span><code>ros2 caret check_ctf --trace_dir &lt;path-to-trace-data&gt;
+</code></pre></div>
+<h2 id="node-summary">Node summary<a class="headerlink" href="#node-summary" title="Permanent link">#</a></h2>
+<p>This command displays the number of events per node.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret node_summary --trace_dir &lt;path-to-trace-data&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
 <span class="o">=============================================</span>
 Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
@@ -1826,11 +1979,12 @@ Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
  /drive_node          <span class="p">|</span>                     <span class="m">2146</span>
  /sensor_dummy_node   <span class="p">|</span>                     <span class="m">2144</span>
  /actuator_dummy_node <span class="p">|</span>                     <span class="m">1609</span>
-
-<span class="c1"># Display the number of trace points for each topic</span>
-ros2 caret topic_summary -d ~/ros2_ws/evaluate/e2e_sample/
-
----Output text as below---
+</code></pre></div>
+<h2 id="topic-summary">Topic summary<a class="headerlink" href="#topic-summary" title="Permanent link">#</a></h2>
+<p>This command displays the number of events per topic.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret topic_summary --trace_dir &lt;path-to-trace-data&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
 <span class="o">=============================================</span>
 Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
@@ -1848,11 +2002,17 @@ Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
  /parameter_events <span class="p">|</span>                       <span class="m">66</span>
  /rosout           <span class="p">|</span>                        <span class="m">6</span>
 </code></pre></div>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If the number of events is too huge to handle, <a href="../trace_filtering/">trace filtering</a> is a reasonable choice to exclude unnecessary nodes/topics based on the output result.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="tracepoint-summary">Tracepoint summary<a class="headerlink" href="#tracepoint-summary" title="Permanent link">#</a></h2>
-<p>The following command allows you to see all tracepoints included in the trace data and the number of events collected by tracepoints.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/
-
----Output text as below---
+<p>This command displays all tracepoints included in the trace data and the number of events collected by tracepoints.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-trace-data&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
 <span class="o">=============================================</span>
 Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
@@ -1905,10 +2065,13 @@ Trace duration          <span class="p">|</span> <span class="m">0</span>:01:00
  ros2_caret:add_callback_group_static_executor     <span class="p">|</span>                        <span class="m">0</span>
  ros2_caret:tilde_subscription_init                <span class="p">|</span>                        <span class="m">0</span>
 </code></pre></div>
-<h2 id="filtering-summary-ranges">Filtering summary ranges<a class="headerlink" href="#filtering-summary-ranges" title="Permanent link">#</a></h2>
-<p>Summary display of long trace data (e.g., more than 10 minutes) takes time.
+<h2 id="filtering-for-summary-commands">Filtering for summary commands<a class="headerlink" href="#filtering-for-summary-commands" title="Permanent link">#</a></h2>
+<p>Executing a summary command for huge trace data (e.g., more than 10 minutes) takes time.
 The following two options allow you to filter the load range of trace data used for summary output.
 In both options, the argument type is float and the unit of time is second.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary --trace_dir &lt;path-to-trace-data&gt; --duration_filter &lt;DURATION&gt; &lt;OFFSET&gt;
+ros2 caret trace_point_summary --trace_dir &lt;path-to-trace-data&gt; --strip_filter &lt;LSTRIP&gt; &lt;RSTRIP&gt;
+</code></pre></div>
 <ul>
 <li><code>--duration_filter [DURATION] [OFFSET]</code><ul>
 <li>Load only this [DURATION] from [OFFSET].</li>
@@ -1919,10 +2082,7 @@ In both options, the argument type is float and the unit of time is second.</p>
 </ul>
 </li>
 </ul>
-<p>An example run with the filtering option is shown below.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret trace_point_summary -d ~/ros2_ws/evaluate/e2e_sample/ --duration_filter <span class="m">30</span> <span class="m">5</span>
-
----Output text as below---
+<div class="highlight"><pre><span></span><code>---Output text as below---
 
 <span class="o">=============================================</span>
 Trace creation datetime <span class="p">|</span> <span class="m">2022</span>-07-16 <span class="m">17</span>:34:07
@@ -2002,7 +2162,7 @@ Filtered trace duration <span class="p">|</span> <span class="m">0</span>:00:29
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../trace_filtering/" class="md-footer__link md-footer__link--prev" aria-label="Previous: トレースフィルタリング" rel="prev">
+        <a href="../validating/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Validating" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2011,20 +2171,20 @@ Filtered trace duration <span class="p">|</span> <span class="m">0</span>:00:29
               <span class="md-footer__direction">
                 Previous
               </span>
-              トレースフィルタリング
+              Validating
             </div>
           </div>
         </a>
       
       
         
-        <a href="../use_sim_time/" class="md-footer__link md-footer__link--next" aria-label="Next: sim_timeでの時系列データ評価" rel="next">
+        <a href="../sim_time/" class="md-footer__link md-footer__link--next" aria-label="Next: ROS time (sim_time) support" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              sim_timeでの時系列データ評価
+              ROS time (sim_time) support
             </div>
           </div>
           <div class="md-footer__button md-icon">

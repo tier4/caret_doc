@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#recording" class="md-skip">
+        <a href="#recording-with-caret" class="md-skip">
           Skip to content
         </a>
       
@@ -307,6 +307,22 @@
     <li class="md-tabs__item">
       <a href="../design/" class="md-tabs__link">
         Design
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../faq/" class="md-tabs__link">
+        FAQ
       </a>
     </li>
   
@@ -608,6 +624,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -636,8 +656,8 @@
   
   
     <li class="md-nav__item">
-      <a href="how_to_run_lttng_session/" class="md-nav__link">
-        Lttngセッションの開始方法
+      <a href="build_check/" class="md-nav__link">
+        Build and check
       </a>
     </li>
   
@@ -651,7 +671,7 @@
   
     <li class="md-nav__item">
       <a href="trace_filtering/" class="md-nav__link">
-        トレースフィルタリング
+        Trace filtering
       </a>
     </li>
   
@@ -664,8 +684,8 @@
   
   
     <li class="md-nav__item">
-      <a href="summary_of_trace_data/" class="md-nav__link">
-        Summary of Trace Data
+      <a href="recording/" class="md-nav__link">
+        Recording
       </a>
     </li>
   
@@ -678,8 +698,36 @@
   
   
     <li class="md-nav__item">
-      <a href="use_sim_time/" class="md-nav__link">
-        sim_timeでの時系列データ評価
+      <a href="validating/" class="md-nav__link">
+        Validating
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cli_tool/" class="md-nav__link">
+        CLI tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sim_time/" class="md-nav__link">
+        ROS time (sim_time) support
       </a>
     </li>
   
@@ -1679,6 +1727,50 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../faq/">FAQ</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1699,6 +1791,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-record-trace-data-with-caret" class="md-nav__link">
+    Steps to record trace data with CARET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-tips" class="md-nav__link">
+    Other tips
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1717,7 +1831,19 @@
   </a>
 
 
-<h1 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h1>
+<h1 id="recording-with-caret">Recording with CARET<a class="headerlink" href="#recording-with-caret" title="Permanent link">#</a></h1>
+<h2 id="steps-to-record-trace-data-with-caret">Steps to record trace data with CARET<a class="headerlink" href="#steps-to-record-trace-data-with-caret" title="Permanent link">#</a></h2>
+<ul>
+<li>Build a target application with CARET and check it (<a href="build_check/">See details</a>)</li>
+<li>(Optional) Configure trace filter (<a href="trace_filtering/">See details</a>)</li>
+<li>Record the application (<a href="recording/">See details</a>)</li>
+<li>Validate trace data (<a href="validating/">See details</a>)</li>
+</ul>
+<h2 id="other-tips">Other tips<a class="headerlink" href="#other-tips" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="cli_tool/">CLI tools</a></li>
+<li><a href="sim_time/">ROS time (sim_time) support</a></li>
+</ul>
 
 
 
@@ -1759,13 +1885,13 @@
       
       
         
-        <a href="how_to_run_lttng_session/" class="md-footer__link md-footer__link--next" aria-label="Next: Lttngセッションの開始方法" rel="next">
+        <a href="build_check/" class="md-footer__link md-footer__link--next" aria-label="Next: Build and check" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Lttngセッションの開始方法
+              Build and check
             </div>
           </div>
           <div class="md-footer__button md-icon">

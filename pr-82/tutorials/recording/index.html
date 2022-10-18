@@ -312,6 +312,22 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        FAQ
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -696,6 +712,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -724,8 +744,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/how_to_run_lttng_session/" class="md-nav__link">
-        Lttngセッションの開始方法
+      <a href="../../recording/build_check/" class="md-nav__link">
+        Build and check
       </a>
     </li>
   
@@ -739,7 +759,7 @@
   
     <li class="md-nav__item">
       <a href="../../recording/trace_filtering/" class="md-nav__link">
-        トレースフィルタリング
+        Trace filtering
       </a>
     </li>
   
@@ -752,8 +772,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/summary_of_trace_data/" class="md-nav__link">
-        Summary of Trace Data
+      <a href="../../recording/recording/" class="md-nav__link">
+        Recording
       </a>
     </li>
   
@@ -766,8 +786,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/use_sim_time/" class="md-nav__link">
-        sim_timeでの時系列データ評価
+      <a href="../../recording/validating/" class="md-nav__link">
+        Validating
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recording/cli_tool/" class="md-nav__link">
+        CLI tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recording/sim_time/" class="md-nav__link">
+        ROS time (sim_time) support
       </a>
     </li>
   
@@ -1767,6 +1815,50 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../faq/">FAQ</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1919,7 +2011,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <span class="c1"># the recorded data will be stored into ~/ros_ws/evaluate/e2e_sample in this sample</span>
 </code></pre></div>
 <p>Note that if you execute the target application before executing LTTng session will result in a lack of trace points.</p>
-<p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../../recording/how_to_run_lttng_session/">LTTng セッションの開始方法</a>.<br />
+<p>You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to <a href="../recording/how_to_run_lttng_session.md">LTTng セッションの開始方法</a>.<br />
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by <code>ros2 launch</code> is a reasonable way to apply CARET repeatedly.</p>
 <h3 id="launching-the-target-application">Launching the target application<a class="headerlink" href="#launching-the-target-application" title="Permanent link">#</a></h3>
 <ol>
@@ -2005,7 +2097,7 @@ WARNING : <span class="m">2022</span>-04-27 <span class="m">08</span>:29:14 <spa
 <ul>
 <li>to filter topics and nodes which can be ignored with trace filtering explained in the previous section<ul>
 <li>especially, filtering highly-frequent nodes and topics is effective</li>
-<li>highly-frequent nodes/topics can be identified by checking the <a href="../../recording/summary_of_trace_data/">summary of trace data</a></li>
+<li>highly-frequent nodes/topics can be identified by checking the <a href="../recording/summary_of_trace_data.md">summary of trace data</a></li>
 </ul>
 </li>
 <li>to increase size of ring buffer defined in <a href="https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F"><code>lttng_impl.py</code></a></li>
