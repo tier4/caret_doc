@@ -1052,12 +1052,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-add-definition-intra-node-data-path-to-architecture-object" class="md-nav__link">
-    How to add definition intra-node data path to Architecture object
+  <a href="#message-context" class="md-nav__link">
+    Message Context
   </a>
   
-    <nav class="md-nav" aria-label="How to add definition intra-node data path to Architecture object">
+    <nav class="md-nav" aria-label="Message Context">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-issue-to-explain" class="md-nav__link">
+    Example issue to explain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_latest_message" class="md-nav__link">
+    use_latest_message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain" class="md-nav__link">
+    callback_chain
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#python-api" class="md-nav__link">
@@ -1292,12 +1313,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-add-definition-intra-node-data-path-to-architecture-object" class="md-nav__link">
-    How to add definition intra-node data path to Architecture object
+  <a href="#message-context" class="md-nav__link">
+    Message Context
   </a>
   
-    <nav class="md-nav" aria-label="How to add definition intra-node data path to Architecture object">
+    <nav class="md-nav" aria-label="Message Context">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-issue-to-explain" class="md-nav__link">
+    Example issue to explain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use_latest_message" class="md-nav__link">
+    use_latest_message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain" class="md-nav__link">
+    callback_chain
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#python-api" class="md-nav__link">
@@ -1374,15 +1416,37 @@
 <span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
 </code></pre></div>
 <p>On the sample warning message, <code>/message_driven_node</code> and <code>/timer_driven_node</code> have undefined intra-node data path. You will add the intra-node data path in next step.</p>
-<h2 id="how-to-add-definition-intra-node-data-path-to-architecture-object">How to add definition intra-node data path to Architecture object<a class="headerlink" href="#how-to-add-definition-intra-node-data-path-to-architecture-object" title="Permanent link">#</a></h2>
+<h2 id="message-context">Message Context<a class="headerlink" href="#message-context" title="Permanent link">#</a></h2>
 <p>CARET assumes that node latency is defined as duration from subscription time to publish time. The definition looks simple, but node latency is difficult to define mechanically because some nodes have multiple inputs or multiple outputs.</p>
 <p>CARET require users to define <strong><code>message_context</code></strong> to calculate node latency. One of the following policies is acceptable for <code>message_context</code>.</p>
 <ul>
-<li><code>callback_chain</code></li>
-<li><code>inherit_unique_stamp</code></li>
 <li><code>use_latest_message</code></li>
+<li><code>callback_chain</code></li>
 </ul>
-<p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency.</p>
+<p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency. However, <code>message_context</code> is a little difficult for the beginner of CARET without any example. The subsequence section introduces an example issue before explaining the policies.</p>
+<h3 id="example-issue-to-explain">Example issue to explain<a class="headerlink" href="#example-issue-to-explain" title="Permanent link">#</a></h3>
+<p>An example issue on <code>/ping_node</code> and <code>/pong_node</code> is given as the below figure shows.</p>
+<p><img alt="Example Issue" src="../../imgs/message_context_sample_issue.png" /></p>
+<p>The next items are explaining <code>/ping_node</code> and <code>/pong_node</code>.</p>
+<ul>
+<li><code>/ping_node</code><ul>
+<li>it transmit messages of <code>/ping</code> topic to <code>/pong_node</code></li>
+<li>it is composed of a single callback function</li>
+</ul>
+</li>
+<li><code>/pong_node</code><ul>
+<li>it transmits message of <code>/pong</code> topic to another node</li>
+<li>it is composed of two callback functions; <code>subscription_callback_0</code> and <code>timer_callback_1</code></li>
+<li>it receives messages of <code>/ping</code> topic from <code>/pong_node</code> via <code>subscription_callback_0</code></li>
+<li><code>subscription_callback_0</code> shares messages <code>/ping</code> topic with  <code>timer_callback_1</code> via shared variable</li>
+<li><code>timer_callback_1</code> produces <code>/pong</code> with the shared messages</li>
+</ul>
+</li>
+</ul>
+<p>CARET is concerned which input topic message is mapped to an output message. <code>message_context</code> is provided to map input messages to output messages.</p>
+<h3 id="use_latest_message"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h3>
+<p><code>use_latest_message</code> policy will map a most recent input message to output message.</p>
+<h3 id="callback_chain"><code>callback_chain</code><a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h3>
 <h3 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h3>
 <p>Python API is not implemented so far. Python API support is planned in 2023.</p>
 <h3 id="architecture-file-editing">Architecture file editing<a class="headerlink" href="#architecture-file-editing" title="Permanent link">#</a></h3>
