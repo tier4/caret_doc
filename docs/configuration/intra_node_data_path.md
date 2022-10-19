@@ -89,7 +89,6 @@ In the timing chart, red dotted lines explains a pitfall of `use_latest_message`
 
 `callback_chain` is introduced for CARET to be aware of node structure.
 
-
 ### Python API
 
 Python API is not implemented so far. Python API support is planned in 2023.
