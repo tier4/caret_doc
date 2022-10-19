@@ -92,7 +92,9 @@ In the timing chart, red dotted lines explains a pitfall of `use_latest_message`
 <<<<<<< HEAD
 
 =======
->>>>>>> takam5f2/add-and-refine-configuration-chapter
+
+> > > > > > > takam5f2/add-and-refine-configuration-chapter
+
 ### Python API
 
 Python API is not implemented so far. Python API support is planned in 2023.
