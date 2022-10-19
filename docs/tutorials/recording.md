@@ -61,7 +61,7 @@ ros2 trace -s e2e_sample -k -u "ros2*"
 
 Note that if you execute the target application before executing LTTng session will result in a lack of trace points.
 
-You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to [LTTng セッションの開始方法](../recording/how_to_run_lttng_session.md).  
+You can execute LTTng session via ROS launch system. If you are interested in this topic, please refer to [recording section](../recording/recording.md).  
 When you execute a LTTng session in one terminal, you have to open another terminal for executing the target application. Operating multiple terminals is laborious for users. Launch LTTng session along with application by `ros2 launch` is a reasonable way to apply CARET repeatedly.
 
 ### Launching the target application
@@ -163,5 +163,5 @@ You can avoid this error with the following two approach.
 
 - to filter topics and nodes which can be ignored with trace filtering explained in the previous section
   - especially, filtering highly-frequent nodes and topics is effective
-  - highly-frequent nodes/topics can be identified by checking the [summary of trace data](../recording/summary_of_trace_data.md)
+  - highly-frequent nodes/topics can be identified with [CLI commands](../recording/cli_tool.md)
 - to increase size of ring buffer defined in [`lttng_impl.py`](https://github.com/tier4/ros2_tracing/blob/2cd9d104664b4bf4d7507d01e5553129eefe1c9a/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L109F)
