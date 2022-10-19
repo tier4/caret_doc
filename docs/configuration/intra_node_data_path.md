@@ -65,7 +65,7 @@ The next items are explaining `/ping_node` and `/pong_node`.
   - it transmits message of `/pong` topic to another node
   - it is composed of two callback functions; `subscription_callback_0` and `timer_callback_1`
   - it receives messages of `/ping` topic from `/pong_node` via `subscription_callback_0`
-  - `subscription_callback_0` shares messages `/ping` topic with  `timer_callback_1` via shared variable
+  - `subscription_callback_0` shares messages `/ping` topic with `timer_callback_1` via shared variable
   - `timer_callback_1` produces `/pong` with the shared messages
   - `timer_callback_1` runs about 8/5 as frequent as `timer_callback_0`
 
@@ -95,7 +95,5 @@ In the timing chart, red dotted lines explains a pitfall of `use_latest_message`
 Python API is not implemented so far. Python API support is planned in 2023.
 
 ### Architecture file editing
-
-
 
 ## Limitation
