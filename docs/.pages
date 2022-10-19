@@ -1,6 +1,7 @@
 nav:
     - Overview:
       - Overview: index.md
+      - Gallery: gallery.md
       - Changelog: changelog.md
     - Installation: installation
     - Tutorials: tutorials

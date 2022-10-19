@@ -1,8 +1,23 @@
 nav:
     - Visualization: index.md
-    - ギャラリー: gallery.md
-    - LTTngEventFilterの使用方法: lttng_event_filter.md
-    - treat_drop_as_delayフラグの説明: about_treat_drop_as_delay.md
-    - トラブルシューティング: trouble_shooting.md
-    - Path Verification: path_verify.md
-    - Detailed Behavior Investigation Methods: investigate_behavior.md
+    - Basic APIs Concept: visualization/concept/basic_api_concept
+    - Visualization APIs:
+        - Callback:
+            - Freq/Period/Latency(Execution time): visualization/visualization_api/callback_information
+            - Scheduling: visualization/visualization_api/callback_scheduling_visualization
+        - Node:
+            - Publish/Subscription Information: visualization/visualization_api/pub_sub_information
+        - Communication:
+            - Freq/Period/Latency(Execution time): visualization/visualization_api/communication_information
+        - Path:
+            - Message flow: visualization/visualization_api/message_flow
+            - Response Time: visualization/visualization_api/response_time
+            - Chain latency: visualization/visualization_api/chain_latency
+            - Latency time series: visualization/visualization_api/latency_time_series
+            - Latency histogram: visualization/visualization_api/latency_histogram
+
+    - Investigation APIs:
+        - List:
+            - Usage of LTTngEventFilter: visualization/investigation_api/lttng_event_filter
+            - Path Verification: visualization/investigation_api/path_verify
+            - Detailed Behavior Investigation Methods: visualization/investigation_api/investigate_behavior
