@@ -20,7 +20,7 @@ pub = pub[0]
 ## Frequency
 
 ```python
-plot = Plot.create_publish_subscription_frequency_plot(publish)
+plot = Plot.create_publish_subscription_frequency_plot(pub)
 plot.show()
 ```
 
@@ -29,7 +29,7 @@ plot.show()
 ## Period
 
 ```python
-plot = Plot.create_publish_subscription_period_plot(publish)
+plot = Plot.create_publish_subscription_period_plot(pub)
 plot.show()
 ```
 

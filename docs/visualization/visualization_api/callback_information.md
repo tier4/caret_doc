@@ -8,7 +8,7 @@ from caret_analyze.plot import Plot
 from caret_analyze import Application, Architecture, Lttng
 from bokeh.plotting import output_notebook, figure, show
 output_notebook()
-
+#output_notebook() is needed only when you run the script on Jupyter Notebook
 arch = Architecture('yaml', '/path/to/architecture_file')
 lttng = Lttng('/path/to/trace_data')
 app = Application(arch, lttng)

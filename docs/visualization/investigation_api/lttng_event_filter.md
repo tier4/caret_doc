@@ -44,4 +44,4 @@ lttng = Lttng('/path/to/ctf', event_filters=[
 ```
 
 Multiple event_filters can be specified.  
-If you include more than one, all filters will be filtered to the specified interval only.
+If there are multiple event_filters have been given, all filters will be applied to the selected interval only.
