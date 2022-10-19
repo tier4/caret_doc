@@ -50,6 +50,9 @@ CARET require users to define **`message_context`** to calculate node latency. O
 
 They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency. However, `message_context` is a little difficult for the beginner of CARET without any example. The subsequence section introduces an example issue before explaining the policies.
 
+These two policies are not enough to cover the arbitrally node latency, and some implementations have node latency that cannot be measured.
+For example, message filter is currently unable to measure.
+
 ### Example issue
 
 An example issue on `/ping_node` and `/pong_node` is given as the below figure shows.
