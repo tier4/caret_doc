@@ -48,5 +48,3 @@ Detail : [Latency](visualization\visualization_api/callback_information.md#laten
 
 ![Callback_Scheduling_Visualization_sample](./imgs/callback_sched_sample.png)<br>
 Detail : [Callback Scheduling Visualization](visualization\visualization_api\callback_scheduling_visualization.md)
-
-
