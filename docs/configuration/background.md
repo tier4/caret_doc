@@ -1,6 +1,6 @@
 # Background
 
-CARET is capable of showing the following 4 latency:
+CARET is mainly capable of showing the following 4 latency:
 
 - callback latency
 - communication latency (inter-node)
