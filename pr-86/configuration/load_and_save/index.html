@@ -1383,7 +1383,7 @@
 
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/ctf-based_recorded_data&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>You will find <code>caret_analyze.architecture.architecture.Architecture</code>-based object, named '<code>arch</code>'.</p>
+<p>You will find <code>caret_analyze.architecture.Architecture</code>-based object, named '<code>arch</code>'.</p>
 <p>Loading an architecture object from CTF-based recorded data tends to be time-consuming task.</p>
 <h3 id="load-from-a-yaml-based-architecture-file">Load from a YAML-based architecture file<a class="headerlink" href="#load-from-a-yaml-based-architecture-file" title="Permanent link">#</a></h3>
 <p>As I mentioned, CARET serves a function to stored an architecture object into YAML-based architecture file for reusability. It can save loading time and preserve update of the object. You can load it from YAML-based file with only replacing '<code>lttng</code>' of the first argument of <code>Architecture</code> constructor by '<code>yaml</code>'.</p>
