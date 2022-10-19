@@ -33,11 +33,11 @@
 - [message_flow](./visualization_api/message_flow.md)
 - [create_response_time_histogram_plot](./visualization_api/response_time.md)
 
-### Investigation APIs
+### Helper APIs
 
-CARET provides some APIs to investigate more detail.
+CARET provides some APIs which can help user to focus on his/her respecive interest.
 
-- [LTTngEventFilter](./investigation_api/lttng_event_filter.md)
-- [get_callbacks](./investigation_api/investigate_behavior.md)
+- [LTTngEventFilter](./helper_api/lttng_event_filter.md)
+- [get_callbacks](./helper_api/scope_switch_method.md)
 
 Note: [CARET analyze API document](https://tier4.github.io/CARET_analyze/).

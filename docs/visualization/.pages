@@ -16,8 +16,8 @@ nav:
             - Latency time series: visualization/visualization_api/latency_time_series
             - Latency histogram: visualization/visualization_api/latency_histogram
 
-    - Investigation APIs:
+    - Helper APIs:
         - List:
-            - Usage of LTTngEventFilter: visualization/investigation_api/lttng_event_filter
-            - Path Verification: visualization/investigation_api/path_verify
-            - Detailed Behavior Investigation Methods: visualization/investigation_api/investigate_behavior
+            - Usage of LTTngEventFilter: visualization/helper_api/lttng_event_filter
+            - Path Verification: visualization/helper_api/path_verify
+            - Detailed Behavior Investigation Methods: visualization/helper_api/scope_switch_method
