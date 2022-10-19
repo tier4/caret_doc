@@ -1,3 +1,19 @@
 {
-  "words": ["dataframe"]
+  "words": [
+    "babeltrace",
+    "binsize",
+    "cpuid",
+    "dataframe",
+    "Hashable",
+    "lsplit",
+    "minc",
+    "Passingvalue",
+    "Recordsinterface",
+    "Summarizable",
+    "Timeseries",
+    "tracepoint",
+    "tracepoints",
+    "tracetools",
+    "varpass"
+  ]
 }
