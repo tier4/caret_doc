@@ -76,7 +76,7 @@ erDiagram
 ```
 
 Using addresses, tid and source timestamp, it is possible to uniquely identify and bind from the rclcpp publish to the end of subscription node callback.
-On the other hand, callback start and publish cannot be automatically binded.
+On the other hand, callback start and publish cannot be automatically bound.
 This is because the relationship between callback and publish is highly implementation-dependent.
 
 message_construct and dds_bind_addr_to_addr are trace points to adapt to copying and converting instances for binding.

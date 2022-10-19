@@ -1,6 +1,6 @@
 # How to define intra-node data path
 
-In the previous section, you learned how to define inter-node data path. CARET can calculate response time for a simple path using only inter-node data path definition. However, when a target application or path becomes complicated, intra-node-data path needs to be defiend as well as inter-node data path.
+In the previous section, you learned how to define inter-node data path. CARET can calculate response time for a simple path using only inter-node data path definition. However, when a target application or path becomes complicated, intra-node-data path needs to be defined as well as inter-node data path.
 
 CARET assume that intra-node data path is mapping of topic subscription and publish in a node. This is not defined simply because the definition depends on implementation.
 
@@ -50,7 +50,7 @@ CARET require users to define **`message_context`** to calculate node latency. O
 
 They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency. However, `message_context` is a little difficult for CARET beginners without any example. The subsequence section introduces an example issue before explaining the policies.
 
-These two policies are not enough to cover the arbitrally node latency, and some implementations have node latency that cannot be measured.
+These two policies are not enough to cover the arbitrary node latency, and some implementations have node latency that cannot be measured.
 For example, message filter is currently unable to measure.
 
 ### Example issue
