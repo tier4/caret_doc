@@ -2,7 +2,7 @@
 
 Response Time is shown in Histogram.
 Response Time has 3 cases ([default, best, worst]).
-The difference is described in [Here](../../faq/index#how-response-time-is-calculated).
+The difference is described in [Here](../../faq/index.md#how-response-time-is-calculated).
 
 ```python
 from caret_analyze.plot import Plot
