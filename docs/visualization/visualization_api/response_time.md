@@ -20,7 +20,7 @@ plot = Plot.create_response_time_histogram_plot(path)
 plot.show()
 ```
 
-![response_time_default_histoguram](../../imgs/response_time_default_histogram.png)
+![response_time_default_histogram](../../imgs/response_time_default_histogram.png)
 
 ```python
 # plot best case
@@ -28,7 +28,7 @@ plot = Plot.create_response_time_histogram_plot(path, case='best')
 plot.show()
 ```
 
-![response_time_best_histoguram](../../imgs/response_time_best_histogram.png)
+![response_time_best_histogram](../../imgs/response_time_best_histogram.png)
 
 ```python
 # plot worst case
@@ -36,4 +36,4 @@ plot = Plot.create_response_time_histogram_plot(path, case='worst')
 plot.show()
 ```
 
-![response_time_worst_histoguram](../../imgs/response_time_worst_histogram.png)
+![response_time_worst_histogram](../../imgs/response_time_worst_histogram.png)
