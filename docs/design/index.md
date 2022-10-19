@@ -20,13 +20,12 @@ Configuration phase
 
 Analyzing phase
 
-1. [Processing trace data](./processing_trace_data/)
+1. [Processing trace data](./processing_trace_data/index.md)
 
 In addition, the followings are explained.
 
 - [Software architecture](./software_architecture/index.md)
-- [Latency definition](./latency_definitions/index.md)
-- [Limits and constraints](./latency_definitions/index.md)
+- [Limits and constraints](./limits_and_constraints/index.md)
 
 See also
 

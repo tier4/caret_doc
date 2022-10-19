@@ -18,7 +18,7 @@ The rest of this chapter will explain the following two types of sections;
 In detail, the following sections are listed as below.
 
 - [**Background of configuration**](./background.md) section will explain detailed background of configuration phase
-- [**How to load and save**](./create_and_verify_architecture.md) section will tell you how to load and save configuration
+- [**How to load and save**](./load_and_save.md) section will tell you how to load and save configuration
 - [**How to define inter-node data path**](./inter_node_data_path.md) section will tell you how to use `architecture.search_paths()`
 - [**How to define intra-node data path**](./intra_node_data_path.md) will let you know what `message_context` is. This is advanced topic than others
 - **Practical example with CARET_sample** will be available in the near future, but it is available in [tutorial page](../tutorials/configuration.md)
