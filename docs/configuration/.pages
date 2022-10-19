@@ -1,6 +1,7 @@
 nav:
     - Configuration: index.md
-    - アーキテクチャファイルフォーマット: architecture_format.md
-    - パスの探索方法: how_to_search_path.md
-    - ノードレイテンシの算出方法の指定: how_to_write_architecture.md
-    - Creation and Verification of Architecture file with CLI: create_and_verify_architecture.md
+    - Background of configuration: background.md
+    - Load and save: load_and_save.md
+    - Define inter-node data path: inter_node_data_path.md
+    - Define intra-node data path: intra_node_data_path.md
+    - Visualize application structure: visualize_application_structure.md

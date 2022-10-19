@@ -35,7 +35,7 @@ colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD
       To use CARET, you need to use forked shared libraries and headers such as caret-rclcpp.
       In the test codes, caret-rclcpp is not available due to loading priority issues for headers.
       Depending on the version of CARET, conflicts may occur between the shared libraries of
-      ros-rclcpp and the headers of cadret-rclcpp, resulting in compile errors.
+      ros-rclcpp and the headers of caret-rclcpp, resulting in compile errors.
       Therefore, the test codes are excluded from building.
 <prettier-ignore-end>
 
