@@ -89,7 +89,10 @@ In the timing chart, red dotted lines explains a pitfall of `use_latest_message`
 
 `callback_chain` is introduced for CARET to map input message to output based on node structure. `callback_chain` solves the pitfall of `use_latest_message` as mentioned above.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> takam5f2/add-and-refine-configuration-chapter
 ### Python API
 
 Python API is not implemented so far. Python API support is planned in 2023.
