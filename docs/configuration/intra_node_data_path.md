@@ -168,3 +168,4 @@ On the other hand, CARET requires users to provide the following description if 
 ```
 
 User have to fill callback name in `variable_passings`, `publishes`'s `callback_name`. `context_type` must be set as `callback_chain`.
+After editing, use path.verify() described in the first half of this chapter to verify that it has been set correctly.
