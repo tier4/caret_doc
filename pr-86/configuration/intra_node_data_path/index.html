@@ -1450,6 +1450,8 @@
 <li><code>callback_chain</code></li>
 </ul>
 <p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency. However, <code>message_context</code> is a little difficult for the beginner of CARET without any example. The subsequence section introduces an example issue before explaining the policies.</p>
+<p>These two policies are not enough to cover the arbitrally node latency, and some implementations have node latency that cannot be measured.
+For example, message filter is currently unable to measure.</p>
 <h3 id="example-issue">Example issue<a class="headerlink" href="#example-issue" title="Permanent link">#</a></h3>
 <p>An example issue on <code>/ping_node</code> and <code>/pong_node</code> is given as the below figure shows.</p>
 <p><img alt="Example Issue" src="../../imgs/message_context_sample_issue.png" /></p>
