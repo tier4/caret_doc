@@ -61,12 +61,13 @@ Refer to these page if you want to try.
 
 ### Design
 
-Design documents is prepared, but some are written in Japanese.
-
-- [Architecture overview](./design/architecture_overview.md)
-- [Supported tracepoints](./design/supported_tracepoints.md)
-<!-- - [records型について](./about_records_type.md) -->
-- [galactic との差分(staled)](./design/diff.md)
+- [Index](./design)
+- [Software architecture](./design/software_architecture/index.md)
+- [Processing trace data](./design/processing_trace_data/index.md)
+- [Runtime processing](./design/runtime_processing/index.md)
+- [Tracepoints](./design/trace_points/index.md)
+- [Configuration](./design/configuration/index.md)
+- [Limits and constraints](./design/limits_and_constraints/index.md)
 
 ### Details of each step for analysis
 
