@@ -1402,7 +1402,7 @@
 <span class="err">!</span> <span class="n">readlink</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">destination</span><span class="o">//</span><span class="n">architecture</span><span class="o">.</span><span class="n">yaml</span>
 <span class="c1"># /path/to/destination/architecture.yaml</span>
 </code></pre></div>
-<p>The argument of <code>arch.export()</code> is string type and means file path to store the <code>arch</code> object. In this sample, <code>architecture.yaml</code> will be created in <code>/path/to/destination</code> directory unless the destination path is writable or another file of the same name exists.</p>
+<p>The argument of <code>arch.export()</code> is string type and means file path to store the <code>arch</code> object. In this sample, <code>architecture.yaml</code> will be created in <code>/path/to/destination</code> directory if the destination path is writable or another file of the same name does exist.</p>
 <p><code>arch.export()</code> has the second argument, <code>force</code>, to allow you to overwrite the <code>arch</code> object into an existing file. The following sample shows how to overwrite.</p>
 <div class="highlight"><pre><span></span><code><span class="n">arch</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s1">&#39;/path/to/destination/architecture.yaml&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 

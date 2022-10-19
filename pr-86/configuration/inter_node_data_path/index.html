@@ -1054,8 +1054,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#max_node_depth" class="md-nav__link">
-    max_node_depth
+  <a href="#limiting-maximum-number-of-nodes" class="md-nav__link">
+    Limiting maximum number of nodes
   </a>
   
 </li>
@@ -1314,8 +1314,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#max_node_depth" class="md-nav__link">
-    max_node_depth
+  <a href="#limiting-maximum-number-of-nodes" class="md-nav__link">
+    Limiting maximum number of nodes
   </a>
   
 </li>
@@ -1387,7 +1387,7 @@ The list size will be too large to find target path if application has large num
 <p><code>Architecture.search_paths()</code> method serves four options to narrow down possible paths as below.</p>
 <ol>
 <li><strong>Additional nodes</strong> as variable length arguments</li>
-<li><strong><code>max_node_depth</code></strong> for limiting maximum number of nodes in path</li>
+<li><strong>Limiting maximum number of nodes</strong> between given nodes with <code>max_node_depth</code></li>
 <li><strong>Node filter</strong> which excludes paths including specific nodes</li>
 <li><strong>Communication filter</strong> which excludes paths including specific topics</li>
 </ol>
@@ -1410,8 +1410,8 @@ The list size will be too large to find target path if application has large num
                           <span class="s1">&#39;destination_node&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p><code>paths</code> is a list including multiple paths which pass <code>source_node</code>, <code>intermediate_node_1</code>, <code>intermediate_node_2</code>, and <code>destination_node</code>. They are allowed to pass another node, but all chosen nodes are passed in order.</p>
-<h4 id="max_node_depth"><code>max_node_depth</code><a class="headerlink" href="#max_node_depth" title="Permanent link">#</a></h4>
-<p><code>Architecture.search_paths()</code> will scan all paths as possible if you don't give <code>max_node_depth</code> argument. <code>max_node_depth</code> means maximum number of nodes including a path. The number of candidate paths will be suppressed by this argument.</p>
+<h4 id="limiting-maximum-number-of-nodes">Limiting maximum number of nodes<a class="headerlink" href="#limiting-maximum-number-of-nodes" title="Permanent link">#</a></h4>
+<p><code>Architecture.search_paths()</code> will scan all paths as possible if you don't give <code>max_node_depth</code> argument. <code>max_node_depth</code> means maximum number of nodes included in a path. The number of candidate paths will be suppressed by this argument.</p>
 <p>This argument will be helpful When you waste much time for <code>Architecture.search_paths()</code>.</p>
 <p>The usage is shown as below. This can be used with another approach to filter candidates.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Architecture object is loaded to variable of arch</span>
@@ -1423,7 +1423,7 @@ The list size will be too large to find target path if application has large num
 </code></pre></div>
 <h4 id="node-and-topic-filter">Node and topic filter<a class="headerlink" href="#node-and-topic-filter" title="Permanent link">#</a></h4>
 <p>As node filter is similar to communication filter, they are explained together in this section.</p>
-<p>With node filter and communication filter, <code>Architecture.search_paths()</code> excludes paths which includes selected nodes and topics. They support regular expression.</p>
+<p>With node filter and communication filter, <code>Architecture.search_paths()</code> excludes paths which includes selected nodes or topics. They support regular expression.</p>
 <p>The following sample code shows usage.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
