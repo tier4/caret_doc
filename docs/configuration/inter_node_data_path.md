@@ -78,7 +78,7 @@ paths = arch.search_paths('source_node',
 
 #### Limiting maximum number of nodes
 
-`Architecture.search_paths()` will scan all paths as possible if you don't give `max_node_depth` argument. `max_node_depth` means maximum number of nodes included in a path. The number of candidate paths will be suppressed by this argument.
+`Architecture.search_paths()` will scan all paths as possible if you don't give `max_node_depth` argument. `max_node_depth` means maximum number between given nodes. The number of candidate paths will be suppressed by this argument.
 
 This argument will be helpful When you waste much time for `Architecture.search_paths()`.
 
@@ -88,11 +88,13 @@ The usage is shown as below. This can be used with another approach to filter ca
 # Architecture object is loaded to variable of arch
 
 paths = arch.search_paths('source_node',
-                          'intermediate_node_',
+                          'intermediate_node_1',
                           'destination_node',
                           max_node_depth=10)
 
 ```
+
+`max_node_depth` does not always limit the maximum number of nodes between source and destination. If you give 3 nodes to `arch.search_paths` as shown above, `max_node_depth` does not limits the maximum number of nodes between `source_node` and `destination_node`. In this example, `max_node_depth` limits the number of nodes between `source_node` and `intermediate_node_1`, and that between `intermediate_node_1` and `destination_node`.
 
 #### Node and topic filter
 
