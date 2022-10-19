@@ -89,11 +89,9 @@ In the timing chart, red dotted lines explains a pitfall of `use_latest_message`
 
 `callback_chain` is introduced for CARET to map input messages to outputs based on inter-operation of multiple callback functions. Input messages are consumed in ubscription callbacks and propagated to other nodes. It looks as if input messages passes chains of multiple callbacks to make output messages. With `callback_chain`, CARET take care of input propagation on callbacks and it is helpful to escape the limitation of `use_latest_message` as mentioned above.
 
-Next figure shows how CARET interprets intra-node data path using `callback_chain`. 
-
+Next figure shows how CARET interprets intra-node data path using `callback_chain`.
 
 As well as `use_latest_message`, the following timing chart shows how input messages are mapped to output messages.
-
 
 ### Python API
 
