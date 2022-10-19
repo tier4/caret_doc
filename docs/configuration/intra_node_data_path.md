@@ -1,8 +1,8 @@
 # How to define intra-node data path
 
-In the previous section, you learned how to define inter-node data path. However, response time for path cannot be calculated with only inter-node data path definition. As you will see in the chapter, you have to define intra-node data path.
+In the previous section, you learned how to define inter-node data path. CARET can calculate response time for a simple path using only inter-node data path definition. However, when a target application or path becomes complicated, intra-node-data path needs to be defiend as well as inter-node data path.
 
-CARET assume that intra-node data path is duration from topic subscription to topic publish in a node. This is not defined simply because the definition depends on implementation.
+CARET assume that intra-node data path is mapping of topic subscription and publish in a node. This is not defined simply because the definition depends on implementation.
 
 This section will explain how to find which intra-node data path you have to define, and how to define it.
 
@@ -48,7 +48,7 @@ CARET require users to define **`message_context`** to calculate node latency. O
 - `use_latest_message`
 - `callback_chain`
 
-They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency. However, `message_context` is a little difficult for the beginner of CARET without any example. The subsequence section introduces an example issue before explaining the policies.
+They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency. However, `message_context` is a little difficult for CARET beginners without any example. The subsequence section introduces an example issue before explaining the policies.
 
 These two policies are not enough to cover the arbitrally node latency, and some implementations have node latency that cannot be measured.
 For example, message filter is currently unable to measure.
@@ -92,7 +92,7 @@ In the timing chart, red dotted lines explains a pitfall of `use_latest_message`
 
 `callback_chain` is introduced for CARET to map input messages to outputs based on inter-operation of multiple callback functions. Input messages are consumed in subscription callbacks and propagated to other nodes. It looks as if input messages passes chains of multiple callbacks to make output messages. With `callback_chain`, CARET take care of input propagation on callbacks and it is helpful to escape the limitation of `use_latest_message` as mentioned above.
 
-Next figure shows how CARET interprets intra-node data path using `callback_chain`. Intra-communication between `subscription_callback_0` and `timer_callback_1` is taken into account for defining intra-node data path. `variable_passings` a tag used in CARET, and shows such intra-communication.
+Next figure shows how CARET interprets intra-node data path using `callback_chain`. Intra-communication between `subscription_callback_0` and `timer_callback_1` is taken into account for defining intra-node data path. `variable_passings` is a tag used in CARET, and represents such intra-communication.
 
 ![Example of callback_chain](../imgs/configuration_callback_chain.png)
 
@@ -105,7 +105,7 @@ CARET maps mechanically messages of `/pong` topic to messages of `/ping` which f
 `callback_chain` looks the best choice. However, it has several drawbacks.
 
 - It is not designed for node which have multiple callbacks running at parallel, and response time might be longer than actual
-- It is not able to detect actual time where buffered data are consumed because it does not trace events in application
+- It is not able to detect actual time when buffered data are consumed because only CARET does not trace user code on ROS 2
 - Users are expected to know node structure beforehand
 
 <prettier-ignore-start>
@@ -171,4 +171,4 @@ On the other hand, CARET requires users to provide the following description if 
 ```
 
 User have to fill callback name in `variable_passings`, `publishes`'s `callback_name`. `context_type` must be set as `callback_chain`.
-After editing, use path.verify() described in the first half of this chapter to verify that it has been set correctly.
+After editing, use path.verify() described in the beginning of this section to verify that it has been set correctly.
