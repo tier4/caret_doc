@@ -16,22 +16,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/configuration/architecture_format/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/configuration/background/</loc>
          <lastmod>2022-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/configuration/create_and_verify_architecture/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/configuration/inter_node_data_path/</loc>
          <lastmod>2022-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/configuration/how_to_search_path/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/configuration/intra_node_data_path/</loc>
          <lastmod>2022-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/configuration/how_to_write_architecture/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/configuration/load_and_save/</loc>
+         <lastmod>2022-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/configuration/visualize_application_structure/</loc>
          <lastmod>2022-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>

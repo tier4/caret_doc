@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/configuration/how_to_search_path/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/configuration/background/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
-        <title>パスの探索方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Background of configuration - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#background" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              パスの探索方法
+              Background of configuration
             
           </span>
         </div>
@@ -768,6 +768,8 @@
         
           
         
+          
+        
       
       
         
@@ -794,20 +796,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../architecture_format/" class="md-nav__link">
-        アーキテクチャファイルフォーマット
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -820,12 +808,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          パスの探索方法
+          Background of configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        パスの探索方法
+        Background of configuration
       </a>
       
         
@@ -844,15 +832,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    例
+  <a href="#architecture-object" class="md-nav__link">
+    Architecture object
   </a>
   
 </li>
@@ -872,8 +853,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_to_write_architecture/" class="md-nav__link">
-        ノードレイテンシの算出方法の指定
+      <a href="../load_and_save/" class="md-nav__link">
+        Load and save
       </a>
     </li>
   
@@ -886,8 +867,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_and_verify_architecture/" class="md-nav__link">
-        Creation and Verification of Architecture file with CLI
+      <a href="../inter_node_data_path/" class="md-nav__link">
+        Define inter-node data path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intra_node_data_path/" class="md-nav__link">
+        Define intra-node data path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualize_application_structure/" class="md-nav__link">
+        Visualize application structure
       </a>
     </li>
   
@@ -1334,15 +1343,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    例
+  <a href="#architecture-object" class="md-nav__link">
+    Architecture object
   </a>
   
 </li>
@@ -1361,66 +1363,29 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/configuration/how_to_search_path.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/configuration/background.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">パス探索の高速化<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p><code>search_paths</code>メソッドはノード図を描き、始点に設定したノードから終点に設定したノードまでを一筆書きで辿れる経路（パス）を全探索し、
-見つかった経路（パス）を全て返却する関数です。</p>
-<p>ノード図から全ての探索できるパスを全探索するため、対象のアプリケーションによっては処理に時間がかかりすぎてしまうケースがあります。<br />
-このようなケースで、高速に目的とするパスを探索する方法を説明します。</p>
-<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<p>search_paths では、このような時間がかかりすぎてしまうケースを避けるための API が備わっています。</p>
-<div class="highlight"><pre><span></span><code><span class="n">search_paths</span><span class="p">(</span>
-    <span class="n">start_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
-    <span class="n">end_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
-    <span class="n">max_node_depth</span><span class="p">:</span> <span class="s1">&#39;Optional[int]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">node_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">communication_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;List[PathStructValue]&#39;</span>
-</code></pre></div>
+<h1 id="background">Background<a class="headerlink" href="#background" title="Permanent link">#</a></h1>
+<p>CARET is mainly capable of showing the following 4 latency:</p>
 <ul>
-<li>start_node_name : 探索の始点となるノード名</li>
-<li>end_node_name : 探索の終点となるノード名</li>
-<li>max_node_depth : 探索するパスが含む最大ノード数。小さいほど探索範囲が狭くなります</li>
-<li>node_filter: 探索対象のノードをフィルタする関数。True を返却した場合は探索対象になります。</li>
-<li>communication_filter: 探索対象の通信をフィルタする関数。True を返却した場合は探索対象になります。</li>
+<li>callback latency</li>
+<li>communication latency (inter-node)</li>
+<li>node latency (intra-node)</li>
+<li>path latency (intra-node &amp; inter-node)</li>
 </ul>
-<h2 id="_2">例<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
-
-<span class="c1"># 正規表現に一致するノード名を探索から除外する</span>
-<span class="n">node_filters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/_ros2cli_/*&#39;</span><span class="p">),</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/launch_ros_*&#39;</span><span class="p">),</span>
-<span class="p">]</span>
-
-<span class="c1"># 正規表現に一致するトピック名を探索から除外する</span>
-<span class="n">comm_filters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/tf/*&#39;</span><span class="p">),</span>
-<span class="p">]</span>
-<span class="k">def</span> <span class="nf">comm_filter</span><span class="p">(</span><span class="n">topic_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">for</span> <span class="n">comm_filter</span> <span class="ow">in</span> <span class="n">comm_filters</span><span class="p">:</span>
-        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">comm_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">topic_name</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">can_pass</span>
-
-<span class="k">def</span> <span class="nf">node_filter</span><span class="p">(</span><span class="n">node_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">for</span> <span class="n">node_filter</span> <span class="ow">in</span> <span class="n">node_filters</span><span class="p">:</span>
-        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">node_name</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">can_pass</span>
-
-<span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
-    <span class="s1">&#39;/start_node&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;/end_node&#39;</span><span class="p">,</span>
-    <span class="n">max_node_depth</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-    <span class="n">node_filter</span> <span class="o">=</span> <span class="n">node_filter</span><span class="p">,</span>
-    <span class="n">communication_filter</span> <span class="o">=</span> <span class="n">comm_filter</span><span class="p">)</span>
-</code></pre></div>
+<p>The following figure shows definition of node latency and path latency.</p>
+<p><img alt="Definition node and path latency" src="../../imgs/path_and_node_latency.svg" /></p>
+<p>Callback latency is defined as execution time of a callback function, and can be measured with simple tracepoints. Communication latency between nodes can be defined as time from publish invoking to subscription callback invoking. Identifying callback and topic is not difficult so that their latency are calculated easily.<br />
+However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in ROS layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in an application is equaled to that of nodes combination, so that complicated and large application has large number of paths.<br />
+To deal with such difficulty of defining node and path latency mechanically, CARET requires users to define node and path latency manually via a configurable object , called "<strong>architecture object</strong>".</p>
+<h2 id="architecture-object">Architecture object<a class="headerlink" href="#architecture-object" title="Permanent link">#</a></h2>
+<p>An architecture object has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. CARET can load an architecture object including only application structure section from <a href="https://diamon.org/ctf/">CTF</a>-based recorded data. The application structure section remains same unless the structure is changed or component is renamed.</p>
+<p>On the other hand, latency definition section in the original architecture object is empty just before users add any definition. Users are expected to add definitions of node latency and path latency to the original architecture object. CARET helps users to add definition of node and path latency.</p>
+<p>The following sections explain how to load an architecture object and add latency definition.</p>
 
 
 
@@ -1446,7 +1411,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../architecture_format/" class="md-footer__link md-footer__link--prev" aria-label="Previous: アーキテクチャファイルフォーマット" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuration" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1455,20 +1420,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              アーキテクチャファイルフォーマット
+              Configuration
             </div>
           </div>
         </a>
       
       
         
-        <a href="../how_to_write_architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: ノードレイテンシの算出方法の指定" rel="next">
+        <a href="../load_and_save/" class="md-footer__link md-footer__link--next" aria-label="Next: Load and save" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ノードレイテンシの算出方法の指定
+              Load and save
             </div>
           </div>
           <div class="md-footer__button md-icon">
