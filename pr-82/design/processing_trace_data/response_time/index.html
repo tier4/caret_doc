@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/configuration/how_to_search_path/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/design/processing_trace_data/response_time/">
       
-      <link rel="icon" href="../../assets/images/tier4.png">
+      <link rel="icon" href="../../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
-        <title>パスの探索方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Response time - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -41,11 +41,11 @@
     
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
     
-      <link rel="stylesheet" href="../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#response-time" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288c0-17.7-14.3-32-32-32s-32 14.3-32 32 14.3 32 32 32 32-14.3 32-32zm288 32c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              パスの探索方法
+              Response time
             
           </span>
         </div>
@@ -207,7 +207,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         Overview
       </a>
     </li>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../installation/installation/" class="md-tabs__link">
+      <a href="../../../installation/installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -239,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../tutorials/recording/" class="md-tabs__link">
+      <a href="../../../tutorials/recording/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -255,8 +255,40 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../recording/" class="md-tabs__link">
+      <a href="../../../recording/" class="md-tabs__link">
         Recording
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../configuration/" class="md-tabs__link">
+        Configuration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../visualization/" class="md-tabs__link">
+        Visualization
       </a>
     </li>
   
@@ -273,39 +305,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
-        Configuration
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../visualization/" class="md-tabs__link">
-        Visualization
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../design/" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Design
       </a>
     </li>
@@ -321,7 +321,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../faq/" class="md-tabs__link">
+      <a href="../../../faq/" class="md-tabs__link">
         FAQ
       </a>
     </li>
@@ -355,7 +355,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288c0-17.7-14.3-32-32-32s-32 14.3-32 32 14.3 32 32 32 32-14.3 32-32zm288 32c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -405,7 +405,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../..">Overview</a>
+          <a href="../../..">Overview</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -428,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
+      <a href="../../../changelog/" class="md-nav__link">
         Changelog
       </a>
     </li>
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/installation/" class="md-nav__link">
+      <a href="../../../installation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -496,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/manual_installation/" class="md-nav__link">
+      <a href="../../../installation/manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -552,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/recording/" class="md-nav__link">
+      <a href="../../../tutorials/recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -566,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/configuration/" class="md-nav__link">
+      <a href="../../../tutorials/configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -580,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/visualization/" class="md-nav__link">
+      <a href="../../../tutorials/visualization/" class="md-nav__link">
         Visualization
       </a>
     </li>
@@ -631,7 +631,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../recording/">Recording</a>
+          <a href="../../../recording/">Recording</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -654,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/build_check/" class="md-nav__link">
+      <a href="../../../recording/build_check/" class="md-nav__link">
         Build and check
       </a>
     </li>
@@ -668,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/trace_filtering/" class="md-nav__link">
+      <a href="../../../recording/trace_filtering/" class="md-nav__link">
         Trace filtering
       </a>
     </li>
@@ -682,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/recording/" class="md-nav__link">
+      <a href="../../../recording/recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -696,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/validating/" class="md-nav__link">
+      <a href="../../../recording/validating/" class="md-nav__link">
         Validating
       </a>
     </li>
@@ -710,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/cli_tool/" class="md-nav__link">
+      <a href="../../../recording/cli_tool/" class="md-nav__link">
         CLI tools
       </a>
     </li>
@@ -724,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/sim_time/" class="md-nav__link">
+      <a href="../../../recording/sim_time/" class="md-nav__link">
         ROS time (sim_time) support
       </a>
     </li>
@@ -744,14 +744,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -768,12 +766,14 @@
         
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Configuration</a>
+          <a href="../../../configuration/">Configuration</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -796,84 +796,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture_format/" class="md-nav__link">
-        アーキテクチャファイルフォーマット
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          パスの探索方法
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        パスの探索方法
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    例
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_to_write_architecture/" class="md-nav__link">
-        ノードレイテンシの算出方法の指定
+      <a href="../../../configuration/background/" class="md-nav__link">
+        Background of configuration
       </a>
     </li>
   
@@ -886,8 +810,50 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_and_verify_architecture/" class="md-nav__link">
-        Creation and Verification of Architecture file with CLI
+      <a href="../../../configuration/load_and_save/" class="md-nav__link">
+        Load and save
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../configuration/inter_node_data_path/" class="md-nav__link">
+        Define inter-node data path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../configuration/intra_node_data_path/" class="md-nav__link">
+        Define intra-node data path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../configuration/visualize_application_structure/" class="md-nav__link">
+        Visualize application structure
       </a>
     </li>
   
@@ -937,7 +903,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../visualization/">Visualization</a>
+          <a href="../../../visualization/">Visualization</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -960,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/gallery/" class="md-nav__link">
+      <a href="../../../visualization/gallery/" class="md-nav__link">
         ギャラリー
       </a>
     </li>
@@ -974,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/lttng_event_filter/" class="md-nav__link">
+      <a href="../../../visualization/lttng_event_filter/" class="md-nav__link">
         LTTngEventFilterの使用方法
       </a>
     </li>
@@ -988,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/about_treat_drop_as_delay/" class="md-nav__link">
+      <a href="../../../visualization/about_treat_drop_as_delay/" class="md-nav__link">
         treat_drop_as_delayフラグの説明
       </a>
     </li>
@@ -1002,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/trouble_shooting/" class="md-nav__link">
+      <a href="../../../visualization/trouble_shooting/" class="md-nav__link">
         トラブルシューティング
       </a>
     </li>
@@ -1016,7 +982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/path_verify/" class="md-nav__link">
+      <a href="../../../visualization/path_verify/" class="md-nav__link">
         Path Verification
       </a>
     </li>
@@ -1030,7 +996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/investigate_behavior/" class="md-nav__link">
+      <a href="../../../visualization/investigate_behavior/" class="md-nav__link">
         Detailed Behavior Investigation Methods
       </a>
     </li>
@@ -1050,12 +1016,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -1081,7 +1049,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/">Design</a>
+          <a href="../../">Design</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -1172,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture" class="md-nav__link">
+      <a href="../../software_architecture" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1186,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture/caret_analyze" class="md-nav__link">
+      <a href="../../software_architecture/caret_analyze" class="md-nav__link">
         caret_analyze
       </a>
     </li>
@@ -1200,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture/caret_trace" class="md-nav__link">
+      <a href="../../software_architecture/caret_trace" class="md-nav__link">
         caret_trace
       </a>
     </li>
@@ -1214,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture/tilde" class="md-nav__link">
+      <a href="../../software_architecture/tilde" class="md-nav__link">
         tilde
       </a>
     </li>
@@ -1308,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/runtime_processing" class="md-nav__link">
+      <a href="../../runtime_processing" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1322,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/runtime_processing/hook" class="md-nav__link">
+      <a href="../../runtime_processing/hook" class="md-nav__link">
         Hook
       </a>
     </li>
@@ -1336,7 +1304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/runtime_processing/tracepoint_filtering" class="md-nav__link">
+      <a href="../../runtime_processing/tracepoint_filtering" class="md-nav__link">
         Tracepoint filtering
       </a>
     </li>
@@ -1430,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/processing_trace_data" class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1444,7 +1412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/processing_trace_data/records" class="md-nav__link">
+      <a href="../records" class="md-nav__link">
         Records
       </a>
     </li>
@@ -1458,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/processing_trace_data/response_time" class="md-nav__link">
+      <a href="." class="md-nav__link">
         Response time
       </a>
     </li>
@@ -1554,7 +1522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/trace_points" class="md-nav__link">
+      <a href="../../trace_points" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1568,7 +1536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/trace_points/initialization_trace_points" class="md-nav__link">
+      <a href="../../trace_points/initialization_trace_points" class="md-nav__link">
         Initialization tracepoints
       </a>
     </li>
@@ -1582,7 +1550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/trace_points/runtime_trace_points" class="md-nav__link">
+      <a href="../../trace_points/runtime_trace_points" class="md-nav__link">
         Runtime tracepoints
       </a>
     </li>
@@ -1596,7 +1564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/trace_points/diff" class="md-nav__link">
+      <a href="../../trace_points/diff" class="md-nav__link">
         Differences from original ROS
       </a>
     </li>
@@ -1688,7 +1656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/configuration" class="md-nav__link">
+      <a href="../../configuration" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1702,7 +1670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/configuration/architecture_file" class="md-nav__link">
+      <a href="../../configuration/architecture_file" class="md-nav__link">
         File format
       </a>
     </li>
@@ -1749,7 +1717,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/limits_and_constraints/">Limits and constraints</a>
+          <a href="../../limits_and_constraints/">Limits and constraints</a>
           
         </div>
       
@@ -1800,7 +1768,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../faq/">FAQ</a>
+          <a href="../../../faq/">FAQ</a>
           
         </div>
       
@@ -1839,28 +1807,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    例
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1873,66 +1819,14 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/configuration/how_to_search_path.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/processing_trace_data/response_time.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">パス探索の高速化<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<p><code>search_paths</code>メソッドはノード図を描き、始点に設定したノードから終点に設定したノードまでを一筆書きで辿れる経路（パス）を全探索し、
-見つかった経路（パス）を全て返却する関数です。</p>
-<p>ノード図から全ての探索できるパスを全探索するため、対象のアプリケーションによっては処理に時間がかかりすぎてしまうケースがあります。<br />
-このようなケースで、高速に目的とするパスを探索する方法を説明します。</p>
-<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<p>search_paths では、このような時間がかかりすぎてしまうケースを避けるための API が備わっています。</p>
-<div class="highlight"><pre><span></span><code><span class="n">search_paths</span><span class="p">(</span>
-    <span class="n">start_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
-    <span class="n">end_node_name</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
-    <span class="n">max_node_depth</span><span class="p">:</span> <span class="s1">&#39;Optional[int]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">node_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">communication_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;List[PathStructValue]&#39;</span>
-</code></pre></div>
-<ul>
-<li>start_node_name : 探索の始点となるノード名</li>
-<li>end_node_name : 探索の終点となるノード名</li>
-<li>max_node_depth : 探索するパスが含む最大ノード数。小さいほど探索範囲が狭くなります</li>
-<li>node_filter: 探索対象のノードをフィルタする関数。True を返却した場合は探索対象になります。</li>
-<li>communication_filter: 探索対象の通信をフィルタする関数。True を返却した場合は探索対象になります。</li>
-</ul>
-<h2 id="_2">例<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
-
-<span class="c1"># 正規表現に一致するノード名を探索から除外する</span>
-<span class="n">node_filters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/_ros2cli_/*&#39;</span><span class="p">),</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/launch_ros_*&#39;</span><span class="p">),</span>
-<span class="p">]</span>
-
-<span class="c1"># 正規表現に一致するトピック名を探索から除外する</span>
-<span class="n">comm_filters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/tf/*&#39;</span><span class="p">),</span>
-<span class="p">]</span>
-<span class="k">def</span> <span class="nf">comm_filter</span><span class="p">(</span><span class="n">topic_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">for</span> <span class="n">comm_filter</span> <span class="ow">in</span> <span class="n">comm_filters</span><span class="p">:</span>
-        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">comm_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">topic_name</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">can_pass</span>
-
-<span class="k">def</span> <span class="nf">node_filter</span><span class="p">(</span><span class="n">node_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">for</span> <span class="n">node_filter</span> <span class="ow">in</span> <span class="n">node_filters</span><span class="p">:</span>
-        <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">node_name</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">can_pass</span>
-
-<span class="n">paths</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span>
-    <span class="s1">&#39;/start_node&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;/end_node&#39;</span><span class="p">,</span>
-    <span class="n">max_node_depth</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-    <span class="n">node_filter</span> <span class="o">=</span> <span class="n">node_filter</span><span class="p">,</span>
-    <span class="n">communication_filter</span> <span class="o">=</span> <span class="n">comm_filter</span><span class="p">)</span>
-</code></pre></div>
+<h1 id="response-time">Response time<a class="headerlink" href="#response-time" title="Permanent link">#</a></h1>
+<p>under construction.</p>
 
 
 
@@ -1958,7 +1852,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../architecture_format/" class="md-footer__link md-footer__link--prev" aria-label="Previous: アーキテクチャファイルフォーマット" rel="prev">
+        <a href="../records/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Record Object" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1967,20 +1861,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              アーキテクチャファイルフォーマット
+              Record Object
             </div>
           </div>
         </a>
       
       
         
-        <a href="../how_to_write_architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: ノードレイテンシの算出方法の指定" rel="next">
+        <a href="../../runtime_processing/" class="md-footer__link md-footer__link--next" aria-label="Next: Runtime processing" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ノードレイテンシの算出方法の指定
+              Runtime processing
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2015,10 +1909,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       

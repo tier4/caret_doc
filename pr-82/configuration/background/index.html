@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/configuration/architecture_format/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/configuration/background/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
-        <title>アーキテクチャファイルフォーマット - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Background of configuration - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#end-to-end" class="md-skip">
+        <a href="#background" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              アーキテクチャファイルフォーマット
+              Background of configuration
             
           </span>
         </div>
@@ -768,6 +768,8 @@
         
           
         
+          
+        
       
       
         
@@ -805,9 +807,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Background of configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        アーキテクチャファイルフォーマット
+        Background of configuration
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-object" class="md-nav__link">
+    Architecture object
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -820,8 +853,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_to_search_path/" class="md-nav__link">
-        パスの探索方法
+      <a href="../load_and_save/" class="md-nav__link">
+        Load and save
       </a>
     </li>
   
@@ -834,8 +867,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_to_write_architecture/" class="md-nav__link">
-        ノードレイテンシの算出方法の指定
+      <a href="../inter_node_data_path/" class="md-nav__link">
+        Define inter-node data path
       </a>
     </li>
   
@@ -848,8 +881,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_and_verify_architecture/" class="md-nav__link">
-        Creation and Verification of Architecture file with CLI
+      <a href="../intra_node_data_path/" class="md-nav__link">
+        Define intra-node data path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualize_application_structure/" class="md-nav__link">
+        Visualize application structure
       </a>
     </li>
   
@@ -1801,6 +1848,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-object" class="md-nav__link">
+    Architecture object
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1813,69 +1875,29 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/configuration/architecture_format.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/configuration/background.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="end-to-end">End-to-End レイテンシの測定方法<a class="headerlink" href="#end-to-end" title="Permanent link">#</a></h1>
-<p>以下にアーキテクチャファイルのフォーマットを示します。</p>
-<p><em>の付いた項目は、測定対象のアプリケーションの実装を確認の上、手作業での修正が必要な項目です。<br />
-</em>の付いていない項目は雛形として自動的に記載されます</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">named_paths:【パス情報】</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">- path_name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_path【パスの名前】</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">node_chain</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node 【ノード名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/chatter 【ノードがpublishするトピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED【ノードがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong_node</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/chatter</span><span class="w"></span>
-
-<span class="l l-Scalar l-Scalar-Plain">executors:【エグゼキューター情報】</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- executor_type</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single_threaded_executor【エグゼキューター種別】</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">executor_name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">【エグゼキューター名】</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">callback_group_names</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_group_0 【追加されたコールバックグループ名】</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong_node/callback_group_0</span><span class="w"></span>
-
-<span class="l l-Scalar l-Scalar-Plain">nodes:【ノード情報】</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node【ノード名】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">callback_groups:【コールバックグループの情報】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">callback_group_type:【コールバックグループの種別】</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">callback_group_name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_group_0 【コールバックグループ名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node/callback_0 【追加されたコールバック名】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">callbacks:【コールバックの情報】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback【コールバックの種別】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic3【トピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">symbol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}【コールバック関数のシンボル名】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback【コールバックの種類】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">period_ns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100000000【タイマーコールバックの周期】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">symbol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}【コールバック関数のシンボル名】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">variable_passings:【変数を介したコールバック間のメッセージ渡し】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名*】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_name_read</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">publishes:【パブリッシュの情報】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【トピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">subscribes:【サブスクライブの情報】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【トピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
-
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">message_contexts:【ノードレイテンシの定義】</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">use_latest_message【算出方法の種別*】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードへの入力トピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードからの出力トピック名】</span><span class="w"></span>
-</code></pre></div>
+<h1 id="background">Background<a class="headerlink" href="#background" title="Permanent link">#</a></h1>
+<p>CARET is mainly capable of showing the following 4 latency:</p>
+<ul>
+<li>callback latency</li>
+<li>communication latency (inter-node)</li>
+<li>node latency (intra-node)</li>
+<li>path latency (intra-node &amp; inter-node)</li>
+</ul>
+<p>The following figure shows definition of node latency and path latency.</p>
+<p><img alt="Definition node and path latency" src="../../imgs/path_and_node_latency.svg" /></p>
+<p>Callback latency is defined as execution time of a callback function, and can be measured with simple tracepoints. Communication latency between nodes can be defined as time from publish invoking to subscription callback invoking. Identifying callback and topic is not difficult so that their latency are calculated easily.<br />
+However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in ROS layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in an application is equaled to that of nodes combination, so that complicated and large application has large number of paths.<br />
+To deal with such difficulty of defining node and path latency mechanically, CARET requires users to define node and path latency manually via a configurable object , called "<strong>architecture object</strong>".</p>
+<h2 id="architecture-object">Architecture object<a class="headerlink" href="#architecture-object" title="Permanent link">#</a></h2>
+<p>An architecture object has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. CARET can load an architecture object including only application structure section from <a href="https://diamon.org/ctf/">CTF</a>-based recorded data. The application structure section remains same unless the structure is changed or component is renamed.</p>
+<p>On the other hand, latency definition section in the original architecture object is empty just before users add any definition. Users are expected to add definitions of node latency and path latency to the original architecture object. CARET helps users to add definition of node and path latency.</p>
+<p>The following sections explain how to load an architecture object and add latency definition.</p>
 
 
 
@@ -1917,13 +1939,13 @@
       
       
         
-        <a href="../how_to_search_path/" class="md-footer__link md-footer__link--next" aria-label="Next: パスの探索方法" rel="next">
+        <a href="../load_and_save/" class="md-footer__link md-footer__link--next" aria-label="Next: Load and save" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              パスの探索方法
+              Load and save
             </div>
           </div>
           <div class="md-footer__button md-icon">

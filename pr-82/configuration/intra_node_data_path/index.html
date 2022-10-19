@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/configuration/how_to_write_architecture/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-82/configuration/intra_node_data_path/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
-        <title>ノードレイテンシの算出方法の指定 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Define intra-node data path - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#how-to-define-intra-node-data-path" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ノードレイテンシの算出方法の指定
+              Define intra-node data path
             
           </span>
         </div>
@@ -768,6 +768,8 @@
         
           
         
+          
+        
       
       
         
@@ -796,8 +798,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture_format/" class="md-nav__link">
-        アーキテクチャファイルフォーマット
+      <a href="../background/" class="md-nav__link">
+        Background of configuration
       </a>
     </li>
   
@@ -810,8 +812,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_to_search_path/" class="md-nav__link">
-        パスの探索方法
+      <a href="../load_and_save/" class="md-nav__link">
+        Load and save
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inter_node_data_path/" class="md-nav__link">
+        Define inter-node data path
       </a>
     </li>
   
@@ -834,12 +850,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          ノードレイテンシの算出方法の指定
+          Define intra-node data path
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        ノードレイテンシの算出方法の指定
+        Define intra-node data path
       </a>
       
         
@@ -858,71 +874,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    パスの定義の確認方法
+  <a href="#find-which-intra-node-data-path-to-define" class="md-nav__link">
+    Find which intra-node data path to define
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    ノードレイテンシ算出方法の指定
+  <a href="#message-context" class="md-nav__link">
+    Message Context
   </a>
   
-    <nav class="md-nav" aria-label="ノードレイテンシ算出方法の指定">
+    <nav class="md-nav" aria-label="Message Context">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#callback_chain" class="md-nav__link">
-    callback_chain
+  <a href="#example-issue" class="md-nav__link">
+    Example issue
   </a>
-  
-    <nav class="md-nav" aria-label="callback_chain">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    記述例
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    コールバックグラフの可視化
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    コールバックグラフ情報の記述
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inherit_unique_stamp" class="md-nav__link">
-    inherit_unique_stamp
-  </a>
-  
-    <nav class="md-nav" aria-label="inherit_unique_stamp">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    記述例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -931,12 +900,40 @@
     use_latest_message
   </a>
   
-    <nav class="md-nav" aria-label="use_latest_message">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain" class="md-nav__link">
+    callback_chain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-api" class="md-nav__link">
+    Python API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-file-editing" class="md-nav__link">
+    Architecture file editing
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture file editing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    記述例
+  <a href="#use_latest_message_1" class="md-nav__link">
+    use_latest_message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain_1" class="md-nav__link">
+    callback_chain
   </a>
   
 </li>
@@ -966,8 +963,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_and_verify_architecture/" class="md-nav__link">
-        Creation and Verification of Architecture file with CLI
+      <a href="../visualize_application_structure/" class="md-nav__link">
+        Visualize application structure
       </a>
     </li>
   
@@ -1926,71 +1923,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    パスの定義の確認方法
+  <a href="#find-which-intra-node-data-path-to-define" class="md-nav__link">
+    Find which intra-node data path to define
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    ノードレイテンシ算出方法の指定
+  <a href="#message-context" class="md-nav__link">
+    Message Context
   </a>
   
-    <nav class="md-nav" aria-label="ノードレイテンシ算出方法の指定">
+    <nav class="md-nav" aria-label="Message Context">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#callback_chain" class="md-nav__link">
-    callback_chain
+  <a href="#example-issue" class="md-nav__link">
+    Example issue
   </a>
-  
-    <nav class="md-nav" aria-label="callback_chain">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    記述例
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    コールバックグラフの可視化
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    コールバックグラフ情報の記述
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inherit_unique_stamp" class="md-nav__link">
-    inherit_unique_stamp
-  </a>
-  
-    <nav class="md-nav" aria-label="inherit_unique_stamp">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    記述例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1999,12 +1949,40 @@
     use_latest_message
   </a>
   
-    <nav class="md-nav" aria-label="use_latest_message">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain" class="md-nav__link">
+    callback_chain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-api" class="md-nav__link">
+    Python API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-file-editing" class="md-nav__link">
+    Architecture file editing
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture file editing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    記述例
+  <a href="#use_latest_message_1" class="md-nav__link">
+    use_latest_message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain_1" class="md-nav__link">
+    callback_chain
   </a>
   
 </li>
@@ -2033,16 +2011,24 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/configuration/how_to_write_architecture.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/configuration/intra_node_data_path.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">アーキテクチャファイルの作成方法<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
-<h2 id="_2">パスの定義の確認方法<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
+<h1 id="how-to-define-intra-node-data-path">How to define intra-node data path<a class="headerlink" href="#how-to-define-intra-node-data-path" title="Permanent link">#</a></h1>
+<p>In the previous section, you learned how to define inter-node data path. CARET can calculate response time for a simple path using only inter-node data path definition. However, when a target application or path becomes complicated, intra-node-data path needs to be defiend as well as inter-node data path.</p>
+<p>CARET assume that intra-node data path is mapping of topic subscription and publish in a node. This is not defined simply because the definition depends on implementation.</p>
+<p>This section will explain how to find which intra-node data path you have to define, and how to define it.</p>
+<h2 id="find-which-intra-node-data-path-to-define">Find which intra-node data path to define<a class="headerlink" href="#find-which-intra-node-data-path-to-define" title="Permanent link">#</a></h2>
+<p>Before defining intra-node data path, you have to check whether latency of the target path is calculable. This can be checked with <code>Path.verify()</code> method as the following sample code shows.</p>
+<div class="highlight"><pre><span></span><code><span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/architecture.yaml&#39;</span><span class="p">)</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
+<span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
 </code></pre></div>
+<p>Here, <code>path.verify()</code> returns <code>True</code> if path latency for <code>path</code> is calculable. Otherwise, you will confront with warning messages as shown below.</p>
 <div class="highlight"><pre><span></span><code><span class="n">WARNING</span> <span class="p">:</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">19</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">03</span> <span class="o">|</span> <span class="n">Detected</span> <span class="s2">&quot;message_contest is None&quot;</span><span class="o">.</span> <span class="n">Correct</span> <span class="n">these</span> <span class="n">node_path</span> <span class="n">definitions</span><span class="o">.</span>
 <span class="n">To</span> <span class="n">see</span> <span class="n">node</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">procedure</span><span class="p">,</span><span class="n">execute</span> <span class="p">:</span>
 <span class="o">&gt;&gt;</span> <span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span>
@@ -2059,180 +2045,110 @@
 <span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
 <span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
 </code></pre></div>
-<hr />
-<div class="highlight"><pre><span></span><code><span class="n">check_procedure</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">,</span> <span class="n">arch</span><span class="p">,</span> <span class="s1">&#39;/message_driven_node&#39;</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>[callback_chain]
-[callback_chain]
-Path Added: subscribe: /drive, publish: None, callbacks: (&#39;/message_driven_node/callback_1&#39;,)
-Path Added: subscribe: /drive, publish: None, callbacks: (&#39;/message_driven_node/callback_1&#39;,)
-Path Added: subscribe: /topic2, publish: None, callbacks: (&#39;/message_driven_node/callback_0&#39;,)
-Path Added: subscribe: /topic2, publish: None, callbacks: (&#39;/message_driven_node/callback_0&#39;,)
-
-[pub-sub pair]
-
-[pub-sub pair]
-Path Added: subscribe: /drive, publish: /topic3,
-Path Added: subscribe: /drive, publish: /topic3,
-Path Added: subscribe: /topic2, publish: /topic3,
-Path Added: subscribe: /topic2, publish: /topic3,
-
-[dummy paths]
-
-[dummy paths]
-Path Added: subscribe: None, publish: /topic3,
-Path Added: subscribe: None, publish: /topic3,
-message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/drive&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
-message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/drive&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
-message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/topic2&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
-message context is UNDEFINED. {&#39;context_type&#39;: &#39;UNDEFINED&#39;, &#39;subscription_topic_name&#39;: &#39;/topic2&#39;, &#39;publisher_topic_name&#39;: &#39;/topic3&#39;}
-
-5 paths found in /message_driven_node.
-
-5 paths found in /message_driven_node.
-
------
-[message context assigned]
-
------
-[message context assigned]
-subscribe: /drive, publish: None, message_context: None
-subscribe: /drive, publish: None, message_context: None
-subscribe: /topic2, publish: None, message_context: None
-subscribe: /topic2, publish: None, message_context: None
-subscribe: /drive, publish: /topic3, message_context: None
-subscribe: /drive, publish: /topic3, message_context: None
-subscribe: /topic2, publish: /topic3, message_context: None
-subscribe: /topic2, publish: /topic3, message_context: None
-subscribe: None, publish: /topic3, message_context: None
-subscribe: None, publish: /topic3, message_context: None
-</code></pre></div>
-<p>今回の場合は用意しています。</p>
-<h2 id="_3">ノードレイテンシ算出方法の指定<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
-<p>ノードレイテンシは、「ノードがメッセージを subscribe し、コールバックが処理開始する時刻」から「ノードがメッセージを publish する時刻」までとしています。<br />
-ただし、ノードレイテンシはノードの実装にも大きく依存し、統一的な手法での測定は困難です。</p>
-<p>CARET ではいくつかのノードレイテンシの算出方法を提供しています。<br />
-ノードレイテンシの算出方法はアーキテクチャファイルでは、主に <strong>message_context</strong>という項目として指定します。</p>
-<p>message_context として、以下のポリシーが指定可能です。</p>
+<p>On the sample warning message, <code>/message_driven_node</code> and <code>/timer_driven_node</code> have undefined intra-node data path. You will add the intra-node data path in next step.</p>
+<h2 id="message-context">Message Context<a class="headerlink" href="#message-context" title="Permanent link">#</a></h2>
+<p>CARET assumes that node latency is defined as duration from subscription time to publish time. The definition looks simple, but node latency is difficult to define mechanically because some nodes have multiple inputs or multiple outputs.</p>
+<p>CARET require users to define <strong><code>message_context</code></strong> to calculate node latency. One of the following policies is acceptable for <code>message_context</code>.</p>
 <ul>
-<li>callback_chain</li>
-<li>inherit_unique_stamp</li>
-<li>use_latest_message</li>
+<li><code>use_latest_message</code></li>
+<li><code>callback_chain</code></li>
 </ul>
-<p>それぞれレイテンシの算出方法が異なり、測定できる粒度の違いや、測定できるケース・できないケースが異なります。
-従って、ノードの実装を確認し、どのポリシーでノードレイテンシを算出させるか、を使い分ける必要が有ります。<br />
-それぞれの詳細については<a href="../design/node_latency_definition.md">ノードレイテンシについて</a>を参照してください。</p>
-<p>本節ではアーキテクチャファイルへの記述方法をを説明します。</p>
-<h3 id="callback_chain">callback_chain<a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h3>
-<p>callback_chain は、コールバックの実行間からノードレイテンシを算出する方法です。<br />
-ノードの内の処理をコールバックレベルまで分解するので、細かい粒度で測定が可能です。</p>
-<h4 id="_4">記述例<a class="headerlink" href="#_4" title="Permanent link">#</a></h4>
-<p>重要な項目のみを抜粋した記述の例を示します。<br />
-*の付いた項目は、測定対象のアプリケーションの実装を確認の上、手作業での修正が必要な項目です。</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node</span><span class="w"></span>
-<span class="w">  </span><span class="nt">callbacks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span><span class="w"></span>
-<span class="w">  </span><span class="nt">variable_passings</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0 【* メッセージをメンバに書き込むコールバック】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">callback_name_read</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0 【*メンバからメッセージを読み込むコールバック】</span><span class="w"></span>
-<span class="w">  </span><span class="nt">publishes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0 【* /pingトピックをpublishするコールバック名】</span><span class="w"></span>
-<span class="w">  </span><span class="nt">subscribes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【subscribeするコールバック】</span><span class="w"></span>
-<span class="w">  </span><span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">callback_chain 【*ノードレイテンシのポリシー】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span><span class="w"></span>
-</code></pre></div>
-<p>callback_chain ポリシーでは、コールバックグラフを構築するための情報として、<strong>variable_passings</strong>を指定する必要があります。</p>
-<h4 id="_5">コールバックグラフの可視化<a class="headerlink" href="#_5" title="Permanent link">#</a></h4>
-<p>作成したアーキテクチャファイルを元に、コールバックグラフを可視化できます。</p>
-<p>ここでは、 CUI による可視化方法を説明します。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/ros2_ws/evaluate
-ros2 caret callback_graph -a ./architecture.yaml -o calback_graph.svg
-</code></pre></div>
-<p>グラフの作成には Graphviz を使用しています。
-使用可能な拡張子については <a href="http://www.graphviz.org/docs/outputs/">Graphviz|Output Formats</a> をご覧ください。</p>
-<p>コマンドを実行すると以下のようなコールバックグラフが出力されます。</p>
-<p><img alt="callback_graph_cui_export" src="../../imgs/callback_graph_cui_export.png" /></p>
-<p>灰色は名前空間、角丸四角はノード、四角はコールバック、矢印はコールバック間の依存関係を示しています。
-赤矢印はトピックを publish しているコールバックが不明なトピック通信を示しています。
-この赤矢印が、アーキテクチャファイルを編集し、publish 元のコールバックを指定する必要のある箇所です。</p>
-<p>デフォルトの型は svg 形式で、 tooltip による情報の表示に対応しています。</p>
-<p><img alt="tooltip_sample" src="../../imgs/tooltip_sample.png" /></p>
-<p>カーソルをコールバックに合わせることで、コールバックのパラメータとシンボル名が表示されます。</p>
-<h4 id="_6">コールバックグラフ情報の記述<a class="headerlink" href="#_6" title="Permanent link">#</a></h4>
-<p>出力直後の雛形はコールバックの依存関係などが記述されていません。
-caret はパスの探索にコールバックグラフを利用するので、アーキテクチャファイルの修正が必要になります。</p>
-<p>コールバックグラフ構築のために修正する項目は以下の通りです。</p>
-<!-- prettier-ignore-start -->
-<ol>
-<li>
-<p>コールバック関数と publish の紐付け（上図コールバックグラフの赤矢印）<br />
-   [/nodes/node/publish] には、ノードが publish しているトピック名が key として列挙されています。
-   value にトピックを publish しているコールバック名を記述してください。
-   未接続のトピック通信（コールバックグラフ上の赤矢印）が無くなるまで修正してください。</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">publishes:【パブリッシュの情報】</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- topic_name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/topic4【トピック名】</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">callback_name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span><span class="w"></span>
-</code></pre></div>
+<p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency. However, <code>message_context</code> is a little difficult for CARET beginners without any example. The subsequence section introduces an example issue before explaining the policies.</p>
+<p>These two policies are not enough to cover the arbitrally node latency, and some implementations have node latency that cannot be measured.
+For example, message filter is currently unable to measure.</p>
+<h3 id="example-issue">Example issue<a class="headerlink" href="#example-issue" title="Permanent link">#</a></h3>
+<p>An example issue on <code>/ping_node</code> and <code>/pong_node</code> is given as the below figure shows.</p>
+<p><img alt="Example Issue" src="../../imgs/message_context_sample_issue.png" /></p>
+<p>Next items are explaining <code>/ping_node</code> and <code>/pong_node</code>.</p>
+<ul>
+<li><code>/ping_node</code><ul>
+<li>it transmit messages of <code>/ping</code> topic to <code>/pong_node</code></li>
+<li>it is composed of a single callback function</li>
+</ul>
 </li>
-<li>
-<p>コールバック間の変数渡しの記述<br />
-   [/nodes/node/variable_passing]には、変数渡しによるコールバック間の依存関係を記述します。
-   callback_write には書き込み側のコールバック名、callback_read には読み込み側のコールバック名を記述してください。</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">variable_passings:【変数を介したコールバック間のメッセージ渡し】</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- callback_name_write</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名*】</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">callback_name_read</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名*】</span><span class="w"></span>
-</code></pre></div>
+<li><code>/pong_node</code><ul>
+<li>it transmits message of <code>/pong</code> topic to another node</li>
+<li>it is composed of two callback functions; <code>subscription_callback_0</code> and <code>timer_callback_1</code></li>
+<li>it receives messages of <code>/ping</code> topic from <code>/pong_node</code> via <code>subscription_callback_0</code></li>
+<li><code>subscription_callback_0</code> shares messages <code>/ping</code> topic with <code>timer_callback_1</code> via shared variable</li>
+<li><code>timer_callback_1</code> produces <code>/pong</code> with the shared messages</li>
+<li><code>timer_callback_1</code> runs about 8/5 as frequent as <code>timer_callback_0</code></li>
+</ul>
 </li>
-</ol>
-<!-- prettier-ignore-end -->
-
-<p><img alt="callback_graph_cui_export" src="../../imgs/callback_graph_modified.png" /></p>
-<p>全ての矢印がコールバックからコールバックに繋がっていることに注意してください。</p>
-<h3 id="inherit_unique_stamp">inherit_unique_stamp<a class="headerlink" href="#inherit_unique_stamp" title="Permanent link">#</a></h3>
-<h4 id="_7">記述例<a class="headerlink" href="#_7" title="Permanent link">#</a></h4>
-<p>重要な項目のみを抜粋した記述の例を示します。</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node</span><span class="w"></span>
-<span class="w">  </span><span class="nt">callbacks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0 【コールバック名】</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
-<span class="w">  </span><span class="nt">publishes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【* /pingトピックをpublishするコールバック名】</span><span class="w"></span>
-<span class="w">  </span><span class="nt">subscribes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【subscribeするコールバック】</span><span class="w"></span>
-<span class="w">  </span><span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inherit_unique_stamp【*ノードレイテンシのポリシー】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span><span class="w"></span>
+</ul>
+<p>CARET is concerned which input topic message is mapped to an output message. <code>message_context</code> is provided to map input messages to output messages.</p>
+<h3 id="use_latest_message"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h3>
+<p>With <code>use_latest_message</code> policy, CARET will map a most recent input message to output message. CARET focuses on input and output,but is not concerned structure of node structure. The next figure shows how CARET defines node latency with <code>use_latest_message</code> in the example issue.</p>
+<p><img alt="Example of use_latest_message" src="../../imgs/configuration_use_latest_message.png" /></p>
+<p>In the figure, latest messages of <code>ping</code> topic is mapped to messages of <code>/pong</code> topic mechanically by CARET. It is not still easy to understand with only the block figure, but the provided timing chart below help you to understand what <code>use_latest_message</code> is.</p>
+<p><img alt="Timing chart of use_latest_message" src="../../imgs/timing_chart_use_latest_message.png" /></p>
+<p>In the timing chart, colored boxes represent duration of callback running, and bold lines are message flow of topic message. Dotted lines indicates mapping between input messages and outputs. With <code>use_latest_message</code>, CARET assumes that output message is made from the most recent input message. <code>use_latest_message</code> is fairly simple and works well in most cases.</p>
+<p>In the timing chart, red dotted lines explains a pitfall of <code>use_latest_message</code>. Using <code>use_latest_message</code> policy, CARET believes that input message, which is not even processed completely, is mapped to output message. For example, CARET interprets that <code>/pong[4]</code> is made from <code>/ping[2]</code> because <code>/ping[2]</code> is the recent input message for <code>/pong[4]</code>. However, <code>subscription_callback_0</code> is processing <code>/ping[2]</code> and does not share it with <code>timer_callback_1</code> before publishing <code>/pong[4]</code>. You have to tell CARET the node structure when you find such pitfall.</p>
+<h3 id="callback_chain"><code>callback_chain</code><a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h3>
+<p><code>callback_chain</code> is introduced for CARET to map input messages to outputs based on inter-operation of multiple callback functions. Input messages are consumed in subscription callbacks and propagated to other nodes. It looks as if input messages passes chains of multiple callbacks to make output messages. With <code>callback_chain</code>, CARET take care of input propagation on callbacks and it is helpful to escape the limitation of <code>use_latest_message</code> as mentioned above.</p>
+<p>Next figure shows how CARET interprets intra-node data path using <code>callback_chain</code>. Intra-communication between <code>subscription_callback_0</code> and <code>timer_callback_1</code> is taken into account for defining intra-node data path. <code>variable_passings</code> is a tag used in CARET, and represents such intra-communication.</p>
+<p><img alt="Example of callback_chain" src="../../imgs/configuration_callback_chain.png" /></p>
+<p>The following timing chart shows how input messages are mapped to output messages.</p>
+<p><img alt="Timing chart of callback_chain" src="../../imgs/timing_chart_callback_chain.png" /></p>
+<p>CARET maps mechanically messages of <code>/pong</code> topic to messages of <code>/ping</code> which finish being processed on <code>subscription_callback_0</code>. The unexpected behavior of <code>use_latest_message</code> is improved by <code>callback_chain</code>.</p>
+<p><code>callback_chain</code> looks the best choice. However, it has several drawbacks.</p>
+<ul>
+<li>It is not designed for node which have multiple callbacks running at parallel, and response time might be longer than actual</li>
+<li>It is not able to detect actual time when buffered data are consumed because only CARET does not trace user code on ROS 2</li>
+<li>Users are expected to know node structure beforehand</li>
+</ul>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>use_latest_message</code> and <code>callback_chain</code> do not cover all of use cases for CARET. We, CARET development team, continue improvements of intra-node data path definition.</p>
+</div>
+<p><prettier-ignore-end></p>
+<h3 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h3>
+<p>Python API is not implemented so far. Python API support is planned in 2023.</p>
+<h3 id="architecture-file-editing">Architecture file editing<a class="headerlink" href="#architecture-file-editing" title="Permanent link">#</a></h3>
+<p>This section explain how to add intra-node data path definition with editing an architecture file. The example issue above is used for explanation.</p>
+<h4 id="use_latest_message_1"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message_1" title="Permanent link">#</a></h4>
+<p>Next sample description is required for using <code>use_latest_message</code> on an architecture file. <code>use_latest_message</code> is applied to <code>/pong_node</code> in the next sample description. Essential description is extracted in the following snippet, but you will confront with busy YAML file actually rather than the sample.</p>
+<p>You have to add <code>use_latest_message</code> as <code>context_types</code> between targeted subscription and publisher.</p>
+<div class="highlight"><pre><span></span><code>- node_name: /pong_node
+  callbacks:
+    - callback_name: subscription_callback_0
+    - callback_name: timer_callback_1
+  publishes:
+    - topic_name: /pong
+      callback_names:
+        - timer_callback_1 # manually added
+  subscribes:
+    - topic_name: /ping
+      callback_name: subscription_callback_0
+  message_contexts:
+    - context_type: use_latest_message # manually added
+      subscription_topic_name: /ping
+      publisher_topic_name: /pong
 </code></pre></div>
-<h3 id="use_latest_message">use_latest_message<a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h3>
-<h4 id="_8">記述例<a class="headerlink" href="#_8" title="Permanent link">#</a></h4>
-<p>重要な項目のみを抜粋した記述の例を示します。</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping_node</span><span class="w"></span>
-<span class="w">  </span><span class="nt">callbacks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【コールバック名】</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【コールバック名】</span><span class="w"></span>
-<span class="w">  </span><span class="nt">publishes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【/ping_nodeがpublishするトピック名】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">callback_names</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0【* /pingトピックをpublishするコールバック名】</span><span class="w"></span>
-<span class="w">  </span><span class="nt">subscribes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【/ping_nodeがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0【subscribeするコールバック】</span><span class="w"></span>
-<span class="w">  </span><span class="nt">message_contexts</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inherit_unique_stamp【*ノードレイテンシのポリシー】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong【ノードのパスがsubscribeするトピック名】</span><span class="w"></span>
-<span class="w">      </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping【ノードのパスがpublishするトピック名】</span><span class="w"></span>
+<h4 id="callback_chain_1"><code>callback_chain</code><a class="headerlink" href="#callback_chain_1" title="Permanent link">#</a></h4>
+<p>On the other hand, CARET requires users to provide the following description if you apply <code>callback_chain</code> to <code>/pong_node</code>.</p>
+<div class="highlight"><pre><span></span><code>- node_name: /pong_node
+  callbacks:
+    - callback_name: subscription_callback_0
+    - callback_name: timer_callback_1
+  variable_passings:
+    - callback_name_write: subscription_callback_0 # manually added
+      callback_name_read: timer_callback_1 # manually added
+  publishes:
+    - topic_name: /ping
+      callback_names:
+        - timer_callback_1 # manually added
+  subscribes:
+    - topic_name: /pong
+      callback_name: timer_callback_1
+  message_contexts:
+    - context_type: callback_chain # manually added
+      subscription_topic_name: /pong
+      publisher_topic_name: /ping
 </code></pre></div>
+<p>User have to fill callback name in <code>variable_passings</code>, <code>publishes</code>'s <code>callback_name</code>. <code>context_type</code> must be set as <code>callback_chain</code>.
+After editing, use path.verify() described in the beginning of this section to verify that it has been set correctly.</p>
 
 
 
@@ -2258,7 +2174,7 @@ caret はパスの探索にコールバックグラフを利用するので、�
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../how_to_search_path/" class="md-footer__link md-footer__link--prev" aria-label="Previous: パスの探索方法" rel="prev">
+        <a href="../inter_node_data_path/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Define inter-node data path" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2267,20 +2183,20 @@ caret はパスの探索にコールバックグラフを利用するので、�
               <span class="md-footer__direction">
                 Previous
               </span>
-              パスの探索方法
+              Define inter-node data path
             </div>
           </div>
         </a>
       
       
         
-        <a href="../create_and_verify_architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Creation and Verification of Architecture file with CLI" rel="next">
+        <a href="../visualize_application_structure/" class="md-footer__link md-footer__link--next" aria-label="Next: Visualize application structure" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Creation and Verification of Architecture file with CLI
+              Visualize application structure
             </div>
           </div>
           <div class="md-footer__button md-icon">
