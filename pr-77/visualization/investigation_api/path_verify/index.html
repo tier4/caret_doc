@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/visualization/lttng_event_filter/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-77/visualization/investigation_api/path_verify/">
       
-      <link rel="icon" href="../../assets/images/tier4.png">
+      <link rel="icon" href="../../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
-        <title>LTTngEventFilterの使用方法 - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Error detection using `path.verify()` - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -41,11 +41,11 @@
     
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
     
-      <link rel="stylesheet" href="../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lttngeventfilter" class="md-skip">
+        <a href="#error-detection-using-pathverify" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288c0-17.7-14.3-32-32-32s-32 14.3-32 32 14.3 32 32 32 32-14.3 32-32zm288 32c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LTTngEventFilterの使用方法
+              Error detection using `path.verify()`
             
           </span>
         </div>
@@ -207,7 +207,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         Overview
       </a>
     </li>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../installation/installation/" class="md-tabs__link">
+      <a href="../../../installation/installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -239,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../tutorials/recording/" class="md-tabs__link">
+      <a href="../../../tutorials/recording/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -255,7 +255,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../recording/" class="md-tabs__link">
+      <a href="../../../recording/" class="md-tabs__link">
         Recording
       </a>
     </li>
@@ -271,7 +271,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../configuration/" class="md-tabs__link">
+      <a href="../../../configuration/" class="md-tabs__link">
         Configuration
       </a>
     </li>
@@ -289,7 +289,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Visualization
       </a>
     </li>
@@ -305,7 +305,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../design/architecture_overview/" class="md-tabs__link">
+      <a href="../../../design/architecture_overview/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -321,7 +321,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../faq/" class="md-tabs__link">
+      <a href="../../../faq/" class="md-tabs__link">
         FAQ
       </a>
     </li>
@@ -355,7 +355,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288c0-17.7-14.3-32-32-32s-32 14.3-32 32 14.3 32 32 32 32-14.3 32-32zm288 32c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -400,12 +400,14 @@
         
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../..">Overview</a>
+          <a href="../../..">Overview</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -428,7 +430,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
+      <a href="../../../gallery/" class="md-nav__link">
+        Gallery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
         Changelog
       </a>
     </li>
@@ -482,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/installation/" class="md-nav__link">
+      <a href="../../../installation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -496,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/manual_installation/" class="md-nav__link">
+      <a href="../../../installation/manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -552,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/recording/" class="md-nav__link">
+      <a href="../../../tutorials/recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -566,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/configuration/" class="md-nav__link">
+      <a href="../../../tutorials/configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -580,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/visualization/" class="md-nav__link">
+      <a href="../../../tutorials/visualization/" class="md-nav__link">
         Visualization
       </a>
     </li>
@@ -631,7 +647,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../recording/">Recording</a>
+          <a href="../../../recording/">Recording</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -654,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/build_check/" class="md-nav__link">
+      <a href="../../../recording/build_check/" class="md-nav__link">
         Build and check
       </a>
     </li>
@@ -668,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/trace_filtering/" class="md-nav__link">
+      <a href="../../../recording/trace_filtering/" class="md-nav__link">
         Trace filtering
       </a>
     </li>
@@ -682,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/recording/" class="md-nav__link">
+      <a href="../../../recording/recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -696,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/validating/" class="md-nav__link">
+      <a href="../../../recording/validating/" class="md-nav__link">
         Validating
       </a>
     </li>
@@ -710,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/cli_tool/" class="md-nav__link">
+      <a href="../../../recording/cli_tool/" class="md-nav__link">
         CLI tools
       </a>
     </li>
@@ -724,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../recording/sim_time/" class="md-nav__link">
+      <a href="../../../recording/sim_time/" class="md-nav__link">
         ROS time (sim_time) support
       </a>
     </li>
@@ -773,7 +789,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../configuration/">Configuration</a>
+          <a href="../../../configuration/">Configuration</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -796,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/background/" class="md-nav__link">
+      <a href="../../../configuration/background/" class="md-nav__link">
         Background of configuration
       </a>
     </li>
@@ -810,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/load_and_save/" class="md-nav__link">
+      <a href="../../../configuration/load_and_save/" class="md-nav__link">
         Load and save
       </a>
     </li>
@@ -824,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/inter_node_data_path/" class="md-nav__link">
+      <a href="../../../configuration/inter_node_data_path/" class="md-nav__link">
         Define inter-node data path
       </a>
     </li>
@@ -838,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/intra_node_data_path/" class="md-nav__link">
+      <a href="../../../configuration/intra_node_data_path/" class="md-nav__link">
         Define intra-node data path
       </a>
     </li>
@@ -852,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/visualize_application_structure/" class="md-nav__link">
+      <a href="../../../configuration/visualize_application_structure/" class="md-nav__link">
         Visualize application structure
       </a>
     </li>
@@ -894,18 +910,12 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Visualization</a>
+          <a href="../../">Visualization</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -928,8 +938,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../gallery/" class="md-nav__link">
-        ギャラリー
+      <a href="../../concept/basic_api_concept" class="md-nav__link">
+        Basic APIs Concept
       </a>
     </li>
   
@@ -940,63 +950,71 @@
               
   
   
+  
     
-  
-  
-    <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" checked>
+      
       
       
         
+          
+        
+          
+        
+          
+        
+          
+        
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          LTTngEventFilterの使用方法
+        <label class="md-nav__link" for="__nav_6_3">
+          Visualization APIs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        LTTngEventFilterの使用方法
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+      <nav class="md-nav" aria-label="Visualization APIs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Visualization APIs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
   
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <li class="md-nav__item md-nav__item--nested">
       
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API 説明
-  </a>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    使用例
-  </a>
-  
-</li>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" checked>
       
-    </ul>
-  
-</nav>
       
-    </li>
-  
-
-            
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Callback
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Callback" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Callback
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -1004,8 +1022,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../about_treat_drop_as_delay/" class="md-nav__link">
-        treat_drop_as_delayフラグの説明
+      <a href="../../visualization_api/callback_information" class="md-nav__link">
+        Freq/Period/Latency(Execution time)
       </a>
     </li>
   
@@ -1018,8 +1036,169 @@
   
   
     <li class="md-nav__item">
-      <a href="../trouble_shooting/" class="md-nav__link">
-        トラブルシューティング
+      <a href="../../visualization_api/callback_scheduling_visualization" class="md-nav__link">
+        Scheduling
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_2" type="checkbox" id="__nav_6_3_2" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_2">
+          Node
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Node" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Node
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization_api/pub_sub_information" class="md-nav__link">
+        Publish/Subscription Information
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_3" type="checkbox" id="__nav_6_3_3" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_3">
+          Communication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Communication" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Communication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization_api/communication_information" class="md-nav__link">
+        Freq/Period/Latency(Execution time)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_4" type="checkbox" id="__nav_6_3_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_4">
+          Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Path" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization_api/message_flow" class="md-nav__link">
+        Message flow
       </a>
     </li>
   
@@ -1032,7 +1211,157 @@
   
   
     <li class="md-nav__item">
-      <a href="../path_verify/" class="md-nav__link">
+      <a href="../../visualization_api/response_time" class="md-nav__link">
+        Response Time
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization_api/chain_latency" class="md-nav__link">
+        Chain latency
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization_api/latency_time_series" class="md-nav__link">
+        Latency time series
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization_api/latency_histogram" class="md-nav__link">
+        Latency histogram
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Investigation APIs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Investigation APIs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Investigation APIs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          List
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="List" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          List
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lttng_event_filter" class="md-nav__link">
+        Usage of LTTngEventFilter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="." class="md-nav__link">
         Path Verification
       </a>
     </li>
@@ -1046,9 +1375,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../investigate_behavior/" class="md-nav__link">
+      <a href="../investigate_behavior" class="md-nav__link">
         Detailed Behavior Investigation Methods
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1106,7 +1449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/architecture_overview/" class="md-nav__link">
+      <a href="../../../design/architecture_overview/" class="md-nav__link">
         Architecture overview
       </a>
     </li>
@@ -1120,7 +1463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/supported_tracepoints/" class="md-nav__link">
+      <a href="../../../design/supported_tracepoints/" class="md-nav__link">
         Supported tracepoints
       </a>
     </li>
@@ -1134,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/diff/" class="md-nav__link">
+      <a href="../../../design/diff/" class="md-nav__link">
         galacticとの差分(staled)
       </a>
     </li>
@@ -1188,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/how_to_calculate_latency/" class="md-nav__link">
+      <a href="../../../design/how_to_calculate_latency/" class="md-nav__link">
         レイテンシ算出方法
       </a>
     </li>
@@ -1202,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/latency_definition/" class="md-nav__link">
+      <a href="../../../design/latency_definition/" class="md-nav__link">
         パスレイテンシ定義
       </a>
     </li>
@@ -1216,7 +1559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/node_latency_definition/" class="md-nav__link">
+      <a href="../../../design/node_latency_definition/" class="md-nav__link">
         ノードレイテンシ定義
       </a>
     </li>
@@ -1230,7 +1573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/communication_latency_definition/" class="md-nav__link">
+      <a href="../../../design/communication_latency_definition/" class="md-nav__link">
         通信レイテンシの定義
       </a>
     </li>
@@ -1244,7 +1587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/about_callback_graph/" class="md-nav__link">
+      <a href="../../../design/about_callback_graph/" class="md-nav__link">
         コールバックグラフについて
       </a>
     </li>
@@ -1265,7 +1608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/limits/" class="md-nav__link">
+      <a href="../../../design/limits/" class="md-nav__link">
         ツール利用時の制約
       </a>
     </li>
@@ -1304,7 +1647,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../faq/">FAQ</a>
+          <a href="../../../faq/">FAQ</a>
           
         </div>
       
@@ -1350,15 +1693,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API 説明
+  <a href="#usage" class="md-nav__link">
+    Usage
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    使用例
+  <a href="#what-pathverify-checks" class="md-nav__link">
+    What path.verify() checks
   </a>
   
 </li>
@@ -1377,50 +1720,45 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/visualization/lttng_event_filter.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/visualization/investigation_api/path_verify.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="lttngeventfilter">LTTngEventFilter の使用<a class="headerlink" href="#lttngeventfilter" title="Permanent link">#</a></h1>
-<p>CARET は数分程度の測定や解析までを取り扱うことができます。<br />
-より長時間、十数分〜数十分程度の測定結果を取り扱う際には、メモリの使用量・解析時間・可視化時間などが問題となってきます。</p>
-<p>そこで、CARET は LTTng の読み込み時に不要な測定結果を省くための API(LTTngEventFilter)を備えています。<br />
-ここでは、LTTngEventFitler の使い方について説明します。</p>
-<p>LTTngEventFitler では、以下のフィルタを備えています。</p>
-<ul>
-<li>init_pass_filter</li>
-<li>duration_filter</li>
-<li>strip_filter</li>
-</ul>
-<h2 id="api">API 説明<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">init_pass_filter</span><span class="p">()</span>
-</code></pre></div>
-<ul>
-<li>初期化時のトレースポイントのみを通します。</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="n">duration_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">offset_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span>
-</code></pre></div>
-<ul>
-<li>[duration_s]秒間を測定対象にフィルタリング</li>
-<li>最初の[offset_s]秒間を無視</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">strip_filter</span><span class="p">(</span><span class="n">lsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">rsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span>
-</code></pre></div>
-<ul>
-<li>測定開始から[lsplit_s]秒間の測定結果を無視</li>
-<li>測定測定終了から[rsplit_s]秒間の測定結果を無視</li>
-</ul>
-<h2 id="_1">使用例<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
+<h1 id="error-detection-using-pathverify">Error detection using <code>path.verify()</code><a class="headerlink" href="#error-detection-using-pathverify" title="Permanent link">#</a></h1>
+<p>CARET requires some setup and configuration that users should do.
+<code>path.verify()</code> method can check the settings are completed.
+If any error or warning occurs, message from <code>path.verify()</code> give you some instruction to tackle it.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
-<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/ctf&#39;</span><span class="p">,</span> <span class="n">event_filters</span><span class="o">=</span><span class="p">[</span>
-  <span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="p">])</span> <span class="c1"># 測定開始5秒後から10秒間にフィルタいrング</span>
+<span class="c1"># read architecture file.</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/architecture_file.yaml&#39;</span><span class="p">)</span>
+
+<span class="c1"># read trace result.</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/trace_data&#39;</span><span class="p">)</span>
+
+<span class="c1"># map architecture information to trace result.</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
+<span class="n">path</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
 </code></pre></div>
-<p>event_filters は複数指定することもできます。<br />
-複数を入れた場合は、全てのフィルタが指定した区間のみにフィルタリングされます。</p>
+<h2 id="what-pathverify-checks">What <code>path.verify()</code> checks<a class="headerlink" href="#what-pathverify-checks" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p>Check whether using caret/rclcpp [path.verify()]</p>
+<p>Your applications need to be built with <code>rclcpp</code> provided by CARET, not ROS 2.
+<code>path.verify()</code> command checks which <code>rclcpp</code> is used for building your application.</p>
+<p>If caret/rclcpp is not applied, the following warning message is outputted on your terminal or Jupyter notebook.</p>
+<div class="highlight"><pre><span></span><code>WARNING : <span class="m">2022</span>-03-18 <span class="m">12</span>:53:54 <span class="p">|</span> <span class="s1">&#39;caret/rclcpp&#39;</span> may not be used <span class="k">in</span> subscriber of <span class="s1">&#39;/localization/pose_estimator/ndt_scan_matcher&#39;</span>.
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>Check if node latency can be calculated with referring to <code>message_context</code></li>
+</ul>
 
 
 
@@ -1446,7 +1784,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../gallery/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ギャラリー" rel="prev">
+        <a href="../lttng_event_filter/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Usage of LTTngEventFilter" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1455,20 +1793,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              ギャラリー
+              Usage of LTTngEventFilter
             </div>
           </div>
         </a>
       
       
         
-        <a href="../about_treat_drop_as_delay/" class="md-footer__link md-footer__link--next" aria-label="Next: treat_drop_as_delayフラグの説明" rel="next">
+        <a href="../../visualization_api/callback_information/" class="md-footer__link md-footer__link--next" aria-label="Next: Callback Information" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              treat_drop_as_delayフラグの説明
+              Callback Information
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1503,10 +1841,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
