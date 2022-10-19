@@ -20,7 +20,7 @@ from caret_analyze import Architecture
 arch = Architecture('lttng', '/path/to/ctf-based_recorded_data')
 ```
 
-You will find `caret_analyze.architecture.architecture.Architecture`-based object, named '`arch`'.
+You will find `caret_analyze.architecture.Architecture`-based object, named '`arch`'.
 
 Loading an architecture object from CTF-based recorded data tends to be time-consuming task.
 
