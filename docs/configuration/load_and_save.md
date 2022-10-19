@@ -51,7 +51,7 @@ arch.export('/path/to/destination/architecture.yaml')
 
 ```
 
-The argument of `arch.export()` is string type and means file path to store the `arch` object. In this sample, `architecture.yaml` will be created in `/path/to/destination` directory unless the destination path is writable or another file of the same name exists.
+The argument of `arch.export()` is string type and means file path to store the `arch` object. In this sample, `architecture.yaml` will be created in `/path/to/destination` directory if the destination path is writable or another file of the same name does exist.
 
 `arch.export()` has the second argument, `force`, to allow you to overwrite the `arch` object into an existing file. The following sample shows how to overwrite.
 

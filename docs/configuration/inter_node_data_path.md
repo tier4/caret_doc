@@ -44,7 +44,7 @@ The list size will be too large to find target path if application has large num
 `Architecture.search_paths()` method serves four options to narrow down possible paths as below.
 
 1. **Additional nodes** as variable length arguments
-2. **`max_node_depth`** for limiting maximum number of nodes in path
+2. **Limiting maximum number of nodes** between given nodes with `max_node_depth`
 3. **Node filter** which excludes paths including specific nodes
 4. **Communication filter** which excludes paths including specific topics
 
@@ -76,9 +76,9 @@ paths = arch.search_paths('source_node',
 
 `paths` is a list including multiple paths which pass `source_node`, `intermediate_node_1`, `intermediate_node_2`, and `destination_node`. They are allowed to pass another node, but all chosen nodes are passed in order.
 
-#### `max_node_depth`
+#### Limiting maximum number of nodes
 
-`Architecture.search_paths()` will scan all paths as possible if you don't give `max_node_depth` argument. `max_node_depth` means maximum number of nodes including a path. The number of candidate paths will be suppressed by this argument.
+`Architecture.search_paths()` will scan all paths as possible if you don't give `max_node_depth` argument. `max_node_depth` means maximum number of nodes included in a path. The number of candidate paths will be suppressed by this argument.
 
 This argument will be helpful When you waste much time for `Architecture.search_paths()`.
 
@@ -98,7 +98,7 @@ paths = arch.search_paths('source_node',
 
 As node filter is similar to communication filter, they are explained together in this section.
 
-With node filter and communication filter, `Architecture.search_paths()` excludes paths which includes selected nodes and topics. They support regular expression.
+With node filter and communication filter, `Architecture.search_paths()` excludes paths which includes selected nodes or topics. They support regular expression.
 
 The following sample code shows usage.
 
