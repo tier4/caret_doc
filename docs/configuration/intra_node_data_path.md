@@ -77,7 +77,7 @@ With `use_latest_message` policy, CARET will map a most recent input message to 
 
 ![Example of use_latest_message](../imgs/configuration_use_latest_message.png)
 
-In the figure, messages of `ping` topic is mapped to messages of `/pong` topic by CARET. It is not still easy to understand with only the block figure, but the provided timing chart below help you to understand what `use_latest_message` is.
+In the figure, latest messages of `ping` topic is mapped to messages of `/pong` topic mechanically by CARET. It is not still easy to understand with only the block figure, but the provided timing chart below help you to understand what `use_latest_message` is.
 
 ![Timing chart of use_latest_message](../imgs/timing_chart_use_latest_message.png)
 
@@ -87,11 +87,28 @@ In the timing chart, red dotted lines explains a pitfall of `use_latest_message`
 
 ### `callback_chain`
 
-`callback_chain` is introduced for CARET to map input messages to outputs based on inter-operation of multiple callback functions. Input messages are consumed in ubscription callbacks and propagated to other nodes. It looks as if input messages passes chains of multiple callbacks to make output messages. With `callback_chain`, CARET take care of input propagation on callbacks and it is helpful to escape the limitation of `use_latest_message` as mentioned above.
+`callback_chain` is introduced for CARET to map input messages to outputs based on inter-operation of multiple callback functions. Input messages are consumed in subscription callbacks and propagated to other nodes. It looks as if input messages passes chains of multiple callbacks to make output messages. With `callback_chain`, CARET take care of input propagation on callbacks and it is helpful to escape the limitation of `use_latest_message` as mentioned above.
 
-Next figure shows how CARET interprets intra-node data path using `callback_chain`.
+Next figure shows how CARET interprets intra-node data path using `callback_chain`. Intra-communication between `subscription_callback_0` and `timer_callback_1` is taken into account for defining intra-node data path. `variable_passings` a tag used in CARET, and shows such intra-communication.
 
-As well as `use_latest_message`, the following timing chart shows how input messages are mapped to output messages.
+![Example of callback_chain](../imgs/configuration_callback_chain.png)
+
+The following timing chart shows how input messages are mapped to output messages.
+
+![Timing chart of callback_chain](../imgs/timing_chart_callback_chain.png)
+
+CARET maps mechanically messages of `/pong` topic to messages of `/ping` which finish being processed on `subscription_callback_0`. The unexpected behavior of `use_latest_message` is improved by `callback_chain`.
+
+`callback_chain` looks the best choice. However, it has several drawbacks.
+
+- It is not designed for node which have multiple callbacks running at parallel, and response time might be longer than actual
+- It is not able to detect actual time where buffered data are consumed because it does not trace events in application
+- Users are expected to know node structure beforehand
+
+<prettier-ignore-start>
+!!! info
+    `use_latest_message` and `callback_chain` do not cover all of use cases for CARET. We, CARET development team, continue improvements of intra-node data path definition.
+<prettier-ignore-end>
 
 ### Python API
 
@@ -99,14 +116,55 @@ Python API is not implemented so far. Python API support is planned in 2023.
 
 ### Architecture file editing
 
+This section explain how to add intra-node data path definition with editing an architecture file. The example issue above is used for explanation.
+
 #### `use_latest_message`
+
+Next sample description is required for using `use_latest_message` on an architecture file. `use_latest_message` is applied to `/pong_node` in the next sample description. Essential description is extracted in the following snippet, but you will confront with busy YAML file actually rather than the sample.
+
+You have to add `use_latest_message` as `context_types` between targeted subscription and publisher.
+
+```yml
+- node_name: /pong_node
+  callbacks:
+    - callback_name: subscription_callback_0
+    - callback_name: timer_callback_1
+  publishes:
+    - topic_name: /pong
+      callback_names:
+        - timer_callback_1 # manually added
+  subscribes:
+    - topic_name: /ping
+      callback_name: subscription_callback_0
+  message_contexts:
+    - context_type: use_latest_message # manually added
+      subscription_topic_name: /ping
+      publisher_topic_name: /pong
+```
 
 #### `callback_chain`
 
-## Limitation
+On the other hand, CARET requires users to provide the following description if you apply `callback_chain` to `/pong_node`.
 
-There some limitation in definition of intra-node data path.
+```yml
+- node_name: /pong_node
+  callbacks:
+    - callback_name: subscription_callback_0
+    - callback_name: timer_callback_1
+  variable_passings:
+    - callback_name_write: subscription_callback_0 # manually added
+      callback_name_read: timer_callback_1 # manually added
+  publishes:
+    - topic_name: /ping
+      callback_names:
+        - timer_callback_1 # manually added
+  subscribes:
+    - topic_name: /pong
+      callback_name: timer_callback_1
+  message_contexts:
+    - context_type: callback_chain # manually added
+      subscription_topic_name: /pong
+      publisher_topic_name: /ping
+```
 
-- CARET does not know when buffered data is consumed actually because CARET is not able to trace application-level event
-- CARET only supports typical cases of intra-node data path so far
-  - Possibly, CARET does not support tricky implementation of ROS 2 node
+User have to fill callback name in `variable_passings`, `publishes`'s `callback_name`. `context_type` must be set as `callback_chain`.

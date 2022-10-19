@@ -19,8 +19,8 @@ In detail, the following sections are listed as below.
 
 - [**Background of configuration**](./background.md) section will explain detailed background of configuration phase
 - [**How to load and save**](./create_and_verify_architecture.md) section will tell you how to load and save configuration
-- **How to define inter-node data path**
-- **How to define intra-node data path**
-- **Practical example with CARET_sample**
+- [**How to define inter-node data path**](./inter_node_data_path.md) section will tell you how to use `architecture.search_paths()`
+- [**How to define intra-node data path**](./intra_node_data_path.md) will let you know what `message_context` is.
+- **Practical example with CARET_sample** will be available in the near future, but it is available in [tutorial page](../tutorials/configuration.md)
 
-**Visualization of application structure** is an appendix which shows another usage of an architecture object. CARET can show structure of a targeted application while it is a performance analysis tool.
+**Visualization of application structure** will be prepared as an appendix which shows another usage of an architecture object. CARET can show structure of a targeted application while it is a performance analysis tool. This appendix will be disclosed in the near future also.
