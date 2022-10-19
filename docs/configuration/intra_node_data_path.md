@@ -50,7 +50,7 @@ CARET require users to define **`message_context`** to calculate node latency. O
 
 They have different capability to measure node latency, and the selected `message_context` policy decides how to calculate node latency. However, `message_context` is a little difficult for the beginner of CARET without any example. The subsequence section introduces an example issue before explaining the policies.
 
-### Example issue to explain
+### Example issue
 
 An example issue on `/ping_node` and `/pong_node` is given as the below figure shows.
 
@@ -67,15 +67,27 @@ The next items are explaining `/ping_node` and `/pong_node`.
   - it receives messages of `/ping` topic from `/pong_node` via `subscription_callback_0`
   - `subscription_callback_0` shares messages `/ping` topic with  `timer_callback_1` via shared variable
   - `timer_callback_1` produces `/pong` with the shared messages
+  - `timer_callback_1` runs about 8/5 as frequent as `timer_callback_0`
 
 CARET is concerned which input topic message is mapped to an output message. `message_context` is provided to map input messages to output messages.
 
 ### `use_latest_message`
 
-`use_latest_message` policy will map a most recent input message to output message.
+With `use_latest_message` policy, CARET will map a most recent input message to output message. CARET focuses on input and output,but is not concerned structure of node structure. The next figure shows how CARET defines node latency with `use_latest_message` in the example issue.
 
+![Example of use_latest_message](../imgs/configuration_use_latest_message.png)
+
+In the figure, messages of `ping` topic is mapped to messages of `/pong` topic by CARET. It is not still easy to understand with only the block figure, but the provided timing chart below help you to understand what `use_latest_message` is.
+
+![Timing chart of use_latest_message](../imgs/timing_chart_use_latest_message.png)
+
+In the timing chart, colored boxes represent duration of callback running, and bold lines are message flow of topic message. Dotted lines indicates mapping between input messages and outputs. With `use_latest_message`, CARET assumes that output message is made from the most recent input message. `use_latest_message` is fairly simple and works well in most cases.
+
+In the timing chart, red dotted lines explains a pitfall of `use_latest_message`. Using `use_latest_message` policy, CARET believes that input message, which is not even processed completely, is mapped to output message. For example, CARET interprets that `/pong[4]` is made from `/ping[2]` because `/ping[2]` is the recent input message for `/pong[4]`. However, `subscription_callback_0` is processing `/ping[2]` and does not share it with `timer_callback_1` before publishing `/pong[4]`. You have to tell CARET the node structure when you find such pitfall.
 
 ### `callback_chain`
+
+`callback_chain` is introduced for CARET to be aware of node structure.
 
 
 ### Python API
