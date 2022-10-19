@@ -216,17 +216,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/visualization/investigation_api/investigate_behavior/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/visualization/helper_api/lttng_event_filter/</loc>
          <lastmod>2022-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/visualization/investigation_api/lttng_event_filter/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/visualization/helper_api/path_verify/</loc>
          <lastmod>2022-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-77/visualization/investigation_api/path_verify/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-77/visualization/helper_api/scope_switch_method/</loc>
          <lastmod>2022-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
