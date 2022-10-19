@@ -2409,7 +2409,7 @@
 
 
 <h1 id="how-to-define-intra-node-data-path">How to define intra-node data path<a class="headerlink" href="#how-to-define-intra-node-data-path" title="Permanent link">#</a></h1>
-<p>In the previous section, you learned how to define inter-node data path. CARET can calculate response time for a simple path using only inter-node data path definition. However, when a target application or path becomes complicated, intra-node-data path needs to be defiend as well as inter-node data path.</p>
+<p>In the previous section, you learned how to define inter-node data path. CARET can calculate response time for a simple path using only inter-node data path definition. However, when a target application or path becomes complicated, intra-node-data path needs to be defined as well as inter-node data path.</p>
 <p>CARET assume that intra-node data path is mapping of topic subscription and publish in a node. This is not defined simply because the definition depends on implementation.</p>
 <p>This section will explain how to find which intra-node data path you have to define, and how to define it.</p>
 <h2 id="find-which-intra-node-data-path-to-define">Find which intra-node data path to define<a class="headerlink" href="#find-which-intra-node-data-path-to-define" title="Permanent link">#</a></h2>
@@ -2445,7 +2445,7 @@
 <li><code>callback_chain</code></li>
 </ul>
 <p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency. However, <code>message_context</code> is a little difficult for CARET beginners without any example. The subsequence section introduces an example issue before explaining the policies.</p>
-<p>These two policies are not enough to cover the arbitrally node latency, and some implementations have node latency that cannot be measured.
+<p>These two policies are not enough to cover the arbitrary node latency, and some implementations have node latency that cannot be measured.
 For example, message filter is currently unable to measure.</p>
 <h3 id="example-issue">Example issue<a class="headerlink" href="#example-issue" title="Permanent link">#</a></h3>
 <p>An example issue on <code>/ping_node</code> and <code>/pong_node</code> is given as the below figure shows.</p>
