@@ -28,7 +28,7 @@ Detail : [Latency histogram](./visualization/visualization_api/latency_histogram
 ![callback_frequency_df](./imgs/callback_frequency_df.png)
 
 ![callback_frequency_time_line](./imgs/callback_frequency_time_line.png)<br>
-Source code : [Execution frequency](./visualization/visualization_api/callback_information.md#execution-frequency)
+Detail : [Execution frequency](./visualization/visualization_api/callback_information.md#execution-frequency)
 
 ### Period
 
