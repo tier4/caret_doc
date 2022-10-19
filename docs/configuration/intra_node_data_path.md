@@ -56,7 +56,7 @@ An example issue on `/ping_node` and `/pong_node` is given as the below figure s
 
 ![Example Issue](../imgs/message_context_sample_issue.png)
 
-The next items are explaining `/ping_node` and `/pong_node`.
+Next items are explaining `/ping_node` and `/pong_node`.
 
 - `/ping_node`
   - it transmit messages of `/ping` topic to `/pong_node`
@@ -87,13 +87,23 @@ In the timing chart, red dotted lines explains a pitfall of `use_latest_message`
 
 ### `callback_chain`
 
-`callback_chain` is introduced for CARET to map input message to output based on node structure. `callback_chain` is helpful to escape the pitfall of `use_latest_message` as mentioned above.
+`callback_chain` is introduced for CARET to map input messages to outputs based on inter-operation of multiple callback functions. Input messages are consumed in ubscription callbacks and propagated to other nodes. It looks as if input messages passes chains of multiple callbacks to make output messages. With `callback_chain`, CARET take care of input propagation on callbacks and it is helpful to escape the limitation of `use_latest_message` as mentioned above.
+
+Next figure shows how CARET interprets intra-node data path using `callback_chain`. 
+
+
+As well as `use_latest_message`, the following timing chart shows how input messages are mapped to output messages.
+
 
 ### Python API
 
 Python API is not implemented so far. Python API support is planned in 2023.
 
 ### Architecture file editing
+
+#### `use_latest_message`
+
+#### `callback_chain`
 
 ## Limitation
 
