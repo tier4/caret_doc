@@ -23,7 +23,7 @@ LttngEventFilter.init_pass_filter()
 LttngEventFilter.duration_filter(duration_s: float, offset_s: float)
 ```
 
-- [duration_s] : Measure durtion
+- [duration_s] : Measure duration
 - [offset_s] : Ignore seconds from start
 
 ```python
