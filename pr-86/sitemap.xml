@@ -21,21 +21,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-86/configuration/create_and_verify_architecture/</loc>
-         <lastmod>2022-10-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-86/configuration/how_to_search_path/</loc>
-         <lastmod>2022-10-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-86/configuration/how_to_write_architecture/</loc>
-         <lastmod>2022-10-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-86/configuration/inter_node_data_path/</loc>
          <lastmod>2022-10-19</lastmod>
          <changefreq>daily</changefreq>
