@@ -1414,8 +1414,8 @@
 
 
 <h1 id="how-to-define-intra-node-data-path">How to define intra-node data path<a class="headerlink" href="#how-to-define-intra-node-data-path" title="Permanent link">#</a></h1>
-<p>In the previous section, you learned how to define inter-node data path. However, response time for path cannot be calculated with only inter-node data path definition. As you will see in the chapter, you have to define intra-node data path.</p>
-<p>CARET assume that intra-node data path is duration from topic subscription to topic publish in a node. This is not defined simply because the definition depends on implementation.</p>
+<p>In the previous section, you learned how to define inter-node data path. CARET can calculate response time for a simple path using only inter-node data path definition. However, when a target application or path becomes complicated, intra-node-data path needs to be defiend as well as inter-node data path.</p>
+<p>CARET assume that intra-node data path is mapping of topic subscription and publish in a node. This is not defined simply because the definition depends on implementation.</p>
 <p>This section will explain how to find which intra-node data path you have to define, and how to define it.</p>
 <h2 id="find-which-intra-node-data-path-to-define">Find which intra-node data path to define<a class="headerlink" href="#find-which-intra-node-data-path-to-define" title="Permanent link">#</a></h2>
 <p>Before defining intra-node data path, you have to check whether latency of the target path is calculable. This can be checked with <code>Path.verify()</code> method as the following sample code shows.</p>
@@ -1449,7 +1449,7 @@
 <li><code>use_latest_message</code></li>
 <li><code>callback_chain</code></li>
 </ul>
-<p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency. However, <code>message_context</code> is a little difficult for the beginner of CARET without any example. The subsequence section introduces an example issue before explaining the policies.</p>
+<p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency. However, <code>message_context</code> is a little difficult for CARET beginners without any example. The subsequence section introduces an example issue before explaining the policies.</p>
 <p>These two policies are not enough to cover the arbitrally node latency, and some implementations have node latency that cannot be measured.
 For example, message filter is currently unable to measure.</p>
 <h3 id="example-issue">Example issue<a class="headerlink" href="#example-issue" title="Permanent link">#</a></h3>
@@ -1482,7 +1482,7 @@ For example, message filter is currently unable to measure.</p>
 <p>In the timing chart, red dotted lines explains a pitfall of <code>use_latest_message</code>. Using <code>use_latest_message</code> policy, CARET believes that input message, which is not even processed completely, is mapped to output message. For example, CARET interprets that <code>/pong[4]</code> is made from <code>/ping[2]</code> because <code>/ping[2]</code> is the recent input message for <code>/pong[4]</code>. However, <code>subscription_callback_0</code> is processing <code>/ping[2]</code> and does not share it with <code>timer_callback_1</code> before publishing <code>/pong[4]</code>. You have to tell CARET the node structure when you find such pitfall.</p>
 <h3 id="callback_chain"><code>callback_chain</code><a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h3>
 <p><code>callback_chain</code> is introduced for CARET to map input messages to outputs based on inter-operation of multiple callback functions. Input messages are consumed in subscription callbacks and propagated to other nodes. It looks as if input messages passes chains of multiple callbacks to make output messages. With <code>callback_chain</code>, CARET take care of input propagation on callbacks and it is helpful to escape the limitation of <code>use_latest_message</code> as mentioned above.</p>
-<p>Next figure shows how CARET interprets intra-node data path using <code>callback_chain</code>. Intra-communication between <code>subscription_callback_0</code> and <code>timer_callback_1</code> is taken into account for defining intra-node data path. <code>variable_passings</code> a tag used in CARET, and shows such intra-communication.</p>
+<p>Next figure shows how CARET interprets intra-node data path using <code>callback_chain</code>. Intra-communication between <code>subscription_callback_0</code> and <code>timer_callback_1</code> is taken into account for defining intra-node data path. <code>variable_passings</code> is a tag used in CARET, and represents such intra-communication.</p>
 <p><img alt="Example of callback_chain" src="../../imgs/configuration_callback_chain.png" /></p>
 <p>The following timing chart shows how input messages are mapped to output messages.</p>
 <p><img alt="Timing chart of callback_chain" src="../../imgs/timing_chart_callback_chain.png" /></p>
@@ -1490,7 +1490,7 @@ For example, message filter is currently unable to measure.</p>
 <p><code>callback_chain</code> looks the best choice. However, it has several drawbacks.</p>
 <ul>
 <li>It is not designed for node which have multiple callbacks running at parallel, and response time might be longer than actual</li>
-<li>It is not able to detect actual time where buffered data are consumed because it does not trace events in application</li>
+<li>It is not able to detect actual time when buffered data are consumed because only CARET does not trace user code on ROS 2</li>
 <li>Users are expected to know node structure beforehand</li>
 </ul>
 <p><prettier-ignore-start></p>
@@ -1544,7 +1544,7 @@ For example, message filter is currently unable to measure.</p>
       publisher_topic_name: /ping
 </code></pre></div>
 <p>User have to fill callback name in <code>variable_passings</code>, <code>publishes</code>'s <code>callback_name</code>. <code>context_type</code> must be set as <code>callback_chain</code>.
-After editing, use path.verify() described in the first half of this chapter to verify that it has been set correctly.</p>
+After editing, use path.verify() described in the beginning of this section to verify that it has been set correctly.</p>
 
 
 
