@@ -1,7 +1,12 @@
 nav:
     - Overview:
       - Overview: index.md
+      - Gallery: gallery.md
       - Changelog: changelog.md
+    - Installation: installation
     - Tutorials: tutorials
+    - Recording: recording
+    - Configuration: configuration
+    - Visualization: visualization
     - Design: design
-    - Tips: tips
+    - FAQ: faq

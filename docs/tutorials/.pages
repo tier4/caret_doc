@@ -1,5 +1,4 @@
 nav:
-    - Installation: installation.md
-    - Measurement: measurement.md
+    - Recording: recording.md
     - Configuration: configuration.md
     - Visualization: visualization.md

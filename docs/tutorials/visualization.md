@@ -6,7 +6,7 @@ This section will show basic flow to visualize data with Jupyter notebook.
 ## How to locate trace data on Jupyter notebook
 
 1. Launching `jupyter-lab`
-   Launch `jupyter-lab` at first for learning how to visualize trace data.
+   Launch `jupyter-lab` at first for learning how to visualize recorded data.
 
    ```bash
    cd ~/ros2_ws/evaluate
@@ -33,10 +33,10 @@ This section will show basic flow to visualize data with Jupyter notebook.
    # load the architecture file which is created in the previous page
    arch = Architecture('yaml', './architecture.yaml')
 
-   # load measured data by CARET
+   # load recorded data by CARET
    lttng = Lttng('./e2e_sample')
 
-   # map the application architecture to measured data
+   # map the application architecture to recorded data
    app = Application(arch, lttng)
    ```
 
@@ -86,4 +86,4 @@ The horizontal axis shows time line. On the other hand, the vertical axis shows 
 
 If your mouse pointer is put over one of gray rectangles, latency of callback functions will be shown. You can find latency of a target node chain as well if you put the mouse pointer onto one of colorful lines.
 
-CARET serves other APIs for visualization. Refer to [ギャラリー](../tips/gallery.md) for more details.
+CARET serves other APIs for visualization. Refer to [ギャラリー](../gallery.md) for more details.

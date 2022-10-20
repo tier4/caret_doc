@@ -38,42 +38,44 @@ CARET hooks dedicated functions to those defined in dynamic library in order to 
 The fork of rclcpp which has CARET-dedicated tracepoints is delivered.
 You have to build CARET and your application if you want to use.
 
-After you run your application with CARET, you will measure (trace) your application get a set of trace data. You have to write a configuration file, called architecture file, in which you defines node latency and target path, before you analyze the data set.
+After you run your application with CARET, you will get recorded data which includes events, metadata and timestamp. You have to write a configuration file, called architecture file, in which you defines node latency and target path, before you analyze the data set.
 
 You will visualize trace data with the architecture file and `CARET_analyze` package, including API for data analysis.
 `CARET_analyze` is designed on assumption that users analyze trace data on Jupyter Notebook.
 
 ## Contents list
 
+### Installation
+
+Installation with Ansible is provided as the following page shows.
+
+- [Installation](./installation/installation.md)
+
 ### Tutorials
 
 Refer to these page if you want to try.
 
-- [Installation](./tutorials/installation.md)
-- [Measurement](./tutorials/measurement.md)
+- [Recording](./tutorials/recording.md)
 - [Configuration](./tutorials/configuration.md)
 - [Visualization](./tutorials/visualization.md)
 
 ### Design
 
-Design documents is prepared, but some are written in Japanese.
+- [Index](./design)
+- [Software architecture](./design/software_architecture/index.md)
+- [Processing trace data](./design/processing_trace_data/index.md)
+- [Runtime processing](./design/runtime_processing/index.md)
+- [Tracepoints](./design/trace_points/index.md)
+- [Configuration](./design/configuration/index.md)
+- [Limits and constraints](./design/limits_and_constraints/index.md)
 
-- [Architecture overview](./design/architecture_overview.md)
-- [Supported tracepoints](./design/supported_tracepoints.md)
-<!-- - [records型について](./about_records_type.md) -->
-- [galactic との差分(staled)](./design/diff.md)
+### Details of each step for analysis
 
-### Tips
+CARET serves helpful functions for you to analyze your application efficiently. Please refer to detailed explanation of each step for analysis.
 
-Some useful tips to get accustomed to CARET, but almost all of them are written in Japanese.
-
-- [パスのレイテンシの定義](./tips/latency_definition.md)
-- [ノードレイテンシの定義](./tips/node_latency_definition.md)
-- [通信レイテンシの定義](./tips/communication_latency_definition.md)
-- [トレースフィルタリングについて](./tips/trace_filtering.md)
-- [ツール利用時の制約](./tips/limits.md)
-- [ギャラリー](./tips/gallery.md)
-- [トラブルシューティング](./tips/trouble_shooting.md)
+- [Recording](./recording)
+- [Configuration](./configuration)
+- [Visualization](./visualization/)
 
 ### API list
 

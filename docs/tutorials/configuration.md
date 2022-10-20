@@ -36,12 +36,12 @@ This section explains how to generate an architecture file which has minimum des
    jupyter-lab
    ```
 
-2. Generate an architecture file from measured data as below
+2. Generate an architecture file from recorded data as below
 
    ```python
    from caret_analyze import Architecture
 
-   # Read description of application's architecture from measured data
+   # Read description of application's architecture from recorded data
    arch = Architecture('lttng', './e2e_sample')
 
    # Save description as an architecture file
@@ -72,7 +72,7 @@ This section explains how to generate an architecture file which has minimum des
    ```
 
    If a target application is large and complicated, `arch.search_paths` method may consume time more than 1 minute.
-   For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to [パスの探索方法](../tips/how_to_search_path.md) for more details.
+   For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to [パスの探索方法](../configuration/inter_node_data_path.md) for more details.
 
 3. Check the path as you expected
 

@@ -1,0 +1,8 @@
+nav:
+    - Recording: index.md
+    - Build and check: build_check.md
+    - Trace filtering: trace_filtering.md
+    - Recording: recording.md
+    - Validating: validating.md
+    - CLI tools: cli_tool.md
+    - ROS time (sim_time) support: sim_time.md

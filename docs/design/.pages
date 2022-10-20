@@ -1,5 +1,29 @@
 nav:
-    - Architecture overview: architecture_overview.md
-    - Supported tracepoints: supported_tracepoints.md
-    - galacticとの差分(staled): diff.md
-    - レイテンシの算出方法: how_to_calculate_latency.md
+    - Design: index.md
+    - Software architecture:
+        - Design:
+            - Overview: design/software_architecture
+            - caret_analyze: design/software_architecture/caret_analyze
+            - caret_trace: design/software_architecture/caret_trace
+            - tilde: design/software_architecture/tilde
+    - Runtime processing:
+        - Design:
+            - Overview: design/runtime_processing
+            - Hook: design/runtime_processing/hook
+            - Tracepoint filtering: design/runtime_processing/tracepoint_filtering
+    - Processing trace data:
+        - Design:
+            - Overview: design/processing_trace_data
+            - Records: design/processing_trace_data/records
+            - Response time: design/processing_trace_data/response_time
+    - Tracepoints:
+        - Design:
+            - Overview: design/trace_points
+            - Initialization tracepoints: design/trace_points/initialization_trace_points
+            - Runtime tracepoints: design/trace_points/runtime_trace_points
+            - Differences from original ROS: design/trace_points/diff
+    - Configuration:
+        - Design:
+            - Overview: design/configuration
+            - File format: design/configuration/architecture_file
+    - Limits and constraints: limits_and_constraints
