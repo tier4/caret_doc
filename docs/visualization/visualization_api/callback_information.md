@@ -1,6 +1,6 @@
 # Callback Information
 
-To investigate with fine granularity, the behavior of callbacks should be visualized in detail. 
+To investigate with fine granularity, the behavior of callbacks should be visualized in detail.
 CARET can visualize the callback frequency, period, and latency.
 This document describes sample visualization scripts for them.
 Execute these commands before each section.

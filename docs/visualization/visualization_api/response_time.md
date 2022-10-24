@@ -3,7 +3,7 @@
 Response Time is visualized in Histogram and there are 3 cases ([default, best, worst]) as described in [Here](../../faq/index.md#how-response-time-is-calculated).
 This document describes sample visualization scripts for Response TIme.
 In each case, the horizontal axis means `Response Time [ms]` and the vertical axis means `Probability`.
-This API is used to confirm how long the response time is. 
+This API is used to confirm how long the response time is.
 
 ```python
 from caret_analyze.plot import Plot
@@ -20,6 +20,7 @@ path = app.get_path('target_path')
 plot = Plot.create_response_time_histogram_plot(path)
 plot.show()
 ```
+
 Note: The `output_notebook()` is needed only when running the script on Jupyter Notebook.
 
 ![response_time_default_histogram](../../imgs/response_time_default_histogram.png)

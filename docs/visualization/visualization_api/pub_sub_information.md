@@ -16,12 +16,13 @@ app = Application(arch, lttng)
 pub = app.get_publishers('topic_name')
 pub = pub[0] # Note 2
 
-# Please use the following commands in the case visualizing subscription. 
+# Please use the following commands in the case visualizing subscription.
 # sub = app.get_subscriptions('topic_name')
 # sub = sub[0]
 ```
 
 Note:
+
 1. The `output_notebook()` is needed only when running the script on Jupyter Notebook.
 2. The function `get_publishers()` and `get_subscriptions()` returns a List. The sample code uses the first value of the List.
 

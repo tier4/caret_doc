@@ -43,4 +43,4 @@ lttng = Lttng('/path/to/ctf', event_filters=[
 ]) # Filtering from 5 seconds to 10 seconds after the start of the measurement
 ```
 
-Multiple event_filters can be specified.  
+Multiple event_filters can be specified.
