@@ -35,7 +35,7 @@
 
 ### Helper APIs
 
-CARET provides some APIs which can help user to focus on his/her respective interest.
+CARET provides some APIs which can help users to focus on thier respective interest.
 
 - [LTTngEventFilter](./helper_api/lttng_event_filter.md)
 - [get_callbacks](./helper_api/scope_switch_method.md)

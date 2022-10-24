@@ -1,7 +1,8 @@
 # Communication Information
 
 CARET can visualize the communication frequency, period, and latency.
-Execute these commands in advance.
+This document describes sample visualization scripts for them.
+Execute these commands before each section.
 
 ```python
 from caret_analyze.plot import Plot
@@ -17,6 +18,10 @@ comm = comm[0]
 # or comm = app.get_communication('pub_node', 'sub_node', 'topic_name')
 ```
 
+Note
+1. The `output_notebook()` is needed only when running the script on Jupyter Notebook.
+2. The function `get_communications` returns a List and the function `get_communication` returns one communication handler.
+
 ## Frequency
 
 ```python
@@ -25,6 +30,10 @@ plot.show()
 ```
 
 ![communication_frequency_time_line](../../imgs/communication_frequency_time_line.png)
+
+The horizontal axis means `Time [s]` plotting by `1s` (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
+The vertical axis means `Frequency [Hz]` of the communication.
+This API is used to confirm whether the communication was running at correct frequency.
 
 ## Period
 
@@ -35,6 +44,10 @@ plot.show()
 
 ![communication_period_time_line](../../imgs/communication_period_time_line.png)
 
+The horizontal axis means `Time [s]` (changeable in ['system_time', 'sim_time', 'index']).
+The vertical axis means `Period [ms]` from one communication to next communication.
+This API is used to confirm whether the period was stable.
+
 ## Latency
 
 ```python
@@ -43,3 +56,7 @@ plot.show()
 ```
 
 ![communication_latency_time_line](../../imgs/communication_latency_time_line.png)
+
+The horizontal axis means `Time [s]` (changeable in ['system_time', 'sim_time', 'index']).
+The vertical axis means `Latency [ms]` from one callback publishes a topic to next callback starts.
+This API is used to confirm the communication time.

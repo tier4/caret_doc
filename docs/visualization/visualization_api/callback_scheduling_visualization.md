@@ -1,6 +1,7 @@
 # Callback Scheduling Visualization
 
-Callback Scheduling Visualization will show you callback scheduling of targets such as a Node, Executor, and Callbackgroup.
+To investigate node behaviors, it is needed to visualize the interaction between callbacks.
+The function `callback_sched()` visualizes the callback scheduling of targets such as a Node, Executor, and Callbackgroup.
 
 ```python
 from caret_analyze import Architecture, Application, Lttng

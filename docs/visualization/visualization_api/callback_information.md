@@ -1,20 +1,23 @@
 # Callback Information
 
+To investigate with fine granularity, the behavior of callbacks should be visualized in detail. 
 CARET can visualize the callback frequency, period, and latency.
-Execute these commands in advance.
+This document describes sample visualization scripts for them.
+Execute these commands before each section.
 
 ```python
 from caret_analyze.plot import Plot
 from caret_analyze import Application, Architecture, Lttng
 from bokeh.plotting import output_notebook, figure, show
 output_notebook()
-#output_notebook() is needed only when you run the script on Jupyter Notebook
 arch = Architecture('yaml', '/path/to/architecture_file')
 lttng = Lttng('/path/to/trace_data')
 app = Application(arch, lttng)
 ```
 
-## Execution frequency
+Note: The `output_notebook()` is needed only when running the script on Jupyter Notebook.
+
+## Frequency
 
 ```python
 # get dataframe
@@ -38,6 +41,11 @@ plot.show()
 ```
 
 ![callback_frequency_time_line](../../imgs/callback_frequency_time_line.png)
+
+The horizontal axis means `Time [s]` plotting by `1s` (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
+The vertical axis means `Frequency [Hz]` of the callback.
+This API is used to confirm whether the callback was running at correct frequency.
+The argument is not only `Application` class, please see [API Lists](https://tier4.github.io/CARET_analyze/latest/).
 
 ## Period
 
@@ -64,6 +72,11 @@ plot.show()
 
 ![callback_period_time_line](../../imgs/callback_period_time_line.png)
 
+The horizontal axis means `Time [s]` (changeable in ['system_time', 'sim_time', 'index']).
+The vertical axis means `Period [ms]` from one callback to next callback.
+This API is used to confirm whether the period was stable.
+The argument is not only `Application` class, please see [API Lists](https://tier4.github.io/CARET_analyze/latest/).
+
 ## Latency
 
 ```python
@@ -88,3 +101,8 @@ plot.show()
 ```
 
 ![callback_latency_time_line](../../imgs/callback_latency_time_line.png)
+
+The horizontal axis means `Time [s]` (changeable in ['system_time', 'sim_time', 'index']).
+The vertical axis means `Latency [ms]` from `callback_start` to `callback_end`.
+This API is used to confirm the callback execution time.
+The argument is not only `Application` class, please see [API Lists](https://tier4.github.io/CARET_analyze/latest/).
