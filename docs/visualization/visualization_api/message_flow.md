@@ -1,7 +1,7 @@
 # Message flow
 
-To grasp the system behavior, it is important to check the message flow through the target path.
-The function `message_flow()` can visualizes the latency of the target path and you can confirm which input message is used for output message. 
+To grasp the system behavior, it is important to check the message flow.
+The function `message_flow()` can visualizes the latency of the target path and you can confirm which input message is used for the output message. 
 
 ```python
 from caret_analyze.plot import message_flow

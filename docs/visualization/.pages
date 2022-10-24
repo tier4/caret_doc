@@ -17,7 +17,6 @@ nav:
             - Latency histogram: visualization/visualization_api/latency_histogram
 
     - Helper APIs:
-        - List:
-            - Usage of LTTngEventFilter: visualization/helper_api/lttng_event_filter
-            - Path Verification: visualization/helper_api/path_verify
-            - Detailed Behavior Investigation Methods: visualization/helper_api/scope_switch_method
+        - Usage of LTTngEventFilter: visualization/helper_api/lttng_event_filter
+        - Path Verification: visualization/helper_api/path_verify
+        - Detailed Behavior Investigation Methods: visualization/helper_api/scope_switch_method
