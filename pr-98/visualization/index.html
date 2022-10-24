@@ -968,8 +968,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_6_3">
@@ -1067,19 +1065,35 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_3_2">
-          Node
+          Communication
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Node" data-md-level="3">
+      <nav class="md-nav" aria-label="Communication" data-md-level="3">
         <label class="md-nav__title" for="__nav_6_3_2">
           <span class="md-nav__icon md-icon"></span>
-          Node
+          Communication
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="visualization_api/communication_information" class="md-nav__link">
+        Freq/Period/Latency(Execution time)
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1118,74 +1132,23 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_3_3">
-          Communication
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Communication" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_3">
-          <span class="md-nav__icon md-icon"></span>
-          Communication
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="visualization_api/communication_information" class="md-nav__link">
-        Freq/Period/Latency(Execution time)
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_4" type="checkbox" id="__nav_6_3_4" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_3_4">
           Path
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Path" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_4">
+        <label class="md-nav__title" for="__nav_6_3_3">
           <span class="md-nav__icon md-icon"></span>
           Path
         </label>
@@ -1345,8 +1308,8 @@
   
   
     <li class="md-nav__item">
-      <a href="helper_api/scope_switch_method" class="md-nav__link">
-        Detailed Behavior Investigation Methods
+      <a href="helper_api/regex_expressions_get_callbacks" class="md-nav__link">
+        Regex expressions of get_callbacks()
       </a>
     </li>
   
@@ -2175,11 +2138,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#caret-apis" class="md-nav__link">
-    CARET APIs
+  <a href="#caret-api-list" class="md-nav__link">
+    CARET API List
   </a>
   
-    <nav class="md-nav" aria-label="CARET APIs">
+    <nav class="md-nav" aria-label="CARET API List">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2200,13 +2163,6 @@
           <li class="md-nav__item">
   <a href="#communication" class="md-nav__link">
     Communication
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#node" class="md-nav__link">
-    Node
   </a>
   
 </li>
@@ -2256,16 +2212,21 @@
 
 
 <h1 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h1>
+<p>This section describes APIs to visualize the measurement results.
+We recommend to read <a href="concept/basic_api_concept/">Basic APIs Concept (Visualization)</a> at first.</p>
 <h2 id="basic-apis-concept">Basic APIs Concept<a class="headerlink" href="#basic-apis-concept" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="concept/basic_api_concept/">Basic APIs Concept</a></li>
 <li><a href="../gallery/">Gallery</a></li>
+<li><a href="concept/basic_api_concept/">Basic APIs Concept (Visualization)</a></li>
 </ul>
-<h2 id="caret-apis">CARET APIs<a class="headerlink" href="#caret-apis" title="Permanent link">#</a></h2>
+<h2 id="caret-api-list">CARET API List<a class="headerlink" href="#caret-api-list" title="Permanent link">#</a></h2>
 <h3 id="visualization-apis">Visualization APIs<a class="headerlink" href="#visualization-apis" title="Permanent link">#</a></h3>
 <h4 id="callback">Callback<a class="headerlink" href="#callback" title="Permanent link">#</a></h4>
 <ul>
-<li><a href="visualization_api/callback_scheduling_visualization/">callback_sched</a></li>
+<li><a href="visualization_api/callback_scheduling_visualization/">callback_sched</a><ul>
+<li>Visualize callback shceduling</li>
+</ul>
+</li>
 <li><a href="visualization_api/callback_information/#execution-frequency">create_callback_frequency_plot</a></li>
 <li><a href="visualization_api/callback_information/#period">create_callback_period_plot</a></li>
 <li><a href="visualization_api/callback_information/#latency">create_callback_latency_plot</a></li>
@@ -2275,23 +2236,23 @@
 <li><a href="visualization_api/communication_information/#latency">create_communication_latency_plot</a></li>
 <li><a href="visualization_api/communication_information/#frequency">create_communication_frequency_plot</a></li>
 <li><a href="visualization_api/communication_information/#period">create_communication_period_plot</a></li>
-</ul>
-<h4 id="node">Node<a class="headerlink" href="#node" title="Permanent link">#</a></h4>
-<ul>
 <li><a href="visualization_api/pub_sub_information/#period">create_publish_subscription_period_plot</a></li>
-<li><a href="visualization_api/pub_sub_information/#frequency">create_publish_subscription_frequency_plot</a>
-  <br>Note: Possible to get publisher as the same.</li>
+<li><a href="visualization_api/pub_sub_information/#frequency">create_publish_subscription_frequency_plot</a></li>
 </ul>
 <h4 id="path">Path<a class="headerlink" href="#path" title="Permanent link">#</a></h4>
 <ul>
-<li><a href="visualization_api/message_flow/">message_flow</a></li>
+<li><a href="visualization_api/message_flow/">message_flow</a><ul>
+<li>Visualize the message flow of the target path</li>
+</ul>
+</li>
 <li><a href="visualization_api/response_time/">create_response_time_histogram_plot</a></li>
 </ul>
 <h3 id="helper-apis">Helper APIs<a class="headerlink" href="#helper-apis" title="Permanent link">#</a></h3>
 <p>CARET provides some APIs which can help users to focus on thier respective interest.</p>
 <ul>
 <li><a href="helper_api/lttng_event_filter/">LTTngEventFilter</a></li>
-<li><a href="helper_api/scope_switch_method/">get_callbacks</a></li>
+<li><a href="helper_api/path_verify/">Path verify</a></li>
+<li><a href="helper_api/regex_expressions_get_callbacks/">Regex expressions of get_callbacks()</a></li>
 </ul>
 <p>Note: <a href="https://tier4.github.io/CARET_analyze/">CARET analyze API document</a>.</p>
 

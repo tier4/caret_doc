@@ -495,8 +495,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#execution-frequency" class="md-nav__link">
-    Execution frequency
+  <a href="#frequency" class="md-nav__link">
+    Frequency
   </a>
   
 </li>
@@ -523,6 +523,13 @@
         <li class="md-nav__item">
   <a href="#callback-scheduling-visualization" class="md-nav__link">
     Callback Scheduling Visualization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-time-histogram" class="md-nav__link">
+    Response Time Histogram
   </a>
   
 </li>
@@ -1064,8 +1071,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_6_3">
@@ -1163,19 +1168,35 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_3_2">
-          Node
+          Communication
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Node" data-md-level="3">
+      <nav class="md-nav" aria-label="Communication" data-md-level="3">
         <label class="md-nav__title" for="__nav_6_3_2">
           <span class="md-nav__icon md-icon"></span>
-          Node
+          Communication
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualization/visualization_api/communication_information" class="md-nav__link">
+        Freq/Period/Latency(Execution time)
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1214,74 +1235,23 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_3_3">
-          Communication
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Communication" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_3">
-          <span class="md-nav__icon md-icon"></span>
-          Communication
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../visualization/visualization_api/communication_information" class="md-nav__link">
-        Freq/Period/Latency(Execution time)
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_4" type="checkbox" id="__nav_6_3_4" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_3_4">
           Path
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Path" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_4">
+        <label class="md-nav__title" for="__nav_6_3_3">
           <span class="md-nav__icon md-icon"></span>
           Path
         </label>
@@ -1441,8 +1411,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../visualization/helper_api/scope_switch_method" class="md-nav__link">
-        Detailed Behavior Investigation Methods
+      <a href="../visualization/helper_api/regex_expressions_get_callbacks" class="md-nav__link">
+        Regex expressions of get_callbacks()
       </a>
     </li>
   
@@ -2293,8 +2263,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#execution-frequency" class="md-nav__link">
-    Execution frequency
+  <a href="#frequency" class="md-nav__link">
+    Frequency
   </a>
   
 </li>
@@ -2321,6 +2291,13 @@
         <li class="md-nav__item">
   <a href="#callback-scheduling-visualization" class="md-nav__link">
     Callback Scheduling Visualization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-time-histogram" class="md-nav__link">
+    Response Time Histogram
   </a>
   
 </li>
@@ -2360,10 +2337,10 @@ Detail : <a href="../visualization/visualization_api/latency_time_series/">Laten
 <h2 id="latency-histogram">Latency histogram<a class="headerlink" href="#latency-histogram" title="Permanent link">#</a></h2>
 <p><img alt="history_sample" src="../imgs/history_sample.png" /><br>
 Detail : <a href="../visualization/visualization_api/latency_histogram/">Latency histogram</a></p>
-<h3 id="execution-frequency">Execution frequency<a class="headerlink" href="#execution-frequency" title="Permanent link">#</a></h3>
+<h3 id="frequency">Frequency<a class="headerlink" href="#frequency" title="Permanent link">#</a></h3>
 <p><img alt="callback_frequency_df" src="../imgs/callback_frequency_df.png" /></p>
 <p><img alt="callback_frequency_time_line" src="../imgs/callback_frequency_time_line.png" /><br>
-Detail : <a href="../visualization/visualization_api/callback_information/#execution-frequency">Execution frequency</a></p>
+Detail : <a href="../visualization/visualization_api/callback_information/#frequency">Frequency</a></p>
 <h3 id="period">Period<a class="headerlink" href="#period" title="Permanent link">#</a></h3>
 <p><img alt="callback_period_df" src="../imgs/callback_period_df.png" /></p>
 <p><img alt="callback_period_time_line" src="../imgs/callback_period_time_line.png" /><br>
@@ -2375,6 +2352,9 @@ Detail : <a href="../visualization/visualization_api/callback_information/#laten
 <h2 id="callback-scheduling-visualization">Callback Scheduling Visualization<a class="headerlink" href="#callback-scheduling-visualization" title="Permanent link">#</a></h2>
 <p><img alt="Callback_Scheduling_Visualization_sample" src="../imgs/callback_sched_sample.png" /><br>
 Detail : <a href="../visualization/visualization_api/callback_scheduling_visualization/">Callback Scheduling Visualization</a></p>
+<h2 id="response-time-histogram">Response Time Histogram<a class="headerlink" href="#response-time-histogram" title="Permanent link">#</a></h2>
+<p><img alt="Response_Time_Histogram" src="../imgs/response_time_default_histogram.png" />
+Dtail : <a href="../visualization/visualization_api/response_time/">Response Time Histogram</a></p>
 
 
 

@@ -968,8 +968,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_6_3">
@@ -1067,19 +1065,35 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_3_2">
-          Node
+          Communication
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Node" data-md-level="3">
+      <nav class="md-nav" aria-label="Communication" data-md-level="3">
         <label class="md-nav__title" for="__nav_6_3_2">
           <span class="md-nav__icon md-icon"></span>
-          Node
+          Communication
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization_api/communication_information" class="md-nav__link">
+        Freq/Period/Latency(Execution time)
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1118,74 +1132,23 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_3_3">
-          Communication
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Communication" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_3">
-          <span class="md-nav__icon md-icon"></span>
-          Communication
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../visualization_api/communication_information" class="md-nav__link">
-        Freq/Period/Latency(Execution time)
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_4" type="checkbox" id="__nav_6_3_4" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_3_4">
           Path
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Path" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_4">
+        <label class="md-nav__title" for="__nav_6_3_3">
           <span class="md-nav__icon md-icon"></span>
           Path
         </label>
@@ -1345,8 +1308,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../scope_switch_method" class="md-nav__link">
-        Detailed Behavior Investigation Methods
+      <a href="../regex_expressions_get_callbacks" class="md-nav__link">
+        Regex expressions of get_callbacks()
       </a>
     </li>
   
@@ -2203,8 +2166,8 @@
 
 <h1 id="error-detection-using-pathverify">Error detection using <code>path.verify()</code><a class="headerlink" href="#error-detection-using-pathverify" title="Permanent link">#</a></h1>
 <p>CARET requires some setup and configuration that users should do.
-<code>path.verify()</code> method can check the settings are completed.
-If any error or warning occurs, message from <code>path.verify()</code> give you some instruction to tackle it.</p>
+The function <code>path.verify()</code> can check that the settings are completed.
+If there are some problems of settings, this function shows hints to resolve them.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
@@ -2225,14 +2188,14 @@ If any error or warning occurs, message from <code>path.verify()</code> give you
 <li>
 <p>Check whether using caret/rclcpp [path.verify()]</p>
 <p>Your applications need to be built with <code>rclcpp</code> provided by CARET, not ROS 2.
-<code>path.verify()</code> command checks which <code>rclcpp</code> is used for building your application.</p>
+The function <code>path.verify()</code> checks which <code>rclcpp</code> is used for building your application.</p>
 <p>If caret/rclcpp is not applied, the following warning message is outputted on your terminal or Jupyter notebook.</p>
 <div class="highlight"><pre><span></span><code>WARNING : <span class="m">2022</span>-03-18 <span class="m">12</span>:53:54 <span class="p">|</span> <span class="s1">&#39;caret/rclcpp&#39;</span> may not be used <span class="k">in</span> subscriber of <span class="s1">&#39;/localization/pose_estimator/ndt_scan_matcher&#39;</span>.
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>Check if node latency can be calculated with referring to <code>message_context</code></li>
+<li>Check whether node latency can be calculated with referring to <code>message_context</code></li>
 </ul>
 
 
@@ -2275,13 +2238,13 @@ If any error or warning occurs, message from <code>path.verify()</code> give you
       
       
         
-        <a href="../scope_switch_method/" class="md-footer__link md-footer__link--next" aria-label="Next: Scope Switching Methods" rel="next">
+        <a href="../regex_expressions_get_callbacks/" class="md-footer__link md-footer__link--next" aria-label="Next: Regex expressions of get_callbacks()" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Scope Switching Methods
+              Regex expressions of get_callbacks()
             </div>
           </div>
           <div class="md-footer__button md-icon">
