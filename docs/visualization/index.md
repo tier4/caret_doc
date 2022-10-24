@@ -1,17 +1,21 @@
 # Visualization
 
+This section describes APIs to visualize the measurement results.
+We recommend to read [Basic APIs Concept (Visualization)](./concept/basic_api_concept.md) at first.
+
 ## Basic APIs Concept
 
-- [Basic APIs Concept](./concept/basic_api_concept.md)
 - [Gallery](../gallery.md)
+- [Basic APIs Concept (Visualization)](./concept/basic_api_concept.md)
 
-## CARET APIs
+## CARET API List
 
 ### Visualization APIs
 
 #### Callback
 
 - [callback_sched](./visualization_api/callback_scheduling_visualization.md)
+  - Visualize callback shceduling
 - [create_callback_frequency_plot](./visualization_api/callback_information.md#execution-frequency)
 - [create_callback_period_plot](./visualization_api/callback_information.md#period)
 - [create_callback_latency_plot](./visualization_api/callback_information.md#latency)
@@ -23,11 +27,11 @@
 - [create_communication_period_plot](./visualization_api/communication_information.md#period)
 - [create_publish_subscription_period_plot](./visualization_api/pub_sub_information.md#period)
 - [create_publish_subscription_frequency_plot](./visualization_api/pub_sub_information.md#frequency)
-  <br>Note: Possible to get publisher as the same.
 
 #### Path
 
 - [message_flow](./visualization_api/message_flow.md)
+  - Visualize the message flow of the target path
 - [create_response_time_histogram_plot](./visualization_api/response_time.md)
 
 ### Helper APIs

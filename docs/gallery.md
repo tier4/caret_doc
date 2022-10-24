@@ -48,3 +48,8 @@ Detail : [Latency](./visualization/visualization_api/callback_information.md#lat
 
 ![Callback_Scheduling_Visualization_sample](./imgs/callback_sched_sample.png)<br>
 Detail : [Callback Scheduling Visualization](./visualization/visualization_api/callback_scheduling_visualization.md)
+
+## Response Time Histogram
+
+![Response_Time_Histogram](./imgs/response_time_default_histogram.png)
+Dtail : [Response Time Histogram](./visualization/visualization_api/response_time.md)
