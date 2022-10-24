@@ -23,12 +23,12 @@ Detail : [Latency timeseries](./visualization/visualization_api/latency_time_ser
 ![history_sample](./imgs/history_sample.png)<br>
 Detail : [Latency histogram](./visualization/visualization_api/latency_histogram.md)
 
-### Execution frequency
+### Frequency
 
 ![callback_frequency_df](./imgs/callback_frequency_df.png)
 
 ![callback_frequency_time_line](./imgs/callback_frequency_time_line.png)<br>
-Detail : [Execution frequency](./visualization/visualization_api/callback_information.md#execution-frequency)
+Detail : [Frequency](./visualization/visualization_api/callback_information.md#frequency)
 
 ### Period
 

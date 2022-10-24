@@ -29,8 +29,8 @@ The function `message_flow()` has following arguments.
   - Change the granularity of visualization in ['raw', 'node']
 - `lstrip_s` and `rstrip_s`
   - Extract the focusing points by removing unnecessary data
-  - `lstrip_s=1` means that the data for `1s` from trace start is removed.
-  - `rstrip_s=1` means that the data for `1s` from trace end is removed.
+  - `lstrip_s=1` means that the data for 1 second from trace start is removed.
+  - `rstrip_s=1` means that the data for 1 second from trace end is removed.
 - `use_sim_time`
   - Bool whether using simulation time (`False` by default)
 

@@ -26,6 +26,6 @@ callback_sched(cbg)
   - Short rectangles indicate the callback execution time
   - When the mouse cursor hovers over the long rectangular, a tooltip containing information about the callback will be displayed
 - Timer Event Visualization
-  - Arrows shows expected timing of invocation of timer callback
-  - When invocations of timer callback are delayed for expected, arrows turns red; otherwise, arrows are white
-  - If invocations are late for more 5 ms after expected, they are regarded as delayed
+  - Arrows are the expected start timing of the timer callback
+  - If timer callbacks start with delay, the arrows turn red (if on time, white)
+  - Time duration regarded as delay is 5 ms or more 

@@ -35,7 +35,7 @@ plot.show()
 
 ![pub_sub_frequency_time_line](../../imgs/pub_sub_frequency_time_line.png)
 
-The horizontal axis means `Time [s]` plotting by `1s` (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
+The horizontal axis means `Time [s]` plotting by 1 second (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
 The vertical axis means `Frequency [Hz]` of the publisher/subscriber.
 This API is used to confirm wheter the publisher/subscriber was running at correct frequency.
 

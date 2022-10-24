@@ -5,10 +5,9 @@ nav:
         - Callback:
             - Freq/Period/Latency(Execution time): visualization/visualization_api/callback_information
             - Scheduling: visualization/visualization_api/callback_scheduling_visualization
-        - Node:
-            - Publish/Subscription Information: visualization/visualization_api/pub_sub_information
         - Communication:
             - Freq/Period/Latency(Execution time): visualization/visualization_api/communication_information
+            - Publish/Subscription Information: visualization/visualization_api/pub_sub_information
         - Path:
             - Message flow: visualization/visualization_api/message_flow
             - Response Time: visualization/visualization_api/response_time
@@ -19,4 +18,4 @@ nav:
     - Helper APIs:
         - Usage of LTTngEventFilter: visualization/helper_api/lttng_event_filter
         - Path Verification: visualization/helper_api/path_verify
-        - Detailed Behavior Investigation Methods: visualization/helper_api/scope_switch_method
+        - Regex expressions of get_callbacks(): visualization/helper_api/regex_expressions_get_callbacks

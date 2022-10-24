@@ -32,7 +32,7 @@ plot.show()
 
 ![communication_frequency_time_line](../../imgs/communication_frequency_time_line.png)
 
-The horizontal axis means `Time [s]` plotting by `1s` (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
+The horizontal axis means `Time [s]` plotting by 1 second (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
 The vertical axis means `Frequency [Hz]` of the communication.
 This API is used to confirm whether the communication was running at correct frequency.
 
