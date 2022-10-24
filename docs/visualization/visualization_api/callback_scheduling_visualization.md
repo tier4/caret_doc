@@ -28,4 +28,4 @@ callback_sched(cbg)
 - Timer Event Visualization
   - Arrows are the expected start timing of the timer callback
   - If timer callbacks start with delay, the arrows turn red (if on time, white)
-  - Time duration regarded as delay is 5 ms or more 
+  - Time duration regarded as delay is 5 ms or more
