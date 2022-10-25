@@ -33,6 +33,8 @@ We recommend to read [Basic APIs Concept (Visualization)](./concept/basic_api_co
 - [message_flow](./visualization_api/message_flow.md)
   - Visualize the message flow of the target path
 - [create_response_time_histogram_plot](./visualization_api/response_time.md)
+- [chain_latency](./visualization_api/chain_latency.md)
+
 
 ### Helper APIs
 
