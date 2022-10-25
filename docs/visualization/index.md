@@ -35,7 +35,6 @@ We recommend to read [Basic APIs Concept (Visualization)](./concept/basic_api_co
 - [create_response_time_histogram_plot](./visualization_api/response_time.md)
 - [chain_latency](./visualization_api/chain_latency.md)
 
-
 ### Helper APIs
 
 CARET provides some APIs which can help users to focus on thier respective interest.
