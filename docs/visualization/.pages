@@ -12,8 +12,6 @@ nav:
             - Message flow: visualization/visualization_api/message_flow
             - Response Time: visualization/visualization_api/response_time
             - Chain latency: visualization/visualization_api/chain_latency
-            - Latency time series: visualization/visualization_api/latency_time_series
-            - Latency histogram: visualization/visualization_api/latency_histogram
 
     - Helper APIs:
         - Usage of LTTngEventFilter: visualization/helper_api/lttng_event_filter

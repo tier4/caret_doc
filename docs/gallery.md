@@ -13,16 +13,6 @@ Detail : [Message flow](./visualization/visualization_api/message_flow.md)
 ![chain_latency_sample](./imgs/chain_latency_sample.png)<br>
 Detail : [Chain latency](./visualization/visualization_api/chain_latency.md)
 
-## Latency timeseries
-
-![time_series_sample](./imgs/time_series_sample.png)<br>
-Detail : [Latency timeseries](./visualization/visualization_api/latency_time_series.md)
-
-## Latency histogram
-
-![history_sample](./imgs/history_sample.png)<br>
-Detail : [Latency histogram](./visualization/visualization_api/latency_histogram.md)
-
 ### Frequency
 
 ![callback_frequency_df](./imgs/callback_frequency_df.png)
