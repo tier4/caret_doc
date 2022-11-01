@@ -7,7 +7,7 @@ They are called initialization tracepoints. The other tracepoints are embedded f
 
 Each tracepoint for CARET is added by followings method.
 
-![builtin_and_extended_tracepoints](../../imgs/builtin_and_exntended_trace_points.drawio.png)
+![builtin_and_extended_tracepoints](../../imgs/builtin_and_extended_trace_points.drawio.png)
 
 - Built-in tracepoints
   - tracepoints embedded in original ROS 2 middleware which are utilized by ros2-tracing
