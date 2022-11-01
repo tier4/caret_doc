@@ -11,7 +11,6 @@
 - Refactored `Architecture` object interface ([CARET_analyze](https://github.com/tier4/CARET_analyze/pull/84))
 - Added some minor changes ([CARET_analyze #139](https://github.com/tier4/CARET_analyze/pull/139), [CARET_analyze #146](https://github.com/tier4/CARET_analyze/pull/146), [CARET_analyze #147](https://github.com/tier4/CARET_analyze/pull/147), [CARET_analyze #151](https://github.com/tier4/CARET_analyze/pull/151), [CARET_analyze #159](https://github.com/tier4/CARET_analyze/pull/159), [CARET_analyze #162](https://github.com/tier4/CARET_analyze/pull/162), [CARET_analyze #165](https://github.com/tier4/CARET_analyze/pull/165), [CARET_analyze#171](https://github.com/tier4/CARET_analyze/pull/171))
 
-
 ### v0.3.0 <small>\_ Sept 26, 2022</small> {id = "0.3.0"}
 
 - Supported OS: Ubuntu 22.04
