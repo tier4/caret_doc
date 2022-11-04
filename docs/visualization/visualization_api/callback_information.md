@@ -15,7 +15,7 @@ lttng = Lttng('/path/to/trace_data')
 app = Application(arch, lttng)
 ```
 
-Note: The `output_notebook()` is needed only when running the script on Jupyter Notebook.
+Note: The `output_notebook()` is needed to show figures inside Jupyter Notebook.
 
 ## Frequency
 

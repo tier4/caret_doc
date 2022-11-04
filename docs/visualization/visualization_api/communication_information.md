@@ -20,7 +20,7 @@ comm = comm[0]
 
 Note
 
-1. The `output_notebook()` is needed only when running the script on Jupyter Notebook.
+1. The `output_notebook()` is needed to show figures inside Jupyter Notebook.
 2. The function `get_communications` returns a List and the function `get_communication` returns one communication handler.
 
 ## Frequency

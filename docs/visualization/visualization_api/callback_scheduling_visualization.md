@@ -1,6 +1,6 @@
 # Callback Scheduling Visualization
 
-To investigate node behaviors, it is needed to visualize the interaction between callbacks.
+To investigate the node behavior, it is needed to visualize the callback behavior in the node.
 The function `callback_sched()` visualizes the callback scheduling of targets such as a Node, Executor, and Callbackgroup.
 
 ```python

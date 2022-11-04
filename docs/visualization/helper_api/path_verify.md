@@ -3,6 +3,7 @@
 CARET requires some setup and configuration that users should do.
 The function `path.verify()` can check that the settings are completed.
 If there are some problems of settings, this function shows hints to resolve them.
+This function is often used to [Configuration](../../configuration/intra_node_data_path.md#find-which-intra-node-data-path-to-define).
 
 ## Usage
 

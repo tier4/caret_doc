@@ -23,7 +23,7 @@ pub = pub[0] # Note 2
 
 Note:
 
-1. The `output_notebook()` is needed only when running the script on Jupyter Notebook.
+1. The `output_notebook()` is needed to show figures inside Jupyter Notebook.
 2. The function `get_publishers()` and `get_subscriptions()` returns a List of publisher/subscriber having the argument topic. The sample code uses the first value of the List.
 
 ## Frequency
