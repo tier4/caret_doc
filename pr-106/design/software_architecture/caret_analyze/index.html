@@ -2531,8 +2531,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deriving-response-time" class="md-nav__link">
-    Deriving response time
+  <a href="#value_objects" class="md-nav__link">
+    value_objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot" class="md-nav__link">
+    plot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#records" class="md-nav__link">
+    records
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common" class="md-nav__link">
+    common
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infra" class="md-nav__link">
+    infra
   </a>
   
 </li>
@@ -2682,20 +2710,16 @@ The following is a list of each class and the classes which can calculate latenc
 </tr>
 <tr>
 <td>Subscription</td>
-<td>[API list](https://tier4.github.io/CARET_analyze/latest/runtime/# Response time</td>
-<td></td>
+<td><a href="https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Subscription">API list</a></td>
+<td>Yes (<a href="../../latency_definitions/publisher/">Definitions</a>)</td>
+</tr>
+<tr>
+<td>Callback</td>
+<td><a href="https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.CallbackBase">API list</a></td>
+<td>Yes (<a href="../../latency_definitions/callback/">Definitions</a>)</td>
 </tr>
 </tbody>
 </table>
-<p>レスポンスタイムは、システムや装置などに要求や入力が与えてから、反応を送り返すまでにかかるの時間を指します。</p>
-<p>autoware を含め、安全に関わるシステムには重要な指標の一つです。
-caret は message flow からレイテンシを算出できますが、response time の評価には向きません。</p>
-<p>CARET では、message flow を加工して response time を算出しています。
-本章では CARET が算出する response time の定義について説明します。</p>
-<h2 id="deriving-response-time">Deriving response time<a class="headerlink" href="#deriving-response-time" title="Permanent link">#</a></h2>
-<p>CARET におけるレスポンスタイムは、任意の時間に対する入力に対して、最初に出力されるまでの時間として算出します。</p>
-<h1 id="caret_analyzeruntimepublisher-yes-definitions">caret_analyze.runtime.Publisher)     | Yes (<a href="../../latency_definitions/publisher/">Definitions</a>)     |<a class="headerlink" href="#caret_analyzeruntimepublisher-yes-definitions" title="Permanent link">#</a></h1>
-<p>| Callback      | <a href="https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Callback">API list</a>      | Yes (<a href="../../latency_definitions/callback/">Definitions</a>)      |</p>
 <h2 id="value_objects">value_objects<a class="headerlink" href="#value_objects" title="Permanent link">#</a></h2>
 <p>ValueObjects define classes with equivalence.
 The Value class has the information for binding, and the StructValue class has the structure of multiple classes after binding.</p>
