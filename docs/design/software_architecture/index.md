@@ -61,6 +61,7 @@ In CARET, packages related to configuration phase are followings.
 See also
 
 - [Processing trace data](../processing_trace_data/index.md)
+- [Latency definitions](../latency_definitions)
 - [Bokeh](https://docs.bokeh.org/)
 
 ## ROS 2 Packages

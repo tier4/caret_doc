@@ -26,4 +26,14 @@ nav:
         - Design:
             - Overview: design/configuration
             - File format: design/configuration/architecture_file
+    - Latency definitions:
+        - Design:
+            - Overview: design/latency_definitions
+            - Callback: design/latency_definitions/callback
+            - Communication: design/latency_definitions/communication
+            - Node: design/latency_definitions/node
+            - Path: design/latency_definitions/path
+            - Timer: design/latency_definitions/timer
+            - Publisher: design/latency_definitions/publisher
+            - Subscription: design/latency_definitions/subscription
     - Limits and constraints: limits_and_constraints
