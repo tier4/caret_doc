@@ -116,11 +116,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-106/design/processing_trace_data/response_time/</loc>
-         <lastmod>2022-11-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-106/design/runtime_processing/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
