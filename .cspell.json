@@ -1,29 +1,5 @@
 {
-  "words": [
-    "babeltrace",
-    "binsize",
-    "cpuid",
-    "dataframe",
-    "Hashable",
-    "lsplit",
-    "minc",
-    "Passingvalue",
-    "Recordsinterface",
-    "Summarizable",
-    "Timeseries",
-    "tracepoint",
-    "tracepoints",
-    "tracetools",
-    "varpass",
-    "NEDO",
-    "sched",
-    "DBUILD",
-    "libcaret",
-    "LSTRIP",
-    "RSTRIP",
-    "YYYYMMDD",
-    "HHMMSS",
-    "Callbackgroup",
-    "simtime"
-  ]
+    "import": [
+	"@takam5f2/cspell-dicts/caret/cspell-ext.json"
+    ]
 }
