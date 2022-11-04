@@ -41,6 +41,6 @@ CARET provides some APIs which can help users to focus on thier respective inter
 
 - [LTTngEventFilter](./helper_api/lttng_event_filter.md)
 - [Path verify](./helper_api/path_verify.md)
-- [Wildcards for get_callbacks()](./helper_api/wildcards_get_callbacks.md)
+- [Wildcards for get_callbacks()](./helper_api/wildcards_for_get_callbacks.md)
 
 Note: [CARET analyze API document](https://tier4.github.io/CARET_analyze/).
