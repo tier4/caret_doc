@@ -116,6 +116,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-106/design/processing_trace_data/records_service/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/pr-106/design/runtime_processing/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
@@ -167,6 +172,16 @@
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-106/design/trace_points/runtime_trace_points/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-106/design/visualizations/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-106/design/visualizations/policy/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
