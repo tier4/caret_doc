@@ -192,8 +192,20 @@ The following is a list of each class and the classes which can calculate latenc
 | NodePath      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.NodePath)      | Yes ([Definitions](../latency_definitions/node.md))          |
 | Communication | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Communication) | Yes ([Definitions](../latency_definitions/communication.md)) |
 | Timer         | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Timer)         | Yes ([Definitions](../latency_definitions/timer.md))         |
-| Subscription  | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Subscription)  | Yes ([Definitions](../latency_definitions/subscription.md))  |
-| Publisher     | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Publisher)     | Yes ([Definitions](../latency_definitions/publisher.md))     |
+| Subscription  | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/# Response time
+
+レスポンスタイムは、システムや装置などに要求や入力が与えてから、反応を送り返すまでにかかるの時間を指します。
+
+autoware を含め、安全に関わるシステムには重要な指標の一つです。
+caret は message flow からレイテンシを算出できますが、response time の評価には向きません。
+
+CARET では、message flow を加工して response time を算出しています。
+本章では CARET が算出する response time の定義について説明します。
+
+## Deriving response time
+
+CARET におけるレスポンスタイムは、任意の時間に対する入力に対して、最初に出力されるまでの時間として算出します。
+#caret_analyze.runtime.Publisher)     | Yes ([Definitions](../latency_definitions/publisher.md))     |
 | Callback      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Callback)      | Yes ([Definitions](../latency_definitions/callback.md))      |
 
 ## value_objects
@@ -205,6 +217,10 @@ The Value class has the information for binding, and the StructValue class has t
 
 There are classes associated with the display.
 The visualization provided by CARET_analyze is based on bokeh and graphviz.
+
+See also
+
+- [Visualizations](../visualizations/)
 
 ## records
 
