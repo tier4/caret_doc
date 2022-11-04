@@ -44,7 +44,7 @@ plot.show()
 
 The horizontal axis means `Time [s]` plotting by 1 second (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
 The vertical axis means `Frequency [Hz]` of the callback.
-This API is used to confirm whether the callback was running at correct frequency.
+This API is used to confirm whether the callback was running at desired frequency.
 The argument is not only `Application` class, please see [API Lists](https://tier4.github.io/CARET_analyze/latest/).
 
 ## Period
