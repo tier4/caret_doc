@@ -1,5 +1,3 @@
 {
-    "import": [
-	"@takam5f2/cspell-dicts/caret/cspell-ext.json"
-    ]
+  "import": ["@takam5f2/cspell-dicts/caret/cspell-ext.json"]
 }
