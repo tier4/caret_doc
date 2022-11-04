@@ -1,11 +1,20 @@
-# Record Object
+# Records Object
 
-In CARET, trace data is stored in tables, and latency calculation is performed by processing the tables.
+CARET stores trace data as a table as shown below.
+
+| callback_start_timestamp | callback_end_timestamp |
+| ------------------------ | ---------------------- |
+| 0                        | 0.1                    |
+| 1                        | 1.1                    |
+| 2                        | 2.1                    |
+| ...                      | ...                    |
+
+This table is processed to calculate latency, period, etc (See [Records Service](./records_service.md)).
+
+To create the above table, merging processes are performed with the traced results.
 In addition to general table join processing, CARET defines classes which has originally defined join processing for latency calculation.
 
-This sections describes Record object which stores trace data and latency is.
-
-The rest of this section describes the main APIs provided by the record object.
+This sections describes the main APIs provided by the record object.
 
 - merge
 - merge_sequential

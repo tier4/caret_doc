@@ -15,7 +15,7 @@ nav:
         - Design:
             - Overview: design/processing_trace_data
             - Records: design/processing_trace_data/records
-            - Response time: design/processing_trace_data/response_time
+            - Records service: design/processing_trace_data/records_service
     - Tracepoints:
         - Design:
             - Overview: design/trace_points
