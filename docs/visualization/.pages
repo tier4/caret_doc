@@ -15,5 +15,4 @@ nav:
 
     - Helper APIs:
         - Usage of LTTngEventFilter: visualization/helper_api/lttng_event_filter
-        - Path Verification: visualization/helper_api/path_verify
         - Wildcards for get_callbacks(): visualization/helper_api/wildcards_for_get_callbacks
