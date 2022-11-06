@@ -20,6 +20,7 @@ path.verify()
 Here, `path.verify()` returns `True` if path latency for `path` is calculable. Otherwise, you will confront with warning messages as shown below.
 
 Example 1.
+
 ```python
 WARNING : 2021-12-20 19:14:03 | Detected "message_contest is None". Correct these node_path definitions.
 To see node definition and procedure,execute :
@@ -39,11 +40,12 @@ subscribe_topic_name: /topic3
 ```
 
 Example 2.
+
 ```python
 WARNING : 2022-03-18 12:53:54 | 'caret/rclcpp' may not be used in subscriber of '/topic/name'.
 ```
 
-On the sample warning message of `Example 1`,  `/message_driven_node` and `/timer_driven_node` have undefined intra-node data path. You will add the intra-node data path in next step.
+On the sample warning message of `Example 1`, `/message_driven_node` and `/timer_driven_node` have undefined intra-node data path. You will add the intra-node data path in next step.
 
 On the other message, `Example 2`, the node which subscribes `/topic/name` topic has not compiled with caret/rclcpp.
 Please check [here](../recording/build_check.md#how-to-fix).
