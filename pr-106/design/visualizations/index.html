@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-106/design/software_architecture/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-106/design/visualizations/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
     
     
       
-        <title>Software architecture - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Visualizations - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-architecture" class="md-skip">
+        <a href="#visualizations" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Software architecture
+              Visualizations
             
           </span>
         </div>
@@ -1535,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="." class="md-nav__link">
+      <a href="../software_architecture" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1549,7 +1549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="caret_analyze" class="md-nav__link">
+      <a href="../software_architecture/caret_analyze" class="md-nav__link">
         caret_analyze
       </a>
     </li>
@@ -1563,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="caret_trace" class="md-nav__link">
+      <a href="../software_architecture/caret_trace" class="md-nav__link">
         caret_trace
       </a>
     </li>
@@ -1577,7 +1577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tilde" class="md-nav__link">
+      <a href="../software_architecture/tilde" class="md-nav__link">
         tilde
       </a>
     </li>
@@ -2327,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visualizations" class="md-nav__link">
+      <a href="." class="md-nav__link">
         Design
       </a>
     </li>
@@ -2464,30 +2464,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recording-phase" class="md-nav__link">
-    Recording Phase
+  <a href="#policy" class="md-nav__link">
+    Policy
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evaluation-flow" class="md-nav__link">
+    Evaluation flow
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-phase" class="md-nav__link">
-    Configuration Phase
+        
+          <li class="md-nav__item">
+  <a href="#visualization-granularity" class="md-nav__link">
+    Visualization granularity
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#analyzing-phase" class="md-nav__link">
-    Analyzing Phase
+        
+          <li class="md-nav__item">
+  <a href="#processing-granularity" class="md-nav__link">
+    Processing granularity
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#ros-2-packages" class="md-nav__link">
-    ROS 2 Packages
+        
+          <li class="md-nav__item">
+  <a href="#time-domain-and-frequency-domain" class="md-nav__link">
+    Time domain and Frequency domain
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2505,105 +2518,106 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/design/software_architecture/index.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/visualizations/index.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="software-architecture">Software architecture<a class="headerlink" href="#software-architecture" title="Permanent link">#</a></h1>
-<p>This section explains an overview of software architecture.</p>
-<p><img alt="architecture" src="../../imgs/architecture.drawio.png" /></p>
-<p>CARET is divided into three phases; recording phase, configuration phase and analyzing phase.</p>
-<h2 id="recording-phase">Recording Phase<a class="headerlink" href="#recording-phase" title="Permanent link">#</a></h2>
-<p>In the recording phase, CARET records system execution data from tracepoints.</p>
-<p>In addition to the tracepoints built into ROS2, CARET adds tracepoints by several methods; CARET_trace CARET_rclcpp and TILDE.
-For flexibility in adding tracepoints, tracepoints are added by hooks as possible.
-Only if it is not possible to add tracepoints by hooks, tracepoints are added by other methods as a supplementary method.</p>
-<p>All recorded data is stored as TraceData and used in the analyzing phase.</p>
-<p>CARET utilizes LTTng as a trace mechanism.</p>
-<p>In CARET, packages related to recording phase are followings.</p>
+<h1 id="visualizations">Visualizations<a class="headerlink" href="#visualizations" title="Permanent link">#</a></h1>
+<p>CARET is a tool for performance evaluation.</p>
+<p>For evaluation, quantification and visualization would be sufficient.<br />
+For analysis, on the other hand, various factors are involved in behavior and performance, so it is necessary to investigate from multiple perspectives.</p>
+<p>CARET has multiple visualizations for evaluation and analysis APIs that are readily available.<br />
+Also, it's also possible to directly acquire and evaluate the data on your own (see <a href="./processing_trace_data/index.md">Processing trace data</a> for detail).</p>
+<h2 id="policy">Policy<a class="headerlink" href="#policy" title="Permanent link">#</a></h2>
+<h3 id="evaluation-flow">Evaluation flow<a class="headerlink" href="#evaluation-flow" title="Permanent link">#</a></h3>
+<p>CARET has a large amount of information that can be obtained, and it is difficult to evaluate large-scale applications simply by displaying the recorded trace data in time series.
+So, it is important to focus on evaluation targets with appropriate granularity according to the purpose of evaluation.</p>
+<p>The following diagram shows the evaluation flow and analysis by adjusting the granularity.</p>
+<p><img alt="Analysis flow" src="../../imgs/analysis_flow.drawio.png" /></p>
+<p>Here, the horizontal axis represents the visualization granularity and the vertical axis represents the processing granularity.<br />
+CARET leads from issue detection to cause identification by changing the processing and visualization granularity from the rough granularity in the upper right to the fine granularity in the lower left.</p>
+<ol>
+<li>Detect issues: Detects performance issues on the target system.</li>
+<li>Identify issues: Identify the bottleneck that is causing the issue.</li>
+<li>Identify causes: Identifies the cause of the bottleneck.</li>
+</ol>
+<p>Processing granularity on the horizontal axis and visualization granularity on the vertical axis are explained in the following section.</p>
+<h3 id="visualization-granularity">Visualization granularity<a class="headerlink" href="#visualization-granularity" title="Permanent link">#</a></h3>
+<p><img alt="Visualization Granularity" src="../../imgs/visualization_granularity.drawio.png" /></p>
+<p>The granularity of visualization can be ordered in coarse order as follows</p>
 <ul>
-<li><a href="caret_trace/">caret_trace</a></li>
-<li><a href="tilde/">TILDE</a></li>
+<li>Statistic</li>
+<li>Histogram</li>
+<li>Heatmap</li>
+<li>Bar graph / Line graph</li>
+<li>Time-series trace data</li>
 </ul>
+<p>The coarser granularity, the more time information is aggregated to evaluate the measurement as a whole.<br />
+The most granular statistics are suitable for regression testing.</p>
+<p>On the other hand, the finer granularity, the more detailed information is expressed, so it is more suitable for analysis. evaluation
+Latency and response time are some of the indicators to evaluate performance.<br />
+The most detailed information is a time-series graph of each trace data.</p>
+<h3 id="processing-granularity">Processing granularity<a class="headerlink" href="#processing-granularity" title="Permanent link">#</a></h3>
+<p><img alt="Processing Graularity" src="../../imgs/processing_granularity.drawio.png" /></p>
+<p>The processing granularity can be ordered in coarse order as follows.</p>
+<ul>
+<li>path</li>
+<li>node / communication</li>
+<li>callbackCurrent CARET does not support measurement of arbitrary functions or DDS enqueue/dequeue.</li>
+<li>function</li>
+</ul>
+<p>Path is suitable for evaluation of system performance, while node and callback are suitable for evaluation of functional performance.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition notice">
+<p class="admonition-title">Notice<p>Currently CARET does not support measurement of arbitrary functions or DDS enqueue/dequeue or system calls.</p>
+</p>
+</div>
+<p><prettier-ignore-end></p>
 <p>See also</p>
 <ul>
-<li><a href="../trace_points/">Tracepoints</a></li>
-<li><a href="../runtime_processing/">Runtime Processing</a></li>
-<li><a href="https://lttng.org/docs/">The LTTng Documentation</a></li>
+<li><a href="../latency_definitions/">Latency definition</a></li>
 </ul>
-<h2 id="configuration-phase">Configuration Phase<a class="headerlink" href="#configuration-phase" title="Permanent link">#</a></h2>
-<p>In the configuration phase, CARET needs configurations to calculate latency.</p>
-<p>Some of the configurations can be defined via the Python API.
-Configuration can be saved as a YAML file (Architecture file) and edited.
-The architecture file is used repeatedly in the analyzing phase.</p>
-<p>In CARET, packages related to configuration phase are followings.</p>
+<h3 id="time-domain-and-frequency-domain">Time domain and Frequency domain<a class="headerlink" href="#time-domain-and-frequency-domain" title="Permanent link">#</a></h3>
+<p>We described behavior and indicator in terms of visualization granularity, but there are multiple indicators, such as latency and frequency.<br />
+When considering which indicator to use, it is useful to consider the time domain indicators and frequency domain indicators.</p>
 <ul>
-<li><a href="caret_analyze/">caret_analyze</a></li>
+<li>Time Domain Indicators (ex: callback execution time [s])</li>
+<li>Frequency Domain Indicators (ex: topic frequency [Hz])</li>
 </ul>
-<p>See also</p>
-<ul>
-<li><a href="../configuration/">Configuration</a></li>
-</ul>
-<h2 id="analyzing-phase">Analyzing Phase<a class="headerlink" href="#analyzing-phase" title="Permanent link">#</a></h2>
-<p>In analyzing phase, CARET analyzes trace data to provide system execution information.</p>
-<p>CARET_analyze provides a Python class that can access a variety of time series information.
-Developers can get the necessary information for evaluation from this class and perform evaluation according to their objectives.</p>
-<p>CARET_analyze also provides visualizations for the evaluation of Jupyter.</p>
-<p>In CARET, packages related to configuration phase are followings.</p>
-<ul>
-<li><a href="caret_analyze/">caret_analyze</a></li>
-</ul>
-<p>See also</p>
-<ul>
-<li><a href="../processing_trace_data/">Processing trace data</a></li>
-<li><a href="../latency_definitions">Latency definitions</a></li>
-<li><a href="https://docs.bokeh.org/">Bokeh</a></li>
-</ul>
-<h2 id="ros-2-packages">ROS 2 Packages<a class="headerlink" href="#ros-2-packages" title="Permanent link">#</a></h2>
-<p>The followings are CARET-related packages.</p>
+<p>Both have their pros and cons.</p>
 <table>
 <thead>
 <tr>
-<th>Package</th>
-<th>Role</th>
-<th>Repository</th>
+<th></th>
+<th>Time Domain Indicators</th>
+<th>Frequency Domain Indicators</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="caret_trace/">CARET_trace</a></td>
-<td>Add trace points via hooks. Control tracepoints.</td>
-<td><a href="https://github.com/tier4/CARET_trace/">https://github.com/tier4/CARET_trace/</a></td>
+<td>Indicator</td>
+<td>Latency, Response time</td>
+<td>Frequency (, Period)</td>
 </tr>
 <tr>
-<td>CARET_rclcpp</td>
-<td>Add trace points by fork</td>
-<td><a href="https://github.com/tier4/rclcpp">https://github.com/tier4/rclcpp</a></td>
+<td>Pros</td>
+<td>Easy to compare with system requirements</td>
+<td>No need to define latency or path</td>
 </tr>
 <tr>
-<td>ros2caret</td>
-<td>Provide CARET CLI</td>
-<td><a href="https://github.com/tier4/ros2caret/">https://github.com/tier4/ros2caret/</a></td>
-</tr>
-<tr>
-<td><a href="caret_analyze/">CARET_analyze</a></td>
-<td>Analyze trace data</td>
-<td><a href="https://github.com/tier4/CARET_analyze/">https://github.com/tier4/CARET_analyze/</a></td>
-</tr>
-<tr>
-<td>CARET_analyze_cpp_impl</td>
-<td>Accelerate CARET_analyze</td>
-<td><a href="https://github.com/tier4/CARET_analyze_cpp_impl/">https://github.com/tier4/CARET_analyze_cpp_impl/</a></td>
-</tr>
-<tr>
-<td><a href="tilde/">TILDE</a></td>
-<td>Add tracepoints within the system to be measure</td>
-<td><a href="https://github.com/tier4/TILDE">https://github.com/tier4/TILDE</a></td>
+<td>Cons</td>
+<td>Need to define latency or path</td>
+<td>Difficult to compare with system requirements</td>
 </tr>
 </tbody>
 </table>
+<p>In the table above, period is an indicator that expresses the time interval between each time, so it is classified in the frequency domain.</p>
+<p>See also</p>
+<ul>
+<li><a href="../processing_trace_data/records_service/">Records service</a></li>
+</ul>
 
 
 
@@ -2629,7 +2643,7 @@ Developers can get the necessary information for evaluation from this class and 
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../runtime_processing/tracepoint_filtering/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tracepoint filtering" rel="prev">
+        <a href="../trace_points/runtime_trace_points/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Runtime trace points" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2638,20 +2652,20 @@ Developers can get the necessary information for evaluation from this class and 
               <span class="md-footer__direction">
                 Previous
               </span>
-              Tracepoint filtering
+              Runtime trace points
             </div>
           </div>
         </a>
       
       
         
-        <a href="caret_analyze/" class="md-footer__link md-footer__link--next" aria-label="Next: CARET_analyze" rel="next">
+        <a href="../../faq/" class="md-footer__link md-footer__link--next" aria-label="Next: FAQ" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              CARET_analyze
+              FAQ
             </div>
           </div>
           <div class="md-footer__button md-icon">
