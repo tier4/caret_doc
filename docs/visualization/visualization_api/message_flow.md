@@ -22,7 +22,7 @@ message_flow(path, granularity='node', lstrip_s=1, rstrip_s=1)
 
 The horizontal axis means `Time [s]`.
 The vertical axis means the target path to measure the latency.
-Each coloerd line represents message dependencies for each message. The gray rectangular area indicates the callback execution time.
+Each colored line represents message dependencies for each message. The gray rectangular area indicates the callback execution time.
 
 The function `message_flow()` has following arguments.
 
