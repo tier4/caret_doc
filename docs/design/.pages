@@ -36,4 +36,6 @@ nav:
             - Timer: design/latency_definitions/timer
             - Publisher: design/latency_definitions/publisher
             - Subscription: design/latency_definitions/subscription
+    - Visualizations:
+        - Design: design/visualizations
     - Limits and constraints: limits_and_constraints
