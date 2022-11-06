@@ -15,7 +15,7 @@ We recommend to read [Basic APIs Concept (Visualization)](./concept/basic_api_co
 #### Callback
 
 - [callback_sched](./visualization_api/callback_scheduling_visualization.md)
-  - Visualize callback shceduling
+  - Visualize callback scheduling
 - [create_callback_frequency_plot](./visualization_api/callback_information.md#execution-frequency)
 - [create_callback_period_plot](./visualization_api/callback_information.md#period)
 - [create_callback_latency_plot](./visualization_api/callback_information.md#latency)
@@ -37,7 +37,7 @@ We recommend to read [Basic APIs Concept (Visualization)](./concept/basic_api_co
 
 ### Helper APIs
 
-CARET provides some APIs which can help users to focus on thier respective interest.
+CARET provides some APIs which can help users to focus on their respective interest.
 
 - [LTTngEventFilter](./helper_api/lttng_event_filter.md)
 - [Path verify](./helper_api/path_verify.md)

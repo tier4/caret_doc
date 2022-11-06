@@ -42,4 +42,4 @@ Detail : [Callback Scheduling Visualization](./visualization/visualization_api/c
 ## Response Time Histogram
 
 ![Response_Time_Histogram](./imgs/response_time_default_histogram.png)<br>
-Dtail : [Response Time Histogram](./visualization/visualization_api/response_time.md)
+Detail : [Response Time Histogram](./visualization/visualization_api/response_time.md)
