@@ -1,41 +1,17 @@
 nav:
     - Design: index.md
     - Software architecture:
-        - Design:
-            - Overview: design/software_architecture
-            - caret_analyze: design/software_architecture/caret_analyze
-            - caret_trace: design/software_architecture/caret_trace
-            - tilde: design/software_architecture/tilde
+        - Design: software_architecture
     - Runtime processing:
-        - Design:
-            - Overview: design/runtime_processing
-            - Hook: design/runtime_processing/hook
-            - Tracepoint filtering: design/runtime_processing/tracepoint_filtering
+        - Design: runtime_processing
     - Processing trace data:
-        - Design:
-            - Overview: design/processing_trace_data
-            - Records: design/processing_trace_data/records
-            - Records service: design/processing_trace_data/records_service
+        - Design: processing_trace_data
     - Tracepoints:
-        - Design:
-            - Overview: design/trace_points
-            - Initialization tracepoints: design/trace_points/initialization_trace_points
-            - Runtime tracepoints: design/trace_points/runtime_trace_points
-            - Differences from original ROS: design/trace_points/diff
+        - Design: trace_points
     - Configuration:
-        - Design:
-            - Overview: design/configuration
-            - File format: design/configuration/architecture_file
+        - Design: configuration
     - Latency definitions:
-        - Design:
-            - Overview: design/latency_definitions
-            - Callback: design/latency_definitions/callback
-            - Communication: design/latency_definitions/communication
-            - Node: design/latency_definitions/node
-            - Path: design/latency_definitions/path
-            - Timer: design/latency_definitions/timer
-            - Publisher: design/latency_definitions/publisher
-            - Subscription: design/latency_definitions/subscription
+        - Design: latency_definitions
     - Visualizations:
-        - Design: design/visualizations
+        - Design: visualizations
     - Limits and constraints: limits_and_constraints
