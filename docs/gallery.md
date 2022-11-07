@@ -3,7 +3,7 @@
 This page shows examples of figures that can be visualized in CARET.
 CARET visualizes these figures on jupyter-notebook.
 
-## Calback 
+## Calback
 
 ### Frequency
 
@@ -64,6 +64,3 @@ Detail : [Response Time Histogram](./visualization/visualization_api/response_ti
 
 ![chain_latency_sample](./imgs/chain_latency_sample.png)<br>
 Detail : [Chain latency](./visualization/visualization_api/chain_latency.md)
-
-
-
