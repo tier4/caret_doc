@@ -57,6 +57,7 @@ Detail : [Frequency](./visualization/visualization_api/pub_sub_information.md#fr
 
 ![pub_sub_period_time_line](./imgs/pub_sub_period_time_line.png)<br>
 Detail : [Period](./visualization/visualization_api/pub_sub_information.md#period)
+
 ## Path
 
 ### Message flow
