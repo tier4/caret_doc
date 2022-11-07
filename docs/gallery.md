@@ -48,6 +48,15 @@ Detail : [Period](./visualization/visualization_api/communication_information.md
 ![communication_latency_time_line](./imgs/communication_latency_time_line.png)<br>
 Detail : [Latency](./visualization/visualization_api/communication_information.md#latency)
 
+### Publish/Subscribe Frequency
+
+![pub_sub_frequency_time_line](./imgs/pub_sub_frequency_time_line.png)<br>
+Detail : [Frequency](./visualization/visualization_api/pub_sub_information.md#frequency)
+
+### Publish/Subscribe Period
+
+![pub_sub_period_time_line](./imgs/pub_sub_period_time_line.png)<br>
+Detail : [Period](./visualization/visualization_api/pub_sub_information.md#period)
 ## Path
 
 ### Message flow
