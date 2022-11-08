@@ -22,7 +22,8 @@ Configuration phase
 Analyzing phase
 
 1. [Processing trace data](./processing_trace_data/index.md)
-1. [Visualization](./visualizations/index.md)
+
+2. [Visualization](./visualizations/index.md)
 
 In addition, the followings are explained.
 
