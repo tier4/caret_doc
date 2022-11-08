@@ -12,7 +12,8 @@ This design section describes policies and internal processes for each step list
 Recording phase
 
 1. [Runtime processing](./runtime_processing/index.md)
-1. [Tracepoints](./trace_points/index.md)
+
+2. [Tracepoints](./trace_points/index.md)
 
 Configuration phase
 
