@@ -3,7 +3,7 @@
 This page shows examples of figures that can be visualized in CARET.
 CARET visualizes these figures on jupyter-notebook.
 
-## Calback
+## Callback
 
 ### Frequency
 
