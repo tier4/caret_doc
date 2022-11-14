@@ -1,18 +1,10 @@
 nav:
     - Visualization: index.md
-    - Basic APIs Concept: visualization/concept/basic_api_concept
+    - Basic APIs Concept: basic_api_concept.md
     - Visualization APIs:
-        - Callback:
-            - Freq/Period/Latency(Execution time): visualization/visualization_api/callback_information
-            - Scheduling: visualization/visualization_api/callback_scheduling_visualization
-        - Communication:
-            - Freq/Period/Latency(Execution time): visualization/visualization_api/communication_information
-            - Publish/Subscription Information: visualization/visualization_api/pub_sub_information
-        - Path:
-            - Message flow: visualization/visualization_api/message_flow
-            - Response Time: visualization/visualization_api/response_time
-            - Chain latency: visualization/visualization_api/chain_latency
-
+        - Callback: callback
+        - Communication: communication
+        - Path: path
     - Helper APIs:
-        - Usage of LTTngEventFilter: visualization/helper_api/lttng_event_filter
-        - Wildcards for get_callbacks(): visualization/helper_api/wildcards_for_get_callbacks
+        - Filter: filter
+        - Search: search
