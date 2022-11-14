@@ -34,7 +34,7 @@ The following are processing using Records object.
 
 See also
 
-- [Latency definition](f processing the records and converting them into latency and other data.
+- [Latency definition](../latency_definitions/index.md)
 
 See also
 
