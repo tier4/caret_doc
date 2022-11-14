@@ -4,7 +4,7 @@
 
 ### v0.3.2 <small>\_ Nov 14, 2022</small> {id = "0.3.2"}
 
-- Improved warning messages of CARET_analyze ([CARET_analyze #144](https://github.com/tier4/CARET_analyze/pull/144), [CARET_analyze #158](https://github.com/tier4/CARET_analyze/pull/158), [CARET_analyze #162](https://github.com/tier4/CARET_analyze/pull/162), [CARET_analyze #172](https://github.com/tier4/CARET_analyze/pull/172), [CARET_analyze #182](https://github.com/tier4/CARET_analyze/pull/182), )
+- Improved warning messages of CARET_analyze ([CARET_analyze #144](https://github.com/tier4/CARET_analyze/pull/144), [CARET_analyze #158](https://github.com/tier4/CARET_analyze/pull/158), [CARET_analyze #162](https://github.com/tier4/CARET_analyze/pull/162), [CARET_analyze #172](https://github.com/tier4/CARET_analyze/pull/172), [CARET_analyze #182](https://github.com/tier4/CARET_analyze/pull/182))
 - Added properties of `publishers` and `subscriptions` to `Application` and `Architecture` object([CARET_analyze #179](https://github.com/tier4/CARET_analyze/pull/179))
 - Improved ros2caret([ros2caret #44](https://github.com/tier4/ros2caret/pull/44), [ros2caret #50](https://github.com/tier4/ros2caret/pull/50))
 - Enlarged buffer size([ros2_tracing #2](https://github.com/tier4/ros2_tracing/pull/2))
