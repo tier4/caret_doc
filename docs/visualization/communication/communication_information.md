@@ -18,7 +18,6 @@ comm = comm[0]
 # or comm = app.get_communication('pub_node', 'sub_node', 'topic_name')
 ```
 
-
 <prettier-ignore-start>
 !!!info
     1. The `output_notebook()` is needed to show figures inside Jupyter Notebook.
