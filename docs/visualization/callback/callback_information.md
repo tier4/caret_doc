@@ -1,9 +1,8 @@
 # Callback Information
 
-To investigate with fine granularity, the behavior of callbacks should be visualized in detail.
 CARET can visualize the callback frequency, period, and latency.
 This document describes sample visualization scripts for them.
-Execute these commands before each section.
+Execute following commands before running commands in each section.
 
 ```python
 from caret_analyze.plot import Plot

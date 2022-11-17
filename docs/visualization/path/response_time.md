@@ -1,7 +1,7 @@
 # Plot Response Time
 
 Response Time is visualized in Histogram and there are 3 cases ([default, best, worst]) as described in [Here](../../faq/index.md#how-response-time-is-calculated).
-This document describes sample visualization scripts for Response TIme.
+This document describes sample visualization scripts for Response Time.
 In each case, the horizontal axis means `Response Time [ms]` and the vertical axis means `Probability`.
 This API is used to confirm how long the response time is.
 

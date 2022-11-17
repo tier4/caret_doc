@@ -1,6 +1,6 @@
 # Callback Scheduling Visualization
 
-To investigate the node behavior, it is needed to visualize the callback behavior in the node.
+To investigate the node behavior, CARET provides visualization for callback scheduling in the node.
 The function `callback_sched()` visualizes the callback scheduling of targets such as a Node, Executor, and Callbackgroup.
 
 ```python

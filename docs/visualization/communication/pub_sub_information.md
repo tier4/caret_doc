@@ -2,7 +2,7 @@
 
 CARET can visualize the publish/subscription frequency and period.
 This document describes sample visualization scripts for them.
-Execute these commands before each section.
+Execute following commands before running commands in each section.
 
 ```python
 from caret_analyze.plot import Plot
@@ -37,7 +37,7 @@ plot.show()
 
 The horizontal axis means `Time [s]` plotting by 1 second (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
 The vertical axis means `Frequency [Hz]` of the publisher/subscriber.
-This API is used to confirm whether the publisher/subscriber was running at correct frequency.
+This API is used to confirm whether the publisher/subscriber was running at desired frequency.
 
 ## Period
 

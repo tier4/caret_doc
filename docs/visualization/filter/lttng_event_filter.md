@@ -40,7 +40,7 @@ from caret_analyze import Lttng, LttngEventFilter
 
 lttng = Lttng('/path/to/ctf', event_filters=[
   LttngEventFilter.duration_filter(10, 5)
-]) # Filtering from 5 seconds to 10 seconds after the start of the measurement
+]) # Filtering for 10 from 5 seconds
 ```
 
 Multiple event_filters can be specified.

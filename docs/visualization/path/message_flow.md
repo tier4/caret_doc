@@ -1,7 +1,6 @@
 # Message flow
 
-To grasp the system behavior, it is useful to check the message flow.
-The function `message_flow()` can visualizes message dependencies from path-input to path-output.
+The function `message_flow()` can visualizes message dependencies throughout the system.
 You can confirm latency of the target path.
 
 ```python
