@@ -2186,7 +2186,7 @@
 
 <h1 id="plot-response-time">Plot Response Time<a class="headerlink" href="#plot-response-time" title="Permanent link">#</a></h1>
 <p>Response Time is visualized in Histogram and there are 3 cases ([default, best, worst]) as described in <a href="../../../faq/#how-response-time-is-calculated">Here</a>.
-This document describes sample visualization scripts for Response TIme.
+This document describes sample visualization scripts for Response Time.
 In each case, the horizontal axis means <code>Response Time [ms]</code> and the vertical axis means <code>Probability</code>.
 This API is used to confirm how long the response time is.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
@@ -2203,7 +2203,12 @@ This API is used to confirm how long the response time is.</p>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_histogram_plot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<p>Note: The <code>output_notebook()</code> is needed to show figures inside Jupyter Notebook.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <code>output_notebook()</code> is needed to show figures inside Jupyter Notebook.</p>
+</div>
+<p><prettier-ignore-end></p>
 <p><img alt="response_time_default_histogram" src="../../../imgs/response_time_default_histogram.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># plot best case</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_histogram_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>

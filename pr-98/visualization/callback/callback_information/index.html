@@ -2259,10 +2259,9 @@
 
 
 <h1 id="callback-information">Callback Information<a class="headerlink" href="#callback-information" title="Permanent link">#</a></h1>
-<p>To investigate with fine granularity, the behavior of callbacks should be visualized in detail.
-CARET can visualize the callback frequency, period, and latency.
+<p>CARET can visualize the callback frequency, period, and latency.
 This document describes sample visualization scripts for them.
-Execute these commands before each section.</p>
+Execute following commands before running commands in each section.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 <span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
@@ -2271,10 +2270,15 @@ Execute these commands before each section.</p>
 <span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/trace_data&#39;</span><span class="p">)</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 </code></pre></div>
-<p>Note: The <code>output_notebook()</code> is needed to show figures inside Jupyter Notebook.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <code>output_notebook()</code> is needed to show figures inside Jupyter Notebook.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="frequency">Frequency<a class="headerlink" href="#frequency" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># get dataframe</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_frequency_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_frequency_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 
 <span class="n">frequency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 <span class="n">frequency_df</span>
@@ -2283,7 +2287,7 @@ Execute these commands before each section.</p>
 </code></pre></div>
 <p><img alt="callback_frequency_df" src="../../../imgs/callback_frequency_df.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># show time-line</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_frequency_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_frequency_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
@@ -2292,11 +2296,10 @@ Execute these commands before each section.</p>
 <p><img alt="callback_frequency_time_line" src="../../../imgs/callback_frequency_time_line.png" /></p>
 <p>The horizontal axis means <code>Time [s]</code> plotting by 1 second (changeable time-line as <code>xaxis_type=['system_time', 'sim_time', 'index']</code>).
 The vertical axis means <code>Frequency [Hz]</code> of the callback.
-This API is used to confirm whether the callback was running at desired frequency.
-The argument is not only <code>Application</code> class, please see <a href="https://tier4.github.io/CARET_analyze/latest/">API Lists</a>.</p>
+This API is used to confirm whether the callback was running at desired frequency.</p>
 <h2 id="period">Period<a class="headerlink" href="#period" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># get dataframe</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_period_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_period_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 
 <span class="n">period_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 <span class="n">period_df</span>
@@ -2305,7 +2308,7 @@ The argument is not only <code>Application</code> class, please see <a href="htt
 </code></pre></div>
 <p><img alt="callback_period_df" src="../../../imgs/callback_period_df.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># show time-line</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_period_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_period_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
@@ -2313,12 +2316,10 @@ The argument is not only <code>Application</code> class, please see <a href="htt
 </code></pre></div>
 <p><img alt="callback_period_time_line" src="../../../imgs/callback_period_time_line.png" /></p>
 <p>The horizontal axis means <code>Time [s]</code> (changeable in ['system_time', 'sim_time', 'index']).
-The vertical axis means <code>Period [ms]</code> from one callback to next callback.
-This API is used to confirm whether the period was stable.
-The argument is not only <code>Application</code> class, please see <a href="https://tier4.github.io/CARET_analyze/latest/">API Lists</a>.</p>
+The vertical axis means <code>Period [ms]</code> from one callback starts to the next time that the callback starts.</p>
 <h2 id="latency">Latency<a class="headerlink" href="#latency" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># get dataframe</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_latency_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_latency_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 
 <span class="n">latency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 <span class="n">latency_df</span>
@@ -2327,7 +2328,7 @@ The argument is not only <code>Application</code> class, please see <a href="htt
 </code></pre></div>
 <p><img alt="callback_latency_df" src="../../../imgs/callback_latency_df.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># show time-line</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_latency_plot</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_latency_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
@@ -2335,9 +2336,7 @@ The argument is not only <code>Application</code> class, please see <a href="htt
 </code></pre></div>
 <p><img alt="callback_latency_time_line" src="../../../imgs/callback_latency_time_line.png" /></p>
 <p>The horizontal axis means <code>Time [s]</code> (changeable in ['system_time', 'sim_time', 'index']).
-The vertical axis means <code>Latency [ms]</code> from <code>callback_start</code> to <code>callback_end</code>.
-This API is used to confirm the callback execution time.
-The argument is not only <code>Application</code> class, please see <a href="https://tier4.github.io/CARET_analyze/latest/">API Lists</a>.</p>
+The vertical axis means <code>Latency [ms]</code> from <code>callback_start</code> to <code>callback_end</code>.</p>
 
 
 

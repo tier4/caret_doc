@@ -2185,8 +2185,7 @@
 
 
 <h1 id="message-flow">Message flow<a class="headerlink" href="#message-flow" title="Permanent link">#</a></h1>
-<p>To grasp the system behavior, it is useful to check the message flow.
-The function <code>message_flow()</code> can visualizes message dependencies from path-input to path-output.
+<p>The function <code>message_flow()</code> can visualizes message dependencies throughout the system.
 You can confirm latency of the target path.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">message_flow</span>
 <span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
@@ -2203,7 +2202,7 @@ You can confirm latency of the target path.</p>
 <p><img alt="message_flow" src="../../../imgs/message_flow_sample.png" /></p>
 <p>The horizontal axis means <code>Time [s]</code>.
 The vertical axis means the target path to measure the latency.
-Each colored line represents message dependencies for each message. The gray rectangular area indicates the callback execution time.</p>
+Each colored line represents message dependencies for each message. The gray rectangular areas indicate the callback execution time.</p>
 <p>The function <code>message_flow()</code> has following arguments.</p>
 <ul>
 <li><code>granularity</code><ul>
@@ -2228,7 +2227,7 @@ Each colored line represents message dependencies for each message. The gray rec
 </ul>
 </li>
 <li>View detailed information<ul>
-<li>Move the cursor over the lines in the message flow or the gray rectangular area can see the detail information of the callback and message.</li>
+<li>Move the cursor over the lines in the message flow or the gray rectangular areas can see the detail information of the callback and message.</li>
 </ul>
 </li>
 </ul>

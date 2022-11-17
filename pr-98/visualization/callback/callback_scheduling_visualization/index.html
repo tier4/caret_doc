@@ -2185,8 +2185,7 @@
 
 
 <h1 id="callback-scheduling-visualization">Callback Scheduling Visualization<a class="headerlink" href="#callback-scheduling-visualization" title="Permanent link">#</a></h1>
-<p>To investigate the node behavior, it is needed to visualize the callback behavior in the node.
-The function <code>callback_sched()</code> visualizes the callback scheduling of targets such as a Node, Executor, and Callbackgroup.</p>
+<p>The function <code>callback_sched()</code> visualizes the callback scheduling of targets, such as Node, Path, Executor, and Callbackgroup.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 <span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">callback_sched</span>
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
@@ -2205,14 +2204,13 @@ The function <code>callback_sched()</code> visualizes the callback scheduling of
 <p><img alt="Callback_Scheduling_Visualization_sample" src="../../../imgs/callback_sched_sample.png" /></p>
 <ul>
 <li>Callback Scheduling Visualization<ul>
-<li>Short rectangles indicate the callback execution time</li>
-<li>When the mouse cursor hovers over the long rectangular, a tooltip containing information about the callback will be displayed</li>
+<li>Colored rectangles indicate the callback execution time (callback_start to callback_end)</li>
+<li>Information about the callback will be displayed by hovering over the translucent colored areas.</li>
 </ul>
 </li>
 <li>Timer Event Visualization<ul>
 <li>Arrows are the expected start timing of the timer callback</li>
-<li>If timer callbacks start with delay, the arrows turn red (if on time, white)</li>
-<li>Time duration regarded as delay is 5 ms or more</li>
+<li>If timer callbacks start with delay (5 ms or more), the arrows turn red (if on time, white)</li>
 </ul>
 </li>
 </ul>

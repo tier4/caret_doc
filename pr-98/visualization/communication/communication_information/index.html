@@ -2261,7 +2261,7 @@
 <h1 id="communication-information">Communication Information<a class="headerlink" href="#communication-information" title="Permanent link">#</a></h1>
 <p>CARET can visualize the communication frequency, period, and latency.
 This document describes sample visualization scripts for them.
-Execute these commands before each section.</p>
+Execute following commands before running commands in each section.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 <span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
@@ -2274,11 +2274,15 @@ Execute these commands before each section.</p>
 <span class="n">comm</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1"># or comm = app.get_communication(&#39;pub_node&#39;, &#39;sub_node&#39;, &#39;topic_name&#39;)</span>
 </code></pre></div>
-<p>Note</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <ol>
 <li>The <code>output_notebook()</code> is needed to show figures inside Jupyter Notebook.</li>
 <li>The function <code>get_communications</code> returns a List and the function <code>get_communication</code> returns one communication handler.</li>
 </ol>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="frequency">Frequency<a class="headerlink" href="#frequency" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_communication_frequency_plot</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2286,7 +2290,7 @@ Execute these commands before each section.</p>
 <p><img alt="communication_frequency_time_line" src="../../../imgs/communication_frequency_time_line.png" /></p>
 <p>The horizontal axis means <code>Time [s]</code> plotting by 1 second (changeable time-line as <code>xaxis_type=['system_time', 'sim_time', 'index']</code>).
 The vertical axis means <code>Frequency [Hz]</code> of the communication.
-This API is used to confirm whether the communication was running at correct frequency.</p>
+This API is used to confirm whether the communication was running at desired frequency.</p>
 <h2 id="period">Period<a class="headerlink" href="#period" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_communication_period_plot</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2294,6 +2298,7 @@ This API is used to confirm whether the communication was running at correct fre
 <p><img alt="communication_period_time_line" src="../../../imgs/communication_period_time_line.png" /></p>
 <p>The horizontal axis means <code>Time [s]</code> (changeable in ['system_time', 'sim_time', 'index']).
 The vertical axis means <code>Period [ms]</code> from one communication to next communication.
+from one communication starts to the next time that the communication starts.
 This API is used to confirm whether the period was stable.</p>
 <h2 id="latency">Latency<a class="headerlink" href="#latency" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_communication_latency_plot</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>

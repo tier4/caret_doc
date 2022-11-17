@@ -2490,7 +2490,7 @@ ros2_caret:sim_time:
 
 <span class="c1"># Draw node info</span>
 <span class="n">node</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;/filter_node&#39;</span><span class="p">)</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_period_plot</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_period_plot</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;sim_time&#39;</span><span class="p">)</span>
 </code></pre></div>
 

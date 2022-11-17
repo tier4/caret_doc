@@ -260,14 +260,4 @@
          <lastmod>2022-11-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-98/visualization/visualization_api/latency_histogram/</loc>
-         <lastmod>2022-11-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-98/visualization/visualization_api/latency_time_series/</loc>
-         <lastmod>2022-11-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
 </urlset>
