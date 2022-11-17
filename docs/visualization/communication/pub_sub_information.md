@@ -21,10 +21,11 @@ pub = pub[0] # Note 2
 # sub = sub[0]
 ```
 
-Note:
-
-1. The `output_notebook()` is needed to show figures inside Jupyter Notebook.
-2. The function `get_publishers()` and `get_subscriptions()` returns a List of publisher/subscriber having the argument topic. The sample code uses the first value of the List.
+<prettier-ignore-start>
+!!!info
+    1. The `output_notebook()` is needed to show figures inside Jupyter Notebook.
+    2. The function `get_publishers()` and `get_subscriptions()` returns a List of publisher/subscriber having the argument topic. The sample code uses the first value of the List.
+<prettier-ignore-end>
 
 ## Frequency
 

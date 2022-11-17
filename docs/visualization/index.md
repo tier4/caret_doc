@@ -1,12 +1,12 @@
 # Visualization
 
 This section describes APIs to visualize the measurement results.
-We recommend to read [Basic APIs Concept (Visualization)](./concept/basic_api_concept.md) at first.
+We recommend to read [Basic APIs Concept (Visualization)](./basic_api_concept.md) at first.
 
 ## Basic APIs Concept
 
 - [Gallery](../gallery.md)
-- [Basic APIs Concept (Visualization)](./concept/basic_api_concept.md)
+- [Basic APIs Concept (Visualization)](./basic_api_concept.md)
 
 ## CARET API List
 
@@ -42,4 +42,7 @@ CARET provides some APIs which can help users to focus on their respective inter
 - [LTTngEventFilter](./filter/lttng_event_filter.md)
 - [Wildcards for get_callbacks()](./search/wildcards_for_get_callbacks.md)
 
-Note: [CARET analyze API document](https://tier4.github.io/CARET_analyze/).
+<prettier-ignore-start>
+!!!info
+    [CARET analyze API document](https://tier4.github.io/CARET_analyze/) describes the parameters and returns of APIs.
+<prettier-ignore-end>

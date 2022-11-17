@@ -20,4 +20,7 @@ The function `show()` outputs a figure and returns the figure's handler.
 The function `to_dataframe()` returns a table summarizing the data.
 This function is mainly used to analyze based on specific figures.
 
-Note: For detailed input/output options, see [TimeSeriesPlot](https://tier4.github.io/CARET_analyze/latest/plot/#caret_analyze.plot.TimeSeriesPlot).
+<prettier-ignore-start>
+!!!info
+    For detailed input/output options, see [TimeSeriesPlot](https://tier4.github.io/CARET_analyze/latest/plot/#caret_analyze.plot.TimeSeriesPlot).
+<prettier-ignore-end>

@@ -1,7 +1,6 @@
 # Callback Scheduling Visualization
 
-To investigate the node behavior, CARET provides visualization for callback scheduling in the node.
-The function `callback_sched()` visualizes the callback scheduling of targets such as a Node, Executor, and Callbackgroup.
+The function `callback_sched()` visualizes the callback scheduling of targets, such as Node, Path, Executor, and Callbackgroup.
 
 ```python
 from caret_analyze import Architecture, Application, Lttng
@@ -23,9 +22,8 @@ callback_sched(cbg)
 ![Callback_Scheduling_Visualization_sample](../../imgs/callback_sched_sample.png)
 
 - Callback Scheduling Visualization
-  - Short rectangles indicate the callback execution time
-  - When the mouse cursor hovers over the long rectangular, a tooltip containing information about the callback will be displayed
+  - Colored rectangles indicate the callback execution time (callback_start to callback_end)
+  - Information about the callback will be displayed by hovering over the translucent colored areas.
 - Timer Event Visualization
   - Arrows are the expected start timing of the timer callback
-  - If timer callbacks start with delay, the arrows turn red (if on time, white)
-  - Time duration regarded as delay is 5 ms or more
+  - If timer callbacks start with delay (5 ms or more), the arrows turn red (if on time, white)

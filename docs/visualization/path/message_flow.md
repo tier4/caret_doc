@@ -21,7 +21,7 @@ message_flow(path, granularity='node', lstrip_s=1, rstrip_s=1)
 
 The horizontal axis means `Time [s]`.
 The vertical axis means the target path to measure the latency.
-Each colored line represents message dependencies for each message. The gray rectangular area indicates the callback execution time.
+Each colored line represents message dependencies for each message. The gray rectangular areas indicate the callback execution time.
 
 The function `message_flow()` has following arguments.
 
@@ -39,4 +39,4 @@ In addition to the basic operations of bokeh, the message flow diagram allows th
 - Scale adjustment of xaxis/yaxis
   - Scale adjustments can be made only on the X-axis or only on the Y-axis by operating the wheel on the axis labels.
 - View detailed information
-  - Move the cursor over the lines in the message flow or the gray rectangular area can see the detail information of the callback and message.
+  - Move the cursor over the lines in the message flow or the gray rectangular areas can see the detail information of the callback and message.

@@ -18,10 +18,12 @@ comm = comm[0]
 # or comm = app.get_communication('pub_node', 'sub_node', 'topic_name')
 ```
 
-Note
 
-1. The `output_notebook()` is needed to show figures inside Jupyter Notebook.
-2. The function `get_communications` returns a List and the function `get_communication` returns one communication handler.
+<prettier-ignore-start>
+!!!info
+    1. The `output_notebook()` is needed to show figures inside Jupyter Notebook.
+    2. The function `get_communications` returns a List and the function `get_communication` returns one communication handler.
+<prettier-ignore-end>
 
 ## Frequency
 
@@ -47,6 +49,7 @@ plot.show()
 
 The horizontal axis means `Time [s]` (changeable in ['system_time', 'sim_time', 'index']).
 The vertical axis means `Period [ms]` from one communication to next communication.
+from one communication starts to the next time that the communication starts.
 This API is used to confirm whether the period was stable.
 
 ## Latency

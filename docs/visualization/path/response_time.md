@@ -21,7 +21,10 @@ plot = Plot.create_response_time_histogram_plot(path)
 plot.show()
 ```
 
-Note: The `output_notebook()` is needed to show figures inside Jupyter Notebook.
+<prettier-ignore-start>
+!!!info
+    The `output_notebook()` is needed to show figures inside Jupyter Notebook.
+<prettier-ignore-end>
 
 ![response_time_default_histogram](../../imgs/response_time_default_histogram.png)
 
