@@ -2,7 +2,7 @@
 
 ## The main basic design of the Plot class
 
-The visualization tools provided by CARET are implemented in the Plot class.
+Visualization is available from the Plot class provided by CARET.
 The usage of each API in the Plot class is unified as follows:
 
 ```python3
