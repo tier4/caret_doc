@@ -550,15 +550,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    パッケージのインストール
+  <a href="#installation-of-required-packages" class="md-nav__link">
+    Installation of required packages
   </a>
+  
+    <nav class="md-nav" aria-label="Installation of required packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-lttng" class="md-nav__link">
+    Install LTTng
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-packages-to-build-caret" class="md-nav__link">
+    Install packages to build CARET
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caret" class="md-nav__link">
-    CARET のビルド
+  <a href="#source-build-of-caret" class="md-nav__link">
+    Source build of CARET
   </a>
   
 </li>
@@ -2255,15 +2275,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    パッケージのインストール
+  <a href="#installation-of-required-packages" class="md-nav__link">
+    Installation of required packages
   </a>
+  
+    <nav class="md-nav" aria-label="Installation of required packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-lttng" class="md-nav__link">
+    Install LTTng
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-packages-to-build-caret" class="md-nav__link">
+    Install packages to build CARET
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caret" class="md-nav__link">
-    CARET のビルド
+  <a href="#source-build-of-caret" class="md-nav__link">
+    Source build of CARET
   </a>
   
 </li>
@@ -2289,16 +2329,17 @@
 
 
 <h1 id="manual-installation">Manual installation<a class="headerlink" href="#manual-installation" title="Permanent link">#</a></h1>
-<h2 id="_1">パッケージのインストール<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
-<p>LTTng のインストール
-詳細は <a href="https://lttng.org/docs/v2.12/#doc-ubuntu-ppa">LTTng の公式ドキュメント</a> を参照。</p>
-<div class="highlight"><pre><span></span><code>sudo apt-add-repository ppa:lttng/stable-2.12
+<h2 id="installation-of-required-packages">Installation of required packages<a class="headerlink" href="#installation-of-required-packages" title="Permanent link">#</a></h2>
+<h3 id="install-lttng">Install LTTng<a class="headerlink" href="#install-lttng" title="Permanent link">#</a></h3>
+<p>Refer to <a href="https://lttng.org/docs/v2.12/#doc-ubuntu-ppa">the official document for LTTng</a> for details</p>
+<div class="highlight"><pre><span></span><code>sudo apt-add-repository ppa:lttng/stable-2.13
 sudo apt-get update
 sudo apt-get install lttng-tools liblttng-ust-dev
 sudo apt-get install python3-babeltrace python3-lttng
 </code></pre></div>
-<p>ROS 2 Humble のインストール、依存パッケージのインストール。
-詳細は <a href="https://docs.ros.org/en/humble/Installation/Ubuntu-Development-Setup.html">ROS2 公式ドキュメント</a> を参照。</p>
+<h3 id="install-packages-to-build-caret">Install packages to build CARET<a class="headerlink" href="#install-packages-to-build-caret" title="Permanent link">#</a></h3>
+<p>Install ROS 2 Humble and related packages.
+See also <a href="https://docs.ros.org/en/humble/Installation/Ubuntu-Development-Setup.html">the official document for ROS 2</a>.</p>
 <div class="highlight"><pre><span></span><code>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y <span class="se">\</span>
   build-essential <span class="se">\</span>
   cmake <span class="se">\</span>
@@ -2330,7 +2371,7 @@ python3 -m pip install -U <span class="se">\</span>
 
 sudo apt install ros-humble-desktop
 </code></pre></div>
-<p>ros2 trace 関連のパッケージをインストール</p>
+<p>Install packages related with <a href="https://github.com/ros2/ros2_tracing"><code>ros2_tracing</code></a></p>
 <div class="highlight"><pre><span></span><code>sudo apt install -y <span class="se">\</span>
   ros-humble-ros2trace <span class="se">\</span>
   ros-humble-ros2trace-analysis <span class="se">\</span>
@@ -2341,7 +2382,7 @@ sudo apt install ros-humble-desktop
   ros-humble-tracetools-test <span class="se">\</span>
   ros-humble-tracetools-trace
 </code></pre></div>
-<p>caret の依存パッケージをインストール</p>
+<p>Install packages for visualization with CARET.</p>
 <div class="highlight"><pre><span></span><code>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y <span class="se">\</span>
   graphviz <span class="se">\</span>
   graphviz-dev
@@ -2355,10 +2396,11 @@ python3 -m pip install -U <span class="se">\</span>
   jupyterlab <span class="se">\</span>
   graphviz
 
-<span class="c1"># julyterlabのインストール時に[ImportError: The Jupyter Server requires tornado &gt;=6.1.0]と出る場合は以下を実行すること</span>
+<span class="c1"># If you see the message, [ImportError: The Jupyter Server requires tornado &gt;=6.1.0] during installing jupyterlab,</span>
+<span class="c1"># upgrade tornado with the following command.</span>
 <span class="c1"># pip install tornado --upgrade</span>
 </code></pre></div>
-<h2 id="caret">CARET のビルド<a class="headerlink" href="#caret" title="Permanent link">#</a></h2>
+<h2 id="source-build-of-caret">Source build of CARET<a class="headerlink" href="#source-build-of-caret" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_caret_ws/src
 <span class="nb">cd</span> ~/ros2_caret_ws
 
@@ -2370,21 +2412,22 @@ rosdep install <span class="se">\</span>
   --rosdistro humble -y <span class="se">\</span>
   --skip-keys <span class="s2">&quot;console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers&quot;</span>
 
-<span class="c1"># [ERROR: the following packages/stacks could not have their rosdep keys resolved] と出る場合は、以下を試すこと</span>
+<span class="c1"># If you find the error message, [ERROR: the following packages/stacks could not have their rosdep keys resolved],</span>
+<span class="c1"># execute rosdep initialization and update with the following two commands.</span>
 <span class="c1"># rosdep init</span>
 <span class="c1"># rosdep update</span>
 <span class="nb">source</span> /opt/ros/humble/setup.bash
 
-<span class="c1"># フォークしたパッケージのヘッダーファイルを使用させるためのシンボリックリンクを作成</span>
+<span class="c1"># Create symbolic link so that the header files, which are provided by the forked packages, should be referred</span>
 ln -sf ~/ros2_caret_ws/src/ros-tracing/ros2_tracing/tracetools/include/tracetools ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
 ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_action/include/rclcpp_action ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
 ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_components/include/rclcpp_components/ ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
 ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_lifecycle/include/rclcpp_lifecycle/ ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
 
-<span class="c1"># CARETのビルド</span>
+<span class="c1"># Build CARET with colcon command</span>
 colcon build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DBUILD_TESTING<span class="o">=</span>off  --symlink-install
 </code></pre></div>
-<p>ros2 tracing が有効になっていることを確認</p>
+<p>Check whether <code>ros2_tracing</code> is available</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 $ ros2 run tracetools status
 Tracing enabled
