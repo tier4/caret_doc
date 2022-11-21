@@ -1,19 +1,22 @@
 # Manual installation
 
-## パッケージのインストール
+## Installation of required packages
 
-LTTng のインストール
-詳細は [LTTng の公式ドキュメント](https://lttng.org/docs/v2.12/#doc-ubuntu-ppa) を参照。
+### Install LTTng
+
+Refer to [the official document for LTTng](https://lttng.org/docs/v2.12/#doc-ubuntu-ppa) for details
 
 ```bash
-sudo apt-add-repository ppa:lttng/stable-2.12
+sudo apt-add-repository ppa:lttng/stable-2.13
 sudo apt-get update
 sudo apt-get install lttng-tools liblttng-ust-dev
 sudo apt-get install python3-babeltrace python3-lttng
 ```
 
-ROS 2 Humble のインストール、依存パッケージのインストール。
-詳細は [ROS2 公式ドキュメント](https://docs.ros.org/en/humble/Installation/Ubuntu-Development-Setup.html) を参照。
+### Install packages to build CARET
+
+Install ROS 2 Humble and related packages.
+See also [the official document for ROS 2](https://docs.ros.org/en/humble/Installation/Ubuntu-Development-Setup.html).
 
 ```bash
 sudo apt update && sudo apt install -y \
@@ -48,7 +51,7 @@ python3 -m pip install -U \
 sudo apt install ros-humble-desktop
 ```
 
-ros2 trace 関連のパッケージをインストール
+Install packages related with [`ros2_tracing`](https://github.com/ros2/ros2_tracing)
 
 ```bash
 sudo apt install -y \
@@ -62,7 +65,7 @@ sudo apt install -y \
   ros-humble-tracetools-trace
 ```
 
-caret の依存パッケージをインストール
+Install packages for visualization with CARET.
 
 ```bash
 sudo apt update && sudo apt install -y \
@@ -78,11 +81,12 @@ python3 -m pip install -U \
   jupyterlab \
   graphviz
 
-# julyterlabのインストール時に[ImportError: The Jupyter Server requires tornado >=6.1.0]と出る場合は以下を実行すること
+# If you see the message, [ImportError: The Jupyter Server requires tornado >=6.1.0] during installing jupyterlab,
+# upgrade tornado with the following command.
 # pip install tornado --upgrade
 ```
 
-## CARET のビルド
+## Source build of CARET
 
 ```bash
 mkdir -p ~/ros2_caret_ws/src
@@ -96,22 +100,23 @@ rosdep install \
   --rosdistro humble -y \
   --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
-# [ERROR: the following packages/stacks could not have their rosdep keys resolved] と出る場合は、以下を試すこと
+# If you find the error message, [ERROR: the following packages/stacks could not have their rosdep keys resolved],
+# execute rosdep initialization and update with the following two commands.
 # rosdep init
 # rosdep update
 source /opt/ros/humble/setup.bash
 
-# フォークしたパッケージのヘッダーファイルを使用させるためのシンボリックリンクを作成
+# Create symbolic link so that the header files, which are provided by the forked packages, should be referred
 ln -sf ~/ros2_caret_ws/src/ros-tracing/ros2_tracing/tracetools/include/tracetools ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
 ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_action/include/rclcpp_action ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
 ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_components/include/rclcpp_components/ ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
 ln -sf ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp_lifecycle/include/rclcpp_lifecycle/ ~/ros2_caret_ws/src/ros2/rclcpp/rclcpp/include/
 
-# CARETのビルド
+# Build CARET with colcon command
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=off  --symlink-install
 ```
 
-ros2 tracing が有効になっていることを確認
+Check whether `ros2_tracing` is available
 
 ```bash
 $ source ~/ros2_caret_ws/install/local_setup.bash
