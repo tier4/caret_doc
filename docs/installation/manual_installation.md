@@ -4,7 +4,7 @@
 
 ### Install LTTng
 
-Refer to [the official document for LTTng](https://lttng.org/docs/v2.12/#doc-ubuntu-ppa) for details
+Refer to [the official document for LTTng](https://lttng.org/docs/v2.13/#doc-ubuntu-ppa) for details
 
 ```bash
 sudo apt-add-repository ppa:lttng/stable-2.13
