@@ -2557,16 +2557,7 @@
 
 
 <h1 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">#</a></h1>
-<p>The communication latency is the time difference between the time the message is passed from the ownership of the callback to the next callback.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
-l_{comm} = t_{receive} - t_{transfer}
-</div>
-<script type="math/tex; mode=display">
-l_{comm} = t_{receive} - t_{transfer}
-</script>
-</div>
-<p>In particular, if transfer of ownership is publish and receive of ownership is subscribe, it is defined as follows</p>
+<p>Communication latency is an expression of how much time it takes for a topic message to travel from source callback to next callback.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 l_{comm} = t_{sub} - t_{pub}
@@ -2577,7 +2568,7 @@ l_{comm} = t_{sub} - t_{pub}
 </div>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
-<p class="admonition-title">Info<p>In this definition, communication latency is now affected by scheduling.
+<p class="admonition-title">Info<p>In this definition, communication latency is now affected by scheduling latency.
 It is not only the communication latency of the DDS.
 If multiple callbacks can be executed at the same time, it may include the execution time of other callbacks.
 For more information on scheduling, see <a href=". /latency_definitions/index.md#detailed-sequence">Latency Definition | Overview</a>.</p>
