@@ -2568,10 +2568,9 @@ l_{comm} = t_{sub} - t_{pub}
 </div>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
-<p class="admonition-title">Info<p>In this definition, communication latency is now affected by scheduling latency.
-It is not only the communication latency of the DDS.
-If multiple callbacks can be executed at the same time, it may include the execution time of other callbacks.
-For more information on scheduling, see <a href=". /latency_definitions/index.md#detailed-sequence">Latency Definition | Overview</a>.</p>
+<p class="admonition-title">Info<p>In this definition, communication latency is affected by the scheduling of callbacks, and includes not only the communication latency of the DDS, but also the delay due to scheduling.
+For example, if multiple callbacks are dispatched simultaneously, the communication latency may include the execution time of other callbacks.
+For more information on scheduling, see <a href=". /latency_definitions/index.md#detailed-sequence">latency_definitions | overview</a>.</p>
 </p>
 </div>
 <p><prettier-ignore-end></p>
