@@ -2497,7 +2497,7 @@
 
 
 <h1 id="path">Path<a class="headerlink" href="#path" title="Permanent link">#</a></h1>
-<p>Path latency is the sum of node latency and communication latency included in the path.</p>
+<p>Path latency is sum of node latency and communication latency included in a certain path.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 l_{path} = \sum_{\in path} l_{node} + \sum_{\in path} l_{comm} \\
@@ -2517,7 +2517,7 @@ For example, in the following case, the path definition is <code>[A]-[/a]-[C]-[/
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>In the above definition, the start time of the latency is the start node's Publish and the end time of the latency measurement is the end node's Subscribe.
+<p>In the above definition, the starting time of the latency is publish of the initial node and the end time of the latency is subscription of the last node.
 When trying to measure a actual system, it is desirable to be able to define various start and end times depending on the implementation.
 For example, the start time might be more appropriately a stamp value in the sensor message.
 It's current issue to support for such more precise latency.</p>
