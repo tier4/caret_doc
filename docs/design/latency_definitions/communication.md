@@ -1,12 +1,6 @@
 # Communication
 
-The communication latency is the time difference between the time the message is passed from the ownership of the callback to the next callback.
-
-$$
-l_{comm} = t_{receive} - t_{transfer}
-$$
-
-In particular, if transfer of ownership is publish and receive of ownership is subscribe, it is defined as follows
+Communication latency is an expression of how much time it takes for a topic message to travel from source callback to next callback.
 
 $$
 l_{comm} = t_{sub} - t_{pub}
@@ -14,19 +8,11 @@ $$
 
 <prettier-ignore-start>
 !!! Info
-        In this definition, communication latency is now affected by scheduling.
-        It is not only the communication latency of the DDS.
-        If multiple callbacks can be executed at the same time, it may include the execution time of other callbacks.
-        For more information on scheduling, see [Latency Definition | Overview](. /latency_definitions/index.md#detailed-sequence).
+        In this definition, communication latency is affected by the scheduling of callbacks, and includes not only the communication latency of the DDS, but also the delay due to scheduling.
+        For example, if multiple callbacks are dispatched simultaneously, the communication latency may include the execution time of other callbacks.
+        For more information on scheduling, see [latency_definitions | overview](../index.md#detailed-sequence).
 <prettier-ignore-end>
 
-<prettier-ignore-start>
-!!! Info
-        You may think that the definition of communication latency is complicated.
-        The reason for defining it based on callback ownership is that this same definition will apply to future latency calculations involving tf.
-        Even when CARET supports latency where information is exchanged other than publish-subscribe, the responsibility of the node developer is the node and the callback is the implementation.
-        In order to provide latency based on the scope of responsibility, CARET uses this definition.
-<prettier-ignore-end>
 
 ROS communication is performed by the subscription side for intra-process communication and inter-process communication.
 Since ROS communication is capable of many-to-many communication, there are cases where both intra-process and inter-process communication are performed in a single publish.
@@ -71,9 +57,9 @@ activate Rclcpp
 Rclcpp -> Buffer : take
 Buffer -> Rclcpp: dequeue
 deactivate Buffer
-Rclcpp -> LTTng: dispatch_intra_subscription_callback
-Rclcpp -> LTTng : callback start
-Rclcpp -> Callback : execute callback
+Rclcpp -> LTTng: sample dispatch_intra_subscription_callback
+Rclcpp -> LTTng : sample callback_start
+Rclcpp -> Callback : callback start
 
 activate Callback
 @enduml
@@ -114,14 +100,14 @@ activate ROS2
 activate UserCode
 UserCode -> ROS2: publish()
 activate ROS2
-ROS2 -> LTTng: [rclcpp_publish]
+ROS2 -> LTTng: sample rclcpp_publish
 
 
 ROS2 -> DDS: dds_write()
 deactivate ROS2
 activate DDS
-DDS -> LTTng: [dds_write]
-DDS -> LTTng: [dds_bind_addr_to_stamp]
+DDS -> LTTng: sample dds_write
+DDS -> LTTng: sample dds_bind_addr_to_stamp
 
 UserCode -> ROS2 : callback_end
 deactivate UserCode
@@ -137,8 +123,8 @@ activate ROS2
 ROS2 -> DDS :  take messages
 DDS -> ROS2
 deactivate DDS
-ROS2 -> LTTng: [dispatch_subscription_callback]
-ROS2 -> LTTng: [callback_start]
+ROS2 -> LTTng: sample dispatch_subscription_callback
+ROS2 -> LTTng: sample [callback_start
 ROS2 -> UserCode: callback start
 activate UserCode
 UserCode -> ROS2: callback end
