@@ -13,7 +13,6 @@ $$
         For more information on scheduling, see [latency_definitions | overview](../index.md#detailed-sequence).
 <prettier-ignore-end>
 
-
 ROS communication is performed by the subscription side for intra-process communication and inter-process communication.
 Since ROS communication is capable of many-to-many communication, there are cases where both intra-process and inter-process communication are performed in a single publish.
 In CARET, communication is divided into 1:1 pairs and latency is calculated.
