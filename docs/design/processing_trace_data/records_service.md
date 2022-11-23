@@ -10,22 +10,21 @@ The Records object holds time-series data such as message flow in a table as sho
 | 3.0             | ... | 2.1           |
 | ...             | ... | ...           |
 
-The start_timestamp column contains the system time at the starting point.
-The end_timestamp column contains the system time at the end point.
+The start timestamp column contains the system time at the starting point.
+The end timestamp column contains the system time at the end point.
 Both columns indicate the system time, and if there is no corresponding value for start, the value is NaN.
 
-For the intermediate columns, the time at the intermediate point between start and end is represented.
+For the intermediate columns, the time at the intermediate point between starting point and end one is represented.
 
 This table representation can be used for various measurement targets such as callbacks, nodes, and paths.
 
 The rows of the table are visualized as lines in a message flow diagram.
 
-This section describes the process o
-The class that reads TraceData is the Records object.
+The above table is stored by `Records` object.
 
 - [Records](./records.md)
 
-The following are processing using Records object.
+The followings are processing using Records object.
 
 - [Period](./records_service.md#period)
 - [Frequency](./records_service.md#frequency)
@@ -42,7 +41,8 @@ See also
 
 ## Period
 
-The period is defined as the time difference between the columns of interest.
+Period is metrics defined as the elapsed time between two occurrence of cyclic events.
+Difference between two neighboring timestamp on the same column is defined as period.
 
 $$
     period_n = t_{n} -t_{n-1}
@@ -101,7 +101,7 @@ Output
 
 ## Latency
 
-Latency is defined as the time difference between the two columns of interest.
+Latency is is length of time from preceding event to afterward one. It is defined as difference from preceding timestamp to afterward on the same row.
 
 $$
 latency_n = t^{end}_{n} - t^{start}_{n}
@@ -130,13 +130,18 @@ Output
 
 ## Response Time
 
-Response time is the amount of time it takes for a system to respond to an input.
+Response time is amount of time it takes for a system to respond to an input.
 
-As shown above, latency can be calculated if a table can be constructed.
-However, the calculated latency is not suitable for evaluating response time.
-For example, if a sensor is driven at 10 Hz, a latency of up to 100 ms should be considered.
+As shown above, latency can be calculated if a table is constructed.
+Latency is defined as delay from input to any output.
+This calculation is very simple, but it is not used for evaluating response.
+If multiple output depends on a single input, latency is not regarded as response time.
+Moreover, for example, if a sensor is driven at 10 Hz, a latency of up to 100 ms should be considered.
 
-CARET defines latency as the best-case response time and worst-case response time as the value that includes the delay due to cycles, as a more comprehensive approach.
+CARET serves best-case response time and worst-case response time.
+The former is roughly equal to latency from an input to a corresponding initial output.
+CARET provides the latter because it also takes into account the latency until times wake up.
+For example, this latency is equivalent to a sensor operating at 10 Hz taking a 100 ms delay at maximum.
 
 ### Example
 
@@ -168,16 +173,18 @@ Output
 | 3.0             | 0.2 (3.2 - 3.0)         | 2.3 (3.2 - 1.0)          |
 | ...             | ...                     | ...                      |
 
-Note that Best-case response time has the same definition as Latency.
+Note taht best case response time is equal to Latency, except for the cumbersome cases listed later.
+
 Worst-case response time also counts as response time in the case of a drop.
 
 ### Visualize response time
 
 ![Latency vs Response time](../../imgs/latency_vs_response_time.drawio.png)
 
-Cases like the one shown above include
+Of the pseudo two message flow diagram as shown above, the upper figure shows latency and the lower explains response time.
+The upper figure includes cumbersome cases as follows;
 
-- Cases where multiple latencies are defined for a single output
+- Cases where multiple latencies are defined for a single output from multiple inputs
 - Message dropping
 - Crossing
 - Branching
@@ -197,10 +204,10 @@ The diagram above describes the table as follows
 | 5.5             | 6.0           |
 | 5.5             | 6.5           |
 
-After leaving only the best-case flows as shown in the figure below,
-the best-case is calculated as the latency of the line and the worst-case as the latency calculated from the previous input.
+After extracting only the best case flows as shown in the lower figure,
+the best case is calculated as the latency of the flow and the worst-case as the latency is regarded as delay from the previous input to the output.
 
-The response time after processing is shown below.
+According to those definitions, the response time is calculated as below.
 
 | Start timestamp | Min response time | Max response time |
 | --------------- | ----------------- | ----------------- |
