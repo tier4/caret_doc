@@ -10,7 +10,7 @@ nav:
         - Design: trace_points
     - Configuration:
         - Design: configuration
-    - Latency definitions:
+    - Event and latency definitions:
         - Design: latency_definitions
     - Visualizations:
         - Design: visualizations
