@@ -1,8 +1,8 @@
 # Publisher
 
-The Publisher provides the time and relevant information when publishing.
+`Publisher`-based object provides a set of timestamps when publishing.
 
-A simplified sequence diagram focusing only on the relevant data flow is shown below.
+A simplified sequence diagram focusing only on the relevant events is shown below.
 
 ```plantuml
 @startuml
@@ -20,24 +20,24 @@ activate UserCode
 UserCode -> rclcpp: publish()
 activate rclcpp
 
-rclcpp -> LTTng: [rclcpp_intra_publish]
-rclcpp -> LTTng: [message_construct]
-rclcpp -> LTTng: [rclcpp_publish]
+rclcpp -> LTTng: sample rclcpp_intra_publish
+rclcpp -> LTTng: sample message_construct
+rclcpp -> LTTng: sample rclcpp_publish
 
 rclcpp -> rcl: rcl_publish()
 activate rcl
 
-rcl -> LTTng: [rcl_publish]
+rcl -> LTTng: sample rcl_publish
 
 rcl -> rmw: rmw_publish()
 activate rmw
 
-rmw -> LTTng: [dds_write]
+rmw -> LTTng: sample dds_write
 
 rmw -> DDS: dds_write()
 activate DDS
-DDS -> LTTng: [bind_addr_to_addr]
-DDS -> LTTng: [bind_addr_to_stamp]
+DDS -> LTTng: sample bind_addr_to_addr
+DDS -> LTTng: sample bind_addr_to_stamp
 
 DDS -> rmw
 deactivate DDS
