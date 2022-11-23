@@ -1,18 +1,16 @@
 # Node
 
-Node latency is the time difference between when a callback takes ownership and when it abandons.
+Node latency is elapsed time from message reception to message transmission in a node.
 
 $$
 l_{node} = t_{transfer} - t_{receive}
 $$
 
-In particular, if transfer of ownership is subscribe and receive of ownership is publish, it is defined as follows
+As transmission is replaced by publish and reception is subscription in the context of ROS 2, the equation is translated into the next one.
 
 $$
 l_{node} = t_{pub} - t_{sub}
 $$
-
-See [Communication](./communication.md) for the reason ownership is used to define latency.
 
 ## Message context
 
@@ -34,25 +32,25 @@ The dependency of the message at this time is described in chronological order a
 
 ![message context](../../imgs/message_context.drawio.png)
 
-Here, the time difference between Subscribe and Publish can be calculated as node latency.  
+Here, the elapsed time from subscription is defined as node latency.  
 In this way, node latency can be calculated when message dependencies are defined.
-6
+
 In the previous example, we presented a case where a node is subscribed and immediately published.
-In actuality, the Message context can be quite complex, because node processing can be defined by the developer.
+Actually, the message context can be quite complex because data processing in a node is freely defined by application developers.
 
 ![complex message context](../../imgs/message_context_complex.drawio.png)
 
-Each case is described below.
+Examples of complex message context are described below.
 
-- Buffering, for example, is a buffer delay process.
-- Multiple use is for moving average processing, for example. There are multiple candidates for node latency.
+- Bufferd, for example, is a buffer delay process.
+- Multiple inputted is for moving average processing, for example. There are multiple candidates for node latency.
 - Unused is a message that has not been published and has not been used. This is evaluated as a kind of message drop.
-- Cross can occur in cases where messages are retrieved based on the timestamp of the message rather than the system time.
+- Crossed can occur in cases where messages are retrieved based on the timestamp of the message rather than the system time.
 
-In either case, it is difficult to automatically determine the message context.
+In any of those cases, it is difficult to automatically determine the message context.
 
-In some cases this can be covered by Configuration.
+the message context are given for some cases of them as shown in configuration.
 For more information, see [Configuration](. /... /configuration/index.md) for details.
 
-If Configuration does not cover the situation, we are considering a mechanism to allow users to describe message dependencies as a future plan.
-For details, please refer to [TILDE](. /software_architecture/tilde.md) for details.
+To enlarge coverage the others of complex cases, we are considering a mechanism to allow users to describe message dependencies in their user codes.
+[TILDE](. /software_architecture/tilde.md) is one of good candidates to achieve it.
