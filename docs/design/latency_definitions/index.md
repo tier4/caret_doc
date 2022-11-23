@@ -16,13 +16,13 @@ The red line represents message flow.
 A message is received in the subscription callback and the processed data is published to the next node.
 In this way, information is propagated from the sensor node to the actuator node.
 
-CARET measures the following three main locations for latency calculation.
+CARET samples events for latency calculation. The following three items are main types of the events.
 
 - Callback start
 - Callback end
 - Publish
 
-Latency is calculated by calculating the time difference required for each measurement section.
+Difference of timestamp between two events are corresponded to latency.
 
 For a more detailed definition, see
 
@@ -31,20 +31,21 @@ For a more detailed definition, see
 - [Node](./node.md)
 - [Path](./path.md)
 
-CARET can also check other time series data on the Publish side as well.
-All the objects for which time series data can be obtained are listed below.
+CARET provides time series data of events through Python objects.
+Time series data can be retrieved with the Python objects which have to_dataframe API.
+All objects capable of retrieving time-series data are listed below.
 
 | Target                              | Configuration required? |
 | ----------------------------------- | ----------------------- |
 | [Path](./path.md)                   | Yes                     |
-| [NodePath](./node.md)               | Yes                     |
+| [Node](./node.md)                   | Yes                     |
 | [Communication](./communication.md) | No                      |
 | [Callback](./callback.md)           | No                      |
 | [Publisher](./publisher.md)         | No                      |
 | [Subscription](./subscription.md)   | No                      |
 | [Timer](./timer.md)                 | No                      |
 
-Here, for Path and NodePath, definitions must be given manually.
+Here, for Path and Node, definitions must be given manually.
 For details on setting the definitions, see [Configuration](../../configuration/index.md).
 
 ## Detailed Sequence
@@ -66,13 +67,13 @@ activate ROS2
 activate UserCode
 UserCode -> ROS2: publish()
 activate ROS2
-ROS2 -> LTTng: [rclcpp_publish] \n[rclcpp_intra_publish]
+ROS2 -> LTTng: sample rclcpp_publish \n sample rclcpp_intra_publish
 
 
 ROS2 -> DDS: dds_write()
 deactivate ROS2
 activate DDS
-DDS -> LTTng: [dds_write]
+DDS -> LTTng: sample dds_write
 
 UserCode -> ROS2 : callback_end
 deactivate UserCode
@@ -90,7 +91,7 @@ loop
     ROS2 -> ROS2 : wait until next event
     activate ROS2
     DDS -> ROS2: <notify> on_data_available
-    ROS2 -> LTTng : [on_data_available]
+    ROS2 -> LTTng : sample on_data_available
     deactivate ROS2
 
     deactivate DDS
@@ -103,12 +104,12 @@ loop
     end
 
     group execute subscription callbacks
-        ROS2 -> LTTng: [callback_start]
+        ROS2 -> LTTng: sample callback_start
         ROS2 -> UserCode: callback start
         activate UserCode
         UserCode -> ROS2: callback end
         deactivate UserCode
-        ROS2 -> LTTng: [callback_end]
+        ROS2 -> LTTng: sample callback_end
     end
 
     group execute service callbacks
@@ -124,7 +125,7 @@ deactivate ROS2
 
 Here, each element indicates the following
 
-- UseCode is a callback
+- UserCode is a callback
 - ROS2 is rclcpp, rcl, and rmw
 - DDS is FastDDS or CycloneDDS
 - LTTng is the output destination for tracepoints
