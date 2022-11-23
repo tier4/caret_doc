@@ -2504,8 +2504,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#time-domain-and-frequency-domain" class="md-nav__link">
-    Time domain and Frequency domain
+  <a href="#metrics-category" class="md-nav__link">
+    Metrics category
   </a>
   
 </li>
@@ -2536,19 +2536,22 @@
 
 
 <h1 id="visualizations">Visualizations<a class="headerlink" href="#visualizations" title="Permanent link">#</a></h1>
-<p>CARET is a tool for performance evaluation.</p>
+<p>CARET is a tool for performance evaluation and analysis.</p>
 <p>For evaluation, quantification and visualization would be sufficient.<br />
 For analysis, on the other hand, various factors are involved in behavior and performance, so it is necessary to investigate from multiple perspectives.</p>
-<p>CARET has multiple visualizations for evaluation and analysis APIs that are readily available.<br />
-Also, it's also possible to directly acquire and evaluate the data on your own (see <a href="../processing_trace_data/">Processing trace data</a> for detail).</p>
+<p>CARET has multiple visualizations for evaluation and analysis APIs.<br />
+Also, CARET let you to directly acquire and evaluate the data on your own (see <a href="../processing_trace_data/">Processing trace data</a> for detail).</p>
 <h2 id="policy">Policy<a class="headerlink" href="#policy" title="Permanent link">#</a></h2>
 <h3 id="evaluation-flow">Evaluation flow<a class="headerlink" href="#evaluation-flow" title="Permanent link">#</a></h3>
-<p>CARET has a large amount of information that can be obtained, and it is difficult to evaluate large-scale applications simply by displaying the recorded trace data in time series.
+<p>CARET handles a large amount of recorded events, which prevents you from investigating performance of your application smoothly.
+Just displaying recorded events thoughtlessly might waste your time.
 So, it is important to focus on evaluation targets with appropriate granularity according to the purpose of evaluation.</p>
 <p>The following diagram shows the evaluation flow and analysis by adjusting the granularity.</p>
 <p><img alt="Analysis flow" src="../../imgs/analysis_flow.drawio.png" /></p>
 <p>Here, the horizontal axis represents the visualization granularity and the vertical axis represents the processing granularity.<br />
-CARET leads from issue detection to cause identification by changing the processing and visualization granularity from the rough granularity in the upper right to the fine granularity in the lower left.</p>
+Those definitions will be explained subsequent sections.</p>
+<p>CARET help you to find issues and their causes by changing the processing and visualization granularity, respectively.
+You can approach an issues and its cause step by step from rough to fine granularity, from right-upper to left-lower in the figure.</p>
 <ol>
 <li>Detect issues: Detects performance issues on the target system.</li>
 <li>Identify issues: Identify the bottleneck that is causing the issue.</li>
@@ -2557,32 +2560,32 @@ CARET leads from issue detection to cause identification by changing the process
 <p>Processing granularity on the horizontal axis and visualization granularity on the vertical axis are explained in the following section.</p>
 <h3 id="visualization-granularity">Visualization granularity<a class="headerlink" href="#visualization-granularity" title="Permanent link">#</a></h3>
 <p><img alt="Visualization Granularity" src="../../imgs/visualization_granularity.drawio.png" /></p>
-<p>The granularity of visualization can be ordered in coarse order as follows</p>
+<p>The granularity of visualizations are listed below in order of fine granularity.</p>
 <ul>
-<li>Statistic</li>
-<li>Histogram</li>
-<li>Heatmap</li>
-<li>Bar graph / Line graph</li>
 <li>Time-series trace data</li>
+<li>Bar graph / Line graph</li>
+<li>Heatmap</li>
+<li>Histogram</li>
+<li>Statistic</li>
 </ul>
 <p>The coarser granularity, the more time information is aggregated to evaluate the measurement as a whole.<br />
 The most granular statistics are suitable for regression testing.</p>
-<p>On the other hand, the finer granularity, the more detailed information is expressed, so it is more suitable for analysis. evaluation
-Latency and response time are some of the indicators to evaluate performance.<br />
+<p>On the other hand, the finer granularity, the more detailed information is expressed, so it is more suitable for analysis.
+Latency and response time are mainly used metrics to evaluate performance.<br />
 The most detailed information is a time-series graph of each trace data.</p>
 <h3 id="processing-granularity">Processing granularity<a class="headerlink" href="#processing-granularity" title="Permanent link">#</a></h3>
 <p><img alt="Processing Granularity" src="../../imgs/processing_granularity.drawio.png" /></p>
-<p>The processing granularity can be ordered in coarse order as follows.</p>
+<p>The processing granularity means granularity of subsystem in an application, it is ordered in coarse order as follows.</p>
 <ul>
 <li>path</li>
 <li>node / communication</li>
-<li>callbackCurrent CARET does not support measurement of arbitrary functions or DDS enqueue/dequeue.</li>
+<li>callback</li>
 <li>function</li>
 </ul>
-<p>Path is suitable for evaluation of system performance, while node and callback are suitable for evaluation of functional performance.</p>
+<p>Path is suitable for performance evaluation per system , while node and callback are suitable for performance evaluation per component or smaller subsystem.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition notice">
-<p class="admonition-title">Notice<p>Currently CARET does not support measurement of arbitrary functions or DDS enqueue/dequeue or system calls.</p>
+<p class="admonition-title">Notice<p>In the present, CARET does not support measurement of arbitrary functions or DDS enqueue/dequeue or system calls.</p>
 </p>
 </div>
 <p><prettier-ignore-end></p>
@@ -2590,25 +2593,26 @@ The most detailed information is a time-series graph of each trace data.</p>
 <ul>
 <li><a href="../latency_definitions/">Latency definition</a></li>
 </ul>
-<h3 id="time-domain-and-frequency-domain">Time domain and Frequency domain<a class="headerlink" href="#time-domain-and-frequency-domain" title="Permanent link">#</a></h3>
-<p>We described behavior and indicator in terms of visualization granularity, but there are multiple indicators, such as latency and frequency.<br />
-When considering which indicator to use, it is useful to consider the time domain indicators and frequency domain indicators.</p>
+<h3 id="metrics-category">Metrics category<a class="headerlink" href="#metrics-category" title="Permanent link">#</a></h3>
+<p>We described behavior and metrics in terms of visualization granularity, but there are multiple metrics, such as latency and frequency.<br />
+Metrics for performance analysis is categorized into two types; time-related metrics and frequency-related metrics.
+CARET recommends you to be aware two types.</p>
 <ul>
-<li>Time Domain Indicators (ex: callback execution time [s])</li>
-<li>Frequency Domain Indicators (ex: topic frequency [Hz])</li>
+<li>Time Domain Metrics (ex: callback execution time [s])</li>
+<li>Frequency Domain Metrics (ex: topic frequency [Hz])</li>
 </ul>
 <p>Both have their pros and cons.</p>
 <table>
 <thead>
 <tr>
 <th></th>
-<th>Time Domain Indicators</th>
-<th>Frequency Domain Indicators</th>
+<th>Time Domain Metrics</th>
+<th>Frequency Domain Metrics</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Indicator</td>
+<td>Metric</td>
 <td>Latency, Response time</td>
 <td>Frequency (, Period)</td>
 </tr>
@@ -2624,7 +2628,7 @@ When considering which indicator to use, it is useful to consider the time domai
 </tr>
 </tbody>
 </table>
-<p>In the table above, period is an indicator that expresses the time interval between each time, so it is classified in the frequency domain.</p>
+<p>In the table above, period is metrics that expresses the time interval between sequential cyclic events, so it is classified into the frequency-related metrics.</p>
 <p>See also</p>
 <ul>
 <li><a href="../processing_trace_data/records_service/">Records service</a></li>

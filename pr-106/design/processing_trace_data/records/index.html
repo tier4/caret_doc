@@ -2585,7 +2585,8 @@
 
 
 <h1 id="records-object">Records Object<a class="headerlink" href="#records-object" title="Permanent link">#</a></h1>
-<p>CARET stores trace data as a table as shown below.</p>
+<p>CARET provides trace data to user.
+The common format is a table per metric as shown below.</p>
 <table>
 <thead>
 <tr>
@@ -2612,9 +2613,10 @@
 </tr>
 </tbody>
 </table>
-<p>This table is processed to calculate latency, period, etc (See <a href="../records_service/">Records Service</a>).</p>
-<p>To create the above table, merging processes are performed with the traced results.
-In addition to general table join processing, CARET defines classes which has originally defined join processing for latency calculation.</p>
+<p>This table is referred to calculate latency, period, and etc. (See <a href="../records_service/">Records Service</a>).
+The most primitive format is a table per event which picked up by a corresponding tracepoint.
+Merging multiple event tables makes a new table for metrics.
+In addition to simple table merging, CARET defines classes which has originally defined merging method for latency calculation.</p>
 <p>This sections describes the main APIs provided by the record object.</p>
 <ul>
 <li>merge</li>

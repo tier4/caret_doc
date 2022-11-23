@@ -2543,7 +2543,7 @@
 
 
 <h1 id="node">Node<a class="headerlink" href="#node" title="Permanent link">#</a></h1>
-<p>Node latency is the time difference between when a callback takes ownership and when it abandons.</p>
+<p>Node latency is elapsed time from message reception to message transmission in a node.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 l_{node} = t_{transfer} - t_{receive}
@@ -2552,7 +2552,7 @@ l_{node} = t_{transfer} - t_{receive}
 l_{node} = t_{transfer} - t_{receive}
 </script>
 </div>
-<p>In particular, if transfer of ownership is subscribe and receive of ownership is publish, it is defined as follows</p>
+<p>As transmission is replaced by publish and reception is subscription in the context of ROS 2, the equation is translated into the next one.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 l_{node} = t_{pub} - t_{sub}
@@ -2561,7 +2561,6 @@ l_{node} = t_{pub} - t_{sub}
 l_{node} = t_{pub} - t_{sub}
 </script>
 </div>
-<p>See <a href="../communication/">Communication</a> for the reason ownership is used to define latency.</p>
 <h2 id="message-context">Message context<a class="headerlink" href="#message-context" title="Permanent link">#</a></h2>
 <p>A node receives a message, processes it, and then publishes it to a subsequent node.<br />
 The dependency between the subscribed and published messages is used to define node latency.<br />
@@ -2575,24 +2574,23 @@ In the following sections explain the message dependency (message context), whic
 <p>In this case, the received message is processed and published immediately.<br />
 The dependency of the message at this time is described in chronological order and is expressed as follows.</p>
 <p><img alt="message context" src="../../../imgs/message_context.drawio.png" /></p>
-<p>Here, the time difference between Subscribe and Publish can be calculated as node latency.<br />
-In this way, node latency can be calculated when message dependencies are defined.
-6
-In the previous example, we presented a case where a node is subscribed and immediately published.
-In actuality, the Message context can be quite complex, because node processing can be defined by the developer.</p>
+<p>Here, the elapsed time from subscription is defined as node latency.<br />
+In this way, node latency can be calculated when message dependencies are defined.</p>
+<p>In the previous example, we presented a case where a node is subscribed and immediately published.
+Actually, the message context can be quite complex because data processing in a node is freely defined by application developers.</p>
 <p><img alt="complex message context" src="../../../imgs/message_context_complex.drawio.png" /></p>
-<p>Each case is described below.</p>
+<p>Examples of complex message context are described below.</p>
 <ul>
-<li>Buffering, for example, is a buffer delay process.</li>
-<li>Multiple use is for moving average processing, for example. There are multiple candidates for node latency.</li>
+<li>Bufferd, for example, is a buffer delay process.</li>
+<li>Multiple inputted is for moving average processing, for example. There are multiple candidates for node latency.</li>
 <li>Unused is a message that has not been published and has not been used. This is evaluated as a kind of message drop.</li>
-<li>Cross can occur in cases where messages are retrieved based on the timestamp of the message rather than the system time.</li>
+<li>Crossed can occur in cases where messages are retrieved based on the timestamp of the message rather than the system time.</li>
 </ul>
-<p>In either case, it is difficult to automatically determine the message context.</p>
-<p>In some cases this can be covered by Configuration.
+<p>In any of those cases, it is difficult to automatically determine the message context.</p>
+<p>the message context are given for some cases of them as shown in configuration.
 For more information, see <a href=". /... /configuration/index.md">Configuration</a> for details.</p>
-<p>If Configuration does not cover the situation, we are considering a mechanism to allow users to describe message dependencies as a future plan.
-For details, please refer to <a href=". /software_architecture/tilde.md">TILDE</a> for details.</p>
+<p>To enlarge coverage the others of complex cases, we are considering a mechanism to allow users to describe message dependencies in their user codes.
+<a href=". /software_architecture/tilde.md">TILDE</a> is one of good candidates to achieve it.</p>
 
 
 

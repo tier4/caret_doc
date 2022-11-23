@@ -2740,18 +2740,17 @@
 </tr>
 </tbody>
 </table>
-<p>The start_timestamp column contains the system time at the starting point.
-The end_timestamp column contains the system time at the end point.
+<p>The start timestamp column contains the system time at the starting point.
+The end timestamp column contains the system time at the end point.
 Both columns indicate the system time, and if there is no corresponding value for start, the value is NaN.</p>
-<p>For the intermediate columns, the time at the intermediate point between start and end is represented.</p>
+<p>For the intermediate columns, the time at the intermediate point between starting point and end one is represented.</p>
 <p>This table representation can be used for various measurement targets such as callbacks, nodes, and paths.</p>
 <p>The rows of the table are visualized as lines in a message flow diagram.</p>
-<p>This section describes the process o
-The class that reads TraceData is the Records object.</p>
+<p>The above table is stored by <code>Records</code> object.</p>
 <ul>
 <li><a href="../records/">Records</a></li>
 </ul>
-<p>The following are processing using Records object.</p>
+<p>The followings are processing using Records object.</p>
 <ul>
 <li><a href="./#period">Period</a></li>
 <li><a href="./#frequency">Frequency</a></li>
@@ -2767,7 +2766,8 @@ The class that reads TraceData is the Records object.</p>
 <li><a href="../records/">Records</a></li>
 </ul>
 <h2 id="period">Period<a class="headerlink" href="#period" title="Permanent link">#</a></h2>
-<p>The period is defined as the time difference between the columns of interest.</p>
+<p>Period is metrics defined as the elapsed time between two occurrence of cyclic events.
+Difference between two neighboring timestamp on the same column is defined as period.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
     period_n = t_{n} -t_{n-1}
@@ -2891,7 +2891,7 @@ The class that reads TraceData is the Records object.</p>
 </tbody>
 </table>
 <h2 id="latency">Latency<a class="headerlink" href="#latency" title="Permanent link">#</a></h2>
-<p>Latency is defined as the time difference between the two columns of interest.</p>
+<p>Latency is is length of time from preceding event to afterward one. It is defined as difference from preceding timestamp to afterward on the same row.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 latency_n = t^{end}_{n} - t^{start}_{n}
@@ -2960,11 +2960,16 @@ latency_n = t^{end}_{n} - t^{start}_{n}
 </tbody>
 </table>
 <h2 id="response-time">Response Time<a class="headerlink" href="#response-time" title="Permanent link">#</a></h2>
-<p>Response time is the amount of time it takes for a system to respond to an input.</p>
-<p>As shown above, latency can be calculated if a table can be constructed.
-However, the calculated latency is not suitable for evaluating response time.
-For example, if a sensor is driven at 10 Hz, a latency of up to 100 ms should be considered.</p>
-<p>CARET defines latency as the best-case response time and worst-case response time as the value that includes the delay due to cycles, as a more comprehensive approach.</p>
+<p>Response time is amount of time it takes for a system to respond to an input.</p>
+<p>As shown above, latency can be calculated if a table is constructed.
+Latency is defined as delay from input to any output.
+This calculation is very simple, but it is not used for evaluating response.
+If multiple output depends on a single input, latency is not regarded as response time.
+Moreover, for example, if a sensor is driven at 10 Hz, a latency of up to 100 ms should be considered.</p>
+<p>CARET serves best-case response time and worst-case response time.
+The former is roughly equal to latency from an input to a corresponding initial output.
+CARET provides the latter because it also takes into account the latency until times wake up.
+For example, this latency is equivalent to a sensor operating at 10 Hz taking a 100 ms delay at maximum.</p>
 <h3 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h3>
 <p>Input</p>
 <table>
@@ -3052,13 +3057,14 @@ Create intermediate data for when the interval in Start timestamp [0.0, 4.0] map
 </tr>
 </tbody>
 </table>
-<p>Note that Best-case response time has the same definition as Latency.
-Worst-case response time also counts as response time in the case of a drop.</p>
+<p>Note taht best case response time is equal to Latency, except for the cumbersome cases listed later.</p>
+<p>Worst-case response time also counts as response time in the case of a drop.</p>
 <h3 id="visualize-response-time">Visualize response time<a class="headerlink" href="#visualize-response-time" title="Permanent link">#</a></h3>
 <p><img alt="Latency vs Response time" src="../../../imgs/latency_vs_response_time.drawio.png" /></p>
-<p>Cases like the one shown above include</p>
+<p>Of the pseudo two message flow diagram as shown above, the upper figure shows latency and the lower explains response time.
+The upper figure includes cumbersome cases as follows;</p>
 <ul>
-<li>Cases where multiple latencies are defined for a single output</li>
+<li>Cases where multiple latencies are defined for a single output from multiple inputs</li>
 <li>Message dropping</li>
 <li>Crossing</li>
 <li>Branching</li>
@@ -3107,9 +3113,9 @@ Worst-case response time also counts as response time in the case of a drop.</p>
 </tr>
 </tbody>
 </table>
-<p>After leaving only the best-case flows as shown in the figure below,
-the best-case is calculated as the latency of the line and the worst-case as the latency calculated from the previous input.</p>
-<p>The response time after processing is shown below.</p>
+<p>After extracting only the best case flows as shown in the lower figure,
+the best case is calculated as the latency of the flow and the worst-case as the latency is regarded as delay from the previous input to the output.</p>
+<p>According to those definitions, the response time is calculated as below.</p>
 <table>
 <thead>
 <tr>
