@@ -2,7 +2,7 @@
 
 Timer provides the time at which the Timer callback timeout and related information.
 
-A simplified sequence diagram focusing only on the relevant data flow is shown below.
+A simplified sequence diagram focusing only on the relevant events is shown below.
 
 ```plantuml
 @startuml
