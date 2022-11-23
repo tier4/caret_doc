@@ -1,8 +1,11 @@
 # Subscription
 
+Topic message is received by subscription via inter-process communication or intra-process one.
+Then, `Subscription` object has common data fields, but different value is filled in `source_timestamp` field.
+
 ## Inter process communication
 
-A simplified sequence diagram focusing only on the relevant data flow is shown below.
+A simplified sequence diagram focusing only on the relevant events is shown below.
 
 ```plantuml
 @startuml
@@ -30,8 +33,8 @@ rcl -> rclcpp
 deactivate rcl
 
 
-rclcpp -> LTTng: [dispatch_subscription_callback]
-rclcpp -> LTTng: [callback_start]
+rclcpp -> LTTng: sample dispatch_subscription_callback
+rclcpp -> LTTng: sample callback_start
 rclcpp -> UserCode: callback start
 activate UserCode
 UserCode -> rclcpp: callback end
@@ -68,8 +71,8 @@ participant LTTng
 activate rclcpp
 
 
-rclcpp -> LTTng: [dispatch_intra_subscription_callback]
-rclcpp -> LTTng: [callback_start]
+rclcpp -> LTTng: sample dispatch_intra_subscription_callback
+rclcpp -> LTTng: sample callback_start
 rclcpp -> UserCode: callback start
 activate UserCode
 UserCode -> rclcpp: callback end
