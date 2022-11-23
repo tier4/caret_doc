@@ -1,6 +1,7 @@
 # Records Object
 
-CARET stores trace data as a table as shown below.
+CARET provides trace data to user.
+The common format is a table per metric as shown below.
 
 | callback_start_timestamp | callback_end_timestamp |
 | ------------------------ | ---------------------- |
@@ -9,10 +10,10 @@ CARET stores trace data as a table as shown below.
 | 2                        | 2.1                    |
 | ...                      | ...                    |
 
-This table is processed to calculate latency, period, etc (See [Records Service](./records_service.md)).
-
-To create the above table, merging processes are performed with the traced results.
-In addition to general table join processing, CARET defines classes which has originally defined join processing for latency calculation.
+This table is referred to calculate latency, period, and etc. (See [Records Service](./records_service.md)).
+The most primitive format is a table per event which picked up by a corresponding tracepoint.
+Merging multiple event tables makes a new table for metrics.
+In addition to simple table merging, CARET defines classes which has originally defined merging method for latency calculation.
 
 This sections describes the main APIs provided by the record object.
 
