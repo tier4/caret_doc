@@ -1,12 +1,13 @@
 # Callback
 
-The callback latency is the time difference from callback start to callback end.
+Callback latency is defined as duration between beginning and end of callback execution.
+These events are represented as `callback_start` and `callback_end`, respectively.
 
 $$
 l_{\rm{callback}} = t_{\rm{callback\ end}} - t_{\rm{callback\ start}}
 $$
 
-A simplified sequence diagram focusing only on the relevant data flow is shown below.
+The sequence diagram shows how CARET rclcpp pick up two events; callback_start and callback_end.
 
 ```plantuml
 
@@ -17,13 +18,13 @@ participant LTTng
 
 activate Rclcpp
 
-Rclcpp -> LTTng : callback start
+Rclcpp -> LTTng : sample callback_start
 Rclcpp -> Callback : execute callback
 
 activate Callback
 Callback -> Rclcpp
 deactivate Callback
-Rclcpp -> LTTng : callback end
+Rclcpp -> LTTng : sample callback_end
 ```
 
 `to_dataframe` API returns following columns.
