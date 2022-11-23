@@ -42,7 +42,7 @@ Actually, the message context can be quite complex because data processing in a 
 
 Examples of complex message context are described below.
 
-- Bufferd, for example, is a buffer delay process.
+- Buffered, for example, is a buffer delay process.
 - Multiple inputted is for moving average processing, for example. There are multiple candidates for node latency.
 - Unused is a message that has not been published and has not been used. This is evaluated as a kind of message drop.
 - Crossed can occur in cases where messages are retrieved based on the timestamp of the message rather than the system time.

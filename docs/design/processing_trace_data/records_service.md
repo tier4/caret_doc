@@ -173,7 +173,7 @@ Output
 | 3.0             | 0.2 (3.2 - 3.0)         | 2.3 (3.2 - 1.0)          |
 | ...             | ...                     | ...                      |
 
-Note taht best case response time is equal to Latency, except for the cumbersome cases listed later.
+Note that best case response time is equal to Latency, except for the cumbersome cases listed later.
 
 Worst-case response time also counts as response time in the case of a drop.
 
