@@ -8,13 +8,13 @@ Execute following commands before running commands in each section.
 from caret_analyze.plot import Plot
 from caret_analyze import Application, Architecture, Lttng
 from bokeh.plotting import output_notebook, figure, show
-output_notebook() # Note 1
+output_notebook() # Info 1
 
 arch = Architecture('yaml', '/path/to/architecture_file')
 lttng = Lttng('/path/to/trace_data')
 app = Application(arch, lttng)
 pub = app.get_publishers('topic_name')
-pub = pub[0] # Note 2
+pub = pub[0] # Info 2
 
 # Please use the following commands in the case visualizing subscription.
 # sub = app.get_subscriptions('topic_name')
@@ -24,7 +24,7 @@ pub = pub[0] # Note 2
 <prettier-ignore-start>
 !!!info
     1. The `output_notebook()` is needed to show figures inside Jupyter Notebook.
-    2. The function `get_publishers()` and `get_subscriptions()` returns a List of publisher/subscriber having the argument topic. The sample code uses the first value of the List.
+    2. The function `get_publishers()` and `get_subscriptions()` return a List of publishers/subscribers involving the given topic name. The sample code uses the first value of the List.
 <prettier-ignore-end>
 
 ## Frequency
