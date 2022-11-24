@@ -2251,13 +2251,13 @@ Execute following commands before running commands in each section.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 <span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
-<span class="n">output_notebook</span><span class="p">()</span> <span class="c1"># Note 1</span>
+<span class="n">output_notebook</span><span class="p">()</span> <span class="c1"># Info 1</span>
 
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/architecture_file&#39;</span><span class="p">)</span>
 <span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/trace_data&#39;</span><span class="p">)</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 <span class="n">pub</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_publishers</span><span class="p">(</span><span class="s1">&#39;topic_name&#39;</span><span class="p">)</span>
-<span class="n">pub</span> <span class="o">=</span> <span class="n">pub</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Note 2</span>
+<span class="n">pub</span> <span class="o">=</span> <span class="n">pub</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Info 2</span>
 
 <span class="c1"># Please use the following commands in the case visualizing subscription.</span>
 <span class="c1"># sub = app.get_subscriptions(&#39;topic_name&#39;)</span>
@@ -2268,7 +2268,7 @@ Execute following commands before running commands in each section.</p>
 <p class="admonition-title">Info</p>
 <ol>
 <li>The <code>output_notebook()</code> is needed to show figures inside Jupyter Notebook.</li>
-<li>The function <code>get_publishers()</code> and <code>get_subscriptions()</code> returns a List of publisher/subscriber having the argument topic. The sample code uses the first value of the List.</li>
+<li>The function <code>get_publishers()</code> and <code>get_subscriptions()</code> return a List of publishers/subscribers involving the given topic name. The sample code uses the first value of the List.</li>
 </ol>
 </div>
 <p><prettier-ignore-end></p>
