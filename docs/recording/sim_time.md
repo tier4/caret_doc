@@ -194,6 +194,6 @@ message_flow(path, use_sim_time=True)
 
 # Draw node info
 node = app.get_node('/filter_node')
-plot = Plot.create_callback_period_plot(node)
+plot = Plot.create_callback_period_plot(node.callbacks)
 plot.show('sim_time')
 ```
