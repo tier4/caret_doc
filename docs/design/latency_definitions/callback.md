@@ -7,7 +7,7 @@ $$
 l_{\rm{callback}} = t_{\rm{callback\ end}} - t_{\rm{callback\ start}}
 $$
 
-The sequence diagram shows how CARET rclcpp pick up two events; callback_start and callback_end.
+The sequence diagram shows how CARET rclcpp picks up two events; callback_start and callback_end.
 
 ```plantuml
 
