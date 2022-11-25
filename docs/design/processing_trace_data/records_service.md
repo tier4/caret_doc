@@ -33,7 +33,7 @@ The followings are processing using Records object.
 
 See also
 
-- [Latency definition](../latency_definitions/index.md)
+- [Event and latency definition](../event_and_latency_definitions/index.md)
 
 See also
 

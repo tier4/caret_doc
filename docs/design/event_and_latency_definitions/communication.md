@@ -10,7 +10,7 @@ $$
 !!! Info
         In this definition, communication latency is affected by the scheduling of callbacks, and includes not only the communication latency of the DDS, but also the delay due to scheduling.
         For example, if multiple callbacks are dispatched simultaneously, the communication latency may include the execution time of other callbacks.
-        For more information on scheduling, see [latency_definitions | overview](../index.md#detailed-sequence).
+        For more information on scheduling, see [Event and latency_definitions | overview](../index.md#detailed-sequence).
 <prettier-ignore-end>
 
 ROS communication is performed by the subscription side for intra-process communication and inter-process communication.

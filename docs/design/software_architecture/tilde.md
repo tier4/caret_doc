@@ -25,4 +25,4 @@ TILDE serves CARET this capability to trace consumption of buffered messages.
 See also
 
 - [TILDE official page](https://github.com/tier4/TILDE)
-- [Node latency definition](../latency_definitions/node.md)
+- [Node latency definition](../event_and_latency_definitions/node.md)

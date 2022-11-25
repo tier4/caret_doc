@@ -11,7 +11,7 @@ nav:
     - Configuration:
         - Design: configuration
     - Event and latency definitions:
-        - Design: latency_definitions
+        - Design: event_and_latency_definitions
     - Visualizations:
         - Design: visualizations
     - Limits and constraints: limits_and_constraints

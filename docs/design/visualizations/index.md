@@ -71,7 +71,7 @@ Path is suitable for performance evaluation per system , while node and callback
 
 See also
 
-- [Latency definition](../latency_definitions/index.md)
+- [Event and latency definition](../event_and_latency_definitions/index.md)
 
 ### Metrics category
 
