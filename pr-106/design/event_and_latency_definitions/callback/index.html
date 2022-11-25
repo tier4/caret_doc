@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-106/recording/trace_filtering/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-106/design/event_and_latency_definitions/callback/">
       
-      <link rel="icon" href="../../assets/images/tier4.png">
+      <link rel="icon" href="../../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Trace filtering - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Callback - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -41,11 +41,11 @@
     
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
     
-      <link rel="stylesheet" href="../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#trace-filtering" class="md-skip">
+        <a href="#callback" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288c0-17.7-14.3-32-32-32s-32 14.3-32 32 14.3 32 32 32 32-14.3 32-32zm288 32c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Trace filtering
+              Callback
             
           </span>
         </div>
@@ -209,7 +209,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         Overview
       </a>
     </li>
@@ -225,7 +225,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../installation/installation/" class="md-tabs__link">
+      <a href="../../../installation/installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -241,8 +241,56 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../tutorials/recording/" class="md-tabs__link">
+      <a href="../../../tutorials/recording/" class="md-tabs__link">
         Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../recording/" class="md-tabs__link">
+        Recording
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../configuration/" class="md-tabs__link">
+        Configuration
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../visualization/" class="md-tabs__link">
+        Visualization
       </a>
     </li>
   
@@ -259,55 +307,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
-        Recording
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../configuration/" class="md-tabs__link">
-        Configuration
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../visualization/" class="md-tabs__link">
-        Visualization
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../design/" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Design
       </a>
     </li>
@@ -323,7 +323,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../faq/" class="md-tabs__link">
+      <a href="../../../faq/" class="md-tabs__link">
         FAQ
       </a>
     </li>
@@ -357,7 +357,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288c0-17.7-14.3-32-32-32s-32 14.3-32 32 14.3 32 32 32 32-14.3 32-32zm288 32c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
@@ -409,7 +409,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../..">Overview</a>
+          <a href="../../..">Overview</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -432,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gallery/" class="md-nav__link">
+      <a href="../../../gallery/" class="md-nav__link">
         Gallery
       </a>
     </li>
@@ -446,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
+      <a href="../../../changelog/" class="md-nav__link">
         Changelog
       </a>
     </li>
@@ -500,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/installation/" class="md-nav__link">
+      <a href="../../../installation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -514,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/manual_installation/" class="md-nav__link">
+      <a href="../../../installation/manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -570,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/recording/" class="md-nav__link">
+      <a href="../../../tutorials/recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -584,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/configuration/" class="md-nav__link">
+      <a href="../../../tutorials/configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -598,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/visualization/" class="md-nav__link">
+      <a href="../../../tutorials/visualization/" class="md-nav__link">
         Visualization
       </a>
     </li>
@@ -618,14 +618,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -651,7 +649,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Recording</a>
+          <a href="../../../recording/">Recording</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -674,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../build_check/" class="md-nav__link">
+      <a href="../../../recording/build_check/" class="md-nav__link">
         Build and check
       </a>
     </li>
@@ -686,66 +684,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Trace filtering
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../recording/trace_filtering/" class="md-nav__link">
         Trace filtering
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#trace-filtering_1" class="md-nav__link">
-    Trace filtering
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trace-filter-configuration" class="md-nav__link">
-    Trace filter configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trace-filter-setting-file" class="md-nav__link">
-    Trace filter setting file
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -757,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recording/" class="md-nav__link">
+      <a href="../../../recording/recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -771,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../validating/" class="md-nav__link">
+      <a href="../../../recording/validating/" class="md-nav__link">
         Validating
       </a>
     </li>
@@ -785,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli_tool/" class="md-nav__link">
+      <a href="../../../recording/cli_tool/" class="md-nav__link">
         CLI tools
       </a>
     </li>
@@ -799,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sim_time/" class="md-nav__link">
+      <a href="../../../recording/sim_time/" class="md-nav__link">
         ROS time (sim_time) support
       </a>
     </li>
@@ -848,7 +791,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../configuration/">Configuration</a>
+          <a href="../../../configuration/">Configuration</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -871,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/background/" class="md-nav__link">
+      <a href="../../../configuration/background/" class="md-nav__link">
         Background of configuration
       </a>
     </li>
@@ -885,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/load_and_save/" class="md-nav__link">
+      <a href="../../../configuration/load_and_save/" class="md-nav__link">
         Load and save
       </a>
     </li>
@@ -899,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/inter_node_data_path/" class="md-nav__link">
+      <a href="../../../configuration/inter_node_data_path/" class="md-nav__link">
         Define inter-node data path
       </a>
     </li>
@@ -913,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/intra_node_data_path/" class="md-nav__link">
+      <a href="../../../configuration/intra_node_data_path/" class="md-nav__link">
         Define intra-node data path
       </a>
     </li>
@@ -927,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/visualize_application_structure/" class="md-nav__link">
+      <a href="../../../configuration/visualize_application_structure/" class="md-nav__link">
         Visualize application structure
       </a>
     </li>
@@ -972,7 +915,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../visualization/">Visualization</a>
+          <a href="../../../visualization/">Visualization</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -995,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/concept/basic_api_concept" class="md-nav__link">
+      <a href="../../../visualization/concept/basic_api_concept" class="md-nav__link">
         Basic APIs Concept
       </a>
     </li>
@@ -1079,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/visualization_api/callback_information" class="md-nav__link">
+      <a href="../../../visualization/visualization_api/callback_information" class="md-nav__link">
         Freq/Period/Latency(Execution time)
       </a>
     </li>
@@ -1093,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/visualization_api/callback_scheduling_visualization" class="md-nav__link">
+      <a href="../../../visualization/visualization_api/callback_scheduling_visualization" class="md-nav__link">
         Scheduling
       </a>
     </li>
@@ -1144,7 +1087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/visualization_api/pub_sub_information" class="md-nav__link">
+      <a href="../../../visualization/visualization_api/pub_sub_information" class="md-nav__link">
         Publish/Subscription Information
       </a>
     </li>
@@ -1195,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/visualization_api/communication_information" class="md-nav__link">
+      <a href="../../../visualization/visualization_api/communication_information" class="md-nav__link">
         Freq/Period/Latency(Execution time)
       </a>
     </li>
@@ -1254,7 +1197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/visualization_api/message_flow" class="md-nav__link">
+      <a href="../../../visualization/visualization_api/message_flow" class="md-nav__link">
         Message flow
       </a>
     </li>
@@ -1268,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/visualization_api/response_time" class="md-nav__link">
+      <a href="../../../visualization/visualization_api/response_time" class="md-nav__link">
         Response Time
       </a>
     </li>
@@ -1282,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/visualization_api/chain_latency" class="md-nav__link">
+      <a href="../../../visualization/visualization_api/chain_latency" class="md-nav__link">
         Chain latency
       </a>
     </li>
@@ -1296,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/visualization_api/latency_time_series" class="md-nav__link">
+      <a href="../../../visualization/visualization_api/latency_time_series" class="md-nav__link">
         Latency time series
       </a>
     </li>
@@ -1310,7 +1253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/visualization_api/latency_histogram" class="md-nav__link">
+      <a href="../../../visualization/visualization_api/latency_histogram" class="md-nav__link">
         Latency histogram
       </a>
     </li>
@@ -1404,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/helper_api/lttng_event_filter" class="md-nav__link">
+      <a href="../../../visualization/helper_api/lttng_event_filter" class="md-nav__link">
         Usage of LTTngEventFilter
       </a>
     </li>
@@ -1418,7 +1361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/helper_api/path_verify" class="md-nav__link">
+      <a href="../../../visualization/helper_api/path_verify" class="md-nav__link">
         Path Verification
       </a>
     </li>
@@ -1432,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../visualization/helper_api/scope_switch_method" class="md-nav__link">
+      <a href="../../../visualization/helper_api/scope_switch_method" class="md-nav__link">
         Detailed Behavior Investigation Methods
       </a>
     </li>
@@ -1466,12 +1409,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -1501,7 +1446,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/">Design</a>
+          <a href="../../">Design</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -1579,7 +1524,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/software_architecture/">Design</a>
+          <a href="../../software_architecture/">Design</a>
           
             <label for="__nav_7_2_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1602,7 +1547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture/caret_analyze/" class="md-nav__link">
+      <a href="../../software_architecture/caret_analyze/" class="md-nav__link">
         CARET_analyze
       </a>
     </li>
@@ -1616,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture/caret_trace/" class="md-nav__link">
+      <a href="../../software_architecture/caret_trace/" class="md-nav__link">
         caret_trace
       </a>
     </li>
@@ -1630,7 +1575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
+      <a href="../../software_architecture/tilde/" class="md-nav__link">
         TILDE, a framework tools to detect deadline overrun
       </a>
     </li>
@@ -1711,7 +1656,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/runtime_processing/">Design</a>
+          <a href="../../runtime_processing/">Design</a>
           
             <label for="__nav_7_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1734,7 +1679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/runtime_processing/hook/" class="md-nav__link">
+      <a href="../../runtime_processing/hook/" class="md-nav__link">
         Hook
       </a>
     </li>
@@ -1748,7 +1693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/runtime_processing/tracepoint_filtering/" class="md-nav__link">
+      <a href="../../runtime_processing/tracepoint_filtering/" class="md-nav__link">
         Tracepoint filtering
       </a>
     </li>
@@ -1829,7 +1774,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/processing_trace_data/">Design</a>
+          <a href="../../processing_trace_data/">Design</a>
           
             <label for="__nav_7_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1852,7 +1797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/processing_trace_data/records/" class="md-nav__link">
+      <a href="../../processing_trace_data/records/" class="md-nav__link">
         Records Object
       </a>
     </li>
@@ -1866,7 +1811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/processing_trace_data/records_service/" class="md-nav__link">
+      <a href="../../processing_trace_data/records_service/" class="md-nav__link">
         Records service
       </a>
     </li>
@@ -1949,7 +1894,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/trace_points/">Design</a>
+          <a href="../../trace_points/">Design</a>
           
             <label for="__nav_7_5_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1972,7 +1917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/trace_points/diff/" class="md-nav__link">
+      <a href="../../trace_points/diff/" class="md-nav__link">
         Differences from original ROS
       </a>
     </li>
@@ -1986,7 +1931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/trace_points/initialization_trace_points/" class="md-nav__link">
+      <a href="../../trace_points/initialization_trace_points/" class="md-nav__link">
         Initialization trace points
       </a>
     </li>
@@ -2000,7 +1945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/trace_points/runtime_trace_points/" class="md-nav__link">
+      <a href="../../trace_points/runtime_trace_points/" class="md-nav__link">
         Runtime trace points
       </a>
     </li>
@@ -2079,7 +2024,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/configuration/">Design</a>
+          <a href="../../configuration/">Design</a>
           
             <label for="__nav_7_6_1">
               <span class="md-nav__icon md-icon"></span>
@@ -2102,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/configuration/architecture_file/" class="md-nav__link">
+      <a href="../../configuration/architecture_file/" class="md-nav__link">
         Architecture file
       </a>
     </li>
@@ -2128,14 +2073,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" checked>
       
       
       
@@ -2160,12 +2107,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_7_1" type="checkbox" id="__nav_7_7_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7_1" type="checkbox" id="__nav_7_7_1" checked>
       
       
       
@@ -2193,7 +2142,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/event_and_latency_definitions/">Design</a>
+          <a href="../">Design</a>
           
             <label for="__nav_7_7_1">
               <span class="md-nav__icon md-icon"></span>
@@ -2214,11 +2163,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../design/event_and_latency_definitions/callback/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Callback
       </a>
+      
     </li>
   
 
@@ -2230,7 +2189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/event_and_latency_definitions/communication/" class="md-nav__link">
+      <a href="../communication/" class="md-nav__link">
         Communication
       </a>
     </li>
@@ -2244,7 +2203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/event_and_latency_definitions/node/" class="md-nav__link">
+      <a href="../node/" class="md-nav__link">
         Node
       </a>
     </li>
@@ -2258,7 +2217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/event_and_latency_definitions/path/" class="md-nav__link">
+      <a href="../path/" class="md-nav__link">
         Path
       </a>
     </li>
@@ -2272,7 +2231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/event_and_latency_definitions/publisher/" class="md-nav__link">
+      <a href="../publisher/" class="md-nav__link">
         Publisher
       </a>
     </li>
@@ -2286,7 +2245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/event_and_latency_definitions/subscription/" class="md-nav__link">
+      <a href="../subscription/" class="md-nav__link">
         Subscription
       </a>
     </li>
@@ -2300,7 +2259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/event_and_latency_definitions/timer/" class="md-nav__link">
+      <a href="../timer/" class="md-nav__link">
         Timer
       </a>
     </li>
@@ -2377,7 +2336,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/visualizations/">Design</a>
+          <a href="../../visualizations/">Design</a>
           
         </div>
       
@@ -2429,7 +2388,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/limits_and_constraints/">Limits and constraints</a>
+          <a href="../../limits_and_constraints/">Limits and constraints</a>
           
         </div>
       
@@ -2480,7 +2439,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../faq/">FAQ</a>
+          <a href="../../../faq/">FAQ</a>
           
         </div>
       
@@ -2519,35 +2478,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#trace-filtering_1" class="md-nav__link">
-    Trace filtering
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trace-filter-configuration" class="md-nav__link">
-    Trace filter configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trace-filter-setting-file" class="md-nav__link">
-    Trace filter setting file
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2560,69 +2490,53 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/recording/trace_filtering.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/tier4/CARET_doc/edit/main/design/event_and_latency_definitions/callback.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="trace-filtering">Trace filtering<a class="headerlink" href="#trace-filtering" title="Permanent link">#</a></h1>
-<h2 id="trace-filtering_1">Trace filtering<a class="headerlink" href="#trace-filtering_1" title="Permanent link">#</a></h2>
-<p>CARET provides a trace filtering function to exclude specific nodes and topics. Trace data may be discarded when recording a large application like Autoware due to too many data to be recorded, and a warning will occur when validating/analyzing the recorded trace data (See <a href="../validating/#tracer-discarded">validating</a>). By applying trace filter, unconcerned events like <code>/tf</code> are ignored and the size of recorded data decreases.</p>
-<h2 id="trace-filter-configuration">Trace filter configuration<a class="headerlink" href="#trace-filter-configuration" title="Permanent link">#</a></h2>
-<ul>
-<li>Trace filter configuration is performed by setting the following environment variables<ul>
-<li><code>CARET_SELECT_NODES</code> : node names to be recorded</li>
-<li><code>CARET_IGNORE_NODES</code> : node names to be ignored</li>
-<li><code>CARET_SELECT_TOPICS</code> : topic names to be recorded</li>
-<li><code>CARET_IGNORE_TOPICS</code> : topic names to be ignored</li>
-</ul>
-</li>
-<li>"SELECT" settings override "IGNORE" settings if both are used</li>
-<li>Colon "<code>:</code>" is used to set more than one nodes/topics</li>
-<li>Regular expressions are supported</li>
-<li>These variables need to be set in the same terminal as a target application running</li>
-<li>In most cases, nodes related to <code>/rviz</code>, <code>/clock</code> topic and <code>/parameter_events</code> topic are unnecessary to analyze an application. It's recommended to ignore these nodes/topics</li>
-</ul>
-<p>The following shows sample settings</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
-<span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
-</code></pre></div>
-<p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Trace filter doesn't exclude all events of the specified nodes/topics. Events in certain layers, especially DDS layer, won't be ignored.It is one of limitations with current implementation.</p>
+<h1 id="callback">Callback<a class="headerlink" href="#callback" title="Permanent link">#</a></h1>
+<p>Callback latency is defined as duration between beginning and end of callback execution.
+These events are represented as <code>callback_start</code> and <code>callback_end</code>, respectively.</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+l_{\rm{callback}} = t_{\rm{callback\ end}} - t_{\rm{callback\ start}}
 </div>
-<p><prettier-ignore-end></p>
-<h2 id="trace-filter-setting-file">Trace filter setting file<a class="headerlink" href="#trace-filter-setting-file" title="Permanent link">#</a></h2>
-<p>It will be handy to prepare a trace filter setting file like the following.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># caret_topic_filter.bash</span>
-<span class="c1">#!/bin/bash</span>
-
-<span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="se">\</span>
-<span class="s2">&quot;\</span>
-<span class="s2">/rviz*\</span>
-<span class="s2">&quot;</span>
-
-<span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="se">\</span>
-<span class="s2">&quot;\</span>
-<span class="s2">/clock:\</span>
-<span class="s2">/parameter_events\</span>
-<span class="s2">&quot;</span>
-
-<span class="c1"># if you want to select nodes or topics,</span>
-<span class="c1"># please remove comment out of the followings.</span>
-<span class="c1"># export CARET_SELECT_NODES=\</span>
-<span class="c1"># &quot;\</span>
-<span class="c1"># /rviz*\</span>
-<span class="c1"># &quot;</span>
-
-<span class="c1"># export CARET_SELECT_TOPICS=\</span>
-<span class="c1"># &quot;\</span>
-<span class="c1"># /clock:\</span>
-<span class="c1"># /parameter_events\</span>
-<span class="c1"># &quot;</span>
-</code></pre></div>
+<script type="math/tex; mode=display">
+l_{\rm{callback}} = t_{\rm{callback\ end}} - t_{\rm{callback\ start}}
+</script>
+</div>
+<p>The sequence diagram shows how CARET rclcpp picks up two events; callback_start and callback_end.</p>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSIyMjVweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjM4N3B4O2hlaWdodDoyMjVweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzODcgMjI1IiB3aWR0aD0iMzg3cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iNDMiIHk9IjExMi44NTk0Ii8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIxMDIuMzk4NCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjE3OSIgeT0iNjIuNTkzOCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41O3N0cm9rZS1kYXNoYXJyYXk6NS4wLDUuMDsiIHgxPSI0OCIgeDI9IjQ4IiB5MT0iNTIuNTkzOCIgeTI9IjE3My45OTIyIi8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7c3Ryb2tlLWRhc2hhcnJheTo1LjAsNS4wOyIgeDE9IjE4NCIgeDI9IjE4NCIgeTE9IjUyLjU5MzgiIHkyPSIxNzMuOTkyMiIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41O3N0cm9rZS1kYXNoYXJyYXk6NS4wLDUuMDsiIHgxPSIzNTIiIHgyPSIzNTIiIHkxPSI1Mi41OTM4IiB5Mj0iMTczLjk5MjIiLz48cmVjdCBmaWxsPSIjRTJFMkYwIiBoZWlnaHQ9IjQ2LjU5MzgiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9Ijg2IiB4PSI1IiB5PSI1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNjgiIHg9IjEyIiB5PSIyNC45OTUxIj5Vc2VyQ29kZTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2MSIgeD0iMTkuNSIgeT0iNDEuMjkyIj5DYWxsYmFjazwvdGV4dD48cmVjdCBmaWxsPSIjRTJFMkYwIiBoZWlnaHQ9IjQ2LjU5MzgiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9Ijg2IiB4PSI1IiB5PSIxNzIuOTkyMiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjY4IiB4PSIxMiIgeT0iMTkyLjk4NzMiPlVzZXJDb2RlPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjYxIiB4PSIxOS41IiB5PSIyMDkuMjg0MiI+Q2FsbGJhY2s8L3RleHQ+PHJlY3QgZmlsbD0iI0UyRTJGMCIgaGVpZ2h0PSIzMC4yOTY5IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI2MCIgeD0iMTU0IiB5PSIyMS4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDYiIHg9IjE2MSIgeT0iNDEuMjkyIj5yY2xjcHA8L3RleHQ+PHJlY3QgZmlsbD0iI0UyRTJGMCIgaGVpZ2h0PSIzMC4yOTY5IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI2MCIgeD0iMTU0IiB5PSIxNzIuOTkyMiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQ2IiB4PSIxNjEiIHk9IjE5Mi45ODczIj5yY2xjcHA8L3RleHQ+PHJlY3QgZmlsbD0iI0UyRTJGMCIgaGVpZ2h0PSIzMC4yOTY5IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI1OCIgeD0iMzIzIiB5PSIyMS4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDQiIHg9IjMzMCIgeT0iNDEuMjkyIj5MVFRuZzwvdGV4dD48cmVjdCBmaWxsPSIjRTJFMkYwIiBoZWlnaHQ9IjMwLjI5NjkiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjU4IiB4PSIzMjMiIHk9IjE3Mi45OTIyIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDQiIHg9IjMzMCIgeT0iMTkyLjk4NzMiPkxUVG5nPC90ZXh0PjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMTQiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSI0MyIgeT0iMTEyLjg1OTQiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjEwMi4zOTg0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iMTc5IiB5PSI2Mi41OTM4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIzNDAsNzkuNzI2NiwzNTAsODMuNzI2NiwzNDAsODcuNzI2NiwzNDQsODMuNzI2NiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTg5IiB4Mj0iMzQ2IiB5MT0iODMuNzI2NiIgeTI9IjgzLjcyNjYiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMzkiIHg9IjE5NiIgeT0iNzguNjYwNiI+c2FtcGxlIGNhbGxiYWNrX3N0YXJ0PC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iNjQsMTA4Ljg1OTQsNTQsMTEyLjg1OTQsNjQsMTE2Ljg1OTQsNjAsMTEyLjg1OTQiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjU4IiB4Mj0iMTc4IiB5MT0iMTEyLjg1OTQiIHkyPSIxMTIuODU5NCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwNyIgeD0iNzAiIHk9IjEwNy43OTM1Ij5leGVjdXRlIGNhbGxiYWNrPC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTY3LDEyMi44NTk0LDE3NywxMjYuODU5NCwxNjcsMTMwLjg1OTQsMTcxLDEyNi44NTk0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSI0OCIgeDI9IjE3MyIgeTE9IjEyNi44NTk0IiB5Mj0iMTI2Ljg1OTQiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjM0MCwxNTEuOTkyMiwzNTAsMTU1Ljk5MjIsMzQwLDE1OS45OTIyLDM0NCwxNTUuOTkyMiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTg5IiB4Mj0iMzQ2IiB5MT0iMTU1Ljk5MjIiIHkyPSIxNTUuOTkyMiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzMyIgeD0iMTk2IiB5PSIxNTAuOTI2MyI+c2FtcGxlIGNhbGxiYWNrX2VuZDwvdGV4dD48IS0tTUQ1PVthYmQ4N2QyZjM1ZTRkYWM3MjE1ZTFhM2FiODBkNzI3NV0KQHN0YXJ0dW1sDQpwYXJ0aWNpcGFudCAiVXNlckNvZGUgXG4gQ2FsbGJhY2siIGFzIENhbGxiYWNrDQpwYXJ0aWNpcGFudCAicmNsY3BwIiBhcyBSY2xjcHANCnBhcnRpY2lwYW50IExUVG5nDQoNCmFjdGl2YXRlIFJjbGNwcA0KDQpSY2xjcHAgLT4gTFRUbmcgOiBzYW1wbGUgY2FsbGJhY2tfc3RhcnQNClJjbGNwcCAtPiBDYWxsYmFjayA6IGV4ZWN1dGUgY2FsbGJhY2sNCg0KYWN0aXZhdGUgQ2FsbGJhY2sNCkNhbGxiYWNrIC0+IFJjbGNwcA0KZGVhY3RpdmF0ZSBDYWxsYmFjaw0KUmNsY3BwIC0+IExUVG5nIDogc2FtcGxlIGNhbGxiYWNrX2VuZA0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIyLjE0YmV0YTEoVW5rbm93biBjb21waWxlIHRpbWUpCihHUEwgc291cmNlIGRpc3RyaWJ1dGlvbikKSmF2YSBSdW50aW1lOiBKYXZhKFRNKSBTRSBSdW50aW1lIEVudmlyb25tZW50CkpWTTogSmF2YSBIb3RTcG90KFRNKSA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IFVURi04Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" class="uml" alt="uml diagram" title="" /></p>
+<p><code>to_dataframe</code> API returns a table which has the following columns.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callback_start</td>
+<td>System time</td>
+<td>Callback start time</td>
+</tr>
+<tr>
+<td>callback_end</td>
+<td>System time</td>
+<td>Callback end time</td>
+</tr>
+</tbody>
+</table>
+<p>See also</p>
+<ul>
+<li><a href="../../trace_points/runtime_trace_points/#ros2callback_start">Trace points | Callback Start</a></li>
+<li><a href="../../trace_points/runtime_trace_points/#ros2callback_end">Trace points | Callback End</a></li>
+<li><a href="https://tier4.github.io/CARET_analyze/latest/infra/#caret_analyze.infra.lttng.lttng.Lttng.compose_callback_records">RuntimeDataProvider API</a></li>
+</ul>
 
 
 
@@ -2648,7 +2562,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../build_check/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Build and check" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Latency definition" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2657,20 +2571,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Build and check
+              Latency definition
             </div>
           </div>
         </a>
       
       
         
-        <a href="../recording/" class="md-footer__link md-footer__link--next" aria-label="Next: Recording" rel="next">
+        <a href="../communication/" class="md-footer__link md-footer__link--next" aria-label="Next: Communication" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Recording
+              Communication
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2705,10 +2619,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
