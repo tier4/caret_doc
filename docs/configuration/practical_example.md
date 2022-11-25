@@ -29,7 +29,7 @@ Load an architecture object from recorded data, as explained section of [Load an
    from caret_analyze import Architecture
 
    # Read description of application's architecture from recorded data
-   # 
+   #
    arch = Architecture('lttng', './e2e_sample')
 
    # Save description as an architecture file
@@ -38,6 +38,7 @@ Load an architecture object from recorded data, as explained section of [Load an
    # Check if the architecture file is created
    ! readlink -f ./architecture.yaml
    # /home/user/ros2_caret_ws/eval/architecture.yaml
+   ```
 
 ## Define an inter-node data path
 
