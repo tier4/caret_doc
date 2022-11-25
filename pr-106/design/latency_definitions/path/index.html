@@ -2497,7 +2497,8 @@
 
 
 <h1 id="path">Path<a class="headerlink" href="#path" title="Permanent link">#</a></h1>
-<p>Path latency is sum of node latency and communication latency included in a certain path.</p>
+<p>Path latency is sum of node latency and communication latency included in a certain path.
+Path represents data flow which is constructed of multiple nodes connected each other.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 l_{path} = \sum_{\in path} l_{node} + \sum_{\in path} l_{comm} \\
@@ -2510,7 +2511,6 @@ l_{node} = t_{pub} - t_{sub} \\
 l_{comm} = t_{sub} - t_{pub} \\
 </script>
 </div>
-<p>Here, path is one of the paths chosen from the node graph.</p>
 <p>In CARET, the path is defined as <code>[node_name]-[topic_name]-... -[topic_name]-[node_name]</code>.<br />
 For example, in the following case, the path definition is <code>[A]-[/a]-[C]-[/e]-[E]</code>.</p>
 <p><img alt="node path" src="../../../imgs/node_path.drawio.png" /></p>
