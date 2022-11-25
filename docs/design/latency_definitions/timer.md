@@ -37,7 +37,7 @@ deactivate UserCode
 @enduml
 ```
 
-`to_dataframe` API returns following columns.
+`to_dataframe` API returns a table which has the following columns.
 
 | Column                   | Type        | Description         |
 | ------------------------ | ----------- | ------------------- |
