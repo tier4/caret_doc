@@ -2574,7 +2574,7 @@ In the following sections explain the message dependency (message context), whic
 <p>In this case, the received message is processed and published immediately.<br />
 The dependency of the message at this time is described in chronological order and is expressed as follows.</p>
 <p><img alt="message context" src="../../../imgs/message_context.drawio.png" /></p>
-<p>Here, the elapsed time from subscription is defined as node latency.<br />
+<p>Here, the elapsed time from subscription to publish is defined as node latency.<br />
 In this way, node latency can be calculated when message dependencies are defined.</p>
 <p>In the previous example, we presented a case where a node is subscribed and immediately published.
 Actually, the message context can be quite complex because data processing in a node is freely defined by application developers.</p>
