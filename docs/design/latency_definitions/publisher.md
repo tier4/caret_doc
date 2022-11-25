@@ -1,6 +1,6 @@
 # Publisher
 
-`Publisher`-based object provides a set of timestamps when publishing.
+`Publisher`-based object provides a set of timestamps collected during message publish.
 
 A simplified sequence diagram focusing only on the relevant events is shown below.
 
