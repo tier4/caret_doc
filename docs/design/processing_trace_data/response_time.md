@@ -1,3 +1,0 @@
-# Response time
-
-under construction.

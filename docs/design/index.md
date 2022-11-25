@@ -23,9 +23,12 @@ Analyzing phase
 
 1. [Processing trace data](./processing_trace_data/index.md)
 
+2. [Visualization](./visualizations/index.md)
+
 In addition, the followings are explained.
 
 - [Software architecture](./software_architecture/index.md)
+- [Event and latency definition](./event_and_latency_definitions/index.md)
 - [Limits and constraints](./limits_and_constraints/index.md)
 
 See also

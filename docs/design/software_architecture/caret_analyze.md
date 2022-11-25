@@ -183,18 +183,17 @@ Executor o-- CallbackGroup
 There are classes that can calculate latency and classes as collections.
 The following is a list of each class and the classes which can calculate latency.
 
-| Class         | API                                                                                                   | has latency definition? |
-| ------------- | ----------------------------------------------------------------------------------------------------- | ----------------------- |
-| Application   | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Application)   | No                      |
-| Executor      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Executor)      | No                      |
-| Node          | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Node)          | No                      |
-| Path          | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Path)          | Yes                     |
-| NodePath      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.NodePath)      | Yes                     |
-| Communication | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Communication) | Yes                     |
-| Timer         | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Timer)         | Yes                     |
-| Subscription  | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Subscription)  | Yes                     |
-| Publisher     | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Publisher)     | Yes                     |
-| Callback      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Callback)      | Yes                     |
+| Class         | API                                                                                                   | has latency definition?                                                |
+| ------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Application   | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Application)   | No                                                                     |
+| Executor      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Executor)      | No                                                                     |
+| Node          | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Node)          | No                                                                     |
+| Path          | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Path)          | Yes ([Definitions](../event_and_latency_definitions/path.md))          |
+| NodePath      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.NodePath)      | Yes ([Definitions](../event_and_latency_definitions/node.md))          |
+| Communication | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Communication) | Yes ([Definitions](../event_and_latency_definitions/communication.md)) |
+| Timer         | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Timer)         | Yes ([Definitions](../event_and_latency_definitions/timer.md))         |
+| Subscription  | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Subscription)  | Yes ([Definitions](../event_and_latency_definitions/publisher.md))     |
+| Callback      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.CallbackBase)  | Yes ([Definitions](../event_and_latency_definitions/callback.md))      |
 
 ## value_objects
 
