@@ -1,14 +1,13 @@
 # Path
 
 Path latency is sum of node latency and communication latency included in a certain path.
+Path represents data flow which is constructed of multiple nodes connected each other.
 
 $$
 l_{path} = \sum_{\in path} l_{node} + \sum_{\in path} l_{comm} \\
 l_{node} = t_{pub} - t_{sub} \\
 l_{comm} = t_{sub} - t_{pub} \\
 $$
-
-Here, path is one of the paths chosen from the node graph.
 
 In CARET, the path is defined as `[node_name]-[topic_name]-... -[topic_name]-[node_name]`.  
 For example, in the following case, the path definition is `[A]-[/a]-[C]-[/e]-[E]`.
