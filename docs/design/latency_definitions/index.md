@@ -33,7 +33,7 @@ For a more detailed definition, see
 
 CARET provides time series data of events through Python objects.
 Time series data can be retrieved with the Python objects which have to_dataframe API.
-All objects capable of retrieving time-series data are listed below.
+All objects are capable of retrieving time-series data are listed below.
 
 | Target                              | Configuration required? |
 | ----------------------------------- | ----------------------- |
