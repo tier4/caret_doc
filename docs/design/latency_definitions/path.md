@@ -17,7 +17,7 @@ For example, in the following case, the path definition is `[A]-[/a]-[C]-[/e]-[E
 
 <prettier-ignore-start>
 !!! Info
-    In the above definition, the starting time of the latency is publish of the initial node and the end time of the latency is subscription of the last node.
+    In the above definition, the star time of the latency is publish of the initial node and the end time of the latency is subscription of the last node.
     When trying to measure a actual system, it is desirable to be able to define various start and end times depending on the implementation.
     For example, the start time might be more appropriately a stamp value in the sensor message.
     It's current issue to support for such more precise latency.
