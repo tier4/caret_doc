@@ -32,7 +32,7 @@ The dependency of the message at this time is described in chronological order a
 
 ![message context](../../imgs/message_context.drawio.png)
 
-Here, the elapsed time from subscription is defined as node latency.  
+Here, the elapsed time from subscription to publish is defined as node latency.  
 In this way, node latency can be calculated when message dependencies are defined.
 
 In the previous example, we presented a case where a node is subscribed and immediately published.
