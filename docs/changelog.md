@@ -7,7 +7,7 @@
 - Added guidances for a beginner to avoid getting stuck in unexpected cases ([CARET_analyze #200](https://github.com/tier4/CARET_analyze/pull/200) and [CARET_analyze #186](https://github.com/tier4/CARET_analyze/pull/186))
 - Added `publishers` and `subscriptions` properties to `Architecture` and `Application` classes ([CARET_analyze #179](https://github.com/tier4/CARET_analyze/pull/179), [CARET_analyze #180](https://github.com/tier4/CARET_analyze/pull/180))
 - Added function to update cache file named as `caret_converted` ([CARET_analyze#189](https://github.com/tier4/CARET_analyze/pull/189))
-- Excluded JSON- and TOML-based file from targeted files to be checked by `check_caret_rclcpp` ([ros2caret #53](https://github.com/tier4/ros2caret/pull/53) and suppressed unnecessary warnings ([ros2caret #54](https://github.com/tier4/ros2caret/pull/54))
+- Suppressed unnecessary warnings in `check_caret_rclcpp`  ([ros2caret #53](https://github.com/tier4/ros2caret/pull/53), [ros2caret #54](https://github.com/tier4/ros2caret/pull/54))
 - Improved documentation of installation ([CARET_doc #111](https://github.com/tier4/CARET_doc/pull/111)), configuration ([CARET_doc #112](https://github.com/tier4/CARET_doc/pull/112)), visualization ([CARET_doc #98](https://github.com/tier4/CARET_doc/pull/98)), and design ([CARET_doc#106](https://github.com/tier4/CARET_doc/pull/106))
 - Fixed a bug which makes incorrect graphs ([CARET_analyze #201](https://github.com/tier4/CARET_analyze/pull/201))
 
