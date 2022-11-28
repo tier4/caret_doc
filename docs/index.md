@@ -101,5 +101,3 @@ CARET is constructed of the following packages
 ---
 
 This software is based on results obtained from a project subsidized by the New Energy and Industrial Technology Development Organization (NEDO).
-
---8<-- "includes/glossary.md"

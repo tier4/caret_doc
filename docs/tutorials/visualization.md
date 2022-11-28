@@ -87,5 +87,3 @@ The horizontal axis shows time line. On the other hand, the vertical axis shows 
 If your mouse pointer is put over one of gray rectangles, latency of callback functions will be shown. You can find latency of a target node chain as well if you put the mouse pointer onto one of colorful lines.
 
 CARET serves other APIs for visualization. Refer to [visualization](../visualization/index.md) for more details.
-
---8<-- "includes/glossary.md"

@@ -95,5 +95,3 @@ ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
 
 # If there are problems with the recorded data, warning messages will be displayed.
 ```
-
---8<-- "includes/glossary.md"

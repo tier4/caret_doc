@@ -10,5 +10,3 @@ wget https://raw.githubusercontent.com/tier4/CARET_demos/main/samples/end_to_end
 Configuration is an advanced topic for beginners. This section only provides the architecture file for [the next section of visualization](./visualization.md).
 
 Please refer to [the chapter of Configuration](../configuration/index.md) if you are interested.
-
---8<-- "includes/glossary.md"

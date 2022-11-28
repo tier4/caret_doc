@@ -63,5 +63,3 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    ```
 
 If you see `Tracing enabled`, you can continue to apply CARET to your application.
-
---8<-- "includes/glossary.md"

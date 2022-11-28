@@ -74,7 +74,9 @@ markdown_extensions:
       format: svg
   - pymdownx.arithmatex
   - pymdownx.highlight
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - includes/glossary.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
