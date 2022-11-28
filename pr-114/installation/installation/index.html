@@ -2522,7 +2522,7 @@
 
 <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h1>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
-<p>CARET is confirmed to run on the platforms shown in the following table with supported version.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is confirmed to run on the platforms shown in the following table with supported version.</p>
 <table>
 <thead>
 <tr>
@@ -2532,7 +2532,7 @@
 </thead>
 <tbody>
 <tr>
-<td>ROS</td>
+<td><abbr title="Robot Operating System \*[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">ROS</abbr></td>
 <td>Humble</td>
 </tr>
 <tr>
@@ -2540,7 +2540,7 @@
 <td>22.04</td>
 </tr>
 <tr>
-<td>LTTng</td>
+<td><abbr title="Linux Tracing Tool next generation">LTTng</abbr></td>
 <td>stable-2.13</td>
 </tr>
 <tr>
@@ -2553,10 +2553,10 @@
 </tr>
 </tbody>
 </table>
-<p>The recent version, after v0.3.0, of CARET supports only the combination of ROS 2 Humble and Ubuntu 22.04.<br />
-If you want to run CARET on ROS 2 Galactic and Ubuntu 20.04, please refer to <a href="https://tier4.github.io/CARET_doc/refs-tags-v0.2.3/tutorials/installation/">documents for v0.2.3</a></p>
+<p>The recent version, after v0.3.0, of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> supports only the combination of <abbr title="Robot Operating System \*[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">ROS</abbr> 2 Humble and Ubuntu 22.04.<br />
+If you want to run <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> on <abbr title="Robot Operating System \*[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">ROS</abbr> 2 Galactic and Ubuntu 20.04, please refer to <a href="https://tier4.github.io/CARET_doc/refs-tags-v0.2.3/tutorials/installation/">documents for v0.2.3</a></p>
 <h2 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">#</a></h2>
-<p>Installation using meta repository is the least time-consuming way to install CARET.<br />
+<p>Installation using meta repository is the least time-consuming way to install <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.<br />
 With meta repository and Ansible, you can skip the laborious manual setup which is explained in manual installation(./manual_installation.md) section (written in Japanese).</p>
 <p>Please execute the following steps on Ubuntu 20.04. The order is important so that you have to follow the steps in order.</p>
 <ol>
@@ -2565,11 +2565,11 @@ With meta repository and Ansible, you can skip the laborious manual setup which 
 <div class="highlight"><pre><span></span><code>git clone https://github.com/tier4/caret.git ros2_caret_ws
 <span class="nb">cd</span> ros2_caret_ws
 </code></pre></div>
-<p><code>main</code> branch is dedicated for ROS 2 Humble. If you want to use CARET for ROS 2 Galactic, please execute <code>git checkout galactic</code> in <code>ros2_caret_ws</code> directory.</p>
+<p><code>main</code> branch is dedicated for <abbr title="Robot Operating System \*[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">ROS</abbr> 2 Humble. If you want to use <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> for <abbr title="Robot Operating System \*[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">ROS</abbr> 2 Galactic, please execute <code>git checkout galactic</code> in <code>ros2_caret_ws</code> directory.</p>
 </li>
 <li>
 <p>Create the src directory and clone repositories into it.</p>
-<p>CARET uses vcstool to construct workspaces.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses vcstool to construct workspaces.</p>
 <div class="highlight"><pre><span></span><code>mkdir src
 vcs import src &lt; caret.repos
 </code></pre></div>
@@ -2586,20 +2586,14 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=<
 </code></pre></div>
 </li>
 <li>
-<p>Check whether CARET (ros2-tracing) is enabled.</p>
-<p>CARET inherits some functions from <a href="https://gitlab.com/ros-tracing/ros2_tracing">ros2-tracing</a>.</p>
+<p>Check whether <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> (ros2-tracing) is enabled.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> inherits some functions from <a href="https://gitlab.com/ros-tracing/ros2_tracing">ros2-tracing</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 ros2 run tracetools status <span class="c1"># return Tracing enabled</span>
 </code></pre></div>
 </li>
 </ol>
-<p>If you see <code>Tracing enabled</code>, you can continue to apply CARET to your application.</p>
-<p><em>[Autoware]: OSS-based self-driving software
-</em>[CARET]: Chain-Aware ROS Evaluation Tool
-<em>[DDS]: Data Distribution System
-</em>[LTTng]: Linux Tracing Tool next generation
-<em>[OS]: Operating System
-</em>[ROS]: Robot Operating System *[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)</p>
+<p>If you see <code>Tracing enabled</code>, you can continue to apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> to your application.</p>
 
 
 

@@ -2535,7 +2535,7 @@
 
 
 <h1 id="performance-visualization">Performance visualization<a class="headerlink" href="#performance-visualization" title="Permanent link">#</a></h1>
-<p>CARET serves Python APIs to visualize trace data for users to analyze applications' performance.
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python APIs to visualize trace data for users to analyze applications' performance.
 This section will show basic flow to visualize data with Jupyter notebook.</p>
 <h2 id="how-to-locate-trace-data-on-jupyter-notebook">How to locate trace data on Jupyter notebook<a class="headerlink" href="#how-to-locate-trace-data-on-jupyter-notebook" title="Permanent link">#</a></h2>
 <ol>
@@ -2547,7 +2547,7 @@ This section will show basic flow to visualize data with Jupyter notebook.</p>
 <span class="nb">source</span> ~/ros2_caret_ws/install/setup.bash
 jupyter-lab
 </code></pre></div>
-<p>CARET uses <a href="https://bokeh.org/"><code>bokeh</code></a> for some visualization APIs.
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses <a href="https://bokeh.org/"><code>bokeh</code></a> for some visualization APIs.
  Execute the following code for loading <code>bokeh</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span>
 <span class="n">output_notebook</span><span class="p">()</span>
@@ -2581,16 +2581,16 @@ jupyter-lab
 <span class="c1"># Get histogram of latency</span>
 <span class="n">bins</span><span class="p">,</span> <span class="n">latency_ns</span> <span class="o">=</span> <span class="n">callback</span><span class="o">.</span><span class="n">to_histogram</span><span class="p">()</span>
 </code></pre></div>
-<p>Though this example shows callback latency, CARET serves API to get communication latency.
+<p>Though this example shows callback latency, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves API to get communication latency.
 <code>callback.to_dataframe()</code> will provides <code>pandas.DataFrame</code> based object including raw timestamps which is obtained from tracepoints.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition todo">
-<p class="admonition-title">Todo<p>Sorry for not providing CARET's API list, but we'll provide it in the near future.</p>
+<p class="admonition-title">Todo<p>Sorry for not providing <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s API list, but we'll provide it in the near future.</p>
 </p>
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="visualizing-latency-of-node-chain-with-message-flow">Visualizing latency of node chain with message flow<a class="headerlink" href="#visualizing-latency-of-node-chain-with-message-flow" title="Permanent link">#</a></h2>
-<p>CARET provides some APIs to visualize measured data.
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides some APIs to visualize measured data.
 With message flow, which is one of effective visualizations, users can understand what happens and where is bottleneck in target applications.
 Execute the following code for visualization with message flow.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">message_flow</span>
@@ -2602,13 +2602,7 @@ Execute the following code for visualization with message flow.</p>
 <p><img alt="message_flow_sample" src="../../imgs/message_flow_with_cursor.png" /></p>
 <p>The horizontal axis shows time line. On the other hand, the vertical axis shows elements of the node chain (<code>target_path</code>), which include callback functions and topic messages from input to output. Each colorful line shows how a certain input message is propagated to callback functions and topic communications. Gray rectangles show execution timing of callback functions.</p>
 <p>If your mouse pointer is put over one of gray rectangles, latency of callback functions will be shown. You can find latency of a target node chain as well if you put the mouse pointer onto one of colorful lines.</p>
-<p>CARET serves other APIs for visualization. Refer to <a href="../../gallery/">ギャラリー</a> for more details.</p>
-<p><em>[Autoware]: OSS-based self-driving software
-</em>[CARET]: Chain-Aware ROS Evaluation Tool
-<em>[DDS]: Data Distribution System
-</em>[LTTng]: Linux Tracing Tool next generation
-<em>[OS]: Operating System
-</em>[ROS]: Robot Operating System *[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves other APIs for visualization. Refer to <a href="../../visualization/">visualization</a> for more details.</p>
 
 
 
