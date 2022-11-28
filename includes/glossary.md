@@ -3,4 +3,5 @@
 *[DDS]: Data Distribution System
 *[LTTng]: Linux Tracing Tool next generation
 *[OS]: Operating System
-*[ROS]: Robot Operating System \*[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)
+*[ROS]: Robot Operating System
+*[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)
