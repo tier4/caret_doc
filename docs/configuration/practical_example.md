@@ -62,7 +62,7 @@ Define an inter-node data path on the loaded architecture object as section of [
    ```
 
    If a target application is large and complicated, `arch.search_paths` method may consume time more than 1 minute.
-   For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to [パスの探索方法](../configuration/inter_node_data_path.md) for more details.
+   For decreasing consumed time, you can ignore nodes and topics and specify depth of search. Refer to [Define inter-node data path](../configuration/inter_node_data_path.md) for more details.
 
 3. Check the path as you expected
 
