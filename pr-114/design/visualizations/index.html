@@ -2504,21 +2504,21 @@
 
 
 <h1 id="visualizations">Visualizations<a class="headerlink" href="#visualizations" title="Permanent link">#</a></h1>
-<p>CARET is a tool for performance evaluation and analysis.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is a tool for performance evaluation and analysis.</p>
 <p>For evaluation, quantification and visualization would be sufficient.<br />
 For analysis, on the other hand, various factors are involved in behavior and performance, so it is necessary to investigate from multiple perspectives.</p>
-<p>CARET has multiple visualizations for evaluation and analysis APIs.<br />
-Also, CARET let you to directly acquire and evaluate the data on your own (see <a href="../processing_trace_data/">Processing trace data</a> for detail).</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> has multiple visualizations for evaluation and analysis APIs.<br />
+Also, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> let you to directly acquire and evaluate the data on your own (see <a href="../processing_trace_data/">Processing trace data</a> for detail).</p>
 <h2 id="policy">Policy<a class="headerlink" href="#policy" title="Permanent link">#</a></h2>
 <h3 id="evaluation-flow">Evaluation flow<a class="headerlink" href="#evaluation-flow" title="Permanent link">#</a></h3>
-<p>CARET handles a large amount of recorded events, which prevents you from investigating performance of your application smoothly.
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> handles a large amount of recorded events, which prevents you from investigating performance of your application smoothly.
 Just displaying recorded events thoughtlessly might waste your time.
 So, it is important to focus on evaluation targets with appropriate granularity according to the purpose of evaluation.</p>
 <p>The following diagram shows the evaluation flow and analysis by adjusting the granularity.</p>
 <p><img alt="Analysis flow" src="../../imgs/analysis_flow.drawio.png" /></p>
 <p>Here, the horizontal axis represents the visualization granularity and the vertical axis represents the processing granularity.<br />
 Those definitions will be explained subsequent sections.</p>
-<p>CARET help you to find issues and their causes by changing the processing and visualization granularity, respectively.
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> help you to find issues and their causes by changing the processing and visualization granularity, respectively.
 You can approach an issues and its cause step by step from rough to fine granularity, from right-upper to left-lower in the figure.</p>
 <ol>
 <li>Detect issues: Detects performance issues on the target system.</li>
@@ -2553,7 +2553,7 @@ The most detailed information is a time-series graph of each trace data.</p>
 <p>Path is suitable for performance evaluation per system , while node and callback are suitable for performance evaluation per component or smaller subsystem.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition notice">
-<p class="admonition-title">Notice<p>In the present, CARET does not support measurement of arbitrary functions or DDS enqueue/dequeue or system calls.</p>
+<p class="admonition-title">Notice<p>In the present, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> does not support measurement of arbitrary functions or <abbr title="Data Distribution System">DDS</abbr> enqueue/dequeue or system calls.</p>
 </p>
 </div>
 <p><prettier-ignore-end></p>
@@ -2564,7 +2564,7 @@ The most detailed information is a time-series graph of each trace data.</p>
 <h3 id="metrics-category">Metrics category<a class="headerlink" href="#metrics-category" title="Permanent link">#</a></h3>
 <p>We described behavior and metrics in terms of visualization granularity, but there are multiple metrics, such as latency and frequency.<br />
 Metrics for performance analysis is categorized into two types; time-related metrics and frequency-related metrics.
-CARET recommends you to be aware two types.</p>
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> recommends you to be aware two types.</p>
 <ul>
 <li>Time Domain Metrics (ex: callback execution time [s])</li>
 <li>Frequency Domain Metrics (ex: topic frequency [Hz])</li>

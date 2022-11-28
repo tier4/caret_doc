@@ -2458,29 +2458,29 @@
 <p>This section lists all tracepoints and their definition.</p>
 <p>Some tracepoints are used for collecting identification of executors, nodes, callbacks, and topics during application's initialization.
 They are called initialization tracepoints. The other tracepoints are embedded for sampling timestamps after completion of initialization, and called runtime tracepoints.</p>
-<p>Each tracepoint for CARET is added by followings method.</p>
+<p>Each tracepoint for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is added by followings method.</p>
 <p><img alt="builtin_and_extended_tracepoints" src="../../imgs/builtin_and_extended_trace_points.drawio.png" /></p>
 <ul>
 <li>Built-in tracepoints<ul>
-<li>tracepoints embedded in original ROS 2 middleware which are utilized by ros2-tracing</li>
-<li>some of tracepoints, for service, action and lifecycle node, are not utilized by current CARET</li>
+<li>tracepoints embedded in original <abbr title="Robot Operating System">ROS</abbr> 2 middleware which are utilized by ros2-tracing</li>
+<li>some of tracepoints, for service, action and lifecycle node, are not utilized by current <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr></li>
 </ul>
 </li>
 <li>Hooked tracepoints<ul>
-<li>CARET-dedicated tracepoints introduced by function hooking with LD_PRELOAD</li>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints introduced by function hooking with LD_PRELOAD</li>
 </ul>
 </li>
 <li>Extended tracepoints<ul>
-<li>CARET-dedicated tracepoints added to the fork of rclcpp</li>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints added to the fork of rclcpp</li>
 </ul>
 </li>
 </ul>
-<p>CARET utilizes some of the tracepoints built-in original ROS 2.
-Some of the tracepoints are added by hooking with LD_PRELOAD, and rest trace points are added to the fork of ROS 2's rclcpp.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> utilizes some of the tracepoints built-in original <abbr title="Robot Operating System">ROS</abbr> 2.
+Some of the tracepoints are added by hooking with LD_PRELOAD, and rest trace points are added to the fork of <abbr title="Robot Operating System">ROS</abbr> 2's rclcpp.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Please read this section if you are interested in CARET-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. CARET would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Builtin rclcpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.</p>
+<p>Please read this section if you are interested in <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Builtin rclcpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.</p>
 </div>
 <p><prettier-ignore-end></p>
 

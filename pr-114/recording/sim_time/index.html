@@ -2602,11 +2602,11 @@
   </a>
 
 
-<h1 id="ros-time-sim_time-support">ROS time (sim_time) support<a class="headerlink" href="#ros-time-sim_time-support" title="Permanent link">#</a></h1>
+<h1 id="ros-time-sim_time-support"><abbr title="Robot Operating System">ROS</abbr> time (sim_time) support<a class="headerlink" href="#ros-time-sim_time-support" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>CARET uses system time to analyze trace data by default. It may be inconvenient, especially when treating trace data recorded with rosbag. These are examples:</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses system time to analyze trace data by default. It may be inconvenient, especially when treating trace data recorded with rosbag. These are examples:</p>
 <ul>
-<li>The flow of time in analysis results (e.g., time series graph) is different from that of ROS when playing rosbag with <code>[-r RATE]</code> option. For instance, 10 Hz becomes 2 Hz when rosbag was played with <code>[-r 0.2]</code> but analysis uses system time</li>
+<li>The flow of time in analysis results (e.g., time series graph) is different from that of <abbr title="Robot Operating System">ROS</abbr> when playing rosbag with <code>[-r RATE]</code> option. For instance, 10 Hz becomes 2 Hz when rosbag was played with <code>[-r 0.2]</code> but analysis uses system time</li>
 <li>Time becomes different at every recording even if you use the same rosbag file, which makes comparing experimental results difficult</li>
 </ul>
 <p>This page explains how to use sim_time.</p>
@@ -2665,9 +2665,9 @@ ros2_caret:sim_time:
 <div class="highlight"><pre><span></span><code><span class="n">InvalidArgumentError</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">sim_time</span><span class="o">.</span> <span class="n">Please</span> <span class="n">measure</span> <span class="n">again</span> <span class="k">with</span> <span class="n">clock_recorder</span> <span class="n">running</span><span class="o">.</span>
 </code></pre></div>
 <h2 id="sample-to-use-sim_time">Sample to use sim_time<a class="headerlink" href="#sample-to-use-sim_time" title="Permanent link">#</a></h2>
-<p>Explanation below assumes CARET is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
+<p>Explanation below assumes <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
 <h3 id="record-rosbag">Record rosbag<a class="headerlink" href="#record-rosbag" title="Permanent link">#</a></h3>
-<p>The following steps can be performed either with or without CARET. If you have built a target application without CARET, you don't need to set environment for CARET and LD_PRELOAD.</p>
+<p>The following steps can be performed either with or without <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>. If you have built a target application without <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, you don't need to set environment for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> and LD_PRELOAD.</p>
 <ol>
 <li>
 <p>Open a terminal to run a target application to record rosbag</p>
@@ -2713,7 +2713,7 @@ ros2 run caret_trace clock_recorder
 </code></pre></div>
 </li>
 <li>
-<p>Open another terminal to run a target application to record trace data with CARET</p>
+<p>Open another terminal to run a target application to record trace data with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr></p>
 <p>In the launch file, <code>use_sim_time</code> is set to true and source nodes are disabled.</p>
 <div class="highlight"><pre><span></span><code> <span class="nb">source</span> /opt/ros/humble/setup.bash
  <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash

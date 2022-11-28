@@ -2606,14 +2606,14 @@
 <h3 id="setup-fails">Setup fails<a class="headerlink" href="#setup-fails" title="Permanent link">#</a></h3>
 <ul>
 <li>In case you encounter errors during setup or build process, please make sure to use an appropriate branch for your environment<ul>
-<li>ROS 2 Galactic, Ubuntu 20.04: <code>galactic</code> branch</li>
-<li>ROS 2 Humble, Ubuntu 22.04: main branch</li>
+<li><abbr title="Robot Operating System">ROS</abbr> 2 Galactic, Ubuntu 20.04: <code>galactic</code> branch</li>
+<li><abbr title="Robot Operating System">ROS</abbr> 2 Humble, Ubuntu 22.04: main branch</li>
 </ul>
 </li>
-<li>It's also important to delete <code>./build</code> <code>./install</code> and <code>./src</code> directory before rebuilding CARET if you have built CARET using wrong settings</li>
+<li>It's also important to delete <code>./build</code> <code>./install</code> and <code>./src</code> directory before rebuilding <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> if you have built <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> using wrong settings</li>
 </ul>
 <h3 id="cli-tool-doesnt-work">CLI tool doesn't work<a class="headerlink" href="#cli-tool-doesnt-work" title="Permanent link">#</a></h3>
-<p>In case CLI tool execution fails, please make sure to perform CARET environment settings</p>
+<p>In case CLI tool execution fails, please make sure to perform <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> environment settings</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
 
@@ -2622,25 +2622,25 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <p><prettier-ignore-start></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>CARET CLI tool doesn't work properly in Anaconda environment. Please use pure Python.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> CLI tool doesn't work properly in Anaconda environment. Please use pure Python.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
 <h3 id="result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result">Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result<a class="headerlink" href="#result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result" title="Permanent link">#</a></h3>
 <ul>
 <li>Please use the following commands for verification<ul>
-<li><code>ros2 caret check_caret_rclcpp</code> to check if a target application is built with CARET/rclcpp</li>
+<li><code>ros2 caret check_caret_rclcpp</code> to check if a target application is built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp</li>
 <li><code>ros2 caret check_ctf</code> to check if tracing data is recorded properly</li>
 </ul>
 </li>
 <li>Please make sure the followings:<ul>
-<li>A target application is built with CARET/rclcpp</li>
-<li>CARET environment is set properly before running a target application<ul>
+<li>A target application is built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp</li>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> environment is set properly before running a target application<ul>
 <li><code>export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)</code></li>
 <li><code>source ~/ros2_caret_ws/install/local_setup.bash</code></li>
 </ul>
 </li>
-<li>LTTng trace is started before running a target application<ul>
+<li><abbr title="Linux Tracing Tool next generation">LTTng</abbr> trace is started before running a target application<ul>
 <li><code>ros2 trace -s e2e_sample -k -u "ros2*"</code></li>
 <li>or consider to use launch file</li>
 </ul>
@@ -2659,10 +2659,10 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </ul>
 <h3 id="parts-of-results-are-not-outputted">Parts of results are not outputted<a class="headerlink" href="#parts-of-results-are-not-outputted" title="Permanent link">#</a></h3>
 <ul>
-<li>If certain nodes are not traced but some nodes are traced, some packages may be built without CARET/rclcpp. Please make sure <code>&lt;depend&gt;rclcpp&lt;/depend&gt;</code> is described in <code>package.xml</code></li>
-<li>Another possibility is that some nodes can't be analyzed due to CARET's limitations:<ul>
-<li>CARET cannot analyze a node which has two or more timer callbacks with the same period time setting</li>
-<li>CARET cannot analyze a node which has two or more subscription callbacks with the same topic name</li>
+<li>If certain nodes are not traced but some nodes are traced, some packages may be built without <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp. Please make sure <code>&lt;depend&gt;rclcpp&lt;/depend&gt;</code> is described in <code>package.xml</code></li>
+<li>Another possibility is that some nodes can't be analyzed due to <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s limitations:<ul>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot analyze a node which has two or more timer callbacks with the same period time setting</li>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot analyze a node which has two or more subscription callbacks with the same topic name</li>
 </ul>
 </li>
 <li>Callback information in such nodes are not outputted. Also, message flow will be discontinued at such nodes</li>
@@ -2693,7 +2693,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <li>Please make sure that all nodes/communications in a target path run during recording, or modify a target path to analyze actually working path</li>
 </ul>
 </li>
-<li>Another possibility is that a target path includes a node which CARET cannot analyze due to its limitations as explained above</li>
+<li>Another possibility is that a target path includes a node which <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot analyze due to its limitations as explained above</li>
 </ul>
 <h3 id="what-is-a-gray-color-rectangle-in-a-message-flow-diagram">What is a gray color rectangle in a message flow diagram?<a class="headerlink" href="#what-is-a-gray-color-rectangle-in-a-message-flow-diagram" title="Permanent link">#</a></h3>
 <ul>
@@ -2706,8 +2706,8 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <li>In a message flow diagram, term from <code>ooo/rclcpp_publish</code> to <code>ooo/callback_start</code> means latency from when a topic is published to when the following callback starts</li>
 <li>It includes the following time:<ul>
 <li>Communication (topic) latency</li>
-<li>Wait by ROS scheduler</li>
-<li>Wait by OS scheduler</li>
+<li>Wait by <abbr title="Robot Operating System">ROS</abbr> scheduler</li>
+<li>Wait by <abbr title="Operating System">OS</abbr> scheduler</li>
 </ul>
 </li>
 <li>In most cases, it doesn't take so much time. In case the time is huge, the followings are possible causes:<ul>
@@ -2744,19 +2744,19 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <p><img alt="message_flow_split_drop" src="imgs/message_flow_drop_graph.png" /></p>
 <h3 id="how-response-time-is-calculated">How response time is calculated?<a class="headerlink" href="#how-response-time-is-calculated" title="Permanent link">#</a></h3>
 <ul>
-<li>In general, response time is the time a system or functional unit takes to react to a given input (<a href="https://en.wikipedia.org/wiki/Response_time_(technology)">reference</a>). Response time calculated by CARET is the time it takes for input data to arrive at the last node. It doesn't include processing time at the first/last node nor latency of an actuator. It's calculated as the sum of communication latency time (from the time when a node publishes a topic to the time when the following node subscribes the topic) and node latency time (from the time when a node subscribes a topic to the time when it publishes another topic) in a path<ul>
+<li>In general, response time is the time a system or functional unit takes to react to a given input (<a href="https://en.wikipedia.org/wiki/Response_time_(technology)">reference</a>). Response time calculated by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is the time it takes for input data to arrive at the last node. It doesn't include processing time at the first/last node nor latency of an actuator. It's calculated as the sum of communication latency time (from the time when a node publishes a topic to the time when the following node subscribes the topic) and node latency time (from the time when a node subscribes a topic to the time when it publishes another topic) in a path<ul>
 <li>In the following diagram, input data at point A is first reflected with output at point X (<code>ResponseTime_Best</code>)</li>
 <li><code>ResponseTime_Best</code> can be considered as a path (dataflow) latency time</li>
 <li><code>ResponseTime_Best</code> can be considered as a happy case, which is contrary to the following worst case scenario</li>
 </ul>
 </li>
 <li>Assuming that input information is created by a sensor such as an object detection sensor, delay in a sensor should be considered. For instance, if a new object appears at point B, the time from point B to point A should added to the response time. The worst case scenario is that a new object appears just after the previous flow (point C). Response time for the worst case is shown as <code>ResponseTime_Worst</code></li>
-<li>CARET can calculate both <code>ResponseTime_Best</code> and <code>ResponseTime_Worst</code> using the following APIs:<ul>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can calculate both <code>ResponseTime_Best</code> and <code>ResponseTime_Worst</code> using the following APIs:<ul>
 <li><code>response_time.to_best_case_timeseries()</code> , <code>response_time.to_best_case_histogram()</code></li>
 <li><code>response_time.to_worst_case_timeseries()</code> , <code>response_time.to_best_worst_histogram()</code></li>
 </ul>
 </li>
-<li>CARET also provides <code>response_time.to_histogram()</code> API. It creates histogram assuming a new object appears from point C to point A at intervals of histogram bin size</li>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> also provides <code>response_time.to_histogram()</code> API. It creates histogram assuming a new object appears from point C to point A at intervals of histogram bin size</li>
 </ul>
 <p><img alt="response_time" src="imgs/response_time.drawio.png" /></p>
 

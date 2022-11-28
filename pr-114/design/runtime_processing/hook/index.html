@@ -2565,16 +2565,16 @@
 
 
 <h1 id="hook">Hook<a class="headerlink" href="#hook" title="Permanent link">#</a></h1>
-<p>Hooking is one of the key techniques performed by CARET.
-This section describes hooks from CARET's point of view.</p>
+<p>Hooking is one of the key techniques performed by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.
+This section describes hooks from <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s point of view.</p>
 <p>See also</p>
 <ul>
 <li><a href="../../software_architecture/caret_trace/">CARET_trace</a></li>
 </ul>
 <h2 id="advantage-of-hook">Advantage of Hook<a class="headerlink" href="#advantage-of-hook" title="Permanent link">#</a></h2>
-<p>ROS 2 is being developed separately from DDS thanks to RMW.
-On the other hand, each implementation may be developed for different purposes, which makes it difficult to achieve consistent evaluation of all layers, including DDS.
-CARET handles these layers across by hooks to add and manage trace points consistently.</p>
+<p><abbr title="Robot Operating System">ROS</abbr> 2 is being developed separately from <abbr title="Data Distribution System">DDS</abbr> thanks to RMW.
+On the other hand, each implementation may be developed for different purposes, which makes it difficult to achieve consistent evaluation of all layers, including <abbr title="Data Distribution System">DDS</abbr>.
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> handles these layers across by hooks to add and manage trace points consistently.</p>
 <p><img alt="trace_points" src="../../../imgs/control_trace_points_via_hook.drawio.png" /></p>
 <p>See also</p>
 <ul>
@@ -2584,21 +2584,21 @@ CARET handles these layers across by hooks to add and manage trace points consis
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>If possible, it is better to add tracepoints as built-in rather than hooks for users.
-However, CARET's priority is to evaluate software running on the current version of ROS rather than to gradually add trace points.
+However, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s priority is to evaluate software running on the current version of <abbr title="Robot Operating System">ROS</abbr> rather than to gradually add trace points.
 For this reason, we have adopted a hook that allows users to add tracepoints in a flexible manner.</p>
 </div>
 <p><prettier-ignore-end></p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The advantage of being able to handle all layers across the board is not well utilized in the current CARET.
+<p>The advantage of being able to handle all layers across the board is not well utilized in the current <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.
 In the future, we plan to use thread local memory to reduce trace points.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="ld_preload">LD_PRELOAD<a class="headerlink" href="#ld_preload" title="Permanent link">#</a></h2>
 <h3 id="advantage-of-ld_preload">Advantage of LD_PRELOAD<a class="headerlink" href="#advantage-of-ld_preload" title="Permanent link">#</a></h3>
 <p>LD_PRELOAD can be hooked even if the function is not exposed externally as an API.</p>
-<p>The trace points themselves, which are built into the ROS layer, can also be hooked.
+<p>The trace points themselves, which are built into the <abbr title="Robot Operating System">ROS</abbr> layer, can also be hooked.
 This enables trace filtering.</p>
 <p>Though you might come up with using eBPF to hook, eBPF requires a context switch from user space to kernel space.
 Hooking with LD_PRELOAD can be completed in user space, reducing the overhead.</p>
@@ -2614,7 +2614,7 @@ Hooking with LD_PRELOAD can be completed in user space, reducing the overhead.</
 <li>Hooks for functions implemented in headers</li>
 </ul>
 <p>Specifically, intra-process publish cannot be hooked by LD_PRELOAD.
-In CARET, trace points for intra-process communication are added in the forked rclcpp.</p>
+In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, trace points for intra-process communication are added in the forked rclcpp.</p>
 
 
 

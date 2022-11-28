@@ -2536,7 +2536,7 @@
 
 <h1 id="trace-filtering">Trace filtering<a class="headerlink" href="#trace-filtering" title="Permanent link">#</a></h1>
 <h2 id="trace-filtering_1">Trace filtering<a class="headerlink" href="#trace-filtering_1" title="Permanent link">#</a></h2>
-<p>CARET provides a trace filtering function to exclude specific nodes and topics. Trace data may be discarded when recording a large application like Autoware due to too many data to be recorded, and a warning will occur when validating/analyzing the recorded trace data (See <a href="../validating/#tracer-discarded">validating</a>). By applying trace filter, unconcerned events like <code>/tf</code> are ignored and the size of recorded data decreases.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides a trace filtering function to exclude specific nodes and topics. Trace data may be discarded when recording a large application like <abbr title="OSS-based self-driving software">Autoware</abbr> due to too many data to be recorded, and a warning will occur when validating/analyzing the recorded trace data (See <a href="../validating/#tracer-discarded">validating</a>). By applying trace filter, unconcerned events like <code>/tf</code> are ignored and the size of recorded data decreases.</p>
 <h2 id="trace-filter-configuration">Trace filter configuration<a class="headerlink" href="#trace-filter-configuration" title="Permanent link">#</a></h2>
 <ul>
 <li>Trace filter configuration is performed by setting the following environment variables<ul>
@@ -2559,7 +2559,7 @@
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Trace filter doesn't exclude all events of the specified nodes/topics. Events in certain layers, especially DDS layer, won't be ignored.It is one of limitations with current implementation.</p>
+<p>Trace filter doesn't exclude all events of the specified nodes/topics. Events in certain layers, especially <abbr title="Data Distribution System">DDS</abbr> layer, won't be ignored.It is one of limitations with current implementation.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="trace-filter-setting-file">Trace filter setting file<a class="headerlink" href="#trace-filter-setting-file" title="Permanent link">#</a></h2>
