@@ -2574,12 +2574,12 @@
   </a>
 
 
-<h1 id="recording-with-caret">Recording with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#recording-with-caret" title="Permanent link">#</a></h1>
-<p>This page explains usage of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> with a sample application.
+<h1 id="recording-with-caret">Recording with CARET<a class="headerlink" href="#recording-with-caret" title="Permanent link">#</a></h1>
+<p>This page explains usage of CARET with a sample application.
 The sample application is located on <a href="https://github.com/tier4/CARET_demos.git">CARET_demos</a> repository.</p>
 <p>See <a href="../../recording/">Recording</a> to find more details.</p>
-<h2 id="building-application-with-caret">Building application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#building-application-with-caret" title="Permanent link">#</a></h2>
-<p>To trace a target application, the target should be built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp. If you have already built the target without <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp, you have to build the target with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp again. For building the application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s <code>local_setup.bash</code> should be applied along with <abbr title="Robot Operating System">ROS</abbr> 2's <code>setup.bash</code> as shown below.</p>
+<h2 id="building-application-with-caret">Building application with CARET<a class="headerlink" href="#building-application-with-caret" title="Permanent link">#</a></h2>
+<p>To trace a target application, the target should be built with CARET/rclcpp. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again. For building the application with CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as shown below.</p>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/src
 <span class="nb">cd</span> ~/ros2_ws
 
@@ -2590,7 +2590,7 @@ git clone https://github.com/tier4/CARET_demos.git src/CARET_demos
 
 colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING<span class="o">=</span>OFF
 </code></pre></div>
-<p>The following command allows you to check whether <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is applied to each package.
+<p>The following command allows you to check whether CARET/rclcpp is applied to each package.
 If caret/rclcpp is not applied to the package you want to record, please check which rclcpp is used for the target and your workspace's environment variables.</p>
 <div class="highlight"><pre><span></span><code>ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
 
@@ -2604,10 +2604,10 @@ WARNING : <span class="m">2022</span>-06-12 <span class="m">12</span>:25:26 <spa
    caret_demos
    intra_process_demo
 </code></pre></div>
-<h2 id="tracing-the-sample-application-with-caret">Tracing the sample application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#tracing-the-sample-application-with-caret" title="Permanent link">#</a></h2>
-<h3 id="starting-lttng-session">Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session<a class="headerlink" href="#starting-lttng-session" title="Permanent link">#</a></h3>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> depends on <abbr title="Linux Tracing Tool next generation">LTTng</abbr> for tracing applications. <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session has to be started before a target application runs. Note that if you execute the target application before starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session, it will result in a lack of trace points.</p>
-<p>You can execute <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session, for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, with a simple command interface as well as ros2-tracing.</p>
+<h2 id="tracing-the-sample-application-with-caret">Tracing the sample application with CARET<a class="headerlink" href="#tracing-the-sample-application-with-caret" title="Permanent link">#</a></h2>
+<h3 id="starting-lttng-session">Starting LTTng session<a class="headerlink" href="#starting-lttng-session" title="Permanent link">#</a></h3>
+<p>CARET depends on LTTng for tracing applications. LTTng session has to be started before a target application runs. Note that if you execute the target application before starting LTTng session, it will result in a lack of trace points.</p>
+<p>You can execute LTTng session, for CARET, with a simple command interface as well as ros2-tracing.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
 
 <span class="c1"># set a destination directory. ~/.ros/tracing is default.</span>
@@ -2639,14 +2639,20 @@ ros2 launch caret_demos end_to_end_sample.launch.py
 <span class="o">[</span>end_to_end_sample-1<span class="o">]</span> <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span><span class="m">1631481246</span>.160958444<span class="o">]</span> <span class="o">[</span>rclcpp<span class="o">]</span>: signal_handler<span class="o">(</span><span class="nv">signal_value</span><span class="o">=</span><span class="m">2</span><span class="o">)</span>
 <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>end_to_end_sample-1<span class="o">]</span>: process has finished cleanly <span class="o">[</span>pid <span class="m">722356</span><span class="o">]</span>
 </code></pre></div>
-<p>You can finish the target application and <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session.
-<abbr title="Linux Tracing Tool next generation">LTTng</abbr> session will be closed if you push <code>Enter</code> key on the terminal where the <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session runs.</p>
+<p>You can finish the target application and LTTng session.
+LTTng session will be closed if you push <code>Enter</code> key on the terminal where the LTTng session runs.</p>
 <h2 id="validating-recorded-data-briefly">Validating recorded data briefly<a class="headerlink" href="#validating-recorded-data-briefly" title="Permanent link">#</a></h2>
 <p>You can check whether tracing is successful or not with <code>ros2 caret check_ctf</code> command before visualizing recorded data.</p>
 <div class="highlight"><pre><span></span><code>ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
 
 <span class="c1"># If there are problems with the recorded data, warning messages will be displayed.</span>
 </code></pre></div>
+<p><em>[Autoware]: OSS-based self-driving software
+</em>[CARET]: Chain-Aware ROS Evaluation Tool
+<em>[DDS]: Data Distribution System
+</em>[LTTng]: Linux Tracing Tool next generation
+<em>[OS]: Operating System
+</em>[ROS]: Robot Operating System *[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)</p>
 
 
 

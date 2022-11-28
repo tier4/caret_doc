@@ -2562,16 +2562,16 @@
 
 <h1 id="manual-installation">Manual installation<a class="headerlink" href="#manual-installation" title="Permanent link">#</a></h1>
 <h2 id="installation-of-required-packages">Installation of required packages<a class="headerlink" href="#installation-of-required-packages" title="Permanent link">#</a></h2>
-<h3 id="install-lttng">Install <abbr title="Linux Tracing Tool next generation">LTTng</abbr><a class="headerlink" href="#install-lttng" title="Permanent link">#</a></h3>
-<p>Refer to <a href="https://lttng.org/docs/v2.12/#doc-ubuntu-ppa">the official document for <abbr title="Linux Tracing Tool next generation">LTTng</abbr></a> for details</p>
+<h3 id="install-lttng">Install LTTng<a class="headerlink" href="#install-lttng" title="Permanent link">#</a></h3>
+<p>Refer to <a href="https://lttng.org/docs/v2.12/#doc-ubuntu-ppa">the official document for LTTng</a> for details</p>
 <div class="highlight"><pre><span></span><code>sudo apt-add-repository ppa:lttng/stable-2.13
 sudo apt-get update
 sudo apt-get install lttng-tools liblttng-ust-dev
 sudo apt-get install python3-babeltrace python3-lttng
 </code></pre></div>
-<h3 id="install-packages-to-build-caret">Install packages to build <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#install-packages-to-build-caret" title="Permanent link">#</a></h3>
-<p>Install <abbr title="Robot Operating System">ROS</abbr> 2 Humble and related packages.
-See also <a href="https://docs.ros.org/en/humble/Installation/Ubuntu-Development-Setup.html">the official document for <abbr title="Robot Operating System">ROS</abbr> 2</a>.</p>
+<h3 id="install-packages-to-build-caret">Install packages to build CARET<a class="headerlink" href="#install-packages-to-build-caret" title="Permanent link">#</a></h3>
+<p>Install ROS 2 Humble and related packages.
+See also <a href="https://docs.ros.org/en/humble/Installation/Ubuntu-Development-Setup.html">the official document for ROS 2</a>.</p>
 <div class="highlight"><pre><span></span><code>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y <span class="se">\</span>
   build-essential <span class="se">\</span>
   cmake <span class="se">\</span>
@@ -2614,7 +2614,7 @@ sudo apt install ros-humble-desktop
   ros-humble-tracetools-test <span class="se">\</span>
   ros-humble-tracetools-trace
 </code></pre></div>
-<p>Install packages for visualization with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.</p>
+<p>Install packages for visualization with CARET.</p>
 <div class="highlight"><pre><span></span><code>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y <span class="se">\</span>
   graphviz <span class="se">\</span>
   graphviz-dev
@@ -2632,7 +2632,7 @@ python3 -m pip install -U <span class="se">\</span>
 <span class="c1"># upgrade tornado with the following command.</span>
 <span class="c1"># pip install tornado --upgrade</span>
 </code></pre></div>
-<h2 id="source-build-of-caret">Source build of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#source-build-of-caret" title="Permanent link">#</a></h2>
+<h2 id="source-build-of-caret">Source build of CARET<a class="headerlink" href="#source-build-of-caret" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_caret_ws/src
 <span class="nb">cd</span> ~/ros2_caret_ws
 
@@ -2664,6 +2664,12 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DBU
 $ ros2 run tracetools status
 Tracing enabled
 </code></pre></div>
+<p><em>[Autoware]: OSS-based self-driving software
+</em>[CARET]: Chain-Aware ROS Evaluation Tool
+<em>[DDS]: Data Distribution System
+</em>[LTTng]: Linux Tracing Tool next generation
+<em>[OS]: Operating System
+</em>[ROS]: Robot Operating System *[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)</p>
 
 
 
