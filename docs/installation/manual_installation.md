@@ -123,3 +123,5 @@ $ source ~/ros2_caret_ws/install/local_setup.bash
 $ ros2 run tracetools status
 Tracing enabled
 ```
+
+--8<-- "includes/glossary.md"

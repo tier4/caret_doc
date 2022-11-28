@@ -74,3 +74,5 @@ Detail : [Response Time Histogram](./visualization/path/response_time.md)
 
 ![chain_latency_sample](./imgs/chain_latency_sample.png)<br>
 Detail : [Chain latency](./visualization/path/chain_latency.md)
+
+--8<-- "includes/glossary.md"
