@@ -50,7 +50,7 @@ Examples of complex message context are described below.
 In any of those cases, it is difficult to automatically determine the message context.
 
 the message context are given for some cases of them as shown in configuration.
-For more information, see [Configuration](. /... /configuration/index.md) for details.
+For more information, see [Configuration](../../configuration/index.md) for details.
 
 To enlarge coverage the others of complex cases, we are considering a mechanism to allow users to describe message dependencies in their user codes.
-[TILDE](. /software_architecture/tilde.md) is one of good candidates to achieve it.
+[TILDE](../software_architecture/tilde.md) is one of good candidates to achieve it.

@@ -45,4 +45,4 @@ repos:
     hooks:
       - id: shfmt-docker
 
-exclude: .svg
+exclude: ^(.svg|includes/glossary.md)
