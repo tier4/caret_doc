@@ -2596,7 +2596,7 @@
 
 <h1 id="caret_analyze">CARET_analyze<a class="headerlink" href="#caret_analyze" title="Permanent link">#</a></h1>
 <p>caret_analyze is a package that loads trace data and architecture files and provides Python APIs for configuration and evaluation.</p>
-<p>See <a href="https://tier4.github.io/CARET_analyze/">CARET analyze API document</a> for the API of each class.</p>
+<p>See <a href="https://tier4.github.io/CARET_analyze/"><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> analyze API document</a> for the API of each class.</p>
 <p>The following figure shows data flow in CARET_analyze.</p>
 <p><img alt="caret_analyze_architecture" src="../../../imgs/architecture_caret_analyze.png" /></p>
 <p>Trace data is divided into two sections by CARET_analyze after loading trace data; Architecture and Runtime Data.</p>
@@ -2604,7 +2604,7 @@
 <p>Runtime Data object has data sampled during the execution of the target application. The sampled data includes timestamps, whose values are different per execution, obtained from tracepoints.
 Runtime data is combined with architecture and provided to developers via Python-API which is easy to evaluate.</p>
 <p>Architecture object and Runtime Data object are implemented as Python classes.
-The structure of their classes is designed based on the structure of ROS applications which are constructed of executors, nodes, callback functions, and topic messages. ROS-based structure makes CARET's API friendly for ROS users.</p>
+The structure of their classes is designed based on the structure of <abbr title="Robot Operating System">ROS</abbr> applications which are constructed of executors, nodes, callback functions, and topic messages. <abbr title="Robot Operating System">ROS</abbr>-based structure makes <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s API friendly for <abbr title="Robot Operating System">ROS</abbr> users.</p>
 <p>CARET_analyze is composed of several python packages.
 Each python packages are as follows.</p>
 <table>
@@ -2736,7 +2736,7 @@ The Value class has the information for binding, and the StructValue class has t
 <p>There are classes associated with the display.
 The visualization provided by CARET_analyze is based on bokeh and graphviz.</p>
 <h2 id="records">records<a class="headerlink" href="#records" title="Permanent link">#</a></h2>
-<p>In CARET, latency is calculated by joining process of tables uniquely defined.
+<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, latency is calculated by joining process of tables uniquely defined.
 The records package defines tables with their own join processing.</p>
 <p>See also</p>
 <ul>

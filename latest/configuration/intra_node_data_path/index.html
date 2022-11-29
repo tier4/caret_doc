@@ -2643,8 +2643,8 @@
 
 
 <h1 id="how-to-define-intra-node-data-path">How to define intra-node data path<a class="headerlink" href="#how-to-define-intra-node-data-path" title="Permanent link">#</a></h1>
-<p>In the previous section, you learned how to define inter-node data path. CARET can calculate response time for a simple path using only inter-node data path definition. However, when a target application or path becomes complicated, intra-node-data path needs to be defined as well as inter-node data path.</p>
-<p>CARET assume that intra-node data path is mapping of topic subscription and publish in a node. This is not defined simply because the definition depends on implementation.</p>
+<p>In the previous section, you learned how to define inter-node data path. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can calculate response time for a simple path using only inter-node data path definition. However, when a target application or path becomes complicated, intra-node-data path needs to be defined as well as inter-node data path.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> assume that intra-node data path is mapping of topic subscription and publish in a node. This is not defined simply because the definition depends on implementation.</p>
 <p>This section will explain how to find which intra-node data path you have to define, and how to define it.</p>
 <h2 id="find-which-intra-node-data-path-to-define">Find which intra-node data path to define<a class="headerlink" href="#find-which-intra-node-data-path-to-define" title="Permanent link">#</a></h2>
 <p>Before defining intra-node data path, you have to check whether latency of the target path is calculable. This can be checked with <code>Path.verify()</code> method as the following sample code shows.</p>
@@ -2678,13 +2678,13 @@
 <p>On the other message, <code>Example 2</code>, the node which subscribes <code>/topic/name</code> topic has not compiled with caret/rclcpp.
 Please check <a href="../../recording/build_check/#how-to-fix">here</a>.</p>
 <h2 id="message-context">Message Context<a class="headerlink" href="#message-context" title="Permanent link">#</a></h2>
-<p>CARET assumes that node latency is defined as duration from subscription time to publish time. The definition looks simple, but node latency is difficult to define mechanically because some nodes have multiple inputs or multiple outputs.</p>
-<p>CARET require users to define <strong><code>message_context</code></strong> to calculate node latency. One of the following policies is acceptable for <code>message_context</code>.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> assumes that node latency is defined as duration from subscription time to publish time. The definition looks simple, but node latency is difficult to define mechanically because some nodes have multiple inputs or multiple outputs.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> require users to define <strong><code>message_context</code></strong> to calculate node latency. One of the following policies is acceptable for <code>message_context</code>.</p>
 <ul>
 <li><code>use_latest_message</code></li>
 <li><code>callback_chain</code></li>
 </ul>
-<p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency. However, <code>message_context</code> is a little difficult for CARET beginners without any example. The subsequence section introduces an example issue before explaining the policies.</p>
+<p>They have different capability to measure node latency, and the selected <code>message_context</code> policy decides how to calculate node latency. However, <code>message_context</code> is a little difficult for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> beginners without any example. The subsequence section introduces an example issue before explaining the policies.</p>
 <p>These two policies are not enough to cover the arbitrary node latency, and some implementations have node latency that cannot be measured.
 For example, message filter is currently unable to measure.</p>
 <h3 id="example-issue">Example issue<a class="headerlink" href="#example-issue" title="Permanent link">#</a></h3>
@@ -2707,31 +2707,31 @@ For example, message filter is currently unable to measure.</p>
 </ul>
 </li>
 </ul>
-<p>CARET is concerned which input topic message is mapped to an output message. <code>message_context</code> is provided to map input messages to output messages.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is concerned which input topic message is mapped to an output message. <code>message_context</code> is provided to map input messages to output messages.</p>
 <h3 id="use_latest_message"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message" title="Permanent link">#</a></h3>
-<p>With <code>use_latest_message</code> policy, CARET will map a most recent input message to output message. CARET focuses on input and output,but is not concerned structure of node structure. The next figure shows how CARET defines node latency with <code>use_latest_message</code> in the example issue.</p>
+<p>With <code>use_latest_message</code> policy, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> will map a most recent input message to output message. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> focuses on input and output,but is not concerned structure of node structure. The next figure shows how <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> defines node latency with <code>use_latest_message</code> in the example issue.</p>
 <p><img alt="Example of use_latest_message" src="../../imgs/configuration_use_latest_message.png" /></p>
-<p>In the figure, latest messages of <code>ping</code> topic is mapped to messages of <code>/pong</code> topic mechanically by CARET. It is not still easy to understand with only the block figure, but the provided timing chart below help you to understand what <code>use_latest_message</code> is.</p>
+<p>In the figure, latest messages of <code>ping</code> topic is mapped to messages of <code>/pong</code> topic mechanically by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>. It is not still easy to understand with only the block figure, but the provided timing chart below help you to understand what <code>use_latest_message</code> is.</p>
 <p><img alt="Timing chart of use_latest_message" src="../../imgs/timing_chart_use_latest_message.png" /></p>
-<p>In the timing chart, colored boxes represent duration of callback running, and bold lines are message flow of topic message. Dotted lines indicates mapping between input messages and outputs. With <code>use_latest_message</code>, CARET assumes that output message is made from the most recent input message. <code>use_latest_message</code> is fairly simple and works well in most cases.</p>
-<p>In the timing chart, red dotted lines explains a pitfall of <code>use_latest_message</code>. Using <code>use_latest_message</code> policy, CARET believes that input message, which is not even processed completely, is mapped to output message. For example, CARET interprets that <code>/pong[4]</code> is made from <code>/ping[2]</code> because <code>/ping[2]</code> is the recent input message for <code>/pong[4]</code>. However, <code>subscription_callback_0</code> is processing <code>/ping[2]</code> and does not share it with <code>timer_callback_1</code> before publishing <code>/pong[4]</code>. You have to tell CARET the node structure when you find such pitfall.</p>
+<p>In the timing chart, colored boxes represent duration of callback running, and bold lines are message flow of topic message. Dotted lines indicates mapping between input messages and outputs. With <code>use_latest_message</code>, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> assumes that output message is made from the most recent input message. <code>use_latest_message</code> is fairly simple and works well in most cases.</p>
+<p>In the timing chart, red dotted lines explains a pitfall of <code>use_latest_message</code>. Using <code>use_latest_message</code> policy, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> believes that input message, which is not even processed completely, is mapped to output message. For example, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> interprets that <code>/pong[4]</code> is made from <code>/ping[2]</code> because <code>/ping[2]</code> is the recent input message for <code>/pong[4]</code>. However, <code>subscription_callback_0</code> is processing <code>/ping[2]</code> and does not share it with <code>timer_callback_1</code> before publishing <code>/pong[4]</code>. You have to tell <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> the node structure when you find such pitfall.</p>
 <h3 id="callback_chain"><code>callback_chain</code><a class="headerlink" href="#callback_chain" title="Permanent link">#</a></h3>
-<p><code>callback_chain</code> is introduced for CARET to map input messages to outputs based on inter-operation of multiple callback functions. Input messages are consumed in subscription callbacks and propagated to other nodes. It looks as if input messages passes chains of multiple callbacks to make output messages. With <code>callback_chain</code>, CARET take care of input propagation on callbacks and it is helpful to escape the limitation of <code>use_latest_message</code> as mentioned above.</p>
-<p>Next figure shows how CARET interprets intra-node data path using <code>callback_chain</code>. Intra-communication between <code>subscription_callback_0</code> and <code>timer_callback_1</code> is taken into account for defining intra-node data path. <code>variable_passings</code> is a tag used in CARET, and represents such intra-communication.</p>
+<p><code>callback_chain</code> is introduced for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> to map input messages to outputs based on inter-operation of multiple callback functions. Input messages are consumed in subscription callbacks and propagated to other nodes. It looks as if input messages passes chains of multiple callbacks to make output messages. With <code>callback_chain</code>, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> take care of input propagation on callbacks and it is helpful to escape the limitation of <code>use_latest_message</code> as mentioned above.</p>
+<p>Next figure shows how <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> interprets intra-node data path using <code>callback_chain</code>. Intra-communication between <code>subscription_callback_0</code> and <code>timer_callback_1</code> is taken into account for defining intra-node data path. <code>variable_passings</code> is a tag used in <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, and represents such intra-communication.</p>
 <p><img alt="Example of callback_chain" src="../../imgs/configuration_callback_chain.png" /></p>
 <p>The following timing chart shows how input messages are mapped to output messages.</p>
 <p><img alt="Timing chart of callback_chain" src="../../imgs/timing_chart_callback_chain.png" /></p>
-<p>CARET maps mechanically messages of <code>/pong</code> topic to messages of <code>/ping</code> which finish being processed on <code>subscription_callback_0</code>. The unexpected behavior of <code>use_latest_message</code> is improved by <code>callback_chain</code>.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> maps mechanically messages of <code>/pong</code> topic to messages of <code>/ping</code> which finish being processed on <code>subscription_callback_0</code>. The unexpected behavior of <code>use_latest_message</code> is improved by <code>callback_chain</code>.</p>
 <p><code>callback_chain</code> looks the best choice. However, it has several drawbacks.</p>
 <ul>
 <li>It is not designed for node which have multiple callbacks running at parallel, and response time might be longer than actual</li>
-<li>It is not able to detect actual time when buffered data are consumed because only CARET does not trace user code on ROS 2</li>
+<li>It is not able to detect actual time when buffered data are consumed because only <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> does not trace user code on <abbr title="Robot Operating System">ROS</abbr> 2</li>
 <li>Users are expected to know node structure beforehand</li>
 </ul>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p><code>use_latest_message</code> and <code>callback_chain</code> do not cover all of use cases for CARET. We, CARET development team, continue improvements of intra-node data path definition.</p>
+<p><code>use_latest_message</code> and <code>callback_chain</code> do not cover all of use cases for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>. We, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> development team, continue improvements of intra-node data path definition.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h3 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h3>
@@ -2758,7 +2758,7 @@ For example, message filter is currently unable to measure.</p>
       publisher_topic_name: /pong
 </code></pre></div>
 <h4 id="callback_chain_1"><code>callback_chain</code><a class="headerlink" href="#callback_chain_1" title="Permanent link">#</a></h4>
-<p>On the other hand, CARET requires users to provide the following description if you apply <code>callback_chain</code> to <code>/pong_node</code>.</p>
+<p>On the other hand, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> requires users to provide the following description if you apply <code>callback_chain</code> to <code>/pong_node</code>.</p>
 <div class="highlight"><pre><span></span><code>- node_name: /pong_node
   callbacks:
     - callback_name: subscription_callback_0

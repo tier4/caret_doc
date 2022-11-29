@@ -2493,31 +2493,31 @@
 <h1 id="software-architecture">Software architecture<a class="headerlink" href="#software-architecture" title="Permanent link">#</a></h1>
 <p>This section explains an overview of software architecture.</p>
 <p><img alt="architecture" src="../../imgs/architecture.drawio.png" /></p>
-<p>CARET is divided into three phases; recording phase, configuration phase and analyzing phase.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is divided into three phases; recording phase, configuration phase and analyzing phase.</p>
 <h2 id="recording-phase">Recording Phase<a class="headerlink" href="#recording-phase" title="Permanent link">#</a></h2>
-<p>In the recording phase, CARET records system execution data from tracepoints.</p>
-<p>In addition to the tracepoints built into ROS2, CARET adds tracepoints by several methods; CARET_trace CARET_rclcpp and TILDE.
+<p>In the recording phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> records system execution data from tracepoints.</p>
+<p>In addition to the tracepoints built into ROS2, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> adds tracepoints by several methods; CARET_trace CARET_rclcpp and <abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr>.
 For flexibility in adding tracepoints, tracepoints are added by hooks as possible.
 Only if it is not possible to add tracepoints by hooks, tracepoints are added by other methods as a supplementary method.</p>
 <p>All recorded data is stored as TraceData and used in the analyzing phase.</p>
-<p>CARET utilizes LTTng as a trace mechanism.</p>
-<p>In CARET, packages related to recording phase are followings.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> utilizes <abbr title="Linux Tracing Tool next generation">LTTng</abbr> as a trace mechanism.</p>
+<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, packages related to recording phase are followings.</p>
 <ul>
 <li><a href="caret_trace/">caret_trace</a></li>
-<li><a href="tilde/">TILDE</a></li>
+<li><a href="tilde/"><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr></a></li>
 </ul>
 <p>See also</p>
 <ul>
 <li><a href="../trace_points/">Tracepoints</a></li>
 <li><a href="../runtime_processing/">Runtime Processing</a></li>
-<li><a href="https://lttng.org/docs/">The LTTng Documentation</a></li>
+<li><a href="https://lttng.org/docs/">The <abbr title="Linux Tracing Tool next generation">LTTng</abbr> Documentation</a></li>
 </ul>
 <h2 id="configuration-phase">Configuration Phase<a class="headerlink" href="#configuration-phase" title="Permanent link">#</a></h2>
-<p>In the configuration phase, CARET needs configurations to calculate latency.</p>
+<p>In the configuration phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> needs configurations to calculate latency.</p>
 <p>Some of the configurations can be defined via the Python API.
 Configuration can be saved as a YAML file (Architecture file) and edited.
 The architecture file is used repeatedly in the analyzing phase.</p>
-<p>In CARET, packages related to configuration phase are followings.</p>
+<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, packages related to configuration phase are followings.</p>
 <ul>
 <li><a href="caret_analyze/">caret_analyze</a></li>
 </ul>
@@ -2526,11 +2526,11 @@ The architecture file is used repeatedly in the analyzing phase.</p>
 <li><a href="../configuration/">Configuration</a></li>
 </ul>
 <h2 id="analyzing-phase">Analyzing Phase<a class="headerlink" href="#analyzing-phase" title="Permanent link">#</a></h2>
-<p>In analyzing phase, CARET analyzes trace data to provide system execution information.</p>
+<p>In analyzing phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> analyzes trace data to provide system execution information.</p>
 <p>CARET_analyze provides a Python class that can access a variety of time series information.
 Developers can get the necessary information for evaluation from this class and perform evaluation according to their objectives.</p>
 <p>CARET_analyze also provides visualizations for the evaluation of Jupyter.</p>
-<p>In CARET, packages related to configuration phase are followings.</p>
+<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, packages related to configuration phase are followings.</p>
 <ul>
 <li><a href="caret_analyze/">caret_analyze</a></li>
 </ul>
@@ -2540,8 +2540,8 @@ Developers can get the necessary information for evaluation from this class and 
 <li><a href="../event_and_latency_definitions">Event and latency definitions</a></li>
 <li><a href="https://docs.bokeh.org/">Bokeh</a></li>
 </ul>
-<h2 id="ros-2-packages">ROS 2 Packages<a class="headerlink" href="#ros-2-packages" title="Permanent link">#</a></h2>
-<p>The followings are CARET-related packages.</p>
+<h2 id="ros-2-packages"><abbr title="Robot Operating System">ROS</abbr> 2 Packages<a class="headerlink" href="#ros-2-packages" title="Permanent link">#</a></h2>
+<p>The followings are <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-related packages.</p>
 <table>
 <thead>
 <tr>
@@ -2563,7 +2563,7 @@ Developers can get the necessary information for evaluation from this class and 
 </tr>
 <tr>
 <td>ros2caret</td>
-<td>Provide CARET CLI</td>
+<td>Provide <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> CLI</td>
 <td><a href="https://github.com/tier4/ros2caret/">https://github.com/tier4/ros2caret/</a></td>
 </tr>
 <tr>
@@ -2577,9 +2577,9 @@ Developers can get the necessary information for evaluation from this class and 
 <td><a href="https://github.com/tier4/CARET_analyze_cpp_impl/">https://github.com/tier4/CARET_analyze_cpp_impl/</a></td>
 </tr>
 <tr>
-<td><a href="tilde/">TILDE</a></td>
+<td><a href="tilde/"><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr></a></td>
 <td>Add tracepoints within the system to be measure</td>
-<td><a href="https://github.com/tier4/TILDE">https://github.com/tier4/TILDE</a></td>
+<td><a href="https://github.com/tier4/TILDE">https://github.com/tier4/<abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr></a></td>
 </tr>
 </tbody>
 </table>

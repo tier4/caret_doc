@@ -2507,7 +2507,7 @@
 
 
 <h1 id="background">Background<a class="headerlink" href="#background" title="Permanent link">#</a></h1>
-<p>CARET is mainly capable of showing the following 4 latency:</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is mainly capable of showing the following 4 latency:</p>
 <ul>
 <li>callback latency</li>
 <li>communication latency (inter-node)</li>
@@ -2517,11 +2517,11 @@
 <p>The following figure shows definition of node latency and path latency.</p>
 <p><img alt="Definition node and path latency" src="../../imgs/path_and_node_latency.svg" /></p>
 <p>Callback latency is defined as execution time of a callback function, and can be measured with simple tracepoints. Communication latency between nodes can be defined as time from publish invoking to subscription callback invoking. Identifying callback and topic is not difficult so that their latency are calculated easily.<br />
-However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in ROS layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in an application is equaled to that of nodes combination, so that complicated and large application has large number of paths.<br />
-To deal with such difficulty of defining node and path latency mechanically, CARET requires users to define node and path latency manually via a configurable object , called "<strong>architecture object</strong>".</p>
+However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in <abbr title="Robot Operating System">ROS</abbr> layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in an application is equaled to that of nodes combination, so that complicated and large application has large number of paths.<br />
+To deal with such difficulty of defining node and path latency mechanically, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> requires users to define node and path latency manually via a configurable object , called "<strong>architecture object</strong>".</p>
 <h2 id="architecture-object">Architecture object<a class="headerlink" href="#architecture-object" title="Permanent link">#</a></h2>
-<p>An architecture object has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. CARET can load an architecture object including only application structure section from <a href="https://diamon.org/ctf/">CTF</a>-based recorded data. The application structure section remains same unless the structure is changed or component is renamed.</p>
-<p>On the other hand, latency definition section in the original architecture object is empty just before users add any definition. Users are expected to add definitions of node latency and path latency to the original architecture object. CARET helps users to add definition of node and path latency.</p>
+<p>An architecture object has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can load an architecture object including only application structure section from <a href="https://diamon.org/ctf/">CTF</a>-based recorded data. The application structure section remains same unless the structure is changed or component is renamed.</p>
+<p>On the other hand, latency definition section in the original architecture object is empty just before users add any definition. Users are expected to add definitions of node latency and path latency to the original architecture object. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> helps users to add definition of node and path latency.</p>
 <p>The following sections explain how to load an architecture object and add latency definition.</p>
 
 

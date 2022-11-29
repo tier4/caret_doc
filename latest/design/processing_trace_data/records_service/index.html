@@ -2934,9 +2934,9 @@ Latency is defined as delay from input to any output.
 This calculation is very simple, but it is not used for evaluating response.
 If multiple output depends on a single input, latency is not regarded as response time.
 Moreover, for example, if a sensor is driven at 10 Hz, a latency of up to 100 ms should be considered.</p>
-<p>CARET serves best-case response time and worst-case response time.
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves best-case response time and worst-case response time.
 The former is roughly equal to latency from an input to a corresponding initial output.
-CARET provides the latter because it also takes into account the latency until times wake up.
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides the latter because it also takes into account the latency until times wake up.
 For example, this latency is equivalent to a sensor operating at 10 Hz taking a 100 ms delay at maximum.</p>
 <h3 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h3>
 <p>Input</p>

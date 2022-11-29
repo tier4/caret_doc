@@ -2553,7 +2553,7 @@
 
 
 <h1 id="records-object">Records Object<a class="headerlink" href="#records-object" title="Permanent link">#</a></h1>
-<p>CARET provides trace data to user.
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides trace data to user.
 The common format is a table per metric as shown below.</p>
 <table>
 <thead>
@@ -2584,7 +2584,7 @@ The common format is a table per metric as shown below.</p>
 <p>This table is referred to calculate latency, period, and etc. (See <a href="../records_service/">Records Service</a>).
 The most primitive format is a table per event which picked up by a corresponding tracepoint.
 Merging multiple event tables makes a new table for metrics.
-In addition to simple table merging, CARET defines classes which has originally defined merging method for latency calculation.</p>
+In addition to simple table merging, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> defines classes which has originally defined merging method for latency calculation.</p>
 <p>This sections describes the main APIs provided by the record object.</p>
 <ul>
 <li>merge</li>
@@ -2604,7 +2604,7 @@ In particular, it is used to join initialization-related trace data that can be 
 <p><img alt="merge_sequential" src="../../../imgs/records_merge_sequential.drawio.png" /></p>
 <p>This is a chronological merge.
 It is especially used to merge sequential processing by threads.</p>
-<p>CARET mainly performs this merging and calculates latency.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> mainly performs this merging and calculates latency.</p>
 <p>See also</p>
 <ul>
 <li><a href="https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential">API:merge</a></li>

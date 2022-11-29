@@ -2604,7 +2604,7 @@
 <p>The first step of configuration is to load an architecture object from a set of CTF-based recorded data onto memory. You can update the architecture object as the following section explains. After you finish updating it, you can save it to a yaml-based file, called "architecture file" to reuse the updated object.</p>
 <p>An architecture file has structure of a targeted application. <a href="https://github.com/takeshi-iwanari/dear_ros_node_viewer"><code>dear_ros_node_viewer</code></a> help you to comprehend structure of the application with the architecture file.</p>
 <h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h2>
-<p>CARET serves Python-based APIs to load and save an architecture object.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python-based APIs to load and save an architecture object.</p>
 <p>All of the following code snippets can be executed after load environment variables with <code>source /path/to/ros2_caret_ws/install/setup.bash</code>.</p>
 <h3 id="load-from-a-set-of-ctf-based-recorded-data">Load from a set of CTF-based recorded data<a class="headerlink" href="#load-from-a-set-of-ctf-based-recorded-data" title="Permanent link">#</a></h3>
 <p>You can load an architecture object with <code>Architecture</code> constructor.</p>
@@ -2615,14 +2615,14 @@
 <p>You will find <code>caret_analyze.architecture.Architecture</code>-based object, named '<code>arch</code>'.</p>
 <p>Loading an architecture object from CTF-based recorded data tends to be time-consuming task.</p>
 <h3 id="load-from-a-yaml-based-architecture-file">Load from a YAML-based architecture file<a class="headerlink" href="#load-from-a-yaml-based-architecture-file" title="Permanent link">#</a></h3>
-<p>As I mentioned, CARET serves a function to stored an architecture object into YAML-based architecture file for reusability. It can save loading time and preserve update of the object. You can load it from YAML-based file with only replacing '<code>lttng</code>' of the first argument of <code>Architecture</code> constructor by '<code>yaml</code>'.</p>
+<p>As I mentioned, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves a function to stored an architecture object into YAML-based architecture file for reusability. It can save loading time and preserve update of the object. You can load it from YAML-based file with only replacing '<code>lttng</code>' of the first argument of <code>Architecture</code> constructor by '<code>yaml</code>'.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
 
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/architecture.yaml&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>It is recommended for you to use YAML-based file to benefit from reusability unless structure of targeted application is changed.</p>
 <h3 id="save">Save<a class="headerlink" href="#save" title="Permanent link">#</a></h3>
-<p>CARET provides <code>Architecture.export</code> method to save an architecture object as follow.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides <code>Architecture.export</code> method to save an architecture object as follow.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
 
 
@@ -2641,7 +2641,7 @@
 <p><code>force=True</code> option erases the existing architecture object.</p>
 <h2 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">#</a></h2>
 <h3 id="create-an-architecture-file-via-cli">Create an architecture file via CLI<a class="headerlink" href="#create-an-architecture-file-via-cli" title="Permanent link">#</a></h3>
-<p>With the functions I introduced above, you can create a YAML-based file including an architecture object. CARET serves CLI to create it as well. <code>create_architecture_file</code> command plays role of it.</p>
+<p>With the functions I introduced above, you can create a YAML-based file including an architecture object. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves CLI to create it as well. <code>create_architecture_file</code> command plays role of it.</p>
 <p>The following sample code shows how to use <code>create_architecture_file</code> command.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /path/to/ros2_caret_ws/install/setup.bash
 

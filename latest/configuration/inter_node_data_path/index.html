@@ -2587,9 +2587,9 @@
 
 
 <h1 id="how-to-define-inter-nodes-data-path">How to define inter-nodes data path<a class="headerlink" href="#how-to-define-inter-nodes-data-path" title="Permanent link">#</a></h1>
-<p>Latency definition section is empty just after an architecture object is loaded from a set of CTF-based recorded data. If you want to observe data flow on targeted paths, you should add the target paths to the architecture object. As a path is combination of multiple nodes and topics, it may be laborious to list their names. To mitigate such burden, CARET serves a function to search the targeted path. The targeted path is added to the architecture object via Python API.</p>
+<p>Latency definition section is empty just after an architecture object is loaded from a set of CTF-based recorded data. If you want to observe data flow on targeted paths, you should add the target paths to the architecture object. As a path is combination of multiple nodes and topics, it may be laborious to list their names. To mitigate such burden, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves a function to search the targeted path. The targeted path is added to the architecture object via Python API.</p>
 <h2 id="basic-usage-to-find-and-add-target-path">Basic usage to find and add target path<a class="headerlink" href="#basic-usage-to-find-and-add-target-path" title="Permanent link">#</a></h2>
-<p>Listing nodes and topics by their names is laborious. CARET serve a helpful method, <code>arch.search_paths</code>, to search candidates that you want to observe.</p>
+<p>Listing nodes and topics by their names is laborious. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serve a helpful method, <code>arch.search_paths</code>, to search candidates that you want to observe.</p>
 <p>The following sample code shows usage of <code>arch.search_paths</code> method.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Architecture object is loaded to variable of arch</span>
 
