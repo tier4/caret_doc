@@ -2470,7 +2470,7 @@
 
 
 <h1 id="latency-definition">Latency definition<a class="headerlink" href="#latency-definition" title="Permanent link">#</a></h1>
-<p>CARET mainly measures the following</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> mainly measures the following</p>
 <ul>
 <li>Callback latency</li>
 <li>Communication latency</li>
@@ -2483,7 +2483,7 @@
 The red line represents message flow.
 A message is received in the subscription callback and the processed data is published to the next node.
 In this way, information is propagated from the sensor node to the actuator node.</p>
-<p>CARET samples events for latency calculation. The following three items are main types of the events.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> samples events for latency calculation. The following three items are main types of the events.</p>
 <ul>
 <li>Callback start</li>
 <li>Callback end</li>
@@ -2497,7 +2497,7 @@ In this way, information is propagated from the sensor node to the actuator node
 <li><a href="node/">Node</a></li>
 <li><a href="path/">Path</a></li>
 </ul>
-<p>CARET provides time series data of events through Python objects.
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides time series data of events through Python objects.
 Time series data can be retrieved with the Python objects which have to_dataframe API.
 All objects are capable of retrieving time-series data are listed below.</p>
 <table>
@@ -2547,8 +2547,8 @@ For details on setting the definitions, see <a href="../../configuration/">Confi
 <ul>
 <li>UserCode is a callback</li>
 <li>ROS2 is rclcpp, rcl, and rmw</li>
-<li>DDS is FastDDS or CycloneDDS</li>
-<li>LTTng is the output destination for tracepoints</li>
+<li><abbr title="Data Distribution System">DDS</abbr> is FastDDS or CycloneDDS</li>
+<li><abbr title="Linux Tracing Tool next generation">LTTng</abbr> is the output destination for tracepoints</li>
 </ul>
 <p>Within the spin of Subscription, the executable callbacks are executed sequentially.</p>
 <p>In this way, the executor schedules callbacks.

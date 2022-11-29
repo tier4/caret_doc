@@ -2464,28 +2464,28 @@
   </a>
 
 
-<h1 id="tilde-a-framework-tools-to-detect-deadline-overrun">TILDE, a framework tools to detect deadline overrun<a class="headerlink" href="#tilde-a-framework-tools-to-detect-deadline-overrun" title="Permanent link">#</a></h1>
-<p>CARET can cooperate with TILDE, a framework tool to detect deadline overrun.
-TILDE lets CARET trace events in user applications which cannot be traced from ROS/DDS layer.</p>
+<h1 id="tilde-a-framework-tools-to-detect-deadline-overrun"><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr>, a framework tools to detect deadline overrun<a class="headerlink" href="#tilde-a-framework-tools-to-detect-deadline-overrun" title="Permanent link">#</a></h1>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can cooperate with <abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr>, a framework tool to detect deadline overrun.
+<abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> lets <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> trace events in user applications which cannot be traced from <abbr title="Robot Operating System">ROS</abbr>/<abbr title="Data Distribution System">DDS</abbr> layer.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition notice">
-<p class="admonition-title">Notice<p>TILDE is now under development.</p>
+<p class="admonition-title">Notice<p><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> is now under development.</p>
 </p>
 </div>
 <p><prettier-ignore-end></p>
-<p>Since ROS nodes can implement arbitrary processing, some nodes are difficult to calculate node latency.</p>
+<p>Since <abbr title="Robot Operating System">ROS</abbr> nodes can implement arbitrary processing, some nodes are difficult to calculate node latency.</p>
 <p>Examples of implementations for which node latency is difficult to calculate are as follows.</p>
 <ul>
 <li>Message buffering case between subscribe and publish</li>
 <li>Using message filter case</li>
 </ul>
-<p>the latencies can be observed in only application layer, but CARET cannot observe the events.</p>
-<p>On the other hand, TILDE can trace application-layer events.
+<p>the latencies can be observed in only application layer, but <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot observe the events.</p>
+<p>On the other hand, <abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> can trace application-layer events.
 It is able to trace execution of callback function to consume a certain buffered message since it annotate message consumption per single message.</p>
-<p>TILDE serves CARET this capability to trace consumption of buffered messages.</p>
+<p><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> serves <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> this capability to trace consumption of buffered messages.</p>
 <p>See also</p>
 <ul>
-<li><a href="https://github.com/tier4/TILDE">TILDE official page</a></li>
+<li><a href="https://github.com/tier4/TILDE"><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> official page</a></li>
 <li><a href="../../event_and_latency_definitions/node/">Node latency definition</a></li>
 </ul>
 

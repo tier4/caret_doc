@@ -2534,10 +2534,10 @@
   </a>
 
 
-<h1 id="build-with-caret">Build with CARET<a class="headerlink" href="#build-with-caret" title="Permanent link">#</a></h1>
-<h2 id="build-a-target-application-with-caret">Build a target application with CARET<a class="headerlink" href="#build-a-target-application-with-caret" title="Permanent link">#</a></h2>
-<p>A target application should be built with CARET/rclcpp to record trace data. If you have already built the application without CARET/rclcpp, you have to build the application with CARET/rclcpp again.</p>
-<p>For building the application with CARET/rclcpp, CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as shown below. Also, <code>-DBUILD_TESTING=OFF</code> should be given to build option.</p>
+<h1 id="build-with-caret">Build with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#build-with-caret" title="Permanent link">#</a></h1>
+<h2 id="build-a-target-application-with-caret">Build a target application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#build-a-target-application-with-caret" title="Permanent link">#</a></h2>
+<p>A target application should be built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp to record trace data. If you have already built the application without <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp, you have to build the application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp again.</p>
+<p>For building the application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s <code>local_setup.bash</code> should be applied along with <abbr title="Robot Operating System">ROS</abbr> 2's <code>setup.bash</code> as shown below. Also, <code>-DBUILD_TESTING=OFF</code> should be given to build option.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> &lt;path-to-workspace&gt;
 
 <span class="nb">source</span> /opt/ros/humble/setup.bash
@@ -2547,26 +2547,26 @@ colcon build --symlink-install --cmake-args -DBUILD_TESTING<span class="o">=</sp
 </code></pre></div>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
-<p class="admonition-title">Reason for building a target application with CARET/rclcpp</p>
-<p>CARET/rclcpp is a fork of <a href="https://github.com/ros2/rclcpp">ROS 2-based rclcpp</a> which has some additional tracepoints defined by CARET.
-  Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to record a target application.
-  In order to apply rclcpp which has the additional tracepoints, the application have to be built with CARET/rclcpp again.
-  Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.
+<p class="admonition-title">Reason for building a target application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is a fork of <a href="https://github.com/ros2/rclcpp"><abbr title="Robot Operating System">ROS</abbr> 2-based rclcpp</a> which has some additional tracepoints defined by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.
+  Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> to record a target application.
+  In order to apply rclcpp which has the additional tracepoints, the application have to be built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp again.
+  Therefore, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot trace the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.
   If you want to trace such pre-build packages, please build them again from source code.</p>
 </div>
 <p><prettier-ignore-end></p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Reason for giving <code>-DBUILD_TESTING=OFF</code></p>
-<p>To use CARET, you need to use forked shared libraries and headers such as CARET/rclcpp.
-  In the test codes, CARET/rclcpp is not available due to loading priority issues for headers.
-  Depending on the version of CARET, conflicts may occur between the shared libraries of
-  ros-rclcpp and the headers of CARET/rclcpp, resulting in compile errors.
+<p>To use <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, you need to use forked shared libraries and headers such as <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp.
+  In the test codes, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not available due to loading priority issues for headers.
+  Depending on the version of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, conflicts may occur between the shared libraries of
+  ros-rclcpp and the headers of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp, resulting in compile errors.
   Therefore, test codes have to be excluded from building.</p>
 </div>
 <p><prettier-ignore-end></p>
-<h2 id="check-whether-caretrclcpp-is-applied-to-each-package">Check whether CARET/rclcpp is applied to each package<a class="headerlink" href="#check-whether-caretrclcpp-is-applied-to-each-package" title="Permanent link">#</a></h2>
-<p>You can check whether a target application is successfully built with CARET/rclcpp using <code>ros2 caret check_caret_rclcpp</code> command.</p>
+<h2 id="check-whether-caretrclcpp-is-applied-to-each-package">Check whether <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is applied to each package<a class="headerlink" href="#check-whether-caretrclcpp-is-applied-to-each-package" title="Permanent link">#</a></h2>
+<p>You can check whether a target application is successfully built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp using <code>ros2 caret check_caret_rclcpp</code> command.</p>
 <div class="highlight"><pre><span></span><code>ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </code></pre></div>
 <table>
@@ -2583,18 +2583,18 @@ colcon build --symlink-install --cmake-args -DBUILD_TESTING<span class="o">=</sp
 </tr>
 <tr>
 <td><code>The following packages have not been built using caret-rclcpp</code></td>
-<td>CARET/rclcpp is not applied to the listed packages<br> (Please read the next section to fix it)</td>
+<td><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not applied to the listed packages<br> (Please read the next section to fix it)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="how-to-fix">How to fix<a class="headerlink" href="#how-to-fix" title="Permanent link">#</a></h2>
-<p>In case CARET/rclcpp is not applied to the package you want to analyze, you need to fix it. The followings show possible causes and solutions.</p>
+<p>In case <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not applied to the package you want to analyze, you need to fix it. The followings show possible causes and solutions.</p>
 <ul>
-<li>Case 1: All packages are listed as CARET/rclcpp is not applied<ul>
-<li>Make sure you applied CARET's <code>local_setup.bash</code> after ROS2's <code>setup.bash</code> (keep the order)</li>
+<li>Case 1: All packages are listed as <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not applied<ul>
+<li>Make sure you applied <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s <code>local_setup.bash</code> after ROS2's <code>setup.bash</code> (keep the order)</li>
 </ul>
 </li>
-<li>Case 2: Some, but not all, packages are listed as CARET/rclcpp is not applied<ul>
+<li>Case 2: Some, but not all, packages are listed as <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not applied<ul>
 <li>Make sure you have the following line in <code>package.xml</code> in the listed package<ul>
 <li><code>&lt;depend&gt;rclcpp&lt;/depend&gt;</code></li>
 </ul>
@@ -2605,7 +2605,7 @@ colcon build --symlink-install --cmake-args -DBUILD_TESTING<span class="o">=</sp
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The listed packages are not traced while other packages built with CARET/rclcpp are properly traced. Therefore, you can ignore this message if you don't need to trace/analyze the listed packages.</p>
+<p>The listed packages are not traced while other packages built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp are properly traced. Therefore, you can ignore this message if you don't need to trace/analyze the listed packages.</p>
 </div>
 <p><prettier-ignore-end></p>
 

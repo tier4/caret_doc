@@ -2549,14 +2549,14 @@
 
 
 <h1 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h1>
-<h2 id="recording-with-caret">Recording with CARET<a class="headerlink" href="#recording-with-caret" title="Permanent link">#</a></h2>
-<p>CARET uses LTTng for tracing a target application. A LTTng session has to be started before running the application. This page explains two different ways for it: Starting LTTng session manually and Starting LTTng session using ROS launch system.</p>
-<p>Explanation in this page assumes CARET is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
-<h2 id="starting-lttng-session-manually">Starting LTTng session manually<a class="headerlink" href="#starting-lttng-session-manually" title="Permanent link">#</a></h2>
-<p>Two terminals are needed for this method: One for starting a LTTng session, another for running a target application.</p>
+<h2 id="recording-with-caret">Recording with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#recording-with-caret" title="Permanent link">#</a></h2>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses <abbr title="Linux Tracing Tool next generation">LTTng</abbr> for tracing a target application. A <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session has to be started before running the application. This page explains two different ways for it: Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session manually and Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session using <abbr title="Robot Operating System">ROS</abbr> launch system.</p>
+<p>Explanation in this page assumes <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
+<h2 id="starting-lttng-session-manually">Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session manually<a class="headerlink" href="#starting-lttng-session-manually" title="Permanent link">#</a></h2>
+<p>Two terminals are needed for this method: One for starting a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session, another for running a target application.</p>
 <ol>
 <li>
-<p>Open a terminal and start a LTTng session with the following commands</p>
+<p>Open a terminal and start a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session with the following commands</p>
 <ul>
 <li>(Optional) <code>ROS_TRACE_DIR</code> variable is a destination directory where recorded trace data will be stored. Default is <code>~/.ros/tracing</code></li>
 <li>With "<code>-s</code>" option, you can give session name. The recorded trace data will be stored into <code>~/ros_ws/evaluate/e2e_sample</code> in this sample</li>
@@ -2576,7 +2576,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <p>Open another terminal and launch a target application</p>
 <ul>
 <li>
-<p>Perform environment settings in the same order as below. CARET's <code>local_setup.bash</code> should be applied along with ROS 2's <code>setup.bash</code> as the target application refers to CARET/rclcpp</p>
+<p>Perform environment settings in the same order as below. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s <code>local_setup.bash</code> should be applied along with <abbr title="Robot Operating System">ROS</abbr> 2's <code>setup.bash</code> as the target application refers to <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Environment settings (keep the order as below)</span>
 <span class="nb">source</span> /opt/ros/humble/setup.bash
 <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
@@ -2593,7 +2593,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 </ul>
 <ul>
 <li>
-<p>(Optional) Apply <a href="../trace_filtering/">trace filtering</a>. With configuration of trace filtering, CARET can ignore unnecessary nodes/topics. This function is useful for a large application</p>
+<p>(Optional) Apply <a href="../trace_filtering/">trace filtering</a>. With configuration of trace filtering, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can ignore unnecessary nodes/topics. This function is useful for a large application</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Apply filter directly</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_NODES</span><span class="o">=</span><span class="s2">&quot;/rviz*&quot;</span>
 <span class="nb">export</span> <span class="nv">CARET_IGNORE_TOPICS</span><span class="o">=</span><span class="s2">&quot;/clock:/parameter_events&quot;</span>
@@ -2615,26 +2615,26 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 <p>Stop the target application</p>
 </li>
 <li>
-<p>Press "Enter" key to stop the LTTng session in the terminal where the LTTng session runs</p>
+<p>Press "Enter" key to stop the <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session in the terminal where the <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session runs</p>
 </li>
 </ol>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will fail later.</p>
+<p>A <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will fail later.</p>
 </div>
 <p><prettier-ignore-end></p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like <a href="https://github.com/autowarefoundation/autoware">Autoware</a> which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with <code>ulimit -n</code> command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; <code>ulimit -n 65536</code>.</p>
+<p>You may find that size of recorded data is strangely smaller than expected after updating <abbr title="Linux Tracing Tool next generation">LTTng</abbr> to 2.13 if you apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> to a large application like <a href="https://github.com/autowarefoundation/autoware"><abbr title="OSS-based self-driving software">Autoware</abbr></a> which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with <code>ulimit -n</code> command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; <code>ulimit -n 65536</code>.</p>
 </div>
 <p><prettier-ignore-end></p>
-<h2 id="starting-lttng-session-via-ros-launch">Starting LTTng session via ROS launch<a class="headerlink" href="#starting-lttng-session-via-ros-launch" title="Permanent link">#</a></h2>
-<p>You can start LTTng session using ROS launch system. When you start a LTTng session in one terminal, you have to open another terminal for executing a target application as explained above. Operating multiple terminals is laborious for users. Launching LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.</p>
+<h2 id="starting-lttng-session-via-ros-launch">Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session via <abbr title="Robot Operating System">ROS</abbr> launch<a class="headerlink" href="#starting-lttng-session-via-ros-launch" title="Permanent link">#</a></h2>
+<p>You can start <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session using <abbr title="Robot Operating System">ROS</abbr> launch system. When you start a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session in one terminal, you have to open another terminal for executing a target application as explained above. Operating multiple terminals is laborious for users. Launching <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session along with application by <abbr title="Robot Operating System">ROS</abbr> launch is a reasonable way to apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> repeatedly.</p>
 <ol>
 <li>
-<p>Create a launch file for a target application in ROS general manner if you haven't made it</p>
+<p>Create a launch file for a target application in <abbr title="Robot Operating System">ROS</abbr> general manner if you haven't made it</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch/end_to_end_sample.launch.py</span>
 <span class="kn">import</span> <span class="nn">launch</span>
 <span class="kn">import</span> <span class="nn">launch_ros.actions</span>
@@ -2648,7 +2648,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 </code></pre></div>
 </li>
 <li>
-<p>Add description to start a LTTng session</p>
+<p>Add description to start a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch/end_to_end_sample_with_lttng_session.launch.py</span>
 <span class="kn">import</span> <span class="nn">launch</span>
 <span class="kn">import</span> <span class="nn">launch_ros.actions</span>
@@ -2668,7 +2668,7 @@ ros2 trace -s e2e_sample -k -u <span class="s2">&quot;ros2*&quot;</span>
 </code></pre></div>
 </li>
 <li>
-<p>Launch a target application and a LTTng session via the launch file</p>
+<p>Launch a target application and a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session via the launch file</p>
 <ul>
 <li>Environment settings are still needed, but all operations are performed in just one terminal</li>
 </ul>
