@@ -88,6 +88,7 @@ erDiagram
     rcl_publisher_init ||--|| PUBLISHER_HANDLE : node_handle
     rcl_subscription_init ||--|| SUBSCRIPTION_HANDLE : node_handle
     rcl_timer_init ||--|| TIMER_HANDLE : node_handle
+    rcl_service_init ||--|| SERVICE_HANDLE : node_handle
 
     rcl_subscription_init ||--|| rclcpp_subscription_init : subscription_handle
     rclcpp_subscription_init ||--|| rclcpp_subscription_callback_added : subscription
