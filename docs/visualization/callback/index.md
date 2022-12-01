@@ -21,6 +21,8 @@ app = Application(arch, lttng)
 
 ## Frequency
 
+`Plot.create_callback_frequency_plot(callbacks: Collections[CallbackBase])` is introduced to confirm whether targeted callback functions were running at desired frequency.
+
 ```python
 # get dataframe
 plot = Plot.create_callback_frequency_plot(app.callbacks)
@@ -44,11 +46,12 @@ plot.show()
 
 ![callback_frequency_time_line](../../imgs/callback_frequency_time_line.png)
 
-The horizontal axis means `Time [s]` plotting by 1 second (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
-The vertical axis means `Frequency [Hz]` of the callback.
-This API is used to confirm whether the callback was running at desired frequency.
+The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared to select index of x-axis among Linux system time, [ROS simulation time](../../recording/sim_time.md), and 0-based ordering. One of `'system_time'`, `'sim_time'` and `'index'` is chosen as `xaxis_type` though `'system_time'` is the default value.
+The vertical axis means frequency of callback execution, labeled as `Frequency [Hz]`. It is plotted per second.
 
 ## Period
+
+`Plot.create_callback_period_plot(callbacks: Collections[CallbackBase])` is introduced to check whether callback functions are called at their expected period. Period is more detailed metrics than frequency.
 
 ```python
 # get dataframe
@@ -73,10 +76,13 @@ plot.show()
 
 ![callback_period_time_line](../../imgs/callback_period_time_line.png)
 
-The horizontal axis means `Time [s]` (changeable in ['system_time', 'sim_time', 'index']).
-The vertical axis means `Period [ms]` from one callback starts to the next time that the callback starts.
+The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared as well as `create_callback_frequency_plot()` method.
+The vertical axis means period of callback execution, labeled as `Period [ms]`. It is plotted per sample.
 
 ## Latency
+
+`Plot.create_callback_latency_plot(callbacks: Collections[CallbackBase])` is served to see execution time of callback functions.
+
 
 ```python
 # get dataframe
@@ -101,5 +107,5 @@ plot.show()
 
 ![callback_latency_time_line](../../imgs/callback_latency_time_line.png)
 
-The horizontal axis means `Time [s]` (changeable in ['system_time', 'sim_time', 'index']).
-The vertical axis means `Latency [ms]` from `callback_start` to `callback_end`.
+The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared as well as `create_callback_frequency_plot()` method.
+The vertical axis means execution time of callback function, labeled as `Latency [ms]`. It is plotted per sample.

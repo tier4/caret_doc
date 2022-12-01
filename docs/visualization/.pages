@@ -1,6 +1,5 @@
 nav:
     - Visualization: index.md
-    - Basic APIs Concept: basic_api_concept.md
     - Visualization APIs:
         - Callback: callback
         - Communication: communication
