@@ -2511,7 +2511,7 @@
 <span class="c1"># Create a graph for frequency of callback execution</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<p><code>plot</code> object is obtained from <code>Plot.create_[subsystem]_[metrics]_plot(data)</code>. The argument of <code>data</code> is, for example, a <code>CallbackBase</code>-based object, a <code>Communication</code>-based object. A list of <code>CallbackBase</code> or <code>Communication</code> is also acceptable as explained later.
+<p><code>plot</code> object is obtained from <code>Plot.create_[subsystem]_[metrics]_plot(data)</code>. The argument of <code>data</code> is, for example, a <code>CallbackBase</code>-based object, a <code>Communication</code>-based object. A list of <code>CallbackBase</code> or <code>Communication</code> is also acceptable as explained later.<br />
 <code>plot</code> object has two method; <code>to_dataframe()</code> and <code>show()</code>.
 <code>to_dataframe()</code> method returns a table including time-series data on a given metrics.
 <code>show()</code> method creates a figure of time-series graph and returns the corresponding figure handler. In other words, <code>show()</code> method visualizes the time-series data.
@@ -2523,7 +2523,7 @@ Some of methods are not designed according to uniform API design, and they are e
 <ul>
 <li><a href="callback/#execution-frequency"><code>create_callback_frequency_plot</code></a></li>
 <li><a href="callback/#period"><code>create_callback_period_plot</code></a></li>
-<li><a href="callback/#latency">create_callback_latency_plot</a></li>
+<li><a href="callback/#latency"><code>create_callback_latency_plot</code></a></li>
 <li><a href="callback/callback_scheduling_visualization/"><code>callback_sched</code></a><ul>
 <li>Visualize callback scheduling</li>
 </ul>
@@ -2531,11 +2531,11 @@ Some of methods are not designed according to uniform API design, and they are e
 </ul>
 <h3 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">#</a></h3>
 <ul>
-<li><a href="communication/#latency">create_communication_latency_plot</a></li>
-<li><a href="communication/#frequency">create_communication_frequency_plot</a></li>
-<li><a href="communication/#period">create_communication_period_plot</a></li>
-<li><a href="communication/publish_subscription/#period">create_publish_subscription_period_plot</a></li>
-<li><a href="communication/publish_subscription/#frequency">create_publish_subscription_frequency_plot</a></li>
+<li><a href="communication/#latency"><code>create_communication_latency_plot</code></a></li>
+<li><a href="communication/#frequency"><code>create_communication_frequency_plot</code></a></li>
+<li><a href="communication/#period">`create_communication_period_plot</a></li>
+<li><a href="communication/publish_subscription/#period"><code>create_publish_subscription_period_plot</code></a></li>
+<li><a href="communication/publish_subscription/#frequency"><code>create_publish_subscription_frequency_plot</code></a></li>
 </ul>
 <h3 id="path">Path<a class="headerlink" href="#path" title="Permanent link">#</a></h3>
 <ul>
