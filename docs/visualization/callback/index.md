@@ -83,7 +83,6 @@ The vertical axis means period of callback execution, labeled as `Period [ms]`. 
 
 `Plot.create_callback_latency_plot(callbacks: Collections[CallbackBase])` is served to see execution time of callback functions.
 
-
 ```python
 # get dataframe
 plot = Plot.create_callback_latency_plot(app.callbacks)
