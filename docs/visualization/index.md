@@ -33,7 +33,7 @@ callback_df = plot.to_dataframe()
 plot.show()
 ```
 
-`plot` object is obtained from `Plot.create_[subsystem]_[metrics]_plot(data)`. The argument of `data` is, for example, a `CallbackBase`-based object, a `Communication`-based object. A list of `CallbackBase` or `Communication` is also acceptable as explained later.
+`plot` object is obtained from `Plot.create_[subsystem]_[metrics]_plot(data)`. The argument of `data` is, for example, a `CallbackBase`-based object, a `Communication`-based object. A list of `CallbackBase` or `Communication` is also acceptable as explained later.  
 `plot` object has two method; `to_dataframe()` and `show()`.
 `to_dataframe()` method returns a table including time-series data on a given metrics.
 `show()` method creates a figure of time-series graph and returns the corresponding figure handler. In other words, `show()` method visualizes the time-series data.
@@ -48,17 +48,17 @@ Some of methods are not designed according to uniform API design, and they are e
 
 - [`create_callback_frequency_plot`](./callback/index.md#execution-frequency)
 - [`create_callback_period_plot`](./callback/index.md#period)
-- [create_callback_latency_plot](./callback/index.md#latency)
+- [`create_callback_latency_plot`](./callback/index.md#latency)
 - [`callback_sched`](./callback/callback_scheduling_visualization.md)
   - Visualize callback scheduling
 
 ### Communication
 
-- [create_communication_latency_plot](./communication/index.md#latency)
-- [create_communication_frequency_plot](./communication/index.md#frequency)
-- [create_communication_period_plot](./communication/index.md#period)
-- [create_publish_subscription_period_plot](./communication/publish_subscription.md#period)
-- [create_publish_subscription_frequency_plot](./communication/publish_subscription.md#frequency)
+- [`create_communication_latency_plot`](./communication/index.md#latency)
+- [`create_communication_frequency_plot`](./communication/index.md#frequency)
+- [`create_communication_period_plot](./communication/index.md#period)
+- [`create_publish_subscription_period_plot`](./communication/publish_subscription.md#period)
+- [`create_publish_subscription_frequency_plot`](./communication/publish_subscription.md#frequency)
 
 ### Path
 
