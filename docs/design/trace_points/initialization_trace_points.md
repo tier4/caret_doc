@@ -82,8 +82,8 @@ erDiagram
 
     rcl_node_init ||--o{ rcl_publisher_init : node_handle
     rcl_node_init ||--o{ rcl_subscription_init : node_handle
-    rcl_node_init ||--o{ rcl_service_init : node_handle
     rcl_node_init ||--o{ rclcpp_timer_link_node : node_handle
+    rcl_node_init ||--o{ rcl_service_init : node_handle
 
     rcl_publisher_init ||--|| PUBLISHER_HANDLE : node_handle
     rcl_subscription_init ||--|| SUBSCRIPTION_HANDLE : node_handle
