@@ -44,6 +44,18 @@ erDiagram
  address callback
  }
 
+ rcl_service_init{
+ address service_handle
+ address node_handle
+ address rmw_service_handle
+ string service_name
+ }
+
+ rclcpp_service_callback_added{
+ address service_hadle
+ address callback
+ }
+
  rcl_timer_init{
  address timer_handle
  int64_t period
@@ -71,16 +83,21 @@ erDiagram
     rcl_node_init ||--o{ rcl_publisher_init : node_handle
     rcl_node_init ||--o{ rcl_subscription_init : node_handle
     rcl_node_init ||--o{ rclcpp_timer_link_node : node_handle
+    rcl_node_init ||--o{ rcl_service_init : node_handle
 
     rcl_publisher_init ||--|| PUBLISHER_HANDLE : node_handle
     rcl_subscription_init ||--|| SUBSCRIPTION_HANDLE : node_handle
     rcl_timer_init ||--|| TIMER_HANDLE : node_handle
+    rcl_service_init ||--|| SERVICE_HANDLE : node_handle
 
     rcl_subscription_init ||--|| rclcpp_subscription_init : subscription_handle
-    rclcpp_subscription_init ||--|| rclcpp_subscription_callback_added: subscription
+    rclcpp_subscription_init ||--|| rclcpp_subscription_callback_added : subscription
 
-    rclcpp_timer_callback_added ||--|| rclcpp_callback_register: callback
-    rclcpp_subscription_callback_added ||--|| rclcpp_callback_register: callback
+    rcl_service_init ||--|| rclcpp_service_callback_added : service_handle
+    rclcpp_service_callback_added ||--|| rclcpp_callback_register : callback
+
+    rclcpp_timer_callback_added ||--|| rclcpp_callback_register : callback
+    rclcpp_subscription_callback_added ||--|| rclcpp_callback_register : callback
 
     rclcpp_timer_callback_added ||--|| rcl_timer_init : timer_handle
     rclcpp_timer_link_node ||--|| rcl_timer_init: timer_handle
@@ -147,7 +164,7 @@ erDiagram
     add_callback_group ||--o{ callback_group_add_service : callback_group_addr
     add_callback_group ||--o{ callback_group_add_client : callback_group_addr
 
-     callback_group_add_timer ||--|| TIMER_HANDLE : callback_group_addr
+    callback_group_add_timer ||--|| TIMER_HANDLE : callback_group_addr
     callback_group_add_subscription ||--|| SUBSCRIPTION_HANDLE : callback_group_addr
     callback_group_add_service ||--|| SERVICE_HANDLE : callback_group_addr
     callback_group_add_client ||--|| CLIENT_HANDLE : callback_group_addr
@@ -228,6 +245,30 @@ Sampled items
 Sampled items
 
 - void \* subscription
+- void \* callback
+
+---
+
+### ros2:rcl_service_init
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* service_handle
+- void \* node_handle
+- void \* rmw_service_handle
+- char \* service_name
+
+---
+
+### ros2:rclcpp_service_callback_added
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* service_handle
 - void \* callback
 
 ---
