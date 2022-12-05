@@ -1,8 +1,11 @@
 # Publish/Subscription Information
 
 CARET can visualize the publish/subscription frequency and period.
-This document describes sample visualization scripts for them.
-Execute following commands before running commands in each section.
+This section describes sample visualization scripts for them.
+Execute the following script code to load trace data and an architecture object before calling visualization API.
+
+This visualization will help you to check whether or not message is dropped during communication.
+
 
 ```python
 from caret_analyze.plot import Plot
@@ -29,6 +32,8 @@ pub = pub[0] # Info 2
 
 ## Frequency
 
+`Plot.create_publish_subscription_frequency_plot(Collection[publish: Publisher or subscription: Subscriber])` is introduced to check whether target publisher or frequency.
+
 ```python
 plot = Plot.create_publish_subscription_frequency_plot(pub)
 plot.show()
@@ -36,11 +41,12 @@ plot.show()
 
 ![pub_sub_frequency_time_line](../../imgs/pub_sub_frequency_time_line.png)
 
-The horizontal axis means `Time [s]` plotting by 1 second (changeable time-line as `xaxis_type=['system_time', 'sim_time', 'index']`).
-The vertical axis means `Frequency [Hz]` of the publisher/subscriber.
-This API is used to confirm whether the publisher/subscriber was running at desired frequency.
+The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared to select index of x-axis among Linux system time, [ROS simulation time](../../recording/sim_time.md), and 0-based ordering. One of `'system_time'`, `'sim_time'` and `'index'` is chosen as `xaxis_type` though `'system_time'` is the default value.
+The vertical axis means invocation frequency of publish or subscription, labeled as `Frequency [Hz]`. It is plotted per second.
 
 ## Period
+
+`Plot.create_publish_subscription_period_plot(Collection[publish: Publisher or subscription: Subscriber])` is useful to check how stable invocation cycle of publisher or subscription is.
 
 ```python
 plot = Plot.create_publish_subscription_period_plot(pub)
@@ -49,6 +55,5 @@ plot.show()
 
 ![pub_sub_frequency_time_line](../../imgs/pub_sub_period_time_line.png)
 
-The horizontal axis means `Time [s]` (changeable in ['system_time', 'sim_time', 'index']).
-The vertical axis means `Period [ms]` from one publish/subscription to next publish/subscription.
-This API is used to confirm whether the period was stable.
+The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared as well as `create_callback_frequency_plot()` method.
+The vertical axis means period of callback execution, labeled as `Period [ms]`. It is plotted per sample.

@@ -1,8 +1,8 @@
 # Callback
 
 CARET can visualize callback frequency, period, and latency.
-This document describes sample visualization scripts for them.
-Execute following script codes to load trace data and an architecture object before calling visualization API.
+This section describes sample visualization scripts for them.
+Execute the following script code to load trace data and an architecture object before calling visualization API.
 
 ```python
 from caret_analyze.plot import Plot
@@ -107,4 +107,4 @@ plot.show()
 ![callback_latency_time_line](../../imgs/callback_latency_time_line.png)
 
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared as well as `create_callback_frequency_plot()` method.
-The vertical axis means execution time of callback function, labeled as `Latency [ms]`. It is plotted per sample.
+The vertical axis means execution time of callback function, labeled as `Latency [ms]`. It is duration from `callback_start` to `callback_end` and plotted per sample.
