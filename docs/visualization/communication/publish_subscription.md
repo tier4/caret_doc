@@ -6,7 +6,6 @@ Execute the following script code to load trace data and an architecture object 
 
 This visualization will help you to check whether or not message is dropped during communication.
 
-
 ```python
 from caret_analyze.plot import Plot
 from caret_analyze import Application, Architecture, Lttng
