@@ -2488,11 +2488,9 @@ This makes it possible to exclude from recording only trace data related to rviz
 <p>This filtering function looks at the instance addresses (e.g. callback or publisher) to see if they are included in the filter.
 This check is done in O1 order because it uses std::unordered_map.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">ros_trace_callback_start</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_intra_process</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Singleton</span><span class="o">&lt;</span><span class="n">TracingController</span><span class="o">&gt;::</span><span class="n">get_instance</span><span class="p">();</span><span class="w"></span>
-
 <span class="w">  </span><span class="c1">// Record trace data only if current callback is allowed to record</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">controller</span><span class="p">.</span><span class="n">is_allowed_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">ORIG_FUNC</span><span class="o">::</span><span class="n">ros_trace_callback_start</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="n">is_intra_process</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">tracepoint</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="n">is_intra_process</span><span class="p">);</span><span class="w"> </span><span class="c1">// LTTng tracepoint</span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
@@ -2500,7 +2498,7 @@ This check is done in O1 order because it uses std::unordered_map.</p>
 <ul>
 <li><a href="../../software_architecture/caret_trace/">caret_trace</a></li>
 <li><a href="../../trace_points/">Tracepoint</a></li>
-<li><a href="../../../recording/trace_filtering/">Recording trace filtering</a></li>
+<li><a href="../../../recording/trace_filtering/">Recording | trace filtering</a></li>
 </ul>
 
 
