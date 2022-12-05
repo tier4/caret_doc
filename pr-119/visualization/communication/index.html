@@ -15,7 +15,7 @@
     
     
       
-        <title>Communication Information - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Communication - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#communication-information" class="md-skip">
+        <a href="#communication" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Communication Information
+              Communication
             
           </span>
         </div>
@@ -2439,6 +2439,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#caution" class="md-nav__link">
+    Caution
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2459,10 +2466,10 @@
   </a>
 
 
-<h1 id="communication-information">Communication Information<a class="headerlink" href="#communication-information" title="Permanent link">#</a></h1>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can visualize the communication frequency, period, and latency.
-This document describes sample visualization scripts for them.
-Execute following commands before running commands in each section.</p>
+<h1 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">#</a></h1>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can visualize frequency, period, and latency of communication on certain topic messages.<br />
+This section describes sample visualization scripts for them.<br />
+Execute following the following script code to load trace data and an architecture object before calling visualization API.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 <span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
@@ -2485,30 +2492,38 @@ Execute following commands before running commands in each section.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="frequency">Frequency<a class="headerlink" href="#frequency" title="Permanent link">#</a></h2>
+<p><code>Plot.create_communication_frequency_plot(communications: List[Communication])</code> is introduced to confirm targeted topic is communicated at expected frequency.</p>
 <div class="highlight"><pre><span></span><code><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_communication_frequency_plot</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="communication_frequency_time_line" src="../../imgs/communication_frequency_time_line.png" /></p>
-<p>The horizontal axis means <code>Time [s]</code> plotting by 1 second (changeable time-line as <code>xaxis_type=['system_time', 'sim_time', 'index']</code>).
-The vertical axis means <code>Frequency [Hz]</code> of the communication.
-This API is used to confirm whether the communication was running at desired frequency.</p>
+<p>The horizontal axis means time, labeled as <code>Time [s]</code>. <code>xaxis_type</code> argument is prepared to select index of x-axis among Linux system time, <a href="../../recording/sim_time/"><abbr title="Robot Operating System">ROS</abbr> simulation time</a>, and 0-based ordering. One of <code>'system_time'</code>, <code>'sim_time'</code> and <code>'index'</code> is chosen as <code>xaxis_type</code> though <code>'system_time'</code> is the default value.
+The vertical axis means frequency of communication, labeled as <code>Frequency [Hz]</code>. It is plotted per second.</p>
 <h2 id="period">Period<a class="headerlink" href="#period" title="Permanent link">#</a></h2>
+<p><code>Plot.create_communication_period_plot(communications: List[Communication])</code> is helpful if you want to see that communication period is stable or not.</p>
 <div class="highlight"><pre><span></span><code><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_communication_period_plot</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="communication_period_time_line" src="../../imgs/communication_period_time_line.png" /></p>
-<p>The horizontal axis means <code>Time [s]</code> (changeable in ['system_time', 'sim_time', 'index']).
-The vertical axis means <code>Period [ms]</code> from one communication to next communication.
-from one communication starts to the next time that the communication starts.
-This API is used to confirm whether the period was stable.</p>
+<p>The horizontal axis means time, labeled as <code>Time [s]</code>. <code>xaxis_type</code> argument is prepared as well as <code>create_communication_frequency_plot()</code> method.
+The vertical axis means period, labeled as <code>Period [ms]</code>, from a certain execution of communication to next one.</p>
 <h2 id="latency">Latency<a class="headerlink" href="#latency" title="Permanent link">#</a></h2>
+<p><code>Plot.create_communication_latency_plot(communications: List[Communication])</code> is called when you are concerned how long time is consumed from message publish to corresponding subscription.</p>
 <div class="highlight"><pre><span></span><code><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_communication_latency_plot</span><span class="p">(</span><span class="n">comm</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="communication_latency_time_line" src="../../imgs/communication_latency_time_line.png" /></p>
-<p>The horizontal axis means <code>Time [s]</code> (changeable in ['system_time', 'sim_time', 'index']).
-The vertical axis means <code>Latency [ms]</code> from one callback publishes a topic to next callback starts.
-This API is used to confirm the communication time.</p>
+<p>The horizontal axis means time, labeled as <code>Time [s]</code>. <code>xaxis_type</code> argument is prepared as well as <code>create_communication_frequency_plot()</code> method.
+The vertical axis means latency, labeled as <code>Latency [ms]</code>. It is plotted per sample.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Communication latency is defined as elapsed time from topic message publish to subscription callback execution corresponding to the message.
+Strictly speaking, it is not not only required time from message transmission to reception, but it includes scheduling latency of </p>
+</div>
+<p><prettier-ignore-end></p>
+<h2 id="caution">Caution<a class="headerlink" href="#caution" title="Permanent link">#</a></h2>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> picks up communication execution if both transmission and corresponding subscription are performed successfully. If any failure on communication happens, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> does not take it into account. Communication failure is observed if you check difference between count of publish and that of subscription. <a href="publish_subscription/">The subsection</a> will explain it.</p>
 
 
 
