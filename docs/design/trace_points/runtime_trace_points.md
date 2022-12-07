@@ -83,7 +83,7 @@ message_construct and dds_bind_addr_to_addr are trace points to adapt to copying
 
 ### ros2:callback_start
 
-[Original tracepoints]
+[Built-in tracepoints]
 
 Sampled items
 
@@ -94,7 +94,7 @@ Sampled items
 
 ### ros2:callback_end
 
-[Original tracepoints]
+[Built-in tracepoints]
 
 Sampled items
 
@@ -152,7 +152,7 @@ Sampled items
 
 ### ros2:rcl_publish
 
-[Original tracepoints]
+[Built-in tracepoints]
 
 Sampled items
 
@@ -163,7 +163,7 @@ Sampled items
 
 ### ros2:rclcpp_publish
 
-[Original tracepoints]
+[Built-in tracepoints]
 
 Sampled items
 
