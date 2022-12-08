@@ -83,21 +83,21 @@ message_construct and dds_bind_addr_to_addr are trace points to adapt to copying
 
 ### Trace point definition
 
-| tracepoint                                     | implementation | layer  | note                                          |
-| ---------------------------------------------- | -------------- | ------ | --------------------------------------------- |
-| callback_start                                 | built-in       | rclcpp |                                               |
-| callback_end                                   | built-in       | rclcpp |                                               |
-| message_construct                              | extended       | rclcpp | これは使わずともレイテンシが出せる。          |
-| rclcpp_intra_publish                           | extended       | rclcpp |                                               |
-| dispatch_subscipription_callback               | extended       | rclcpp |                                               |
-| dispatch_intra_process_subscipription_callback | extended       | rclcpp |                                               |
-| rcl_publish                                    | built-in       | rcl    |                                               |
-| rclcpp_publish                                 | built-in       | rclcpp |                                               |
-| dds_write                                      | hooked         | rclcpp | これは既に組み込まれている。                  |
-| dds_bind_addr_to_stamp                         | hooked         | dds    | DDSレイヤーに組み込もうという取り組みがある。 |
-| dds_bind_addr_to_addr                          | hooked         | rclcpp | これは使わずともレイテンシが出せる。          |
-| (enqueue_intra_process_buffer)                 | 未実装         | rclcpp | 本当は実装したいトレースポイント              |
-| (dequeue_intra_process_buffer)                 | 未実装         | rclcpp | 本当は実装したいトレースポイント              |
+| tracepoint                                     | implementation | layer  | note                                                                          |
+| ---------------------------------------------- | -------------- | ------ | ----------------------------------------------------------------------------- |
+| callback_start                                 | built-in       | rclcpp |                                                                               |
+| callback_end                                   | built-in       | rclcpp |                                                                               |
+| message_construct                              | extended       | rclcpp | これは使わずともレイテンシが出せる。                                          |
+| rclcpp_intra_publish                           | extended       | rclcpp | 再ビルドが必要な要因                                                          |
+| dispatch_subscipription_callback               | extended       | rclcpp | 再ビルドが必要な要因一部の情報はDDSレイヤーに組み込もうとする取り組みがある。 |
+| dispatch_intra_process_subscipription_callback | extended       | rclcpp | 再ビルドが必要な要因。                                                        |
+| rcl_publish                                    | built-in       | rcl    |                                                                               |
+| rclcpp_publish                                 | built-in       | rclcpp |                                                                               |
+| dds_write                                      | hooked         | rclcpp | これはhumbleで既に組み込まれている。                                          |
+| dds_bind_addr_to_stamp                         | hooked         | dds    | DDSレイヤーに組み込もうという取り組みがある。 CARETはフックで対応             |
+| dds_bind_addr_to_addr                          | hooked         | rclcpp | これは使わずともレイテンシが出せる。                                          |
+| (enqueue_intra_process_buffer)                 | 未実装         | rclcpp | 本当は実装したいトレースポイント                                              |
+| (dequeue_intra_process_buffer)                 | 未実装         | rclcpp | 本当は実装したいトレースポイント                                              |
 
 #### ros2:callback_start
 
