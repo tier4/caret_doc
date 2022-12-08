@@ -104,6 +104,10 @@ erDiagram
 
 ```
 
+### Tracepoints for representing structure of executor and callback group
+
+A handler such as `timer_handle` and `subscription_handle` are assigned to a callback group. A callback group belongs to an executor.
+
 Relationships of each trace point related to executors are shown as follows.
 
 ```mermaid
@@ -172,11 +176,35 @@ erDiagram
 
 ```
 
-### Tracepoints for representing structure of executor and callback group
+### Trace point definition
 
-A handler such as `timer_handle` and `subscription_handle` are assigned to a callback group. A callback group belongs to an executor.
+The following shows the definition of trace points.
 
-### ros2:rcl_init
+| tracepoint                          | implementation | layer            | note                                                                                         |
+| ----------------------------------- | -------------- | ---------------- | -------------------------------------------------------------------------------------------- |
+| rcl_init                            | Built-in       | rcl              |                                                                                              |
+| rcl_node_init                       | Built-in       | rcl              |                                                                                              |
+| rcl_publisher_init                  | Built-in       | rcl              |                                                                                              |
+| rcl_subscription_init               | Built-in       | rcl              |                                                                                              |
+| rclcpp_subscription_init            | Built-in       | rclcpp           |                                                                                              |
+| rclcpp_subscription_callback_added  | Built-in       | rclcpp           |                                                                                              |
+| rcl_service_init                    | Built-in       | rcl              |                                                                                              |
+| rclcpp_service_callback_added       | Built-in       | rclcpp           |                                                                                              |
+| rcl_timer_init                      | Built-in       | rcl              |                                                                                              |
+| rclcpp_timer_callback_added         | Built-in       | rclcpp           |                                                                                              |
+| rclcpp_timer_link_node              | Built-in       | rclcpp           |                                                                                              |
+| rclcpp_callback_register            | Built-in       | rclcpp           |                                                                                              |
+| rmw_implementation                  | hook           | あとで確認する。 |                                                                                              |
+| construct_executor                  | hook           | rclcpp           |                                                                                              |
+| construct_static_executor           | hook           | rclcpp           |                                                                                              |
+| add_callback_group                  | hook           | rclcpp           | ココらへんはもう少し良い実装場所があったかもしれない。同じデータが重複して保存されてしまう。 |
+| add_callback_group_static_executor  | hook           | rclcpp           | ココらへんはもう少し良い実装場所があったかもしれない。                                       |
+| add_callback_group_add_timer        | hook           | rclcpp           |                                                                                              |
+| add_callback_group_add_subscription | hook           | rclcpp           |                                                                                              |
+| add_callback_group_add_service      | hook           | rclcpp           |                                                                                              |
+| add_callback_group_add_client       | hook           | rclcpp           |                                                                                              |
+
+#### ros2:rcl_init
 
 [Built-in tracepoints]
 
@@ -186,7 +214,7 @@ Sampled items
 
 ---
 
-### ros2:rcl_node_init
+#### ros2:rcl_node_init
 
 [Built-in tracepoints]
 
@@ -199,7 +227,7 @@ Sampled items
 
 ---
 
-### ros2:rcl_publisher_init
+#### ros2:rcl_publisher_init
 
 [Built-in tracepoints]
 
@@ -213,7 +241,7 @@ Sampled items
 
 ---
 
-### ros2:rcl_subscription_init
+#### ros2:rcl_subscription_init
 
 [Built-in tracepoints]
 
@@ -227,7 +255,7 @@ Sampled items
 
 ---
 
-### ros2:rclcpp_subscription_init
+#### ros2:rclcpp_subscription_init
 
 [Built-in tracepoints]
 
@@ -238,7 +266,7 @@ Sampled items
 
 ---
 
-### ros2:rclcpp_subscription_callback_added
+#### ros2:rclcpp_subscription_callback_added
 
 [Built-in tracepoints]
 
@@ -249,7 +277,7 @@ Sampled items
 
 ---
 
-### ros2:rcl_service_init
+#### ros2:rcl_service_init
 
 [Built-in tracepoints]
 
@@ -262,7 +290,7 @@ Sampled items
 
 ---
 
-### ros2:rclcpp_service_callback_added
+#### ros2:rclcpp_service_callback_added
 
 [Built-in tracepoints]
 
@@ -273,7 +301,7 @@ Sampled items
 
 ---
 
-### ros2:rcl_timer_init
+#### ros2:rcl_timer_init
 
 [Built-in tracepoints]
 
@@ -284,7 +312,7 @@ Sampled items
 
 ---
 
-### ros2:rclcpp_timer_callback_added
+#### ros2:rclcpp_timer_callback_added
 
 [Built-in tracepoints]
 
@@ -295,7 +323,7 @@ Sampled items
 
 ---
 
-### ros2:rclcpp_timer_link_node
+#### ros2:rclcpp_timer_link_node
 
 [Built-in tracepoints]
 
@@ -306,7 +334,7 @@ Sampled items
 
 ---
 
-### ros2:rclcpp_callback_register
+#### ros2:rclcpp_callback_register
 
 [Built-in tracepoints]
 
@@ -317,7 +345,7 @@ Sampled items
 
 ---
 
-### ros2_caret:rmw_implementation
+#### ros2_caret:rmw_implementation
 
 [Hooked tracepoints]
 
@@ -327,7 +355,7 @@ Sampled items
 
 ---
 
-### ros2_caret:construct_executor
+#### ros2_caret:construct_executor
 
 [Hooked tracepoints]
 
@@ -338,7 +366,7 @@ Sampled items
 
 ---
 
-### ros2_caret:construct_static_executor
+#### ros2_caret:construct_static_executor
 
 [Hooked tracepoints]
 
@@ -350,7 +378,7 @@ Sampled items
 
 ---
 
-### ros2_caret:add_callback_group
+#### ros2_caret:add_callback_group
 
 [Hooked tracepoints]
 
@@ -362,7 +390,7 @@ Sampled items
 
 ---
 
-### ros2_caret:add_callback_group_static_executor
+#### ros2_caret:add_callback_group_static_executor
 
 [Hooked tracepoints]
 
@@ -374,7 +402,7 @@ Sampled items
 
 ---
 
-### ros2_caret:callback_group_add_timer
+#### ros2_caret:callback_group_add_timer
 
 [Hooked tracepoints]
 
@@ -385,7 +413,7 @@ Sampled items
 
 ---
 
-### ros2_caret:callback_group_add_subscription
+#### ros2_caret:callback_group_add_subscription
 
 [Hooked tracepoints]
 
@@ -396,7 +424,7 @@ Sampled items
 
 ---
 
-### ros2_caret:callback_group_add_service
+#### ros2_caret:callback_group_add_service
 
 [Hooked tracepoints]
 
@@ -407,7 +435,7 @@ Sampled items
 
 ---
 
-### ros2_caret:callback_group_add_client
+#### ros2_caret:callback_group_add_client
 
 [Hooked tracepoints]
 

@@ -81,7 +81,25 @@ This is because the relationship between callback and publish is highly implemen
 
 message_construct and dds_bind_addr_to_addr are trace points to adapt to copying and converting instances for binding.
 
-### ros2:callback_start
+### Trace point definition
+
+| tracepoint                                     | implementation | layer  | note                                          |
+| ---------------------------------------------- | -------------- | ------ | --------------------------------------------- |
+| callback_start                                 | built-in       | rclcpp |                                               |
+| callback_end                                   | built-in       | rclcpp |                                               |
+| message_construct                              | extended       | rclcpp | これは使わずともレイテンシが出せる。          |
+| rclcpp_intra_publish                           | extended       | rclcpp |                                               |
+| dispatch_subscipription_callback               | extended       | rclcpp |                                               |
+| dispatch_intra_process_subscipription_callback | extended       | rclcpp |                                               |
+| rcl_publish                                    | built-in       | rcl    |                                               |
+| rclcpp_publish                                 | built-in       | rclcpp |                                               |
+| dds_write                                      | hooked         | rclcpp | これは既に組み込まれている。                  |
+| dds_bind_addr_to_stamp                         | hooked         | dds    | DDSレイヤーに組み込もうという取り組みがある。 |
+| dds_bind_addr_to_addr                          | hooked         | rclcpp | これは使わずともレイテンシが出せる。          |
+| (enqueue_intra_process_buffer)                 | 未実装         | rclcpp | 本当は実装したいトレースポイント              |
+| (dequeue_intra_process_buffer)                 | 未実装         | rclcpp | 本当は実装したいトレースポイント              |
+
+#### ros2:callback_start
 
 [Built-in tracepoints]
 
@@ -92,7 +110,7 @@ Sampled items
 
 ---
 
-### ros2:callback_end
+#### ros2:callback_end
 
 [Built-in tracepoints]
 
@@ -102,7 +120,7 @@ Sampled items
 
 ---
 
-### ros2:message_construct
+#### ros2:message_construct
 
 [Extended tracepoints]
 
@@ -113,7 +131,7 @@ Sampled items
 
 ---
 
-### ros2:rclcpp_intra_publish
+#### ros2:rclcpp_intra_publish
 
 [Extended tracepoints]
 
@@ -125,7 +143,7 @@ Sampled items
 
 ---
 
-### ros2:dispatch_subscription_callback
+#### ros2:dispatch_subscription_callback
 
 [Extended tracepoints]
 
@@ -138,7 +156,7 @@ Sampled items
 
 ---
 
-### ros2:dispatch_intra_process_subscription_callback
+#### ros2:dispatch_intra_process_subscription_callback
 
 [Extended tracepoints]
 
@@ -150,7 +168,7 @@ Sampled items
 
 ---
 
-### ros2:rcl_publish
+#### ros2:rcl_publish
 
 [Built-in tracepoints]
 
@@ -161,7 +179,7 @@ Sampled items
 
 ---
 
-### ros2:rclcpp_publish
+#### ros2:rclcpp_publish
 
 [Built-in tracepoints]
 
@@ -171,7 +189,7 @@ Sampled items
 - void \* message
 - uint64_t message_timestamp
 
-### ros2_caret:dds_write
+#### ros2_caret:dds_write
 
 [Hooked tracepoints]
 
@@ -181,7 +199,7 @@ Sampled items
 
 ---
 
-### ros2_caret:dds_bind_addr_to_stamp
+#### ros2_caret:dds_bind_addr_to_stamp
 
 [Hooked tracepoints]
 
@@ -192,7 +210,7 @@ Sampled items
 
 ---
 
-### ros2_caret:dds_bind_addr_to_addr
+#### ros2_caret:dds_bind_addr_to_addr
 
 [Hooked tracepoints]
 
