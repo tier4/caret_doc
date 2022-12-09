@@ -27,6 +27,21 @@ ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
 INFO    : 2022-09-29 20:18:43 | All packages are built using caret-rclcpp.
 ```
 
+## Recording
+
+This command runs LTTng session and recording sequence. ([See details](./recording.md))
+
+Recording begins after `All process started recording` is displayed.
+
+```bash
+ros2 caret record -s session_name -f 100 -v
+```
+
+Increasing the number of the -f option reduces the time required to start the recording.
+However, the recording is more likely to cause `Tracer discarded`.
+
+With the -v option, you can check status for recording sequence in detail.
+
 ## Trace data validation
 
 This command checks whether a recording is successful. ([See details](./validating.md#validating-trace-data))
