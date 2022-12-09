@@ -2012,6 +2012,26 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2rcl_service_init" class="md-nav__link">
+    ros2:rcl_service_init
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2rclcpp_service_callback_added" class="md-nav__link">
+    ros2:rclcpp_service_callback_added
+  </a>
+  
+    <nav class="md-nav" aria-label="ros2:rclcpp_service_callback_added">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#ros2rcl_timer_init" class="md-nav__link">
     ros2:rcl_timer_init
@@ -2717,6 +2737,26 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2rcl_service_init" class="md-nav__link">
+    ros2:rcl_service_init
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2rclcpp_service_callback_added" class="md-nav__link">
+    ros2:rclcpp_service_callback_added
+  </a>
+  
+    <nav class="md-nav" aria-label="ros2:rclcpp_service_callback_added">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#ros2rcl_timer_init" class="md-nav__link">
     ros2:rcl_timer_init
@@ -2888,6 +2928,18 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
  address callback
  }
 
+ rcl_service_init{
+ address service_handle
+ address node_handle
+ address rmw_service_handle
+ string service_name
+ }
+
+ rclcpp_service_callback_added{
+ address service_hadle
+ address callback
+ }
+
  rcl_timer_init{
  address timer_handle
  int64_t period
@@ -2915,16 +2967,21 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
     rcl_node_init ||--o{ rcl_publisher_init : node_handle
     rcl_node_init ||--o{ rcl_subscription_init : node_handle
     rcl_node_init ||--o{ rclcpp_timer_link_node : node_handle
+    rcl_node_init ||--o{ rcl_service_init : node_handle
 
     rcl_publisher_init ||--|| PUBLISHER_HANDLE : node_handle
     rcl_subscription_init ||--|| SUBSCRIPTION_HANDLE : node_handle
     rcl_timer_init ||--|| TIMER_HANDLE : node_handle
+    rcl_service_init ||--|| SERVICE_HANDLE : node_handle
 
     rcl_subscription_init ||--|| rclcpp_subscription_init : subscription_handle
-    rclcpp_subscription_init ||--|| rclcpp_subscription_callback_added: subscription
+    rclcpp_subscription_init ||--|| rclcpp_subscription_callback_added : subscription
 
-    rclcpp_timer_callback_added ||--|| rclcpp_callback_register: callback
-    rclcpp_subscription_callback_added ||--|| rclcpp_callback_register: callback
+    rcl_service_init ||--|| rclcpp_service_callback_added : service_handle
+    rclcpp_service_callback_added ||--|| rclcpp_callback_register : callback
+
+    rclcpp_timer_callback_added ||--|| rclcpp_callback_register : callback
+    rclcpp_subscription_callback_added ||--|| rclcpp_callback_register : callback
 
     rclcpp_timer_callback_added ||--|| rcl_timer_init : timer_handle
     rclcpp_timer_link_node ||--|| rcl_timer_init: timer_handle
@@ -2989,7 +3046,7 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
     add_callback_group ||--o{ callback_group_add_service : callback_group_addr
     add_callback_group ||--o{ callback_group_add_client : callback_group_addr
 
-     callback_group_add_timer ||--|| TIMER_HANDLE : callback_group_addr
+    callback_group_add_timer ||--|| TIMER_HANDLE : callback_group_addr
     callback_group_add_subscription ||--|| SUBSCRIPTION_HANDLE : callback_group_addr
     callback_group_add_service ||--|| SERVICE_HANDLE : callback_group_addr
     callback_group_add_client ||--|| CLIENT_HANDLE : callback_group_addr
@@ -2998,13 +3055,13 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
 <h3 id="trace-point-definition">Trace point definition<a class="headerlink" href="#trace-point-definition" title="Permanent link">#</a></h3>
 <p>The following shows the definition of trace points.</p>
 <p>Trace points with <code>(caret_trace added)</code> are hooked and added init_timestamp by caret_trace.
-See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> for detail.</p>
+See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime recording</a> for detail.</p>
 <h4 id="ros2rcl_init">ros2:rcl_init<a class="headerlink" href="#ros2rcl_init" title="Permanent link">#</a></h4>
 <p>[Built-in tracepoints]</p>
 <p>Sampled items</p>
 <ul>
 <li>void * context_handle</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
 </ul>
 <hr />
 <h4 id="ros2rcl_node_init">ros2:rcl_node_init<a class="headerlink" href="#ros2rcl_node_init" title="Permanent link">#</a></h4>
@@ -3015,7 +3072,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <li>void * rmw_handle</li>
 <li>char * node_name</li>
 <li>char * node_namespace</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
 </ul>
 <hr />
 <h4 id="ros2rcl_publisher_init">ros2:rcl_publisher_init<a class="headerlink" href="#ros2rcl_publisher_init" title="Permanent link">#</a></h4>
@@ -3027,7 +3084,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <li>void * rmw_publisher_handle</li>
 <li>char * topic_name</li>
 <li>size_t queue_depth</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
 </ul>
 <hr />
 <h4 id="ros2rcl_subscription_init">ros2:rcl_subscription_init<a class="headerlink" href="#ros2rcl_subscription_init" title="Permanent link">#</a></h4>
@@ -3039,7 +3096,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <li>void * rmw_subscription_handle</li>
 <li>char * topic_name</li>
 <li>size_t queue_depth</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
 </ul>
 <hr />
 <h4 id="ros2rclcpp_subscription_init">ros2:rclcpp_subscription_init<a class="headerlink" href="#ros2rclcpp_subscription_init" title="Permanent link">#</a></h4>
@@ -3048,7 +3105,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * subscription_handle</li>
 <li>void * subscription</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
 </ul>
 <hr />
 <h4 id="ros2rclcpp_subscription_callback_added">ros2:rclcpp_subscription_callback_added<a class="headerlink" href="#ros2rclcpp_subscription_callback_added" title="Permanent link">#</a></h4>
@@ -3057,7 +3114,25 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * subscription</li>
 <li>void * callback</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
+</ul>
+<hr />
+<h3 id="ros2rcl_service_init">ros2:rcl_service_init<a class="headerlink" href="#ros2rcl_service_init" title="Permanent link">#</a></h3>
+<p>[Built-in tracepoints]</p>
+<p>Sampled items</p>
+<ul>
+<li>void * service_handle</li>
+<li>void * node_handle</li>
+<li>void * rmw_service_handle</li>
+<li>char * service_name</li>
+</ul>
+<hr />
+<h3 id="ros2rclcpp_service_callback_added">ros2:rclcpp_service_callback_added<a class="headerlink" href="#ros2rclcpp_service_callback_added" title="Permanent link">#</a></h3>
+<p>[Built-in tracepoints]</p>
+<p>Sampled items</p>
+<ul>
+<li>void * service_handle</li>
+<li>void * callback</li>
 </ul>
 <hr />
 <h4 id="ros2rcl_timer_init">ros2:rcl_timer_init<a class="headerlink" href="#ros2rcl_timer_init" title="Permanent link">#</a></h4>
@@ -3066,7 +3141,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * timer_handle</li>
 <li>int64_t period</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
 </ul>
 <hr />
 <h4 id="ros2rclcpp_timer_callback_added">ros2:rclcpp_timer_callback_added<a class="headerlink" href="#ros2rclcpp_timer_callback_added" title="Permanent link">#</a></h4>
@@ -3075,7 +3150,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * timer_handle</li>
 <li>void * callback</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
 </ul>
 <hr />
 <h4 id="ros2rclcpp_timer_link_node">ros2:rclcpp_timer_link_node<a class="headerlink" href="#ros2rclcpp_timer_link_node" title="Permanent link">#</a></h4>
@@ -3084,7 +3159,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * timer_handle</li>
 <li>void * node_handle</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
 </ul>
 <hr />
 <h4 id="ros2rclcpp_callback_register">ros2:rclcpp_callback_register<a class="headerlink" href="#ros2rclcpp_callback_register" title="Permanent link">#</a></h4>
@@ -3093,7 +3168,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * callback</li>
 <li>char * function_symbol</li>
-<li>int64_t * init_timestamp (caret_trace added)</li>
+<li>int64_t init_timestamp (caret_trace added)</li>
 </ul>
 <hr />
 <h4 id="ros2_caretcaret_init">ros2_caret:caret_init<a class="headerlink" href="#ros2_caretcaret_init" title="Permanent link">#</a></h4>
@@ -3108,7 +3183,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <p>Sampled items</p>
 <ul>
 <li>char * rmw_impl</li>
-<li>int64_t * init_timestamp</li>
+<li>int64_t init_timestamp</li>
 </ul>
 <hr />
 <h4 id="ros2_caretconstruct_executor">ros2_caret:construct_executor<a class="headerlink" href="#ros2_caretconstruct_executor" title="Permanent link">#</a></h4>
@@ -3117,7 +3192,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * executor_addr</li>
 <li>char * executor_type_name</li>
-<li>int64_t * init_timestamp</li>
+<li>int64_t init_timestamp</li>
 </ul>
 <hr />
 <h4 id="ros2_caretconstruct_static_executor">ros2_caret:construct_static_executor<a class="headerlink" href="#ros2_caretconstruct_static_executor" title="Permanent link">#</a></h4>
@@ -3127,7 +3202,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <li>void * executor_addr</li>
 <li>void * entities_collector_addr</li>
 <li>char * executor_type_name</li>
-<li>int64_t * init_timestamp</li>
+<li>int64_t init_timestamp</li>
 </ul>
 <hr />
 <h4 id="ros2_caretadd_callback_group">ros2_caret:add_callback_group<a class="headerlink" href="#ros2_caretadd_callback_group" title="Permanent link">#</a></h4>
@@ -3137,7 +3212,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <li>void * executor_addr</li>
 <li>void * callback_group_addr</li>
 <li>char * group_type_name</li>
-<li>int64_t * init_timestamp</li>
+<li>int64_t init_timestamp</li>
 </ul>
 <hr />
 <h4 id="ros2_caretadd_callback_group_static_executor">ros2_caret:add_callback_group_static_executor<a class="headerlink" href="#ros2_caretadd_callback_group_static_executor" title="Permanent link">#</a></h4>
@@ -3147,7 +3222,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <li>void * entities_collector_addr</li>
 <li>void * callback_group_addr</li>
 <li>char * group_type_name</li>
-<li>int64_t * init_timestamp</li>
+<li>int64_t init_timestamp</li>
 </ul>
 <hr />
 <h4 id="ros2_caretcallback_group_add_timer">ros2_caret:callback_group_add_timer<a class="headerlink" href="#ros2_caretcallback_group_add_timer" title="Permanent link">#</a></h4>
@@ -3156,7 +3231,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * callback_group_addr</li>
 <li>void * timer_handle</li>
-<li>int64_t * init_timestamp</li>
+<li>int64_t init_timestamp</li>
 </ul>
 <hr />
 <h4 id="ros2_caretcallback_group_add_subscription">ros2_caret:callback_group_add_subscription<a class="headerlink" href="#ros2_caretcallback_group_add_subscription" title="Permanent link">#</a></h4>
@@ -3165,7 +3240,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * callback_group_addr</li>
 <li>void * subscription_handle</li>
-<li>int64_t * init_timestamp</li>
+<li>int64_t init_timestamp</li>
 </ul>
 <hr />
 <h4 id="ros2_caretcallback_group_add_service">ros2_caret:callback_group_add_service<a class="headerlink" href="#ros2_caretcallback_group_add_service" title="Permanent link">#</a></h4>
@@ -3174,7 +3249,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * callback_group_addr</li>
 <li>void * service_handle</li>
-<li>int64_t * init_timestamp</li>
+<li>int64_t init_timestamp</li>
 </ul>
 <hr />
 <h4 id="ros2_caretcallback_group_add_client">ros2_caret:callback_group_add_client<a class="headerlink" href="#ros2_caretcallback_group_add_client" title="Permanent link">#</a></h4>
@@ -3183,7 +3258,7 @@ See <a href="../../runtime_processing/runtime_recording/">Runtime recording</a> 
 <ul>
 <li>void * callback_group_addr</li>
 <li>void * client_handle</li>
-<li>int64_t * init_timestamp</li>
+<li>int64_t init_timestamp</li>
 </ul>
 
 
