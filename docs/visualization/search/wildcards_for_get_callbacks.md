@@ -1,8 +1,8 @@
-# Wildcards for get_callbacks()
+# Wildcard for get_callbacks()
 
-The function `get_callbacks()` gets a list of callbacks that match the argument string and callback names (callback names defined in architecture file).
-If there is no match callbacks, this function may notify similar callback names.
-The function `get_callbacks()` can recognize UNIX filename patterns such as '\*' or '?'.
+`get_callbacks()` function gets a list of callbacks whose names match a given string as an argument.
+If there is no matched callbacks, this function may tell you possible candidates of callback.
+`get_callbacks()` supports UNIX-based wildcard such as '\*' or '?'.
 If there is no match callbacks even though using these wildcards, a empty list is returned.
 
 ## Usage

@@ -1,7 +1,6 @@
 # Message flow
 
-The function `message_flow()` can visualizes message dependencies throughout the system.
-You can confirm latency of the target path.
+`message_flow()` function visualizes how input messages are received to nodes and output messages are transmitted to next nodes. You can confirm bottleneck of response in your application.
 
 ```python
 from caret_analyze.plot import message_flow
@@ -19,24 +18,22 @@ message_flow(path, granularity='node', lstrip_s=1, rstrip_s=1)
 
 ![message_flow](../../imgs/message_flow_sample.png)
 
-The horizontal axis means `Time [s]`.
-The vertical axis means the target path to measure the latency.
-Each colored line represents message dependencies for each message. The gray rectangular areas indicate the callback execution time.
+The horizontal axis means time, labeled as `Time [s]`.
+The vertical axis lists names of nodes and topics in a target path. A colored line is corresponded to an input message and represents its propagation. With tracing a colored line, you can find when a message input is processed in a certain node.
+Gray rectangles indicate callback executions.
 
-The function `message_flow()` has following arguments.
+`message_flow()` function has following arguments.
 
-- `granularity`
-  - Change the granularity of visualization in ['raw', 'node']
-- `lstrip_s` and `rstrip_s`
-  - Extract the focusing points by removing unnecessary data
-  - `lstrip_s=1` means that the data for 1 second from trace start is removed.
-  - `rstrip_s=1` means that the data for 1 second from trace end is removed.
-- `use_sim_time`
-  - Bool whether using simulation time (`False` by default)
+- `granularity` is served to adjusts granularity of chain with two value; `raw` and `node`
+  - With `raw`, callback-level message flow is generated
+  - With `node`, node-level message flow is generated
+- `lstrip_s` is float value for selecting start time of cropping time range
+- `rstrip_s=1` is float value for selecting end time of cropping time range
+- `use_sim_time` is boolean value for mapping simulation time on a horizontal axis
 
-In addition to the basic operations of bokeh, the message flow diagram allows the following operations
+Message flow diagram allows the following operations.
 
-- Scale adjustment of xaxis/yaxis
-  - Scale adjustments can be made only on the X-axis or only on the Y-axis by operating the wheel on the axis labels.
-- View detailed information
-  - Move the cursor over the lines in the message flow or the gray rectangular areas can see the detail information of the callback and message.
+- Scrolling upper or lower on x-axis for scaling up or down on horizontal direction
+- Scrolling upper or lower on y-axis for scaling up or down on vertical direction
+- Scrolling upper of lower on a graph for scaling up or down on both horizontal and vertical direction
+- Hovering over a line in message flow or a gray rectangle give you details

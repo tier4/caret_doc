@@ -1,9 +1,9 @@
-# Plot Response Time
+# Response Time
 
-Response Time is visualized in Histogram and there are 3 cases ([default, best, worst]) as described in [Here](../../faq/index.md#how-response-time-is-calculated).
-This document describes sample visualization scripts for Response Time.
-In each case, the horizontal axis means `Response Time [ms]` and the vertical axis means `Probability`.
-This API is used to confirm how long the response time is.
+In context of CARET, response time is defined how much of time costs from a message input to message output from a targeted path. Please refer to [FAQ](../../faq/index.md#how-response-time-is-calculated) if you are interested in response time defined in CARET.
+
+Three cases of response time is defined CARET; `best-to-worst`, `best`, and `worst`. With `best` case, CARET samples shortest time elapsed in a targeted path. With `worst` case, the previous message input timing is taken into account. `best-to-worst` case includes most of all cases between `best` and `worst`.
+This section shows three sample scripts for response time. They generates histograms respectively.Horizontal axis of the histograms means response time, labeled `Response Time [ms]` and vertical axis of the histograms means `Probability`.
 
 ```python
 from caret_analyze.plot import Plot
@@ -16,7 +16,7 @@ lttng = Lttng('/path/to/trace_data')
 app = Application(arch, lttng)
 path = app.get_path('target_path')
 
-# plot default case
+# plot best-to-worst case
 plot = Plot.create_response_time_histogram_plot(path)
 plot.show()
 ```

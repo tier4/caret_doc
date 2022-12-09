@@ -1,6 +1,6 @@
 # Chain latency
 
-Chain latency can show the latency of each node in the end-to-end path and the communication time between nodes.
+Chain latency shows a breakdown of path latency. As explained in [configuration](../../configuration/index.md), path latency is sum of elapse time in inter-node data paths and that in intra-node data paths. Chain latency shows how time is cost in inter-node data path and intra-node data path respectively.
 
 ```python
 from caret_analyze.plot import chain_latency
@@ -18,9 +18,11 @@ chain_latency(path, granularity='node', lstrip_s=1, rstrip_s=1)
 
 ![chain_latency_sample](../../imgs/chain_latency_sample.png)
 
-- `granularity`
-  - Change the granularity of visualization in ['raw', 'node']
-- `lstrip_s` and `rstrip_s`
-  - Extract the focusing points by removing unnecessary data
-  - `lstrip_s=1` means that the data for 1 second from trace start is removed.
-  - `rstrip_s=1` means that the data for 1 second from trace end is removed.
+`chain_latency` function has 3 arguments as listed below.
+
+- `granularity` is served to adjusts granularity of chain with two value; `end-to-end` and `node`
+  - With `node`, intermediate nodes are also displayed in chain graph
+  - With `end-to-end`, only initial node and destination node appear in chain graph
+- `lstrip_s` is float value for selecting start time of cropping time range
+- `rstrip_s=1` is float value for selecting end time of cropping time range
+

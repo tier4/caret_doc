@@ -3,6 +3,5 @@ nav:
     - Callback: callback
     - Communication: communication
     - Path: path
-    - Helper APIs:
-        - Filter: filter
-        - Search: search
+    - Filter: filter
+    - Search: search
