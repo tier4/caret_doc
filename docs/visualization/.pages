@@ -1,9 +1,8 @@
 nav:
     - Visualization: index.md
-    - Visualization APIs:
-        - Callback: callback
-        - Communication: communication
-        - Path: path
+    - Callback: callback
+    - Communication: communication
+    - Path: path
     - Helper APIs:
         - Filter: filter
         - Search: search

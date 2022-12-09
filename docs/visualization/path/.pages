@@ -1,0 +1,5 @@
+nav:
+    - Message flow: message_flow.md
+    - Chain latency: chain_latency.md
+    - Response time: response_time.md
+

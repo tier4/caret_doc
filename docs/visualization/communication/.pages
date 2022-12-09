@@ -1,0 +1,4 @@
+nav:
+    - index.md
+    - Publish and Subscription: publish_subscription.md
+    - Many to many communication: many_to_many_communication.md

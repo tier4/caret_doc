@@ -1,5 +1,25 @@
 # Communication
 
+## Premise
+
+<prettier-ignore-start>
+!!!info
+    This premise section may be boring for some users. If you don't have much time, please feel free to skip the section.
+<prettier-ignore-end>
+
+
+In ROS 2, nodes communicate each other via topic messages. The topic messages are transmitted by publisher and received by subscription. The following figure shows the simplest example where one node sends topic message and the other node receives it.
+
+![simple communication](./imgs/simple_communication.svg)
+
+CARET serves `Communication` class which focus on a topic message from a source node to a destination node. A `Communication`-based object is retrieved from method, `Application.get_communication('source node', 'destination node', '/topic/message')`. A `Communication` object has a collection of timestamps which are obtained when both publish and subscription on a target message are performed successfully. `Communication` class is explained in the page.
+
+Topic messages have possibility to be lost in communication path as they are transmitted and received by UDP. A `Communication` object ignores loss of topic messages. If you want to check loss of topic messages, it is reasonable to compare the number of publish and that of subscription. CARET serves both `Publish` and `Subscription` class. A `Publish` object has a collection of timestamp obtained when publish is invoked. A `Subscription` object have timestamps of invocation of subscription callback. Visualization of `Publish` and `Subscription` objects are explained in [one of subsections](./publish_subscription.md).
+
+[Many-to-many communication subsection](./many_to_many_communication.md) explains cases where multiple source nodes or multiple destination nodes exist. Many-to-many communication is divided into 1-to-1 communication by CARET. The subsection describes what user have to take care of.
+
+## Visualization using `Communication` class
+
 CARET can visualize frequency, period, and latency of communication on certain topic messages.  
 This section describes sample visualization scripts for them.  
 Execute following the following script code to load trace data and an architecture object before calling visualization API.
@@ -71,7 +91,3 @@ The vertical axis means latency, labeled as `Latency [ms]`. It is plotted per sa
     Communication latency is defined as elapsed time from topic message publish to subscription callback execution corresponding to the message.
     Strictly speaking, it is not not only required time from message transmission to reception, but it includes scheduling latency of
 <prettier-ignore-end>
-
-## Caution
-
-CARET picks up communication execution if both transmission and corresponding subscription are performed successfully. If any failure on communication happens, CARET does not take it into account. Communication failure is observed if you check difference between count of publish and that of subscription. [The subsection](./publish_subscription.md) will explain it.
