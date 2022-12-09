@@ -236,7 +236,7 @@ RECORD : Record initialization and runtime trace data with LTTng
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Transition conditions for entering | - Start application with no active LTTng session. <br> - Receive messages from /caret/end_record topic. |
 | Transition conditions for exiting  | - Receive messages from `/caret/start_record` topic.                                                    |
-| Initialization trace point         | - Store in memory. <br> - Record as LTTng tracepoint (synchrononus recording).                          |
+| Initialization trace point         | - Store in memory. <br> - Record as LTTng tracepoint (synchronous recording).                           |
 | Runtime trace data                 | - Discard.                                                                                              |
 
 ### PREPARE
