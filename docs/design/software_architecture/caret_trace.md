@@ -1,86 +1,185 @@
 # caret_trace
 
-caret_trace is a package that handles recording such as adding trace points.
+caret_trace is a package that handles recording.
 
 The role of caret_trace is as follows
 
-- Race Point Definition
-- Adding Tracepoints with Hooks
-- trace filtering
-- simtime recording
+- Trace point definition
+- Trace data managing for runtime recording
+- Adding tracepoints with hooks
+- Trace filtering
+- Simtime recording
 
 See also
 
 - [Tracepoints](../trace_points)
 - [Hook](../runtime_processing/hook.md)
+- [Runtime recording](../runtime_processing/runtime_recording.md)
 
 ## Class Structure
 
 ```plantuml
 
+note left of Context : A class that manages instances; Singleton.
+class Context {
+    -- public --
+    + get_trace_controller(): TracingController
+    + get_node(): TraceNode
+    + is_recording_enabled(): bool
+    + ...
+}
+
+note left of HashableKeys : Tuple-like class that can calculate and compare hash values
 class HashableKeys<T1, T2, ...> {
-    + insert(args): void
-    + has(): bool
+    -- public --
+    .. read only ..
     + hash(): size_t
+    + equal_to(...) : bool
+    -- private --
+    - key: T1;
+    - ...
 }
 
-class KeysSet<T1, T2, ...> {
-    + insert(args): void
-    + has(args): void
+note left of KeysSet : Class that stores HashableKeys as a set.
+class KeysSet<T> {
+    -- public --
+    + insert(value: T): void
+    .. read only..
+    + first(): T
+    + ...
+    -- private --
+    - keys_: set<HashbleKeys<T>>
 }
 
-class Singleton<T> {
-    + get_instance(): T
+note left of RecordableData : Data storage class that has a record function\nData are stored as pending during recording, and are merged after the record is completed. Thread safe.
+class RecordableData<KeyT> {
+    -- public [writer lock] --
+    + assign(function: FuncT): void
+    + store(tracepoint args): bool
+    + record_next_one(): bool
+    + start(): void
+    + reset(): void
+    + ...
+
+    -- private --
+    - func_: FuncT
+    - pending_set_ : KeysSet<KeyT>
+    - set_ : KeysSet<KeyT>
 }
 
+note left of LttngSession : Class for manipulating LTTng sessions.
+class LttngSession {
+    + is_session_running(): bool
+}
+
+note left of Clock : Class for LTTng clock
+class Clock {
+    + now(): int64_t
+}
+
+note left of TracingController : Class for tracepoint filtering.
 class TracingController {
-    + add_node(args): void
-    + is_allowed_node(args) : bool
+    -- public [writer lock] --
+    + add_node(address: void *): void
+    + ...
+
+    .. read only..
+    + is_allowed_node(address: void *) : bool
+    + ...
 }
 
-class ClockRecoerder {
+note left of DataContainer : Class that stores RecordableData for all tracepoints.
+class DataContainer{
+    -- public --
+    + record(loop_count: uint64_t): bool
+
+    + store_rcl_init(tracepoint_args) bool
+    + ...
+
+    + assign_rcl_init(recording_function): void
+    + ...
+    -- private --
+    - rcl_init_: shared_ptr<RecordableData>
+    - ...
 }
 
-KeysSet o-- HashableKeys
+note left of DataRecorder : Class for handling RecordableData for all trace points
+class DataRecorder {
+    -- public --
+    + start(): void
+    + reset(): void
+    + record_next(): bool
+    .. read only ..
+    + finished(): bool
+    + ...
+}
+
+note left of TraceNode : Class for controlling recording state.
+class TraceNode {
+    + start_callback(caret_msgs::Start)
+    + end_callback(caret_msgs::End)
+    + timer_callback()
+}
+
+DataContainer "1" --> "1" DataRecorder : use
+DataRecorder "1" --> "0..*" RecordableData: use
+RecordableData "1" o-- "1"  KeysSet
+Context "1" o-- "1"  DataContainer
+Context "1" o-- "1" TraceNode
+Context "1" o-- "1" TracingController
+Context "1" o--- "1" Clock
+Context "1" o---- "1" LttngSession
+TraceNode "1" --> "1" DataContainer : use
+DataContainer "1" o- "0..*"  RecordableData
+KeysSet "1" o-- "0..*" HashableKeys
+
+
+
 ```
 
 ## Hook function implementation
 
 In addition to hooking and for adding trace points, CARET also hooks trace points built into ROS2.
 
-Here is an example of a typical hook implementation.
+Here is the pseudo code for hook functions.
 
 ```C++
-void ros_trace_rcl_node_init(
-  const void * node_handle,
-  const void * rmw_handle,
-  const char * node_name,
-  const char * node_namespace)
-{
-  static auto & controller = Singleton<TracingController>::get_instance();
-
-  // Bind node handle and node name
-  controller.add_node(node_handle, ns + node_name);
-
-  // Record trace data only if current node is allowed to record
-  if (controller.is_allowed_node(node_handle)) {
-    ORIG_FUNC::ros_trace_rcl_node_init)(node_handle, rmw_handle, node_name, node_namespace);
-  }
-}
-
-void ros_trace_callback_start(const void * callback, bool is_intra_process) {
-  static auto & controller = Singleton<TracingController>::get_instance();
-
+void ros_trace_callback_start(TRACEPOINT_ARGS) {
   // Record trace data only if current callback is allowed to record
-  if (controller.is_allowed_callback(callback)) {
-    ORIG_FUNC::ros_trace_callback_start(callback, is_intra_process);
+  if (controller.is_allowed(TRACEPOINT_ARGS)) {
+    tracepoint(TRACEPOINT_ARGS); // LTTng tracepoint
   }
 }
+
+void ros_trace_XXX_init(TRACEPOINT_ARGS)
+{
+  // Wrapper function for tracepoint.
+  // This function is executed with delay.
+  // This function is executed either from the record at the end of this function
+  // or from TraceNode's timer callback.
+  // Duplicate data are resolved with CARET_analyze.
+  static auto record = [](TRACEPOINT_ARGS, now) {
+    // Record trace data only if current callback is allowed to record
+    if (controller.is_allowed(TRACEPOINT_ARGS)) {
+      tracepoint(TRACEPOINT_ARGS, now); // LTTng tracepoint
+    }
+  };
+
+  auto now = clock.now(); // Measure immediately after function call
+
+  if (!data_container.is_assigned_XXX()) {
+    data_container.assign_XXX(record);
+  }
+
+  // Store TRACEPOINT_ARGS in memory.
+  data_container.store_XXX(TRACEPOINT_ARGS, now);
+
+  record(TRACEPOINT_ARGS, now);
+}
+
 ```
 
-Here, debugging logs and other information are omitted.
-
-Information from callback addresses to node names, etc., can be obtained by binding them to other trace point information.
+Information from callback addresses to node names, etc., can be obtained by binding them to other trace point arguments.
 See [Initialization trace points](../trace_points/initialization_trace_points.md) for details.
 
 ## clock recorder

@@ -12,11 +12,9 @@ This check is done in O1 order because it uses std::unordered_map.
 
 ```cpp
 void ros_trace_callback_start(const void * callback, bool is_intra_process) {
-  static auto & controller = Singleton<TracingController>::get_instance();
-
   // Record trace data only if current callback is allowed to record
   if (controller.is_allowed_callback(callback)) {
-    ORIG_FUNC::ros_trace_callback_start(callback, is_intra_process);
+    tracepoint(callback, is_intra_process); // LTTng tracepoint
   }
 }
 ```
@@ -25,4 +23,4 @@ See also
 
 - [caret_trace](../software_architecture/caret_trace.md)
 - [Tracepoint](../trace_points/index.md)
-- [Recording trace filtering](../../recording/trace_filtering.md)
+- [Recording | trace filtering](../../recording/trace_filtering.md)
