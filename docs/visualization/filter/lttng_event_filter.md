@@ -4,7 +4,6 @@ CARET is able to analyze data recorded for several minutes. When analyzing large
 
 In order not to load unnecessary data, CARET has `LTTngEventFilter` to exclude selected data from loading data.
 
-
 `LTTngEventFilter` has the following methods.
 
 - `init_pass_filter`
@@ -30,7 +29,7 @@ LttngEventFilter.duration_filter(duration_s: float, offset_s: float)
 `duration_filter` method has following two arguments.
 
 - `duration_s` is duration of target time range
-- `offset_s` is  point of target time range
+- `offset_s` is point of target time range
 
 ## `strip_filter`
 
