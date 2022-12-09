@@ -25,7 +25,6 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![callback_period_time_line](./imgs/callback_period_time_line.png)
 
-
 ### [Execution time (latency)](./visualization/callback/index.md#latency)
 
 #### Timestamp tables
@@ -35,7 +34,6 @@ If you find what you are interested in, please access to a link embedded in a he
 #### Time-line graph
 
 ![callback_latency_time_line](./imgs/callback_latency_time_line.png)
-
 
 ### [Callback Scheduling Visualization](./visualization/callback/callback_scheduling_visualization.md)
 
