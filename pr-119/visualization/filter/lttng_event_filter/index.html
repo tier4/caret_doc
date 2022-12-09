@@ -930,6 +930,8 @@
         
           
         
+          
+        
       
       
         
@@ -1203,49 +1205,15 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_6_5">
-          Helper APIs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Helper APIs" data-md-level="2">
-        <label class="md-nav__title" for="__nav_6_5">
-          <span class="md-nav__icon md-icon"></span>
-          Helper APIs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5_1" type="checkbox" id="__nav_6_5_1" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_5_1">
           Filter
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Filter" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_5_1">
+      <nav class="md-nav" aria-label="Filter" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
           <span class="md-nav__icon md-icon"></span>
           Filter
         </label>
@@ -1291,15 +1259,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api-description" class="md-nav__link">
-    API Description
+  <a href="#init_pass_filter" class="md-nav__link">
+    init_pass_filter
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    Use cases
+  <a href="#duration_filter" class="md-nav__link">
+    duration_filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strip_filter" class="md-nav__link">
+    strip_filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-code" class="md-nav__link">
+    Sample code
   </a>
   
 </li>
@@ -1326,10 +1308,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_5_2" type="checkbox" id="__nav_6_5_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_6" type="checkbox" id="__nav_6_6" checked>
       
       
       
@@ -1338,13 +1322,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_6_5_2">
+        <label class="md-nav__link" for="__nav_6_6">
           Search
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Search" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_5_2">
+      <nav class="md-nav" aria-label="Search" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_6">
           <span class="md-nav__icon md-icon"></span>
           Search
         </label>
@@ -1357,15 +1341,8 @@
   
     <li class="md-nav__item">
       <a href="../../search/wildcards_for_get_callbacks/" class="md-nav__link">
-        Wildcards for get_callbacks()
+        Wildcard for get_callbacks()
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -2450,15 +2427,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api-description" class="md-nav__link">
-    API Description
+  <a href="#init_pass_filter" class="md-nav__link">
+    init_pass_filter
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    Use cases
+  <a href="#duration_filter" class="md-nav__link">
+    duration_filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strip_filter" class="md-nav__link">
+    strip_filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-code" class="md-nav__link">
+    Sample code
   </a>
   
 </li>
@@ -2484,41 +2475,45 @@
 
 
 <h1 id="usage-of-lttngeventfilter">Usage of LTTngEventFilter<a class="headerlink" href="#usage-of-lttngeventfilter" title="Permanent link">#</a></h1>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can handle measurements and analysis up to several minutes. Memory usage, analysis time, and visualization time, etc., will be issues when leveraging measurement results of longer duration.</p>
-<p>Therefore, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> has an API (LTTngEventFilter) to omit unnecessary measurement results when reading <abbr title="Linux Tracing Tool next generation">LTTng</abbr>.<br />
-This section describes how to use the LTTngEventFilter.</p>
-<p>LTTngEventFilter has the following filters</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to analyze data recorded for several minutes. When analyzing large data with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, both memory and time consumed for analysis will be critical issue.</p>
+<p>In order not to load unnecessary data, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> has <code>LTTngEventFilter</code> to exclude selected data from loading data.</p>
+<p><code>LTTngEventFilter</code> has the following methods.</p>
 <ul>
-<li>init_pass_filter</li>
-<li>duration_filter</li>
-<li>strip_filter</li>
+<li><code>init_pass_filter</code></li>
+<li><code>duration_filter</code></li>
+<li><code>strip_filter</code></li>
 </ul>
-<h2 id="api-description">API Description<a class="headerlink" href="#api-description" title="Permanent link">#</a></h2>
+<h2 id="init_pass_filter"><code>init_pass_filter</code><a class="headerlink" href="#init_pass_filter" title="Permanent link">#</a></h2>
+<p>With <code>init_pass_filter</code> method, events recorded by initialization tracepoints are not loaded onto memory.</p>
 <div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">init_pass_filter</span><span class="p">()</span>
 </code></pre></div>
-<ul>
-<li>Filter the trace points at initialization</li>
-</ul>
+<h2 id="duration_filter"><code>duration_filter</code><a class="headerlink" href="#duration_filter" title="Permanent link">#</a></h2>
+<p>With <code>duration_filter</code> method, you can crop data with targeting time range of recorded data.</p>
 <div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="n">duration_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">offset_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span>
 </code></pre></div>
+<p><code>duration_filter</code> method has following two arguments.</p>
 <ul>
-<li>[duration_s] : Measure duration</li>
-<li>[offset_s] : Ignore seconds from start</li>
+<li><code>duration_s</code> is duration of target time range</li>
+<li><code>offset_s</code> is point of target time range</li>
 </ul>
+<h2 id="strip_filter"><code>strip_filter</code><a class="headerlink" href="#strip_filter" title="Permanent link">#</a></h2>
+<p>With <code>strip_filter</code> method, you can crop data with targeting time range of recorded data as well as <code>duration_filter</code>. <code>strip_filter</code> has different arguments from <code>duration_filter</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">strip_filter</span><span class="p">(</span><span class="n">lsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">rsplit_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span>
 </code></pre></div>
+<p><code>strip_filter</code> method has following two optional arguments. If you omit either or both of them, default value '0' is given to the optional argument.</p>
 <ul>
-<li>Ignore measurement results for [lsplit_s] from the start of the measurement</li>
-<li>Ignore measurement results for [rsplit_s] seconds before measurement ends</li>
+<li><code>lstrip_s</code> is start time of cropping range</li>
+<li><code>rstrip_s</code> is end point of cropping range</li>
 </ul>
-<h2 id="use-cases">Use cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
+<h2 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">#</a></h2>
+<p>A sample code, where <code>duration_filter</code> is used, is given as below.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
 
 <span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/ctf&#39;</span><span class="p">,</span> <span class="n">event_filters</span><span class="o">=</span><span class="p">[</span>
   <span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="p">])</span> <span class="c1"># Filtering for 10 from 5 seconds</span>
 </code></pre></div>
-<p>Multiple event_filters can be specified.</p>
+<p>If you want to add another filter, append it to <code>event_filters</code> list.</p>
 
 
 
@@ -2560,13 +2555,13 @@ This section describes how to use the LTTngEventFilter.</p>
       
       
         
-        <a href="../../search/wildcards_for_get_callbacks/" class="md-footer__link md-footer__link--next" aria-label="Next: Wildcards for get_callbacks()" rel="next">
+        <a href="../../search/wildcards_for_get_callbacks/" class="md-footer__link md-footer__link--next" aria-label="Next: Wildcard for get_callbacks()" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Wildcards for get_callbacks()
+              Wildcard for get_callbacks()
             </div>
           </div>
           <div class="md-footer__button md-icon">

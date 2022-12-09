@@ -930,6 +930,8 @@
         
           
         
+          
+        
       
       
         
@@ -1213,47 +1215,15 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_6_5">
-          Helper APIs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Helper APIs" data-md-level="2">
-        <label class="md-nav__title" for="__nav_6_5">
-          <span class="md-nav__icon md-icon"></span>
-          Helper APIs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_5_1" type="checkbox" id="__nav_6_5_1" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_5_1">
           Filter
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Filter" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_5_1">
+      <nav class="md-nav" aria-label="Filter" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
           <span class="md-nav__icon md-icon"></span>
           Filter
         </label>
@@ -1286,10 +1256,12 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_5_2" type="checkbox" id="__nav_6_5_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_6" type="checkbox" id="__nav_6_6" checked>
       
       
       
@@ -1298,13 +1270,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_6_5_2">
+        <label class="md-nav__link" for="__nav_6_6">
           Search
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Search" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_5_2">
+      <nav class="md-nav" aria-label="Search" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_6">
           <span class="md-nav__icon md-icon"></span>
           Search
         </label>
@@ -1317,15 +1289,8 @@
   
     <li class="md-nav__item">
       <a href="../../search/wildcards_for_get_callbacks/" class="md-nav__link">
-        Wildcards for get_callbacks()
+        Wildcard for get_callbacks()
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -2422,7 +2387,7 @@
 
 
 <h1 id="chain-latency">Chain latency<a class="headerlink" href="#chain-latency" title="Permanent link">#</a></h1>
-<p>Chain latency can show the latency of each node in the end-to-end path and the communication time between nodes.</p>
+<p>Chain latency shows a breakdown of path latency. As explained in <a href="../../../configuration/">configuration</a>, path latency is sum of elapse time in inter-node data paths and that in intra-node data paths. Chain latency shows how time is cost in inter-node data path and intra-node data path respectively.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">chain_latency</span>
 <span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
@@ -2436,17 +2401,15 @@
 <span class="n">chain_latency</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">granularity</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">lstrip_s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rstrip_s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <p><img alt="chain_latency_sample" src="../../../imgs/chain_latency_sample.png" /></p>
+<p><code>chain_latency</code> function has 3 arguments as listed below.</p>
 <ul>
-<li><code>granularity</code><ul>
-<li>Change the granularity of visualization in ['raw', 'node']</li>
+<li><code>granularity</code> is served to adjusts granularity of chain with two value; <code>end-to-end</code> and <code>node</code><ul>
+<li>With <code>node</code>, intermediate nodes are also displayed in chain graph</li>
+<li>With <code>end-to-end</code>, only initial node and destination node appear in chain graph</li>
 </ul>
 </li>
-<li><code>lstrip_s</code> and <code>rstrip_s</code><ul>
-<li>Extract the focusing points by removing unnecessary data</li>
-<li><code>lstrip_s=1</code> means that the data for 1 second from trace start is removed.</li>
-<li><code>rstrip_s=1</code> means that the data for 1 second from trace end is removed.</li>
-</ul>
-</li>
+<li><code>lstrip_s</code> is float value for selecting start time of cropping time range</li>
+<li><code>rstrip_s=1</code> is float value for selecting end time of cropping time range</li>
 </ul>
 
 
