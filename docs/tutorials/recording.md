@@ -80,9 +80,6 @@ ros2 caret record -s e2e_sample
 # > press enter to stop...
 ```
 
-You can finish the target application and LTTng session.
-LTTng session will be closed if you push `Enter` key on the terminal where the LTTng session runs.
-
 ## Validating recorded data briefly
 
 You can check whether tracing is successful or not with `ros2 caret check_ctf` command before visualizing recorded data.
