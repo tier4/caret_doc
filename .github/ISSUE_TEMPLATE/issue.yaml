@@ -1,0 +1,20 @@
+name: Issue
+description: Create a new issue
+body:
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      description: Confirm the following items before proceeding.
+      options:
+        - label: I've read the [contribution guidelines](https://github.com/tier4/caret/blob/main/.github/CONTRIBUTING.md).
+          required: true
+        - label: I've confirmed the issue is certainly related to this repository. If not, please consider to make a new issue in https://github.com/tier4/caret/issues
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the issue.
+    validations:
+      required: true
