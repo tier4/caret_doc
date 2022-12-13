@@ -19,7 +19,6 @@
 
 The PR reviewers **must** check the checkboxes below before approval.
 
-- [ ] The PR has been properly tested.
 - [ ] The PR has been reviewed.
 
 ## Post-review checklist for the PR author
