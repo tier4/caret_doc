@@ -2,26 +2,8 @@
 
 This section lists all tracepoints and their definition.
 
-## Tracepoints category
-
-![tracepoints category](../../imgs/tracepoints_category.drawio.png)
-
-CARET is implemented as an extension of ros2_tracing.
-CARET uses LTTng as its tracing mechanism.
-To reduce overhead at runtime, trace points are divided into two types of tracepoints; initialization tracepoints and runtime tracepoints.
-
-Some tracepoints are used for collecting meta-information of executors, nodes, callbacks, and topics during application's initialization.
-They are called initialization tracepoints.
-The other tracepoints are embedded for sampling timestamps after completion of initialization, and called runtime tracepoints.
-
-By binding these trace data together, CARET can provide when and which callbacks were executed.
-
-See also
-
-- [Initialization tracepoints](./initialization_trace_points.md)
-- [Runtime tracepoints](./runtime_trace_points.md)
-
-## Implementation method category
+Some tracepoints are used for collecting identification of executors, nodes, callbacks, and topics during application's initialization.
+They are called initialization tracepoints. The other tracepoints are embedded for sampling timestamps after completion of initialization, and called runtime tracepoints.
 
 Each tracepoint for CARET is added by followings method.
 
@@ -36,7 +18,7 @@ Each tracepoint for CARET is added by followings method.
   - CARET-dedicated tracepoints added to the fork of rclcpp
 
 CARET utilizes some of the tracepoints built-in original ROS 2.
-Some of the tracepoints are added by hooking with LD_PRELOAD, and rest tracepoints are added to the fork of ROS 2's rclcpp.
+Some of the tracepoints are added by hooking with LD_PRELOAD, and rest trace points are added to the fork of ROS 2's rclcpp.
 
 <prettier-ignore-start>
 !!! info

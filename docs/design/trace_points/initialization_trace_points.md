@@ -11,10 +11,6 @@ erDiagram
  address context_handle
  }
 
- caret_init{
- int64_t clock_offset
- }
-
  rcl_node_init{
  address node_handle
  address rmw_handle
@@ -108,10 +104,6 @@ erDiagram
 
 ```
 
-### Tracepoints for representing structure of executor and callback group
-
-A handler such as `timer_handle` and `subscription_handle` are assigned to a callback group. A callback group belongs to an executor.
-
 Relationships of each trace point related to executors are shown as follows.
 
 ```mermaid
@@ -180,25 +172,21 @@ erDiagram
 
 ```
 
-### Trace point definition
+### Tracepoints for representing structure of executor and callback group
 
-The following shows the definition of trace points.
+A handler such as `timer_handle` and `subscription_handle` are assigned to a callback group. A callback group belongs to an executor.
 
-Trace points with `(caret_trace added)` are hooked and added init_timestamp by caret_trace.
-See [Runtime recording](../runtime_processing/runtime_recording.md#tracepoint) for detail.
-
-#### ros2:rcl_init
+### ros2:rcl_init
 
 [Built-in tracepoints]
 
 Sampled items
 
 - void \* context_handle
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
-#### ros2:rcl_node_init
+### ros2:rcl_node_init
 
 [Built-in tracepoints]
 
@@ -208,11 +196,10 @@ Sampled items
 - void \* rmw_handle
 - char \* node_name
 - char \* node_namespace
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
-#### ros2:rcl_publisher_init
+### ros2:rcl_publisher_init
 
 [Built-in tracepoints]
 
@@ -223,11 +210,10 @@ Sampled items
 - void \* rmw_publisher_handle
 - char \* topic_name
 - size_t queue_depth
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
-#### ros2:rcl_subscription_init
+### ros2:rcl_subscription_init
 
 [Built-in tracepoints]
 
@@ -238,11 +224,10 @@ Sampled items
 - void \* rmw_subscription_handle
 - char \* topic_name
 - size_t queue_depth
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
-#### ros2:rclcpp_subscription_init
+### ros2:rclcpp_subscription_init
 
 [Built-in tracepoints]
 
@@ -250,11 +235,10 @@ Sampled items
 
 - void \* subscription_handle
 - void \* subscription
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
-#### ros2:rclcpp_subscription_callback_added
+### ros2:rclcpp_subscription_callback_added
 
 [Built-in tracepoints]
 
@@ -262,7 +246,6 @@ Sampled items
 
 - void \* subscription
 - void \* callback
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
@@ -290,7 +273,7 @@ Sampled items
 
 ---
 
-#### ros2:rcl_timer_init
+### ros2:rcl_timer_init
 
 [Built-in tracepoints]
 
@@ -298,11 +281,10 @@ Sampled items
 
 - void \* timer_handle
 - int64_t period
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
-#### ros2:rclcpp_timer_callback_added
+### ros2:rclcpp_timer_callback_added
 
 [Built-in tracepoints]
 
@@ -310,11 +292,10 @@ Sampled items
 
 - void \* timer_handle
 - void \* callback
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
-#### ros2:rclcpp_timer_link_node
+### ros2:rclcpp_timer_link_node
 
 [Built-in tracepoints]
 
@@ -322,11 +303,10 @@ Sampled items
 
 - void \* timer_handle
 - void \* node_handle
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
-#### ros2:rclcpp_callback_register
+### ros2:rclcpp_callback_register
 
 [Built-in tracepoints]
 
@@ -334,32 +314,20 @@ Sampled items
 
 - void \* callback
 - char \* function_symbol
-- int64_t init_timestamp (caret_trace added)
 
 ---
 
-#### ros2_caret:caret_init
-
-[Hooked tracepoints]
-
-Sampled items
-
-- int64_t \* clock_offset
-
----
-
-#### ros2_caret:rmw_implementation
+### ros2_caret:rmw_implementation
 
 [Hooked tracepoints]
 
 Sampled items
 
 - char \* rmw_impl
-- int64_t init_timestamp
 
 ---
 
-#### ros2_caret:construct_executor
+### ros2_caret:construct_executor
 
 [Hooked tracepoints]
 
@@ -367,11 +335,10 @@ Sampled items
 
 - void \* executor_addr
 - char \* executor_type_name
-- int64_t init_timestamp
 
 ---
 
-#### ros2_caret:construct_static_executor
+### ros2_caret:construct_static_executor
 
 [Hooked tracepoints]
 
@@ -380,11 +347,10 @@ Sampled items
 - void \* executor_addr
 - void \* entities_collector_addr
 - char \* executor_type_name
-- int64_t init_timestamp
 
 ---
 
-#### ros2_caret:add_callback_group
+### ros2_caret:add_callback_group
 
 [Hooked tracepoints]
 
@@ -393,11 +359,10 @@ Sampled items
 - void \* executor_addr
 - void \* callback_group_addr
 - char \* group_type_name
-- int64_t init_timestamp
 
 ---
 
-#### ros2_caret:add_callback_group_static_executor
+### ros2_caret:add_callback_group_static_executor
 
 [Hooked tracepoints]
 
@@ -406,11 +371,10 @@ Sampled items
 - void \* entities_collector_addr
 - void \* callback_group_addr
 - char \* group_type_name
-- int64_t init_timestamp
 
 ---
 
-#### ros2_caret:callback_group_add_timer
+### ros2_caret:callback_group_add_timer
 
 [Hooked tracepoints]
 
@@ -418,11 +382,10 @@ Sampled items
 
 - void \* callback_group_addr
 - void \* timer_handle
-- int64_t init_timestamp
 
 ---
 
-#### ros2_caret:callback_group_add_subscription
+### ros2_caret:callback_group_add_subscription
 
 [Hooked tracepoints]
 
@@ -430,11 +393,10 @@ Sampled items
 
 - void \* callback_group_addr
 - void \* subscription_handle
-- int64_t init_timestamp
 
 ---
 
-#### ros2_caret:callback_group_add_service
+### ros2_caret:callback_group_add_service
 
 [Hooked tracepoints]
 
@@ -442,11 +404,10 @@ Sampled items
 
 - void \* callback_group_addr
 - void \* service_handle
-- int64_t init_timestamp
 
 ---
 
-#### ros2_caret:callback_group_add_client
+### ros2_caret:callback_group_add_client
 
 [Hooked tracepoints]
 
@@ -454,4 +415,3 @@ Sampled items
 
 - void \* callback_group_addr
 - void \* client_handle
-- int64_t init_timestamp
