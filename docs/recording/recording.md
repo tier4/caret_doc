@@ -47,10 +47,10 @@ Two terminals are needed for this method; one for executing a target application
 
 2. Open another terminal and start a LTTng session with the following commands
 
-   - Trace data will be stored into the directory whose path is defined as `{ROS_TRACE_DIR}/{SESSION_NAME}`.  
-     Default value for `ROS_TRACE_DIR` is `~/.ros/tracing`.  
-     (Optional) You can set `ROS_TRACE_DIR` environment variable to change a destination directory where recorded trace data will be stored.
-   - With "`-s`" option, you can give session name. The recorded trace data will be stored into `~/ros_ws/evaluate/e2e_sample` in this sample
+   - Trace data will be stored into the directory whose path is defined as `{ROS_TRACE_DIR}/{SESSION_NAME}`.
+     - `ROS_TRACE_DIR` is an environmental variable whose default value is `~/.ros/tracing`  
+        (Optional) You can set `ROS_TRACE_DIR` environment variable to change a destination directory where recorded trace data will be stored
+     - `SESSION_NAME` means a session name given with `-s` option for `ros2 caret record` command
    - Press "Enter" key to start a session
 
    ```sh

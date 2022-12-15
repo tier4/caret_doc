@@ -37,12 +37,15 @@ Recording begins after `All process started recording` is displayed.
 ros2 caret record --session-name <session_name> --recording-frequency <recording_frequency> --verbose
 ```
 
-Increasing the `<recording_frequency>` reduces the time required to start the recording.
-However, the recording is more likely to cause `Tracer discarded`.
+<!-- Please refer to [name of page](path) for detail of `<recording_frequency>`. -->
 
+Increasing value of `<recording_frequency>` reduces time required to start recording.
+However, if large value is given to `<recording_frequnency>`, recording is more likely to cause `Tracer discarded`.  
+`-f` is the short option for `--recording-frequency`  
 [TODO] Add a link to the design page as a reference for details.
 
-With the `--verbose` option, you can check status for recording sequence in detail.
+With the `--verbose` option, you can check status for recording sequence in detail.  
+`-v` is the short option for `--verbose`
 
 ## Trace data validation
 
