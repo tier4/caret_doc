@@ -2598,10 +2598,12 @@ This page explains two different ways for tracing: Starting <abbr title="Linux T
 <li>
 <p>Open another terminal and start a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session with the following commands</p>
 <ul>
-<li>Trace data will be stored into the directory whose path is defined as <code>{ROS_TRACE_DIR}/{SESSION_NAME}</code>.<br />
-   Default value for <code>ROS_TRACE_DIR</code> is <code>~/.ros/tracing</code>.<br />
-   (Optional) You can set <code>ROS_TRACE_DIR</code> environment variable to change a destination directory where recorded trace data will be stored.</li>
-<li>With "<code>-s</code>" option, you can give session name. The recorded trace data will be stored into <code>~/ros_ws/evaluate/e2e_sample</code> in this sample</li>
+<li>Trace data will be stored into the directory whose path is defined as <code>{ROS_TRACE_DIR}/{SESSION_NAME}</code>.<ul>
+<li><code>ROS_TRACE_DIR</code> is an environmental variable whose default value is <code>~/.ros/tracing</code><br />
+    (Optional) You can set <code>ROS_TRACE_DIR</code> environment variable to change a destination directory where recorded trace data will be stored</li>
+<li><code>SESSION_NAME</code> means a session name given with <code>-s</code> option for <code>ros2 caret record</code> command</li>
+</ul>
+</li>
 <li>Press "Enter" key to start a session</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
