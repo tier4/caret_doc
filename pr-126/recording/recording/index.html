@@ -2554,7 +2554,7 @@
 This page explains two different ways for tracing: Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session manually and Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session using <abbr title="Robot Operating System">ROS</abbr> launch system.</p>
 <p>Explanation in this page assumes <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
 <h2 id="starting-lttng-session-manually">Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session manually<a class="headerlink" href="#starting-lttng-session-manually" title="Permanent link">#</a></h2>
-<p>Two terminals are needed for this method: One for running a target application, another for starting a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session.</p>
+<p>Two terminals are needed for this method; one for executing a target application, another for starting a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session.</p>
 <ol>
 <li>
 <p>Open a terminal and launch a target application</p>
@@ -2598,7 +2598,9 @@ This page explains two different ways for tracing: Starting <abbr title="Linux T
 <li>
 <p>Open another terminal and start a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session with the following commands</p>
 <ul>
-<li>(Optional) <code>ROS_TRACE_DIR</code> variable is a destination directory where recorded trace data will be stored. Default is <code>~/.ros/tracing</code></li>
+<li>Trace data will be stored into the directory whose path is defined as <code>{ROS_TRACE_DIR}/{SESSION_NAME}</code>.<br />
+   Default value for <code>ROS_TRACE_DIR</code> is <code>~/.ros/tracing</code>.<br />
+   (Optional) You can set <code>ROS_TRACE_DIR</code> environment variable to change a destination directory where recorded trace data will be stored.</li>
 <li>With "<code>-s</code>" option, you can give session name. The recorded trace data will be stored into <code>~/ros_ws/evaluate/e2e_sample</code> in this sample</li>
 <li>Press "Enter" key to start a session</li>
 </ul>
@@ -2625,9 +2627,9 @@ ros2 caret record -s e2e_sample
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>If you'd like to start measurement immediately after launch, reverse Step 1 and Step 2.
-  You can start the Lttng session first and start recording next as well.
-  However, if recording is started during launching an application, it may cause missing recordings.
-  Please start recording either before launching or after launching is completed.</p>
+  You can start a Lttng session first before executing a target application as well.
+  However, if recording is started during launch of a target application, it may cause missing recordings.
+  Please start recording either before launching is started or after launch is completed.</p>
 </div>
 <p><prettier-ignore-end></p>
 <p><prettier-ignore-start></p>
@@ -2637,7 +2639,7 @@ ros2 caret record -s e2e_sample
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="starting-lttng-session-via-ros-launch">Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session via <abbr title="Robot Operating System">ROS</abbr> launch<a class="headerlink" href="#starting-lttng-session-via-ros-launch" title="Permanent link">#</a></h2>
-<p>You can start <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session using <abbr title="Robot Operating System">ROS</abbr> launch system. When you executing a target application in one terminal, you have to open another terminal for starting a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session as explained above. Operating multiple terminals is laborious for users. Launching <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session along with application by <abbr title="Robot Operating System">ROS</abbr> launch is a reasonable way to apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> repeatedly.</p>
+<p>You can start <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session using <abbr title="Robot Operating System">ROS</abbr> launch system. When you have started a target application in one terminal, you have to open another terminal for starting a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session as explained above. Operating multiple terminals is laborious for users. Launching <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session along with application by <abbr title="Robot Operating System">ROS</abbr> launch is a reasonable way to apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> repeatedly.</p>
 <ol>
 <li>
 <p>Create a launch file for a target application in <abbr title="Robot Operating System">ROS</abbr> general manner if you haven't made it</p>

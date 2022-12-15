@@ -2610,13 +2610,14 @@
 INFO    : <span class="m">2022</span>-09-29 <span class="m">20</span>:18:43 <span class="p">|</span> All packages are built using caret-rclcpp.
 </code></pre></div>
 <h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
-<p>This command runs <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session and recording sequence. (<a href="../recording/">See details</a>)</p>
+<p>This command starts a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session and recording sequence. (<a href="../recording/">See details</a>)</p>
 <p>Recording begins after <code>All process started recording</code> is displayed.</p>
-<div class="highlight"><pre><span></span><code>ros2 caret record -s session_name -f <span class="m">100</span> -v
+<div class="highlight"><pre><span></span><code>ros2 caret record --session-name &lt;session_name&gt; --recording-frequency &lt;recording_frequency&gt; --verbose
 </code></pre></div>
-<p>Increasing the number of the -f option reduces the time required to start the recording.
+<p>Increasing the <code>&lt;recording_frequency&gt;</code> reduces the time required to start the recording.
 However, the recording is more likely to cause <code>Tracer discarded</code>.</p>
-<p>With the -v option, you can check status for recording sequence in detail.</p>
+<p>[TODO] Add a link to the design page as a reference for details.</p>
+<p>With the <code>--verbose</code> option, you can check status for recording sequence in detail.</p>
 <h2 id="trace-data-validation">Trace data validation<a class="headerlink" href="#trace-data-validation" title="Permanent link">#</a></h2>
 <p>This command checks whether a recording is successful. (<a href="../validating/#validating-trace-data">See details</a>)</p>
 <p>If there are problems with the recorded data, warning messages will be displayed</p>
