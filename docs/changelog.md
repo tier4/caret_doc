@@ -2,6 +2,10 @@
 
 ## CARET
 
+### v0.4.0 <small>\_ Dec 16, 2022</small> {id = "0.3.4"}
+
+- **New**: Added a new feature to start, stop, and resume even recording whenever users want to ([CARET_trace #68](https://github.com/tier4/CARET_trace/pull/68), [CARET_analyze #190](https://github.com/tier4/CARET_analyze/pull/190), [ros2caret #48](https://github.com/tier4/ros2caret/pull/48), and [CARET_doc #126](https://github.com/tier4/CARET_doc/pull/126))
+
 ### v0.3.4 <small>\_ Dec 12, 2022</small> {id = "0.3.4"}
 
 - **New**: Added functions to rename subsystems in Architecture object like executor, node, callback and topic ([CARET_analyze#156](https://github.com/tier4/CARET_analyze/pull/156))
