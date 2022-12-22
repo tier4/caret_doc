@@ -35,6 +35,7 @@ A sample of the architecture file is as follows.
 | &emsp; &emsp; symbol                  | String       | Yes                                        | Yes                                        | symbol for callback function.                      |
 | &emsp; &emsp; period_ns               | int          | Required for timer_callback only.          | Yes                                        |                                                    |
 | &emsp; &emsp; topic_name              | String       | Required for subscription_callback only.   | Yes                                        |                                                    |
+| &emsp; &emsp; construction_order      | int          | No                                         | No                                         | Zero is used as the default value if not present.  |
 | &emsp; variable_passings              | List         | No                                         | Yes                                        |                                                    |
 | &emsp; &emsp; callback_name_write     | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
 | &emsp; &emsp; callback_name_read      | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
@@ -85,6 +86,11 @@ nodes:
         type: timer_callback
         period_ns: 100000000
         symbol: Node::{lambda()}
+      - callback_name: timer_callback_0
+        type: timer_callback
+        period_ns: 100000000
+        symbol: Node::{lambda()}
+        construction_order: 1
     variable_passings:
       - callback_name_write: subscription_callback_0
         callback_name_read: timer_callback_0
@@ -100,3 +106,22 @@ nodes:
         subscription_topic_name: /pong
         publisher_topic_name: /ping
 ```
+
+## Callback identifiation
+
+`callback_name` is a name used by users to identify a callback.
+
+CARET reads trace data and loads callback information.
+Callback addresses can be obtained from trace data,
+but callback_name cannot be obtained because ROS does not have the ability to assign callback_names.
+
+After loading information, CARET binds the `callback_name` and callback address by following items.
+
+- node_name
+- callback_type
+- period_ns / topic_name
+- symbol
+- construction_order
+
+By using this information to match `callback_name` and callback address,
+`callback_name` will always refer to identical callbacks, regardless of the number of recordings.
