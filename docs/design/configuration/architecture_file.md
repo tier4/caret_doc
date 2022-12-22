@@ -107,7 +107,7 @@ nodes:
         publisher_topic_name: /ping
 ```
 
-## Callback identifiation
+## Callback identification
 
 `callback_name` is a name used by users to identify a callback.
 
