@@ -2671,7 +2671,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 </ul>
 <h3 id="so-many-nodes-named-caret_trace_ooooooo-created">So many nodes named <code>/caret_trace_ooooooo</code> created<a class="headerlink" href="#so-many-nodes-named-caret_trace_ooooooo-created" title="Permanent link">#</a></h3>
 <ul>
-<li>As described in <a href="../design/runtime_processing/">design section</a>, a node to store <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> events is created for each process</li>
+<li>As described in <a href="../design/runtime_processing/">design section</a>, a node to store <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> events is created for each process. Therefore, if a target application is huge and has a lot of processes, the number of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> nodes also becomes huge</li>
 </ul>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
 <h3 id="result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result">Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result<a class="headerlink" href="#result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result" title="Permanent link">#</a></h3>
