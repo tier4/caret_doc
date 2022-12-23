@@ -2659,7 +2659,10 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <li>You will see <code>N/M process started recording</code> , where <code>N</code> is the number of processes which have been started recording and <code>M</code> is the number of total processes to be started recording</li>
 </ul>
 </li>
-<li>If <code>N</code> increases very slowly, add <code>--recording-frequency</code> option with integer greater than 100 (e.g. <code>ros2 caret record -f 500</code> )</li>
+<li>If <code>N</code> increases very slowly, add <code>--recording-frequency</code> option with integer greater than 100 (e.g. <code>ros2 caret record -f 500</code> )<ul>
+<li>Please be careful that it increases the possibility of recording failure</li>
+</ul>
+</li>
 <li>If <code>N</code> remains 0, remove <code>~/.lttng</code> and start recording again<ul>
 <li>Please be careful that the first recorded trace data after removing <code>~/.lttng</code> tends to lack some events. So, please ignore the data</li>
 </ul>
