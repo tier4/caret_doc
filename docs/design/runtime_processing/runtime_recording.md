@@ -27,16 +27,15 @@ This function consists of the following states
 - RECORD state
   - Record runtime trace data as LTTng trace points (synchronous recording).
 
-These states are controlled by nodes (trace node) running in an independent thread.
-trace nodes run in each process.
+A dedicated-node, named as trace node, is executed per ROS 2 process to manage the state.
+A trace node is executed on a dedicated thread along with threads for ordinary nodes.
+It is created when application is launched. It 
 
 <prettier-ignore-start>
 !!! Notice
-    The thread on which a trace node runs is created via function hooking.
-    This thread is created even if the Application is not implemented by rclcpp.
-    This allows runtime recording as well for nodes implemented in rclpy. (Note for it cannot record runtime trace data correctly.)
-    Although python has a Global Interpreter Lock (GIL) mechanism,
-    it runs as an asynchronous thread that does not even get a GIL.
+    A trace node runs on a thread created via function hooking. This thread is created even if a ROS 2 process is not implemented with `rclcpp`.
+    A trace node thread is created if a ROS 2 process is implemented with `rclpy`, and it control the states as well. Though the trace node runs on a Python-based node, recording events for the node is not performed.
+    Python serves Global Interpreter Lock (GIL) mechanism, but a trace node runs on a asynchronous thead which is blocked by GIL.
 <prettier-ignore-end>
 
 Typical use cases are as follows.
@@ -164,7 +163,9 @@ string select_nodes  # reserved
 string select_topics # reserved
 ```
 
-The recording_frequency is the frequency at which each process records initialization trace data in the PREPARE state.
+CARET records sets of meta-information to a LTTng ring-buffer one by one rather than tries to store those meta-information at once.
+CARET serves a parameter, `recording_frequency`, to control velocity to record meta-information.
+`recording_frequency` is frequency at which each process records meta-information. It decides how many sets of meta-information is stored to the ring-buffer per second.
 The higher the frequency, the shorter the time required to complete the PREPARE state, but the greater the risk of tracer discarded.
 
 `ignore_nodes` `ignore_topics` `select_nodes` `select_topics` are unimplemented features.
@@ -172,9 +173,7 @@ They are reserved fields for setting [tracepoint filtering](./tracepoint_filteri
 
 <prettier-ignore-start>
 !!!Info
-    As another method of recording_frequency,
-    initialization-related trace points can be recorded in [blocking mode](https://lttng.org/blog/2017/11/22/lttng-ust-blocking-mode/) to prevent tracer discarded.
-    This method reduces the occurrence of data loss, but this time we decided to improve it on the caret side to reduce implementation changes.
+    Another method to avoid tracer discarded is writing meta-information with [blocking mode](https://lttng.org/blog/2017/11/22/lttng-ust-blocking-mode/). LTTng serves a function to apply blocking mode to chosen events, and chosen events are written to disks exactly. Blocking mode will reduce occurrence of data loss. In this moment, `recording_frequency` is introduced to mitigate data loss because range of influence is smaller than blocking mode.
 <prettier-ignore-end>
 
 ### Status.msg
@@ -248,7 +247,7 @@ RECORD : Record initialization and runtime trace data with LTTng
 | Initialization trace data          | - Record as LTTng tracepoint (synchronous recording). <br> - Record stored data as LTTng tracepoint at fixed frequency from trace nodes (delayed recording). |
 | Runtime trace data                 | - Discard to prevent discarding initialization trace data.                                                                                                   |
 
-The recording frequency of Stored initialization trace data can be changed with `recording_frequency` in Start.msg.
+Velocity of storing initialization trace data to a LTTng's ring buffer is adjusted with `recording_frequency` in `Start.msg`.
 
 <prettier-ignore-start>
 !!!Info
@@ -365,10 +364,10 @@ deactivate CLI
 
 ## Tracepoint
 
-Because runtime recording feature has delayed recording, the time recorded as LTTng trace points differ from the time the ros layer tracepoint function is called.
-On the CARET_analyze side, it is important the order in which some of the initialization trace data is called.
-For example, CARET calculates the period of the timer from the time rcl_timer_init is called.
-for CARET_analyze side, new trace point data is added to restore the time when the tracepoint function in the ros layer is called.
+Runtime recording feature has delayed recording which supports recording activation anytime after a target application launches. As a timestamp is given when event is recorded, that for initialization trace point is different from actual time when the trace point is called.
+It is inconvenient for analysis script provided by `CARET_analyze` because it utilizes invocation time of the initialization trace point. For example, expected time when timer callback is invoked is calculated from initialization time and a given period. If only recording time is given, the expected time cannot be calculated correctly.
+
+To tackle this inconvenience, all initialization trace points have timestamps given respectively when they are called during launch of a target application.
 
 ```cpp
 [ros2:rcl_timer_init] (-> [ros2_caret:rcl_timer_init])
@@ -380,8 +379,8 @@ time (time that a lttng tracepoint is called.)
 (tracepoint data)
 void * timer_handle
 int64_t period
-int64_t init_timestamp (time that a ros-layer tracepoint is called)
+int64_t init_timestamp (timestamp given when trace point is called during )
 ```
 
-The last `init_timestamp` is the added argument, which is the time the tracepoint was called from the ros layer.
-The `ros2:` tracepoints defined in `ros2_tracing` are recorded by CARET as a different tracepoint called `ros2_caret`.
+`init_timestamp` is an added argument which has original time when initialization trace point is invoked.
+As the prefix of `ros2:` is for `ros2_tracing`, `ros2_caret` is prefix for representing trace points for CARET.
