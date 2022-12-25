@@ -1,76 +1,78 @@
 # Gallery
 
 This page shows examples of figures that can be visualized in CARET.
-CARET visualizes these figures on jupyter-notebook.
+If you find what you are interested in, please access to a link embedded in a headline.
 
 ## Callback
 
-### Frequency
+### [Execution frequency](./visualization/frequency/frequency.md#callback)
+
+#### Timestamp tables
 
 ![callback_frequency_df](./imgs/callback_frequency_df.png)
 
-![callback_frequency_time_line](./imgs/callback_frequency_time_line.png)<br>
-Detail : [Frequency](./visualization/callback/callback_information.md#frequency)
+#### Time-line graph
 
-### Period
+![callback_frequency_time_line](./imgs/callback_frequency_time_line.png)
+
+### [Execution period](./visualization/period/period.md#callback)
+
+#### Timestamp tables
 
 ![callback_period_df](./imgs/callback_period_df.png)
 
-![callback_period_time_line](./imgs/callback_period_time_line.png)<br>
-Detail : [Period](./visualization/callback/callback_information.md#period)
+#### Time-line graph
 
-### Latency
+![callback_period_time_line](./imgs/callback_period_time_line.png)
+
+### [Execution time (latency)](./visualization/latency/latency.md#callback)
+
+#### Timestamp tables
 
 ![callback_latency_df](./imgs/callback_latency_df.png)
 
-![callback_latency_time_line](./imgs/callback_latency_time_line.png)<br>
-Detail : [Latency](./visualization/callback/callback_information.md#latency)
+#### Time-line graph
 
-### Callback Scheduling Visualization
+![callback_latency_time_line](./imgs/callback_latency_time_line.png)
 
-![Callback_Scheduling_Visualization_sample](./imgs/callback_sched_sample.png)<br>
-Detail : [Callback Scheduling Visualization](./visualization/callback/callback_scheduling_visualization.md)
+### [Callback Scheduling Visualization](./visualization/callback_scheduling/callback_scheduling_visualization.md)
+
+#### Timing chart of callback scheduling
+
+![Callback_Scheduling_Visualization_sample](./imgs/callback_sched_sample.png)
 
 ## Communication
 
-### Frequency
+### [Frequency](./visualization/frequency/frequency.md#communication)
 
-![communication_frequency_time_line](./imgs/communication_frequency_time_line.png)<br>
-Detail : [Frequency](./visualization/communication/communication_information.md#frequency)
+![communication_frequency_time_line](./imgs/communication_frequency_time_line.png)
 
-### Period
+### [Period](./visualization/period/period.md#communication)
 
-![communication_period_time_line](./imgs/communication_period_time_line.png)<br>
-Detail : [Period](./visualization/communication/communication_information.md#period)
+![communication_period_time_line](./imgs/communication_period_time_line.png)
 
-### Latency
+### [Latency](./visualization/latency/latency.md#communication)
 
-![communication_latency_time_line](./imgs/communication_latency_time_line.png)<br>
-Detail : [Latency](./visualization/communication/communication_information.md#latency)
+![communication_latency_time_line](./imgs/communication_latency_time_line.png)
 
-### Publish/Subscribe Frequency
+### [Publish/Subscribe Frequency](./visualization/frequency/frequency.md#publish-and-subscription)
 
-![pub_sub_frequency_time_line](./imgs/pub_sub_frequency_time_line.png)<br>
-Detail : [Frequency](./visualization/communication/pub_sub_information.md#frequency)
+![pub_sub_frequency_time_line](./imgs/pub_sub_frequency_time_line.png)
 
-### Publish/Subscribe Period
+### [Publish/Subscribe Period](./visualization/period/period.md#publish-and-subscription)
 
-![pub_sub_period_time_line](./imgs/pub_sub_period_time_line.png)<br>
-Detail : [Period](./visualization/communication/pub_sub_information.md#period)
+![pub_sub_period_time_line](./imgs/pub_sub_period_time_line.png)
 
 ## Path
 
-### Message flow
+### [Message flow](./visualization/path/message_flow.md)
 
-![message_flow](./imgs/message_flow_sample.png)<br>
-Detail : [Message flow](./visualization/path/message_flow.md)
+![message_flow](./imgs/message_flow_sample.png)
 
-### Response Time Histogram
+### [Response Time Histogram](./visualization/path/response_time.md)
 
-![Response_Time_Histogram](./imgs/response_time_default_histogram.png)<br>
-Detail : [Response Time Histogram](./visualization/path/response_time.md)
+![Response_Time_Histogram](./imgs/response_time_default_histogram.png)
 
-### Chain latency
+### [Chain latency](./visualization/path/chain_latency.md)
 
-![chain_latency_sample](./imgs/chain_latency_sample.png)<br>
-Detail : [Chain latency](./visualization/path/chain_latency.md)
+![chain_latency_sample](./imgs/chain_latency_sample.png)
