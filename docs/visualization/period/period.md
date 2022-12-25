@@ -43,7 +43,6 @@ plot.show()
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared to select index of x-axis among Linux system time, [ROS simulation time](../../recording/sim_time.md), and 0-based ordering. One of `'system_time'`, `'sim_time'` and `'index'` is chosen as `xaxis_type` though `'system_time'` is the default value.
 The vertical axis means period of callback execution, labeled as `Period [ms]`. It is plotted per sample.
 
-
 ## Communication
 
 `Plot.create_period_timeseries_plot(communications: Collection[Communication])` is helpful if you want to see that communication period is stable or not.
@@ -57,6 +56,7 @@ period_df
 
 # ---Output in jupyter-notebook as below---
 ```
+
 ![communication_period_df](../../imgs/communication_period_df.png)
 
 ```python
@@ -72,7 +72,6 @@ plot.show()
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared as well as the previous callback subsection.
 The vertical axis means period, labeled as `Period [ms]`, from a certain execution of communication to next one.
 
-
 ## Publish and Subscription
 
 `Plot.create_period_timeseries_plot(Collection[publish: Publisher or subscription: Subscriber])` is useful to check how stable invocation cycle of publisher or subscription is.
@@ -85,6 +84,7 @@ period_df
 
 # ---Output in jupyter-notebook as below---
 ```
+
 ![pub_sub_period_df](../../imgs/pub_sub_period_df.png)
 
 ```python

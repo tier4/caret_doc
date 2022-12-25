@@ -15,7 +15,6 @@ CARET serves `Communication` class which focus on a topic message from a source 
 
 Topic messages have possibility to be lost in communication path as they are transmitted and received by UDP. A `Communication` object ignores loss of topic messages. If you want to check loss of topic messages, it is reasonable to compare the number of publish and that of subscription. CARET serves both `Publish` and `Subscription` class. A `Publish` object has a collection of timestamp obtained when publish is invoked. A `Subscription` object have timestamps of invocation of subscription callback.
 
-
 ## Many-to-many communication
 
 ROS 2 allows topic messages to be published from multiple nodes and to be received by multiple nodes. Topic messages who share a same topic messages are transmitted and received among many nodes as the following figure shows.

@@ -43,7 +43,6 @@ plot.show()
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared to select index of x-axis among Linux system time, [ROS simulation time](../../recording/sim_time.md), and 0-based ordering. One of `'system_time'`, `'sim_time'` and `'index'` is chosen as `xaxis_type` though `'system_time'` is the default value.
 The vertical axis means frequency of callback execution, labeled as `Frequency [Hz]`. It is plotted per second.
 
-
 ## Communication
 
 `Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` is introduced to confirm targeted topic is communicated at expected frequency.
@@ -57,6 +56,7 @@ frequency_df
 
 # ---Output in jupyter-notebook as below---
 ```
+
 ![comm_frequency_df](../../imgs/comm_frequency_df.png)
 
 ```python
@@ -72,7 +72,6 @@ plot.show()
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared as well as the previous callback subsection.
 The vertical axis means frequency of communication, labeled as `Frequency [Hz]`. It is plotted per second.
 
-
 ## Publish and Subscription
 
 `Plot.create_frequency_timeseries_plot(Collection[publish: Publisher or subscription: Subscriber])` is introduced to check whether target publisher or frequency.
@@ -85,6 +84,7 @@ frequency_df
 
 # ---Output in jupyter-notebook as below---
 ```
+
 ![pub_sub_frequency_df](../../imgs/pub_sub_frequency_df.png)
 
 ```python
