@@ -31,7 +31,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![callback_latency_df](./imgs/callback_latency_df.png)
 
-#### Time-line graph
+#### Time-series graph
 
 ![callback_latency_time_line](./imgs/callback_latency_time_line.png)
 
