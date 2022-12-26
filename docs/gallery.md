@@ -5,7 +5,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ## Callback
 
-### [Execution frequency](./visualization/frequency/frequency.md#callback)
+### [Execution frequency](./visualization/frequency/index.md#callback)
 
 #### Timestamp tables
 
@@ -15,7 +15,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![callback_frequency_time_line](./imgs/callback_frequency_time_line.png)
 
-### [Execution period](./visualization/period/period.md#callback)
+### [Execution period](./visualization/period/index.md#callback)
 
 #### Timestamp tables
 
@@ -25,7 +25,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![callback_period_time_line](./imgs/callback_period_time_line.png)
 
-### [Execution time (latency)](./visualization/latency/latency.md#callback)
+### [Execution time (latency)](./visualization/latency/index.md#callback)
 
 #### Timestamp tables
 
@@ -35,7 +35,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![callback_latency_time_line](./imgs/callback_latency_time_line.png)
 
-### [Callback Scheduling Visualization](./visualization/callback_scheduling/callback_scheduling_visualization.md)
+### [Callback Scheduling Visualization](./visualization/callback_scheduling/index.md)
 
 #### Timing chart of callback scheduling
 
@@ -43,23 +43,23 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ## Communication
 
-### [Frequency](./visualization/frequency/frequency.md#communication)
+### [Frequency](./visualization/frequency/index.md#communication)
 
 ![communication_frequency_time_line](./imgs/communication_frequency_time_line.png)
 
-### [Period](./visualization/period/period.md#communication)
+### [Period](./visualization/period/index.md#communication)
 
 ![communication_period_time_line](./imgs/communication_period_time_line.png)
 
-### [Latency](./visualization/latency/latency.md#communication)
+### [Latency](./visualization/latency/index.md#communication)
 
 ![communication_latency_time_line](./imgs/communication_latency_time_line.png)
 
-### [Publish/Subscribe Frequency](./visualization/frequency/frequency.md#publish-and-subscription)
+### [Publish/Subscribe Frequency](./visualization/frequency/index.md#publish-and-subscription)
 
 ![pub_sub_frequency_time_line](./imgs/pub_sub_frequency_time_line.png)
 
-### [Publish/Subscribe Period](./visualization/period/period.md#publish-and-subscription)
+### [Publish/Subscribe Period](./visualization/period/index.md#publish-and-subscription)
 
 ![pub_sub_period_time_line](./imgs/pub_sub_period_time_line.png)
 

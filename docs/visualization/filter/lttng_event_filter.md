@@ -1,39 +1,53 @@
-# Usage of LTTngEventFilter
+# LTTngEventFilter
 
-CARET can handle measurements and analysis up to several minutes. Memory usage, analysis time, and visualization time, etc., will be issues when leveraging measurement results of longer duration.
 
-Therefore, CARET has an API (LTTngEventFilter) to omit unnecessary measurement results when reading LTTng.  
-This section describes how to use the LTTngEventFilter.
+CARET is able to analyze data recorded for several minutes. When analyzing large data with CARET, both memory and time consumed for analysis will be critical issue.
 
-LTTngEventFilter has the following filters
+In order not to load unnecessary data, CARET has `LTTngEventFilter` to exclude selected data from loading data.
 
-- init_pass_filter
-- duration_filter
-- strip_filter
+`LTTngEventFilter` has the following methods.
 
-## API Description
+- `init_pass_filter`
+- `duration_filter`
+- `strip_filter`
+
+## `init_pass_filter`
+
+With `init_pass_filter` method, events recorded by runtime tracepoints are not loaded onto memory.
 
 ```python
 LttngEventFilter.init_pass_filter()
 ```
 
-- Filter the trace points at initialization
+## `duration_filter`
+
+With `duration_filter` method, you can crop data with targeting time range of recorded data.
 
 ```python
 LttngEventFilter.duration_filter(duration_s: float, offset_s: float)
 ```
 
-- [duration_s] : Measure duration
-- [offset_s] : Ignore seconds from start
+`duration_filter` method has following two arguments.
+
+- `duration_s` is duration of target time range
+- `offset_s` is point of target time range
+
+## `strip_filter`
+
+With `strip_filter` method, you can crop data with targeting time range of recorded data as well as `duration_filter`. `strip_filter` has different arguments from `duration_filter`.
 
 ```python
 LttngEventFilter.strip_filter(lsplit_s: Optional[float], rsplit_s: Optional[float])
 ```
 
-- Ignore measurement results for [lsplit_s] from the start of the measurement
-- Ignore measurement results for [rsplit_s] seconds before measurement ends
+`strip_filter` method has following two optional arguments. If you omit either or both of them, default value '0' is given to the optional argument.
 
-## Use cases
+- `lstrip_s` is start time of cropping range
+- `rstrip_s` is end point of cropping range
+
+## Sample code
+
+A sample code, where `duration_filter` is used, is given as below.
 
 ```python
 from caret_analyze import Lttng, LttngEventFilter
@@ -43,4 +57,5 @@ lttng = Lttng('/path/to/ctf', event_filters=[
 ]) # Filtering for 10 from 5 seconds
 ```
 
-Multiple event_filters can be specified.
+If you want to add another filter, append it to `event_filters` list.
+

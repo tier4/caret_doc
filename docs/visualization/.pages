@@ -1,5 +1,7 @@
 nav:
-    - Visualization: index.md
+    - Overview:
+      - index.md
+      - Premise of communication: premise_of_communication.md
     - Frequency: frequency
     - Period: period
     - Latency: latency

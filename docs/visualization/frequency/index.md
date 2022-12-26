@@ -1,9 +1,9 @@
-# Execution frequency
+# Frequency
 
-CARET can visualize frequencies of `CallbackBase`-based objects and `Communication`-based objects.
-Any object can be visualized in the same `Plot.create_frequency_timeseries_plot(target_object)` interface.
+CARET is able to show you frequencies of callback execution, message communication, and invocation of publisher or subscription.  
+`Plot.create_frequency_timeseries_plot(target_object)` interface is provided for it.
 This section describes sample visualization scripts for them.
-Execute the following script code to load trace data and an architecture object before calling visualization API.
+Execute the following script code to load trace data and an architecture object before calling this method.
 
 ```python
 from caret_analyze.plot import Plot
@@ -45,8 +45,14 @@ The vertical axis means frequency of callback execution, labeled as `Frequency [
 
 ## Communication
 
-`Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` is introduced to confirm targeted topic is communicated at expected frequency.
-For premise knowledge of communications, see [Premise of communication](../communication/premise_of_communication.md).
+`Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` is introduced to confirm targeted topic is communicated at expected frequency.  
+Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
+See [Premise of communication](../premise_of_communication.md) for more details.
+
+<prettier-ignore-start>
+!!! info
+    Current implementation of CARET does not behave as explained above. In this moment, CARET counts not only successful communication but also failure ones for calculating frequency. This implementation will be improved in the near future.
+<prettier-ignore-end>
 
 ```python
 ### Timestamp tables
@@ -69,12 +75,11 @@ plot.show()
 
 ![communication_frequency_time_line](../../imgs/communication_frequency_time_line.png)
 
-The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared as well as the previous callback subsection.
-The vertical axis means frequency of communication, labeled as `Frequency [Hz]`. It is plotted per second.
+The horizontal axis means time, labeled as `Time [s]` while the vertical axis means frequency of communication, labeled as `Frequency [Hz]` as well as time-series graph for callback execution. `xaxis_type` argument is provided as well.
 
 ## Publish and Subscription
 
-`Plot.create_frequency_timeseries_plot(Collection[publish: Publisher or subscription: Subscriber])` is introduced to check whether target publisher or frequency.
+`Plot.create_frequency_timeseries_plot(Collection[publish: Publisher or subscription: Subscriber])` is introduced to check how frequent target publisher or subscription is invoked.
 
 ```python
 ### Timestamp tables
@@ -97,5 +102,4 @@ plot.show()
 
 ![pub_sub_frequency_time_line](../../imgs/pub_sub_frequency_time_line.png)
 
-The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared as well as the previous callback subsection.
-The vertical axis means invocation frequency of publish or subscription, labeled as `Frequency [Hz]`. It is plotted per second.
+The horizontal axis means time, labeled as `Time [s]` while the vertical axis means invocation frequency of publish or subscription, labeled as `Frequency [Hz]` as well as time-series graph for callback execution. `xaxis_type` argument is provided as well.

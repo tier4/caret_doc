@@ -1,10 +1,10 @@
-# Visualization
+# Overview
 
 This chapter explains how to visualize trace data as you expect. [Gallery](../gallery.md) section shows which type of visualization is supported by CARET. CARET serves uniform visualization API to create such graphs.
 
 ## Uniform API design
 
-CARET serves `Plot` class to visualize trace data. The following sample code is given to explain basic usage of `Plot`.
+CARET serves `Plot` class to visualize trace data. The following sample code shows the basic usage of `Plot`.
 
 ```python
 from caret_analyze.plot import Plot
@@ -48,17 +48,20 @@ Some of methods are not designed according to uniform API design, and they are e
 
 ### Callback
 
-- [`create_frequency_timeseries_plot`](./frequency/frequency.md#callback)
-- [`create_period_timeseries_plot`](./period/period.md#callback)
-- [`create_latency_timeseries_plot`](./latency/latency.md#callback)
-- [`callback_sched`](./callback_scheduling/callback_scheduling_visualization.md)
+- [`create_frequency_timeseries_plot(callbacks: Collection[CallbackBase])`](./frequency/index.md#callback)
+- [`create_period_timeseries_plot(callbacks: Collection[CallbackBase])`](./period/index.md#callback)
+- [`create_latency_timeseries_plot(callbacks: Collection[CallbackBase])`](./latency/index.md#callback)
+- [`callback_sched`](./callback_scheduling/index.md)
   - Visualize callback scheduling
 
 ### Communication
 
-- [`create_frequency_timeseries_plot`](./frequency/frequency.md#communication)
-- [`create_period_timeseries_plot`](./period/period.md#communication)
-- [`create_latency_timeseries_plot`](./latency/latency.md#communication)
+- [`create_frequency_timeseries_plot(communications: Collection[Communication])`](./frequency/index.md#communication)
+- [`create_period_timeseries_plot(data: [Communication])`](./period/index.md#communication)
+- [`create_latency_timeseries_plot(data: [Communication])`](./latency/index.md#communication)
+
+Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
+See [Premise of communication](./premise_of_communication.md) for more details. Feel free to skip this page if you are not interested in.
 
 ### Path
 
@@ -71,8 +74,8 @@ Some of methods are not designed according to uniform API design, and they are e
 
 CARET provides some APIs which can help users to focus on their respective interest.
 
-- [LTTngEventFilter](./filter/lttng_event_filter.md)
-- [Wildcards for get_callbacks()](./search/wildcards_for_get_callbacks.md)
+- [`LTTngEventFilter()`](./filter/lttng_event_filter.md)
+- [Wildcards for `get_callbacks()`](./search/wildcards_for_get_callbacks.md)
 
 <prettier-ignore-start>
 !!!info

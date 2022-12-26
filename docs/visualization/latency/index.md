@@ -1,9 +1,8 @@
-# Execution time (latency)
+# Latency (or Execution time)
 
-CARET can visualize latencies of `CallbackBase`-based objects and `Communication`-based objects.
-Any object can be visualized in the same `Plot.create_latency_timeseries_plot(target_object)` interface.
+CARET is able to show you latencies of callback execution, message communication. `Plot.create_latency_timeseries_plot(target_object)` interface is provided for it.
 This section describes sample visualization scripts for them.
-Execute the following script code to load trace data and an architecture object before calling visualization API.
+Execute the following script code to load trace data and an architecture object before calling this method.
 
 ```python
 from caret_analyze.plot import Plot
@@ -46,7 +45,6 @@ The vertical axis means execution time of callback function, labeled as `Latency
 ## Communication
 
 `Plot.create_latency_timeseries_plot(communications: Collection[Communication])` is called when you are concerned how long time is consumed from message publish to corresponding subscription.
-For premise knowledge of communications, see [Premise of communication](../communication/premise_of_communication.md).
 
 ```python
 ### Timestamp tables
@@ -75,5 +73,5 @@ The vertical axis means latency, labeled as `Latency [ms]`. It is plotted per sa
 <prettier-ignore-start>
 !!! warning
     Communication latency is defined as elapsed time from topic message publish to subscription callback execution corresponding to the message.
-    Strictly speaking, it is not not only required time from message transmission to reception, but it includes scheduling latency.
+    Strictly speaking, it is not not only elapsed time from message transmission to reception, but it also includes scheduling latency of callback.
 <prettier-ignore-end>
