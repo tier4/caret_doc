@@ -88,5 +88,5 @@ The vertical axis means latency, labeled as `Latency [ms]`. It is plotted per sa
 <prettier-ignore-start>
 !!! warning
     Communication latency is defined as elapsed time from topic message publish to subscription callback execution corresponding to the message.
-    Strictly speaking, it is not not only required time from message transmission to reception, but it includes scheduling latency of callbacks.
+    Strictly speaking, it is not only required time from message transmission to reception, but it also includes scheduling latency of callbacks.
 <prettier-ignore-end>

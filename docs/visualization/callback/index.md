@@ -77,7 +77,7 @@ plot.show()
 ![callback_period_time_line](../../imgs/callback_period_time_line.png)
 
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared as well as `create_callback_frequency_plot()` method.
-The vertical axis means period of callback execution, labeled as `Period [ms]`. It is plotted per sample.
+The vertical axis means period of callback start, labeled as `Period [ms]`. It is plotted per sample.
 
 ## Latency
 
