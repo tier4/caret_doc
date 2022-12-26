@@ -40,26 +40,9 @@ WARNING : 2022-06-12 12:25:26 | The following packages have not been built using
 
 ## Tracing the sample application with CARET
 
-### Starting LTTng session
-
-CARET depends on LTTng for tracing applications. LTTng session has to be started before a target application runs. Note that if you execute the target application before starting LTTng session, it will result in a lack of trace points.
-
-You can execute LTTng session, for CARET, with a simple command interface as well as ros2-tracing.
-
-```bash
-source /opt/ros/humble/setup.bash
-
-# set a destination directory. ~/.ros/tracing is default.
-mkdir -p ~/ros2_ws/evaluate
-export ROS_TRACE_DIR=~/ros2_ws/evaluate
-
-ros2 trace -s e2e_sample -k -u "ros2*"
-# Start session with pressing Enter key
-```
-
 ### Launching the target application
 
-Open a new terminal and run the target as shown in the following
+Run the target as shown in the following.
 
 ```bash
 # Environment settings (keep the order as below)
@@ -76,15 +59,26 @@ export CARET_IGNORE_TOPICS="/clock:/parameter_events"
 
 # Launch the target application, demos_end_to_end_sample
 ros2 launch caret_demos end_to_end_sample.launch.py
-^C # Finish with Ctrl+C after several seconds
-
-[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
-[end_to_end_sample-1] [INFO] [1631481246.160958444] [rclcpp]: signal_handler(signal_value=2)
-[INFO] [end_to_end_sample-1]: process has finished cleanly [pid 722356]
 ```
 
-You can finish the target application and LTTng session.
-LTTng session will be closed if you push `Enter` key on the terminal where the LTTng session runs.
+### Starting recording
+
+Open a new terminal and record the performance data.
+
+```bash
+source /opt/ros/humble/setup.bash
+source ~/ros2_caret_ws/install/local_setup.bash
+
+# set a destination directory. ~/.ros/tracing is default.
+mkdir -p ~/ros2_ws/evaluate
+export ROS_TRACE_DIR=~/ros2_ws/evaluate
+
+ros2 caret record -s e2e_sample
+
+# Start recording with pressing Enter key
+# > All process tarted recording.
+# > press enter to stop...
+```
 
 ## Validating recorded data briefly
 

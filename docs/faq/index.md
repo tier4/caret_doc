@@ -25,6 +25,22 @@ ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
       CARET CLI tool doesn't work properly in Anaconda environment. Please use pure Python.
 <prettier-ignore-end>
 
+## Recording
+
+### LTTng session doesn't start after `ros2 caret record`
+
+- Check detailed status for recording sequence by adding `-verbose` option (e.g. `ros2 caret record -v` )
+  - You will see `N/M process started recording` , where `N` is the number of processes which have been started recording and `M` is the number of total processes to be started recording
+- If `N` increases very slowly, add `--recording-frequency` option with integer greater than 100 (e.g. `ros2 caret record -f 500` )
+  - Please be careful that it increases the possibility of recording failure
+- If `N` remains 0, remove `~/.lttng` and start recording again
+  - Please be careful that the first recorded trace data after removing `~/.lttng` tends to lack some events. So, please ignore the data
+- It's also important to make sure you don't have another LTTng session running
+
+### So many nodes named `/caret_trace_ooooooo` created
+
+- As described in [design section](../design/runtime_processing/index.md), a node to store CARET events is created for each process. Therefore, if a target application is huge and has a lot of processes, the number of CARET nodes also becomes huge
+
 ## Visualization
 
 ### Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result

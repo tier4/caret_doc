@@ -2,32 +2,16 @@
 
 ## Recording with CARET
 
-CARET uses LTTng for tracing a target application. A LTTng session has to be started before running the application. This page explains two different ways for it: Starting LTTng session manually and Starting LTTng session using ROS launch system.
+CARET uses LTTng for tracing a target application.
+This page explains two different ways for tracing: Starting LTTng session manually and Starting LTTng session using ROS launch system.
 
 Explanation in this page assumes CARET is installed to `~/ros2_caret_ws` and the sample application used in the tutorial section is located in `~/ros2_ws`.
 
 ## Starting LTTng session manually
 
-Two terminals are needed for this method: One for starting a LTTng session, another for running a target application.
+Two terminals are needed for this method; one for executing a target application, another for starting a LTTng session.
 
-1. Open a terminal and start a LTTng session with the following commands
-
-   - (Optional) `ROS_TRACE_DIR` variable is a destination directory where recorded trace data will be stored. Default is `~/.ros/tracing`
-   - With "`-s`" option, you can give session name. The recorded trace data will be stored into `~/ros_ws/evaluate/e2e_sample` in this sample
-   - Press "Enter" key to start a session
-
-   ```sh
-   source /opt/ros/humble/setup.bash
-
-   # (Optional) Set a destination directory
-   mkdir -p ~/ros2_ws/evaluate
-   export ROS_TRACE_DIR=~/ros2_ws/evaluate
-
-   ros2 trace -s e2e_sample -k -u "ros2*"
-   # Start session with pressing Enter key
-   ```
-
-2. Open another terminal and launch a target application
+1. Open a terminal and launch a target application
 
    - Perform environment settings in the same order as below. CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as the target application refers to CARET/rclcpp
 
@@ -61,13 +45,37 @@ Two terminals are needed for this method: One for starting a LTTng session, anot
      ros2 run caret_demos end_to_end_sample
      ```
 
-3. Stop the target application
+2. Open another terminal and start a LTTng session with the following commands
 
-4. Press "Enter" key to stop the LTTng session in the terminal where the LTTng session runs
+   - Trace data will be stored into the directory whose path is defined as `{ROS_TRACE_DIR}/{SESSION_NAME}`.
+     - `ROS_TRACE_DIR` is an environmental variable whose default value is `~/.ros/tracing`  
+        (Optional) You can set `ROS_TRACE_DIR` environment variable to change a destination directory where recorded trace data will be stored
+     - `SESSION_NAME` means a session name given with `-s` option for `ros2 caret record` command
+   - Press "Enter" key to start a session
+
+   ```sh
+   source /opt/ros/humble/setup.bash
+   source ~/ros2_caret_ws/install/local_setup.bash
+
+   # (Optional) Set a destination directory
+   mkdir -p ~/ros2_ws/evaluate
+   export ROS_TRACE_DIR=~/ros2_ws/evaluate
+
+   ros2 caret record -s e2e_sample
+
+   # Start session with pressing Enter key
+   ```
+
+3. Press "Enter" key to stop the LTTng session in the terminal where the LTTng session runs
+
+4. Stop the target application
 
 <prettier-ignore-start>
 !!!info
-      A LTTng session needs to be started before running a target application. Otherwise, some trace points won't be recorded and analysis will fail later.
+      If you'd like to start measurement immediately after launch, reverse Step 1 and Step 2.
+      You can start a Lttng session first before executing a target application as well.
+      However, if recording is started during launch of a target application, it may cause missing recordings.
+      Please start recording either before launch is started or after launch is completed.
 <prettier-ignore-end>
 
 <prettier-ignore-start>
@@ -77,7 +85,7 @@ Two terminals are needed for this method: One for starting a LTTng session, anot
 
 ## Starting LTTng session via ROS launch
 
-You can start LTTng session using ROS launch system. When you start a LTTng session in one terminal, you have to open another terminal for executing a target application as explained above. Operating multiple terminals is laborious for users. Launching LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.
+You can start LTTng session using ROS launch system. When you have started a target application in one terminal, you have to open another terminal for starting a LTTng session as explained above. Operating multiple terminals is laborious for users. Starting LTTng session along with application by ROS launch is a reasonable way to apply CARET repeatedly.
 
 1. Create a launch file for a target application in ROS general manner if you haven't made it
 
@@ -165,14 +173,19 @@ def generate_launch_description():
         print("Start tracing with 'ros2*'.")
 
   if caret_light:
-    caret_event = [ "ros2:*callback*",
+    caret_event = [
+            "ros2:*callback*",
+            "ros2_caret:*callback*",
             "ros2:dispatch*",
+            "ros2_caret:dispatch*",
             "ros2:rclcpp*" ,
+            "ros2_caret:rclcpp*" ,
             "ros2_caret:rmw*",
             "*callback_group*",
             "ros2_caret:*executor",
             "ros2_caret:dds_bind*",
-            "ros2:rcl_*init"]
+            "ros2:rcl_*init",
+            "ros2_caret:rcl_*init"]
 
   if caret_session == "":
     dt_now = datetime.datetime.now()

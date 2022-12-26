@@ -2,6 +2,17 @@
 
 ## CARET
 
+### v0.4.0 <small>\_ Dec 16, 2022</small> {id = "0.3.4"}
+
+- **New**: Added a new feature to start, stop, and resume even recording whenever users want to ([CARET_trace #68](https://github.com/tier4/CARET_trace/pull/68), [CARET_analyze #190](https://github.com/tier4/CARET_analyze/pull/190), [ros2caret #48](https://github.com/tier4/ros2caret/pull/48), and [CARET_doc #126](https://github.com/tier4/CARET_doc/pull/126))
+
+### v0.3.4 <small>\_ Dec 12, 2022</small> {id = "0.3.4"}
+
+- **New**: Added functions to rename subsystems in Architecture object like executor, node, callback and topic ([CARET_analyze#156](https://github.com/tier4/CARET_analyze/pull/156))
+- Suppressed warning messages, which are outputted because `service` event is not supported, during trace data loading ([CARET_analyze#192](https://github.com/tier4/CARET_analyze/pull/192))
+- Fixed bug which calculated incorrect period or frequency ([CARET_analyze#213](https://github.com/tier4/CARET_analyze/pull/213))
+- Fixed error messages from `Mypy` ([CARET_analyze#211](https://github.com/tier4/CARET_analyze/pull/211))
+
 ### v0.3.3 <small>\_ Nov 28, 2022</small> {id = "0.3.3"}
 
 - Added guidances for a beginner to avoid getting stuck in unexpected cases ([CARET_analyze #200](https://github.com/tier4/CARET_analyze/pull/200) and [CARET_analyze #186](https://github.com/tier4/CARET_analyze/pull/186))
