@@ -4,7 +4,7 @@ This chapter explains how to visualize trace data as you expect. [Gallery](../ga
 
 ## Uniform API design
 
-CARET serves `Plot` class to visualize trace data. The following sample code is given to explain usage of `Plot`.
+CARET serves `Plot` class to visualize trace data. The following sample code explains usage of `Plot`.
 
 ```python
 from caret_analyze.plot import Plot
