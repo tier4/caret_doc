@@ -61,7 +61,7 @@ latency_df
 
 ```python
 ### Time-line graph
-plot = Plot.create_communication_latency_plot(app.communications)
+plot = Plot.create_latency_timeseries_plot(app.communications)
 plot.show()
 
 # ---Output in jupyter-notebook as below---

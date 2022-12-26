@@ -61,7 +61,7 @@ frequency_df
 
 ```python
 ### Time-line graph
-plot = Plot.create_communication_frequency_plot(app.communications)
+plot = Plot.create_frequency_timeseries_plot(app.communications)
 plot.show()
 
 # ---Output in jupyter-notebook as below---
@@ -89,7 +89,7 @@ frequency_df
 
 ```python
 ### Time-line graph
-plot = Plot.create_publish_subscription_frequency_plot(*app.publishers, *app.subscriptions)
+plot = Plot.create_frequency_timeseries_plot(*app.publishers, *app.subscriptions)
 plot.show()
 
 # ---Output in jupyter-notebook as below---
