@@ -1,10 +1,6 @@
 # Publish and Subscription
 
 CARET can visualize frequency and invocation period per publish or subscription.
-This section describes sample visualization scripts for them.
-Execute the following script code to load trace data and an architecture object before calling visualization API.
-
-This visualization show you when publish or subscription is invoked in a target application.
 
 ```python
 from caret_analyze.plot import Plot
@@ -31,7 +27,7 @@ pub = pub[0] # Info 2
 
 ## Frequency
 
-`Plot.create_publish_subscription_frequency_plot(Collection[publish: Publisher or subscription: Subscriber])` is introduced to check whether target publisher or frequency.
+`Plot.create_publish_subscription_frequency_plot(Collection[publish: Publisher or subscription: Subscriber])` is introduced to check how frequent target publisher or subscription is invoked.
 
 ```python
 plot = Plot.create_publish_subscription_frequency_plot(pub)
