@@ -3,7 +3,7 @@
 In context of CARET, response time is defined how much of time costs from a message input to message output from a targeted path. Please refer to [FAQ](../../faq/index.md#how-response-time-is-calculated) if you are interested in response time defined in CARET.
 
 Three cases of response time is defined CARET; `best-to-worst`, `best`, and `worst`. With `best` case, CARET samples shortest time elapsed in a targeted path. With `worst` case, the previous message input timing is taken into account. `best-to-worst` case includes most of all cases between `best` and `worst`.
-This section shows three sample scripts for response time. They generates histograms respectively.Horizontal axis of the histograms means response time, labeled `Response Time [ms]` and vertical axis of the histograms means `Probability`.
+This section shows three sample scripts for response time. They generate histograms respectively. Horizontal axis of the histograms means response time, labeled `Response Time [ms]` and vertical axis of the histograms means `Probability`.
 
 ```python
 from caret_analyze.plot import Plot
