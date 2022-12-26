@@ -1,6 +1,6 @@
 # Many to many communication
 
-ROS 2 allows topic messages to be published from multiple nodes and to be received by multiple nodes. Topic messages who share a same topic messages are transmitted and received among many nodes as the following figure shows.
+ROS 2 allows topic messages to be published from multiple nodes and to be received by multiple nodes. Topic messages who share a same topic are transmitted and received among many nodes as the following figure shows.
 
 ![many-to-many communication](./imgs/many_to_many_communication.svg)
 
