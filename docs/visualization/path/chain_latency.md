@@ -24,4 +24,4 @@ chain_latency(path, granularity='node', lstrip_s=1, rstrip_s=1)
   - With `node`, intermediate nodes are also displayed in chain graph
   - With `end-to-end`, only initial node and destination node appear in chain graph
 - `lstrip_s` is float value for selecting start time of cropping time range
-- `rstrip_s=1` is float value for selecting end time of cropping time range
+- `rstrip_s` is float value for selecting end time of cropping time range
