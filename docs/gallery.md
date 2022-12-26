@@ -11,7 +11,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![callback_frequency_df](./imgs/callback_frequency_df.png)
 
-#### Time-line graph
+#### Time-series graph
 
 ![callback_frequency_time_line](./imgs/callback_frequency_time_line.png)
 
