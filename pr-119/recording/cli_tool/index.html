@@ -771,6 +771,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#recording" class="md-nav__link">
+    Recording
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#trace-data-validation" class="md-nav__link">
     Trace data validation
   </a>
@@ -2446,6 +2453,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#recording" class="md-nav__link">
+    Recording
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#trace-data-validation" class="md-nav__link">
     Trace data validation
   </a>
@@ -2519,6 +2533,19 @@
 
 INFO    : <span class="m">2022</span>-09-29 <span class="m">20</span>:18:43 <span class="p">|</span> All packages are built using caret-rclcpp.
 </code></pre></div>
+<h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
+<p>This command starts a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session and recording sequence. (<a href="../recording/">See details</a>)</p>
+<p>Recording begins after <code>All process started recording</code> is displayed.</p>
+<div class="highlight"><pre><span></span><code>ros2 caret record --session-name &lt;session_name&gt; --recording-frequency &lt;recording_frequency&gt; --verbose
+</code></pre></div>
+<!-- Please refer to [name of page](path) for detail of `<recording_frequency>`. -->
+
+<p>Increasing value of <code>&lt;recording_frequency&gt;</code> reduces time required to start recording.
+However, if large value is given to <code>&lt;recording_frequency&gt;</code>, recording is more likely to cause <code>Tracer discarded</code>.<br />
+<code>-f</code> is the short option for <code>--recording-frequency</code><br />
+[TODO] Add a link to the design page as a reference for details.</p>
+<p>With the <code>--verbose</code> option, you can check status for recording sequence in detail.<br />
+<code>-v</code> is the short option for <code>--verbose</code></p>
 <h2 id="trace-data-validation">Trace data validation<a class="headerlink" href="#trace-data-validation" title="Permanent link">#</a></h2>
 <p>This command checks whether a recording is successful. (<a href="../validating/#validating-trace-data">See details</a>)</p>
 <p>If there are problems with the recorded data, warning messages will be displayed</p>

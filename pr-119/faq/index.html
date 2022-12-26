@@ -2390,6 +2390,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#recording" class="md-nav__link">
+    Recording
+  </a>
+  
+    <nav class="md-nav" aria-label="Recording">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lttng-session-doesnt-start-after-ros2-caret-record" class="md-nav__link">
+    LTTng session doesn't start after ros2 caret record
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#so-many-nodes-named-caret_trace_ooooooo-created" class="md-nav__link">
+    So many nodes named /caret_trace_ooooooo created
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#visualization" class="md-nav__link">
     Visualization
   </a>
@@ -2549,6 +2576,27 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> CLI tool doesn't work properly in Anaconda environment. Please use pure Python.</p>
 </div>
 <p><prettier-ignore-end></p>
+<h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
+<h3 id="lttng-session-doesnt-start-after-ros2-caret-record"><abbr title="Linux Tracing Tool next generation">LTTng</abbr> session doesn't start after <code>ros2 caret record</code><a class="headerlink" href="#lttng-session-doesnt-start-after-ros2-caret-record" title="Permanent link">#</a></h3>
+<ul>
+<li>Check detailed status for recording sequence by adding <code>-verbose</code> option (e.g. <code>ros2 caret record -v</code> )<ul>
+<li>You will see <code>N/M process started recording</code> , where <code>N</code> is the number of processes which have been started recording and <code>M</code> is the number of total processes to be started recording</li>
+</ul>
+</li>
+<li>If <code>N</code> increases very slowly, add <code>--recording-frequency</code> option with integer greater than 100 (e.g. <code>ros2 caret record -f 500</code> )<ul>
+<li>Please be careful that it increases the possibility of recording failure</li>
+</ul>
+</li>
+<li>If <code>N</code> remains 0, remove <code>~/.lttng</code> and start recording again<ul>
+<li>Please be careful that the first recorded trace data after removing <code>~/.lttng</code> tends to lack some events. So, please ignore the data</li>
+</ul>
+</li>
+<li>It's also important to make sure you don't have another <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session running</li>
+</ul>
+<h3 id="so-many-nodes-named-caret_trace_ooooooo-created">So many nodes named <code>/caret_trace_ooooooo</code> created<a class="headerlink" href="#so-many-nodes-named-caret_trace_ooooooo-created" title="Permanent link">#</a></h3>
+<ul>
+<li>As described in <a href="../design/runtime_processing/">design section</a>, a node to store <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> events is created for each process. Therefore, if a target application is huge and has a lot of processes, the number of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> nodes also becomes huge</li>
+</ul>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
 <h3 id="result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result">Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result<a class="headerlink" href="#result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result" title="Permanent link">#</a></h3>
 <ul>
