@@ -4,7 +4,8 @@ ROS 2 allows topic messages to be published from multiple nodes and to be receiv
 
 ![many-to-many communication](./imgs/many_to_many_communication.svg)
 
-If you want to investigate performance of many-to-many communication, CARET requires you to divide them into 1-to-1 communication and select a set of 1-to-1 communications. You will execute `Application.get_communication()` per target communication.
+If you want to investigate performance of many-to-many communication, you should select a pair of 1-to-1 communications because CARET divides them into 1-to-1 communication.
+You can get with executing `Application.get_communication()` per target communication.
 
 ## Caution for Many-to-1 communication
 
