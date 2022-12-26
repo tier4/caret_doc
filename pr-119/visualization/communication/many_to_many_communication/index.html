@@ -2433,7 +2433,7 @@
 
 
 <h1 id="many-to-many-communication">Many to many communication<a class="headerlink" href="#many-to-many-communication" title="Permanent link">#</a></h1>
-<p><abbr title="Robot Operating System">ROS</abbr> 2 allows topic messages to be published from multiple nodes and to be received by multiple nodes. Topic messages who share a same topic messages are transmitted and received among many nodes as the following figure shows.</p>
+<p><abbr title="Robot Operating System">ROS</abbr> 2 allows topic messages to be published from multiple nodes and to be received by multiple nodes. Topic messages who share a same topic are transmitted and received among many nodes as the following figure shows.</p>
 <p><img alt="many-to-many communication" src="../imgs/many_to_many_communication.svg" /></p>
 <p>If you want to investigate performance of many-to-many communication, you should select a pair of 1-to-1 communications because <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> divides them into 1-to-1 communication.
 You can get with executing <code>Application.get_communication()</code> per target communication.</p>
