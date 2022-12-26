@@ -13,6 +13,6 @@ CARET requires users to take care of Many-to-1 communication. Many-to-1 communic
 
 ![multiple publisher](./imgs/multiple_publisher.svg)
 
-In this case, invocation frequency of publish on the source node is different from that of subscription on the destination node. The destination node receives topic messages from 2 other nodes. It is expected that sum of publish frequency on three nodes is equaled to that of subscription.
+In this case, invocation frequency of publish on the source node is different from that of subscription on the destination node. The destination node receives topic messages from 2 other nodes. It is expected that sum of publish frequency on three nodes is equaled to that of subscription. For example, other node #0 and #1 publish topic messages as frequent as the source node. The destination node receives three times as many as topic messages. If you find difference between invocation frequency of the source node's publisher and that of the destination node's subscription, you might wonder why it occurs. In this case, use of `Plot.create_publish_subscription_frequency_plot` is not recommended rather than `Plot.create_communication_frequency_plot`
 
 If you see that publish frequency is different from subscription frequency, you may think loss of topic messages. However, it is reasonable when many-to-1 communication is performed.
