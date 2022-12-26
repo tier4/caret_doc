@@ -11,7 +11,7 @@ In ROS 2, nodes communicate each other via topic messages. The topic messages ar
 
 ![simple communication](./imgs/simple_communication.svg)
 
-CARET serves `Communication` class which focus on a topic message from a source node to a destination node. A `Communication`-based object is retrieved from method, `Application.get_communication('source node', 'destination node', '/topic/message')`. A `Communication` object has a collection of timestamps which are obtained when both publish and subscription on a target message are performed successfully. 
+CARET serves `Communication` class which focus on a topic message from a source node to a destination node. A `Communication`-based object is retrieved from method, `Application.get_communication('source node', 'destination node', '/topic/message')`. A `Communication` object has a collection of timestamps which are obtained when both publish and subscription on a target message are performed successfully.
 
 Topic messages have possibility to be lost in communication path as they are transmitted and received by UDP. A `Communication` object ignores loss of topic messages. If you want to check loss of topic messages, it is reasonable to compare the number of publish and that of subscription. CARET serves both `Publish` and `Subscription` class. A `Publish` object has a collection of timestamp obtained when publish is invoked. A `Subscription` object have timestamps of invocation of subscription callback. Visualization of `Publish` and `Subscription` objects are explained in [one of subsections](./publish_subscription.md).
 
