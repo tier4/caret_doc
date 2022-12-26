@@ -28,7 +28,7 @@ Gray rectangles indicate callback executions.
   - With `raw`, callback-level message flow is generated
   - With `node`, node-level message flow is generated
 - `lstrip_s` is float value for selecting start time of cropping time range
-- `rstrip_s=1` is float value for selecting end time of cropping time range
+- `rstrip_s` is float value for selecting end time of cropping time range
 - `use_sim_time` is boolean value for mapping simulation time on a horizontal axis
 
 Message flow diagram allows the following operations.
