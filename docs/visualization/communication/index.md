@@ -7,7 +7,7 @@
     This premise section may be boring for some users. If you don't have much time, please feel free to skip the section.
 <prettier-ignore-end>
 
-In ROS 2, nodes communicate each other via topic messages. The topic messages are transmitted by publisher and received by subscription. The following figure shows the simplest example where one node sends topic message and the other node receives it.
+In ROS 2, nodes communicate each other via topic messages. The topic messages are transmitted by publishers and received by subscriptions. The following figure shows the simplest example where one node sends topic message and the other node receives it.
 
 ![simple communication](./imgs/simple_communication.svg)
 
