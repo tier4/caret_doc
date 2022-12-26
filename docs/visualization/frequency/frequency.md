@@ -31,7 +31,7 @@ frequency_df
 ![callback_frequency_df](../../imgs/callback_frequency_df.png)
 
 ```python
-### Time-line graph
+### Time-series graph
 plot = Plot.create_frequency_timeseries_plot(app.callbacks)
 plot.show()
 
@@ -60,7 +60,7 @@ frequency_df
 ![comm_frequency_df](../../imgs/comm_frequency_df.png)
 
 ```python
-### Time-line graph
+### Time-series graph
 plot = Plot.create_frequency_timeseries_plot(app.communications)
 plot.show()
 
@@ -88,7 +88,7 @@ frequency_df
 ![pub_sub_frequency_df](../../imgs/pub_sub_frequency_df.png)
 
 ```python
-### Time-line graph
+### Time-series graph
 plot = Plot.create_frequency_timeseries_plot(*app.publishers, *app.subscriptions)
 plot.show()
 

@@ -31,7 +31,7 @@ latency_df
 ![callback_latency_df](../../imgs/callback_latency_df.png)
 
 ```python
-### Time-line graph
+### Time-series graph
 plot = Plot.create_latency_timeseries_plot(app.callbacks)
 plot.show()
 
@@ -60,7 +60,7 @@ latency_df
 ![callback_latency_df](../../imgs/communication_latency_df.png)
 
 ```python
-### Time-line graph
+### Time-series graph
 plot = Plot.create_latency_timeseries_plot(app.communications)
 plot.show()
 

@@ -31,7 +31,7 @@ period_df
 ![callback_period_df](../../imgs/callback_period_df.png)
 
 ```python
-### Time-line graph
+### Time-series graph
 plot = Plot.create_period_timeseries_plot(app.callbacks)
 plot.show()
 
@@ -60,7 +60,7 @@ period_df
 ![communication_period_df](../../imgs/communication_period_df.png)
 
 ```python
-### Time-line graph
+### Time-series graph
 plot = Plot.create_period_timeseries_plot(app.communications)
 plot.show()
 
@@ -88,7 +88,7 @@ period_df
 ![pub_sub_period_df](../../imgs/pub_sub_period_df.png)
 
 ```python
-### Time-line graph
+### Time-series graph
 plot = Plot.create_period_timeseries_plot(*app.publishers, *app.subscriptions)
 plot.show()
 

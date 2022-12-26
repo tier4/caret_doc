@@ -4,7 +4,7 @@ This chapter explains how to visualize trace data as you expect. [Gallery](../ga
 
 ## Uniform API design
 
-CARET serves `Plot` class to visualize trace data. The following sample code is given to explain usage of `Plot`.
+CARET serves `Plot` class to visualize trace data. The following sample code is given to explain basic usage of `Plot`.
 
 ```python
 from caret_analyze.plot import Plot
@@ -22,7 +22,7 @@ app = Application(arch, lttng)
 callback = app.get_callback('/target/callback/name')
 
 # Get plot object for visualizing callback frequency
-# Plot.create_[Metrics]_[VisualizationMethod]_plot(data)
+# Plot.create_[Metrics]_[GraphType]_plot(data)
 # is format to get a target data set to visualize
 plot = Plot.create_frequency_timeseries_plot(callback)
 
@@ -33,7 +33,9 @@ callback_df = plot.to_dataframe()
 plot.show()
 ```
 
-`plot` object is obtained from `Plot.create_[Metrics]_[VisualizationMethod]_plot(data)`. The argument of `data` is, for example, a `CallbackBase`-based object, a `Communication`-based object. A list of `CallbackBase` or `Communication` is also acceptable as explained later.
+`plot` object is obtained from `Plot.create_[Metrics]_[GraphType]_plot(data)`. The argument of `data` is, for example, a `CallbackBase`-based object or a `Communication`-based object. A list of `CallbackBase` or `Communication` is also acceptable as explained later.
+Any of performance metrics such as `latency`, `frequency`, or `period` is given as `Metrics`. `GraphType` is served to select a graph type such as time-series or histogram.
+
 `plot` object has two method; `to_dataframe()` and `show()`.
 `to_dataframe()` method returns a table including time-series data on a given metrics.
 `show()` method creates a figure of time-series graph and returns the corresponding figure handler. In other words, `show()` method visualizes the time-series data.
@@ -61,7 +63,7 @@ Some of methods are not designed according to uniform API design, and they are e
 ### Path
 
 - [`message_flow`](./path/message_flow.md)
-  - Visualize the message flow of the target path
+  - Visualize message flow of a target path
 - [`create_response_time_histogram_plot`](./path/response_time.md)
 - [`chain_latency`](./path/chain_latency.md)
 
