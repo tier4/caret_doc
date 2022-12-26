@@ -2447,10 +2447,7 @@
 
 
 <h1 id="publish-and-subscription">Publish and Subscription<a class="headerlink" href="#publish-and-subscription" title="Permanent link">#</a></h1>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can visualize frequency and invocation period per publish or subscription.
-This section describes sample visualization scripts for them.
-Execute the following script code to load trace data and an architecture object before calling visualization API.</p>
-<p>This visualization show you when publish or subscription is invoked in a target application.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can visualize frequency and invocation period per publish or subscription.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 <span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
@@ -2476,7 +2473,7 @@ Execute the following script code to load trace data and an architecture object 
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="frequency">Frequency<a class="headerlink" href="#frequency" title="Permanent link">#</a></h2>
-<p><code>Plot.create_publish_subscription_frequency_plot(Collection[publish: Publisher or subscription: Subscriber])</code> is introduced to check whether target publisher or frequency.</p>
+<p><code>Plot.create_publish_subscription_frequency_plot(Collection[publish: Publisher or subscription: Subscriber])</code> is introduced to check how frequent target publisher or subscription is invoked.</p>
 <div class="highlight"><pre><span></span><code><span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_publish_subscription_frequency_plot</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
