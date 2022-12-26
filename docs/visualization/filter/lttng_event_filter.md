@@ -12,7 +12,7 @@ In order not to load unnecessary data, CARET has `LTTngEventFilter` to exclude s
 
 ## `init_pass_filter`
 
-With `init_pass_filter` method, events recorded by initialization tracepoints are not loaded onto memory.
+With `init_pass_filter` method, events recorded by runtime tracepoints are not loaded onto memory.
 
 ```python
 LttngEventFilter.init_pass_filter()
