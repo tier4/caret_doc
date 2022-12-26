@@ -21,7 +21,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![callback_period_df](./imgs/callback_period_df.png)
 
-#### Time-line graph
+#### Time-series graph
 
 ![callback_period_time_line](./imgs/callback_period_time_line.png)
 
