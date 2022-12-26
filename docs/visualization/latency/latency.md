@@ -43,7 +43,6 @@ plot.show()
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared to select index of x-axis among Linux system time, [ROS simulation time](../../recording/sim_time.md), and 0-based ordering. One of `'system_time'`, `'sim_time'` and `'index'` is chosen as `xaxis_type` though `'system_time'` is the default value.
 The vertical axis means execution time of callback function, labeled as `Latency [ms]`. It is duration from `callback_start` to `callback_end` and plotted per sample.
 
-
 ## Communication
 
 `Plot.create_latency_timeseries_plot(communications: Collection[Communication])` is called when you are concerned how long time is consumed from message publish to corresponding subscription.
