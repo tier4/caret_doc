@@ -56,7 +56,7 @@ Some of methods are not designed according to uniform API design, and they are e
 
 - [`create_communication_latency_plot`](./communication/index.md#latency)
 - [`create_communication_frequency_plot`](./communication/index.md#frequency)
-- [`create_communication_period_plot](./communication/index.md#period)
+- [`create_communication_period_plot`](./communication/index.md#period)
 - [`create_publish_subscription_period_plot`](./communication/publish_subscription.md#period)
 - [`create_publish_subscription_frequency_plot`](./communication/publish_subscription.md#frequency)
 
