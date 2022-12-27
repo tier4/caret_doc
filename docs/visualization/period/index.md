@@ -1,6 +1,6 @@
 # Period
 
-CARET is capable of showing periods of callback start, message transmission, invocation of publisher or subscription. 
+CARET is capable of showing periods of callback start, message transmission, invocation of publisher or subscription.
 `Plot.create_period_timeseries_plot(target_object)` interface is provided for it.
 This section describes sample visualization scripts for them.
 Execute the following script code to load trace data and an architecture object before calling this method.
@@ -71,7 +71,6 @@ plot.show()
 ![communication_period_time_line](../../imgs/communication_period_time_line.png)
 
 The horizontal axis means time, labeled as `Time [s]` while the vertical axis means period, labeled as `Period [ms]`, from communication of a certain message to that of next one. `xaxis_type` argument is provided as well as callback execution.
-
 
 ## Publish and Subscription
 

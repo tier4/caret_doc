@@ -1,6 +1,5 @@
 # LTTngEventFilter
 
-
 CARET is able to analyze data recorded for several minutes. When analyzing large data with CARET, both memory and time consumed for analysis will be critical issue.
 
 In order not to load unnecessary data, CARET has `LTTngEventFilter` to exclude selected data from loading data.
@@ -58,4 +57,3 @@ lttng = Lttng('/path/to/ctf', event_filters=[
 ```
 
 If you want to add another filter, append it to `event_filters` list.
-
