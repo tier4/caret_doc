@@ -1,10 +1,10 @@
-# Visualization
+# Overview
 
 This chapter explains how to visualize trace data as you expect. [Gallery](../gallery.md) section shows which type of visualization is supported by CARET. CARET serves uniform visualization API to create such graphs.
 
 ## Uniform API design
 
-CARET serves `Plot` class to visualize trace data. The following sample code is given to explain usage of `Plot`.
+CARET serves `Plot` class to visualize trace data. The following sample code shows the basic usage of `Plot`.
 
 ```python
 from caret_analyze.plot import Plot
@@ -22,7 +22,7 @@ app = Application(arch, lttng)
 callback = app.get_callback('/target/callback/name')
 
 # Get plot object for visualizing callback frequency
-# Plot.create_[Metrics]_[VisualizationMethod]_plot(data)
+# Plot.create_[Metrics]_[GraphType]_plot(data)
 # is format to get a target data set to visualize
 plot = Plot.create_frequency_timeseries_plot(callback)
 
@@ -33,7 +33,9 @@ callback_df = plot.to_dataframe()
 plot.show()
 ```
 
-`plot` object is obtained from `Plot.create_[Metrics]_[VisualizationMethod]_plot(data)`. The argument of `data` is, for example, a `CallbackBase`-based object, a `Communication`-based object. A list of `CallbackBase` or `Communication` is also acceptable as explained later.
+`plot` object is obtained from `Plot.create_[Metrics]_[GraphType]_plot(data)`. The argument of `data` is, for example, a `CallbackBase`-based object or a `Communication`-based object. A list of `CallbackBase` or `Communication` is also acceptable as explained later.
+Any of performance metrics such as `latency`, `frequency`, or `period` is given as `Metrics`. `GraphType` is served to select a graph type such as time-series or histogram.
+
 `plot` object has two method; `to_dataframe()` and `show()`.
 `to_dataframe()` method returns a table including time-series data on a given metrics.
 `show()` method creates a figure of time-series graph and returns the corresponding figure handler. In other words, `show()` method visualizes the time-series data.
@@ -46,22 +48,25 @@ Some of methods are not designed according to uniform API design, and they are e
 
 ### Callback
 
-- [`create_frequency_timeseries_plot`](./frequency/frequency.md#callback)
-- [`create_period_timeseries_plot`](./period/period.md#callback)
-- [`create_latency_timeseries_plot`](./latency/latency.md#callback)
-- [`callback_sched`](./callback_scheduling/callback_scheduling_visualization.md)
+- [`create_frequency_timeseries_plot(callbacks: Collection[CallbackBase])`](./frequency/index.md#callback)
+- [`create_period_timeseries_plot(callbacks: Collection[CallbackBase])`](./period/index.md#callback)
+- [`create_latency_timeseries_plot(callbacks: Collection[CallbackBase])`](./latency/index.md#callback)
+- [`callback_sched`](./callback_scheduling/index.md)
   - Visualize callback scheduling
 
 ### Communication
 
-- [`create_frequency_timeseries_plot`](./frequency/frequency.md#communication)
-- [`create_period_timeseries_plot`](./period/period.md#communication)
-- [`create_latency_timeseries_plot`](./latency/latency.md#communication)
+- [`create_frequency_timeseries_plot(communications: Collection[Communication])`](./frequency/index.md#communication)
+- [`create_period_timeseries_plot(data: [Communication])`](./period/index.md#communication)
+- [`create_latency_timeseries_plot(data: [Communication])`](./latency/index.md#communication)
+
+Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
+See [Premise of communication](./premise_of_communication.md) for more details. Feel free to skip this page if you are not interested in.
 
 ### Path
 
 - [`message_flow`](./path/message_flow.md)
-  - Visualize the message flow of the target path
+  - Visualize message flow of a target path
 - [`create_response_time_histogram_plot`](./path/response_time.md)
 - [`chain_latency`](./path/chain_latency.md)
 
@@ -69,8 +74,8 @@ Some of methods are not designed according to uniform API design, and they are e
 
 CARET provides some APIs which can help users to focus on their respective interest.
 
-- [LTTngEventFilter](./filter/lttng_event_filter.md)
-- [Wildcards for get_callbacks()](./search/wildcards_for_get_callbacks.md)
+- [`LTTngEventFilter()`](./filter/lttng_event_filter.md)
+- [Wildcards for `get_callbacks()`](./search/wildcards_for_get_callbacks.md)
 
 <prettier-ignore-start>
 !!!info
