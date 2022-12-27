@@ -45,6 +45,8 @@ The vertical axis means execution time of callback function, labeled as `Latency
 ## Communication
 
 `Plot.create_latency_timeseries_plot(communications: Collection[Communication])` is called when you are concerned how long time is consumed from message publish to corresponding subscription.
+Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
+See Premise of communication for more details.
 
 ```python
 ### Timestamp tables

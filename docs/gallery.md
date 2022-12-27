@@ -25,7 +25,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![callback_period_time_line](./imgs/callback_period_time_line.png)
 
-### [Execution time (latency)](./visualization/latency/index.md#callback)
+### [Latency (or Execution time)](./visualization/latency/index.md#callback)
 
 #### Timestamp tables
 
