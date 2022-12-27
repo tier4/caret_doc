@@ -2751,7 +2751,7 @@ ros2 caret check_caret_rclcpp --workspace &lt;path-to-workspace&gt;
 <p><img alt="message_flow_rect" src="imgs/message_flow_rect.png" /></p>
 <h3 id="huge-delay-between-topic-publication-and-callback-start">Huge delay between topic publication and callback start<a class="headerlink" href="#huge-delay-between-topic-publication-and-callback-start" title="Permanent link">#</a></h3>
 <ul>
-<li>In a message flow diagram, term from <code>ooo/rclcpp_publish</code> to <code>ooo/callback_start</code> means latency from when a topic is published to when the following callback starts</li>
+<li>In a message flow diagram, elapsed time from <code>ooo/rclcpp_publish</code> to <code>ooo/callback_start</code> means latency from when a topic is published to when the following callback starts</li>
 <li>It includes the following time:<ul>
 <li>Communication (topic) latency</li>
 <li>Wait by <abbr title="Robot Operating System">ROS</abbr> scheduler</li>
