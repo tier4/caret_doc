@@ -105,7 +105,7 @@ ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
 
 ### Huge delay between topic publication and callback start
 
-- In a message flow diagram, term from `ooo/rclcpp_publish` to `ooo/callback_start` means latency from when a topic is published to when the following callback starts
+- In a message flow diagram, elapsed time from `ooo/rclcpp_publish` to `ooo/callback_start` means latency from when a topic is published to when the following callback starts
 - It includes the following time:
   - Communication (topic) latency
   - Wait by ROS scheduler
