@@ -8,6 +8,8 @@
 - **Update**: Changed design of visualization API for refactoring to avoid usage of Pandas ([CARET_analyze #116](https://github.com/tier4/CARET_analyze/pull/116), [CARET_analyze #167](https://github.com/tier4/CARET_analyze/pull/167), [CARET_analyze #168](https://github.com/tier4/CARET_analyze/pull/168), [CARET_analyze #170](https://github.com/tier4/CARET_analyze/pull/170))
 - Added option to control log level to suppress warning message ([CARET_analyze #220](https://github.com/tier4/CARET_analyze/pull/220))
 - Changed behavior of visualization to output empty graph if inputted data does not have any data rather than raising exception ([CARET_analyze #223](https://github.com/tier4/CARET_analyze/pull/223))
+- Fixed `ValueError`, when `create_publish_subscription_frequency_plot` is called with being inputted empty object ([CARET_analyze #227](https://github.com/tier4/CARET_analyze/pull/227))
+- Added metric name to tooltip for identifying plots on a graph
 
 ### v0.4.0 <small>\_ Dec 16, 2022</small> {id = "0.4.0"}
 
