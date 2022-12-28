@@ -3,9 +3,9 @@
 ## Introduction
 
 Design chapter describes details of CARET like architecture overview, definition of tracepoints, integration of data for visualization.
-The following figure shows the tracing flow with each package added.
+The following figure shows the overview of tracing flow and the related packages.
 
-![architecture](../imgs/design.drawio.png)
+![tracing flow and packages](../imgs/design.drawio.png)
 
 CARET records data, which include timestamps, from tracepoints embedded in user applications, ROS 2 and DDS.
 The data are stored as "Trace Data".
