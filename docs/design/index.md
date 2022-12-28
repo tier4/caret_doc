@@ -1,8 +1,4 @@
-# Design 
-
-## Introduction
-
-Design chapter describes details of CARET like architecture overview, definition of tracepoints, integration of data for visualization.
+The design section describes the internals of CARET.
 The following figure shows the tracing flow with each package added.
 
 ![architecture](../imgs/design.drawio.png)
