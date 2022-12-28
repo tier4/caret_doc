@@ -1,8 +1,8 @@
 # Tracepoint filtering
 
-When measuring a system composed of many nodes, such as Autoware, the amount of data from tracing can be very large.
+As measuring a target application such as Autoware composed of many nodes, the amount of data from tracing can be very large.
 
-Trace data discarding occurs during a large amount of recording because Lttng is discard mode to minimize effect to the system.
+Trace data discarding occurs during a large amount of recording because LTTng is discard mode to minimize effect to the system.
 
 CARET provides the ability to disable trace points associated with specific topics or nodes.
 This makes it possible to exclude from recording only trace data related to rviz nodes or tf topics, allowing CARET measurements even on large systems.
