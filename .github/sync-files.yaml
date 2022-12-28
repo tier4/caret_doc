@@ -22,7 +22,7 @@
 
 - repository: autowarefoundation/autoware-github-actions
   files:
-    - source: deploy-docs/mkdocs-requirement.txt
+    - source: deploy-docs/mkdocs-requirements.txt
 
 - repository: tier4/caret_common
   files:
