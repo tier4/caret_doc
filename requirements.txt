@@ -1,0 +1,12 @@
+#### Required packages to build or serve documents
+mkdocs
+pymdown-extensions
+mkdocs-extensions
+mkdocs-awesome-pages-plugin
+mkdocs-material
+fontawesome_markdown
+mdx_truly_sane_lists
+plantuml_markdown
+mkdocs-exclude
+mkdocs-macros-plugin
+mkdocs-same-dir
