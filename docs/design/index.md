@@ -7,34 +7,29 @@ The following figure shows the overview of tracing flow and the related packages
 
 ![tracing flow and packages](../imgs/design.drawio.png)
 
-CARET records data, which include timestamps, from tracepoints embedded in user applications, ROS 2 and DDS.
-The data are stored as "Trace Data".
-CARET analyzes the Trace Data and provides the results to the developer.
+CARET records events data, including metadata and timestamps, from tracepoints embedded in user applications, ROS 2 and DDS.
+The events data are dumped to a set of [CTF](https://diamon.org/ctf/)-based files. The set of files is called "trace data" in the context of CARET.
 
-This design section describes policies and internal processes for each step listed below.
+CARET load trace data and convert them to graphs and statistics for human-beings to comprehend performance and bottleneck of the application.
 
-Recording phase
+This chapter describes the design policy and key points as listed below. As the chapter is written for heavy users or developers, most of light users might feel bored.
 
-1. [Runtime processing](./runtime_processing/index.md)
+- Design related to [Recording](../recording/index.md)
 
-2. [Tracepoints](./trace_points/index.md)
+    1. [Runtime processing](./runtime_processing/index.md)
+    2. [Tracepoints](./trace_points/index.md)
 
-Configuration phase
+- Design related to [Configuration]
+    1. [Configuration](./configuration/index.md)
 
-1. [Configuration](./configuration/index.md)
-
-Analyzing phase
-
-1. [Processing trace data](./processing_trace_data/index.md)
-
-2. [Visualization](./visualizations/index.md)
+- Design related to [Visualization]
+    1. [Processing trace data](./processing_trace_data/index.md)
+    2. [Visualization](./visualizations/index.md)
 
 In addition, the followings are explained.
 
-- [Software architecture](./software_architecture/index.md)
-- [Event and latency definition](./event_and_latency_definitions/index.md)
-- [Limits and constraints](./limits_and_constraints/index.md)
+1. [Software architecture](./software_architecture/index.md)
+2. [Event and latency definition](./event_and_latency_definitions/index.md)
+3. [Limits and constraints](./limits_and_constraints/index.md)
 
-See also
-
-- [CARET analyze API document](https://tier4.github.io/CARET_analyze/)
+If you are interested in details of implementation, [CARET_analyze API document](https://tier4.github.io/CARET_analyze/) might be helpful.
