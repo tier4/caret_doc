@@ -8,7 +8,7 @@
 
 See also for the reference.
 
-- [Tracepoints](../trace_points)
+- [Tracepoints](../trace_points/index.md)
 - [Hook](../runtime_processing/hook.md)
 
 ## Class Structure
