@@ -1,23 +1,29 @@
 # Differences from original ROS
 
+<prettier-ignore-start>
+!!! note
+    This section explains differences between v0.2 implementation of CARET and implementation of ROS 2 Galactic. The explanation is not up-to-date from viewpoints of implementation, but it is enough for readers to understand differences from viewpoints of design.
+<prettier-ignore-end>
+
+
 ## v0.2 vs galactic
 
-In addition to the caret repository, [caret.repos](https://github.com/tier4/caret/blob/main/caret.repos) contains the following repositories
+[caret.repos](https://github.com/tier4/caret/blob/main/caret.repos) contains the following repositories
 
 - <https://github.com/ros2/rcl.git>
 - <https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added>
 - <https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added>
 
-This section describes the differences between each repository.
+They are cloned from original ROS 2 repositories, respectively. This section describes the differences from originals.
 
 ### rcl
 
-No source code changes.
-Cloning this package is for enabling built-in trace points by rebuilding.
+No source code is changed.
+This package is cloned because rebuilding is necessary for enabling built-in trace points.
 
 ### rclcpp
 
-This cloning is for adding trace point which cannot added by LD_PRELOAD.
+This cloning is for adding trace point which cannot added via function hooking with LD_PRELOAD.
 
 See also
 
@@ -38,8 +44,8 @@ It's needed to add include directory of ros2_tracing.
 
 This cloning is for defining tracepoints added to rclcpp.
 
-## v0.3 vs humble
+## v0.3 vs Humble
 
-In v0.3, the trace points used in the galactic version of CARET have been ported.
-Some tracepoints have been added in humble, but they are not currently supported.
+In v0.3, the trace points used in the Galactic version of CARET have been ported.
+Some tracepoints have been added in Humble, but they are not currently used by CARET.
 These tracepoints will be supported in a future version.

@@ -1,6 +1,6 @@
 # Tracepoints definition
 
-This section lists all tracepoints and their definition.
+This section lists all tracepoints and their definitions.
 
 Some tracepoints are used for collecting identification of executors, nodes, callbacks, and topics during application's initialization.
 They are called initialization tracepoints. The other tracepoints are embedded for sampling timestamps after completion of initialization, and called runtime tracepoints.

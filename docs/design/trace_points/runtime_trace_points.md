@@ -1,4 +1,4 @@
-### Relationships for each runtime trace points
+### Relationships of each runtime trace points
 
 ```mermaid
 erDiagram
@@ -75,11 +75,10 @@ erDiagram
 
 ```
 
-Using addresses, tid and source timestamp, it is possible to uniquely identify and bind from the rclcpp publish to the end of subscription node callback.
-On the other hand, callback start and publish cannot be automatically bound.
-This is because the relationship between callback and publish is highly implementation-dependent.
+Using addresses, thread id (`tid`) and source timestamp, CARET is able to identify a pair of message publish and corresponding subscription.
+However, it's difficult to associate a certain message publish to corresponding callback execution because mapping between callback and publish cannot be obtained automatically.
 
-message_construct and dds_bind_addr_to_addr are trace points to adapt to copying and converting instances for binding.
+`message_construct` and `dds_bind_addr_to_addr` are trace points to adapt to copying and converting instances for binding.
 
 ### ros2:callback_start
 
