@@ -5,7 +5,6 @@
     This section explains differences between v0.2 implementation of CARET and implementation of ROS 2 Galactic. The explanation is not up-to-date from viewpoints of implementation, but it is enough for readers to understand differences from viewpoints of design.
 <prettier-ignore-end>
 
-
 ## v0.2 vs galactic
 
 [caret.repos](https://github.com/tier4/caret/blob/main/caret.repos) contains the following repositories
