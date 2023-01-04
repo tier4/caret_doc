@@ -17,7 +17,7 @@
         <link rel="next" href="../../runtime_processing/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.3bd4f189.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
@@ -2411,16 +2411,17 @@
 </p>
 </div>
 <p><prettier-ignore-end></p>
-<p>Since <abbr title="Robot Operating System">ROS</abbr> nodes can implement arbitrary processing, some nodes are difficult to calculate node latency.</p>
-<p>Examples of implementations for which node latency is difficult to calculate are as follows.</p>
+<p>Since users can implement arbitrary processing on <abbr title="Robot Operating System">ROS</abbr> nodes, some defining intra-node path is difficult in some cases.</p>
+<p>Examples of such difficult cases are listed as below.</p>
 <ul>
 <li>Message buffering case between subscribe and publish</li>
 <li>Using message filter case</li>
 </ul>
-<p>the latencies can be observed in only application layer, but <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot observe the events.</p>
-<p>On the other hand, <abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> can trace application-layer events.
-It is able to trace execution of callback function to consume a certain buffered message since it annotate message consumption per single message.</p>
-<p><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> serves <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> this capability to trace consumption of buffered messages.</p>
+<p>the latencies can be observed in only application layer, but <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot observe the events.
+In such cases, data consumption in user code should be taken into account to define intra-node path. However, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> does not observe events on user code.</p>
+<p>To tackle this constraint, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is capable of utilizing events from tracepoints added by <abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> while <abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> collects application-layer events.
+It is able to trace execution of callback function to consume a certain buffered message since it annotate message consumption per single message.
+<abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> serves <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> such capability to trace consumption of buffered messages.</p>
 <p>See also</p>
 <ul>
 <li><a href="https://github.com/tier4/TILDE"><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr> official page</a></li>
