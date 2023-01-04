@@ -14,7 +14,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="caret_analyze/">
+        <link rel="next" href="caret_trace/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.1">
@@ -1428,38 +1428,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" checked>
-      
-      
-      
-        
-          
             
           
         
@@ -1474,35 +1442,21 @@
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Design</a>
+          <a href="./">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1525,16 +1479,23 @@
   
   
     <li class="md-nav__item">
-      <a href="tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2474,7 +2435,7 @@
 <h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
 <p>In the recording phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> records events data obtained from tracepoints during application's runtime.</p>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> adopts <abbr title="Linux Tracing Tool next generation">LTTng</abbr> as a tracing mechanism. <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session daemon collects events from tracepoints embedded in a target application.
-<code>rclcpp</code> provided by <abbr title="Robot Operating System">ROS</abbr> 2 has original traecpoints and <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses some of them also. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> collects its dedicated tracepoints added by function hooking.
+<code>rclcpp</code> provided by <abbr title="Robot Operating System">ROS</abbr> 2 has original tracepoints and <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses some of them also. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> collects its dedicated tracepoints added by function hooking.
 To add tracepoints flexibly, function hooking is .
 Only if it is not possible to add tracepoints by function hooking due to some constraints from implementation, tracepoints are added via another approach.</p>
 <p>All of recorded events are stored to a set of trace data <abbr title="Common Trace Format">CTF</abbr>-based. It is visualized for user to observe application's performance and behavior.</p>
