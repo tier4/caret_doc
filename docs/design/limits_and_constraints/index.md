@@ -4,15 +4,15 @@
 
 CARET only supports environments as follows.
 
-- Support single host.
-- FastDDS or CycloneDDS.
-- Support for Linux.
-- Support for Galactic and Humble.
-- Require rebuilding of an application.
+- Support single host
+- Support FastDDS or CycloneDDS
+- Support only Linux, especially Ubuntu
+- Support Galactic and Humble
+- Require rebuilding of an application
 
 ## ROS 2 functions
 
-CARET cannot support functions as follows.
+CARET does not support the following functions.
 
 - /rosout and /parameter_event topic
 - Services
@@ -20,8 +20,8 @@ CARET cannot support functions as follows.
 
 ## Implementation
 
-CARET cannot support implementations as follows.
+CARET does not support implementations as follows.
 
-- There exist several nodes which have the same namespace and node name.
-- wrapper for ROS layers.
-- Reentrant callback group.
+- Multiple nodes whose full-names are same
+- Wrapper for ROS layers
+- Reentrant callback group

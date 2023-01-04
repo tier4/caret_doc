@@ -1,6 +1,6 @@
 # Architecture file
 
-An architecture file is a yaml file with the necessary information for visualization.
+An architecture file is a YAML-based file which describes structure of a target application.
 
 An architecture file contains the following information
 

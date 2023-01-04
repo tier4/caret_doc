@@ -1,8 +1,6 @@
 # Configuration
 
-CARET requires several kinds of information for visualization.
-Configuration set up the information needed for visualization.
+CARET shows response time in a path which constructed of multiple nodes and topic communication.
+As explained in [configuration chapter](../../configuration/index.md), CARET is not able to extract definition of data path definition.
 
-Some of the information can be configured via Python API and jupyter, but there are also items that require direct modification of the architecture file.
-
-For the format of the architecture file, see [architecture file](./architecture_file.md) for the format of the architecture file.
+This section shows the file format of [architecture file](./architecture_file.md).
