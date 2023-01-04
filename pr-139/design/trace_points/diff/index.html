@@ -1899,7 +1899,7 @@
       
         <li class="md-nav__item">
   <a href="#v03-vs-humble" class="md-nav__link">
-    v0.3 vs humble
+    v0.3 vs Humble
   </a>
   
 </li>
@@ -2494,7 +2494,7 @@
       
         <li class="md-nav__item">
   <a href="#v03-vs-humble" class="md-nav__link">
-    v0.3 vs humble
+    v0.3 vs Humble
   </a>
   
 </li>
@@ -2519,19 +2519,25 @@
 
 
 <h1 id="differences-from-original-ros">Differences from original <abbr title="Robot Operating System">ROS</abbr><a class="headerlink" href="#differences-from-original-ros" title="Permanent link">#</a></h1>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section explains differences between v0.2 implementation of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> and implementation of <abbr title="Robot Operating System">ROS</abbr> 2 Galactic. The explanation is not up-to-date from viewpoints of implementation, but it is enough for readers to understand differences from viewpoints of design.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="v02-vs-galactic">v0.2 vs galactic<a class="headerlink" href="#v02-vs-galactic" title="Permanent link">#</a></h2>
-<p>In addition to the caret repository, <a href="https://github.com/tier4/caret/blob/main/caret.repos">caret.repos</a> contains the following repositories</p>
+<p><a href="https://github.com/tier4/caret/blob/main/caret.repos">caret.repos</a> contains the following repositories</p>
 <ul>
 <li><a href="https://github.com/ros2/rcl.git">https://github.com/ros2/rcl.git</a></li>
 <li><a href="https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added">https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added</a></li>
 <li><a href="https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added">https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added</a></li>
 </ul>
-<p>This section describes the differences between each repository.</p>
+<p>They are cloned from original <abbr title="Robot Operating System">ROS</abbr> 2 repositories, respectively. This section describes the differences from originals.</p>
 <h3 id="rcl">rcl<a class="headerlink" href="#rcl" title="Permanent link">#</a></h3>
-<p>No source code changes.
-Cloning this package is for enabling built-in trace points by rebuilding.</p>
+<p>No source code is changed.
+This package is cloned because rebuilding is necessary for enabling built-in trace points.</p>
 <h3 id="rclcpp">rclcpp<a class="headerlink" href="#rclcpp" title="Permanent link">#</a></h3>
-<p>This cloning is for adding trace point which cannot added by LD_PRELOAD.</p>
+<p>This cloning is for adding trace point which cannot added via function hooking with LD_PRELOAD.</p>
 <p>See also</p>
 <ul>
 <li><a href="../trace_points/">Tracepoints</a></li>
@@ -2549,9 +2555,9 @@ When the merging of tracepoints to the ros2 mainframe, the addition of the ros2_
 <p><prettier-ignore-end></p>
 <h3 id="ros2_tracing">ros2_tracing<a class="headerlink" href="#ros2_tracing" title="Permanent link">#</a></h3>
 <p>This cloning is for defining tracepoints added to rclcpp.</p>
-<h2 id="v03-vs-humble">v0.3 vs humble<a class="headerlink" href="#v03-vs-humble" title="Permanent link">#</a></h2>
-<p>In v0.3, the trace points used in the galactic version of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> have been ported.
-Some tracepoints have been added in humble, but they are not currently supported.
+<h2 id="v03-vs-humble">v0.3 vs Humble<a class="headerlink" href="#v03-vs-humble" title="Permanent link">#</a></h2>
+<p>In v0.3, the trace points used in the Galactic version of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> have been ported.
+Some tracepoints have been added in Humble, but they are not currently used by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.
 These tracepoints will be supported in a future version.</p>
 
 
