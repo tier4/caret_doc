@@ -1,13 +1,13 @@
 # Processing trace data
 
-CARET processes Trace Data to provide latency to the user.
-This section describes the Trace Data processing process.
+CARET processes trace data to visualize performance for users.
+This section describes how CARET processes trace data.
 
-The class that reads TraceData is the Records object.
+`Records` object loads a set of trace data.
 
 - [Records](./records.md)
 
-The following are processing using Records object.
+The following sections explains how loaded data is processed.
 
 - [Period](./records_service.md#period)
 - [Frequency](./records_service.md#frequency)

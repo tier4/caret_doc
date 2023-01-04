@@ -101,7 +101,7 @@ Output
 
 ## Latency
 
-Latency is is length of time from preceding event to afterward one. It is defined as difference from preceding timestamp to afterward on the same row.
+Latency is length of time from preceding event to afterward one. It is defined as difference from preceding timestamp to afterward on the same row.
 
 $$
 latency_n = t^{end}_{n} - t^{start}_{n}
