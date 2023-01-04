@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Recording includes only two steps; building an target application from source code and executing the target application. After execution, you will find trace data which has recorded events captured by trace points.
+Recording includes only two steps; building a target application from source code and executing the target application. After execution, you will find trace data which has recorded events captured by trace points.
 
 If trace data is not recorded due to any reason, you will not be able to analyze the target application as expected. In order to avoid it, CARET serves function to validate trace data.
 
