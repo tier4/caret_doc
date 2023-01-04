@@ -21,15 +21,15 @@ Structure of their classes is designed based on that of ROS applications which a
 `caret_analyze` is composed of several python packages.
 Each python packages are as follows.
 
-| python package | role                            |
-| -------------- | ------------------------------- |
-| `architecture`   | Load and configure an architecture object |
-| `runtime`        | Provide execution data          |
-| `value_objects`  | Collection of value objects     |
-| `plot`           | Visualization helpers           |
-| `records`        | Implementation of records               |
-| `common`         | Common or helper functions                 |
-| `infra`          | Import external files              |
+| python package  | role                                      |
+| --------------- | ----------------------------------------- |
+| `architecture`  | Load and configure an architecture object |
+| `runtime`       | Provide execution data                    |
+| `value_objects` | Collection of value objects               |
+| `plot`          | Visualization helpers                     |
+| `records`       | Implementation of records                 |
+| `common`        | Common or helper functions                |
+| `infra`         | Import external files                     |
 
 Each of the packages has interrelation with other as shown in the following diagram.
 
@@ -184,7 +184,7 @@ Executor o-- CallbackGroup
 
 The following is a list of each class. Some of them are able to return measured data and they are remarked.
 
-| Class         | API                                                                                                   | has measured data definition?                                                |
+| Class         | API                                                                                                   | has measured data definition?                                          |
 | ------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Application   | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Application)   | No                                                                     |
 | Executor      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Executor)      | No                                                                     |
