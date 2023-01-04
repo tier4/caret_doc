@@ -10,8 +10,14 @@
       
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-134/recording/sim_time/">
       
+      
+        <link rel="prev" href="../cli_tool/">
+      
+      
+        <link rel="next" href="../../configuration/">
+      
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.1">
     
     
       
@@ -19,11 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3bd4f189.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -123,8 +128,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
@@ -132,8 +135,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -2596,10 +2597,9 @@
                 
                   
 
-  <a href="https://github.com/tier4/CARET_doc/edit/main/recording/sim_time.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
+
 
 
 <h1 id="ros-time-sim_time-support"><abbr title="Robot Operating System">ROS</abbr> time (sim_time) support<a class="headerlink" href="#ros-time-sim_time-support" title="Permanent link">#</a></h1>
@@ -2620,15 +2620,15 @@
   Remember to add <code>--clock</code> option when playing rosbag</p>
 </div>
 <p><prettier-ignore-end></p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
-<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
 
-ros2 run caret_trace clock_recorder
+ros2<span class="w"> </span>run<span class="w"> </span>caret_trace<span class="w"> </span>clock_recorder
 </code></pre></div>
 <p>You can check whether <code>/clock</code> is successfully recorded by the following command.</p>
-<div class="highlight"><pre><span></span><code>babeltrace &lt;path-to-trace-data&gt; <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+<div class="highlight"><pre><span></span><code>babeltrace<span class="w"> </span>&lt;path-to-trace-data&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39; &#39;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sim_time
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---Expected output text as below---
+<div class="highlight"><pre><span></span><code>---Expected<span class="w"> </span>output<span class="w"> </span>text<span class="w"> </span>as<span class="w"> </span>below---
 
 ros2_caret:sim_time:
 </code></pre></div>
@@ -2671,34 +2671,34 @@ ros2_caret:sim_time:
 <ol>
 <li>
 <p>Open a terminal to run a target application to record rosbag</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
-<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
-<span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
-<span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
+<span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/local_setup.bash
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink<span class="w"> </span>-f<span class="w"> </span>~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
 
-ros2 run caret_demos end_to_end_sample
+ros2<span class="w"> </span>run<span class="w"> </span>caret_demos<span class="w"> </span>end_to_end_sample
 </code></pre></div>
 </li>
 <li>
 <p>Open another terminal to record rosbag</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
-<span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/local_setup.bash
 
-ros2 bag record /topic1 /drive
+ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>/topic1<span class="w"> </span>/drive
 </code></pre></div>
 <p>Here, <code>/topic1</code> and <code>/drive</code> are source topics of the sample application.<br />
  You can check if rosbag is successfully recorded.</p>
-<div class="highlight"><pre><span></span><code>ros2 bag info rosbag2_2022_09_30-10_57_06
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>info<span class="w"> </span>rosbag2_2022_09_30-10_57_06
 
-Files:             rosbag2_2022_09_30-10_57_06_0.db3
-Bag size:          <span class="m">29</span>.3 KiB
-Storage id:        sqlite3
-Duration:          <span class="m">9</span>.601s
-Start:             Sep <span class="m">30</span> <span class="m">2022</span> <span class="m">10</span>:57:08.952 <span class="o">(</span><span class="m">1664503028</span>.952<span class="o">)</span>
-End:               Sep <span class="m">30</span> <span class="m">2022</span> <span class="m">10</span>:57:18.554 <span class="o">(</span><span class="m">1664503038</span>.554<span class="o">)</span>
-Messages:          <span class="m">194</span>
-Topic information: Topic: /drive <span class="p">|</span> Type: sensor_msgs/msg/Image <span class="p">|</span> Count: <span class="m">97</span> <span class="p">|</span> Serialization Format: cdr
-                Topic: /topic1 <span class="p">|</span> Type: sensor_msgs/msg/Image <span class="p">|</span> Count: <span class="m">97</span> <span class="p">|</span> Serialization Format: cdr
+Files:<span class="w">             </span>rosbag2_2022_09_30-10_57_06_0.db3
+Bag<span class="w"> </span>size:<span class="w">          </span><span class="m">29</span>.3<span class="w"> </span>KiB
+Storage<span class="w"> </span>id:<span class="w">        </span>sqlite3
+Duration:<span class="w">          </span><span class="m">9</span>.601s
+Start:<span class="w">             </span>Sep<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">2022</span><span class="w"> </span><span class="m">10</span>:57:08.952<span class="w"> </span><span class="o">(</span><span class="m">1664503028</span>.952<span class="o">)</span>
+End:<span class="w">               </span>Sep<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">2022</span><span class="w"> </span><span class="m">10</span>:57:18.554<span class="w"> </span><span class="o">(</span><span class="m">1664503038</span>.554<span class="o">)</span>
+Messages:<span class="w">          </span><span class="m">194</span>
+Topic<span class="w"> </span>information:<span class="w"> </span>Topic:<span class="w"> </span>/drive<span class="w"> </span><span class="p">|</span><span class="w"> </span>Type:<span class="w"> </span>sensor_msgs/msg/Image<span class="w"> </span><span class="p">|</span><span class="w"> </span>Count:<span class="w"> </span><span class="m">97</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Serialization<span class="w"> </span>Format:<span class="w"> </span>cdr
+<span class="w">                </span>Topic:<span class="w"> </span>/topic1<span class="w"> </span><span class="p">|</span><span class="w"> </span>Type:<span class="w"> </span>sensor_msgs/msg/Image<span class="w"> </span><span class="p">|</span><span class="w"> </span>Count:<span class="w"> </span><span class="m">97</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Serialization<span class="w"> </span>Format:<span class="w"> </span>cdr
 </code></pre></div>
 </li>
 </ol>
@@ -2706,29 +2706,29 @@ Topic information: Topic: /drive <span class="p">|</span> Type: sensor_msgs/msg/
 <ol>
 <li>
 <p>Open another terminal and run the following commands</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> /opt/ros/humble/setup.bash
-<span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
 
-ros2 run caret_trace clock_recorder
+ros2<span class="w"> </span>run<span class="w"> </span>caret_trace<span class="w"> </span>clock_recorder
 </code></pre></div>
 </li>
 <li>
 <p>Open another terminal to run a target application to record trace data with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr></p>
 <p>In the launch file, <code>use_sim_time</code> is set to true and source nodes are disabled.</p>
-<div class="highlight"><pre><span></span><code> <span class="nb">source</span> /opt/ros/humble/setup.bash
- <span class="nb">source</span> ~/ros2_caret_ws/install/local_setup.bash
- <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
- <span class="nb">export</span> <span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
+<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/local_setup.bash
+<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink<span class="w"> </span>-f<span class="w"> </span>~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
 
- ros2 launch caret_demos end_to_end_sample_with_lttng_session_use_sim.launch.py use_sim_time:<span class="o">=</span><span class="nb">true</span> use_rosbag:<span class="o">=</span><span class="nb">true</span>
+<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>caret_demos<span class="w"> </span>end_to_end_sample_with_lttng_session_use_sim.launch.py<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_rosbag:<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
 </li>
 <li>
 <p>Open another terminal to play the rosbag</p>
-<div class="highlight"><pre><span></span><code> <span class="nb">source</span> /opt/ros/humble/setup.bash
- <span class="nb">source</span> ~/ros2_ws/install/local_setup.bash
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/local_setup.bash
 
- ros2 bag play rosbag2_2022_09_30-10_57_06 --clock -r <span class="m">0</span>.2
+<span class="w"> </span>ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>rosbag2_2022_09_30-10_57_06<span class="w"> </span>--clock<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>.2
 </code></pre></div>
 </li>
 <li>
@@ -2736,7 +2736,7 @@ ros2 run caret_trace clock_recorder
 </li>
 <li>
 <p>Check if <code>/clock</code> topic is recorded in trace data as <code>sim_time</code></p>
-<div class="highlight"><pre><span></span><code>babeltrace ~/ros2_ws/evaluate/e2e_sample <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">4</span> <span class="p">|</span> sort -u <span class="p">|</span> grep sim_time
+<div class="highlight"><pre><span></span><code>babeltrace<span class="w"> </span>~/ros2_ws/evaluate/e2e_sample<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39; &#39;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sim_time
 ros2_caret:sim_time:
 </code></pre></div>
 </li>
@@ -2794,42 +2794,6 @@ ros2_caret:sim_time:
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../cli_tool/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CLI tools" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              CLI tools
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../../configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Configuration
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -2855,16 +2819,15 @@ ros2_caret:sim_time:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-    
     
   </body>
 </html>
