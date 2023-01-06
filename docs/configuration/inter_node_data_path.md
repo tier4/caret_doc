@@ -141,7 +141,7 @@ paths = arch.search_paths(
 ### Path combining
 
 `Architecture.combine_path()` combines two paths which are found by `Architecture.search_paths()`.
-By searching short paths and combining them repeatedly, you can get a target path. It is sometimes more efficient than searching a longer path directly.
+By searching short paths and combining them repeatedly, you can get a target path. It is sometimes more efficient than searching a longer path directly according to "divide-and-conquer" method.
 
 Usage of `Architecture.combine_path()` is as following.
 
