@@ -17,7 +17,7 @@
         <link rel="next" href="build_check/">
       
       <link rel="icon" href="../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3bd4f189.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f56500e0.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
@@ -2481,8 +2481,9 @@
 
 <h1 id="recording-with-caret">Recording with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#recording-with-caret" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>Recording includes only two steps; building a target application from source code and executing the target application. After execution, you will find trace data which has recorded events captured by trace points.</p>
-<p>If trace data is not recorded due to any reason, you will not be able to analyze the target application as expected. In order to avoid it, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves function to validate trace data.</p>
+<p>Recording includes two sub-steps at least; building a target application from source code and executing the target application. After execution, you will find trace data which has events data sampled by tracepoints.</p>
+<p>Trace data validation is necessary as the third step because any failure on recording prevents users from analyzing performance correctly. Trace data is not recorded correctly due to any reason if a target application is large and complicated. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves functions to validate trace data for the step.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> supports trace filter to exclude certain nodes or topics during recording. It is optional, but strongly recommended for analysis of a large application.</p>
 <h2 id="steps-to-record-trace-data-with-caret">Steps to record trace data with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#steps-to-record-trace-data-with-caret" title="Permanent link">#</a></h2>
 <ul>
 <li>Build a target application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> and check it (<a href="build_check/">See details</a>)</li>
