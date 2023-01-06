@@ -12,7 +12,7 @@ In the recording phase, CARET records events data obtained from tracepoints duri
 
 CARET adopts LTTng as a tracing mechanism. LTTng session daemon collects events from tracepoints.
 `rclcpp` provided by ROS 2 has original tracepoints and CARET uses some of them also. CARET collects its dedicated tracepoints added by function hooking.
-Function hooks are actively used in CARET because they do not require changes to multiple existing packages and allow adding trace points in a flexible way.
+CARET uses function hooking actively because it does not require changes of existing packages and allow us to add trace points in a flexible way.
 Only if it is not possible to add tracepoints by function hooking due to some constraints from implementation, tracepoints are added via another approach.
 
 All of recorded events are stored to a set of trace data CTF-based. It is visualized for users to observe application's performance and behavior.
@@ -27,10 +27,9 @@ See also
 
 ## Configuration
 
-In the configuration, CARET expects users to complement structure definitions of a target application before visualizing data. Politely speaking, CARET expects users to define intra-node data paths and inter-node data paths to calculate response time.
-Extracting such definitions mechanically is difficult because this step requires structure of a target application.
+In the configuration, CARET expects users to complement structure definitions of a target application before visualizing data. Politely speaking, CARET expects users to define intra-node data paths and inter-node data paths to calculate response time. It's difficult to get their definition mechanically, so that users have to give.
 
-Structure definitions are stored in a object which is instantiated from Architecture class defined by [`caret_analyze`](./caret_analyze.md).
+Structure data of a targe application is stored in a object which is instantiated from Architecture class defined by [`caret_analyze`](./caret_analyze.md).
 CARET serves Python API to deal with the object to fulfill configuration step by running script. CARET is able to store the object to a YAML-based file to be reused.
 
 <prettier-ignore-start>
