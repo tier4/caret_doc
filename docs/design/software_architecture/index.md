@@ -12,7 +12,7 @@ In the recording phase, CARET records events data obtained from tracepoints duri
 
 CARET adopts LTTng as a tracing mechanism. LTTng session daemon collects events from tracepoints.
 `rclcpp` provided by ROS 2 has original tracepoints and CARET uses some of them also. CARET collects its dedicated tracepoints added by function hooking.
-To add tracepoints flexibly, function hooking is .
+Function hooks are actively used in CARET because they do not require changes to multiple existing packages and allow adding trace points in a flexible way.
 Only if it is not possible to add tracepoints by function hooking due to some constraints from implementation, tracepoints are added via another approach.
 
 All of recorded events are stored to a set of trace data CTF-based. It is visualized for user to observe application's performance and behavior.
