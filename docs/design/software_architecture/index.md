@@ -10,7 +10,7 @@ CARET serves three phases; recording, configuration and visualization.
 
 In the recording phase, CARET records events data obtained from tracepoints during application's runtime.
 
-CARET adopts LTTng as a tracing mechanism. LTTng session daemon collects events from tracepoints embedded in a target application.
+CARET adopts LTTng as a tracing mechanism. LTTng session daemon collects events from tracepoints.
 `rclcpp` provided by ROS 2 has original tracepoints and CARET uses some of them also. CARET collects its dedicated tracepoints added by function hooking.
 To add tracepoints flexibly, function hooking is .
 Only if it is not possible to add tracepoints by function hooking due to some constraints from implementation, tracepoints are added via another approach.
