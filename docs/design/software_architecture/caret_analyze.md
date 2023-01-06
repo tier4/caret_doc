@@ -85,7 +85,7 @@ In the following sections, each package will be explained in more detail.
 
 ## `architecture`
 
-The purpose of `architecture` to define static information to be used in visualization.
+The purpose of `architecture` is to define static information for visualization.
 
 `architecture` package serves classes which embody architecture object. Architecture object has one or more sub components.
 There are several types of components; executor, node, callback and topic.
