@@ -10,7 +10,7 @@ The following figure shows the overview of tracing flow and the related packages
 CARET records events data, including metadata and timestamps, from tracepoints embedded in user applications, ROS 2 and DDS.
 The events data are dumped to a set of [CTF](https://diamon.org/ctf/)-based files. The set of files is called "trace data" in the context of CARET.
 
-CARET load trace data and convert them to graphs and statistics for human-beings to comprehend performance and bottleneck of the application.
+CARET load trace data and convert them to graphs and statistics for users to comprehend performance and bottleneck of the application.
 
 This chapter describes the design policy and key points as listed below. As the chapter is written for heavy users or developers, most of light users might feel bored.
 
