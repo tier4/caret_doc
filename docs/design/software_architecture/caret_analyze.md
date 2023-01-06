@@ -77,7 +77,7 @@ architecture o-- NodeStructValue
 Irecords <.. infra : use
 ```
 
-Architecture object provides APIs to search node paths and define intra-node data paths as mentioned in [configuration chapter](../../configuration/index.md). The architecture object is reusable after it is saved as a YAML-based file called "architecture file".
+Architecture object provides APIs to search inter-node paths and define intra-node data paths as mentioned in [configuration chapter](../../configuration/index.md). The architecture object is reusable after it is saved as a YAML-based file called "architecture file".
 
 Runtime data provides APIs to retrieve `pandas.DataFrame`-based objects including callback latency or communication. Users can analyze temporal aspects of their applications, with visualization, as they expect. APIs for visualization are also served by `caret_analyze` which plays the main role to visualize trace data.
 
