@@ -2539,7 +2539,7 @@
 <p><img alt="caret_analyze_architecture" src="../../../imgs/architecture_caret_analyze.png" /></p>
 <p>A set of trace data is divided into two sections after being loaded onto memory; architecture object and runtime data.</p>
 <p>Architecture object includes descriptions of the target application's structure. This object can be reused unless the structure of the target application or names of the components is changed.</p>
-<p>Runtime ata object has data sampled during the execution of the target application. The sampled data includes timestamps, whose values are different per execution, obtained from tracepoints.
+<p>Runtime data object has data sampled during the execution of the target application. The sampled data includes timestamps, whose values are different per execution, obtained from tracepoints.
 Runtime data is combined with architecture and provided to developers via Python-API which is easy to evaluate.</p>
 <p>Architecture object and runtime data are instantiated from respective Python classes.
 Structure of their classes is designed based on that of <abbr title="Robot Operating System">ROS</abbr> applications which are constructed of executors, nodes, callback functions, and topic messages. <abbr title="Robot Operating System">ROS</abbr>-based structure makes <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s API friendly for <abbr title="Robot Operating System">ROS</abbr> users.</p>
