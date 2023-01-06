@@ -15,7 +15,7 @@ CARET adopts LTTng as a tracing mechanism. LTTng session daemon collects events 
 Function hooks are actively used in CARET because they do not require changes to multiple existing packages and allow adding trace points in a flexible way.
 Only if it is not possible to add tracepoints by function hooking due to some constraints from implementation, tracepoints are added via another approach.
 
-All of recorded events are stored to a set of trace data CTF-based. It is visualized for user to observe application's performance and behavior.
+All of recorded events are stored to a set of trace data CTF-based. It is visualized for users to observe application's performance and behavior.
 
 [`caret_trace`](./caret_trace.md) is the main package for realizing recording. `caret_trace` collects events invoked in `rclcpp`, `rcl` and DDS. It is inconvenient to see actual time when data is consumed because data is consumed in a user code actually. [TILDE](./tilde.md) serves tracepoints to collect events which happens in a user code. CARET is able to refer to them for diving into events in a user code.
 
