@@ -91,7 +91,7 @@ The purpose of `architecture` is to define static information for visualization.
 There are several types of components; executor, node, callback and topic.
 CARET serves a class to each type of component and manages them in `architecture` package.
 
-A target application, which is represented with `architecture` class, has several sub sub components. A `architecture`-based object has several types of sub components as well.
+A target application, which is represented with `architecture` class, has several sub components. An `architecture`-based object has several types of sub components as well.
 
 <prettier-ignore-start>
 !!! Info
