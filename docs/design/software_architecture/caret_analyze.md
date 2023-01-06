@@ -143,7 +143,7 @@ which is suitable for interfacing data with other packages.
 ## `runtime`
 
 `runtime` a package to hold trace data, whose object has similar data structure to that of Architecture object.
-Objects instantiated from `runtime` package have function to return measured data like frequency or latency.
+Objects instantiated from `runtime` package have function to return measured time-series data which can calculate frequency or latency.
 
 ```plantuml
 
