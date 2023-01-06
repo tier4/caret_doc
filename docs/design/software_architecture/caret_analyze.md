@@ -12,7 +12,7 @@ A set of trace data is divided into two sections after being loaded onto memory;
 
 Architecture object includes descriptions of the target application's structure. This object can be reused unless the structure of the target application or names of the components is changed.
 
-Runtime ata object has data sampled during the execution of the target application. The sampled data includes timestamps, whose values are different per execution, obtained from tracepoints.
+Runtime data object has data sampled during the execution of the target application. The sampled data includes timestamps, whose values are different per execution, obtained from tracepoints.
 Runtime data is combined with architecture and provided to developers via Python-API which is easy to evaluate.
 
 Architecture object and runtime data are instantiated from respective Python classes.
