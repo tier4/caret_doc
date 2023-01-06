@@ -182,7 +182,7 @@ CallbackBase o-d- Subscription
 Executor o-- CallbackGroup
 ```
 
-The following is a list of each class. Some of them are able to return measured data and they are remarked.
+The following is a list of each class. Some of them are able to return measured data.
 
 | Class         | API                                                                                                   | has measured data definition?                                          |
 | ------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
