@@ -140,10 +140,8 @@ paths = arch.search_paths(
 
 ### Path combining
 
-If the path from `source node` to `destination node` is too long, `Architecture.search_paths()` takes a long time and may find many paths that don't need to be considered.
-It may be laborious to select a correct target path.
 `Architecture.combine_path()` combines two paths which are found by `Architecture.search_paths()`.
-By searching short paths and combining them repeatedly, you can get a target path. It is more efficient than searching a longer path directly according to "divide-and-conquer" method.
+By searching short paths and combining them repeatedly, you can get a target path. It is sometimes more efficient than searching a longer path directly.
 
 Usage of `Architecture.combine_path()` is as following.
 
