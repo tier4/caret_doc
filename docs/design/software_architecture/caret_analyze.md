@@ -206,7 +206,7 @@ The Value class has the information for binding, and the StructValue class has t
 `plot` package has classes associated with visualization.
 The visualization methods provided by `caret_analyze` depends on `bokeh` and `graphviz`.
 
-## records
+## `records`
 
 latency is calculated by joining process of tables uniquely defined.
 `records` package serves functions to make the tables with their own join processing.
