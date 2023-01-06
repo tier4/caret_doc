@@ -138,14 +138,14 @@ paths = arch.search_paths(
     communication_filter = comm_filter)
 ```
 
-### Combine paths
+### Path combining
 
 If the path from `source node` to `destination node` is too long, `Architecture.search_paths()` takes a long time and may find many paths that don't need to be considered.
 It may be laborious to select a correct target path.
-`Architecture.combine_path()` combines paths which are found by `Architecture.search_paths()`.
-By searching short paths and combining them repeatedly, you can get a target path (Ex. from head node to tail node of a target application).
+`Architecture.combine_path()` combines two paths which are found by `Architecture.search_paths()`.
+By searching short paths and combining them repeatedly, you can get a target path. It is more efficient than searching a longer path directly according to "divide-and-conquer" method.
 
-`Architecture.combine_path()` can combine when the connect nodes, which are the tail node of the first path and the head node of the second path, are same.
+Usage of `Architecture.combine_path()` is as following.
 
 ```python
 paths_1 = arch.search_paths('source_node',
@@ -154,16 +154,8 @@ paths_2 = arch.search_paths('intermediate_node',
                             'destination_node')
 target_path = arch.combine_path(paths_1[0], paths_2[0])
 
-arch.add_path('new_path_name')
+arch.add_path('combined_path_name', target_path)
 arch.export('new_architecture.yaml')
 ```
 
-TODO: Combine paths with unmatched connect nodes.
-
-```python
-paths_1 = arch.search_paths('source_node',
-                            'intermediate_node_1')
-paths_2 = arch.search_paths('intermediate_node_2',
-                            'destination_node')
-target_path = arch.combine_path(paths_1[0], paths_2[0])
-```
+An exception is raised for pairs that cannot be combined.
