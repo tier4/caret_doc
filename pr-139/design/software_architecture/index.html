@@ -2434,7 +2434,7 @@
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves three phases; recording, configuration and visualization.</p>
 <h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
 <p>In the recording phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> records events data obtained from tracepoints during application's runtime.</p>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> adopts <abbr title="Linux Tracing Tool next generation">LTTng</abbr> as a tracing mechanism. <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session daemon collects events from tracepoints embedded in a target application.
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> adopts <abbr title="Linux Tracing Tool next generation">LTTng</abbr> as a tracing mechanism. <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session daemon collects events from tracepoints.
 <code>rclcpp</code> provided by <abbr title="Robot Operating System">ROS</abbr> 2 has original tracepoints and <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses some of them also. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> collects its dedicated tracepoints added by function hooking.
 To add tracepoints flexibly, function hooking is .
 Only if it is not possible to add tracepoints by function hooking due to some constraints from implementation, tracepoints are added via another approach.</p>
