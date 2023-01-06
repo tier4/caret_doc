@@ -31,7 +31,7 @@ In the configuration, CARET expects users to complement structure definitions of
 Extracting such definitions mechanically is difficult because this step requires structure of a target application.
 
 Structure definitions are stored in a object which is instantiated from Architecture class defined by [`caret_analyze`](./caret_analyze.md).
-CARET serves Python API to deal with the object to fulfill configuration step by running script. CARET is able to store he object to a YAML-based file to be reused.
+CARET serves Python API to deal with the object to fulfill configuration step by running script. CARET is able to store the object to a YAML-based file to be reused.
 
 <prettier-ignore-start>
 !!! info
