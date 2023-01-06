@@ -219,7 +219,7 @@ See also
 
 Common package implements individual processes are described that can be handled as common in each package.
 
-## infra
+## `infra`
 
 `infra` package serves readers for an architecture object and trace data.
 
