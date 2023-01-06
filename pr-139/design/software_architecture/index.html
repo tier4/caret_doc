@@ -2436,7 +2436,7 @@
 <p>In the recording phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> records events data obtained from tracepoints during application's runtime.</p>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> adopts <abbr title="Linux Tracing Tool next generation">LTTng</abbr> as a tracing mechanism. <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session daemon collects events from tracepoints.
 <code>rclcpp</code> provided by <abbr title="Robot Operating System">ROS</abbr> 2 has original tracepoints and <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses some of them also. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> collects its dedicated tracepoints added by function hooking.
-Function hooks are actively used in <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> because they do not require changes to multiple existing packages and allow adding trace points in a flexible way.
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses function hooking actively because it does not require changes of existing packages and allow us to add trace points in a flexible way.
 Only if it is not possible to add tracepoints by function hooking due to some constraints from implementation, tracepoints are added via another approach.</p>
 <p>All of recorded events are stored to a set of trace data <abbr title="Common Trace Format">CTF</abbr>-based. It is visualized for users to observe application's performance and behavior.</p>
 <p><a href="caret_trace/"><code>caret_trace</code></a> is the main package for realizing recording. <code>caret_trace</code> collects events invoked in <code>rclcpp</code>, <code>rcl</code> and <abbr title="Data Distribution System">DDS</abbr>. It is inconvenient to see actual time when data is consumed because data is consumed in a user code actually. <a href="tilde/"><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr></a> serves tracepoints to collect events which happens in a user code. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to refer to them for diving into events in a user code.</p>
@@ -2447,9 +2447,8 @@ Only if it is not possible to add tracepoints by function hooking due to some co
 <li><a href="https://lttng.org/docs/">The <abbr title="Linux Tracing Tool next generation">LTTng</abbr> Documentation</a></li>
 </ul>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h2>
-<p>In the configuration, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> expects users to complement structure definitions of a target application before visualizing data. Politely speaking, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> expects users to define intra-node data paths and inter-node data paths to calculate response time.
-Extracting such definitions mechanically is difficult because this step requires structure of a target application.</p>
-<p>Structure definitions are stored in a object which is instantiated from Architecture class defined by <a href="caret_analyze/"><code>caret_analyze</code></a>.
+<p>In the configuration, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> expects users to complement structure definitions of a target application before visualizing data. Politely speaking, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> expects users to define intra-node data paths and inter-node data paths to calculate response time. It's difficult to get their definition mechanically, so that users have to give.</p>
+<p>Structure data of a targe application is stored in a object which is instantiated from Architecture class defined by <a href="caret_analyze/"><code>caret_analyze</code></a>.
 <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python API to deal with the object to fulfill configuration step by running script. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to store the object to a YAML-based file to be reused.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
