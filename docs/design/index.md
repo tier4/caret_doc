@@ -1,36 +1,36 @@
-The design section describes the internals of CARET.
-The following figure shows the tracing flow with each package added.
+# Design
 
-![architecture](../imgs/design.drawio.png)
+## Introduction
 
-CARET records data, which include timestamps, from tracepoints embedded in user applications, ROS 2 and DDS.
-The data are stored as "Trace Data".
-CARET analyzes the Trace Data and provides the results to the developer.
+Design chapter describes details of CARET like architecture overview, tracepoints definition, data visualization.
+The following figure shows the overview of tracing flow and the related packages.
 
-This design section describes policies and internal processes for each step listed below.
+![tracing flow and packages](../imgs/design.drawio.png)
 
-Recording phase
+CARET records events data, including metadata and timestamps, from tracepoints embedded in user applications, ROS 2 and DDS.
+The events data are dumped to a set of [CTF](https://diamon.org/ctf/)-based files. The set of files is called "trace data" in the context of CARET.
 
-1. [Runtime processing](./runtime_processing/index.md)
+CARET load trace data and convert them to graphs and statistics for users to comprehend performance and bottleneck of the application.
 
-2. [Tracepoints](./trace_points/index.md)
+This chapter describes the design policy and key points as listed below. As the chapter is written for heavy users or developers, most of light users might feel bored.
 
-Configuration phase
+- Design overview on the architecture and the trace points
 
-1. [Configuration](./configuration/index.md)
+  1. [Software architecture](./software_architecture/index.md)
+  2. [Event and latency definition](./event_and_latency_definitions/index.md)
+  3. [Limits and constraints](./limits_and_constraints/index.md)
 
-Analyzing phase
+- Design related to [Recording](../recording/index.md)
 
-1. [Processing trace data](./processing_trace_data/index.md)
+  1. [Runtime processing](./runtime_processing/index.md)
+  2. [Tracepoints](./trace_points/index.md)
 
-2. [Visualization](./visualizations/index.md)
+- Design related to [Configuration]
 
-In addition, the followings are explained.
+  1. [Configuration](./configuration/index.md)
 
-- [Software architecture](./software_architecture/index.md)
-- [Event and latency definition](./event_and_latency_definitions/index.md)
-- [Limits and constraints](./limits_and_constraints/index.md)
+- Design related to [Visualization]
+  1. [Processing trace data](./processing_trace_data/index.md)
+  2. [Visualization](./visualizations/index.md)
 
-See also
-
-- [CARET analyze API document](https://tier4.github.io/CARET_analyze/)
+If you are interested in details of implementation, [CARET_analyze API document](https://tier4.github.io/CARET_analyze/) might be helpful.

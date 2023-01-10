@@ -8,19 +8,19 @@ TILDE lets CARET trace events in user applications which cannot be traced from R
         TILDE is now under development.
 <prettier-ignore-end>
 
-Since ROS nodes can implement arbitrary processing, some nodes are difficult to calculate node latency.
+Since users can implement arbitrary processing on ROS nodes, some defining intra-node path is difficult in some cases.
 
-Examples of implementations for which node latency is difficult to calculate are as follows.
+Examples of such difficult cases are listed as below.
 
 - Message buffering case between subscribe and publish
 - Using message filter case
 
 the latencies can be observed in only application layer, but CARET cannot observe the events.
+In such cases, data consumption in user code should be taken into account to define intra-node path. However, CARET does not observe events on user code.
 
-On the other hand, TILDE can trace application-layer events.
+To tackle this constraint, CARET is capable of utilizing events from tracepoints added by TILDE while TILDE collects application-layer events.
 It is able to trace execution of callback function to consume a certain buffered message since it annotate message consumption per single message.
-
-TILDE serves CARET this capability to trace consumption of buffered messages.
+TILDE serves CARET such capability to trace consumption of buffered messages.
 
 See also
 

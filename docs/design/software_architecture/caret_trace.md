@@ -1,17 +1,14 @@
 # caret_trace
 
-caret_trace is a package that handles recording such as adding trace points.
+`caret_trace` is a package who deliver the following feature during recording.
 
-The role of caret_trace is as follows
+1. Defining the tracepoints dedicated to CARET via function hooking
+2. Adding state management of tracepoints via function hooking for trace filtering and runtime recording
+3. Adding function of recording with `sim_time`
 
-- Race Point Definition
-- Adding Tracepoints with Hooks
-- trace filtering
-- simtime recording
+See also for the reference.
 
-See also
-
-- [Tracepoints](../trace_points)
+- [Tracepoints](../trace_points/index.md)
 - [Hook](../runtime_processing/hook.md)
 
 ## Class Structure
@@ -44,9 +41,9 @@ class ClockRecoerder {
 KeysSet o-- HashableKeys
 ```
 
-## Hook function implementation
+## Implementation of tracepoints with function hooking
 
-In addition to hooking and for adding trace points, CARET also hooks trace points built into ROS2.
+CARET adopts function hooking mainly for adding new trace points. On the other hand, existing tracepoints, which are built in ROS2, are also re-defined by function hooking because CARET adds the function to manage tracepoint state.
 
 Here is an example of a typical hook implementation.
 
@@ -85,12 +82,12 @@ See [Initialization trace points](../trace_points/initialization_trace_points.md
 
 ## clock recorder
 
-CARET can select simtime for visualization.
-The simtime can be recorded by running the simtime_recorder node, which adds trace points for simtime recording.
+CARET can select simulation time, represented as `sim_time`, for visualization.
+`sim_time` can be recorded by running the `simtime_recorder` node, which adds trace points for `sim_time` recording.
 
 ```bash
 ros2 run caret_trace clock_recorder
 ```
 
-ClockRecorder node wakes up every second and records simtime and system time.
-The recorded results are used to calculate simtime from system time.
+`ClockRecorder` node wakes up per second and records a pair of `sim_time` and system time.
+The pair is used to convert system time to simulation time.

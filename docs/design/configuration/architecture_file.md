@@ -1,10 +1,9 @@
 # Architecture file
 
-An architecture file is a yaml file with the necessary information for visualization.
+An architecture file is a YAML-based file which describes structure of a target application.
+It contains the following information.
 
-An architecture file contains the following information
-
-- Definition of the node-path to be measured
+- Definition of the data path to be measured
 - Information about the structure of the software to be measured
   - Executor information
   - Node information (e.g. node latency definition)

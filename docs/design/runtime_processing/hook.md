@@ -1,7 +1,7 @@
 # Hook
 
-Hooking is one of the key techniques performed by CARET.
-This section describes hooks from CARET's point of view.
+Function hooking is one of the key techniques performed by CARET.
+This section describes the function hooking introduced to CARET.
 
 See also
 
@@ -23,7 +23,7 @@ See also
 !!!Info
     If possible, it is better to add tracepoints as built-in rather than hooks for users.
     However, CARET's priority is to evaluate software running on the current version of ROS rather than to gradually add trace points.
-    For this reason, we have adopted a hook that allows users to add tracepoints in a flexible manner.
+    For this reason, we have adopted function hooking that allows users to add tracepoints in a flexible manner.
 <prettier-ignore-end>
 
 <prettier-ignore-start>
