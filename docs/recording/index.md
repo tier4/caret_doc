@@ -4,7 +4,7 @@
 
 Recording includes two sub-steps at least; building a target application from source code and executing the target application. After execution, you will find trace data which has events data sampled by tracepoints.
 
-Trace data validation is necessary as the third step because any failure on recording prevents users from analyzing performance correctly. Trace data is not recorded correctly due to any reason if a target application is large and complicated. CARET serves functions to validate trace data for the step.
+Trace data validation is necessary as the third step because any failure on recording prevents users from analyzing performance correctly. Trace data is not recorded correctly due to any reason if a target application is large or if there is an error in the setup procedure. CARET serves functions to validate trace data for the step.
 
 CARET supports trace filter to exclude certain nodes or topics during recording. It is optional, but strongly recommended for analysis of a large application.
 
