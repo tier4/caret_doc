@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#design" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1464,39 +1469,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="false">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" >
-      
-      
-        
-          
             
           
         
@@ -1511,35 +1483,21 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="software_architecture/">Design</a>
+          <a href="software_architecture/">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="software_architecture/caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1562,16 +1520,23 @@
   
   
     <li class="md-nav__item">
-      <a href="software_architecture/tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="software_architecture/caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="software_architecture/tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2490,6 +2455,23 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2508,45 +2490,50 @@
 
 
 
-<p>The design section describes the internals of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.
-The following figure shows the tracing flow with each package added.</p>
-<p><img alt="architecture" src="../imgs/design.drawio.png" /></p>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> records data, which include timestamps, from tracepoints embedded in user applications, <abbr title="Robot Operating System">ROS</abbr> 2 and <abbr title="Data Distribution System">DDS</abbr>.
-The data are stored as "Trace Data".
-<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> analyzes the Trace Data and provides the results to the developer.</p>
-<p>This design section describes policies and internal processes for each step listed below.</p>
-<p>Recording phase</p>
-<ol>
-<li>
-<p><a href="runtime_processing/">Runtime processing</a></p>
-</li>
-<li>
-<p><a href="trace_points/">Tracepoints</a></p>
-</li>
-</ol>
-<p>Configuration phase</p>
-<ol>
-<li><a href="configuration/">Configuration</a></li>
-</ol>
-<p>Analyzing phase</p>
-<ol>
-<li>
-<p><a href="processing_trace_data/">Processing trace data</a></p>
-</li>
-<li>
-<p><a href="visualizations/">Visualization</a></p>
-</li>
-</ol>
-<p>In addition, the followings are explained.</p>
+<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>Design chapter describes details of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> like architecture overview, tracepoints definition, data visualization.
+The following figure shows the overview of tracing flow and the related packages.</p>
+<p><img alt="tracing flow and packages" src="../imgs/design.drawio.png" /></p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> records events data, including metadata and timestamps, from tracepoints embedded in user applications, <abbr title="Robot Operating System">ROS</abbr> 2 and <abbr title="Data Distribution System">DDS</abbr>.
+The events data are dumped to a set of <a href="https://diamon.org/ctf/"><abbr title="Common Trace Format">CTF</abbr></a>-based files. The set of files is called "trace data" in the context of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> load trace data and convert them to graphs and statistics for users to comprehend performance and bottleneck of the application.</p>
+<p>This chapter describes the design policy and key points as listed below. As the chapter is written for heavy users or developers, most of light users might feel bored.</p>
 <ul>
+<li>
+<p>Design overview on the architecture and the trace points</p>
+<ol>
 <li><a href="software_architecture/">Software architecture</a></li>
 <li><a href="event_and_latency_definitions/">Event and latency definition</a></li>
 <li><a href="limits_and_constraints/">Limits and constraints</a></li>
+</ol>
+</li>
 </ul>
-<p>See also</p>
 <ul>
-<li><a href="https://tier4.github.io/CARET_analyze/"><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> analyze API document</a></li>
+<li>
+<p>Design related to <a href="../recording/">Recording</a></p>
+<ol>
+<li><a href="runtime_processing/">Runtime processing</a></li>
+<li><a href="trace_points/">Tracepoints</a></li>
+</ol>
+</li>
 </ul>
+<ul>
+<li>
+<p>Design related to [Configuration]</p>
+<ol>
+<li><a href="configuration/">Configuration</a></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>Design related to [Visualization]<ol>
+<li><a href="processing_trace_data/">Processing trace data</a></li>
+<li><a href="visualizations/">Visualization</a></li>
+</ol>
+</li>
+</ul>
+<p>If you are interested in details of implementation, <a href="https://tier4.github.io/CARET_analyze/">CARET_analyze API document</a> might be helpful.</p>
 
 
 

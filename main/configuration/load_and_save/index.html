@@ -1557,39 +1557,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="false">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" >
-      
-      
-        
-          
             
           
         
@@ -1604,35 +1571,21 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/software_architecture/">Design</a>
+          <a href="../../design/software_architecture/">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design/software_architecture/caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1655,16 +1608,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="../../design/software_architecture/caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2666,19 +2626,19 @@
 
 
 <h1 id="how-to-load-and-save-an-architecture-object">How to load and save an architecture object<a class="headerlink" href="#how-to-load-and-save-an-architecture-object" title="Permanent link">#</a></h1>
-<p>The first step of configuration is to load an architecture object from a set of CTF-based recorded data onto memory. You can update the architecture object as the following section explains. After you finish updating it, you can save it to a yaml-based file, called "architecture file" to reuse the updated object.</p>
+<p>The first step of configuration is to load an architecture object from a set of <abbr title="Common Trace Format">CTF</abbr>-based recorded data onto memory. You can update the architecture object as the following section explains. After you finish updating it, you can save it to a yaml-based file, called "architecture file" to reuse the updated object.</p>
 <p>An architecture file has structure of a targeted application. <a href="https://github.com/takeshi-iwanari/dear_ros_node_viewer"><code>dear_ros_node_viewer</code></a> help you to comprehend structure of the application with the architecture file.</p>
 <h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h2>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python-based APIs to load and save an architecture object.</p>
 <p>All of the following code snippets can be executed after load environment variables with <code>source /path/to/ros2_caret_ws/install/setup.bash</code>.</p>
-<h3 id="load-from-a-set-of-ctf-based-recorded-data">Load from a set of CTF-based recorded data<a class="headerlink" href="#load-from-a-set-of-ctf-based-recorded-data" title="Permanent link">#</a></h3>
+<h3 id="load-from-a-set-of-ctf-based-recorded-data">Load from a set of <abbr title="Common Trace Format">CTF</abbr>-based recorded data<a class="headerlink" href="#load-from-a-set-of-ctf-based-recorded-data" title="Permanent link">#</a></h3>
 <p>You can load an architecture object with <code>Architecture</code> constructor.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
 
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/ctf-based_recorded_data&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>You will find <code>caret_analyze.architecture.Architecture</code>-based object, named '<code>arch</code>'.</p>
-<p>Loading an architecture object from CTF-based recorded data tends to be time-consuming task.</p>
+<p>Loading an architecture object from <abbr title="Common Trace Format">CTF</abbr>-based recorded data tends to be time-consuming task.</p>
 <h3 id="load-from-a-yaml-based-architecture-file">Load from a YAML-based architecture file<a class="headerlink" href="#load-from-a-yaml-based-architecture-file" title="Permanent link">#</a></h3>
 <p>As I mentioned, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves a function to stored an architecture object into YAML-based architecture file for reusability. It can save loading time and preserve update of the object. You can load it from YAML-based file with only replacing '<code>lttng</code>' of the first argument of <code>Architecture</code> constructor by '<code>yaml</code>'.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>

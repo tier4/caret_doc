@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#relationships-for-each-runtime-trace-points" class="md-skip">
+        <a href="#relationships-of-each-runtime-trace-points" class="md-skip">
           Skip to content
         </a>
       
@@ -1469,39 +1469,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="false">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" >
-      
-      
-        
-          
             
           
         
@@ -1516,35 +1483,21 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../software_architecture/">Design</a>
+          <a href="../../software_architecture/">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../software_architecture/caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1567,16 +1520,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../software_architecture/tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="../../software_architecture/caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_architecture/tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -1985,8 +1945,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#relationships-for-each-runtime-trace-points" class="md-nav__link">
-    Relationships for each runtime trace points
+  <a href="#relationships-of-each-runtime-trace-points" class="md-nav__link">
+    Relationships of each runtime trace points
   </a>
   
 </li>
@@ -2617,8 +2577,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#relationships-for-each-runtime-trace-points" class="md-nav__link">
-    Relationships for each runtime trace points
+  <a href="#relationships-of-each-runtime-trace-points" class="md-nav__link">
+    Relationships of each runtime trace points
   </a>
   
 </li>
@@ -2721,7 +2681,7 @@
 
   <h1>Runtime trace points</h1>
 
-<h3 id="relationships-for-each-runtime-trace-points">Relationships for each runtime trace points<a class="headerlink" href="#relationships-for-each-runtime-trace-points" title="Permanent link">#</a></h3>
+<h3 id="relationships-of-each-runtime-trace-points">Relationships of each runtime trace points<a class="headerlink" href="#relationships-of-each-runtime-trace-points" title="Permanent link">#</a></h3>
 <pre class="mermaid"><code>erDiagram
 
  callback_start{
@@ -2794,10 +2754,9 @@
     dispatch_subscription_callback ||--|| callback_start: callback
     callback_start ||--|| callback_end: callback
 </code></pre>
-<p>Using addresses, tid and source timestamp, it is possible to uniquely identify and bind from the rclcpp publish to the end of subscription node callback.
-On the other hand, callback start and publish cannot be automatically bound.
-This is because the relationship between callback and publish is highly implementation-dependent.</p>
-<p>message_construct and dds_bind_addr_to_addr are trace points to adapt to copying and converting instances for binding.</p>
+<p>Using addresses, thread id (<code>tid</code>) and source timestamp, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to identify a pair of message publish and corresponding subscription.
+However, it's difficult to associate a certain message publish to corresponding callback execution because mapping between callback and publish cannot be obtained automatically.</p>
+<p><code>message_construct</code> and <code>dds_bind_addr_to_addr</code> are trace points to adapt to copying and converting instances for binding.</p>
 <h3 id="ros2callback_start">ros2:callback_start<a class="headerlink" href="#ros2callback_start" title="Permanent link">#</a></h3>
 <p>[Built-in tracepoints]</p>
 <p>Sampled items</p>

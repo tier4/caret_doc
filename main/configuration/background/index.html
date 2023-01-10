@@ -1510,39 +1510,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="false">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" >
-      
-      
-        
-          
             
           
         
@@ -1557,35 +1524,21 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/software_architecture/">Design</a>
+          <a href="../../design/software_architecture/">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design/software_architecture/caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1608,16 +1561,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="../../design/software_architecture/caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2585,7 +2545,7 @@
 However, it's difficult to define node latency and path latency mechanically. Node latency, time elapsed from input to output in a certain node, cannot be identified in <abbr title="Robot Operating System">ROS</abbr> layer and its definition depends on patterns of application implementation. Path latency, which is defined as combination of node latency and communication latency, depends implementation patterns as well as node latency. Paths are combination of nodes which are connected via topic messages. The number of paths in an application is equaled to that of nodes combination, so that complicated and large application has large number of paths.<br />
 To deal with such difficulty of defining node and path latency mechanically, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> requires users to define node and path latency manually via a configurable object , called "<strong>architecture object</strong>".</p>
 <h2 id="architecture-object">Architecture object<a class="headerlink" href="#architecture-object" title="Permanent link">#</a></h2>
-<p>An architecture object has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can load an architecture object including only application structure section from <a href="https://diamon.org/ctf/">CTF</a>-based recorded data. The application structure section remains same unless the structure is changed or component is renamed.</p>
+<p>An architecture object has two sections; application structure and latency definition. Application structure section describes components of a target application and their connections, represented as executors, nodes, callback groups, callbacks, topics, and timers. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can load an architecture object including only application structure section from <a href="https://diamon.org/ctf/"><abbr title="Common Trace Format">CTF</abbr></a>-based recorded data. The application structure section remains same unless the structure is changed or component is renamed.</p>
 <p>On the other hand, latency definition section in the original architecture object is empty just before users add any definition. Users are expected to add definitions of node latency and path latency to the original architecture object. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> helps users to add definition of node and path latency.</p>
 <p>The following sections explain how to load an architecture object and add latency definition.</p>
 
