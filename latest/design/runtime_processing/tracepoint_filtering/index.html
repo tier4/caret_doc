@@ -1469,39 +1469,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="false">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" >
-      
-      
-        
-          
             
           
         
@@ -1516,35 +1483,21 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../software_architecture/">Design</a>
+          <a href="../../software_architecture/">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../software_architecture/caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1567,16 +1520,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../software_architecture/tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="../../software_architecture/caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_architecture/tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2526,8 +2486,8 @@
 
 
 <h1 id="tracepoint-filtering">Tracepoint filtering<a class="headerlink" href="#tracepoint-filtering" title="Permanent link">#</a></h1>
-<p>When measuring a system composed of many nodes, such as <abbr title="OSS-based self-driving software">Autoware</abbr>, the amount of data from tracing can be very large.</p>
-<p>Trace data discarding occurs during a large amount of recording because Lttng is discard mode to minimize effect to the system.</p>
+<p>As measuring a target application such as <abbr title="OSS-based self-driving software">Autoware</abbr> composed of many nodes, the amount of data from tracing can be very large.</p>
+<p>Trace data discarding occurs during a large amount of recording because <abbr title="Linux Tracing Tool next generation">LTTng</abbr> is discard mode to minimize effect to the system.</p>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides the ability to disable trace points associated with specific topics or nodes.
 This makes it possible to exclude from recording only trace data related to rviz nodes or tf topics, allowing <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> measurements even on large systems.</p>
 <p>This filtering function looks at the instance addresses (e.g. callback or publisher) to see if they are included in the filter.

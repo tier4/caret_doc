@@ -1469,39 +1469,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="false">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" >
-      
-      
-        
-          
             
           
         
@@ -1516,35 +1483,21 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../software_architecture/">Design</a>
+          <a href="../../software_architecture/">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../software_architecture/caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1567,16 +1520,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../software_architecture/tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="../../software_architecture/caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_architecture/tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2626,8 +2586,8 @@
 
 
 <h1 id="hook">Hook<a class="headerlink" href="#hook" title="Permanent link">#</a></h1>
-<p>Hooking is one of the key techniques performed by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.
-This section describes hooks from <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s point of view.</p>
+<p>Function hooking is one of the key techniques performed by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.
+This section describes the function hooking introduced to <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.</p>
 <p>See also</p>
 <ul>
 <li><a href="../../software_architecture/caret_trace/">CARET_trace</a></li>
@@ -2646,7 +2606,7 @@ On the other hand, each implementation may be developed for different purposes, 
 <p class="admonition-title">Info</p>
 <p>If possible, it is better to add tracepoints as built-in rather than hooks for users.
 However, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s priority is to evaluate software running on the current version of <abbr title="Robot Operating System">ROS</abbr> rather than to gradually add trace points.
-For this reason, we have adopted a hook that allows users to add tracepoints in a flexible manner.</p>
+For this reason, we have adopted function hooking that allows users to add tracepoints in a flexible manner.</p>
 </div>
 <p><prettier-ignore-end></p>
 <p><prettier-ignore-start></p>

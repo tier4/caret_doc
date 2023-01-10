@@ -1469,39 +1469,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="false">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" >
-      
-      
-        
-          
             
           
         
@@ -1516,35 +1483,21 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../software_architecture/">Design</a>
+          <a href="../software_architecture/">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../software_architecture/caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1567,16 +1520,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../software_architecture/tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="../software_architecture/caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_architecture/tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2548,25 +2508,25 @@
 <h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">#</a></h2>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> only supports environments as follows.</p>
 <ul>
-<li>Support single host.</li>
-<li>FastDDS or CycloneDDS.</li>
-<li>Support for Linux.</li>
-<li>Support for Galactic and Humble.</li>
-<li>Require rebuilding of an application.</li>
+<li>Support single host</li>
+<li>Support FastDDS or CycloneDDS</li>
+<li>Support only Linux, especially Ubuntu</li>
+<li>Support Galactic and Humble</li>
+<li>Require rebuilding of an application</li>
 </ul>
 <h2 id="ros-2-functions"><abbr title="Robot Operating System">ROS</abbr> 2 functions<a class="headerlink" href="#ros-2-functions" title="Permanent link">#</a></h2>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot support functions as follows.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> does not support the following functions.</p>
 <ul>
 <li>/rosout and /parameter_event topic</li>
 <li>Services</li>
 <li>Actions</li>
 </ul>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h2>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot support implementations as follows.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> does not support implementations as follows.</p>
 <ul>
-<li>There exist several nodes which have the same namespace and node name.</li>
-<li>wrapper for <abbr title="Robot Operating System">ROS</abbr> layers.</li>
-<li>Reentrant callback group.</li>
+<li>Multiple nodes whose full-names are same</li>
+<li>Wrapper for <abbr title="Robot Operating System">ROS</abbr> layers</li>
+<li>Reentrant callback group</li>
 </ul>
 
 

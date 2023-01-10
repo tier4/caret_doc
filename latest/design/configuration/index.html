@@ -1469,39 +1469,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="false">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" >
-      
-      
-        
-          
             
           
         
@@ -1516,35 +1483,21 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../software_architecture/">Design</a>
+          <a href="../software_architecture/">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../software_architecture/caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1567,16 +1520,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../software_architecture/tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="../software_architecture/caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_architecture/tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2516,10 +2476,9 @@
 
 
 <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h1>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> requires several kinds of information for visualization.
-Configuration set up the information needed for visualization.</p>
-<p>Some of the information can be configured via Python API and jupyter, but there are also items that require direct modification of the architecture file.</p>
-<p>For the format of the architecture file, see <a href="architecture_file/">architecture file</a> for the format of the architecture file.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> shows response time in a path which constructed of multiple nodes and topic communication.
+As explained in <a href="../../configuration/">configuration chapter</a>, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is not able to extract definition of data path definition automatically from trace data.</p>
+<p>This section shows the file format of <a href="architecture_file/">architecture file</a>.</p>
 
 
 

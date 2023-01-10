@@ -14,7 +14,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="caret_analyze/">
+        <link rel="next" href="caret_trace/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
@@ -1469,39 +1469,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="true">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" checked>
-      
-      
-        
-          
             
           
         
@@ -1516,35 +1483,21 @@
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Design</a>
+          <a href="./">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1567,16 +1520,23 @@
   
   
     <li class="md-nav__item">
-      <a href="tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2505,22 +2465,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recording-phase" class="md-nav__link">
-    Recording Phase
+  <a href="#recording" class="md-nav__link">
+    Recording
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-phase" class="md-nav__link">
-    Configuration Phase
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#analyzing-phase" class="md-nav__link">
-    Analyzing Phase
+  <a href="#visualization" class="md-nav__link">
+    Visualization
   </a>
   
 </li>
@@ -2554,47 +2514,39 @@
 <h1 id="software-architecture">Software architecture<a class="headerlink" href="#software-architecture" title="Permanent link">#</a></h1>
 <p>This section explains an overview of software architecture.</p>
 <p><img alt="architecture" src="../../imgs/architecture.drawio.png" /></p>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is divided into three phases; recording phase, configuration phase and analyzing phase.</p>
-<h2 id="recording-phase">Recording Phase<a class="headerlink" href="#recording-phase" title="Permanent link">#</a></h2>
-<p>In the recording phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> records system execution data from tracepoints.</p>
-<p>In addition to the tracepoints built into ROS2, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> adds tracepoints by several methods; CARET_trace CARET_rclcpp and <abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr>.
-For flexibility in adding tracepoints, tracepoints are added by hooks as possible.
-Only if it is not possible to add tracepoints by hooks, tracepoints are added by other methods as a supplementary method.</p>
-<p>All recorded data is stored as TraceData and used in the analyzing phase.</p>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> utilizes <abbr title="Linux Tracing Tool next generation">LTTng</abbr> as a trace mechanism.</p>
-<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, packages related to recording phase are followings.</p>
-<ul>
-<li><a href="caret_trace/">caret_trace</a></li>
-<li><a href="tilde/"><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr></a></li>
-</ul>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves three phases; recording, configuration and visualization.</p>
+<h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
+<p>In the recording phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> records events data obtained from tracepoints during application's runtime.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> adopts <abbr title="Linux Tracing Tool next generation">LTTng</abbr> as a tracing mechanism. <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session daemon collects events from tracepoints.
+<code>rclcpp</code> provided by <abbr title="Robot Operating System">ROS</abbr> 2 has original tracepoints and <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses some of them also. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> collects its dedicated tracepoints added by function hooking.
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses function hooking actively because it does not require changes of existing packages and allow us to add trace points in a flexible way.
+Only if it is not possible to add tracepoints by function hooking due to some constraints from implementation, tracepoints are added via another approach.</p>
+<p>All of recorded events are stored to a set of trace data <abbr title="Common Trace Format">CTF</abbr>-based. It is visualized for users to observe application's performance and behavior.</p>
+<p><a href="caret_trace/"><code>caret_trace</code></a> is the main package for realizing recording. <code>caret_trace</code> collects events invoked in <code>rclcpp</code>, <code>rcl</code> and <abbr title="Data Distribution System">DDS</abbr>. It is inconvenient to see actual time when data is consumed because data is consumed in a user code actually. <a href="tilde/"><abbr title="Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)">TILDE</abbr></a> serves tracepoints to collect events which happens in a user code. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to refer to them for diving into events in a user code.</p>
 <p>See also</p>
 <ul>
 <li><a href="../trace_points/">Tracepoints</a></li>
 <li><a href="../runtime_processing/">Runtime Processing</a></li>
 <li><a href="https://lttng.org/docs/">The <abbr title="Linux Tracing Tool next generation">LTTng</abbr> Documentation</a></li>
 </ul>
-<h2 id="configuration-phase">Configuration Phase<a class="headerlink" href="#configuration-phase" title="Permanent link">#</a></h2>
-<p>In the configuration phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> needs configurations to calculate latency.</p>
-<p>Some of the configurations can be defined via the Python API.
-Configuration can be saved as a YAML file (Architecture file) and edited.
-The architecture file is used repeatedly in the analyzing phase.</p>
-<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, packages related to configuration phase are followings.</p>
-<ul>
-<li><a href="caret_analyze/">caret_analyze</a></li>
-</ul>
-<p>See also</p>
-<ul>
-<li><a href="../configuration/">Configuration</a></li>
-</ul>
-<h2 id="analyzing-phase">Analyzing Phase<a class="headerlink" href="#analyzing-phase" title="Permanent link">#</a></h2>
-<p>In analyzing phase, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> analyzes trace data to provide system execution information.</p>
-<p>CARET_analyze provides a Python class that can access a variety of time series information.
-Developers can get the necessary information for evaluation from this class and perform evaluation according to their objectives.</p>
-<p>CARET_analyze also provides visualizations for the evaluation of Jupyter.</p>
-<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, packages related to configuration phase are followings.</p>
-<ul>
-<li><a href="caret_analyze/">caret_analyze</a></li>
-</ul>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h2>
+<p>In the configuration, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> expects users to complement structure definitions of a target application before visualizing data. Politely speaking, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> expects users to define intra-node data paths and inter-node data paths to calculate response time. It's difficult to get their definition mechanically, so that users have to give.</p>
+<p>Structure data of a targe application is stored in a object which is instantiated from Architecture class defined by <a href="caret_analyze/"><code>caret_analyze</code></a>.
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python API to deal with the object to fulfill configuration step by running script. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to store the object to a YAML-based file to be reused.</p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Current implementation of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> does not support several functions to define some of them. These are defined by editing the YAML-based file directly.</p>
+</div>
+<p><prettier-ignore-end></p>
+<p>A package related to configuration is <a href="caret_analyze/">caret_analyze</a>.</p>
+<p>See also <a href="../configuration/">Configuration</a>.</p>
+<h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> visualizes trace data and helps users to observe performance and behavior of a target application.</p>
+<p><code>caret_analyze</code> provides a Python class whose object holds a set of time series data.
+Users are able to get their desired data for evaluation from the object.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves visualization methods for users to observe performance with graphical view.</p>
+<p><a href="caret_analyze/">caret_analyze</a> is a package on visualization.</p>
 <p>See also</p>
 <ul>
 <li><a href="../processing_trace_data/">Processing trace data</a></li>
@@ -2614,12 +2566,12 @@ Developers can get the necessary information for evaluation from this class and 
 <tbody>
 <tr>
 <td><a href="caret_trace/">CARET_trace</a></td>
-<td>Add trace points via hooks. Control tracepoints.</td>
+<td>Add tracepoints via function hooking and functions to manage states of tracepoints.</td>
 <td><a href="https://github.com/tier4/CARET_trace/">https://github.com/tier4/CARET_trace/</a></td>
 </tr>
 <tr>
 <td>CARET_rclcpp</td>
-<td>Add trace points by fork</td>
+<td>Add tracepoints by fork</td>
 <td><a href="https://github.com/tier4/rclcpp">https://github.com/tier4/rclcpp</a></td>
 </tr>
 <tr>
