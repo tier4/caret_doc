@@ -185,7 +185,8 @@ def generate_launch_description():
             "ros2_caret:*executor",
             "ros2_caret:dds_bind*",
             "ros2:rcl_*init",
-            "ros2_caret:rcl_*init"]
+            "ros2_caret:rcl_*init",
+            "ros2_caret:caret_init"]
 
   if caret_session == "":
     dt_now = datetime.datetime.now()
