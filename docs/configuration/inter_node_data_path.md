@@ -137,3 +137,23 @@ paths = arch.search_paths(
     node_filter = node_filter,
     communication_filter = comm_filter)
 ```
+
+### Path combining
+
+`Architecture.combine_path()` combines two paths which are found by `Architecture.search_paths()`.
+By searching short paths and combining them repeatedly, you can get a target path. It is sometimes more efficient than searching a longer path directly according to "divide-and-conquer" method.
+
+Usage of `Architecture.combine_path()` is as following.
+
+```python
+paths_1 = arch.search_paths('source_node',
+                            'intermediate_node')
+paths_2 = arch.search_paths('intermediate_node',
+                            'destination_node')
+target_path = arch.combine_path(paths_1[0], paths_2[0])
+
+arch.add_path('combined_path_name', target_path)
+arch.export('new_architecture.yaml')
+```
+
+An exception is raised for pairs that cannot be combined.
