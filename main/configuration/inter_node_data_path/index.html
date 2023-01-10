@@ -942,6 +942,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#path-combining" class="md-nav__link">
+    Path combining
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2627,6 +2634,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#path-combining" class="md-nav__link">
+    Path combining
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2752,6 +2766,20 @@ The list size will be too large to find target path if application has large num
     <span class="n">node_filter</span> <span class="o">=</span> <span class="n">node_filter</span><span class="p">,</span>
     <span class="n">communication_filter</span> <span class="o">=</span> <span class="n">comm_filter</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="path-combining">Path combining<a class="headerlink" href="#path-combining" title="Permanent link">#</a></h3>
+<p><code>Architecture.combine_path()</code> combines two paths which are found by <code>Architecture.search_paths()</code>.
+By searching short paths and combining them repeatedly, you can get a target path. It is sometimes more efficient than searching a longer path directly according to "divide-and-conquer" method.</p>
+<p>Usage of <code>Architecture.combine_path()</code> is as following.</p>
+<div class="highlight"><pre><span></span><code><span class="n">paths_1</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span><span class="s1">&#39;source_node&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;intermediate_node&#39;</span><span class="p">)</span>
+<span class="n">paths_2</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">search_paths</span><span class="p">(</span><span class="s1">&#39;intermediate_node&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;destination_node&#39;</span><span class="p">)</span>
+<span class="n">target_path</span> <span class="o">=</span> <span class="n">arch</span><span class="o">.</span><span class="n">combine_path</span><span class="p">(</span><span class="n">paths_1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">paths_2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">add_path</span><span class="p">(</span><span class="s1">&#39;combined_path_name&#39;</span><span class="p">,</span> <span class="n">target_path</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s1">&#39;new_architecture.yaml&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>An exception is raised for pairs that cannot be combined.</p>
 
 
 
