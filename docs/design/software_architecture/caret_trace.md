@@ -139,7 +139,7 @@ KeysSet "1" o-- "0..*" HashableKeys
 
 ## Hook function implementation
 
-In addition to hooking and for adding trace points, CARET also hooks trace points built into ROS2.
+CARET adds new trace points by hooking. Also, CARET hooks trace points built into ROS2 to activate or deactivate tracing.
 
 Here is the pseudo code for hook functions.
 
@@ -179,7 +179,18 @@ void ros_trace_XXX_init(TRACEPOINT_ARGS)
 
 ```
 
-Information from callback addresses to node names, etc., can be obtained by binding them to other trace point arguments.
+`ros_trace_callback_start` is an example of hook functions to trace callback start. It is a kind of trace points for collecting events related to application
+s behavior, and so called runtime trace point.
+
+`ros_trace_XXX_init` is an example of hook function to get identification of application's component. It is expected to be called when application is launched and initialized. The trace point is categorized into initialization trace point.
+
+A set of identifications such as a callback address or node name is given as `TRACEPOINT_ARGS`.
+Several kinds of initialization trace point are served, and each of them is attached to different kind of component; executor, node, callback, publisher, subscriber, and etc. For example, one is called to collect node's identification while another is called  to collect publisher's identification.
+
+Identifications collected from different trace points share same addresses or names as elements. By connecting such identifications by the same addresses or names, CARET is able to help you to find application's structure.
+
+<!-- Information from callback addresses to node names, etc., can be obtained by binding them to other trace point arguments. -->
+
 See [Initialization trace points](../trace_points/initialization_trace_points.md) for details.
 
 ## clock recorder
