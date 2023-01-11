@@ -140,7 +140,7 @@ PREPARE --> RECORD : Finished recording stored initialization trace data
 RECORD : Record initialization and runtime trace data with LTTng
 ```
 
-Refer to [Status](#status) for further details of the state machine.
+Refer to [Status](#state-definition) for further details of the state machine.
 
 ## Topic
 
