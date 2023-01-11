@@ -109,19 +109,17 @@ nodes:
 
 ## Callback identification
 
-`callback_name` is a name used by users to identify a callback.
+It's convenience for users to give a name to a callback function for its identification. However, in the context of ROS 2, only an address is given to  a callback.
 
-CARET reads trace data and loads callback information.
-Callback addresses can be obtained from trace data,
-but callback_name cannot be obtained because ROS does not have the ability to assign callback_names.
+CARET helps users to give a name to a callback, but it is not directly associated with its address due to the reason as explained above.
 
-After loading information, CARET binds the `callback_name` and callback address by following items.
+In order to tackle the issue, CARET associates a name with an address of callback with using combination of following data.
 
-- node_name
-- callback_type
-- period_ns / topic_name
-- symbol
-- construction_order
+- `node_name`
+- `callback_type`
+- `period_ns` / `topic_name`
+- `symbol`
+- `construction_order`
 
 By using this information to match `callback_name` and callback address,
 `callback_name` will always refer to identical callbacks, regardless of the number of recordings.
