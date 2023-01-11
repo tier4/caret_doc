@@ -29,7 +29,7 @@ This function consists of the following states
 
 A dedicated-node, named as trace node, is executed per ROS 2 process to manage the state.
 A trace node is executed on a dedicated thread along with threads for ordinary nodes.
-It is created when application is launched. It 
+It is created when application is launched.
 
 <prettier-ignore-start>
 !!! Notice
