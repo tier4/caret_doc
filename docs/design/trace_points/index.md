@@ -7,7 +7,7 @@ This section lists all tracepoints and their definition.
 ![tracepoints category](../../imgs/tracepoints_category.drawio.png)
 
 CARET is implemented as an extension of ros2_tracing.
-CARET uses LTTng as its tracing mechanism.
+CARET uses tracing mechanism of user-space tracing served by LTTng.
 To reduce overhead at runtime, trace points are divided into two types of tracepoints; initialization tracepoints and runtime tracepoints.
 
 Some tracepoints are used for collecting meta-information of executors, nodes, callbacks, and topics during application's initialization.
@@ -23,7 +23,7 @@ See also
 
 ## Implementation method category
 
-Each tracepoint for CARET is added by followings method.
+Each tracepoint for CARET is added by one of following methods.
 
 ![builtin_and_extended_tracepoints](../../imgs/builtin_and_extended_trace_points.drawio.png)
 

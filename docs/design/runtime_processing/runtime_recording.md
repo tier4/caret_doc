@@ -1,24 +1,22 @@
 # Runtime recording
 
-As explained in [Tracepoint section](../trace_points/index.md), CARET records meta-information at initialization and reduces tracepoint data to as much as possible at runtime.
+As explained in [Tracepoint section](../trace_points/index.md), CARET records meta-information at initialization and reduces tracepoint data as much as possible at runtime.
 This allows for a low overhead at runtime, but recording including meta-information requires a LTTng session before running the application.
 
-In actual operation, though, it is often desirable to start recording during executions.
+CARET requires a set of recorded data to have meta-information and timestamps on events.  
+To allow users to start session anytime when they want, CARET stores meta-information into disk when recording session starts. To stop and restart recording session, CARET holds meta-information on memory until a target application is terminated.
 
-Therefore, CARET stores meta-information in memory,
-and record the meta-information at the start of recording.
-
-This session explains the details of runtime recording feature.
+This section explains the details of runtime recording feature.
 
 See also:
 
 - [Software architecture | caret_trace](../software_architecture/caret_trace.md)
 
-## Overview
+## Basic idea
 
-The runtime recording is a feature that stores initialization information in memory and records it to trace data after measurement starts, enabling recording even during execution.
+Runtime recording is a feature that holds initialization information on memory and stores it to trace data after recording session starts. It let user start recording session anytime.
 
-This function consists of the following states
+For this feature, each tracepoint has three states as below.
 
 - WAIT state
   - Obtain information on running applications and store trace data in memory.
@@ -38,7 +36,7 @@ It is created when application is launched.
     Python serves Global Interpreter Lock (GIL) mechanism, but a trace node runs on a asynchronous thead which is not blocked by GIL.
 <prettier-ignore-end>
 
-Typical use cases are as follows.
+Typical use cases are shown as follows.
 
 ```bash
 # Run a node at Terminal 0 first.
@@ -88,12 +86,13 @@ User1 -> Lttng
 Lttng is "Destroyed"
 ```
 
-A detailed sequence diagram is written in [Sequence](#sequence).
+Refer to the sequence diagram is written in [Sequence](#sequence) for further details.
 
-Trace nodes uses topic communication for control and notification.
+A trace node has a topic-based interface as well as an ordinary ROS 2 node.
+Topic message is used to get state from a trace node or change state of it.
 
-In addition, to maintain compatibility of usage,
-in cases where sessions are started in advance, they can record correctly.
+Besides, to maintain compatibility of conventional usage,
+CARET is able to record meta-information and runtime events when session has started in advance.
 
 ```plantuml
 concise "Terminal 0" as User0
@@ -125,9 +124,9 @@ Lttng is "Destroyed"
 
 ```
 
-Note that Initialization trace data is recorded for each LTTng session.
+Note that meta-information is recorded in each LTTng session.
 
-The main state transitions are shown below.
+The following state diagram shows state machine of the three states
 
 ```plantuml
 [*] --> RECORD: An active lttng session exists
@@ -141,11 +140,11 @@ PREPARE --> RECORD : Finished recording stored initialization trace data
 RECORD : Record initialization and runtime trace data with LTTng
 ```
 
-Detailed state transitions are written in [Status](#status).
+Refer to [Status](#status) for further details of the state machine.
 
 ## Topic
 
-Runtime recording uses the following topic communication.
+Runtime recording uses the following topic messages.
 
 | topic name            | message type | role                                          |
 | --------------------- | ------------ | --------------------------------------------- |
@@ -166,9 +165,9 @@ string select_topics # reserved
 CARET records sets of meta-information to a LTTng ring-buffer one by one rather than tries to store those meta-information at once.
 CARET serves a parameter, `recording_frequency`, to control velocity to record meta-information.
 `recording_frequency` is frequency at which each process records meta-information. It decides how many sets of meta-information is stored to the ring-buffer per second.
-The higher the frequency, the shorter the time required to complete the PREPARE state, but the greater the risk of tracer discarded.
+If the frequency is higher, it costs less time to complete meta-information recording, but possibility of tracer discarded is higher.
 
-`ignore_nodes` `ignore_topics` `select_nodes` `select_topics` are unimplemented features.
+`ignore_nodes` `ignore_topics` `select_nodes`, and `select_topics` are unused fields for the future implementation.
 They are reserved fields for setting [tracepoint filtering](./tracepoint_filtering.md) at the start of the measurement from CLI.
 
 <prettier-ignore-start>
@@ -190,14 +189,14 @@ string[] node_names # reserved
 int64 pid # reserved
 ```
 
-`trace_node` is a trace node name.
+A trace node name is given to `caret_node_name` field.
 
 `status` is the WAIT, PREPARE, or RECORD status.
 
-`node_names` is an unimplemented feature.
+`node_names` field is unused in the present, it will be utilized by a future function.
 It is a reserved field to represent a list of node names managed by the trace node.
 
-`pid` is an unimplemented feature.
+`pid` field is also unused because it will be used for an unimplemented feature.
 It is a reserved field to represent the process ID.
 
 ### End.msg
@@ -208,9 +207,9 @@ It is a reserved field to represent the process ID.
 
 The End topic is for notification, so its contents are empty.
 
-## Status
+## State definition
 
-A detailed state transition description for each state is shown below.
+A detailed state transition is shown below.
 
 ```plantuml
 [*] --> WAIT: No active lttng session exists
