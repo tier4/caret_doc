@@ -35,7 +35,7 @@ It is created when application is launched.
 !!! Notice
     A trace node runs on a thread created via function hooking. This thread is created even if a ROS 2 process is not implemented with `rclcpp`.
     A trace node thread is created if a ROS 2 process is implemented with `rclpy`, and it control the states as well. Though the trace node runs on a Python-based node, recording events for the node is not performed correctly. Only initialization tracepoints are recorded.
-    Python serves Global Interpreter Lock (GIL) mechanism, but a trace node runs on a asynchronous thead which is blocked by GIL.
+    Python serves Global Interpreter Lock (GIL) mechanism, but a trace node runs on a asynchronous thead which is not blocked by GIL.
 <prettier-ignore-end>
 
 Typical use cases are as follows.
