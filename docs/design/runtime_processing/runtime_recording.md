@@ -173,7 +173,7 @@ They are reserved fields for setting [tracepoint filtering](./tracepoint_filteri
 
 <prettier-ignore-start>
 !!!Info
-    Another method to avoid tracer discarded is writing meta-information with [blocking mode](https://lttng.org/blog/2017/11/22/lttng-ust-blocking-mode/). LTTng serves a function to apply blocking mode to chosen events, and chosen events are written to disks exactly. Blocking mode will reduce occurrence of data loss. In this moment, `recording_frequency` is introduced to mitigate data loss because range of influence is smaller than blocking mode.
+    Another method to avoid tracer discarded is writing meta-information with [blocking mode](https://lttng.org/blog/2017/11/22/lttng-ust-blocking-mode/). LTTng serves a function to apply blocking mode to chosen events, and chosen events are written to disks exactly. Blocking mode will reduce occurrence of data loss. In this moment, `recording_frequency` is introduced to mitigate data loss because range of influence on implementation is smaller than blocking mode.
 <prettier-ignore-end>
 
 ### Status.msg
