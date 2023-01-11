@@ -109,7 +109,7 @@ nodes:
 
 ## Callback identification
 
-It's convenience for users to give a name to a callback function for its identification. However, in the context of ROS 2, only an address is given to  a callback.
+It's convenience for users to give a name to a callback function for its identification. However, in the context of ROS 2, only an address is given to a callback.
 
 CARET helps users to give a name to a callback, but it is not directly associated with its address due to the reason as explained above.
 
