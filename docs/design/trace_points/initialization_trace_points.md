@@ -110,7 +110,7 @@ erDiagram
 
 ### Tracepoints for representing structure of executor and callback group
 
-A handler such as `timer_handle` and `subscription_handle` are assigned to a callback group. A callback group belongs to an executor.
+A handler such as `timer_handle` or `subscription_handle` is assigned to a callback group. A callback group belongs to an executor.
 
 Relationships of each trace point related to executors are shown as follows.
 
