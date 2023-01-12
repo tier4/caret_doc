@@ -17,7 +17,7 @@
         <link rel="next" href="diff/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6b71719e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9c788c91.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
@@ -1609,6 +1609,8 @@
         
           
         
+          
+        
       
       
         
@@ -1639,6 +1641,20 @@
     <li class="md-nav__item">
       <a href="../runtime_processing/hook/" class="md-nav__link">
         Hook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime_processing/runtime_recording/" class="md-nav__link">
+        Runtime recording
       </a>
     </li>
   
@@ -2458,6 +2474,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tracepoints-category" class="md-nav__link">
+    Tracepoints category
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-method-category" class="md-nav__link">
+    Implementation method category
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2477,9 +2515,22 @@
 
 <h1 id="tracepoints-definition">Tracepoints definition<a class="headerlink" href="#tracepoints-definition" title="Permanent link">#</a></h1>
 <p>This section lists all tracepoints and their definitions.</p>
-<p>Some tracepoints are used for collecting identification of executors, nodes, callbacks, and topics during application's initialization.
-They are called initialization tracepoints. The other tracepoints are embedded for sampling timestamps after completion of initialization, and called runtime tracepoints.</p>
-<p>Each tracepoint for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is added by followings method.</p>
+<h2 id="tracepoints-category">Tracepoints category<a class="headerlink" href="#tracepoints-category" title="Permanent link">#</a></h2>
+<p><img alt="tracepoints category" src="../../imgs/tracepoints_category.drawio.png" /></p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is implemented as an extension of ros2_tracing.
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses tracing mechanism of user-space tracing served by <abbr title="Linux Tracing Tool next generation">LTTng</abbr>.
+To reduce overhead at runtime, trace points are divided into two types of tracepoints; initialization tracepoints and runtime tracepoints.</p>
+<p>Some tracepoints are used for collecting meta-information of executors, nodes, callbacks, and topics during application's initialization.
+They are called initialization tracepoints.
+The other tracepoints are embedded for sampling timestamps after completion of initialization, and called runtime tracepoints.</p>
+<p>By binding these trace data together, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can provide when and which callbacks were executed.</p>
+<p>See also</p>
+<ul>
+<li><a href="initialization_trace_points/">Initialization tracepoints</a></li>
+<li><a href="runtime_trace_points/">Runtime tracepoints</a></li>
+</ul>
+<h2 id="implementation-method-category">Implementation method category<a class="headerlink" href="#implementation-method-category" title="Permanent link">#</a></h2>
+<p>Each tracepoint for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is added by one of following methods.</p>
 <p><img alt="builtin_and_extended_tracepoints" src="../../imgs/builtin_and_extended_trace_points.drawio.png" /></p>
 <ul>
 <li>Built-in tracepoints<ul>
@@ -2497,7 +2548,7 @@ They are called initialization tracepoints. The other tracepoints are embedded f
 </li>
 </ul>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> utilizes some of the tracepoints built-in original <abbr title="Robot Operating System">ROS</abbr> 2.
-Some of the tracepoints are added by hooking with LD_PRELOAD, and rest trace points are added to the fork of <abbr title="Robot Operating System">ROS</abbr> 2's rclcpp.</p>
+Some of the tracepoints are added by hooking with LD_PRELOAD, and rest tracepoints are added to the fork of <abbr title="Robot Operating System">ROS</abbr> 2's rclcpp.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
