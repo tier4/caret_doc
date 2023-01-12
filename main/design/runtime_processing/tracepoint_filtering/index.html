@@ -11,13 +11,13 @@
         <link rel="canonical" href="https://tier4.github.io/CARET_doc/main/design/runtime_processing/tracepoint_filtering/">
       
       
-        <link rel="prev" href="../hook/">
+        <link rel="prev" href="../runtime_recording/">
       
       
         <link rel="next" href="../../processing_trace_data/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6b71719e.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9c788c91.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
@@ -1609,6 +1609,8 @@
         
           
         
+          
+        
       
       
         
@@ -1639,6 +1641,20 @@
     <li class="md-nav__item">
       <a href="../hook/" class="md-nav__link">
         Hook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime_recording/" class="md-nav__link">
+        Runtime recording
       </a>
     </li>
   
@@ -2493,11 +2509,9 @@ This makes it possible to exclude from recording only trace data related to rviz
 <p>This filtering function looks at the instance addresses (e.g. callback or publisher) to see if they are included in the filter.
 This check is done in O1 order because it uses std::unordered_map.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">ros_trace_callback_start</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_intra_process</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Singleton</span><span class="o">&lt;</span><span class="n">TracingController</span><span class="o">&gt;::</span><span class="n">get_instance</span><span class="p">();</span>
-
 <span class="w">  </span><span class="c1">// Record trace data only if current callback is allowed to record</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">controller</span><span class="p">.</span><span class="n">is_allowed_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">ORIG_FUNC</span><span class="o">::</span><span class="n">ros_trace_callback_start</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="n">is_intra_process</span><span class="p">);</span>
+<span class="w">    </span><span class="n">tracepoint</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="n">is_intra_process</span><span class="p">);</span><span class="w"> </span><span class="c1">// LTTng tracepoint</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2505,7 +2519,7 @@ This check is done in O1 order because it uses std::unordered_map.</p>
 <ul>
 <li><a href="../../software_architecture/caret_trace/">caret_trace</a></li>
 <li><a href="../../trace_points/">Tracepoint</a></li>
-<li><a href="../../../recording/trace_filtering/">Recording trace filtering</a></li>
+<li><a href="../../../recording/trace_filtering/">Recording | trace filtering</a></li>
 </ul>
 
 
