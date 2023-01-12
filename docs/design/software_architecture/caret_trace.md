@@ -189,8 +189,6 @@ Several kinds of initialization trace point are served, and each of them is atta
 
 Identifications collected from different trace points share same addresses or names as elements. By connecting such identifications by the same addresses or names, CARET is able to help you to find application's structure.
 
-<!-- Information from callback addresses to node names, etc., can be obtained by binding them to other trace point arguments. -->
-
 See [Initialization trace points](../trace_points/initialization_trace_points.md) for details.
 
 ## clock recorder
