@@ -261,32 +261,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/basic_api_concept/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/premise_of_communication/</loc>
          <lastmod>2023-01-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/callback/callback_information/</loc>
-         <lastmod>2023-01-12</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/callback/callback_scheduling_visualization/</loc>
-         <lastmod>2023-01-12</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/communication/communication_information/</loc>
-         <lastmod>2023-01-12</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/communication/pub_sub_information/</loc>
+         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/callback_scheduling/</loc>
          <lastmod>2023-01-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/filter/lttng_event_filter/</loc>
+         <lastmod>2023-01-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/frequency/</loc>
+         <lastmod>2023-01-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/latency/</loc>
          <lastmod>2023-01-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -302,6 +297,11 @@
     </url>
     <url>
          <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/path/response_time/</loc>
+         <lastmod>2023-01-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tier4.github.io/CARET_doc/pr-118/visualization/period/</loc>
          <lastmod>2023-01-12</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-118/visualization/basic_api_concept/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-118/visualization/latency/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../period/">
       
       
-        <link rel="next" href="../callback/callback_information/">
+        <link rel="next" href="../path/chain_latency/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
     
     
       
-        <title>Basic APIs Concept - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Latency (or Execution time) - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-apis-concept" class="md-skip">
+        <a href="#latency-or-execution-time" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Basic APIs Concept
+              Latency (or Execution time)
             
           </span>
         </div>
@@ -291,11 +291,18 @@
   
   
   
+    
+
+  
+  
+  
     <li class="md-tabs__item">
       <a href="../" class="md-tabs__link md-tabs__link--active">
         Visualization
       </a>
     </li>
+  
+
   
 
       
@@ -936,7 +943,11 @@
       
         
           
-            
+        
+          
+        
+          
+        
           
         
           
@@ -947,16 +958,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Visualization</a>
-          
-            <label for="__nav_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="true">
+          Visualization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Visualization" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
@@ -966,57 +971,116 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Overview</a>
+          
+            <label for="__nav_6_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Overview" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Basic APIs Concept
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Basic APIs Concept
+    <li class="md-nav__item">
+      <a href="../premise_of_communication/" class="md-nav__link">
+        Premise of communication
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
-        <li class="md-nav__item">
-  <a href="#the-main-basic-design-of-the-plot-class" class="md-nav__link">
-    The main basic design of the Plot class
-  </a>
-  
-</li>
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
-    </ul>
-  
-</nav>
       
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../frequency/">Frequency</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Frequency" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Frequency
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1042,86 +1106,73 @@
       
         
           
-        
+            
           
         
-          
+      
+      
         
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../period/">Period</a>
+          
+        </div>
       
-      
-        <label class="md-nav__link" for="__nav_6_3" tabindex="0" aria-expanded="false">
-          Visualization APIs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Visualization APIs" data-md-level="2">
+      <nav class="md-nav" aria-label="Period" data-md-level="2">
         <label class="md-nav__title" for="__nav_6_3">
           <span class="md-nav__icon md-icon"></span>
-          Visualization APIs
+          Period
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
+          
+        </ul>
+      </nav>
+    </li>
   
+
+            
+          
+            
+              
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
       
       
         
           
-        
+            
           
         
       
       
-        <label class="md-nav__link" for="__nav_6_3_1" tabindex="0" aria-expanded="false">
-          Callback
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Latency</a>
+          
+        </div>
       
-      <nav class="md-nav" aria-label="Callback" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_1">
+      <nav class="md-nav" aria-label="Latency" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
           <span class="md-nav__icon md-icon"></span>
-          Callback
+          Latency
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../callback/callback_information/" class="md-nav__link">
-        Callback Information
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../callback/callback_scheduling_visualization/" class="md-nav__link">
-        Callback Scheduling Visualization
-      </a>
-    </li>
-  
-
             
           
         </ul>
@@ -1137,102 +1188,34 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
       
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_2" type="checkbox" id="__nav_6_3_2" >
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_3_2" tabindex="0" aria-expanded="false">
-          Communication
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Communication" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          Communication
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../communication/communication_information/" class="md-nav__link">
-        Communication Information
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../communication/pub_sub_information/" class="md-nav__link">
-        Publish/Subscription Information
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3_3" type="checkbox" id="__nav_6_3_3" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
       
       
-        
-          
         
           
         
           
         
+          
+        
       
       
-        <label class="md-nav__link" for="__nav_6_3_3" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_6_5" tabindex="0" aria-expanded="false">
           Path
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Path" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_3">
+      <nav class="md-nav" aria-label="Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
           <span class="md-nav__icon md-icon"></span>
           Path
         </label>
@@ -1273,15 +1256,8 @@
   
     <li class="md-nav__item">
       <a href="../path/response_time/" class="md-nav__link">
-        Plot Response Time
+        Response Time
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1309,42 +1285,7 @@
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_4" tabindex="0" aria-expanded="false">
-          Helper APIs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Helper APIs" data-md-level="2">
-        <label class="md-nav__title" for="__nav_6_4">
-          <span class="md-nav__icon md-icon"></span>
-          Helper APIs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_6" type="checkbox" id="__nav_6_6" >
       
       
         
@@ -1352,13 +1293,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_6_4_1" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_6_6" tabindex="0" aria-expanded="false">
           Filter
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Filter" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_4_1">
+      <nav class="md-nav" aria-label="Filter" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_6">
           <span class="md-nav__icon md-icon"></span>
           Filter
         </label>
@@ -1371,7 +1312,7 @@
   
     <li class="md-nav__item">
       <a href="../filter/lttng_event_filter/" class="md-nav__link">
-        Usage of LTTngEventFilter
+        LTTngEventFilter
       </a>
     </li>
   
@@ -1391,14 +1332,16 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4_2" type="checkbox" id="__nav_6_4_2" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_7" type="checkbox" id="__nav_6_7" >
       
       
         
@@ -1406,13 +1349,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_6_4_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_6_7" tabindex="0" aria-expanded="false">
           Search
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Search" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_4_2">
+      <nav class="md-nav" aria-label="Search" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_7">
           <span class="md-nav__icon md-icon"></span>
           Search
         </label>
@@ -1427,13 +1370,6 @@
       <a href="../search/wildcards_for_get_callbacks/" class="md-nav__link">
         Wildcards for get_callbacks()
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1533,39 +1469,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7_2" tabindex="0" aria-expanded="false">
-          Software architecture
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Software architecture
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2_1" type="checkbox" id="__nav_7_2_1" >
-      
-      
-        
-          
             
           
         
@@ -1580,35 +1483,21 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../design/software_architecture/">Design</a>
+          <a href="../../design/software_architecture/">Software architecture</a>
           
-            <label for="__nav_7_2_1">
+            <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_7_2_1">
+      <nav class="md-nav" aria-label="Software architecture" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Software architecture
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design/software_architecture/caret_analyze/" class="md-nav__link">
-        CARET_analyze
-      </a>
-    </li>
-  
-
             
           
             
@@ -1631,16 +1520,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
-        TILDE, a framework tools to detect deadline overrun
+      <a href="../../design/software_architecture/caret_analyze/" class="md-nav__link">
+        caret_analyze
       </a>
     </li>
   
 
             
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
+        TILDE, a framework tools to detect deadline overrun
+      </a>
     </li>
   
 
@@ -2585,8 +2481,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-main-basic-design-of-the-plot-class" class="md-nav__link">
-    The main basic design of the Plot class
+  <a href="#callback" class="md-nav__link">
+    Callback
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication" class="md-nav__link">
+    Communication
   </a>
   
 </li>
@@ -2610,26 +2513,63 @@
 
 
 
-<h1 id="basic-apis-concept">Basic APIs Concept<a class="headerlink" href="#basic-apis-concept" title="Permanent link">#</a></h1>
-<h2 id="the-main-basic-design-of-the-plot-class">The main basic design of the Plot class<a class="headerlink" href="#the-main-basic-design-of-the-plot-class" title="Permanent link">#</a></h2>
-<p>Visualization is available from the Plot class provided by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.
-The usage of each API in the Plot class is unified as follows:</p>
+<h1 id="latency-or-execution-time">Latency (or Execution time)<a class="headerlink" href="#latency-or-execution-time" title="Permanent link">#</a></h1>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to show you latencies of callback execution, message communication. <code>Plot.create_latency_timeseries_plot(target_object)</code> interface is provided for it.
+This section describes sample visualization scripts for them.
+Execute the following script code to load trace data and an architecture object before calling this method.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
-
-<span class="o">...</span> <span class="c1"># Processing input data</span>
-
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_</span><span class="p">[</span><span class="n">metrics</span><span class="p">]</span><span class="n">_</span><span class="p">[</span><span class="n">graph_type</span><span class="p">]</span><span class="n">_plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="n">output_notebook</span><span class="p">()</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/architecture_file&#39;</span><span class="p">)</span>
+<span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/trace_data&#39;</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 </code></pre></div>
-<p>The variable <code>plot</code> has two functions, <code>show()</code> and <code>to_dataframe()</code>.
-The function <code>show()</code> outputs a figure and returns the figure's handler.
-The function <code>to_dataframe()</code> returns a table summarizing the data.
-This function is mainly used to analyze based on specific figures.</p>
+<h2 id="callback">Callback<a class="headerlink" href="#callback" title="Permanent link">#</a></h2>
+<p><code>Plot.create_latency_timeseries_plot(callbacks: Collections[CallbackBase])</code> is served to see execution time of callback functions.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_timeseries_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
+<span class="n">latency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">latency_df</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<p><img alt="callback_latency_df" src="../../imgs/callback_latency_df.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="c1">### Time-series graph</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_timeseries_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<p><img alt="callback_latency_time_line" src="../../imgs/callback_latency_time_line.png" /></p>
+<p>The horizontal axis means time, labeled as <code>Time [s]</code>. <code>xaxis_type</code> argument is prepared to select index of x-axis among Linux system time, <a href="../../recording/sim_time/"><abbr title="Robot Operating System">ROS</abbr> simulation time</a>, and 0-based ordering. One of <code>'system_time'</code>, <code>'sim_time'</code> and <code>'index'</code> is chosen as <code>xaxis_type</code> though <code>'system_time'</code> is the default value.
+The vertical axis means execution time of callback function, labeled as <code>Latency [ms]</code>. It is duration from <code>callback_start</code> to <code>callback_end</code> and plotted per sample.</p>
+<h2 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">#</a></h2>
+<p><code>Plot.create_latency_timeseries_plot(communications: Collection[Communication])</code> is called when you are concerned how long time is consumed from message publish to corresponding subscription.
+Here, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> takes into account communication when both transmission and reception on a message are performed successfully without being lost.
+See Premise of communication for more details.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_timeseries_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">communications</span><span class="p">)</span>
+<span class="n">latency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+<span class="n">latency_df</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<p><img alt="callback_latency_df" src="../../imgs/communication_latency_df.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="c1">### Time-series graph</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_timeseries_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">communications</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<p><img alt="communication_latency_time_line" src="../../imgs/communication_latency_time_line.png" /></p>
+<p>The horizontal axis means time, labeled as <code>Time [s]</code>. <code>xaxis_type</code> argument is prepared as well as the previous callback subsection.
+The vertical axis means latency, labeled as <code>Latency [ms]</code>. It is plotted per sample.</p>
 <p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>For detailed input/output options, see <a href="https://tier4.github.io/CARET_analyze/latest/plot/#caret_analyze.plot.TimeSeriesPlot">TimeSeriesPlot</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Communication latency is defined as elapsed time from topic message publish to subscription callback execution corresponding to the message.
+Strictly speaking, it is not not only elapsed time from message transmission to reception, but it also includes scheduling latency of callback.</p>
 </div>
 <p><prettier-ignore-end></p>
 
