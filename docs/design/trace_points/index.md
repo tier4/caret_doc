@@ -1,6 +1,6 @@
 # Tracepoints definition
 
-This section lists all tracepoints and their definition.
+This section lists all tracepoints and their definitions.
 
 ## Tracepoints category
 

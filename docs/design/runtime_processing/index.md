@@ -1,12 +1,10 @@
 # Runtime processing
 
-CARET process followings at runtime.
+CARET serves the following functions at runtime of a target application.
 
-- [Adds trace points via hooks](./hook.md)
-- [Filter unnecessary trace points](./tracepoint_filtering.md)
+- [Adding trace points via hooks](./hook.md)
+- [Filtering unnecessary trace points](./tracepoint_filtering.md)
 
 Though LTTng provides a variety of functions, CARET specializes ROS-aware functionality.
 
-See also
-
-- [Tracepoint](../trace_points/index.md)
+See also the related page; [tracepoint](../trace_points/index.md).

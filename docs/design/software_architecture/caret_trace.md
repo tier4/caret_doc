@@ -1,18 +1,12 @@
 # caret_trace
 
-caret_trace is a package that handles recording.
+`caret_trace` is a package who deliver the following feature during recording.
 
-The role of caret_trace is as follows
+1. Defining the tracepoints dedicated to CARET via function hooking
+2. Adding state management of tracepoints via function hooking for trace filtering and runtime recording
+3. Adding function of recording with `sim_time`
 
-- Trace point definition
-- Trace data managing for runtime recording
-- Adding tracepoints with hooks
-- Trace filtering
-- Simtime recording
-
-See also
-
-- [Tracepoints](../trace_points)
+- [Tracepoints](../trace_points/index.md)
 - [Hook](../runtime_processing/hook.md)
 - [Runtime recording](../runtime_processing/runtime_recording.md)
 
@@ -137,9 +131,9 @@ KeysSet "1" o-- "0..*" HashableKeys
 
 ```
 
-## Hook function implementation
+## Implementation of tracepoints with function hooking
 
-CARET adds new trace points by hooking. Also, CARET hooks trace points built into ROS2 to activate or deactivate tracing.
+CARET adopts function hooking mainly for adding new trace points. On the other hand, existing tracepoints, which are built in ROS2, are also re-defined by function hooking because CARET adds the function to manage tracepoint state.
 
 Here is the pseudo code for hook functions.
 
@@ -185,7 +179,7 @@ s behavior, and so called runtime trace point.
 `ros_trace_XXX_init` is an example of hook function to get identification of application's component. It is expected to be called when application is launched and initialized. The trace point is categorized into initialization trace point.
 
 A set of identifications such as a callback address or node name is given as `TRACEPOINT_ARGS`.
-Several kinds of initialization trace point are served, and each of them is attached to different kind of component; executor, node, callback, publisher, subscriber, and etc. For example, one is called to collect node's identification while another is called  to collect publisher's identification.
+Several kinds of initialization trace point are served, and each of them is attached to different kind of component; executor, node, callback, publisher, subscriber, and etc. For example, one is called to collect node's identification while another is called to collect publisher's identification.
 
 Identifications collected from different trace points share same addresses or names as elements. By connecting such identifications by the same addresses or names, CARET is able to help you to find application's structure.
 
@@ -193,12 +187,12 @@ See [Initialization trace points](../trace_points/initialization_trace_points.md
 
 ## clock recorder
 
-CARET can select simtime for visualization.
-The simtime can be recorded by running the simtime_recorder node, which adds trace points for simtime recording.
+CARET can select simulation time, represented as `sim_time`, for visualization.
+`sim_time` can be recorded by running the `simtime_recorder` node, which adds trace points for `sim_time` recording.
 
 ```bash
 ros2 run caret_trace clock_recorder
 ```
 
-ClockRecorder node wakes up every second and records simtime and system time.
-The recorded results are used to calculate simtime from system time.
+`ClockRecorder` node wakes up per second and records a pair of `sim_time` and system time.
+The pair is used to convert system time to simulation time.

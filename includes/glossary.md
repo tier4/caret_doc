@@ -5,3 +5,4 @@
 *[OS]: Operating System
 *[ROS]: Robot Operating System
 *[TILDE]: Tilde Is Latency Embedding (Integrated Latency Deadline Estimator)
+*[CTF]: Common Trace Format

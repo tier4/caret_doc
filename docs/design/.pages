@@ -1,7 +1,6 @@
 nav:
     - Design: index.md
-    - Software architecture:
-        - Design: software_architecture
+    - Software architecture: software_architecture
     - Runtime processing:
         - Design: runtime_processing
     - Processing trace data:

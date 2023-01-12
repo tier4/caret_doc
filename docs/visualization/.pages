@@ -1,10 +1,10 @@
 nav:
-    - Visualization: index.md
-    - Basic APIs Concept: basic_api_concept.md
-    - Visualization APIs:
-        - Callback: callback
-        - Communication: communication
-        - Path: path
-    - Helper APIs:
-        - Filter: filter
-        - Search: search
+    - Overview:
+      - index.md
+      - Premise of communication: premise_of_communication.md
+    - Frequency: frequency
+    - Period: period
+    - Latency: latency
+    - Path: path
+    - Filter: filter
+    - Search: search

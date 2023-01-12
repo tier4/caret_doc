@@ -183,6 +183,7 @@ erDiagram
 ### Trace point definition
 
 The following shows the definition of trace points.
+A handler such as `timer_handle` or `subscription_handle` is assigned to a callback group. A callback group belongs to an executor.
 
 Trace points with `(caret_trace added)` are hooked and added init_timestamp by caret_trace.
 See [Runtime recording](../runtime_processing/runtime_recording.md#tracepoint) for detail.

@@ -1,37 +1,37 @@
-# CARET_analyze
+# caret_analyze
 
-caret_analyze is a package that loads trace data and architecture files and provides Python APIs for configuration and evaluation.
+`caret_analyze` is a set of packages that helps users to load trace data and architecture objects and provides Python APIs for configuration and evaluation.
 
-See [CARET analyze API document](https://tier4.github.io/CARET_analyze/) for the API of each class.
+See [CARET analyze API document](https://tier4.github.io/CARET_analyze/) for the definition of each class.
 
-The following figure shows data flow in CARET_analyze.
+The following figure shows data flow in `caret_analyze`.
 
 ![caret_analyze_architecture](../../imgs/architecture_caret_analyze.png)
 
-Trace data is divided into two sections by CARET_analyze after loading trace data; Architecture and Runtime Data.
+A set of trace data is divided into two sections after being loaded onto memory; architecture object and runtime data.
 
-The architecture object includes descriptions of the target application's structure. This object can be reused unless the structure of the target application or names of the components is changed.
+Architecture object includes descriptions of the target application's structure. This object can be reused unless the structure of the target application or names of the components is changed.
 
-Runtime Data object has data sampled during the execution of the target application. The sampled data includes timestamps, whose values are different per execution, obtained from tracepoints.
+Runtime data object has data sampled during the execution of the target application. The sampled data includes timestamps, whose values are different per execution, obtained from tracepoints.
 Runtime data is combined with architecture and provided to developers via Python-API which is easy to evaluate.
 
-Architecture object and Runtime Data object are implemented as Python classes.
-The structure of their classes is designed based on the structure of ROS applications which are constructed of executors, nodes, callback functions, and topic messages. ROS-based structure makes CARET's API friendly for ROS users.
+Architecture object and runtime data are instantiated from respective Python classes.
+Structure of their classes is designed based on that of ROS applications which are constructed of executors, nodes, callback functions, and topic messages. ROS-based structure makes CARET's API friendly for ROS users.
 
-CARET_analyze is composed of several python packages.
+`caret_analyze` is composed of several python packages.
 Each python packages are as follows.
 
-| python package | role                            |
-| -------------- | ------------------------------- |
-| architecture   | Load and configure Architecture |
-| runtime        | Provide execution data          |
-| value_objects  | collection of value objects     |
-| plot           | Visualization helpers           |
-| records        | implement records               |
-| common         | common procedure                |
-| infra          | import outer files              |
+| python package  | role                                      |
+| --------------- | ----------------------------------------- |
+| `architecture`  | Load and configure an architecture object |
+| `runtime`       | Provide execution data                    |
+| `value_objects` | Collection of value objects               |
+| `plot`          | Visualization helpers                     |
+| `records`       | Implementation of records                 |
+| `common`        | Common or helper functions                |
+| `infra`         | Import external files                     |
 
-Role for each component is as follows.
+Each of the packages has interrelation with other as shown in the following diagram.
 
 ```plantuml
 package architecture {
@@ -77,20 +77,21 @@ architecture o-- NodeStructValue
 Irecords <.. infra : use
 ```
 
-Architecture object provides APIs to search node paths and define node latency as mentioned in [configuration chapter](../../configuration/index.md). The architecture object is reusable after it is saved as a YAML-based file called "architecture file".
+Architecture object provides APIs to search inter-node paths and define intra-node data paths as mentioned in [configuration chapter](../../configuration/index.md). The architecture object is reusable after it is saved as a YAML-based file called "architecture file".
 
-Runtime Data object provides APIs to retrieve `pandas.DataFrame`-based objects including callback latency or communication. Users can analyze temporal aspects of their applications, with visualization, as they expect. APIs for visualization are also served by CARET_analyze which plays the main role to analyze trace data.
+Runtime data provides APIs to retrieve `pandas.DataFrame`-based objects including callback latency or communication. Users can analyze temporal aspects of their applications, with visualization, as they expect. APIs for visualization are also served by `caret_analyze` which plays the main role to visualize trace data.
 
 In the following sections, each package will be explained in more detail.
 
-## architecture
+## `architecture`
 
-In architecture, an instance is created with the following structure.
-This allows access to the necessary information from the top-level Architecture class.
+The purpose of `architecture` is to define static information for visualization.
 
-Purpose of Architecture:
+`architecture` package serves classes which embody architecture object. Architecture object has one or more sub components.
+There are several types of components; executor, node, callback and topic.
+CARET serves a class to each type of component and manages them in `architecture` package.
 
-- Define static information to be used in Analyze
+A target application, which is represented with `architecture` class, has several sub components. An `architecture`-based object has several types of sub components as well.
 
 <prettier-ignore-start>
 !!! Info
@@ -136,12 +137,13 @@ CallbackStructValue o-d- SubscriptionStructValue
 ExecutorStructValue o-- CallbackGroupStructValue
 ```
 
-All information retrieved from the Architecture file is of type ValueObject,
-which is suitable for interfacing information between other packages.
+All sub objects retrieved from the Architecture object are constructed from `ValueObject`,
+which is suitable for interfacing data with other packages.
 
-## runtime
+## `runtime`
 
-The runtime, which also includes trace results, follows the architecture structure and adds a function to calculate the measurement results.
+`runtime` a package to hold trace data, whose object has similar data structure to that of Architecture object.
+Objects instantiated from `runtime` package have function to return time-series data which are used for calculating frequency or latency.
 
 ```plantuml
 
@@ -180,10 +182,9 @@ CallbackBase o-d- Subscription
 Executor o-- CallbackGroup
 ```
 
-There are classes that can calculate latency and classes as collections.
-The following is a list of each class and the classes which can calculate latency.
+The following is a list of each class. Some of them are able to return measured data.
 
-| Class         | API                                                                                                   | has latency definition?                                                |
+| Class         | API                                                                                                   | has measured data definition?                                          |
 | ------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Application   | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Application)   | No                                                                     |
 | Executor      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Executor)      | No                                                                     |
@@ -195,31 +196,31 @@ The following is a list of each class and the classes which can calculate latenc
 | Subscription  | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.Subscription)  | Yes ([Definitions](../event_and_latency_definitions/publisher.md))     |
 | Callback      | [API list](https://tier4.github.io/CARET_analyze/latest/runtime/#caret_analyze.runtime.CallbackBase)  | Yes ([Definitions](../event_and_latency_definitions/callback.md))      |
 
-## value_objects
+## `value_objects`
 
-ValueObjects define classes with equivalence.
+`value_objects` define classes with equivalence.
 The Value class has the information for binding, and the StructValue class has the structure of multiple classes after binding.
 
-## plot
+## `plot`
 
-There are classes associated with the display.
-The visualization provided by CARET_analyze is based on bokeh and graphviz.
+`plot` package has classes associated with visualization.
+The visualization methods provided by `caret_analyze` depends on `bokeh` and `graphviz`.
 
-## records
+## `records`
 
-In CARET, latency is calculated by joining process of tables uniquely defined.
-The records package defines tables with their own join processing.
+latency is calculated by joining process of tables uniquely defined.
+`records` package serves functions to make the tables with their own join processing.
 
 See also
 
 - [Records](../processing_trace_data/records.md)
 
-## common
+## `common`
 
 Common package implements individual processes are described that can be handled as common in each package.
 
-## infra
+## `infra`
 
-Infra package implements the process of reading from the outside.
+`infra` package serves readers for an architecture object and trace data.
 
-It contains YAML and Lttng which implement ArchitectureReader/RuntimeDataProvider respectively.
+It contains YAML and LTTng modules which implement `ArchitectureReader`/`RuntimeDataProvider` respectively.

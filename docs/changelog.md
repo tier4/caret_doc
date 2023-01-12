@@ -2,6 +2,26 @@
 
 ## CARET
 
+### v0.4.1 <small>\_ Dec 26, 2022</small> {id = "0.4.1"}
+
+- **New**: Added functions to assign intra-node data path with `message_context` ([CARET_analyze #196](https://github.com/tier4/CARET_analyze/pull/196))
+- **Update**: Changed design of visualization API for refactoring to avoid usage of Pandas ([CARET_analyze #116](https://github.com/tier4/CARET_analyze/pull/116), [CARET_analyze #167](https://github.com/tier4/CARET_analyze/pull/167), [CARET_analyze #168](https://github.com/tier4/CARET_analyze/pull/168), [CARET_analyze #170](https://github.com/tier4/CARET_analyze/pull/170))
+- Added configure file to control log level to suppress warning message ([CARET_analyze #220](https://github.com/tier4/CARET_analyze/pull/220))
+- Changed behavior of visualization to output empty graph if inputted data does not have any data rather than raising exception ([CARET_analyze #223](https://github.com/tier4/CARET_analyze/pull/223))
+- Fixed `ValueError`, when `create_publish_subscription_frequency_plot` is called with being inputted empty object ([CARET_analyze #227](https://github.com/tier4/CARET_analyze/pull/227))
+- Added metric name to tooltip for identifying plots on a graph
+
+### v0.4.0 <small>\_ Dec 16, 2022</small> {id = "0.4.0"}
+
+- **New**: Added a new feature to start, stop, and resume even recording whenever users want to ([CARET_trace #68](https://github.com/tier4/CARET_trace/pull/68), [CARET_analyze #190](https://github.com/tier4/CARET_analyze/pull/190), [ros2caret #48](https://github.com/tier4/ros2caret/pull/48), and [CARET_doc #126](https://github.com/tier4/CARET_doc/pull/126))
+
+### v0.3.4 <small>\_ Dec 12, 2022</small> {id = "0.3.4"}
+
+- **New**: Added functions to rename subsystems in Architecture object like executor, node, callback and topic ([CARET_analyze#156](https://github.com/tier4/CARET_analyze/pull/156))
+- Suppressed warning messages, which are outputted because `service` event is not supported, during trace data loading ([CARET_analyze#192](https://github.com/tier4/CARET_analyze/pull/192))
+- Fixed bug which calculated incorrect period or frequency ([CARET_analyze#213](https://github.com/tier4/CARET_analyze/pull/213))
+- Fixed error messages from `Mypy` ([CARET_analyze#211](https://github.com/tier4/CARET_analyze/pull/211))
+
 ### v0.3.3 <small>\_ Nov 28, 2022</small> {id = "0.3.3"}
 
 - Added guidances for a beginner to avoid getting stuck in unexpected cases ([CARET_analyze #200](https://github.com/tier4/CARET_analyze/pull/200) and [CARET_analyze #186](https://github.com/tier4/CARET_analyze/pull/186))
