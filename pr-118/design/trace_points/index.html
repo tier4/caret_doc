@@ -2581,7 +2581,7 @@
 <h2 id="tracepoints-category">Tracepoints category<a class="headerlink" href="#tracepoints-category" title="Permanent link">#</a></h2>
 <p><img alt="tracepoints category" src="../../imgs/tracepoints_category.drawio.png" /></p>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is implemented as an extension of ros2_tracing.
-<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses <abbr title="Linux Tracing Tool next generation">LTTng</abbr> as its tracing mechanism.
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses tracing mechanism of user-space tracing served by <abbr title="Linux Tracing Tool next generation">LTTng</abbr>.
 To reduce overhead at runtime, trace points are divided into two types of tracepoints; initialization tracepoints and runtime tracepoints.</p>
 <p>Some tracepoints are used for collecting meta-information of executors, nodes, callbacks, and topics during application's initialization.
 They are called initialization tracepoints.
@@ -2593,7 +2593,7 @@ The other tracepoints are embedded for sampling timestamps after completion of i
 <li><a href="runtime_trace_points/">Runtime tracepoints</a></li>
 </ul>
 <h2 id="implementation-method-category">Implementation method category<a class="headerlink" href="#implementation-method-category" title="Permanent link">#</a></h2>
-<p>Each tracepoint for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is added by followings method.</p>
+<p>Each tracepoint for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is added by one of following methods.</p>
 <p><img alt="builtin_and_extended_tracepoints" src="../../imgs/builtin_and_extended_trace_points.drawio.png" /></p>
 <ul>
 <li>Built-in tracepoints<ul>

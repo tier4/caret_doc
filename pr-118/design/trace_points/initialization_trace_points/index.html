@@ -3071,7 +3071,7 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
     rclcpp_timer_link_node ||--|| rcl_timer_init: timer_handle
 </code></pre>
 <h3 id="tracepoints-for-representing-structure-of-executor-and-callback-group">Tracepoints for representing structure of executor and callback group<a class="headerlink" href="#tracepoints-for-representing-structure-of-executor-and-callback-group" title="Permanent link">#</a></h3>
-<p>A handler such as <code>timer_handle</code> and <code>subscription_handle</code> are assigned to a callback group. A callback group belongs to an executor.</p>
+<p>A handler such as <code>timer_handle</code> or <code>subscription_handle</code> is assigned to a callback group. A callback group belongs to an executor.</p>
 <p>Relationships of each trace point related to executors are shown as follows.</p>
 <pre class="mermaid"><code>erDiagram
  construct_executor{

@@ -2698,8 +2698,6 @@ s behavior, and so called runtime trace point.</p>
 <p>A set of identifications such as a callback address or node name is given as <code>TRACEPOINT_ARGS</code>.
 Several kinds of initialization trace point are served, and each of them is attached to different kind of component; executor, node, callback, publisher, subscriber, and etc. For example, one is called to collect node's identification while another is called  to collect publisher's identification.</p>
 <p>Identifications collected from different trace points share same addresses or names as elements. By connecting such identifications by the same addresses or names, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to help you to find application's structure.</p>
-<!-- Information from callback addresses to node names, etc., can be obtained by binding them to other trace point arguments. -->
-
 <p>See <a href="../../trace_points/initialization_trace_points/">Initialization trace points</a> for details.</p>
 <h2 id="clock-recorder">clock recorder<a class="headerlink" href="#clock-recorder" title="Permanent link">#</a></h2>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can select simtime for visualization.
