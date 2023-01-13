@@ -2086,6 +2086,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#callback-identification" class="md-nav__link">
+    Callback identification
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2542,6 +2549,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#callback-identification" class="md-nav__link">
+    Callback identification
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2726,6 +2740,13 @@ It contains the following information.</p>
 <td></td>
 </tr>
 <tr>
+<td>&emsp; &emsp; construction_order</td>
+<td>int</td>
+<td>No</td>
+<td>No</td>
+<td>Zero is used as the default value if not present.</td>
+</tr>
+<tr>
 <td>&emsp; variable_passings</td>
 <td>List</td>
 <td>No</td>
@@ -2851,6 +2872,11 @@ It contains the following information.</p>
 <span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback</span>
 <span class="w">        </span><span class="nt">period_ns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100000000</span>
 <span class="w">        </span><span class="nt">symbol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback</span>
+<span class="w">        </span><span class="nt">period_ns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100000000</span>
+<span class="w">        </span><span class="nt">symbol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Node::{lambda()}</span>
+<span class="w">        </span><span class="nt">construction_order</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">    </span><span class="nt">variable_passings</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">callback_name_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription_callback_0</span>
 <span class="w">        </span><span class="nt">callback_name_read</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timer_callback_0</span>
@@ -2866,6 +2892,22 @@ It contains the following information.</p>
 <span class="w">        </span><span class="nt">subscription_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pong</span>
 <span class="w">        </span><span class="nt">publisher_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ping</span>
 </code></pre></div>
+<h2 id="callback-identification">Callback identification<a class="headerlink" href="#callback-identification" title="Permanent link">#</a></h2>
+<p>It's convenient for users to give a name to a callback function for its identification. However, in the context of <abbr title="Robot Operating System">ROS</abbr> 2, only an address is given to a callback.</p>
+<p>Addresses change with each launch of an application.
+This makes it difficult to handle callbacks by address when evaluating performance of them.
+For example, if you want to compare the execution time of a particular callback for each launch, you have to find address to select target callbacks.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> helps users to give a name to a callback, but it is not directly associated with its address due to the reason as explained above.</p>
+<p>In order to tackle the issue, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> associates a name with an address of callback with using combination of following data.</p>
+<ul>
+<li><code>node_name</code></li>
+<li><code>callback_type</code></li>
+<li><code>period_ns</code> / <code>topic_name</code></li>
+<li><code>symbol</code></li>
+<li><code>construction_order</code></li>
+</ul>
+<p>By using this information to match <code>callback_name</code> and callback address,
+each <code>callback_name</code> will always refer to identical callbacks without being aware of callback address.</p>
 
 
 
