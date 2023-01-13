@@ -109,7 +109,7 @@ nodes:
 
 ## Callback identification
 
-It's convenience for users to give a name to a callback function for its identification. However, in the context of ROS 2, only an address is given to a callback.
+It's convenient for users to give a name to a callback function for its identification. However, in the context of ROS 2, only an address is given to a callback.
 
 Addresses change with each launch of an application.
 This makes it difficult to handle callbacks by address when evaluating performance of them.
@@ -126,4 +126,4 @@ In order to tackle the issue, CARET associates a name with an address of callbac
 - `construction_order`
 
 By using this information to match `callback_name` and callback address,
-each `callback_name` will always refer to identical callbacks without regarding to callback address.
+each `callback_name` will always refer to identical callbacks without being aware of callback address.
