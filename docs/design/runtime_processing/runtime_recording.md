@@ -318,16 +318,16 @@ activate CARET
 
 CARET -> CARET : Transition to PREPARE state　\nstart timer callback
 activate CARET
-CARET --> CLI : Status message \n[/caret/status]  \n(RECORDING state)
+CARET --> CLI : Status message \n[/caret/status]  \n(PREPARE state)
 
 
 loop Until recording end.
   CARET -> Data : Record
   activate Data
-  Data -> LTTNG : Record initialization-\ntrace data data \n(delayed recording).
+  Data -> LTTNG : Record initialization-\ntrace data \n(delayed recording).
   deactivate Data
   note over LTTNG
-    Initializatopm trace data
+    Initialization trace data
     are recorded during PREPARE state.
    end note
 end
