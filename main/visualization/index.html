@@ -17,7 +17,7 @@
         <link rel="next" href="premise_of_communication/">
       
       <link rel="icon" href="../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
@@ -2551,7 +2551,8 @@
 <p>This chapter explains how to visualize trace data as you expect. <a href="../gallery/">Gallery</a> section shows which type of visualization is supported by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves uniform visualization API to create such graphs.</p>
 <h2 id="uniform-api-design">Uniform API design<a class="headerlink" href="#uniform-api-design" title="Permanent link">#</a></h2>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves <code>Plot</code> class to visualize trace data. The following sample code shows the basic usage of <code>Plot</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
+<span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
 <span class="n">output_notebook</span><span class="p">()</span>
 
