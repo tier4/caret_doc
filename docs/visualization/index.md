@@ -7,6 +7,7 @@ This chapter explains how to visualize trace data as you expect. [Gallery](../ga
 CARET serves `Plot` class to visualize trace data. The following sample code shows the basic usage of `Plot`.
 
 ```python
+from caret_analyze import Application, Architecture, Lttng
 from caret_analyze.plot import Plot
 from bokeh.plotting import output_notebook, figure, show
 output_notebook()
