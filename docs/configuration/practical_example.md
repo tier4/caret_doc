@@ -97,7 +97,7 @@ Define an inter-node data path on the loaded architecture object as section of [
 4. Give a name to selected path and update architecture file
 
    ```python
-   arch.add_path('target_path', path)
+   arch.add_path('target', path)
    arch.export('./architecture.yaml', force=True)
    ```
 
