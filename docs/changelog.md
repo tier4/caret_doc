@@ -11,7 +11,7 @@
 - Fixed the bug in `Records` class ([CARET_analyze #246](https://github.com/tier4/CARET_analyze/pull/246))
 - Applied minor refactoring ([CARET_analyze #244](https://github.com/tier4/CARET_analyze/pull/244), [CARET_analyze #243](https://github.com/tier4/CARET_analyze/pull/243), [CARET_analyze #237](https://github.com/tier4/CARET_analyze/pull/237), [CARET_analyze #234](https://github.com/tier4/CARET_analyze/pull/234))
 - Suppressed warning message outputted during runtime recording ([CARET_analyze #238](https://github.com/tier4/CARET_analyze/pull/238), [CARET_analyze #236](https://github.com/tier4/CARET_analyze/pull/236))
-- Added `construction_order` item to identify multiple callbacks who have common symbol ([CARET_analyze #225](https://github.com/tier4/CARET_analyze/pull/225))
+- Added `construction_order` item to identify multiple callbacks which have common symbol ([CARET_analyze #225](https://github.com/tier4/CARET_analyze/pull/225))
 
 ### v0.4.1 <small>\_ Dec 26, 2022</small> {id = "0.4.1"}
 
