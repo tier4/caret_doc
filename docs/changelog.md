@@ -6,7 +6,7 @@
 
 - Added lightweight recording option to `ros2caret` ([ros2caret #63](https://github.com/tier4/ros2caret/pull/63))
 - Removed old interface of `Plot.create_callback_jitter_plot` ([CARET_analyze #231](https://github.com/tier4/CARET_analyze/pull/231))
-- Refactored `Plot.callback_sched` ([CARET_analyze #240](https://github.com/tier4/CARET_analyze/pull/240))
+- Refactored `Plot.create_callback_scheduling_plot` ([CARET_analyze #240](https://github.com/tier4/CARET_analyze/pull/240))
 - Added new API to combine two paths found by `Architecture.search_paths()` ([CARET_analyze #224](https://github.com/tier4/CARET_analyze/pull/224))
 - Fixed the bug in `Records` class ([CARET_analyze #246](https://github.com/tier4/CARET_analyze/pull/246))
 - Applied minor refactoring ([CARET_analyze #244](https://github.com/tier4/CARET_analyze/pull/244), [CARET_analyze #243](https://github.com/tier4/CARET_analyze/pull/243), [CARET_analyze #237](https://github.com/tier4/CARET_analyze/pull/237), [CARET_analyze #234](https://github.com/tier4/CARET_analyze/pull/234))
