@@ -21,3 +21,26 @@ For example, in the following case, the path definition is `[A]-[/a]-[C]-[/e]-[E
     For example, the start time might be more appropriately a stamp value in the sensor message.
     It's current issue to support for such more precise latency.
 <prettier-ignore-end>
+
+## Architectureファイル内の定義
+
+厳密には、Architectureファイルでは以下のように、ノード単位でパスを記述しています。
+
+```yaml
+named_paths:
+  - path_name: target
+    node_chain:
+      - node_name: /A
+        publish_topic_name: /a
+        subscribe_topic_name: UNDEFINED
+      - node_name: /C
+        publish_topic_name: /e
+        subscribe_topic_name: /a
+      - node_name: /E
+        publish_topic_name: UNDEFINED
+        subscribe_topic_name: /e
+```
+
+以下のように同一ノードが同一トピックをSubscribeするようなケースは現在非対応です。
+
+![node path invalid case](../../imgs/node_path_invalid_case.drawio.png)
