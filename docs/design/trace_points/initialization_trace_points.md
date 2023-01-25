@@ -267,7 +267,7 @@ Sampled items
 
 ---
 
-### ros2:rcl_service_init
+#### ros2:rcl_service_init
 
 [Built-in tracepoints]
 
@@ -280,7 +280,7 @@ Sampled items
 
 ---
 
-### ros2:rclcpp_service_callback_added
+#### ros2:rclcpp_service_callback_added
 
 [Built-in tracepoints]
 
