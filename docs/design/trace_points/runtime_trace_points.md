@@ -28,11 +28,11 @@ erDiagram
  uint64_t message_timestamp
  }
 
- dispatch_subscription_callback{
+rmw_take {
+ address rmw_subscription_handle
  address message
- address callback
  uint64_t source_timestamp
- uint64_t message_timestamp
+ bool taken
  }
 
  dispatch_intra_process_subscription_callback{
@@ -66,11 +66,11 @@ erDiagram
     rcl_publish ||--|| dds_write: message_addr
     dds_write ||--|| dds_bind_addr_to_stamp: message_addr
 
-    dds_bind_addr_to_stamp ||--|| dispatch_subscription_callback: source_timestamp
+    dds_bind_addr_to_stamp ||--|| rmw_take: source_timestamp
 
 
     dispatch_intra_process_subscription_callback ||--|| callback_start: callback
-    dispatch_subscription_callback ||--|| callback_start: callback
+    rmw_take ||--|| callback_start: tid
     callback_start ||--|| callback_end: callback
 
 ```
@@ -114,6 +114,19 @@ Sampled items
 
 ---
 
+#### ros2:rmw_take
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* rmw_subscription_handle
+- void \* message
+- int64_t \* source_timestamp
+- bool \* taken
+
+---
+
 #### ros2:rclcpp_intra_publish
 
 [Extended tracepoints]
@@ -122,19 +135,6 @@ Sampled items
 
 - void \* publisher_handle
 - void \* message
-- uint64_t message_timestamp
-
----
-
-#### ros2:dispatch_subscription_callback
-
-[Extended tracepoints]
-
-Sampled items
-
-- void \* message
-- void \* callback
-- uint64_t source_timestamp
 - uint64_t message_timestamp
 
 ---
