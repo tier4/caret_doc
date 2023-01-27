@@ -80,6 +80,55 @@ However, it's difficult to associate a certain message publish to corresponding 
 
 `message_construct` and `dds_bind_addr_to_addr` are trace points to adapt to copying and converting instances for binding.
 
+```mermaid
+erDiagram
+    send_transform {
+        address tf_broadcaster
+        uint64_t[] stamps
+        uint32_t[] frame_ids_compact
+        uint32_t[] child_frame_ids_compact
+    }
+    init_tf_broadcaster_frame_id_compact {
+        address tf_broadcaster
+        string frame_id
+        uint32_t frame_id_compact
+    }
+
+    init_tf_buffer_frame_id_compact {
+        address tf_buffer_core
+        string frame_id
+        uint32_t frame_id_compact
+    }
+
+    tf_lookup_transform {
+        address tf_buffer_core
+        uint32_t target_frame_id_compact
+        uint32_t source_frame_id_compact
+    }
+    tf_buffer_find_closest{
+        address tf_buffer_core
+        uint32_t frame_id_compact
+        uint32_t child_frame_id_compact
+        uint64_t stamp
+        uint32_t frame_id_compact_
+        uint32_t child_frame_id_compact_
+        uint64_t stamp_
+    }
+    tf_set_transform{
+        address tf_buffer_core
+        uint64_t stamp
+        uint32_t frame_id_compact
+        uint32_t child_frame_id_compact
+    }
+
+    send_transform ||--o| init_tf_broadcaster_frame_id_compact: frame_id_compact__to__frame_id
+    send_transform ||--|{ tf_set_transform: frame_id__and__child_frame_id__and_stamp
+    tf_set_transform }|--|{ tf_buffer_find_closest: frame_id_compact__and_frame_id_compact__and__stamp
+    tf_buffer_find_closest }|--|| tf_lookup_transform: todo
+    tf_set_transform ||--|| rclcpp_publish: tid
+    init_tf_buffer_frame_id_compact |o--|| tf_lookup_transform: todo
+```
+
 ### Trace point definition
 
 #### ros2:callback_start
@@ -201,3 +250,52 @@ Sampled items
 
 - void \* addr_from
 - void \* addr_to
+
+
+#### ros2_caret:send_transform
+
+[Hooked tracepoints]
+
+Sampled items
+
+- void \* tf_broadcaster
+- uint64_t[]  stamps
+- uint32_t[] frame_ids_compact
+- uint32_t[] child_frame_ids_compact
+
+#### ros2_caret:init_tf_broadcaster_frame_id_compact
+
+[Hooked tracepoints]
+
+Sampled items
+
+- void \* tf_broadcaster
+- char \* frame_id
+- uint32 frame_id_compact
+
+
+#### lookup_transform_start
+- void \* tf_buffer_core
+- uint32_t target_frame_id_compact
+- uint32_t source_frame_id_compact
+
+#### tf_buffer_find_closest
+- void \* tf_buffer_core
+- uint32_t frame_id_compact
+- uint32_t child_frame_id_compact
+- uint64_t stamp
+- uint32_t frame_id_compact_
+- uint32_t child_frame_id_compact_
+- uint64_t stamp_
+
+#### tf_set_transform
+- void \* tf_buffer_core
+- uint64_t stamp
+- uint32_t frame_id_compact
+- uint32_t child_frame_id_compact
+
+
+#### init_tf_buffer_frame_id_compact
+- void \* tf_buffer_core
+- char \*  frame_id
+- uint32_t frame_id_compact

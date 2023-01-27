@@ -180,6 +180,37 @@ erDiagram
 
 ```
 
+### tf 関連
+```mermaid
+erDiagram
+    send_transform {
+        address tf_broadcaster
+        address publisher_handle
+    }
+    tf_bind_tf_buffer_core {
+        address tf_buffer_core
+        address callback
+    }
+    init_tf_buffer_lookup_transform {
+        address tf_buffer_core
+        string target_frame_id
+        string source_frame_id
+    }
+    construct_tf_buffer {
+        address tf_buffer
+        address tf_buffer_core
+        address clock
+    }
+    init_bind_tf_broadcaster_send_transform {
+        address tf_broadcaster
+        string header_frame_id
+        string child_frame_id
+    }
+    init_bind_tf_broadcaster_send_transform ||--|| send_transform: tf_broadcaster
+    construct_tf_buffer ||--|| tf_bind_tf_buffer_core: tf_buffer_core
+    tf_buffer_core ||--|| init_tf_buffer_lookup_transform: tf_buffer_core
+```
+
 ### Trace point definition
 
 The following shows the definition of trace points.
@@ -456,3 +487,52 @@ Sampled items
 - void \* callback_group_addr
 - void \* client_handle
 - int64_t init_timestamp
+
+
+#### ros2_caret:send_transform
+
+[Hooked tracepoints]
+
+Sampled items
+
+- void \* tf_broadcaster
+- void \* publisher_handle
+
+
+
+#### tf_bind_tf_buffer_core
+[Hooked tracepoints]
+
+Sampled items
+
+- void \* tf_buffer_core
+- void \* callback
+
+#### init_tf_buffer_set_transform
+- void \* tf_buffer_core
+- char \* frame_id
+- char \* child_frame_id
+
+#### init_tf_buffer_lookup_transform
+- void \* tf_buffer_core
+- char \* target_frame_id
+- char \* source_frame_id
+
+#### construct_tf_buffer
+[Hooked tracepoints]
+
+Sampled items
+
+- void \* tf_buffer
+- void \* tf_buffer_core
+- void \* clock
+
+#### ros2_caret:init_bind_tf_broadcaster_send_transform
+
+[Hooked tracepoints]
+
+Sampled items
+
+- void \* tf_broadcaster
+- char \* header_frame_id
+- char \* child_frame_id
