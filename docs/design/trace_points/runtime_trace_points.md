@@ -251,7 +251,6 @@ Sampled items
 - void \* addr_from
 - void \* addr_to
 
-
 #### ros2_caret:send_transform
 
 [Hooked tracepoints]
@@ -259,7 +258,7 @@ Sampled items
 Sampled items
 
 - void \* tf_broadcaster
-- uint64_t[]  stamps
+- uint64_t[] stamps
 - uint32_t[] frame_ids_compact
 - uint32_t[] child_frame_ids_compact
 
@@ -273,29 +272,31 @@ Sampled items
 - char \* frame_id
 - uint32 frame_id_compact
 
-
 #### lookup_transform_start
+
 - void \* tf_buffer_core
 - uint32_t target_frame_id_compact
 - uint32_t source_frame_id_compact
 
 #### tf_buffer_find_closest
+
 - void \* tf_buffer_core
 - uint32_t frame_id_compact
 - uint32_t child_frame_id_compact
 - uint64_t stamp
-- uint32_t frame_id_compact_
-- uint32_t child_frame_id_compact_
-- uint64_t stamp_
+- uint32*t frame_id_compact*
+- uint32*t child_frame_id_compact*
+- uint64*t stamp*
 
 #### tf_set_transform
+
 - void \* tf_buffer_core
 - uint64_t stamp
 - uint32_t frame_id_compact
 - uint32_t child_frame_id_compact
 
-
 #### init_tf_buffer_frame_id_compact
+
 - void \* tf_buffer_core
-- char \*  frame_id
+- char \* frame_id
 - uint32_t frame_id_compact

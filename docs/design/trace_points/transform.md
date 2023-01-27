@@ -14,6 +14,7 @@ listener_buffer@process2 --> listener_app@process2 : 座標返却／エラー
 ```
 
 ### Broadcaster側
+
 - broadcaster側は、sendTransformを実行したスレッドがそのままpublishしている
 - TransformBroadcasterのコンストラクタに与えたノードで 新規にpublisherが作られる([該当コード](https://github.com/ros2/geometry2/blob/de08d177d424f0d73efd4ff5951fd1eaabc9638d/tf2_ros/include/tf2_ros/transform_broadcaster.h#L61))
 - sendTransformに入力するメッセージの型はgeometry_msgs::msg::TransformStamped。
@@ -38,33 +39,32 @@ geometry_msgs/TransformStamped[] transforms
 - /tfトピックから受け取ったメッセージの保存
   （常にバッファを最新にさせるため、別スレッドで処理を行わせるのが基本。）
 
-- チュートリアル通りにtf2_ros::TransformListener(buf) と使った場合：
-/tfのsubscribe、バッファの更新は非同期に行われる。（非同期に行いたかったという旨が論文にかかれている）
-新規スレッド＆新規エグゼキュータ＆新規ノードが作成させる
-Listener毎に transform_listener_impl_** 名前を持ったノードが作成される（だから量産されてる）
-[対応するコンストラクタ](https://github.com/ros2/geometry2/blob/210791c2a57a5c7c87e348e684c9cdc28469cb70/tf2_ros/include/tf2_ros/transform_listener.h#L87)
-
+- チュートリアル通りにtf2*ros::TransformListener(buf) と使った場合：
+  /tfのsubscribe、バッファの更新は非同期に行われる。（非同期に行いたかったという旨が論文にかかれている）
+  新規スレッド＆新規エグゼキュータ＆新規ノードが作成させる
+  Listener毎に transform_listener_impl*\*\* 名前を持ったノードが作成される（だから量産されてる）
+  [対応するコンストラクタ](https://github.com/ros2/geometry2/blob/210791c2a57a5c7c87e348e684c9cdc28469cb70/tf2_ros/include/tf2_ros/transform_listener.h#L87)
 
 新規スレッドを立ち上げさせず、アプリケーション側で制御する方法もある。（動作未確認）
 
 ノードも引数に与え、こっちのコンストラクタでListenerを構築すること。
 スレッドやエグゼキュータの生成も行われず、引数に与えたノードで/tfのsubscribe＆バッファの更新が行われる
 
-https://github.com/ros2/geometry2/blob/210791c2a57a5c7c87e348e684c9cdc28469cb70/tf2_ros/include/tf2_ros/transform_listener.h#L89
+<https://github.com/ros2/geometry2/blob/210791c2a57a5c7c87e348e684c9cdc28469cb70/tf2_ros/include/tf2_ros/transform_listener.h#L89>
 
 lookupTransformなどを受け付け、指定された時刻の座標変換を取得
 （こちらはアプリケーション側が呼ぶAPI）
 
 デフォルトだと、10秒前まで座標を遡れるようになっている。
-https://github.com/ros2/geometry2/blob/16562cee8694c11f1f82b2bdbde2814fca1c7954/tf2/include/tf2/buffer_core.h#L70
-
+<https://github.com/ros2/geometry2/blob/16562cee8694c11f1f82b2bdbde2814fca1c7954/tf2/include/tf2/buffer_core.h#L70>
 
 ## tfの動作シーケンス図
 
 トレースポイントの挿入箇所
-https://github.com/ros2/geometry2
+<https://github.com/ros2/geometry2>
 
-※ シーケンス図は説明のために簡略化しています。  
+※ シーケンス図は説明のために簡略化しています。
+
 ```plantuml
 participant SendNode
 participant TransformBroadcaster
@@ -102,6 +102,7 @@ deactivate Buffer
 ---
 
 TransformBroadcasterがrclcpp::publishするまで
+
 ```plantuml
 participant TransformBroadcaster
 participant Publisher
@@ -121,10 +122,8 @@ deactivate TransformBroadcaster
 
 ```
 
+---
 
-
-
-----
 メッセージ受信からBufferに格納するまで
 
 ```plantuml
@@ -247,19 +246,17 @@ end
 deactivate Buffer
 ```
 
-
 ---
+
 TransformStampedFuture使用ケース
 
-
-中身はC++のFuture。そのまま使うことができる。 
-その他、[rclcpp.spin_until_future_complete() ](https://docs.ros2.org/galactic/api/rclcpp/namespacerclcpp.html#ab83b41b70748bbd4631b498596148360)なども使用できる。
-
+中身はC++のFuture。そのまま使うことができる。
+その他、[rclcpp.spin_until_future_complete()](https://docs.ros2.org/galactic/api/rclcpp/namespacerclcpp.html#ab83b41b70748bbd4631b498596148360)なども使用できる。
 
 ```cpp
-using TransformStampedFuture = 
+using TransformStampedFuture =
     std::shared_future<geometry_msgs::msg::TransformStamped>;
-    
+
 using TransformReadyCallback =
     std::function<void (const TransformStampedFuture &)>;
 ```
@@ -272,8 +269,8 @@ using TransformReadyCallback =
 [<--TransformStampedFuture
 ```
 
-
 ---
+
 waitForTransformの引数であるTransformReadyCallbackを使用するケース
 
 ```plantuml
@@ -319,4 +316,3 @@ BufferCore-->
 deactivate BufferCore
 
 ```
-
