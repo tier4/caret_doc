@@ -39,7 +39,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 #### Timing chart of callback scheduling
 
-![Callback_Scheduling_Visualization_sample](./imgs/callback_sched_sample.png)
+![Callback_Scheduling_Visualization_sample](./visualization/imgs/callback_scheduling_executor.png)
 
 ## Communication
 
