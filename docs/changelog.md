@@ -2,6 +2,13 @@
 
 ## CARET
 
+### v0.4.3 <small>\_ Feb 10, 2022</small> {id = "0.4.3"}
+
+- Fixed the bug which prevents `check_ctf` from running properly after supporting activation/deactivation on runtime ([CARET_analyze #251](https://github.com/tier4/CARET_analyze/pull/251))
+- Suppressed update frequency of progress bar by `tqdm` for reading trace data ([CARET_analyze #248](https://github.com/tier4/CARET_analyze/pull/248))
+- Fixed the incorrect annotation from `list` to `List` ([CARET_analyze #252](https://github.com/tier4/CARET_analyze/pull/252))
+- Changed `setup_caret.bash` script to ask users to install the packages ([caret #72](https://github.com/tier4/caret/pull/72))
+
 ### v0.4.2 <small>\_ Jan 23, 2022</small> {id = "0.4.2"}
 
 - Added lightweight recording option to `ros2caret` ([ros2caret #63](https://github.com/tier4/ros2caret/pull/63))
