@@ -1676,9 +1676,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tracepoint filtering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Tracepoint filtering
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tracepoint-filtering-in-dds-layer" class="md-nav__link">
+    Tracepoint filtering in DDS layer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2484,6 +2515,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tracepoint-filtering-in-dds-layer" class="md-nav__link">
+    Tracepoint filtering in DDS layer
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2521,6 +2567,44 @@ This check is done in O1 order because it uses std::unordered_map.</p>
 <li><a href="../../trace_points/">Tracepoint</a></li>
 <li><a href="../../../recording/trace_filtering/">Recording | trace filtering</a></li>
 </ul>
+<h2 id="tracepoint-filtering-in-dds-layer">Tracepoint filtering in <abbr title="Data Distribution System">DDS</abbr> layer<a class="headerlink" href="#tracepoint-filtering-in-dds-layer" title="Permanent link">#</a></h2>
+<p>To filter tracepoint, we need an object such as <code>callback</code> and <code>publisher</code> which contains information about node and topic. In <abbr title="Data Distribution System">DDS</abbr> layer, such object is not available, which means we cannot filter <a href="../../trace_points/runtime_trace_points/#ros2_caretdds_write"><code>dds_write</code></a> and <a href="../../trace_points/runtime_trace_points/#ros2_caretdds_bind_addr_to_stamp"><code>dds_bind_addr_to_stamp</code></a> in the same way with the tracepoints in ROS2 layer.</p>
+<p>To filter these tracepoints, we utilize the fact that <a href="../../trace_points/runtime_trace_points/#ros2rclcpp_publish"><code>rclcpp_publish</code></a>, <code>dds_write</code> and <code>dds_bind_addr_to_stamp</code> are always recorded sequentially in the same thread. When <code>rclcpp_publish</code> is filtered out, subsequent <code>dds_write</code> and <code>dds_bind_addr_to_stamp</code> in the same thread can also be filtered out. When <code>rclcpp_publish</code> is not filtered out, subsequent <code>dds_write</code> and <code>dds_bind_addr_to_stamp</code> in the same thread cannot be filtered out either.</p>
+<p>We utilize thread-local storage to transmit if <code>rclcpp_publish</code> is recorded or not.</p>
+<div class="highlight"><pre><span></span><code><span class="k">thread_local</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">ros2caret_is_rclcpp_publish_recorded</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">ros_trace_rclcpp_publish</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">publisher_handle</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">message_timestamp</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="p">...</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">controller</span><span class="p">.</span><span class="n">is_allowed_publisher_handle</span><span class="p">(</span><span class="n">publisher_handle</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="n">is_recording_allowed</span><span class="p">())</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="p">((</span><span class="n">functionT</span><span class="p">)</span><span class="w"> </span><span class="n">orig_func</span><span class="p">)(</span><span class="n">publisher_handle</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">message_timestamp</span><span class="p">);</span>
+<span class="w">    </span><span class="n">ros2caret_is_rclcpp_publish_recorded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ros2caret_is_rclcpp_publish_recorded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">ros_trace_rmw_publish</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ros2caret_is_rclcpp_publish_recorded</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">tracepoint</span><span class="p">(</span><span class="n">TRACEPOINT_PROVIDER</span><span class="p">,</span><span class="w"> </span><span class="n">dds_write</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">dds_write_impl</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wr</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">tstamp</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">action</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="p">...</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">is_recording_allowed</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ros2caret_is_rclcpp_publish_recorded</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">tracepoint</span><span class="p">(</span><span class="n">TRACEPOINT_PROVIDER</span><span class="p">,</span><span class="w"> </span><span class="n">dds_bind_addr_to_stamp</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">tstamp</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
