@@ -10,7 +10,7 @@ CARET serves Python-based APIs to update the name of the target element in an ar
 
 All of the following code snippets can be executed after load environment variables with `source /path/to/ros2_caret_ws/install/setup.bash`.
 
-### Update callback name.
+### Update callback name
 
 You can update callback name in architecture object from `src` to `dst` with `rename_callback` function in `Architecture` class.
 
@@ -25,7 +25,7 @@ All `callback_name` in architecture object where it is `src` are updated to `dst
 
 This update is also reflected in the architecture file output by [`arch.export`](./load_and_save.md#save).
 
-### Update node name.
+### Update node name
 
 You can update node name in architecture object from `src` to `dst` with `rename_node` function in `Architecture` class.
 
@@ -40,7 +40,7 @@ All `node_name` in architecture object where it is `src` are updated to `dst`.
 
 This update is also reflected in the architecture file output by [`arch.export`](./load_and_save.md#save).
 
-### Update path name.
+### Update path name
 
 You can update path name in architecture object from `src` to `dst` with `rename_path` function in `Architecture` class.
 
@@ -55,7 +55,7 @@ All `path_name` in architecture object where it is `src` are updated to `dst`.
 
 This update is also reflected in the architecture file output by [`arch.export`](./load_and_save.md#save).
 
-### Update executor name.
+### Update executor name
 
 You can update executor name in architecture object from `src` to `dst` with `rename_executor` function in `Architecture` class.
 
@@ -70,7 +70,7 @@ All `executor_name` in architecture object where it is `src` are updated to `dst
 
 This update is also reflected in the architecture file output by [`arch.export`](./load_and_save.md#save).
 
-### Update topic name.
+### Update topic name
 
 You can update topic name in architecture object from `src` to `dst` with `rename_topic` function in `Architecture` class.
 
