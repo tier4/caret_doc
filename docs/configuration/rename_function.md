@@ -1,4 +1,4 @@
-# How to rename architecture objects name
+# How to update name element in architecture object
 
 An architecture object loaded from a set of CTF-based record data or an architecture file has the elements callback, node, path, executor and topic.
 If you want to rename these elements, CARET serves the functions to update the name of the target element.
