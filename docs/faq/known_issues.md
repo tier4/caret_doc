@@ -48,9 +48,10 @@ sudo sed -i -e 's/SYSTEM//g' ament_auto_add_library.cmake
 - Cause
   - The size of LTTng buffer is too large for some environments
   - It happens especially when
-    - recording on Docker
-    - and the number of CPUs is many (e.g. 24 cores)
+    - Recording on Docker
+    - and the number of CPUs is large (e.g. 24 cores)
 - Workaround
   - Decrease the number of the LTTng buffer size
     - [lttng_impl.py](https://github.com/tier4/ros2_tracing/blob/64545052077d38c770b0c6e73fad221bcaba0583/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L157)
+      - Rebuild is not required after the modification
     - Please note that decreasing the buffer size may cause tracer discarded
