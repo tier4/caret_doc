@@ -2718,7 +2718,10 @@ sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span
 </li>
 <li>Workaround<ul>
 <li>Decrease the number of the <abbr title="Linux Tracing Tool next generation">LTTng</abbr> buffer size<ul>
-<li><a href="https://github.com/tier4/ros2_tracing/blob/64545052077d38c770b0c6e73fad221bcaba0583/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L157">lttng_impl.py</a></li>
+<li><a href="https://github.com/tier4/ros2_tracing/blob/64545052077d38c770b0c6e73fad221bcaba0583/tracetools_trace/tracetools_trace/tools/lttng_impl.py#L157">lttng_impl.py</a><ul>
+<li>Rebuild is not required after the modification</li>
+</ul>
+</li>
 <li>Please note that decreasing the buffer size may cause tracer discarded</li>
 </ul>
 </li>
