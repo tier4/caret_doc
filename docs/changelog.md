@@ -2,6 +2,12 @@
 
 ## CARET
 
+### v0.4.4 <small>\_ Feb 21, 2022</small> {id = "0.4.4"}
+
+- Fixed the time format of the time-series graphs ([CARET_analyze #255](https://github.com/tier4/CARET_analyze/pull/255))
+- Added the design documentation for trace filtering to exclude events in DDS-layer ([CARET_doc #158](https://github.com/tier4/CARET_doc/pull/158))
+- Moved `get_range()` function to `record` package ([CARET_analyze #254](https://github.com/tier4/CARET_analyze/pull/254))
+
 ### v0.4.3 <small>\_ Feb 10, 2022</small> {id = "0.4.3"}
 
 - Fixed the bug preventing `check_ctf` from running properly after supporting activation/deactivation on runtime ([CARET_analyze #251](https://github.com/tier4/CARET_analyze/pull/251))
