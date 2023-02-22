@@ -7,6 +7,7 @@ The name of the target element in the architecture object is updated via the Pyt
 ## Python API
 
 CARET serves Python-based APIs to update the name of the target element in an architecture object.
+Those update is also reflected in the architecture file outputted by [`arch.export`](./load_and_save.md#save).
 
 All of the following code snippets can be executed after load environment variables with `source /path/to/ros2_caret_ws/install/setup.bash`.
 
@@ -21,7 +22,6 @@ arch.rename_callback('src', 'dst')
 ```
 
 All `callback_name` in architecture object where it is `src` are updated to `dst`.
-This update is also reflected in the architecture file output by [`arch.export`](./load_and_save.md#save).
 
 ### Rename node_name
 
@@ -34,7 +34,6 @@ arch.rename_node('src', 'dst')
 ```
 
 All `node_name` in architecture object where it is `src` are updated to `dst`.
-This update is also reflected in the architecture file output by [`arch.export`](./load_and_save.md#save).
 
 ### Rename path_name
 
@@ -47,7 +46,6 @@ arch.rename_path('src', 'dst')
 ```
 
 All `path_name` in architecture object where it is `src` are updated to `dst`.
-This update is also reflected in the architecture file output by [`arch.export`](./load_and_save.md#save).
 
 ### Rename executor_name
 
@@ -60,7 +58,6 @@ arch.rename_executor('src', 'dst')
 ```
 
 All `executor_name` in architecture object where it is `src` are updated to `dst`.
-This update is also reflected in the architecture file output by [`arch.export`](./load_and_save.md#save).
 
 ### Rename topic_name
 
@@ -73,4 +70,3 @@ arch.rename_topic('src', 'dst')
 ```
 
 All `topic_name` in architecture object where it is `src` are updated to `dst`.
-This update is also reflected in the architecture file output by [`arch.export`](./load_and_save.md#save).
