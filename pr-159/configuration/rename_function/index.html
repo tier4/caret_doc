@@ -21,7 +21,7 @@
     
     
       
-        <title>Update name element - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Rename element - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-update-name-element-in-architecture-object" class="md-skip">
+        <a href="#how-to-rename-element-in-architecture-object" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Update name element
+              Rename element
             
           </span>
         </div>
@@ -907,12 +907,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Update name element
+          Rename element
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Update name element
+        Rename element
       </a>
       
         
@@ -931,50 +931,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python-api" class="md-nav__link">
-    Python API
-  </a>
-  
-    <nav class="md-nav" aria-label="Python API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#update-callback-name" class="md-nav__link">
-    Update callback name
+  <a href="#rename-callback_name" class="md-nav__link">
+    Rename callback_name
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update-node-name" class="md-nav__link">
-    Update node name
+      
+        <li class="md-nav__item">
+  <a href="#rename-node_name" class="md-nav__link">
+    Rename node_name
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update-path-name" class="md-nav__link">
-    Update path name
+      
+        <li class="md-nav__item">
+  <a href="#rename-path_name" class="md-nav__link">
+    Rename path_name
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update-executor-name" class="md-nav__link">
-    Update executor name
+      
+        <li class="md-nav__item">
+  <a href="#rename-executor_name" class="md-nav__link">
+    Rename executor_name
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update-topic-name" class="md-nav__link">
-    Update topic name
+      
+        <li class="md-nav__item">
+  <a href="#rename-topic_name" class="md-nav__link">
+    Rename topic_name
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2579,50 +2566,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python-api" class="md-nav__link">
-    Python API
-  </a>
-  
-    <nav class="md-nav" aria-label="Python API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#update-callback-name" class="md-nav__link">
-    Update callback name
+  <a href="#rename-callback_name" class="md-nav__link">
+    Rename callback_name
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update-node-name" class="md-nav__link">
-    Update node name
+      
+        <li class="md-nav__item">
+  <a href="#rename-node_name" class="md-nav__link">
+    Rename node_name
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update-path-name" class="md-nav__link">
-    Update path name
+      
+        <li class="md-nav__item">
+  <a href="#rename-path_name" class="md-nav__link">
+    Rename path_name
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update-executor-name" class="md-nav__link">
-    Update executor name
+      
+        <li class="md-nav__item">
+  <a href="#rename-executor_name" class="md-nav__link">
+    Rename executor_name
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update-topic-name" class="md-nav__link">
-    Update topic name
+      
+        <li class="md-nav__item">
+  <a href="#rename-topic_name" class="md-nav__link">
+    Rename topic_name
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2644,58 +2618,47 @@
   
 
 
-<h1 id="how-to-update-name-element-in-architecture-object">How to update name element in architecture object<a class="headerlink" href="#how-to-update-name-element-in-architecture-object" title="Permanent link">#</a></h1>
-<p>An architecture object loaded from a set of <abbr title="Common Trace Format">CTF</abbr>-based record data or an architecture file has the elements callback, node, path, executor and topic.
-If you want to rename these elements, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves the functions to update the name of the target element.
-The name of the target element in the architecture object is updated via the Python API.</p>
-<h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h2>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python-based APIs to update the name of the target element in an architecture object.</p>
+<h1 id="how-to-rename-element-in-architecture-object">How to rename element in architecture object<a class="headerlink" href="#how-to-rename-element-in-architecture-object" title="Permanent link">#</a></h1>
+<p>Architecture objects have callback, node, path, executor, and topic objects.<br />
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves APIs to update the names of these objects.</p>
+<p>The name of the target element in the architecture object is updated via the Python API.<br />
+Those update is also reflected in the architecture file outputted by <a href="../load_and_save/#save"><code>arch.export</code></a>.</p>
 <p>All of the following code snippets can be executed after load environment variables with <code>source /path/to/ros2_caret_ws/install/setup.bash</code>.</p>
-<h3 id="update-callback-name">Update callback name<a class="headerlink" href="#update-callback-name" title="Permanent link">#</a></h3>
-<p>You can update callback name in architecture object from <code>src</code> to <code>dst</code> with <code>rename_callback</code> function in <code>Architecture</code> class.</p>
+<h2 id="rename-callback_name">Rename callback_name<a class="headerlink" href="#rename-callback_name" title="Permanent link">#</a></h2>
+<p>You can update callback name from <code>src</code> to <code>dst</code> with <code>rename_callback</code> function in <code>Architecture</code> class.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
-
 
 <span class="n">arch</span><span class="o">.</span><span class="n">rename_callback</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>All <code>callback_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
-<p>This update is also reflected in the architecture file output by <a href="../load_and_save/#save"><code>arch.export</code></a>.</p>
-<h3 id="update-node-name">Update node name<a class="headerlink" href="#update-node-name" title="Permanent link">#</a></h3>
-<p>You can update node name in architecture object from <code>src</code> to <code>dst</code> with <code>rename_node</code> function in <code>Architecture</code> class.</p>
+<h2 id="rename-node_name">Rename node_name<a class="headerlink" href="#rename-node_name" title="Permanent link">#</a></h2>
+<p>You can update node name from <code>src</code> to <code>dst</code> with <code>rename_node</code> function in <code>Architecture</code> class.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
-
 
 <span class="n">arch</span><span class="o">.</span><span class="n">rename_node</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>All <code>node_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
-<p>This update is also reflected in the architecture file output by <a href="../load_and_save/#save"><code>arch.export</code></a>.</p>
-<h3 id="update-path-name">Update path name<a class="headerlink" href="#update-path-name" title="Permanent link">#</a></h3>
-<p>You can update path name in architecture object from <code>src</code> to <code>dst</code> with <code>rename_path</code> function in <code>Architecture</code> class.</p>
+<h2 id="rename-path_name">Rename path_name<a class="headerlink" href="#rename-path_name" title="Permanent link">#</a></h2>
+<p>You can update path name from <code>src</code> to <code>dst</code> with <code>rename_path</code> function in <code>Architecture</code> class.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
-
 
 <span class="n">arch</span><span class="o">.</span><span class="n">rename_path</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>All <code>path_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
-<p>This update is also reflected in the architecture file output by <a href="../load_and_save/#save"><code>arch.export</code></a>.</p>
-<h3 id="update-executor-name">Update executor name<a class="headerlink" href="#update-executor-name" title="Permanent link">#</a></h3>
-<p>You can update executor name in architecture object from <code>src</code> to <code>dst</code> with <code>rename_executor</code> function in <code>Architecture</code> class.</p>
+<h2 id="rename-executor_name">Rename executor_name<a class="headerlink" href="#rename-executor_name" title="Permanent link">#</a></h2>
+<p>You can update executor name from <code>src</code> to <code>dst</code> with <code>rename_executor</code> function in <code>Architecture</code> class.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
-
 
 <span class="n">arch</span><span class="o">.</span><span class="n">rename_executor</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>All <code>executor_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
-<p>This update is also reflected in the architecture file output by <a href="../load_and_save/#save"><code>arch.export</code></a>.</p>
-<h3 id="update-topic-name">Update topic name<a class="headerlink" href="#update-topic-name" title="Permanent link">#</a></h3>
-<p>You can update topic name in architecture object from <code>src</code> to <code>dst</code> with <code>rename_topic</code> function in <code>Architecture</code> class.</p>
+<h2 id="rename-topic_name">Rename topic_name<a class="headerlink" href="#rename-topic_name" title="Permanent link">#</a></h2>
+<p>You can update topic name from <code>src</code> to <code>dst</code> with <code>rename_topic</code> function in <code>Architecture</code> class.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
-
 
 <span class="n">arch</span><span class="o">.</span><span class="n">rename_topic</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>All <code>topic_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
-<p>This update is also reflected in the architecture file output by <a href="../load_and_save/#save"><code>arch.export</code></a>.</p>
 
 
 
