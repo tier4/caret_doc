@@ -9,7 +9,7 @@ All of the following code snippets can be executed after load environment variab
 
 ## Rename callback_name
 
-You can update callback name from `src` to `dst` with `rename_callback` function in `Architecture` class.
+You can update callback names from `src` to `dst` with `rename_callback` function in `Architecture` class.
 
 ```python
 # arch is caret_analyze.architecture.architecture.Architecture-based object
@@ -21,7 +21,7 @@ All `callback_name` in architecture object where it is `src` are updated to `dst
 
 ## Rename node_name
 
-You can update node name from `src` to `dst` with `rename_node` function in `Architecture` class.
+You can update node names from `src` to `dst` with `rename_node` function in `Architecture` class.
 
 ```python
 # arch is caret_analyze.architecture.architecture.Architecture-based object
@@ -33,7 +33,7 @@ All `node_name` in architecture object where it is `src` are updated to `dst`.
 
 ## Rename path_name
 
-You can update path name from `src` to `dst` with `rename_path` function in `Architecture` class.
+You can update path names from `src` to `dst` with `rename_path` function in `Architecture` class.
 
 ```python
 # arch is caret_analyze.architecture.architecture.Architecture-based object
@@ -45,7 +45,7 @@ All `path_name` in architecture object where it is `src` are updated to `dst`.
 
 ## Rename executor_name
 
-You can update executor name from `src` to `dst` with `rename_executor` function in `Architecture` class.
+You can update executor names from `src` to `dst` with `rename_executor` function in `Architecture` class.
 
 ```python
 # arch is caret_analyze.architecture.architecture.Architecture-based object
@@ -57,7 +57,7 @@ All `executor_name` in architecture object where it is `src` are updated to `dst
 
 ## Rename topic_name
 
-You can update topic name from `src` to `dst` with `rename_topic` function in `Architecture` class.
+You can update topic names from `src` to `dst` with `rename_topic` function in `Architecture` class.
 
 ```python
 # arch is caret_analyze.architecture.architecture.Architecture-based object
