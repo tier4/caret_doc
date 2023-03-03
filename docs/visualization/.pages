@@ -5,6 +5,7 @@ nav:
     - Frequency: frequency
     - Period: period
     - Latency: latency
+    - Scheduling: scheduling
     - Path: path
     - Filter: filter
     - Search: search
