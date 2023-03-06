@@ -20,7 +20,7 @@ on:
 
 jobs:
   prevent-no-label-execution:
-    uses: takam5f2/autoware-github-actions/.github/workflows/prevent-no-label-execution.yaml@remove-mike-argument-rebase
+    uses: autowarefoundation/autoware-github-actions/.github/workflows/prevent-no-label-execution.yaml@v1
     with:
       label: deploy-docs
 
@@ -36,7 +36,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Deploy docs
-        uses: takam5f2/autoware-github-actions/deploy-docs@remove-mike-argument-rebase
+        uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           latest: ${{ github.event_name != 'pull_request_target' && github.ref_name == github.event.repository.default_branch }}
