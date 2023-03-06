@@ -1,7 +1,7 @@
 # How to rename sub-objects in an architecture object
 
 An architecture object has several sub-objects such as callbacks, nodes, paths, executors and topics.  
-CARET assigns names to those sub-objects to identify them. Those names come from identifiers captured at initialization tracepoints. The target application may assign different identifiers to the sub-objects on each launch or update. It prevents users from reusing the existing architecture object as it is. To enhance reusability of the architecture object, CARET serves APIs to change the names of those sub-objects.
+CARET assigns names to these sub-objects to identify them. These names come from identifiers captured at initialization tracepoints. The target application may assign different identifiers to the sub-objects on each launch or update. It prevents users from reusing the existing architecture object as it is. To enhance the reusability of the architecture object, CARET serves APIs to change the names of these sub-objects.
 
 All of the following code snippets can be executed after the `Architecture('type', 'file_path')` method loads an architecture object.
 The architecture object whose sub-objects are renamed is saved to a file as explained in [the previous page](./load_and_save.md#save).
