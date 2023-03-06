@@ -218,4 +218,4 @@ According to those definitions, the response time is calculated as below.
 
 See also
 
-- [FAQ | How response time is calculated?](../../faq/index.md#how-response-time-is-calculated)
+- [FAQ | How response time is calculated?](../../faq/faq.md#how-response-time-is-calculated)
