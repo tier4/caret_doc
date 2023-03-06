@@ -15,6 +15,6 @@ jobs:
           fetch-depth: 0
 
       - name: Delete closed PR docs
-        uses: takam5f2/autoware-github-actions/delete-closed-pr-docs@remove-mike-argument-rebase
+        uses: autowarefoundation/autoware-github-actions/delete-closed-pr-docs@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
