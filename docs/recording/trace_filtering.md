@@ -24,11 +24,6 @@ export CARET_IGNORE_NODES="/rviz*"
 export CARET_IGNORE_TOPICS="/clock:/parameter_events"
 ```
 
-<prettier-ignore-start>
-!!!info
-      Trace filter doesn't exclude all events of the specified nodes/topics. Events in certain layers, especially DDS layer, won't be ignored. It is one of limitations with current implementation.
-<prettier-ignore-end>
-
 ## Trace filter setting file
 
 It will be handy to prepare a trace filter setting file like the following.

@@ -29,30 +29,30 @@ See also
 
 To filter tracepoint, we need an object such as `callback` and `publisher` which contains information about node and topic. In DDS layer, such object is not available, which means we cannot filter [`dds_write`](../trace_points/runtime_trace_points.md#ros2_caretdds_write) and [`dds_bind_addr_to_stamp`](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_stamp) in the same way with the tracepoints in ROS2 layer.
 
-To filter these tracepoints, we utilize the fact that [`rclcpp_publish`](../trace_points/runtime_trace_points.md#ros2rclcpp_publish), `dds_write` and `dds_bind_addr_to_stamp` are always recorded sequentially in the same thread. When `rclcpp_publish` is filtered out, subsequent `dds_write` and `dds_bind_addr_to_stamp` in the same thread can also be filtered out. When `rclcpp_publish` is not filtered out, subsequent `dds_write` and `dds_bind_addr_to_stamp` in the same thread cannot be filtered out either.
+To filter these tracepoints, we utilize the fact that [`rcl_publish`](../trace_points/runtime_trace_points.md#ros2rcl_publish), `dds_write` and `dds_bind_addr_to_stamp` are always recorded sequentially in the same thread. When `rcl_publish` is filtered out, subsequent `dds_write` and `dds_bind_addr_to_stamp` in the same thread can also be filtered out. When `rcl_publish` is not filtered out, subsequent `dds_write` and `dds_bind_addr_to_stamp` in the same thread cannot be filtered out either.
 
-We utilize thread-local storage to transmit if `rclcpp_publish` is recorded or not.
+We utilize thread-local storage to transmit if `rcl_publish` is recorded or not.
 
 ```c++
-thread_local bool ros2caret_is_rclcpp_publish_recorded;
+thread_local bool ros2caret_is_rcl_publish_recorded;
 
-void ros_trace_rclcpp_publish(const void * publisher_handle, const void * message, const uint64_t message_timestamp)
+void ros_trace_rcl_publish(const void * publisher_handle, const void * message)
 {
   ...
 
   if (controller.is_allowed_publisher_handle(publisher_handle) &&
     context.is_recording_allowed())
   {
-    ((functionT) orig_func)(publisher_handle, message, message_timestamp);
-    ros2caret_is_rclcpp_publish_recorded = true;
+    ((functionT) orig_func)(publisher_handle, message);
+    ros2caret_is_rcl_publish_recorded = true;
   } else {
-    ros2caret_is_rclcpp_publish_recorded = false;
+    ros2caret_is_rcl_publish_recorded = false;
   }
 }
 
 void ros_trace_rmw_publish(const void * message)
 {
-  if (ros2caret_is_rclcpp_publish_recorded) {
+  if (ros2caret_is_rcl_publish_recorded) {
     tracepoint(TRACEPOINT_PROVIDER, dds_write, message);
   }
 }
@@ -61,7 +61,7 @@ int dds_write_impl(void * wr, void * data, long tstamp, int action)
 {
   ...
 
-  if (context.is_recording_allowed() && ros2caret_is_rclcpp_publish_recorded) {
+  if (context.is_recording_allowed() && ros2caret_is_rcl_publish_recorded) {
     tracepoint(TRACEPOINT_PROVIDER, dds_bind_addr_to_stamp, data, tstamp);
   }
 
