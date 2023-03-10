@@ -6,3 +6,4 @@ nav:
     - Define intra-node data path: intra_node_data_path.md
     - Practical example: practical_example.md
     - Visualize application structure: visualize_application_structure.md
+    - Require differences: architecture_diff_func.md 

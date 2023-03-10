@@ -22,5 +22,7 @@ In detail, the following sections are listed as below.
 - [**How to define inter-node data path**](./inter_node_data_path.md) section will tell you how to use `architecture.search_paths()`
 - [**How to define intra-node data path**](./intra_node_data_path.md) will let you know what `message_context` is. This is advanced topic than others
 - [**Practical example with CARET_demos**](./practical_example.md) will demonstrates configuration process on [`CARET_demos`](https://github.com/tier4/CARET_demos)
+- [**Require differences of two architectures**](./architecture_diff_func.md) will tell you how to use `diff_XXX_YYY()` functions
+
 
 **Visualization of application structure** will be prepared as an appendix which shows another usage of an architecture object. CARET can show structure of a targeted application while it is a performance analysis tool. This appendix will be disclosed in the near future also.
