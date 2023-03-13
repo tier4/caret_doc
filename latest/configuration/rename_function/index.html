@@ -8,27 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/design/event_and_latency_definitions/path/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/latest/configuration/rename_function/">
       
       
-        <link rel="prev" href="../node/">
+        <link rel="prev" href="../intra_node_data_path/">
       
       
-        <link rel="next" href="../publisher/">
+        <link rel="next" href="../practical_example/">
       
-      <link rel="icon" href="../../../assets/images/tier4.png">
+      <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>Path - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Rename sub-objects - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7bf56d0a.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7bf56d0a.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -46,11 +46,11 @@
     
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.13.10/dist/mermaid.css">
     
-      <link rel="stylesheet" href="../../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#path" class="md-skip">
+        <a href="#how-to-rename-sub-objects-in-an-architecture-object" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-header__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0-64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Path
+              Rename sub-objects
             
           </span>
         </div>
@@ -210,7 +210,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         Overview
       </a>
     </li>
@@ -226,7 +226,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../installation/installation/" class="md-tabs__link">
+      <a href="../../installation/installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -242,7 +242,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../tutorials/recording/" class="md-tabs__link">
+      <a href="../../tutorials/recording/" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -258,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../recording/" class="md-tabs__link">
+      <a href="../../recording/" class="md-tabs__link">
         Recording
       </a>
     </li>
@@ -268,13 +268,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../configuration/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Configuration
       </a>
     </li>
@@ -295,7 +297,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../visualization/" class="md-tabs__link">
+      <a href="../../visualization/" class="md-tabs__link">
         Visualization
       </a>
     </li>
@@ -307,15 +309,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../design/" class="md-tabs__link">
         Design
       </a>
     </li>
@@ -331,7 +331,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../faq/faq/" class="md-tabs__link">
+      <a href="../../faq/faq/" class="md-tabs__link">
         FAQ
       </a>
     </li>
@@ -365,7 +365,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
+    <a href="../.." title="Chain-Aware ROS Evaluation Tool (CARET)" class="md-nav__button md-logo" aria-label="Chain-Aware ROS Evaluation Tool (CARET)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M135.2 117.4 109.1 192h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4zm-95.6 79.4L74.8 96.3C88.3 57.8 124.6 32 165.4 32h181.2c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0-64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
@@ -420,7 +420,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../..">Overview</a>
+          <a href="../..">Overview</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -443,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../gallery/" class="md-nav__link">
+      <a href="../../gallery/" class="md-nav__link">
         Gallery
       </a>
     </li>
@@ -457,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../changelog/" class="md-nav__link">
+      <a href="../../changelog/" class="md-nav__link">
         Changelog
       </a>
     </li>
@@ -514,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/installation/" class="md-nav__link">
+      <a href="../../installation/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -528,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/manual_installation/" class="md-nav__link">
+      <a href="../../installation/manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -587,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/recording/" class="md-nav__link">
+      <a href="../../tutorials/recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -601,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/configuration/" class="md-nav__link">
+      <a href="../../tutorials/configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -615,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/visualization/" class="md-nav__link">
+      <a href="../../tutorials/visualization/" class="md-nav__link">
         Visualization
       </a>
     </li>
@@ -669,7 +669,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../recording/">Recording</a>
+          <a href="../../recording/">Recording</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -692,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recording/build_check/" class="md-nav__link">
+      <a href="../../recording/build_check/" class="md-nav__link">
         Build and check
       </a>
     </li>
@@ -706,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recording/trace_filtering/" class="md-nav__link">
+      <a href="../../recording/trace_filtering/" class="md-nav__link">
         Trace filtering
       </a>
     </li>
@@ -720,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recording/recording/" class="md-nav__link">
+      <a href="../../recording/recording/" class="md-nav__link">
         Recording
       </a>
     </li>
@@ -734,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recording/validating/" class="md-nav__link">
+      <a href="../../recording/validating/" class="md-nav__link">
         Validating
       </a>
     </li>
@@ -748,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recording/cli_tool/" class="md-nav__link">
+      <a href="../../recording/cli_tool/" class="md-nav__link">
         CLI tools
       </a>
     </li>
@@ -762,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recording/sim_time/" class="md-nav__link">
+      <a href="../../recording/sim_time/" class="md-nav__link">
         ROS time (sim_time) support
       </a>
     </li>
@@ -782,16 +782,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
       
       
         
@@ -818,7 +818,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../configuration/">Configuration</a>
+          <a href="../">Configuration</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -826,7 +826,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Configuration
@@ -841,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/background/" class="md-nav__link">
+      <a href="../background/" class="md-nav__link">
         Background of configuration
       </a>
     </li>
@@ -855,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/load_and_save/" class="md-nav__link">
+      <a href="../load_and_save/" class="md-nav__link">
         Load and save
       </a>
     </li>
@@ -869,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/inter_node_data_path/" class="md-nav__link">
+      <a href="../inter_node_data_path/" class="md-nav__link">
         Define inter-node data path
       </a>
     </li>
@@ -883,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/intra_node_data_path/" class="md-nav__link">
+      <a href="../intra_node_data_path/" class="md-nav__link">
         Define intra-node data path
       </a>
     </li>
@@ -895,11 +895,80 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../configuration/rename_function/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Rename sub-objects
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Rename sub-objects
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rename-callback_name" class="md-nav__link">
+    Rename callback_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-node_name" class="md-nav__link">
+    Rename node_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-path_name" class="md-nav__link">
+    Rename path_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-executor_name" class="md-nav__link">
+    Rename executor_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-topic_name" class="md-nav__link">
+    Rename topic_name
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -911,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/practical_example/" class="md-nav__link">
+      <a href="../practical_example/" class="md-nav__link">
         Practical example
       </a>
     </li>
@@ -925,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/visualize_application_structure/" class="md-nav__link">
+      <a href="../visualize_application_structure/" class="md-nav__link">
         Visualize application structure
       </a>
     </li>
@@ -1016,7 +1085,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../visualization/">Overview</a>
+          <a href="../../visualization/">Overview</a>
           
             <label for="__nav_6_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1039,7 +1108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../visualization/premise_of_communication/" class="md-nav__link">
+      <a href="../../visualization/premise_of_communication/" class="md-nav__link">
         Premise of communication
       </a>
     </li>
@@ -1082,7 +1151,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../visualization/frequency/">Frequency</a>
+          <a href="../../visualization/frequency/">Frequency</a>
           
         </div>
       
@@ -1130,7 +1199,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../visualization/period/">Period</a>
+          <a href="../../visualization/period/">Period</a>
           
         </div>
       
@@ -1178,7 +1247,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../visualization/latency/">Latency</a>
+          <a href="../../visualization/latency/">Latency</a>
           
         </div>
       
@@ -1243,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../visualization/path/chain_latency/" class="md-nav__link">
+      <a href="../../visualization/path/chain_latency/" class="md-nav__link">
         Chain latency
       </a>
     </li>
@@ -1257,7 +1326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../visualization/path/message_flow/" class="md-nav__link">
+      <a href="../../visualization/path/message_flow/" class="md-nav__link">
         Message flow
       </a>
     </li>
@@ -1271,7 +1340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../visualization/path/response_time/" class="md-nav__link">
+      <a href="../../visualization/path/response_time/" class="md-nav__link">
         Response Time
       </a>
     </li>
@@ -1327,7 +1396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../visualization/filter/lttng_event_filter/" class="md-nav__link">
+      <a href="../../visualization/filter/lttng_event_filter/" class="md-nav__link">
         LTTngEventFilter
       </a>
     </li>
@@ -1383,7 +1452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../visualization/search/wildcards_for_get_callbacks/" class="md-nav__link">
+      <a href="../../visualization/search/wildcards_for_get_callbacks/" class="md-nav__link">
         Wildcards for get_callbacks()
       </a>
     </li>
@@ -1410,16 +1479,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
       
       
         
@@ -1448,7 +1517,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Design</a>
+          <a href="../../design/">Design</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -1456,7 +1525,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Design
@@ -1499,7 +1568,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../software_architecture/">Software architecture</a>
+          <a href="../../design/software_architecture/">Software architecture</a>
           
             <label for="__nav_7_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1522,7 +1591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../software_architecture/caret_trace/" class="md-nav__link">
+      <a href="../../design/software_architecture/caret_trace/" class="md-nav__link">
         caret_trace
       </a>
     </li>
@@ -1536,7 +1605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../software_architecture/caret_analyze/" class="md-nav__link">
+      <a href="../../design/software_architecture/caret_analyze/" class="md-nav__link">
         caret_analyze
       </a>
     </li>
@@ -1550,7 +1619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../software_architecture/tilde/" class="md-nav__link">
+      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
         TILDE, a framework tools to detect deadline overrun
       </a>
     </li>
@@ -1632,7 +1701,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../runtime_processing/">Design</a>
+          <a href="../../design/runtime_processing/">Design</a>
           
             <label for="__nav_7_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1655,7 +1724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runtime_processing/hook/" class="md-nav__link">
+      <a href="../../design/runtime_processing/hook/" class="md-nav__link">
         Hook
       </a>
     </li>
@@ -1669,7 +1738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runtime_processing/runtime_recording/" class="md-nav__link">
+      <a href="../../design/runtime_processing/runtime_recording/" class="md-nav__link">
         Runtime recording
       </a>
     </li>
@@ -1683,7 +1752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../runtime_processing/tracepoint_filtering/" class="md-nav__link">
+      <a href="../../design/runtime_processing/tracepoint_filtering/" class="md-nav__link">
         Tracepoint filtering
       </a>
     </li>
@@ -1770,7 +1839,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../processing_trace_data/">Design</a>
+          <a href="../../design/processing_trace_data/">Design</a>
           
             <label for="__nav_7_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1793,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../processing_trace_data/records/" class="md-nav__link">
+      <a href="../../design/processing_trace_data/records/" class="md-nav__link">
         Records Object
       </a>
     </li>
@@ -1807,7 +1876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../processing_trace_data/records_service/" class="md-nav__link">
+      <a href="../../design/processing_trace_data/records_service/" class="md-nav__link">
         Records service
       </a>
     </li>
@@ -1896,7 +1965,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../trace_points/">Design</a>
+          <a href="../../design/trace_points/">Design</a>
           
             <label for="__nav_7_5_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1919,7 +1988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trace_points/diff/" class="md-nav__link">
+      <a href="../../design/trace_points/diff/" class="md-nav__link">
         Differences from original ROS
       </a>
     </li>
@@ -1933,7 +2002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trace_points/initialization_trace_points/" class="md-nav__link">
+      <a href="../../design/trace_points/initialization_trace_points/" class="md-nav__link">
         Initialization trace points
       </a>
     </li>
@@ -1947,7 +2016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trace_points/runtime_trace_points/" class="md-nav__link">
+      <a href="../../design/trace_points/runtime_trace_points/" class="md-nav__link">
         Runtime trace points
       </a>
     </li>
@@ -2032,7 +2101,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../configuration/">Design</a>
+          <a href="../../design/configuration/">Design</a>
           
             <label for="__nav_7_6_1">
               <span class="md-nav__icon md-icon"></span>
@@ -2055,7 +2124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/architecture_file/" class="md-nav__link">
+      <a href="../../design/configuration/architecture_file/" class="md-nav__link">
         Architecture file
       </a>
     </li>
@@ -2081,18 +2150,18 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_7" >
       
       
         
@@ -2105,7 +2174,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_7_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7_7">
           <span class="md-nav__icon md-icon"></span>
           Event and latency definitions
@@ -2116,16 +2185,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7_1" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_7_1" >
       
       
         
@@ -2152,7 +2221,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Design</a>
+          <a href="../../design/event_and_latency_definitions/">Design</a>
           
             <label for="__nav_7_7_1">
               <span class="md-nav__icon md-icon"></span>
@@ -2160,7 +2229,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_7_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_7_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7_7_1">
           <span class="md-nav__icon md-icon"></span>
           Design
@@ -2175,7 +2244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../callback/" class="md-nav__link">
+      <a href="../../design/event_and_latency_definitions/callback/" class="md-nav__link">
         Callback
       </a>
     </li>
@@ -2189,7 +2258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../communication/" class="md-nav__link">
+      <a href="../../design/event_and_latency_definitions/communication/" class="md-nav__link">
         Communication
       </a>
     </li>
@@ -2203,7 +2272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../node/" class="md-nav__link">
+      <a href="../../design/event_and_latency_definitions/node/" class="md-nav__link">
         Node
       </a>
     </li>
@@ -2215,21 +2284,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../design/event_and_latency_definitions/path/" class="md-nav__link">
         Path
       </a>
-      
     </li>
   
 
@@ -2241,7 +2300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../publisher/" class="md-nav__link">
+      <a href="../../design/event_and_latency_definitions/publisher/" class="md-nav__link">
         Publisher
       </a>
     </li>
@@ -2255,7 +2314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../subscription/" class="md-nav__link">
+      <a href="../../design/event_and_latency_definitions/subscription/" class="md-nav__link">
         Subscription
       </a>
     </li>
@@ -2269,7 +2328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../timer/" class="md-nav__link">
+      <a href="../../design/event_and_latency_definitions/timer/" class="md-nav__link">
         Timer
       </a>
     </li>
@@ -2352,7 +2411,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../visualizations/">Design</a>
+          <a href="../../design/visualizations/">Design</a>
           
         </div>
       
@@ -2407,7 +2466,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../limits_and_constraints/">Limits and constraints</a>
+          <a href="../../design/limits_and_constraints/">Limits and constraints</a>
           
         </div>
       
@@ -2476,7 +2535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../faq/faq/" class="md-nav__link">
+      <a href="../../faq/faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -2490,7 +2549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../faq/known_issues/" class="md-nav__link">
+      <a href="../../faq/known_issues/" class="md-nav__link">
         Known issues
       </a>
     </li>
@@ -2524,6 +2583,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rename-callback_name" class="md-nav__link">
+    Rename callback_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-node_name" class="md-nav__link">
+    Rename node_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-path_name" class="md-nav__link">
+    Rename path_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-executor_name" class="md-nav__link">
+    Rename executor_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-topic_name" class="md-nav__link">
+    Rename topic_name
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2540,33 +2642,46 @@
   
 
 
-<h1 id="path">Path<a class="headerlink" href="#path" title="Permanent link">#</a></h1>
-<p>Path latency is sum of node latency and communication latency included in a certain path.
-Path represents data flow which is constructed of multiple nodes connected each other.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
-l_{path} = \sum_{\in path} l_{node} + \sum_{\in path} l_{comm} \\
-l_{node} = t_{pub} - t_{sub} \\
-l_{comm} = t_{sub} - t_{pub} \\
-</div>
-<script type="math/tex; mode=display">
-l_{path} = \sum_{\in path} l_{node} + \sum_{\in path} l_{comm} \\
-l_{node} = t_{pub} - t_{sub} \\
-l_{comm} = t_{sub} - t_{pub} \\
-</script>
-</div>
-<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, the path is defined as <code>[node_name]-[topic_name]-... -[topic_name]-[node_name]</code>.<br />
-For example, in the following case, the path definition is <code>[A]-[/a]-[C]-[/e]-[E]</code>.</p>
-<p><img alt="node path" src="../../../imgs/node_path.drawio.png" /></p>
-<p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>In the above definition, the star time of the latency is publish of the initial node and the end time of the latency is subscription of the last node.
-When trying to measure a actual system, it is desirable to be able to define various start and end times depending on the implementation.
-For example, the start time might be more appropriately a stamp value in the sensor message.
-It's current issue to support for such more precise latency.</p>
-</div>
-<p><prettier-ignore-end></p>
+<h1 id="how-to-rename-sub-objects-in-an-architecture-object">How to rename sub-objects in an architecture object<a class="headerlink" href="#how-to-rename-sub-objects-in-an-architecture-object" title="Permanent link">#</a></h1>
+<p>An architecture object has several sub-objects such as callbacks, nodes, paths, executors and topics.<br />
+<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> assigns names to these sub-objects to identify them. These names come from identifiers captured at initialization tracepoints. The target application may assign different identifiers to the sub-objects on each launch or update. It prevents users from reusing the existing architecture object as it is. To enhance the reusability of the architecture object, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves APIs to change the names of these sub-objects.</p>
+<p>All of the following code snippets can be executed after the <code>Architecture('type', 'file_path')</code> method loads an architecture object.
+The architecture object whose sub-objects are renamed is saved to a file as explained in <a href="../load_and_save/#save">the previous page</a>.</p>
+<h2 id="rename-callback_name">Rename <code>callback_name</code><a class="headerlink" href="#rename-callback_name" title="Permanent link">#</a></h2>
+<p>You can update callback names from <code>src</code> to <code>dst</code> with <code>rename_callback</code> function in <code>Architecture</code> class.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">rename_callback</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>All <code>callback_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
+<h2 id="rename-node_name">Rename <code>node_name</code><a class="headerlink" href="#rename-node_name" title="Permanent link">#</a></h2>
+<p>You can update node names from <code>src</code> to <code>dst</code> with <code>rename_node</code> function in <code>Architecture</code> class.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">rename_node</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>All <code>node_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
+<h2 id="rename-path_name">Rename <code>path_name</code><a class="headerlink" href="#rename-path_name" title="Permanent link">#</a></h2>
+<p>You can update path names from <code>src</code> to <code>dst</code> with <code>rename_path</code> function in <code>Architecture</code> class.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">rename_path</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>All <code>path_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
+<h2 id="rename-executor_name">Rename <code>executor_name</code><a class="headerlink" href="#rename-executor_name" title="Permanent link">#</a></h2>
+<p>You can update executor names from <code>src</code> to <code>dst</code> with <code>rename_executor</code> function in <code>Architecture</code> class.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">rename_executor</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>All <code>executor_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
+<h2 id="rename-topic_name">Rename <code>topic_name</code><a class="headerlink" href="#rename-topic_name" title="Permanent link">#</a></h2>
+<p>You can update topic names from <code>src</code> to <code>dst</code> with <code>rename_topic</code> function in <code>Architecture</code> class.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">rename_topic</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>All <code>topic_name</code> in architecture object where it is <code>src</code> are updated to <code>dst</code>.</p>
 
 
 
@@ -2593,7 +2708,7 @@ It's current issue to support for such more precise latency.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../node/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Node" rel="prev">
+          <a href="../intra_node_data_path/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Define intra-node data path" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2602,20 +2717,20 @@ It's current issue to support for such more precise latency.</p>
                 <span class="md-footer__direction">
                   Previous
                 </span>
-                Node
+                Define intra-node data path
               </div>
             </div>
           </a>
         
         
           
-          <a href="../publisher/" class="md-footer__link md-footer__link--next" aria-label="Next: Publisher" rel="next">
+          <a href="../practical_example/" class="md-footer__link md-footer__link--next" aria-label="Next: Practical example" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Next
                 </span>
-                Publisher
+                Practical example
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2651,10 +2766,10 @@ It's current issue to support for such more precise latency.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fc8c2696.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
