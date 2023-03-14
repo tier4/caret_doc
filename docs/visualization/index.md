@@ -52,7 +52,7 @@ Some of methods are not designed according to uniform API design, and they are e
 - [`create_frequency_timeseries_plot(callbacks: Collection[CallbackBase])`](./frequency/index.md#callback)
 - [`create_period_timeseries_plot(callbacks: Collection[CallbackBase])`](./period/index.md#callback)
 - [`create_latency_timeseries_plot(callbacks: Collection[CallbackBase])`](./latency/index.md#callback)
-- [`create_callback_scheduling_plot`](./callback_scheduling/index.md)
+- [`create_callback_scheduling_plot`](./scheduling/callback.md)
   - Visualize callback scheduling
 
 ### Communication
