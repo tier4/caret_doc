@@ -53,7 +53,7 @@ plot.show()
 
 ## Stacked Bar
 The following scripts generate stacked bar graphs of response time or path latency.
-Horizontal axis of the stacked bar graph means timeseries, labeled `System time [ms]` and vertical axis means `Response time` or `Path latency`.
+Horizontal axis of the stacked bar graph means timeseries and vertical axis means `Response time` in worst case or `Path latency` in best case.
 
 ```python
 # plot worst case
@@ -72,8 +72,6 @@ plot.show()
 ```
 ![response_time_best_stacked_bar](../../imgs/response_time_best_stacked_bar.png)
 
-`[worst - best] response time` refers to the difference in response time between the worst-case and best-case it.
+The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')`.
 
-The horizontal axis can be changed to `system time` or `index` (`system time` is default) by changing script `plot.show()` to `plot.show(xaxis_type='index')`.
-
-
+`[worst - best] response time` in legends refers to the difference in response time between the worst case and best case it.
