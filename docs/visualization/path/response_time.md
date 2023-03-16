@@ -20,6 +20,7 @@ path = app.get_path('target_path')
 ```
 
 ## Histogram
+
 The following scripts generate histograms of response time. Horizontal axis of the histograms means response time, labeled `Response Time [ms]` and vertical axis of the histograms means `Probability`.
 
 ```python
@@ -52,6 +53,7 @@ plot.show()
 ![response_time_worst_histogram](../../imgs/response_time_worst_histogram.png)
 
 ## Stacked Bar
+
 The following scripts generate stacked bar graphs of response time or path latency.
 Horizontal axis of the stacked bar graph means timeseries and vertical axis means `Response time` in worst case or `Path latency` in best case.
 
@@ -63,6 +65,7 @@ plot.show()
 # plot = Plot.create_response_time_stacked_bar_plot(path, case='worst')
 # plot.show()
 ```
+
 ![response_time_worst_stacked_bar](../../imgs/response_time_worst_stacked_bar.png)
 
 ```python
@@ -70,6 +73,7 @@ plot.show()
 plot = Plot.create_response_time_stacked_bar_plot(path, case='best')
 plot.show()
 ```
+
 ![response_time_best_stacked_bar](../../imgs/response_time_best_stacked_bar.png)
 
 The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')`.
