@@ -34,7 +34,7 @@ To filter these tracepoints, we utilize the fact that [`rcl_publish`](../trace_p
 We utilize thread-local storage to transmit if `rcl_publish` is recorded or not.
 
 ```c++
-thread_local bool ros2caret_is_rcl_publish_recorded;
+thread_local bool trace_filter_is_rcl_publish_recorded;
 
 void ros_trace_rcl_publish(const void * publisher_handle, const void * message)
 {
@@ -44,15 +44,15 @@ void ros_trace_rcl_publish(const void * publisher_handle, const void * message)
     context.is_recording_allowed())
   {
     ((functionT) orig_func)(publisher_handle, message);
-    ros2caret_is_rcl_publish_recorded = true;
+    trace_filter_is_rcl_publish_recorded = true;
   } else {
-    ros2caret_is_rcl_publish_recorded = false;
+    trace_filter_is_rcl_publish_recorded = false;
   }
 }
 
 void ros_trace_rmw_publish(const void * message)
 {
-  if (ros2caret_is_rcl_publish_recorded) {
+  if (trace_filter_is_rcl_publish_recorded) {
     tracepoint(TRACEPOINT_PROVIDER, dds_write, message);
   }
 }
@@ -61,7 +61,7 @@ int dds_write_impl(void * wr, void * data, long tstamp, int action)
 {
   ...
 
-  if (context.is_recording_allowed() && ros2caret_is_rcl_publish_recorded) {
+  if (context.is_recording_allowed() && trace_filter_is_rcl_publish_recorded) {
     tracepoint(TRACEPOINT_PROVIDER, dds_bind_addr_to_stamp, data, tstamp);
   }
 
