@@ -7,4 +7,4 @@ nav:
     - Rename sub-objects: rename_function.md
     - Practical example: practical_example.md
     - Visualize application structure: visualize_application_structure.md
-    - Require differences: architecture_diff_func.md 
+    - Differences of architectures: architecture_diff_func.md 

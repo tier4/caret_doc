@@ -1,13 +1,14 @@
-# Require differences of two architectures 
+# Differences of architectures
 
 The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that only exist in each, e.g. node name, pub/sub topic.
-There are five diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture. `diff_node_names()`, `diff_topic_names` are functions that take two architectures and compare them as a whole. The two functions compare all node names in the architecture for the former and all pub/sub topic names in the architecture for the latter.
+There are four diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.
+ <!-- `diff_node_names()`, `diff_topic_names` are functions that take two architectures and compare them as a whole. The two functions compare all node names in the architecture for the former and all pub/sub topic names in the architecture for the latter.
 
-`diff_node_pubs()`, `diff_node_subs()` and `diff_node_callbacks()` are functions that compare two nodes within an architecture. These are functions that compare two given nodes and return the publish topic name, subscribe topic name, or callback name that is only in each.
+`diff_node_pubs()`, `diff_node_subs()` and `diff_node_callbacks()` are functions that compare two nodes within an architecture. These are functions that compare two given nodes and return the publish topic name, subscribe topic name, or callback name that is only in each. -->
 
-## How to use diff functions to compare architecure
+## How to compare architecture
 
-In CARET, the structure of the target application is described in an architecture file. The actual architecure file can be represented as an object of Architecture class. This section describes the functions `diff_node_names()` and `diff_topic_names()`, which compare the contents of two architecture objects.
+In CARET, the structure of the target application is described in an architecture file. The actual architecture file can be represented as an object of Architecture class. This section describes the functions `diff_node_names()` and `diff_topic_names()`, which compare the contents of two architecture objects.
 One possible use of these functions is to check the changes between the architecture before and after changes.
 
 ### diff_node_names()
@@ -70,9 +71,9 @@ print(new_only_topics)
 
 ```
 
-## How to use diff functions to compare node in architecure
+## How to compare node in architecture
 
-This section describes the functions `diff_node_pubs()`, `diff_node_subs()`, and `diff_node_callbacks()`, which compare the contents of two nodes in architecture.
+This section describes the functions `diff_node_pubs()` and `diff_node_subs()`, which compare the contents of two nodes in architecture.
 
 ### diff_node_pubs()
 
@@ -133,5 +134,3 @@ print(new_only_subscribe_topics)
 #('topic3', 'topic4')
 
 ```
-
-### diff_node_callbacks()
