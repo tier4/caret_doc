@@ -21,7 +21,7 @@
     
     
       
-        <title>Require differences - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Differences of architectures - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#require-differences-of-two-architectures" class="md-skip">
+        <a href="#differences-of-architectures" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Require differences
+              Differences of architectures
             
           </span>
         </div>
@@ -951,12 +951,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Require differences
+          Differences of architectures
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Require differences
+        Differences of architectures
       </a>
       
         
@@ -975,11 +975,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-use-diff-functions-to-compare-architecure" class="md-nav__link">
-    How to use diff functions to compare architecure
+  <a href="#how-to-compare-architecture" class="md-nav__link">
+    How to compare architecture
   </a>
   
-    <nav class="md-nav" aria-label="How to use diff functions to compare architecure">
+    <nav class="md-nav" aria-label="How to compare architecture">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1002,11 +1002,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-use-diff-functions-to-compare-node-in-architecure" class="md-nav__link">
-    How to use diff functions to compare node in architecure
+  <a href="#how-to-compare-node-in-architecture" class="md-nav__link">
+    How to compare node in architecture
   </a>
   
-    <nav class="md-nav" aria-label="How to use diff functions to compare node in architecure">
+    <nav class="md-nav" aria-label="How to compare node in architecture">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1019,13 +1019,6 @@
           <li class="md-nav__item">
   <a href="#diff_node_subs" class="md-nav__link">
     diff_node_subs()
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#diff_node_callbacks" class="md-nav__link">
-    diff_node_callbacks()
   </a>
   
 </li>
@@ -2632,11 +2625,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-use-diff-functions-to-compare-architecure" class="md-nav__link">
-    How to use diff functions to compare architecure
+  <a href="#how-to-compare-architecture" class="md-nav__link">
+    How to compare architecture
   </a>
   
-    <nav class="md-nav" aria-label="How to use diff functions to compare architecure">
+    <nav class="md-nav" aria-label="How to compare architecture">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2659,11 +2652,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-use-diff-functions-to-compare-node-in-architecure" class="md-nav__link">
-    How to use diff functions to compare node in architecure
+  <a href="#how-to-compare-node-in-architecture" class="md-nav__link">
+    How to compare node in architecture
   </a>
   
-    <nav class="md-nav" aria-label="How to use diff functions to compare node in architecure">
+    <nav class="md-nav" aria-label="How to compare node in architecture">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2676,13 +2669,6 @@
           <li class="md-nav__item">
   <a href="#diff_node_subs" class="md-nav__link">
     diff_node_subs()
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#diff_node_callbacks" class="md-nav__link">
-    diff_node_callbacks()
   </a>
   
 </li>
@@ -2710,16 +2696,19 @@
   
 
 
-<h1 id="require-differences-of-two-architectures">Require differences of two architectures<a class="headerlink" href="#require-differences-of-two-architectures" title="Permanent link">#</a></h1>
+<h1 id="differences-of-architectures">Differences of architectures<a class="headerlink" href="#differences-of-architectures" title="Permanent link">#</a></h1>
 <p>The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that only exist in each, e.g. node name, pub/sub topic.
-There are five diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture. <code>diff_node_names()</code>, <code>diff_topic_names</code> are functions that take two architectures and compare them as a whole. The two functions compare all node names in the architecture for the former and all pub/sub topic names in the architecture for the latter.</p>
-<p><code>diff_node_pubs()</code>, <code>diff_node_subs()</code> and <code>diff_node_callbacks()</code> are functions that compare two nodes within an architecture. These are functions that compare two given nodes and return the publish topic name, subscribe topic name, or callback name that is only in each.</p>
-<h2 id="how-to-use-diff-functions-to-compare-architecure">How to use diff functions to compare architecure<a class="headerlink" href="#how-to-use-diff-functions-to-compare-architecure" title="Permanent link">#</a></h2>
-<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, the structure of the target application is described in an architecture file. The actual architecure file can be represented as an object of Architecture class. This section describes the functions <code>diff_node_names()</code> and <code>diff_topic_names()</code>, which compare the contents of two architecture objects.
+There are four diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.
+ <!-- `diff_node_names()`, `diff_topic_names` are functions that take two architectures and compare them as a whole. The two functions compare all node names in the architecture for the former and all pub/sub topic names in the architecture for the latter.
+
+`diff_node_pubs()`, `diff_node_subs()` and `diff_node_callbacks()` are functions that compare two nodes within an architecture. These are functions that compare two given nodes and return the publish topic name, subscribe topic name, or callback name that is only in each. -->
+</p>
+<h2 id="how-to-compare-architecture">How to compare architecture<a class="headerlink" href="#how-to-compare-architecture" title="Permanent link">#</a></h2>
+<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, the structure of the target application is described in an architecture file. The actual architecture file can be represented as an object of Architecture class. This section describes the functions <code>diff_node_names()</code> and <code>diff_topic_names()</code>, which compare the contents of two architecture objects.
 One possible use of these functions is to check the changes between the architecture before and after changes.</p>
 <h3 id="diff_node_names">diff_node_names()<a class="headerlink" href="#diff_node_names" title="Permanent link">#</a></h3>
 <p>An example of the use of <code>diff_node_names()</code> is shown in <code>#sample_1</code>.
-Suppose arch1 has two nodes 'node1' and 'node2'. arch2 has three nodes 'node1', 'node3' and 'node4'.
+Suppose arch1 has two nodes 'node1' and 'node2'. arch2 has three nodes 'node1', 'node3' and 'node4'. 
 The type of the return value is <code>Tuple[Tuple[str, ...] , Tuple[str, ...]]</code></p>
 <div class="highlight"><pre><span></span><code><span class="c1">#sample_1</span>
 
@@ -2766,11 +2755,11 @@ The type of the return value is <code>Tuple[Tuple[str, ...] , Tuple[str, ...]]</
 <span class="c1">#(&#39;topic2&#39;,)</span>
 <span class="c1">#(&#39;topic3&#39;, &#39;topic4&#39;)</span>
 </code></pre></div>
-<h2 id="how-to-use-diff-functions-to-compare-node-in-architecure">How to use diff functions to compare node in architecure<a class="headerlink" href="#how-to-use-diff-functions-to-compare-node-in-architecure" title="Permanent link">#</a></h2>
-<p>This section describes the functions <code>diff_node_pubs()</code>, <code>diff_node_subs()</code>, and <code>diff_node_callbacks()</code>, which compare the contents of two nodes in architecture.</p>
+<h2 id="how-to-compare-node-in-architecture">How to compare node in architecture<a class="headerlink" href="#how-to-compare-node-in-architecture" title="Permanent link">#</a></h2>
+<p>This section describes the functions <code>diff_node_pubs()</code> and <code>diff_node_subs()</code>, which compare the contents of two nodes in architecture.</p>
 <h3 id="diff_node_pubs">diff_node_pubs()<a class="headerlink" href="#diff_node_pubs" title="Permanent link">#</a></h3>
 <p>An example of the use of <code>diff_node_pubs()</code> is shown in <code>#sample_3</code>.
-Suppose arch1 has two publish topics: 'topic1' and 'topic2'. arch2 has three publish topics: 'topic1', 'topic3' and 'topic4'.
+Suppose arch1 has two publish topics: 'topic1' and 'topic2'. arch2 has three publish topics: 'topic1', 'topic3' and 'topic4'. 
 The type of the return value is <code>Tuple[Tuple[str, ...] , Tuple[str, ...]]</code></p>
 <div class="highlight"><pre><span></span><code><span class="c1">#sample_3</span>
 
@@ -2795,7 +2784,7 @@ The type of the return value is <code>Tuple[Tuple[str, ...] , Tuple[str, ...]]</
 </code></pre></div>
 <h3 id="diff_node_subs">diff_node_subs()<a class="headerlink" href="#diff_node_subs" title="Permanent link">#</a></h3>
 <p>An example of the use of <code>diff_node_subs()</code> is shown in <code>#sample_4</code>.
-Suppose arch1 has two subscribe topics: 'topic1' and 'topic2'. arch2 has three subscribe topics: 'topic1', 'topic3' and 'topic4'.
+Suppose arch1 has two subscribe topics: 'topic1' and 'topic2'. arch2 has three subscribe topics: 'topic1', 'topic3' and 'topic4'. 
 The type of the return value is <code>Tuple[Tuple[str, ...] , Tuple[str, ...]]</code></p>
 <div class="highlight"><pre><span></span><code><span class="c1">#sample_4</span>
 
@@ -2818,7 +2807,6 @@ The type of the return value is <code>Tuple[Tuple[str, ...] , Tuple[str, ...]]</
 <span class="c1">#(&#39;topic2&#39;,)</span>
 <span class="c1">#(&#39;topic3&#39;, &#39;topic4&#39;)</span>
 </code></pre></div>
-<h3 id="diff_node_callbacks">diff_node_callbacks()<a class="headerlink" href="#diff_node_callbacks" title="Permanent link">#</a></h3>
 
 
 
