@@ -2698,11 +2698,11 @@
 
 <h1 id="differences-of-architectures">Differences of architectures<a class="headerlink" href="#differences-of-architectures" title="Permanent link">#</a></h1>
 <p>The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that only exist in each, e.g. node name, pub/sub topic.
-There are four diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.
- <!-- `diff_node_names()`, `diff_topic_names` are functions that take two architectures and compare them as a whole. The two functions compare all node names in the architecture for the former and all pub/sub topic names in the architecture for the latter.
+There are four diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.</p>
+<!-- `diff_node_names()`, `diff_topic_names` are functions that take two architectures and compare them as a whole. The two functions compare all node names in the architecture for the former and all pub/sub topic names in the architecture for the latter.
 
 `diff_node_pubs()`, `diff_node_subs()` and `diff_node_callbacks()` are functions that compare two nodes within an architecture. These are functions that compare two given nodes and return the publish topic name, subscribe topic name, or callback name that is only in each. -->
-</p>
+
 <h2 id="how-to-compare-architecture">How to compare architecture<a class="headerlink" href="#how-to-compare-architecture" title="Permanent link">#</a></h2>
 <p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, the structure of the target application is described in an architecture file. The actual architecture file can be represented as an object of Architecture class. This section describes the functions <code>diff_node_names()</code> and <code>diff_topic_names()</code>, which compare the contents of two architecture objects. In <code>diff_node_names()</code> and <code>diff_topic_names()</code>, the functions compare two architectures and return the node or topic names that only each has. Therefore, by using these functions, what one ARCHITECTURE has but the other does not (node names or topic names) are clear and can be compared.
 One possible use of these functions is to check the changes between the architecture before and after changes.</p>
@@ -2713,7 +2713,7 @@ One possible use of these functions is to check the changes between the architec
 </code></pre></div>
 <h3 id="diff_node_names">diff_node_names()<a class="headerlink" href="#diff_node_names" title="Permanent link">#</a></h3>
 <p>An example of the use of <code>diff_node_names()</code> is shown in <code>#sample_1</code>.</p>
-<!-- Suppose arch1 has two nodes 'node1' and 'node2'. arch2 has three nodes 'node1', 'node3' and 'node4'. 
+<!-- Suppose arch1 has two nodes 'node1' and 'node2'. arch2 has three nodes 'node1', 'node3' and 'node4'.
 The type of the return value is `Tuple[Tuple[str, ...] , Tuple[str, ...]]` -->
 
 <div class="highlight"><pre><span></span><code><span class="c1">#sample_1</span>
@@ -2748,10 +2748,11 @@ Therefore, the node name that only <code>left_arch</code> has is <code>node2</co
 Therefore, the topic name that only <code>left_arch</code> has is <code>topic2</code>, and the topic names that only <code>right_arch</code> has are <code>topic3</code> and <code>topic4</code>, which are the return value and output at the end of the script respectively.</p>
 <h2 id="how-to-compare-node-in-architecture">How to compare node in architecture<a class="headerlink" href="#how-to-compare-node-in-architecture" title="Permanent link">#</a></h2>
 <!-- This section describes the functions `diff_node_pubs()` and `diff_node_subs()`, which compare the contents of two nodes in architecture. -->
+
 <p><code>diff_node_pubs()</code> and <code>diff_node_subs()</code> are functions that take nodes in an architecture and compare them. The nodes given can be two nodes in the same architecture or in two different architectures. These functions compare the two given nodes and find the pub/sub topic name that exists only in each of them. Thus, what one node has but the other does not (pub/sub topic name) can be identified and compared.</p>
 <h3 id="diff_node_pubs">diff_node_pubs()<a class="headerlink" href="#diff_node_pubs" title="Permanent link">#</a></h3>
 <p>An example of the use of <code>diff_node_pubs()</code> is shown in <code>#sample_3</code>.</p>
-<p><div class="highlight"><pre><span></span><code><span class="c1">#sample_3</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#sample_3</span>
 
 <span class="n">left_node</span> <span class="o">=</span> <span class="n">left_arch</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">right_node</span> <span class="o">=</span> <span class="n">right_arch</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -2766,13 +2767,13 @@ Therefore, the topic name that only <code>left_arch</code> has is <code>topic2</
 <span class="c1">#(&#39;topic1&#39;,)</span>
 <span class="c1">#(&#39;topic2&#39;,)</span>
 </code></pre></div>
-In this case, consider a comparison for the first node (with index 0) of <code>left_arch</code> and <code>right_arch</code>. In this case, the setup assumes that the <code>left_node</code> has <code>topic1</code> as the publish topic and the <code>right_node</code> has <code>topic2</code> as the publish topic.
+<p>In this case, consider a comparison for the first node (with index 0) of <code>left_arch</code> and <code>right_arch</code>. In this case, the setup assumes that the <code>left_node</code> has <code>topic1</code> as the publish topic and the <code>right_node</code> has <code>topic2</code> as the publish topic.
 At this time, there is no common publish topic for both.
 Therefore, the publish topic that exists only in the <code>left_node</code> is <code>topic1</code> and the publish topic that exists only in the <code>right_node</code> is <code>topic2</code>.
 Therefore, these are returned as the names of the publish topics that exist only in each node and are output at the end of the script.</p>
 <h3 id="diff_node_subs">diff_node_subs()<a class="headerlink" href="#diff_node_subs" title="Permanent link">#</a></h3>
 <p>An example of the use of <code>diff_node_subs()</code> is shown in <code>#sample_4</code>.</p>
-<p><div class="highlight"><pre><span></span><code><span class="c1">#sample_4</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#sample_4</span>
 
 <span class="n">left_node</span> <span class="o">=</span> <span class="n">left_arch</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">right_node</span> <span class="o">=</span> <span class="n">right_arch</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -2787,7 +2788,7 @@ Therefore, these are returned as the names of the publish topics that exist only
 <span class="c1">#(&#39;topic1&#39;,)</span>
 <span class="c1">#(&#39;topic2&#39;,)</span>
 </code></pre></div>
-In this case, consider a comparison for the first node (with index 0) of <code>left_arch</code> and <code>right_arch</code>. In this case, the setup assumes that the <code>left_node</code> has <code>topic1</code> as the subscribe topic and the <code>right_node</code> has <code>topic2</code> as the subscribe topic.
+<p>In this case, consider a comparison for the first node (with index 0) of <code>left_arch</code> and <code>right_arch</code>. In this case, the setup assumes that the <code>left_node</code> has <code>topic1</code> as the subscribe topic and the <code>right_node</code> has <code>topic2</code> as the subscribe topic.
 At this time, there is no common subscribe topic for both.
 Therefore, the subscribe topic that exists only in the <code>left_node</code> is <code>topic1</code> and the subscribe topic that exists only in the <code>right_node</code> is <code>topic2</code>.
 Therefore, these are returned as the names of the subscribe topics that exist only in each node and are output at the end of the script.</p>
