@@ -1,4 +1,4 @@
-# Differences of architectures
+# How to get differences of architectures
 
 The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that only exist in each, e.g. node name, pub/sub topic.
 There are four diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.
@@ -15,9 +15,9 @@ right_arch = Architecture('yaml', 'new_architecture.yaml')
 
 ## How to compare architecture
 
-Architecture objects are generated from architecture files or trace data and summarize the structure of target applications.
 The functions `diff_node_names()` and `diff_topic_names()` compare two architecture objects by finding the node names and topic names that exist only in one of the two objects. 
-If there are no return values, it means that the two architecture objects represent the same architecture.
+One possible use of these functions is to check the changes between the architecture before and after changes.
+
 
 
 
@@ -56,10 +56,17 @@ print(right_only_topics)
 
 This function inputs two architectures, compares them, and outputs the pub/sub topic names that exist only in one of architectures.
 
+<prettier-ignore-start>
+!!!info
+      The architecture object has other elements such as Executor and Callback. However, the functions that gets the difference of Executors or Callbacks are not yet implemented. Please contact the developers if needed.
+<prettier-ignore-end>
+
+
 ## How to compare node in architecture
 
 
-`diff_node_pubs()` and `diff_node_subs()` are functions that take nodes in an architecture and compare them. The nodes given can be two nodes in the same architecture or in two different architectures. These functions compare the two given nodes and find the pub/sub topic name that exists only in each of them. Thus, what one node has but the other does not (pub/sub topic name) can be identified and compared.
+The `diff_node_pubs()` and `diff_node_subs()` function find the publish and subscription topics that exist only in one of the two nodes. 
+This function can be compare also two nodes in different architecture objects.
 
 ### diff_node_pubs()
 
