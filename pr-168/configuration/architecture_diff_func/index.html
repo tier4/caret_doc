@@ -2697,7 +2697,7 @@
 
 
 <h1 id="how-to-get-differences-of-architectures">How to get differences of architectures<a class="headerlink" href="#how-to-get-differences-of-architectures" title="Permanent link">#</a></h1>
-<p>The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that only exist in each, e.g. node name, pub/sub topic.
+<p>The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that exist only in one of the architectures, such as node names, publish/subscribe topics, etc.
 There are four diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.</p>
 <p>The diff function is explained below, and before using the diff functions, the two architecture objects are generated beforehand, as shown in the following script.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
@@ -2734,7 +2734,7 @@ One possible use of these functions is to check the changes between the architec
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The architecture object has other elements such as Executor and Callback. However, the functions that gets the difference of Executors or Callbacks are not yet implemented. Please contact the developers if needed.</p>
+<p>The architecture object has other elements such as Executor and Callback. However, the functions that get the difference of Executors or Callbacks are not yet implemented. Please contact the developers if needed.</p>
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="how-to-compare-node-in-architecture">How to compare node in architecture<a class="headerlink" href="#how-to-compare-node-in-architecture" title="Permanent link">#</a></h2>
