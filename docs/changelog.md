@@ -2,20 +2,27 @@
 
 ## CARET
 
-### v0.4.4 <small>\_ Feb 21, 2022</small> {id = "0.4.4"}
+### v0.4.5 <small>\_ Mar 20, 2023</small> {id = "0.4.5"}
+
+- Enhanced the trace filtering to exclude selected DDS events ([CARET_trace #101](https://github.com/tier4/CARET_trace/pull/101))
+- Added the unit to the label of y-axis on time-series graph ([CARET_analyze #256](https://github.com/tier4/CARET_analyze/pull/256))
+- Refactored the Plot package ([CARET_analyze #257](https://github.com/tier4/CARET_analyze/pull/257), [CARET_analyze #258](https://github.com/tier4/CARET_analyze/pull/258))
+- Added the docstring for explaining rename methods for Architecture object ([CARET_analyze #253](https://github.com/tier4/CARET_analyze/pull/253))
+
+### v0.4.4 <small>\_ Feb 21, 2023</small> {id = "0.4.4"}
 
 - Fixed the time format of the time-series graphs ([CARET_analyze #255](https://github.com/tier4/CARET_analyze/pull/255))
 - Added the design documentation for trace filtering to exclude events in DDS-layer ([CARET_doc #158](https://github.com/tier4/CARET_doc/pull/158))
 - Moved `get_range()` function to `record` package ([CARET_analyze #254](https://github.com/tier4/CARET_analyze/pull/254))
 
-### v0.4.3 <small>\_ Feb 10, 2022</small> {id = "0.4.3"}
+### v0.4.3 <small>\_ Feb 10, 2023</small> {id = "0.4.3"}
 
 - Fixed the bug preventing `check_ctf` from running properly after supporting activation/deactivation on runtime ([CARET_analyze #251](https://github.com/tier4/CARET_analyze/pull/251))
 - Suppressed update frequency of progress bar from `tqdm` when reading trace data ([CARET_analyze #248](https://github.com/tier4/CARET_analyze/pull/248))
 - Fixed incorrect annotation from `list` to `List` ([CARET_analyze #252](https://github.com/tier4/CARET_analyze/pull/252))
 - Changed `setup_caret.bash` script to prompt users to install the packages ([caret #72](https://github.com/tier4/caret/pull/72))
 
-### v0.4.2 <small>\_ Jan 23, 2022</small> {id = "0.4.2"}
+### v0.4.2 <small>\_ Jan 23, 2023</small> {id = "0.4.2"}
 
 - Added lightweight recording option to `ros2caret` ([ros2caret #63](https://github.com/tier4/ros2caret/pull/63))
 - Removed old interface of `Plot.create_callback_jitter_plot` ([CARET_analyze #231](https://github.com/tier4/CARET_analyze/pull/231))
