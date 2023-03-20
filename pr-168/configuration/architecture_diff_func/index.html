@@ -2710,24 +2710,24 @@ The functions <code>diff_node_names()</code> and <code>diff_topic_names()</code>
 If there are no return values, it means that the two architecture objects represent the same architecture.</p>
 <h3 id="diff_node_names">diff_node_names()<a class="headerlink" href="#diff_node_names" title="Permanent link">#</a></h3>
 <p>The function <code>diff_node_names()</code> compares node names of architectures.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#sample_1</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># sample_1</span>
 
-<span class="c1">#get node names that are only in left_arch and right_arch respectively</span>
+<span class="c1"># get node names that are only in left_arch and right_arch respectively</span>
 <span class="n">left_only_node_names</span><span class="p">,</span> <span class="n">right_only_node_names</span> <span class="o">=</span> <span class="n">Architecture</span><span class="o">.</span><span class="n">diff_node_names</span><span class="p">(</span><span class="n">left_arch</span><span class="p">,</span> <span class="n">right_arch</span><span class="p">)</span>
 
-<span class="c1">#display differences</span>
+<span class="c1"># display differences</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_node_names</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_node_names</span><span class="p">)</span>
 </code></pre></div>
 <p>This function inputs two architectures, compares them, and outputs the node names that exist only in one of architectures.</p>
 <h3 id="diff_topic_names">diff_topic_names()<a class="headerlink" href="#diff_topic_names" title="Permanent link">#</a></h3>
 <p>The function <code>diff_topic_names()</code> compares pub/sub topic names of architectures.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#sample_2</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># sample_2</span>
 
-<span class="c1">#get topic names that are only in left_arch and right_arch respectively</span>
+<span class="c1"># get topic names that are only in left_arch and right_arch respectively</span>
 <span class="n">left_only_topics</span><span class="p">,</span> <span class="n">right_only_topics</span> <span class="o">=</span> <span class="n">Architecture</span><span class="o">.</span><span class="n">diff_topic_names</span><span class="p">(</span><span class="n">left_arch</span><span class="p">,</span> <span class="n">right_arch</span><span class="p">)</span>
 
-<span class="c1">#display differences</span>
+<span class="c1"># display differences</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_topics</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_topics</span><span class="p">)</span>
 </code></pre></div>
@@ -2736,30 +2736,30 @@ If there are no return values, it means that the two architecture objects repres
 <p><code>diff_node_pubs()</code> and <code>diff_node_subs()</code> are functions that take nodes in an architecture and compare them. The nodes given can be two nodes in the same architecture or in two different architectures. These functions compare the two given nodes and find the pub/sub topic name that exists only in each of them. Thus, what one node has but the other does not (pub/sub topic name) can be identified and compared.</p>
 <h3 id="diff_node_pubs">diff_node_pubs()<a class="headerlink" href="#diff_node_pubs" title="Permanent link">#</a></h3>
 <p>The function <code>diff_node_pubs()</code> compares publish topic names of nodes of architectures.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#sample_3</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># sample_3</span>
 
 <span class="n">left_node</span> <span class="o">=</span> <span class="n">left_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
 <span class="n">right_node</span> <span class="o">=</span> <span class="n">right_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
 
-<span class="c1">#get publish topic names that are only in left_node and right_node respectively</span>
+<span class="c1"># get publish topic names that are only in left_node and right_node respectively</span>
 <span class="n">left_only_pub_topics</span><span class="p">,</span> <span class="n">right_only_pub_topics</span> <span class="o">=</span> <span class="n">Architecture</span><span class="o">.</span><span class="n">diff_node_pubs</span><span class="p">(</span><span class="n">left_node</span><span class="p">,</span> <span class="n">right_node</span><span class="p">)</span>
 
-<span class="c1">#display differences</span>
+<span class="c1"># display differences</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_pub_topics</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_pub_topics</span><span class="p">)</span>
 </code></pre></div>
 <p>This function inputs two nodes of architectures, compares them, and outputs the publish topic names that exist only in one of nodes.</p>
 <h3 id="diff_node_subs">diff_node_subs()<a class="headerlink" href="#diff_node_subs" title="Permanent link">#</a></h3>
 <p>The function <code>diff_node_subs()</code> compares subscribe topic names of nodes of architectures.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#sample_4</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># sample_4</span>
 
 <span class="n">left_node</span> <span class="o">=</span> <span class="n">left_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
 <span class="n">right_node</span> <span class="o">=</span> <span class="n">right_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
 
-<span class="c1">#get subscribe topic names that are only in left_node and right_node respectively</span>
+<span class="c1"># get subscribe topic names that are only in left_node and right_node respectively</span>
 <span class="n">left_only_sub_topics</span><span class="p">,</span> <span class="n">right_only_sub_topics</span> <span class="o">=</span> <span class="n">Architecture</span><span class="o">.</span><span class="n">diff_node_subs</span><span class="p">(</span><span class="n">left_node</span><span class="p">,</span> <span class="n">right_node</span><span class="p">)</span>
 
-<span class="c1">#display differences</span>
+<span class="c1"># display differences</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_sub_topics</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_sub_topics</span><span class="p">)</span>
 </code></pre></div>
