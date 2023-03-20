@@ -25,12 +25,12 @@ If there are no return values, it means that the two architecture objects repres
 The function `diff_node_names()` compares node names of architectures.
 
 ```python
-#sample_1
+# sample_1
 
-#get node names that are only in left_arch and right_arch respectively
+# get node names that are only in left_arch and right_arch respectively
 left_only_node_names, right_only_node_names = Architecture.diff_node_names(left_arch, right_arch)
 
-#display differences
+# display differences
 print(left_only_node_names)
 print(right_only_node_names)
 
@@ -43,12 +43,12 @@ This function inputs two architectures, compares them, and outputs the node name
 The function `diff_topic_names()` compares pub/sub topic names of architectures.
 
 ```python
-#sample_2
+# sample_2
 
-#get topic names that are only in left_arch and right_arch respectively
+# get topic names that are only in left_arch and right_arch respectively
 left_only_topics, right_only_topics = Architecture.diff_topic_names(left_arch, right_arch)
 
-#display differences
+# display differences
 print(left_only_topics)
 print(right_only_topics)
 
@@ -66,15 +66,15 @@ This function inputs two architectures, compares them, and outputs the pub/sub t
 The function `diff_node_pubs()` compares publish topic names of nodes of architectures.
 
 ```python
-#sample_3
+# sample_3
 
 left_node = left_arch.get_node('node1')
 right_node = right_arch.get_node('node1')
 
-#get publish topic names that are only in left_node and right_node respectively
+# get publish topic names that are only in left_node and right_node respectively
 left_only_pub_topics, right_only_pub_topics = Architecture.diff_node_pubs(left_node, right_node)
 
-#display differences
+# display differences
 print(left_only_pub_topics)
 print(right_only_pub_topics)
 
@@ -86,15 +86,15 @@ This function inputs two nodes of architectures, compares them, and outputs the 
 The function `diff_node_subs()` compares subscribe topic names of nodes of architectures.
 
 ```python
-#sample_4
+# sample_4
 
 left_node = left_arch.get_node('node1')
 right_node = right_arch.get_node('node1')
 
-#get subscribe topic names that are only in left_node and right_node respectively
+# get subscribe topic names that are only in left_node and right_node respectively
 left_only_sub_topics, right_only_sub_topics = Architecture.diff_node_subs(left_node, right_node)
 
-#display differences
+# display differences
 print(left_only_sub_topics)
 print(right_only_sub_topics)
 
