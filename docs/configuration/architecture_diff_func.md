@@ -1,6 +1,6 @@
 # How to get differences of architectures
 
-The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that only exist in each, e.g. node name, pub/sub topic.
+The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that exist only in one of the architectures, such as node names, publish/subscribe topics, etc. 
 There are four diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.
 
 The diff function is explained below, and before using the diff functions, the two architecture objects are generated beforehand, as shown in the following script.
@@ -58,7 +58,7 @@ This function inputs two architectures, compares them, and outputs the pub/sub t
 
 <prettier-ignore-start>
 !!!info
-      The architecture object has other elements such as Executor and Callback. However, the functions that gets the difference of Executors or Callbacks are not yet implemented. Please contact the developers if needed.
+      The architecture object has other elements such as Executor and Callback. However, the functions that get the difference of Executors or Callbacks are not yet implemented. Please contact the developers if needed.
 <prettier-ignore-end>
 
 
