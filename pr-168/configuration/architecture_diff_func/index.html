@@ -2706,7 +2706,7 @@ There are four diff functions, which can be divided into functions that compare 
 </code></pre></div>
 <h2 id="how-to-compare-architecture">How to compare architecture<a class="headerlink" href="#how-to-compare-architecture" title="Permanent link">#</a></h2>
 <p>Architecture objects are generated from architecture files or trace data and summarize the structure of target applications.
-The functions <code>diff_node_names()</code> and <code>diff_topic_names()</code> compare two architecture objects by finding the node names and topic names that exist only in one of the two objects. 
+The functions <code>diff_node_names()</code> and <code>diff_topic_names()</code> compare two architecture objects by finding the node names and topic names that exist only in one of the two objects.
 If there are no return values, it means that the two architecture objects represent the same architecture.</p>
 <h3 id="diff_node_names">diff_node_names()<a class="headerlink" href="#diff_node_names" title="Permanent link">#</a></h3>
 <p>The function <code>diff_node_names()</code> compares node names of architectures.</p>
@@ -2736,7 +2736,7 @@ If there are no return values, it means that the two architecture objects repres
 <p><code>diff_node_pubs()</code> and <code>diff_node_subs()</code> are functions that take nodes in an architecture and compare them. The nodes given can be two nodes in the same architecture or in two different architectures. These functions compare the two given nodes and find the pub/sub topic name that exists only in each of them. Thus, what one node has but the other does not (pub/sub topic name) can be identified and compared.</p>
 <h3 id="diff_node_pubs">diff_node_pubs()<a class="headerlink" href="#diff_node_pubs" title="Permanent link">#</a></h3>
 <p>The function <code>diff_node_pubs()</code> compares publish topic names of nodes of architectures.</p>
-<p><div class="highlight"><pre><span></span><code><span class="c1">#sample_3</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#sample_3</span>
 
 <span class="n">left_node</span> <span class="o">=</span> <span class="n">left_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
 <span class="n">right_node</span> <span class="o">=</span> <span class="n">right_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
@@ -2748,10 +2748,10 @@ If there are no return values, it means that the two architecture objects repres
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_pub_topics</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_pub_topics</span><span class="p">)</span>
 </code></pre></div>
-This function inputs two nodes of architectures, compares them, and outputs the publish topic names that exist only in one of nodes.</p>
+<p>This function inputs two nodes of architectures, compares them, and outputs the publish topic names that exist only in one of nodes.</p>
 <h3 id="diff_node_subs">diff_node_subs()<a class="headerlink" href="#diff_node_subs" title="Permanent link">#</a></h3>
 <p>The function <code>diff_node_subs()</code> compares subscribe topic names of nodes of architectures.</p>
-<p><div class="highlight"><pre><span></span><code><span class="c1">#sample_4</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#sample_4</span>
 
 <span class="n">left_node</span> <span class="o">=</span> <span class="n">left_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
 <span class="n">right_node</span> <span class="o">=</span> <span class="n">right_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
@@ -2763,7 +2763,7 @@ This function inputs two nodes of architectures, compares them, and outputs the 
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_sub_topics</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_sub_topics</span><span class="p">)</span>
 </code></pre></div>
-This function inputs two nodes of architectures, compares them, and outputs the subscribe topic names that exist only in one of nodes.</p>
+<p>This function inputs two nodes of architectures, compares them, and outputs the subscribe topic names that exist only in one of nodes.</p>
 
 
 
