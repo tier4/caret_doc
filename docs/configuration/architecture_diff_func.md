@@ -86,7 +86,6 @@ print(right_only_pub_topics)
 
 Two nodes, whose types are `NodeStructValue`, are given to `diff_node_pubs()`. Two tuples containing topic names are returned if they have any different published topics. If they are have the same topics at all, `diff_node_pubs()` returns two empty tuples.
 
-
 ### diff_node_subs()
 
 The `diff_node_subs()` function returns the name of the subscribed topic whose name appears only in one of the two nodes.
