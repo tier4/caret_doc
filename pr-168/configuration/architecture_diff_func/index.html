@@ -2697,18 +2697,19 @@
 
 
 <h1 id="how-to-get-differences-of-architectures">How to get differences of architectures<a class="headerlink" href="#how-to-get-differences-of-architectures" title="Permanent link">#</a></h1>
-<p>The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that exist only in one of the architectures, such as node names, publish/subscribe topics, etc.
-There are four diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.</p>
-<p>The diff function is explained below, and before using the diff functions, the two architecture objects are generated beforehand, as shown in the following script.</p>
+<p>An architecture object has structure of a target application. It is useful when you want to find the structure. In some cases, you want to check difference between the current version and the previous one of the target application. The difference tells you which executor, node, callback, or topic is updated. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves the function to get difference between two architecture objects. This function is called <code>diff</code> function in the following.</p>
+<p>The <code>diff</code> function can be used to find the difference between two architecture objects. Specifically, the <code>diff</code> functions can find data that exist only in one of the architectures, such as node, published topics, subscribed topics, and etc.
+There are several <code>diff</code> functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.</p>
+<p>The <code>diff</code> function is explained in the following sections. Before using the <code>diff</code> functions, the two architecture objects are loaded onto memory beforehand, as shown in the following script.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
 <span class="n">left_arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;old_architecture.yaml&#39;</span><span class="p">)</span>
 <span class="n">right_arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;new_architecture.yaml&#39;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="how-to-compare-architecture">How to compare architecture<a class="headerlink" href="#how-to-compare-architecture" title="Permanent link">#</a></h2>
-<p>The functions <code>diff_node_names()</code> and <code>diff_topic_names()</code> compare two architecture objects by finding the node names and topic names that exist only in one of the two objects.
-One possible use of these functions is to check the changes between the architecture before and after changes.</p>
+<p>The functions <code>diff_node_names()</code> and <code>diff_topic_names()</code> compare two architecture objects by finding the node names and topic names, respectively, that exist only in one of the two objects.
+<code>diff_node_names()</code> will show you which node is added or deleted in the new version of the target application. <code>diff_topic_names()</code> shows you which topic is added or deleted.</p>
 <h3 id="diff_node_names">diff_node_names()<a class="headerlink" href="#diff_node_names" title="Permanent link">#</a></h3>
-<p>The function <code>diff_node_names()</code> compares node names of architectures.</p>
+<p>The <code>diff_node_names()</code> function returns the name of the node whose name appears only in one of the two given architecture objects.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># sample_1</span>
 
 <span class="c1"># get node names that are only in left_arch and right_arch respectively</span>
@@ -2718,9 +2719,9 @@ One possible use of these functions is to check the changes between the architec
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_node_names</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_node_names</span><span class="p">)</span>
 </code></pre></div>
-<p>This function inputs two architectures, compares them, and outputs the node names that exist only in one of architectures.</p>
+<p>Two architectures are given to <code>diff_node_names()</code>. Two tuples containing node names are returned if they have any different nodes. If they are have the same nodes at all, <code>diff_node_names()</code> returns two empty tuples.</p>
 <h3 id="diff_topic_names">diff_topic_names()<a class="headerlink" href="#diff_topic_names" title="Permanent link">#</a></h3>
-<p>The function <code>diff_topic_names()</code> compares pub/sub topic names of architectures.</p>
+<p>The <code>diff_topic_names()</code> function returns the name of the topic whose name appears only in one of the two given architecture objects.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># sample_2</span>
 
 <span class="c1"># get topic names that are only in left_arch and right_arch respectively</span>
@@ -2730,7 +2731,7 @@ One possible use of these functions is to check the changes between the architec
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_topics</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_topics</span><span class="p">)</span>
 </code></pre></div>
-<p>This function inputs two architectures, compares them, and outputs the pub/sub topic names that exist only in one of architectures.</p>
+<p>Two architectures are given to <code>diff_topic_names()</code>. Two tuples containing topic names are returned if they have any different topics. If they are have the same topics at all, <code>diff_topic_names()</code> returns two empty tuples.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -2738,10 +2739,10 @@ One possible use of these functions is to check the changes between the architec
 </div>
 <p><prettier-ignore-end></p>
 <h2 id="how-to-compare-node-in-architecture">How to compare node in architecture<a class="headerlink" href="#how-to-compare-node-in-architecture" title="Permanent link">#</a></h2>
-<p>The <code>diff_node_pubs()</code> and <code>diff_node_subs()</code> function find the publish and subscription topics that exist only in one of the two nodes.
-This function can be compare also two nodes in different architecture objects.</p>
+<p>The <code>diff_node_pubs()</code> and <code>diff_node_subs()</code> function find the published and subscribed topics, respectively, that exist only in one of the two nodes.
+<code>diff_node_pubs()</code> will show you which publishing topic is added or deleted in the new version of the target node. <code>diff_node_subs()</code> shows you which subscribed topic is added or deleted.</p>
 <h3 id="diff_node_pubs">diff_node_pubs()<a class="headerlink" href="#diff_node_pubs" title="Permanent link">#</a></h3>
-<p>The function <code>diff_node_pubs()</code> compares publish topic names of nodes of architectures.</p>
+<p>The <code>diff_node_pubs()</code> function returns the name of the published topic whose name appears only in one of the two nodes.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># sample_3</span>
 
 <span class="n">left_node</span> <span class="o">=</span> <span class="n">left_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
@@ -2754,9 +2755,9 @@ This function can be compare also two nodes in different architecture objects.</
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_pub_topics</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_pub_topics</span><span class="p">)</span>
 </code></pre></div>
-<p>This function inputs two nodes of architectures, compares them, and outputs the publish topic names that exist only in one of nodes.</p>
+<p>Two nodes, whose types are <code>NodeStructValue</code>, are given to <code>diff_node_pubs()</code>. Two tuples containing topic names are returned if they have any different published topics. If they are have the same topics at all, <code>diff_node_pubs()</code> returns two empty tuples.</p>
 <h3 id="diff_node_subs">diff_node_subs()<a class="headerlink" href="#diff_node_subs" title="Permanent link">#</a></h3>
-<p>The function <code>diff_node_subs()</code> compares subscribe topic names of nodes of architectures.</p>
+<p>The <code>diff_node_subs()</code> function returns the name of the subscribed topic whose name appears only in one of the two nodes.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># sample_4</span>
 
 <span class="n">left_node</span> <span class="o">=</span> <span class="n">left_arch</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">)</span>
@@ -2769,7 +2770,7 @@ This function can be compare also two nodes in different architecture objects.</
 <span class="nb">print</span><span class="p">(</span><span class="n">left_only_sub_topics</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">right_only_sub_topics</span><span class="p">)</span>
 </code></pre></div>
-<p>This function inputs two nodes of architectures, compares them, and outputs the subscribe topic names that exist only in one of nodes.</p>
+<p>Two nodes, whose types are <code>NodeStructValue</code>, are given to <code>diff_node_subs()</code>. Two tuples containing topic names are returned if they have any different subscribed topics. If they are have the same topics at all, <code>diff_node_subs()</code> returns two empty tuples.</p>
 
 
 
