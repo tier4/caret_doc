@@ -1,9 +1,11 @@
 # How to get differences of architectures
 
-The diff function can be used to find the difference between two architectures. Specifically, the diff functions can find data that exist only in one of the architectures, such as node names, publish/subscribe topics, etc.
-There are four diff functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.
+An architecture object has structure of a target application. It is useful when you want to find the structure. In some cases, you want to check difference between the current version and the previous one of the target application. The difference tells you which executor, node, callback, or topic is updated. CARET serves the function to get difference between two architecture objects. This function is called `diff` function in the following.
 
-The diff function is explained below, and before using the diff functions, the two architecture objects are generated beforehand, as shown in the following script.
+The `diff` function can be used to find the difference between two architecture objects. Specifically, the `diff` functions can find data that exist only in one of the architectures, such as node, published topics, subscribed topics, and etc.
+There are several `diff` functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.
+
+The `diff` function is explained in the following sections. Before using the `diff` functions, the two architecture objects are loaded onto memory beforehand, as shown in the following script.
 
 ```python
 from caret_analyze import Architecture
@@ -14,12 +16,12 @@ right_arch = Architecture('yaml', 'new_architecture.yaml')
 
 ## How to compare architecture
 
-The functions `diff_node_names()` and `diff_topic_names()` compare two architecture objects by finding the node names and topic names that exist only in one of the two objects.
-One possible use of these functions is to check the changes between the architecture before and after changes.
+The functions `diff_node_names()` and `diff_topic_names()` compare two architecture objects by finding the node names and topic names, respectively, that exist only in one of the two objects.
+`diff_node_names()` will show you which node is added or deleted in the new version of the target application. `diff_topic_names()` shows you which topic is added or deleted.
 
 ### diff_node_names()
 
-The function `diff_node_names()` compares node names of architectures.
+The `diff_node_names()` function returns the name of the node whose name appears only in one of the two given architecture objects.
 
 ```python
 # sample_1
@@ -33,11 +35,11 @@ print(right_only_node_names)
 
 ```
 
-This function inputs two architectures, compares them, and outputs the node names that exist only in one of architectures.
+Two architectures are given to `diff_node_names()`. Two tuples containing node names are returned if they have any different nodes. If they are have the same nodes at all, `diff_node_names()` returns two empty tuples.
 
 ### diff_topic_names()
 
-The function `diff_topic_names()` compares pub/sub topic names of architectures.
+The `diff_topic_names()` function returns the name of the topic whose name appears only in one of the two given architecture objects.
 
 ```python
 # sample_2
@@ -51,7 +53,7 @@ print(right_only_topics)
 
 ```
 
-This function inputs two architectures, compares them, and outputs the pub/sub topic names that exist only in one of architectures.
+Two architectures are given to `diff_topic_names()`. Two tuples containing topic names are returned if they have any different topics. If they are have the same topics at all, `diff_topic_names()` returns two empty tuples.
 
 <prettier-ignore-start>
 !!!info
@@ -60,12 +62,12 @@ This function inputs two architectures, compares them, and outputs the pub/sub t
 
 ## How to compare node in architecture
 
-The `diff_node_pubs()` and `diff_node_subs()` function find the publish and subscription topics that exist only in one of the two nodes.
-This function can be compare also two nodes in different architecture objects.
+The `diff_node_pubs()` and `diff_node_subs()` function find the published and subscribed topics, respectively, that exist only in one of the two nodes.
+`diff_node_pubs()` will show you which publishing topic is added or deleted in the new version of the target node. `diff_node_subs()` shows you which subscribed topic is added or deleted.
 
 ### diff_node_pubs()
 
-The function `diff_node_pubs()` compares publish topic names of nodes of architectures.
+The `diff_node_pubs()` function returns the name of the published topic whose name appears only in one of the two nodes.
 
 ```python
 # sample_3
@@ -82,11 +84,12 @@ print(right_only_pub_topics)
 
 ```
 
-This function inputs two nodes of architectures, compares them, and outputs the publish topic names that exist only in one of nodes.
+Two nodes, whose types are `NodeStructValue`, are given to `diff_node_pubs()`. Two tuples containing topic names are returned if they have any different published topics. If they are have the same topics at all, `diff_node_pubs()` returns two empty tuples.
+
 
 ### diff_node_subs()
 
-The function `diff_node_subs()` compares subscribe topic names of nodes of architectures.
+The `diff_node_subs()` function returns the name of the subscribed topic whose name appears only in one of the two nodes.
 
 ```python
 # sample_4
@@ -103,4 +106,4 @@ print(right_only_sub_topics)
 
 ```
 
-This function inputs two nodes of architectures, compares them, and outputs the subscribe topic names that exist only in one of nodes.
+Two nodes, whose types are `NodeStructValue`, are given to `diff_node_subs()`. Two tuples containing topic names are returned if they have any different subscribed topics. If they are have the same topics at all, `diff_node_subs()` returns two empty tuples.
