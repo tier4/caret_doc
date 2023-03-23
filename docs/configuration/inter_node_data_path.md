@@ -176,7 +176,8 @@ We provide options for evaluating the callback times at the end of these paths.
   - If `True`, the time from callback_start to callback_end is included in the path analysis.
 
 Usage of `Path.include_first_callback/include_last_callback` is as following.
-```
+
+```python
 app = Application(arch, lttng)
 
 path_name = 'target_path'
