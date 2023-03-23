@@ -160,7 +160,7 @@ An exception is raised for pairs that cannot be combined.
 
 ### Considering first/last callback
 
-In CARET, the path is defined as `[node_name]-[topic_name]-... -[topic_name]-[node_name]` (for more information in [Path](../design/event_and_latency_definitions/path.mdPathe)).
+In CARET, the path is defined as `[node_name]-[topic_name]-... -[topic_name]-[node_name]` (for more information in [Path](../design/event_and_latency_definitions/path.md#Path)).
 In the default configuration, the path analysis does not include the callback processing times at both ends of the above paths. The following two processing times are not included by default in path analysis.
 
 - `callback_start` to `rclcpp_publish` or `rclcpp_intra_publish` in the first node.
