@@ -157,3 +157,31 @@ arch.export('new_architecture.yaml')
 ```
 
 An exception is raised for pairs that cannot be combined.
+
+### Considering first/last callback
+
+In CARET, the path is defined as `[node_name]-[topic_name]-... -[topic_name]-[node_name]` (for more information in [Path](../design/event_and_latency_definitions/path.mdPathe)).
+In the default configuration, the path analysis does not include the callback processing times at both ends of the above paths. The following two processing times are not included by default in path analysis.
+
+- `callback_start` to `rclcpp_publish` or `rclcpp_intra_publish` in the first node.
+- `callback_start` to `callback_end` in the last node.
+
+We provide options for evaluating the callback times at the end of these paths.
+
+- `Path.include_first_callback`
+  - Default: False
+  - If `True`, the time from callback_start to publish is included in the path analysis. The trace data used for the above callback_start adopts the data closest to the time of publish among those with the same tid as publish.
+- `Path.include_last_callback`
+  - Default: False
+  - If `True`, the time from callback_start to callback_end is included in the path analysis.
+
+Usage of `Path.include_first_callback/include_last_callback` is as following.
+```
+app = Application(arch, lttng)
+
+path_name = 'target_path'
+target_path = app.get_path(path_name)
+
+target_path.include_first_callback=True     # Include first callback in path analysis.
+target_path.include_last_callback=True      # Include last callback in path analysis.
+```
