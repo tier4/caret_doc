@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://tier4.github.io/CARET_doc/main/configuration/architecture_diff_func/</loc>
+         <lastmod>2023-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://tier4.github.io/CARET_doc/main/configuration/background/</loc>
          <lastmod>2023-03-24</lastmod>
          <changefreq>daily</changefreq>
