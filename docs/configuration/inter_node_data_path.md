@@ -183,6 +183,6 @@ app = Application(arch, lttng)
 path_name = 'target_path'
 target_path = app.get_path(path_name)
 
-target_path.include_first_callback=True     # Include first callback in path analysis.
-target_path.include_last_callback=True      # Include last callback in path analysis.
+target_path.include_first_callback = True     # Include first callback in path analysis.
+target_path.include_last_callback = True      # Include last callback in path analysis.
 ```
