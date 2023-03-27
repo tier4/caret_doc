@@ -1,6 +1,6 @@
 # Response Time
 
-In context of CARET, response time[^1] is defined how much of time costs from a message input to message output of a target path.
+In context of CARET, response time is defined how much of time costs from a message input to message output of a target path.
 Please refer to [FAQ](../../faq/faq.md#how-response-time-is-calculated) if you are interested in response time defined in CARET.
 
 <prettier-ignore-start>
