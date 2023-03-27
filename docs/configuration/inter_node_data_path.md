@@ -169,10 +169,10 @@ In the default configuration, the path analysis does not include the callback pr
 We provide options for evaluating the callback times at the end of these paths.
 
 - `Path.include_first_callback`
-  - Default: False
-  - If `True`, the time from callback_start to publish is included in the path analysis. The trace data used for the above callback_start adopts the data closest to the time of publish among those with the same tid as publish.
+  - Default: `False`
+  - If `True`, the time from callback_start to publish is included in the path analysis. The trace data used for the above callback_start adopts the data closest to the time of publish among those with the same tid as publish. Note that the first callback time added here may contain more than one callback object.
 - `Path.include_last_callback`
-  - Default: False
+  - Default: `False`
   - If `True`, the time from callback_start to callback_end is included in the path analysis.
 
 Usage of `Path.include_first_callback/include_last_callback` is as following.
