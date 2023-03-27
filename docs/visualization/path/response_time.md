@@ -1,10 +1,10 @@
 # Response Time
 
-In context of CARET, response time is defined how much of time costs from a message input to message output of target path. Please refer to [FAQ](../../faq/faq.md#how-response-time-is-calculated) if you are interested in response time defined in CARET.
+In context of CARET, response time is defined how much of time costs from a message input to message output of a target path. Please refer to [FAQ](../../faq/faq.md#how-response-time-is-calculated) if you are interested in response time defined in CARET.
 
 Three cases of response time is defined; `best-to-worst`, `best`, and `worst`. With `best` case, CARET samples shortest time elapsed in a targeted path. With `worst` case, the previous message input timing is taken into account. `best-to-worst` case includes most of all cases between `best` and `worst`.
 
-This section shows two method to visualize response time, `Histogram` and `Stacked Bar`.
+This section shows two methods to visualize response time, `Histogram` and `Stacked Bar`.
 Execute the following script code to load trace data and an architecture object before calling this method.
 
 ```python
@@ -78,4 +78,4 @@ plot.show()
 
 The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')`.
 
-`[worst - best] response time` in legends refers to the difference in response time between the worst case and best case it.
+`[worst - best] response time` in legends refers to the difference in response time between the worst case and the best case.
