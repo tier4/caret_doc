@@ -3,10 +3,12 @@
 In context of CARET, response time[^1] is defined how much of time costs from a message input to message output of a target path.
 Please refer to [FAQ](../../faq/faq.md#how-response-time-is-calculated) if you are interested in response time defined in CARET.
 
-
-[^1]: "Response time" is generally used for a system with input/output.
+<prettier-ignore-start>
+!!!Note
+    "Response time" is generally used for the input/output of a system.
     Therefore, when analyzing a part of a system (when a target path is a part of end-to-end path), it should be referred to as "path latency (sum of node latency and communication latency)" rather than "response time".
     However, both will be referred to as "response time" for simplicity in this document.
+<prettier-ignore-end>
 
 Three cases of response time is defined; `best-to-worst`, `best`, and `worst`. With `best` case, CARET samples shortest time elapsed in a targeted path. With `worst` case, the previous message input timing is taken into account. `best-to-worst` case includes most of all cases between `best` and `worst`.
 
