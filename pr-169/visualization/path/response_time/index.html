@@ -2706,8 +2706,8 @@ Execute the following script code to load trace data and an architecture object 
 </code></pre></div>
 <p><img alt="response_time_worst_histogram" src="../../../imgs/response_time_worst_histogram.png" /></p>
 <h2 id="stacked-bar">Stacked Bar<a class="headerlink" href="#stacked-bar" title="Permanent link">#</a></h2>
-<p>The following scripts generate stacked bar graphs of response time or path latency.
-Horizontal axis of the stacked bar graph means timeseries and vertical axis means <code>Response time</code> in worst case or <code>Path latency</code> in best case.</p>
+<p>The following scripts generate stacked bar graphs of response time.
+Horizontal axis of the stacked bar graph means timeseries and vertical axis means <code>Response time</code> in the worst case or in the best case.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># plot worst case</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_stacked_bar_plot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
