@@ -2869,7 +2869,7 @@ By searching short paths and combining them repeatedly, you can get a target pat
 <p>An exception is raised for pairs that cannot be combined.</p>
 <h3 id="considering-firstlast-callback">Considering first/last callback<a class="headerlink" href="#considering-firstlast-callback" title="Permanent link">#</a></h3>
 <p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, the path is defined as <code>[node_name]-[topic_name]-... -[topic_name]-[node_name]</code> (for more information in <a href="../../design/event_and_latency_definitions/path/#Path">Path</a>).
-In the default configuration, the path analysis does not include the callback processing times at both ends of the above paths. The following two processing times are not included by default in path analysis.</p>
+In the default configuration, the path analysis does not include the callback processing time either at the first node or at the last node of the above path. The following two processing times are not included by default in path analysis.</p>
 <ul>
 <li><code>callback_start</code> to <code>rclcpp_publish</code> or <code>rclcpp_intra_publish</code> in the first node.</li>
 <li><code>callback_start</code> to <code>callback_end</code> in the last node.</li>
