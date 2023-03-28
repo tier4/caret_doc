@@ -173,7 +173,7 @@ These processing times are evaluated using the following options.
   - If `True`, the processing time in the first node is included in the path analysis. The callback_start in the first node is that of a trace data whose timestamp is the closest to publish and thread id (tid) is the same as publish. Note that a callback object of the callback_start in the first node can vary if the node has several callbacks and any of them runs before publish.
 - `Path.include_last_callback`
   - Default: `False`
-  - If `True`, the time from callback_start to callback_end is included in the path analysis.
+  - If `True`, the processing time in the last node is included in the path analysis.
 
 Usage of `Path.include_first_callback/include_last_callback` is as following.
 
