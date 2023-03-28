@@ -164,7 +164,7 @@ In CARET, the path is defined as `[node_name]-[topic_name]-... -[topic_name]-[no
 In the default configuration, the path analysis does not include the callback processing time either at the first node or at the last node of the above path. The following two processing times are not included by default in path analysis.
 
 - Processing time in the first node; from `callback_start` to `rclcpp_publish` or `rclcpp_intra_publish`
-- `callback_start` to `callback_end` in the last node.
+- Processing time in the last node; from `callback_start` to `callback_end`
 
 These processing times are evaluated using the following options.
 
