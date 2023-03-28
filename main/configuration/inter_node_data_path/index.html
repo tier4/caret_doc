@@ -953,6 +953,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#considering-firstlast-callback" class="md-nav__link">
+    Considering first/last callback
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2731,6 +2738,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#considering-firstlast-callback" class="md-nav__link">
+    Considering first/last callback
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2869,6 +2883,35 @@ By searching short paths and combining them repeatedly, you can get a target pat
 <span class="n">arch</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s1">&#39;new_architecture.yaml&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>An exception is raised for pairs that cannot be combined.</p>
+<h3 id="considering-firstlast-callback">Considering first/last callback<a class="headerlink" href="#considering-firstlast-callback" title="Permanent link">#</a></h3>
+<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, the path is defined as <code>[node_name]-[topic_name]-... -[topic_name]-[node_name]</code> (for more information in <a href="../../design/event_and_latency_definitions/path/#Path">Path</a>).
+In the default configuration, the path analysis does not include the callback processing time either at the first node or at the last node of the above path. The following two processing times are not included by default in path analysis.</p>
+<ul>
+<li>Processing time in the first node; from <code>callback_start</code> to <code>rclcpp_publish</code> or <code>rclcpp_intra_publish</code></li>
+<li>Processing time in the last node; from <code>callback_start</code> to <code>callback_end</code></li>
+</ul>
+<p>These processing times are evaluated using the following options.</p>
+<ul>
+<li><code>Path.include_first_callback</code><ul>
+<li>Default: <code>False</code></li>
+<li>If <code>True</code>, the processing time in the first node is included in the path analysis. The callback_start in the first node is that of a trace data whose timestamp is the closest to publish and thread id (tid) is the same as publish. Note that a callback object of the callback_start in the first node can vary if the node has several callbacks and any of them runs before publish.</li>
+</ul>
+</li>
+<li><code>Path.include_last_callback</code><ul>
+<li>Default: <code>False</code></li>
+<li>If <code>True</code>, the processing time in the last node is included in the path analysis.</li>
+</ul>
+</li>
+</ul>
+<p>Usage of <code>Path.include_first_callback/include_last_callback</code> is as following.</p>
+<div class="highlight"><pre><span></span><code><span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
+
+<span class="n">path_name</span> <span class="o">=</span> <span class="s1">&#39;target_path&#39;</span>
+<span class="n">target_path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="n">path_name</span><span class="p">)</span>
+
+<span class="n">target_path</span><span class="o">.</span><span class="n">include_first_callback</span> <span class="o">=</span> <span class="kc">True</span>     <span class="c1"># Include first callback in path analysis.</span>
+<span class="n">target_path</span><span class="o">.</span><span class="n">include_last_callback</span> <span class="o">=</span> <span class="kc">True</span>      <span class="c1"># Include last callback in path analysis.</span>
+</code></pre></div>
 
 
 
