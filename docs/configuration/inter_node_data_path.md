@@ -166,7 +166,7 @@ In the default configuration, the path analysis does not include the callback pr
 - `callback_start` to `rclcpp_publish` or `rclcpp_intra_publish` in the first node.
 - `callback_start` to `callback_end` in the last node.
 
-We provide options for evaluating the callback times at the end of these paths.
+These processing times are evaluated using the following options.
 
 - `Path.include_first_callback`
   - Default: `False`
