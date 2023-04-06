@@ -64,6 +64,15 @@ def show(
     full_legends: bool = False,
     export_path: Optional[str] = None
 ) -> Figure:
+
+def save(
+    self,
+    export_path: str,
+    title: str = '',
+    xaxis_type: Optional[str] = None,
+    ywheel_zoom: Optional[bool] = None,
+    full_legends: Optional[bool] = None
+) -> None:
 ```
 
 In case `/clock` topic is not recorded in trace data, the following error will occur.
