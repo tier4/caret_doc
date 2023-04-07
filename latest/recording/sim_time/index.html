@@ -2787,24 +2787,17 @@ ros2<span class="w"> </span>run<span class="w"> </span>caret_trace<span class="w
 ros2_caret:sim_time:
 </code></pre></div>
 <h2 id="visualization-using-sim_time">Visualization using sim_time<a class="headerlink" href="#visualization-using-sim_time" title="Permanent link">#</a></h2>
-<p>By setting <code>use_sim_time=True</code> or <code>xaxis_type='sim_time'</code>, sim_time is used instead of system time for the following APIs.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">callback_sched</span><span class="p">(</span>
-    <span class="n">target</span><span class="p">:</span> <span class="n">CallbackGroupTypes</span><span class="p">,</span>
-    <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">coloring_rule</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;callback&#39;</span><span class="p">,</span>
-    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
+<p>By setting <code>xaxis_type='sim_time'</code>, sim_time is used instead of system time for the following APIs in Plot object.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_dataframe</span><span class="p">(</span>
+   <span class="bp">self</span><span class="p">,</span>
+   <span class="n">xaxis_type</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 
-<span class="k">def</span> <span class="nf">message_flow</span><span class="p">(</span>
-    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
-    <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">granularity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">treat_drop_as_delay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">lstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">rstrip_s</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="n">use_sim_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">def</span> <span class="nf">figure</span><span class="p">(</span>
+   <span class="bp">self</span><span class="p">,</span>
+   <span class="n">xaxis_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+   <span class="n">ywheel_zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
+   <span class="n">full_legends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
 
 <span class="k">def</span> <span class="nf">show</span><span class="p">(</span>
@@ -2814,6 +2807,15 @@ ros2_caret:sim_time:
     <span class="n">full_legends</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">export_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
+
+<span class="k">def</span> <span class="nf">save</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">export_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">xaxis_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">ywheel_zoom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">full_legends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </code></pre></div>
 <p>In case <code>/clock</code> topic is not recorded in trace data, the following error will occur.</p>
 <div class="highlight"><pre><span></span><code><span class="n">InvalidArgumentError</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">sim_time</span><span class="o">.</span> <span class="n">Please</span> <span class="n">measure</span> <span class="n">again</span> <span class="k">with</span> <span class="n">clock_recorder</span> <span class="n">running</span><span class="o">.</span>
@@ -2836,6 +2838,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>caret_demos<span class="w
 <li>
 <p>Open another terminal to record rosbag</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
 <span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/local_setup.bash
 
 ros2<span class="w"> </span>bag<span class="w"> </span>record<span class="w"> </span>/topic1<span class="w"> </span>/drive
@@ -2880,6 +2883,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>caret_trace<span class="w
 <li>
 <p>Open another terminal to play the rosbag</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
 <span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/local_setup.bash
 
 <span class="w"> </span>ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>rosbag2_2022_09_30-10_57_06<span class="w"> </span>--clock<span class="w"> </span>-r<span class="w"> </span><span class="m">0</span>.2
@@ -2920,12 +2924,13 @@ ros2_caret:sim_time:
 
 <span class="c1"># Draw message_flow</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target_path&#39;</span><span class="p">)</span>
-<span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">use_sim_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_message_flow_plot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">xaxis_type</span><span class="o">=</span><span class="s1">&#39;sim_time&#39;</span><span class="p">)</span>
 
 <span class="c1"># Draw node info</span>
 <span class="n">node</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;/filter_node&#39;</span><span class="p">)</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_callback_period_plot</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;sim_time&#39;</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_period_timeseries_plot</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">xaxis_type</span><span class="o">=</span><span class="s1">&#39;sim_time&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 
