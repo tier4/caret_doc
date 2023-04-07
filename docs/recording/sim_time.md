@@ -42,26 +42,19 @@ ros2_caret:sim_time:
 
 ## Visualization using sim_time
 
-By setting `use_sim_time=True` or `xaxis_type='sim_time'`, sim_time is used instead of system time for the following APIs.
+By setting `xaxis_type='sim_time'`, sim_time is used instead of system time for the following APIs in Plot object.
 
 ```python
-def callback_sched(
-    target: CallbackGroupTypes,
-    lstrip_s: float = 0,
-    rstrip_s: float = 0,
-    coloring_rule: str = 'callback',
-    use_sim_time: bool = False,
-    export_path: Optional[str] = None
-) -> Figure:
+def to_dataframe(
+   self,
+   xaxis_type: str
+) -> pd.DataFrame:
 
-def message_flow(
-    path: Path,
-    export_path: Optional[str] = None,
-    granularity: Optional[str] = None,
-    treat_drop_as_delay=False,
-    lstrip_s: float = 0,
-    rstrip_s: float = 0,
-    use_sim_time: bool = False
+def figure(
+   self,
+   xaxis_type: Optional[str],
+   ywheel_zoom: Optional[bool],
+   full_legends: Optional[bool]
 ) -> Figure:
 
 def show(
@@ -71,6 +64,15 @@ def show(
     full_legends: bool = False,
     export_path: Optional[str] = None
 ) -> Figure:
+
+def save(
+    self,
+    export_path: str,
+    title: str = '',
+    xaxis_type: Optional[str] = None,
+    ywheel_zoom: Optional[bool] = None,
+    full_legends: Optional[bool] = None
+) -> None:
 ```
 
 In case `/clock` topic is not recorded in trace data, the following error will occur.
@@ -102,6 +104,7 @@ The following steps can be performed either with or without CARET. If you have b
 
    ```sh
    source /opt/ros/humble/setup.bash
+   source ~/ros2_caret_ws/install/local_setup.bash
    source ~/ros2_ws/install/local_setup.bash
 
    ros2 bag record /topic1 /drive
@@ -152,6 +155,7 @@ The following steps can be performed either with or without CARET. If you have b
 
    ```sh
     source /opt/ros/humble/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash
     source ~/ros2_ws/install/local_setup.bash
 
     ros2 bag play rosbag2_2022_09_30-10_57_06 --clock -r 0.2
@@ -190,10 +194,11 @@ app = Application(arch, lttng)
 
 # Draw message_flow
 path = app.get_path('target_path')
-message_flow(path, use_sim_time=True)
+plot = Plot.create_message_flow_plot(path)
+plot.show(xaxis_type='sim_time')
 
 # Draw node info
 node = app.get_node('/filter_node')
-plot = Plot.create_callback_period_plot(node.callbacks)
-plot.show('sim_time')
+plot = Plot.create_period_timeseries_plot(node.callbacks)
+plot.show(xaxis_type='sim_time')
 ```
