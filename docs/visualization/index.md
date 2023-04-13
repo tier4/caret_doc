@@ -37,10 +37,12 @@ plot.show()
 `plot` object is obtained from `Plot.create_[Metrics]_[GraphType]_plot(data)`. The argument of `data` is, for example, a `CallbackBase`-based object or a `Communication`-based object. A list of `CallbackBase` or `Communication` is also acceptable as explained later.
 Any of performance metrics such as `latency`, `frequency`, or `period` is given as `Metrics`. `GraphType` is served to select a graph type such as time-series or histogram.
 
-`plot` object has two method; `to_dataframe()` and `show()`.
-`to_dataframe()` method returns a table including time-series data on a given metrics.
-`show()` method creates a figure of time-series graph and returns the corresponding figure handler. In other words, `show()` method visualizes the time-series data.
-If you want to create another type of graph manually, you will get the table by `to_dataframe()` method and convert it into the expected graph.
+`plot` object has following four method; `to_dataframe()`, `show()`, `save()`, and `figure()`.
+
+- `to_dataframe()` method returns a table including time-series data on a given metrics. If you want to create another type of graph manually, you will get the table by `to_dataframe()` method and convert it into the expected graph.
+- `show()` method creates a figure of time-series graph. In other words, `show()` method visualizes the time-series data.
+- `save()` method saves the figure in an arbitrary path.
+- `figure()` method returns the corresponding figure handler. This method allows additional customization of the figure before it is displayed.
 
 ## Visualization API
 

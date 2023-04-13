@@ -17,7 +17,7 @@ Open a new terminal and run the following commands before recording and running 
 
 <prettier-ignore-start>
 !!!info
-      Remember to set `use_sim_time=true` for each node when launching a target application  
+      Remember to set `use_sim_time=true` for each node when launching a target application
       Remember to add `--clock` option when playing rosbag
 <prettier-ignore-end>
 
@@ -62,8 +62,7 @@ def show(
     xaxis_type: str = 'system_time',
     ywheel_zoom: bool = True,
     full_legends: bool = False,
-    export_path: Optional[str] = None
-) -> Figure:
+) -> None:
 
 def save(
     self,
@@ -110,7 +109,7 @@ The following steps can be performed either with or without CARET. If you have b
    ros2 bag record /topic1 /drive
    ```
 
-   Here, `/topic1` and `/drive` are source topics of the sample application.  
+   Here, `/topic1` and `/drive` are source topics of the sample application.
    You can check if rosbag is successfully recorded.
 
    ```bash
