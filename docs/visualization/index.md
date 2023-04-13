@@ -38,6 +38,7 @@ plot.show()
 Any of performance metrics such as `latency`, `frequency`, or `period` is given as `Metrics`. `GraphType` is served to select a graph type such as time-series or histogram.
 
 `plot` object has following four method; `to_dataframe()`, `show()`, `save()`, and `figure()`.
+
 - `to_dataframe()` method returns a table including time-series data on a given metrics. If you want to create another type of graph manually, you will get the table by `to_dataframe()` method and convert it into the expected graph.
 - `show()` method creates a figure of time-series graph. In other words, `show()` method visualizes the time-series data.
 - `save()` method saves the figure in an arbitrary path.
