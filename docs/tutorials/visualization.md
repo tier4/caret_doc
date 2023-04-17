@@ -72,13 +72,14 @@ With message flow, which is one of effective visualizations, users can understan
 Execute the following code for visualization with message flow.
 
 ```python
-from caret_analyze.plot import message_flow
+from caret_analyze.plot import Plot
 
 path = app.get_path('target')
-message_flow(path)
+plot = Plot.create_message_flow_plot(target_path)
+plot.show()
 ```
 
-The following figure will appear if `message_flow` method is successful.
+The following figure will appear if `show` method is successful.
 
 ![message_flow_sample](../imgs/message_flow_with_cursor.png)
 

@@ -68,7 +68,7 @@ See [Premise of communication](./premise_of_communication.md) for more details. 
 
 ### Path
 
-- [`message_flow`](./path/message_flow.md)
+- [`create_message_flow_plot`](./path/message_flow.md)
   - Visualize message flow of a target path
 - [`create_response_time_histogram_plot`](./path/response_time.md)
 - [`chain_latency`](./path/chain_latency.md)
