@@ -2747,12 +2747,13 @@ jupyter-lab
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides some APIs to visualize measured data.
 With message flow, which is one of effective visualizations, users can understand what happens and where is bottleneck in target applications.
 Execute the following code for visualization with message flow.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">message_flow</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 
 <span class="n">path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
-<span class="n">message_flow</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_message_flow_plot</span><span class="p">(</span><span class="n">target_path</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<p>The following figure will appear if <code>message_flow</code> method is successful.</p>
+<p>The following figure will appear if <code>show</code> method is successful.</p>
 <p><img alt="message_flow_sample" src="../../imgs/message_flow_with_cursor.png" /></p>
 <p>The horizontal axis shows time line. On the other hand, the vertical axis shows elements of the node chain (<code>target</code>), which include callback functions and topic messages from input to output. Each colorful line shows how a certain input message is propagated to callback functions and topic communications. Gray rectangles show execution timing of callback functions.</p>
 <p>If your mouse pointer is put over one of gray rectangles, latency of callback functions will be shown. You can find latency of a target node chain as well if you put the mouse pointer onto one of colorful lines.</p>
