@@ -2,6 +2,10 @@
 
 ## CARET
 
+### v0.4.7 <small>\_ Apr 17, 2023</small> {id = "0.4.7"}
+
+- Refactored the Plot package design ([CARET_analyze #267](https://github.com/tier4/CARET_analyze/pull/267)), ([CARET_analyze #275](https://github.com/tier4/CARET_analyze/pull/275)), ([CARET_analyze #277](https://github.com/tier4/CARET_analyze/pull/277)), ([CARET_analyze #278](https://github.com/tier4/CARET_analyze/pull/278)), ([CARET_analyze #279](https://github.com/tier4/CARET_analyze/pull/279)), ([CARET_analyze #280](https://github.com/tier4/CARET_analyze/pull/280))
+
 ### v0.4.6 <small>\_ Apr 3, 2023</small> {id = "0.4.6"}
 
 - **New**: Added function to visualize response time with the stacked bar graph([CARET_analyze #265](https://github.com/tier4/CARET_analyze/pull/265), [CARET_analyze #259](https://github.com/tier4/CARET_analyze/pull/259), [CARET_doc #169](https://github.com/tier4/CARET_doc/pull/169))
