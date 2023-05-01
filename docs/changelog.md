@@ -2,6 +2,11 @@
 
 ## CARET
 
+### v0.4.8 <small>\_ May 1, 2023</small> {id = "0.4.8"}
+
+- Improved implementation of message flow viewing API ([CARET_analyze #179](https://github.com/tier4/CARET_doc/pull/179)), ([CARET_analyze #274](https://github.com/tier4/CARET_analyze/pull/274)), ([CARET_analyze #282](https://github.com/tier4/CARET_analyze/pull/282))
+- Reduced warnings when loading trace data ([CARET_analyze #284](https://github.com/tier4/CARET_analyze/pull/284))
+
 ### v0.4.7 <small>\_ Apr 17, 2023</small> {id = "0.4.7"}
 
 - Refactored the Plot package design ([CARET_analyze #267](https://github.com/tier4/CARET_analyze/pull/267)), ([CARET_analyze #275](https://github.com/tier4/CARET_analyze/pull/275)), ([CARET_analyze #277](https://github.com/tier4/CARET_analyze/pull/277)), ([CARET_analyze #278](https://github.com/tier4/CARET_analyze/pull/278)), ([CARET_analyze #279](https://github.com/tier4/CARET_analyze/pull/279)), ([CARET_analyze #280](https://github.com/tier4/CARET_analyze/pull/280))
