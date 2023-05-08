@@ -36,24 +36,24 @@ A sample of the architecture file is as follows.
 | &emsp; &emsp; symbol                          | String       | Yes                                        | Yes                                        | symbol for callback function.                      |
 | &emsp; &emsp; period_ns                       | int          | Required for timer_callback only.          | Yes                                        |                                                    |
 | &emsp; &emsp; topic_name                      | String       | Required for subscription_callback only.   | Yes                                        |                                                    |
-| &emsp; &emsp; construction_order              | int          | No                                         | No                                         | Zero is used as the default value if not present.  |
+| &emsp; &emsp; construction_order              | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
 | &emsp; variable_passings                      | List         | No                                         | Yes                                        |                                                    |
 | &emsp; &emsp; callback_name_write             | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
 | &emsp; &emsp; callback_name_read              | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
 | &emsp; publishes                              | List         | No                                         | Yes                                        |                                                    |
 | &emsp; &emsp; topic_name                      | String       | No                                         | Yes                                        |                                                    |
 | &emsp; &emsp; callback_names                  | List(String) | No                                         | No (Edit architecture file)                | callbacks which publish the topic.                 |
-| &emsp; &emsp; construction_order              | int          | Required if node is not start of the path. | No (Edit architecture file)                |                                                    |
+| &emsp; &emsp; construction_order              | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
 | &emsp; subscribes                             | List         | No                                         | Yes                                        |                                                    |
 | &emsp; &emsp; topic_name                      | String       | No                                         | Yes                                        |                                                    |
 | &emsp; &emsp; callback_name                   | String       | No                                         | Yes                                        |                                                    |
-| &emsp; &emsp; construction_order              | int          | No                                         | No                                         | Zero is used as the default value if not present.  |
+| &emsp; &emsp; construction_order              | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
 | &emsp; message_contexts                       | List         | No                                         | Yes                                        | Field to define node latency                       |
 | &emsp; &emsp; context_type                    | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
 | &emsp; &emsp; subscription_topic_name         | String       | No                                         | Yes                                        |                                                    |
 | &emsp; &emsp; publisher_topic_name            | String       | No                                         | Yes                                        |                                                    |
-| &emsp; &emsp; publisher_construction_order    | int          | No                                         | Yes                                        |                                                    |
-| &emsp; &emsp; subscription_construction_order | int          | No                                         | Yes                                        |                                                    |
+| &emsp; &emsp; publisher_construction_order    | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
+| &emsp; &emsp; subscription_construction_order | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
 
 ## Sample
 
