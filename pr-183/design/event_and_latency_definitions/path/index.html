@@ -2306,40 +2306,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Path
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         Path
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#definition-in-architecture-file" class="md-nav__link">
-    Definition in Architecture file
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2635,21 +2604,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#definition-in-architecture-file" class="md-nav__link">
-    Definition in Architecture file
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2693,23 +2647,6 @@ For example, the start time might be more appropriately a stamp value in the sen
 It's current issue to support for such more precise latency.</p>
 </div>
 <p><prettier-ignore-end></p>
-<h2 id="definition-in-architecture-file">Definition in Architecture file<a class="headerlink" href="#definition-in-architecture-file" title="Permanent link">#</a></h2>
-<p>Strictly speaking, the Architecture file describes the path for each node as follows.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">named_paths</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target</span>
-<span class="w">    </span><span class="nt">node_chain</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/A</span>
-<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/a</span>
-<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/C</span>
-<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/e</span>
-<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/a</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">node_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/E</span>
-<span class="w">        </span><span class="nt">publish_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UNDEFINED</span>
-<span class="w">        </span><span class="nt">subscribe_topic_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/e</span>
-</code></pre></div>
-<p>Cases where the same node subscribes to the same topic as shown below are currently not supported.</p>
-<p><img alt="node path invalid case" src="../../../imgs/node_path_invalid_case.drawio.png" /></p>
 
 
 
