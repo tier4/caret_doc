@@ -21,26 +21,3 @@ For example, in the following case, the path definition is `[A]-[/a]-[C]-[/e]-[E
     For example, the start time might be more appropriately a stamp value in the sensor message.
     It's current issue to support for such more precise latency.
 <prettier-ignore-end>
-
-## Definition in Architecture file
-
-Strictly speaking, the Architecture file describes the path for each node as follows.
-
-```yaml
-named_paths:
-  - path_name: target
-    node_chain:
-      - node_name: /A
-        publish_topic_name: /a
-        subscribe_topic_name: UNDEFINED
-      - node_name: /C
-        publish_topic_name: /e
-        subscribe_topic_name: /a
-      - node_name: /E
-        publish_topic_name: UNDEFINED
-        subscribe_topic_name: /e
-```
-
-Cases where the same node subscribes to the same topic as shown below are currently not supported.
-
-![node path invalid case](../../imgs/node_path_invalid_case.drawio.png)
