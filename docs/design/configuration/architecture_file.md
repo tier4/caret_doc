@@ -12,42 +12,48 @@ It contains the following information.
 
 A sample of the architecture file is as follows.
 
-| Key                                   | Type         | Required?                                  | Auto generate? <br> (Configuration method) | Note / Description                                 |
-| ------------------------------------- | ------------ | ------------------------------------------ | ------------------------------------------ | -------------------------------------------------- |
-| named_paths                           | List         | Yes                                        | Yes                                        | Path definitions to evaluate.                      |
-| &emsp; path_name                      | String       | Yes                                        | No (Edit via Python-API)                   |                                                    |
-| &emsp; node_chain                     | List         | Yes                                        | No (Edit via Python-API)                   |                                                    |
-| &emsp; &emsp; node_name               | String       | Yes                                        | No (Edit via Python-API)                   |                                                    |
-| &emsp; &emsp; publish_topic_name      | String       | Required if node is not end of the path.   | No (Edit via Python-API)                   |                                                    |
-| &emsp; &emsp; subscribe_topic_name    | String       | Required if node is not start of the path. | No (Edit via Python-API)                   |                                                    |
-| executors                             | List         | Yes                                        | Yes                                        |                                                    |
-| &emsp; executor_type                  | String       | Yes                                        | Yes                                        | single_threaded_executor / multi_threaded_executor |
-| &emsp; executor_name                  | String       | Yes                                        | Yes                                        |                                                    |
-| &emsp; callback_group_names           | List(String) | Yes                                        | Yes                                        |                                                    |
-| nodes                                 | List         | Yes                                        | Yes                                        |                                                    |
-| &emsp; node_name                      | String       | Yes                                        | Yes                                        |                                                    |
-| &emsp; callback_groups                | List         | Yes                                        | Yes                                        |                                                    |
-| &emsp; &emsp; callback_group_type     | String       | Yes                                        | Yes                                        | mutually_exclusive / reentrant                     |
-| &emsp; &emsp; callback_group_name     | String       | Yes                                        | Yes                                        |                                                    |
-| &emsp; callbacks                      | List         | Yes                                        | Yes                                        |                                                    |
-| &emsp; &emsp; callback_type           | String       | Yes                                        | Yes                                        | timer_callback / subscription_callback             |
-| &emsp; &emsp; symbol                  | String       | Yes                                        | Yes                                        | symbol for callback function.                      |
-| &emsp; &emsp; period_ns               | int          | Required for timer_callback only.          | Yes                                        |                                                    |
-| &emsp; &emsp; topic_name              | String       | Required for subscription_callback only.   | Yes                                        |                                                    |
-| &emsp; &emsp; construction_order      | int          | No                                         | No                                         | Zero is used as the default value if not present.  |
-| &emsp; variable_passings              | List         | No                                         | Yes                                        |                                                    |
-| &emsp; &emsp; callback_name_write     | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
-| &emsp; &emsp; callback_name_read      | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
-| &emsp; publishes                      | List         | No                                         | Yes                                        |                                                    |
-| &emsp; &emsp; topic_name              | String       | No                                         | Yes                                        |                                                    |
-| &emsp; &emsp; callback_names          | List(String) | No                                         | No (Edit architecture file)                | callbacks which publish the topic.                 |
-| &emsp; subscribes                     | List         | No                                         | Yes                                        |                                                    |
-| &emsp; &emsp; topic_name              | String       | No                                         | Yes                                        |                                                    |
-| &emsp; &emsp; callback_name           | String       | No                                         | Yes                                        |                                                    |
-| &emsp; message_contexts               | List         | No                                         | Yes                                        | Field to define node latency                       |
-| &emsp; &emsp; context_type            | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
-| &emsp; &emsp; subscription_topic_name | String       | No                                         | Yes                                        |                                                    |
-| &emsp; &emsp; publisher_topic_name    | String       | No                                         | Yes                                        |                                                    |
+| Key                                           | Type         | Required?                                  | Auto generate? <br> (Configuration method) | Note / Description                                 |
+| --------------------------------------------- | ------------ | ------------------------------------------ | ------------------------------------------ | -------------------------------------------------- |
+| named_paths                                   | List         | Yes                                        | Yes                                        | Path definitions to evaluate.                      |
+| &emsp; path_name                              | String       | Yes                                        | No (Edit via Python-API)                   |                                                    |
+| &emsp; node_chain                             | List         | Yes                                        | No (Edit via Python-API)                   |                                                    |
+| &emsp; &emsp; node_name                       | String       | Yes                                        | No (Edit via Python-API)                   |                                                    |
+| &emsp; &emsp; publish_topic_name              | String       | Required if node is not end of the path.   | No (Edit via Python-API)                   |                                                    |
+| &emsp; &emsp; subscribe_topic_name            | String       | Required if node is not start of the path. | No (Edit via Python-API)                   |                                                    |
+| &emsp; &emsp; publisher_construction_order    | int          | No                                         | No (Edit via Python-API)                   | Zero is used as the default value if not present.  |
+| &emsp; &emsp; subscription_construction_order | int          | No                                         | No (Edit via Python-API)                   | Zero is used as the default value if not present.  |
+| executors                                     | List         | Yes                                        | Yes                                        |                                                    |
+| &emsp; executor_type                          | String       | Yes                                        | Yes                                        | single_threaded_executor / multi_threaded_executor |
+| &emsp; executor_name                          | String       | Yes                                        | Yes                                        |                                                    |
+| &emsp; callback_group_names                   | List(String) | Yes                                        | Yes                                        |                                                    |
+| nodes                                         | List         | Yes                                        | Yes                                        |                                                    |
+| &emsp; node_name                              | String       | Yes                                        | Yes                                        |                                                    |
+| &emsp; callback_groups                        | List         | Yes                                        | Yes                                        |                                                    |
+| &emsp; &emsp; callback_group_type             | String       | Yes                                        | Yes                                        | mutually_exclusive / reentrant                     |
+| &emsp; &emsp; callback_group_name             | String       | Yes                                        | Yes                                        |                                                    |
+| &emsp; callbacks                              | List         | Yes                                        | Yes                                        |                                                    |
+| &emsp; &emsp; callback_type                   | String       | Yes                                        | Yes                                        | timer_callback / subscription_callback             |
+| &emsp; &emsp; symbol                          | String       | Yes                                        | Yes                                        | symbol for callback function.                      |
+| &emsp; &emsp; period_ns                       | int          | Required for timer_callback only.          | Yes                                        |                                                    |
+| &emsp; &emsp; topic_name                      | String       | Required for subscription_callback only.   | Yes                                        |                                                    |
+| &emsp; &emsp; construction_order              | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
+| &emsp; variable_passings                      | List         | No                                         | Yes                                        |                                                    |
+| &emsp; &emsp; callback_name_write             | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
+| &emsp; &emsp; callback_name_read              | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
+| &emsp; publishes                              | List         | No                                         | Yes                                        |                                                    |
+| &emsp; &emsp; topic_name                      | String       | No                                         | Yes                                        |                                                    |
+| &emsp; &emsp; callback_names                  | List(String) | No                                         | No (Edit architecture file)                | callbacks which publish the topic.                 |
+| &emsp; &emsp; construction_order              | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
+| &emsp; subscribes                             | List         | No                                         | Yes                                        |                                                    |
+| &emsp; &emsp; topic_name                      | String       | No                                         | Yes                                        |                                                    |
+| &emsp; &emsp; callback_name                   | String       | No                                         | Yes                                        |                                                    |
+| &emsp; &emsp; construction_order              | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
+| &emsp; message_contexts                       | List         | No                                         | Yes                                        | Field to define node latency                       |
+| &emsp; &emsp; context_type                    | String       | No                                         | No (Edit architecture file)                | default value = UNDEFINED                          |
+| &emsp; &emsp; subscription_topic_name         | String       | No                                         | Yes                                        |                                                    |
+| &emsp; &emsp; publisher_topic_name            | String       | No                                         | Yes                                        |                                                    |
+| &emsp; &emsp; publisher_construction_order    | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
+| &emsp; &emsp; subscription_construction_order | int          | No                                         | Yes                                        | Zero is used as the default value if not present.  |
 
 ## Sample
 
@@ -63,6 +69,7 @@ named_paths:
       - node_name: /pong_node
         publish_topic_name: UNDEFINED
         subscribe_topic_name: /chatter
+        subscription_construction_order: 1
 executors:
   - executor_type: single_threaded_executor
     executor_name: executor_0
