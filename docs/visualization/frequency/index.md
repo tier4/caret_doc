@@ -1,6 +1,6 @@
 # Frequency
 
-CARET is able to show you frequencies of callback execution, message communication, and invocation of publisher or subscription.  
+CARET is able to show you frequencies of callback execution, message communication, and invocation of publisher or subscription.
 `Plot.create_frequency_timeseries_plot(target_object)` interface is provided for it.
 This section describes sample visualization scripts for them.
 Execute the following script code to load trace data and an architecture object before calling this method.
@@ -45,14 +45,9 @@ The vertical axis means frequency of callback execution, labeled as `Frequency [
 
 ## Communication
 
-`Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` is introduced to confirm targeted topic is communicated at expected frequency.  
+`Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` is introduced to confirm targeted topic is communicated at expected frequency.
 Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See [Premise of communication](../premise_of_communication.md) for more details.
-
-<prettier-ignore-start>
-!!! info
-    Current implementation of CARET does not behave as explained above. In this moment, CARET counts not only successful communication but also failure ones for calculating frequency. This implementation will be improved in the near future.
-<prettier-ignore-end>
 
 ```python
 ### Timestamp tables
