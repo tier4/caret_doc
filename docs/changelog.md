@@ -4,7 +4,7 @@
 
 ### v0.4.8 <small>\_ May 1, 2023</small> {id = "0.4.8"}
 
-- Improved implementation of message flow viewing API ([CARET_analyze #179](https://github.com/tier4/CARET_doc/pull/179)), ([CARET_analyze #274](https://github.com/tier4/CARET_analyze/pull/274)), ([CARET_analyze #282](https://github.com/tier4/CARET_analyze/pull/282))
+- Removed deprecated interface such as `message_flow` ([CARET_analyze #179](https://github.com/tier4/CARET_doc/pull/179)), ([CARET_analyze #274](https://github.com/tier4/CARET_analyze/pull/274)), ([CARET_analyze #282](https://github.com/tier4/CARET_analyze/pull/282))
 - Reduced warnings when loading trace data ([CARET_analyze #284](https://github.com/tier4/CARET_analyze/pull/284))
 
 ### v0.4.7 <small>\_ Apr 17, 2023</small> {id = "0.4.7"}
