@@ -2,6 +2,12 @@
 
 ## CARET
 
+### v0.4.9 <small>\_ May 15, 2023</small> {id = "0.4.9"}
+
+- **Update**:Improved path analysis to analyze paths that contain the same symbol object ([CARET_analyze #261](https://github.com/tier4/CARET_analyze/pull/261)), ([CARET_doc #183](https://github.com/tier4/CARET_doc/pull/183))
+- Improved Plot class to not plot on a graph when communication is not established ([CARET_analyze #291](https://github.com/tier4/CARET_analyze/pull/291)), ([CARET_doc #184](https://github.com/tier4/CARET_doc/pull/184))
+- Removed old module, `node_graph` and `callback_graph` ([CARET_analyze #290](https://github.com/tier4/CARET_analyze/pull/290))
+
 ### v0.4.8 <small>\_ May 1, 2023</small> {id = "0.4.8"}
 
 - Removed deprecated interface such as `message_flow` ([CARET_analyze #179](https://github.com/tier4/CARET_doc/pull/179)), ([CARET_analyze #274](https://github.com/tier4/CARET_analyze/pull/274)), ([CARET_analyze #282](https://github.com/tier4/CARET_analyze/pull/282))
