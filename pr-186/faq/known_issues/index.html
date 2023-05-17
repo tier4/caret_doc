@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
     
     
       
@@ -2816,9 +2816,9 @@ sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp: In member function ‘void rclcpp::Publisher&lt;MessageT, AllocatorT&gt;::do_inter_process_publish(const ROSMessageType&amp;)’:
-/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:452:5: error: too few arguments to function ‘void ros_trace_rclcpp_publish(const void*, const void*, uint64_t)’
-  452 |     TRACEPOINT(rclcpp_publish, nullptr, static_cast&lt;const void *&gt;(&amp;msg));
+<div class="highlight"><pre><span></span><code>/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:<span class="w"> </span>In<span class="w"> </span>member<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘void<span class="w"> </span>rclcpp::Publisher&lt;MessageT,<span class="w"> </span>AllocatorT&gt;::do_inter_process_publish<span class="o">(</span>const<span class="w"> </span>ROSMessageType<span class="p">&amp;</span><span class="o">)</span>’:
+/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:452:5:<span class="w"> </span>error:<span class="w"> </span>too<span class="w"> </span>few<span class="w"> </span>arguments<span class="w"> </span>to<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘void<span class="w"> </span>ros_trace_rclcpp_publish<span class="o">(</span>const<span class="w"> </span>void*,<span class="w"> </span>const<span class="w"> </span>void*,<span class="w"> </span>uint64_t<span class="o">)</span>’
+<span class="w">  </span><span class="m">452</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>TRACEPOINT<span class="o">(</span>rclcpp_publish,<span class="w"> </span>nullptr,<span class="w"> </span>static_cast&lt;const<span class="w"> </span>void<span class="w"> </span>*&gt;<span class="o">(</span><span class="p">&amp;</span>msg<span class="o">))</span><span class="p">;</span>
 </code></pre></div>
 <ul>
 <li>Cause<ul>
@@ -2934,7 +2934,7 @@ sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c2be25ad.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
       
