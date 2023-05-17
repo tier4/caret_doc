@@ -143,6 +143,7 @@ RECORD : Record initialization and runtime trace data with LTTng
 Refer to [Status](#state-definition) for further details of the state machine.
 
 ## Multi-host system
+
 On multi-host system, typical use cases are shown as follows.
 
 ```bash
@@ -241,6 +242,7 @@ Lttng_1 is "Destroyed"
 ```
 
 Please note that "Start recording" and "Stop recording" are sent to all trace nodes regardless of its host since it is a topic message. To prevent state transition by messages from other hosts, trace node ignore messages as follow.
+
 - Ignore "Start recording" when no active LTTng session exists.
 - Ignore "Start recording" when its state is not WAIT.
 - Ignore "End recording" when an active LTTng session exists.
