@@ -142,6 +142,109 @@ RECORD : Record initialization and runtime trace data with LTTng
 
 Refer to [Status](#state-definition) for further details of the state machine.
 
+## Multi-host system
+On multi-host system, typical use cases are shown as follows.
+
+```bash
+# Run a node at Terminal 0 on Host 0.
+ros2 run pkg node
+```
+
+```bash
+# Run a node at Terminal 0 on Host 1.
+ros2 run pkg node
+```
+
+```bash
+# Execute "record" command with Termial 1 on Host 0.
+ros2 caret record
+```
+
+```bash
+# Execute "record" command with Termial 1 on Host 1.
+ros2 caret record
+```
+
+State transition is shown below.
+
+```plantuml
+concise "Terminal 0 on Host 0" as User0_0
+concise "Terminal 1 on Host 0" as User1_0
+concise "Terminal 0 on Host 1" as User0_1
+concise "Terminal 1 on Host 1" as User1_1
+concise "trace node state on Host 0" as Hook_0
+concise "LTTng session on Host 0" as Lttng_0
+concise "trace node state on Host 1" as Hook_1
+concise "LTTng session on Host 1" as Lttng_1
+
+@0
+User0_0 is "Idle"
+User1_0 is "Idle"
+Hook_0 is "Idle"
+Lttng_0 is "Idle"
+User0_1 is "Idle"
+User1_1 is "Idle"
+Hook_1 is "Idle"
+Lttng_1 is "Idle"
+
+@2
+User0_0 is "ros2 run pkg node"
+Hook_0 is WAIT
+User0_0 -> Hook_0
+
+@3
+User0_1 is "ros2 run pkg node"
+Hook_1 is WAIT
+User0_1 -> Hook_1
+
+@5
+User1_0 is "ros2 caret record"
+Hook_0 is PREPARE
+User1_0 -> Hook_0 : Start recording \n[ /caret/start_record ]\n\n\n\n
+User1_0 -> Lttng_0
+Lttng_0 is "Active"
+User1_0 -> Hook_1
+
+@7
+Hook_0 is RECORD
+Hook_0 -> User1_0 : Notify state transition \n[ /caret/status ]
+Hook_0 -> User1_1
+
+@8
+User1_1 is "ros2 caret record"
+Hook_1 is PREPARE
+User1_1 -> Hook_1 : Start recording \n[ /caret/start_record ]\n\n\n\n
+User1_1 -> Lttng_1
+Lttng_1 is "Active"
+User1_1 -> Hook_0
+
+@10
+Hook_1 is RECORD
+Hook_1 -> User1_1
+Hook_1 -> User1_0 : Notify state transition \n[ /caret/status ]\n
+
+@15
+User1_0 is "Idle"
+Hook_0 is WAIT
+User1_0 -> Hook_0 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
+User1_0 -> Lttng_0
+User1_0 -> Hook_1
+Lttng_0 is "Destroyed"
+
+@16
+User1_1 is "Idle"
+Hook_1 is WAIT
+User1_1 -> Hook_1 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
+User1_1 -> Lttng_1
+User1_1 -> Hook_0
+Lttng_1 is "Destroyed"
+```
+
+Please note that "Start recording" and "Stop recording" are sent to all trace nodes regardless of its host since it is a topic message. To prevent state transition by messages from other hosts, trace node ignore messages as follow.
+- Ignore "Start recording" when no active LTTng session exists.
+- Ignore "Start recording" when its state is not WAIT.
+- Ignore "End recording" when an active LTTng session exists.
+
 ## Topic
 
 Runtime recording uses the following topic messages.
@@ -215,34 +318,31 @@ A detailed state transition is shown below.
 [*] --> WAIT: No active lttng session exists
 [*] --> RECORD: An active lttng session exists
 WAIT : Stores initialization trace data in memory
-WAIT --> PREPARE : [/caret/start_recording] \nStart recording
+WAIT --> PREPARE : [/caret/start_record] with \nactive LTTng session
 
 PREPARE : Record initialization trace data with LTTng
-PREPARE -[dotted]-> WAIT : [/caret/end_record]\n Stop recording
-PREPARE -[dotted]-> PREPARE : [/caret/start_record]\n Start recording again
-
-RECORD --> WAIT : [/caret/end_record] \nStop recording
-RECORD -[dotted]-> PREPARE : [/caret/start_record] \n Start recording again
-WAIT -[dotted]-> WAIT : [/caret/end_record] \nNothing
 PREPARE --> RECORD : Finished recording stored initialization trace data
+PREPARE -[dotted]-> WAIT : [/caret/end_record] without \nactive LTTng session
+
 RECORD : Record initialization and runtime trace data with LTTng
+RECORD --> WAIT : [/caret/end_record] without \nactive LTTng session
 ```
 
 ### WAIT
 
-| item                               | description                                                                                             |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Transition conditions for entering | - Start application with no active LTTng session. <br> - Receive messages from /caret/end_record topic. |
-| Transition conditions for exiting  | - Receive messages from `/caret/start_record` topic.                                                    |
-| Initialization trace point         | - Store in memory. <br> - Record as LTTng tracepoint (synchronous recording).                           |
-| Runtime trace data                 | - Discard.                                                                                              |
+| item                               | description                                                                                                                                   |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Transition conditions for entering | - Start application with no active LTTng session. <br> - Receive messages from `/caret/end_record` topic when no active LTTng session exists. |
+| Transition conditions for exiting  | - Receive messages from `/caret/start_record` topic when an active LTTng session exists.                                                      |
+| Initialization trace point         | - Store in memory. <br> - Record as LTTng tracepoint (synchronous recording).                                                                 |
+| Runtime trace data                 | - Discard.                                                                                                                                    |
 
 ### PREPARE
 
 | item                               | description                                                                                                                                                  |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Transition conditions for entering | - Receive messages from `/caret/start_record` topic.                                                                                                         |
-| Transition conditions for exiting  | - Receive messages from `/caret/end_record` topic. <br> - Finish recording stored initialization trace data.                                                 |
+| Transition conditions for entering | - Receive messages from `/caret/start_record` topic when current state is WAIT and active LTTng session exists.                                              |
+| Transition conditions for exiting  | - Receive messages from `/caret/end_record` topic when no active LTTng session exists. <br> - Finish recording stored initialization trace data.             |
 | Initialization trace data          | - Record as LTTng tracepoint (synchronous recording). <br> - Record stored data as LTTng tracepoint at fixed frequency from trace nodes (delayed recording). |
 | Runtime trace data                 | - Discard to prevent discarding initialization trace data.                                                                                                   |
 
@@ -258,29 +358,28 @@ Velocity of storing initialization trace data to a LTTng's ring buffer is adjust
 
 ### RECORD
 
-| item                               | description                                                                                                                                                      |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Transition conditions for entering | - Finish recording stored initialization trace data.                                                                                                             |
-| Transition conditions for exiting  | - Start application with active LTTng session. <br> - Receive messages from `/caret/start_record` topic. <br> - Receive messages from `/caret/end_record` topic. |
-| Initialization trace data          | - Record as LTTng tracepoint (synchronous recording).                                                                                                            |
-| Runtime trace data                 | - Record as LTTng tracepoint (synchronous recording).                                                                                                            |
+| item                               | description                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Transition conditions for entering | - Finish recording stored initialization trace data.                                                                                       |
+| Transition conditions for exiting  | - Start application with active LTTng session. <br> - Receive messages from `/caret/end_record` topic when no active LTTng session exists. |
+| Initialization trace data          | - Record as LTTng tracepoint (synchronous recording).                                                                                      |
+| Runtime trace data                 | - Record as LTTng tracepoint (synchronous recording).                                                                                      |
 
 ## Sequence
 
 Details of the sequence diagram are shown below.
 
-```cpp
+```bash
 # Run a node at Terminal 0 first.
 ros2 run pkg node
 ```
 
-```cpp
+```bash
 # Execute "record" command with Termial 1 after node startup.
 ros2 caret record
 ```
 
 ```plantuml
-@startuml
 @startuml
 box Process #Azure
   participant "CLI Node" as CLI
@@ -348,16 +447,164 @@ end note
 deactivate APP
 
 == End recording ==
+CLI -> LTTNG : Stop & destroy LTTng session
+deactivate LTTNG
 CLI -> CARET : End message \n[/caret/end_record]
 activate CARET
 CARET -> CARET : Transition to WAIT state
 deactivate CARET
 CARET --> CLI : Send message
 deactivate CARET
-CLI -> LTTNG : Stop & destroy LTTng session
-deactivate LTTNG
 <-- CLI
 deactivate CLI
+@enduml
+```
+
+## Sequence (multi-host system)
+
+Details of the sequence diagram on multi-host system are shown below.
+
+```bash
+# Run a node at Terminal 0 on Host 0.
+ros2 run pkg node
+```
+
+```bash
+# Run a node at Terminal 0 on Host 1.
+ros2 run pkg node
+```
+
+```bash
+# Execute "record" command with Termial 1 on Host 0.
+ros2 caret record
+```
+
+```bash
+# Execute "record" command with Termial 1 on Host 1.
+ros2 caret record
+```
+
+```plantuml
+@startuml
+!pragma teoz true
+box Process (Host 0) #Azure
+  participant "CLI Node" as CLI_0
+end box
+
+box Process (Host 0) #Azure
+participant "Caret Node" as CARET_0
+participant "Application Node" as APP_0
+end box
+participant "LTTng (Host 0)" as LTTNG_0
+
+box Process (Host 1) #Azure
+  participant "CLI Node" as CLI_1
+end box
+
+box Process (Host 1) #Azure
+participant "Caret Node" as CARET_1
+participant "Application Node" as APP_1
+end box
+participant "LTTng (Host 1)" as LTTNG_1
+
+activate APP_0
+
+APP_0 -> APP_0 : Initialize
+
+activate APP_1
+
+APP_1 -> APP_1 : Initialize
+
+== Start recording (Host 0) ==
+
+-> CLI_0
+activate CLI_0
+CLI_0 -> LTTNG_0 : Start LTTng session
+activate LTTNG_0
+CLI_0 -> CARET_0 : Start message \n[/caret/start_record]
+activate CARET_0
+CLI_0 -> CARET_1 : Start message \n[/caret/start_record]
+activate CARET_1
+
+CARET_1 -> CARET_1 : Ignore message because no \nactive LTTNG session exists
+deactivate CARET_1
+
+& CARET_0 -> CARET_0 : Transition to PREPARE state
+CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(PREPARE state)
+CARET_0 -> LTTNG_0 : Recod initialization trace data
+CARET_0 -> CARET_0 : Transition to RECORD state \ncancel timer callback
+
+CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(RECORDING state)
+
+& APP_0 -> APP_0: Runtime event \n(e.g. callback start)
+activate APP_0
+APP_0 -> LTTNG_0: Record runtime trace data
+note over LTTNG_0
+    Runtime trace data are
+    recorded during RECORD state
+end note
+
+deactivate APP_0
+
+== Start recording (Host 1) ==
+
+-> CLI_1
+activate CLI_1
+CLI_1 -> LTTNG_1 : Start LTTng session
+activate LTTNG_1
+CLI_1 -> CARET_1 : Start message \n[/caret/start_record]
+activate CARET_1
+& CLI_1 -> CARET_0 : Start message \n[/caret/start_record]
+activate CARET_0
+
+CARET_0 -> CARET_0 : Ignore message because \ncurrent state is not WAIT
+deactivate CARET_0
+
+& CARET_1 -> CARET_1 : Transition to PREPARE state
+CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(PREPARE state)
+CARET_1 --> CLI_0 : Status message \n[/caret/status] \n(PREPARE state)
+CARET_1 -> LTTNG_1 : Recod initialization trace data
+CARET_1 -> CARET_1 : Transition to RECORD state
+CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(RECORDING state)
+CARET_1 --> CLI_0 : Status message \n[/caret/status] \n(RECORDING state)
+
+& APP_1 -> APP_1: Runtime event \n(e.g. callback start)
+activate APP_1
+APP_1 -> LTTNG_1: Record runtime trace data
+note over LTTNG_1
+    Runtime trace data are
+    recorded during RECORD state
+end note
+
+deactivate APP_1
+
+== End recording (Host 0) ==
+CLI_0 -> LTTNG_0 : Stop & destroy LTTng session
+deactivate LTTNG_0
+CLI_0 -> CARET_0 : End message \n[/caret/end_record]
+activate CARET_0
+CLI_0 -> CARET_1 : End message \n[/caret/end_record]
+activate CARET_1
+CARET_1 -> CARET_1 : Ignore message because an \nactive LTTng session exists
+deactivate CARET_1
+& CARET_0 -> CARET_0 : Transition to WAIT state
+deactivate CARET_0
+CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(WAIT state)
+deactivate CARET_0
+<-- CLI_0
+deactivate CLI_0
+
+== End recording (Host 1) ==
+CLI_1 -> LTTNG_1 : Stop & destroy LTTng session
+deactivate LTTNG_1
+CLI_1 -> CARET_1 : End message \n[/caret/end_record]
+activate CARET_1
+CARET_1 -> CARET_1 : Transition to WAIT state
+deactivate CARET_1
+CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(WAIT state)
+deactivate CARET_1
+<-- CLI_1
+deactivate CLI_1
 @enduml
 ```
 
