@@ -44,7 +44,7 @@ sudo sed -i -e 's/SYSTEM//g' ament_auto_add_library.cmake
 - Issue
   - The following error happens when building a target application
 
-```
+```sh
 /opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp: In member function ‘void rclcpp::Publisher<MessageT, AllocatorT>::do_inter_process_publish(const ROSMessageType&)’:
 /opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:452:5: error: too few arguments to function ‘void ros_trace_rclcpp_publish(const void*, const void*, uint64_t)’
   452 |     TRACEPOINT(rclcpp_publish, nullptr, static_cast<const void *>(&msg));
