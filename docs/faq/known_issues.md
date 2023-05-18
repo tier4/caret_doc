@@ -39,6 +39,28 @@ sudo sed -i -e 's/SYSTEM//g' ament_auto_add_executable.cmake
 sudo sed -i -e 's/SYSTEM//g' ament_auto_add_library.cmake
 ```
 
+### SYSTEM's rclcpp is referred
+
+- Issue
+  - The following error happens when building a target application
+
+```sh
+/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp: In member function ‘void rclcpp::Publisher<MessageT, AllocatorT>::do_inter_process_publish(const ROSMessageType&)’:
+/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:452:5: error: too few arguments to function ‘void ros_trace_rclcpp_publish(const void*, const void*, uint64_t)’
+  452 |     TRACEPOINT(rclcpp_publish, nullptr, static_cast<const void *>(&msg));
+```
+
+- Cause
+  - To build with CARET, caret/rclcpp should be used. However, in case rclcpp in SYSTEM ( `/opt/ros/humble` ) is used for some reasons, build will fail
+  - Take `pcl_ros` for example, `/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake` enforces `/opt/ros/humble/include/rclcpp` to be referred. So that caret/rclcpp is not used and building a package depending on `pcl_ros` will fail
+- Workaround
+  - Remove `/opt/ros/humble/include/rclcpp;` from `/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake`
+
+```sh
+sudo cp /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake.bak2
+sudo sed -i -e 's/\/opt\/ros\/humble\/include\/rclcpp;//g' /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
+```
+
 ## Recording
 
 ### Only metadata is recorded
