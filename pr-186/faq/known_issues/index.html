@@ -2822,8 +2822,8 @@ sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span
 </code></pre></div>
 <ul>
 <li>Cause<ul>
-<li>To build with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, caret/rclcpp should be used. However, in case rclcpp in SYSTEM ( <code>/opt/ros/humble</code> ) is used for some reasons, build will be failed</li>
-<li>Take <code>pcl_ros</code> for example, <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code> enforces <code>/opt/ros/humble/include/rclcpp</code> to be referred. So that caret/rclcpp is not used and building a package depending <code>pcl_ros</code> will be failed</li>
+<li>To build with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, caret/rclcpp should be used. However, in case rclcpp in SYSTEM ( <code>/opt/ros/humble</code> ) is used for some reasons, build will fail</li>
+<li>Take <code>pcl_ros</code> for example, <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code> enforces <code>/opt/ros/humble/include/rclcpp</code> to be referred. So that caret/rclcpp is not used and building a package depending on <code>pcl_ros</code> will fail</li>
 </ul>
 </li>
 <li>Workaround<ul>
