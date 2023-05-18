@@ -2613,6 +2613,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#systems-rclcpp-is-referred" class="md-nav__link">
+    SYSTEM's rclcpp is referred
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2697,6 +2704,13 @@
           <li class="md-nav__item">
   <a href="#build-using-ament_cmake" class="md-nav__link">
     Build using ament_cmake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systems-rclcpp-is-referred" class="md-nav__link">
+    SYSTEM's rclcpp is referred
   </a>
   
 </li>
@@ -2794,6 +2808,31 @@ sudo<span class="w"> </span>cp<span class="w"> </span>ament_auto_add_executable.
 sudo<span class="w"> </span>cp<span class="w"> </span>ament_auto_add_library.cmake<span class="w"> </span>ament_auto_add_library.cmake.bak
 sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/SYSTEM//g&#39;</span><span class="w"> </span>ament_auto_add_executable.cmake
 sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/SYSTEM//g&#39;</span><span class="w"> </span>ament_auto_add_library.cmake
+</code></pre></div>
+<h3 id="systems-rclcpp-is-referred">SYSTEM's rclcpp is referred<a class="headerlink" href="#systems-rclcpp-is-referred" title="Permanent link">#</a></h3>
+<ul>
+<li>Issue<ul>
+<li>The following error happens when building a target application</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:<span class="w"> </span>In<span class="w"> </span>member<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘void<span class="w"> </span>rclcpp::Publisher&lt;MessageT,<span class="w"> </span>AllocatorT&gt;::do_inter_process_publish<span class="o">(</span>const<span class="w"> </span>ROSMessageType<span class="p">&amp;</span><span class="o">)</span>’:
+/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:452:5:<span class="w"> </span>error:<span class="w"> </span>too<span class="w"> </span>few<span class="w"> </span>arguments<span class="w"> </span>to<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘void<span class="w"> </span>ros_trace_rclcpp_publish<span class="o">(</span>const<span class="w"> </span>void*,<span class="w"> </span>const<span class="w"> </span>void*,<span class="w"> </span>uint64_t<span class="o">)</span>’
+<span class="w">  </span><span class="m">452</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>TRACEPOINT<span class="o">(</span>rclcpp_publish,<span class="w"> </span>nullptr,<span class="w"> </span>static_cast&lt;const<span class="w"> </span>void<span class="w"> </span>*&gt;<span class="o">(</span><span class="p">&amp;</span>msg<span class="o">))</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Cause<ul>
+<li>To build with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, caret/rclcpp should be used. However, in case rclcpp in SYSTEM ( <code>/opt/ros/humble</code> ) is used for some reasons, build will fail</li>
+<li>Take <code>pcl_ros</code> for example, <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code> enforces <code>/opt/ros/humble/include/rclcpp</code> to be referred. So that caret/rclcpp is not used and building a package depending on <code>pcl_ros</code> will fail</li>
+</ul>
+</li>
+<li>Workaround<ul>
+<li>Remove <code>/opt/ros/humble/include/rclcpp;</code> from <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cp<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake.bak2
+sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/\/opt\/ros\/humble\/include\/rclcpp;//g&#39;</span><span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
 </code></pre></div>
 <h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
 <h3 id="only-metadata-is-recorded">Only metadata is recorded<a class="headerlink" href="#only-metadata-is-recorded" title="Permanent link">#</a></h3>
