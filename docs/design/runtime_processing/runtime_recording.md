@@ -209,7 +209,6 @@ User0_1 -> Hook1
 @7
 Hook0 is RECORD
 Hook0 -> User0_1 : Notify state transition \n[ /caret/status ]
-Hook0 -> User1_1
 
 @9
 User1_1 is "ros2 caret record"
