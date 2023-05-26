@@ -44,6 +44,12 @@ Any of performance metrics such as `latency`, `frequency`, or `period` is given 
 - `save()` method saves the figure in an arbitrary path.
 - `figure()` method returns the corresponding figure handler. This method allows additional customization of the figure before it is displayed.
 
+To visualize recorded data of multi-host system, you can pass the list of recorded data to LTTng object.
+
+```python
+lttng = Lttng(['/path/to/host0/trace_data', '/path/to/host1/trace_data'])
+```
+
 ## Visualization API
 
 This section lists methods to visualize several metrics. You will find a sample figure corresponding to metrics if you access the link.
