@@ -22,12 +22,6 @@ arch = Architecture('lttng', '/path/to/ctf-based_recorded_data')
 
 You will find `caret_analyze.architecture.Architecture`-based object, named '`arch`'.
 
-To load recorded data of multi-host system, you can pass the list of recorded data to Architecture object.
-
-```python
-arch = Architecture('lttng', ['/path/to/host0/data', '/path/to/host1/data'])
-```
-
 Loading an architecture object from CTF-based recorded data tends to be time-consuming task.
 
 ### Load from a YAML-based architecture file
@@ -86,10 +80,4 @@ ros2 caret create_architecture_file /path/to/ctf-based_recorded_data -o /path/to
 
 readlink -f /path/to/destination/architecture.yaml
 # /path/to/destination/architecture.yaml
-```
-
-To create YAML-based file of multi-host system, you can pass the list of recorded data to `create_architecture_file` command.
-
-```bash
-ros2 caret create_architecture_file /path/to/host0/data /path/to/host1/data -o /path/to/destination/architecture.yaml
 ```
