@@ -17,7 +17,7 @@
         <link rel="next" href="../validating/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
@@ -2800,6 +2800,12 @@ ros2<span class="w"> </span>caret<span class="w"> </span>record<span class="w"> 
 <p>You may find that size of recorded data is strangely smaller than expected after updating <abbr title="Linux Tracing Tool next generation">LTTng</abbr> to 2.13 if you apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> to a large application like <a href="https://github.com/autowarefoundation/autoware"><abbr title="OSS-based self-driving software">Autoware</abbr></a> which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with <code>ulimit -n</code> command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; <code>ulimit -n 65536</code>.</p>
 </div>
 <p><prettier-ignore-end></p>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To trace multi-host system, you need to follow these steps on all hosts.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="starting-lttng-session-via-ros-launch">Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session via <abbr title="Robot Operating System">ROS</abbr> launch<a class="headerlink" href="#starting-lttng-session-via-ros-launch" title="Permanent link">#</a></h2>
 <p>You can start <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session using <abbr title="Robot Operating System">ROS</abbr> launch system. When you have started a target application in one terminal, you have to open another terminal for starting a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session as explained above. Operating multiple terminals is laborious for users. Starting <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session along with application by <abbr title="Robot Operating System">ROS</abbr> launch is a reasonable way to apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> repeatedly.</p>
 <ol>
@@ -2854,6 +2860,12 @@ ros2<span class="w"> </span>launch<span class="w"> </span>caret_demos<span class
 </code></pre></div>
 </li>
 </ol>
+<p><prettier-ignore-start></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To trace multi-host system, you need to follow these steps on hosts which contain nodes you want to trace.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="advanced-useful-settings-for-launch-file">Advanced: Useful settings for launch file<a class="headerlink" href="#advanced-useful-settings-for-launch-file" title="Permanent link">#</a></h2>
 <ul>
 <li>The following script shows advanced settings for a launch file</li>
