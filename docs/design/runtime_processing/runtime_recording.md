@@ -210,7 +210,7 @@ Hook_0 is RECORD
 Hook_0 -> User1_0 : Notify state transition \n[ /caret/status ]
 Hook_0 -> User1_1
 
-@8
+@9
 User1_1 is "ros2 caret record"
 Hook_1 is PREPARE
 User1_1 -> Hook_1 : Start recording \n[ /caret/start_record ]\n\n\n\n
@@ -218,12 +218,12 @@ User1_1 -> Lttng_1
 Lttng_1 is "Active"
 User1_1 -> Hook_0
 
-@10
+@11
 Hook_1 is RECORD
 Hook_1 -> User1_1
 Hook_1 -> User1_0 : Notify state transition \n[ /caret/status ]\n
 
-@15
+@16
 User1_0 is "Idle"
 Hook_0 is WAIT
 User1_0 -> Hook_0 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
@@ -231,7 +231,7 @@ User1_0 -> Lttng_0
 User1_0 -> Hook_1
 Lttng_0 is "Destroyed"
 
-@16
+@17
 User1_1 is "Idle"
 Hook_1 is WAIT
 User1_1 -> Hook_1 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
@@ -240,7 +240,7 @@ User1_1 -> Hook_0
 Lttng_1 is "Destroyed"
 ```
 
-Please note that "Start recording" and "Stop recording" are sent to all trace nodes regardless of its host since it is a topic message. To prevent state transition by messages from other hosts, trace node ignore messages as follow.
+Please note that "Start recording" and "Stop recording" are sent to all trace nodes regardless of its host since it is a topic message. To prevent state transition by messages from other hosts, trace node ignores messages as follows.
 - Ignore "Start recording" when no active LTTng session exists.
 - Ignore "Start recording" when its state is not WAIT.
 - Ignore "End recording" when an active LTTng session exists.
@@ -599,8 +599,12 @@ CLI_1 -> LTTNG_1 : Stop & destroy LTTng session
 deactivate LTTNG_1
 CLI_1 -> CARET_1 : End message \n[/caret/end_record]
 activate CARET_1
+&CLI_1 -> CARET_0 : End message \n[/caret/end_record]
+activate CARET_0
 CARET_1 -> CARET_1 : Transition to WAIT state
 deactivate CARET_1
+&CARET_0 -> CARET_0 : Ignore message because \ncurrent state is already WAIT
+deactivate CARET_0
 CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(WAIT state)
 deactivate CARET_1
 <-- CLI_1
