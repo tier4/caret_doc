@@ -359,12 +359,12 @@ Velocity of storing initialization trace data to a LTTng's ring buffer is adjust
 
 ### RECORD
 
-| item                               | description                                                                                                                                |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Transition conditions for entering | - Start application with active LTTng session. <br> - Finish recording stored initialization trace data.                                   |
-| Transition conditions for exiting  | - Receive messages from `/caret/end_record` topic when no active LTTng session exists.                                                     |
-| Initialization trace data          | - Record as LTTng tracepoint (synchronous recording).                                                                                      |
-| Runtime trace data                 | - Record as LTTng tracepoint (synchronous recording).                                                                                      |
+| item                               | description                                                                                              |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Transition conditions for entering | - Start application with active LTTng session. <br> - Finish recording stored initialization trace data. |
+| Transition conditions for exiting  | - Receive messages from `/caret/end_record` topic when no active LTTng session exists.                   |
+| Initialization trace data          | - Record as LTTng tracepoint (synchronous recording).                                                    |
+| Runtime trace data                 | - Record as LTTng tracepoint (synchronous recording).                                                    |
 
 ## Sequence
 
