@@ -148,12 +148,12 @@ On multi-host system, typical use cases are shown as follows.
 
 ```bash
 # Run a node at Terminal 0-0 on Host 0.
-ros2 run pkg node
+ros2 run pkg0 node0
 ```
 
 ```bash
 # Run a node at Terminal 1-0 on Host 1.
-ros2 run pkg node
+ros2 run pkg1 node1
 ```
 
 ```bash
@@ -189,12 +189,12 @@ Hook1 is "Idle"
 Lttng1 is "Idle"
 
 @2
-User0_0 is "ros2 run pkg node"
+User0_0 is "ros2 run pkg0 node0"
 Hook0 is WAIT
 User0_0 -> Hook0
 
 @3
-User1_0 is "ros2 run pkg node"
+User1_0 is "ros2 run pkg1 node1"
 Hook1 is WAIT
 User1_0 -> Hook1
 
@@ -468,12 +468,12 @@ Details of the sequence diagram on multi-host system are shown below.
 
 ```bash
 # Run a node at Terminal 0-0 on Host 0.
-ros2 run pkg node
+ros2 run pkg0 node0
 ```
 
 ```bash
 # Run a node at Terminal 1-0 on Host 1.
-ros2 run pkg node
+ros2 run pkg1 node1
 ```
 
 ```bash
