@@ -147,98 +147,98 @@ Refer to [Status](#state-definition) for further details of the state machine.
 On multi-host system, typical use cases are shown as follows.
 
 ```bash
-# Run a node at Terminal 0 on Host 0.
+# Run a node at Terminal 0-0 on Host 0.
 ros2 run pkg node
 ```
 
 ```bash
-# Run a node at Terminal 0 on Host 1.
+# Run a node at Terminal 1-0 on Host 1.
 ros2 run pkg node
 ```
 
 ```bash
-# Execute "record" command with Termial 1 on Host 0.
+# Execute "record" command with Termial 0-1 on Host 0.
 ros2 caret record
 ```
 
 ```bash
-# Execute "record" command with Termial 1 on Host 1.
+# Execute "record" command with Termial 1-1 on Host 1.
 ros2 caret record
 ```
 
 State transition is shown below.
 
 ```plantuml
-concise "Terminal 0 on Host 0" as User0_0
-concise "Terminal 1 on Host 0" as User1_0
-concise "Terminal 0 on Host 1" as User0_1
-concise "Terminal 1 on Host 1" as User1_1
-concise "trace node state on Host 0" as Hook_0
-concise "LTTng session on Host 0" as Lttng_0
-concise "trace node state on Host 1" as Hook_1
-concise "LTTng session on Host 1" as Lttng_1
+concise "Terminal 0-0 on Host 0" as User0_0
+concise "Terminal 0-1 on Host 0" as User0_1
+concise "Terminal 1-0 on Host 1" as User1_0
+concise "Terminal 1-1 on Host 1" as User1_1
+concise "trace node state on Host 0" as Hook0
+concise "LTTng session on Host 0" as Lttng0
+concise "trace node state on Host 1" as Hook1
+concise "LTTng session on Host 1" as Lttng1
 
 @0
 User0_0 is "Idle"
-User1_0 is "Idle"
-Hook_0 is "Idle"
-Lttng_0 is "Idle"
 User0_1 is "Idle"
+Hook0 is "Idle"
+Lttng0 is "Idle"
+User1_0 is "Idle"
 User1_1 is "Idle"
-Hook_1 is "Idle"
-Lttng_1 is "Idle"
+Hook1 is "Idle"
+Lttng1 is "Idle"
 
 @2
 User0_0 is "ros2 run pkg node"
-Hook_0 is WAIT
-User0_0 -> Hook_0
+Hook0 is WAIT
+User0_0 -> Hook0
 
 @3
-User0_1 is "ros2 run pkg node"
-Hook_1 is WAIT
-User0_1 -> Hook_1
+User1_0 is "ros2 run pkg node"
+Hook1 is WAIT
+User1_0 -> Hook1
 
 @5
-User1_0 is "ros2 caret record"
-Hook_0 is PREPARE
-User1_0 -> Hook_0 : Start recording \n[ /caret/start_record ]\n\n\n\n
-User1_0 -> Lttng_0
-Lttng_0 is "Active"
-User1_0 -> Hook_1
+User0_1 is "ros2 caret record"
+Hook0 is PREPARE
+User0_1 -> Hook0 : Start recording \n[ /caret/start_record ]\n\n\n\n
+User0_1 -> Lttng0
+Lttng0 is "Active"
+User0_1 -> Hook1
 
 @7
-Hook_0 is RECORD
-Hook_0 -> User1_0 : Notify state transition \n[ /caret/status ]
-Hook_0 -> User1_1
+Hook0 is RECORD
+Hook0 -> User0_1 : Notify state transition \n[ /caret/status ]
+Hook0 -> User1_1
 
 @9
 User1_1 is "ros2 caret record"
-Hook_1 is PREPARE
-User1_1 -> Hook_1 : Start recording \n[ /caret/start_record ]\n\n\n\n
-User1_1 -> Lttng_1
-Lttng_1 is "Active"
-User1_1 -> Hook_0
+Hook1 is PREPARE
+User1_1 -> Hook1 : Start recording \n[ /caret/start_record ]\n\n\n\n
+User1_1 -> Lttng1
+Lttng1 is "Active"
+User1_1 -> Hook0
 
 @11
-Hook_1 is RECORD
-Hook_1 -> User1_1
-Hook_1 -> User1_0 : Notify state transition \n[ /caret/status ]\n
+Hook1 is RECORD
+Hook1 -> User1_1
+Hook1 -> User0_1 : Notify state transition \n[ /caret/status ]\n
 
 @16
-User1_0 is "Idle"
-Hook_0 is WAIT
-User1_0 -> Hook_0 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
-User1_0 -> Lttng_0
-User1_0 -> Hook_1
-Lttng_0 is "Destroyed"
+User0_1 is "Idle"
+Hook0 is WAIT
+User0_1 -> Hook0 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
+User0_1 -> Lttng0
+User0_1 -> Hook1
+Lttng0 is "Destroyed"
 
 @17
 User1_1 is "Idle"
-Hook_1 is WAIT
-User1_1 -> Hook_1 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
-User1_1 -> Lttng_1
-User1_1 -> Hook_0
-Lttng_1 is "Destroyed"
+Hook1 is WAIT
+User1_1 -> Hook1 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
+User1_1 -> Lttng1
+User1_1 -> Hook0
+Lttng1 is "Destroyed"
 ```
 
 Please note that "Start recording" and "Stop recording" are sent to all trace nodes regardless of its host since it is a topic message. To prevent state transition by messages from other hosts, trace node ignores messages as follows.
@@ -467,22 +467,22 @@ deactivate CLI
 Details of the sequence diagram on multi-host system are shown below.
 
 ```bash
-# Run a node at Terminal 0 on Host 0.
+# Run a node at Terminal 0-0 on Host 0.
 ros2 run pkg node
 ```
 
 ```bash
-# Run a node at Terminal 0 on Host 1.
+# Run a node at Terminal 1-0 on Host 1.
 ros2 run pkg node
 ```
 
 ```bash
-# Execute "record" command with Termial 1 on Host 0.
+# Execute "record" command with Termial 0-1 on Host 0.
 ros2 caret record
 ```
 
 ```bash
-# Execute "record" command with Termial 1 on Host 1.
+# Execute "record" command with Termial 1-1 on Host 1.
 ros2 caret record
 ```
 
@@ -497,7 +497,7 @@ box Process (Host 0) #Azure
 participant "Caret Node" as CARET_0
 participant "Application Node" as APP_0
 end box
-participant "LTTng (Host 0)" as LTTNG_0
+participant "LTTng (Host 0)" as Lttng0
 
 box Process (Host 1) #Azure
   participant "CLI Node" as CLI_1
@@ -507,7 +507,7 @@ box Process (Host 1) #Azure
 participant "Caret Node" as CARET_1
 participant "Application Node" as APP_1
 end box
-participant "LTTng (Host 1)" as LTTNG_1
+participant "LTTng (Host 1)" as Lttng1
 
 activate APP_0
 
@@ -515,14 +515,14 @@ APP_0 -> APP_0 : Initialize
 
 activate APP_1
 
-APP_1 -> APP_1 : Initialize
+& APP_1 -> APP_1 : Initialize
 
 == Start recording (Host 0) ==
 
 -> CLI_0
 activate CLI_0
-CLI_0 -> LTTNG_0 : Start LTTng session
-activate LTTNG_0
+CLI_0 -> Lttng0 : Start LTTng session
+activate Lttng0
 CLI_0 -> CARET_0 : Start message \n[/caret/start_record]
 activate CARET_0
 CLI_0 -> CARET_1 : Start message \n[/caret/start_record]
@@ -533,15 +533,15 @@ deactivate CARET_1
 
 & CARET_0 -> CARET_0 : Transition to PREPARE state
 CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(PREPARE state)
-CARET_0 -> LTTNG_0 : Recod initialization trace data
+CARET_0 -> Lttng0 : Recod initialization trace data
 CARET_0 -> CARET_0 : Transition to RECORD state \ncancel timer callback
 
 CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(RECORDING state)
 
 & APP_0 -> APP_0: Runtime event \n(e.g. callback start)
 activate APP_0
-APP_0 -> LTTNG_0: Record runtime trace data
-note over LTTNG_0
+APP_0 -> Lttng0: Record runtime trace data
+note over Lttng0
     Runtime trace data are
     recorded during RECORD state
 end note
@@ -552,8 +552,8 @@ deactivate APP_0
 
 -> CLI_1
 activate CLI_1
-CLI_1 -> LTTNG_1 : Start LTTng session
-activate LTTNG_1
+CLI_1 -> Lttng1 : Start LTTng session
+activate Lttng1
 CLI_1 -> CARET_1 : Start message \n[/caret/start_record]
 activate CARET_1
 & CLI_1 -> CARET_0 : Start message \n[/caret/start_record]
@@ -565,15 +565,15 @@ deactivate CARET_0
 & CARET_1 -> CARET_1 : Transition to PREPARE state
 CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(PREPARE state)
 CARET_1 --> CLI_0 : Status message \n[/caret/status] \n(PREPARE state)
-CARET_1 -> LTTNG_1 : Recod initialization trace data
+CARET_1 -> Lttng1 : Recod initialization trace data
 CARET_1 -> CARET_1 : Transition to RECORD state
 CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(RECORDING state)
 CARET_1 --> CLI_0 : Status message \n[/caret/status] \n(RECORDING state)
 
 & APP_1 -> APP_1: Runtime event \n(e.g. callback start)
 activate APP_1
-APP_1 -> LTTNG_1: Record runtime trace data
-note over LTTNG_1
+APP_1 -> Lttng1: Record runtime trace data
+note over Lttng1
     Runtime trace data are
     recorded during RECORD state
 end note
@@ -581,8 +581,8 @@ end note
 deactivate APP_1
 
 == End recording (Host 0) ==
-CLI_0 -> LTTNG_0 : Stop & destroy LTTng session
-deactivate LTTNG_0
+CLI_0 -> Lttng0 : Stop & destroy LTTng session
+deactivate Lttng0
 CLI_0 -> CARET_0 : End message \n[/caret/end_record]
 activate CARET_0
 CLI_0 -> CARET_1 : End message \n[/caret/end_record]
@@ -597,15 +597,15 @@ deactivate CARET_0
 deactivate CLI_0
 
 == End recording (Host 1) ==
-CLI_1 -> LTTNG_1 : Stop & destroy LTTng session
-deactivate LTTNG_1
+CLI_1 -> Lttng1 : Stop & destroy LTTng session
+deactivate Lttng1
 CLI_1 -> CARET_1 : End message \n[/caret/end_record]
 activate CARET_1
-&CLI_1 -> CARET_0 : End message \n[/caret/end_record]
+& CLI_1 -> CARET_0 : End message \n[/caret/end_record]
 activate CARET_0
 CARET_1 -> CARET_1 : Transition to WAIT state
 deactivate CARET_1
-&CARET_0 -> CARET_0 : Ignore message because \ncurrent state is already WAIT
+& CARET_0 -> CARET_0 : Ignore message because \ncurrent state is already WAIT
 deactivate CARET_0
 CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(WAIT state)
 deactivate CARET_1
