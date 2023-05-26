@@ -240,7 +240,7 @@ User1_1 -> Hook0
 Lttng1 is "Destroyed"
 ```
 
-Please note that "Start recording" and "Stop recording" are sent to all trace nodes regardless of its host since it is a topic message. To prevent state transition by messages from other hosts, trace node ignores messages as follows.
+Please note that "Start recording" and "Stop recording" are sent to all trace nodes regardless of its host since it is topic messages. To prevent state transitions by messages from other hosts, trace node ignores messages as follows.
 
 - Ignore "Start recording" when no active LTTng session exists.
 - Ignore "Start recording" when its state is not WAIT.
@@ -361,8 +361,8 @@ Velocity of storing initialization trace data to a LTTng's ring buffer is adjust
 
 | item                               | description                                                                                                                                |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Transition conditions for entering | - Finish recording stored initialization trace data.                                                                                       |
-| Transition conditions for exiting  | - Start application with active LTTng session. <br> - Receive messages from `/caret/end_record` topic when no active LTTng session exists. |
+| Transition conditions for entering | - Start application with active LTTng session. <br> - Finish recording stored initialization trace data.                                   |
+| Transition conditions for exiting  | - Receive messages from `/caret/end_record` topic when no active LTTng session exists.                                                     |
 | Initialization trace data          | - Record as LTTng tracepoint (synchronous recording).                                                                                      |
 | Runtime trace data                 | - Record as LTTng tracepoint (synchronous recording).                                                                                      |
 
