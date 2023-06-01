@@ -126,7 +126,112 @@ CARET maps mechanically messages of `/pong` topic to messages of `/ping` which f
 
 ### Python API
 
-Python API is not implemented so far. Python API support is planned in 2023.
+CARET serves Python-based APIs to define data path. The example issue above is used for explanation.
+
+Below is an architecture file with no data path defined.
+Incidentally, essential description is extracted in the following snippet, but you will confront with busy YAML file actually rather than the sample.
+
+All of the following code snippets can be executed after the `Architecture('type', 'file_path')` method loads an architecture object.
+The architecture object whose sub-objects are renamed is saved to a file as explained in [the previous page](./load_and_save.md#save).
+
+```yml
+- node_name: /pong_node
+  callbacks:
+    - callback_name: subscription_callback_0
+    - callback_name: timer_callback_1
+  publishes:
+    - topic_name: /pong
+      callback_names:
+        - UNDEFINED
+  subscribes:
+    - topic_name: /ping
+      callback_name: subscription_callback_0
+  message_contexts:
+    - context_type: 'UNDEFINED'
+      subscription_topic_name: /ping
+      publisher_topic_name: /pong
+```
+
+#### `use_latest_message`
+
+Using the following Python API to use `use_latest_message` on an architecture file. `use_latest_message` is applied to `/pong_node` in the next sample description.
+
+If callback name which publish topic is not registered a publishers, you can register callback with `insert_publisher_callback` function in `Architecture` class.
+As arguments, the target node name, publishing topic name and publisher callback name must be specified.
+
+Then, you can update `context_types` to `use_latest_message` between targeted subscription and publisher with `update_message_context` function in `Architecture` class.
+As arguments, the target node name, subscription topic name and publisher topic name must be specified.
+
+```python
+# arch is caret_analyze.architecture.architecture.Architecture-based object
+
+arch.insert_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
+arch.update_message_context('/pong_node', '/ping', '/pong', 'use_latest_message')
+```
+
+As a result of these processes, data path is defined as `use_latest_message`.
+Incidentally, the output of the architecture file is updated as follows.
+
+```yml
+- node_name: /pong_node
+  callbacks:
+    - callback_name: subscription_callback_0
+    - callback_name: timer_callback_1
+  publishes:
+    - topic_name: /pong
+      callback_names:
+        - timer_callback_1 # updated
+  subscribes:
+    - topic_name: /ping
+      callback_name: subscription_callback_0
+  message_contexts:
+    - context_type: use_latest_message # updated
+      subscription_topic_name: /ping
+      publisher_topic_name: /pong
+```
+
+#### `callback_chain`
+
+Using the following Python API to use `callback_chain` on an architecture file. `callback_chain` is applied to `/pong_node` in the next sample description.
+
+If callback name which publish topic is not registered a publishers, you can register callback with `insert_publisher_callback` function in `Architecture` class.
+As arguments, the target node name, publishing topic name and publisher callback name must be specified.
+
+Then, if the appropriate pariable passing is not registered in architecture object, you can register variable passing with `insert_variable_passing` function in `Architecture` class.
+As arguments, the target node name, write callback name and read callback name must be specified.
+
+Finally, you can update `context_types` to `callback_chain` between targeted subscription and publisher with `update_message_context` function in `Architecture` class.
+As arguments, the target node name, subscription topic name and publisher topic name must be specified.
+
+```python
+arch.insert_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
+arch.insert_variable_passing('/pong_node', 'subscription_callback_0', 'timer_callback_1')
+arch.update_message_context('/pong_node', '/ping', '/pong', 'callback_chain')
+```
+
+As a result of these processes, data path is defined as `callback_chain`.
+Incidentally, the output of the architecture file is updated as follows.
+
+```yml
+- node_name: /pong_node
+  callbacks:
+    - callback_name: subscription_callback_0
+    - callback_name: timer_callback_1
+  variable_passings:
+    - callback_name_write: subscription_callback_0 # updated
+      callback_name_read: timer_callback_1 # updated
+  publishes:
+    - topic_name: /ping
+      callback_names:
+        - timer_callback_1 # updated
+  subscribes:
+    - topic_name: /pong
+      callback_name: timer_callback_1
+  message_contexts:
+    - context_type: callback_chain # updated
+      subscription_topic_name: /pong
+      publisher_topic_name: /ping
+```
 
 ### Architecture file editing
 
