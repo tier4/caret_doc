@@ -126,7 +126,7 @@ CARET maps mechanically messages of `/pong` topic to messages of `/ping` which f
 
 ### Python API
 
-CARET serves Python-based APIs to define data path. The example issue above is used for explanation.
+CARET serves Python-based APIs to define intra-node data path. The example issue above is used for explanation.
 
 Below is an architecture file with no data path defined.
 Incidentally, essential description is extracted in the following snippet, but you will confront with busy YAML file actually rather than the sample.
