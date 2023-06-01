@@ -4,6 +4,7 @@ nav:
     - Load and save: load_and_save.md
     - Define inter-node data path: inter_node_data_path.md
     - Define intra-node data path: intra_node_data_path.md
+    - Remove intra-node data path: remove_intra_node_data_path.md
     - Rename sub-objects: rename_function.md
     - Get difference between two architecture objects: architecture_diff_func.md
     - Practical example: practical_example.md
