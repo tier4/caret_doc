@@ -147,7 +147,7 @@ The architecture object whose sub-objects are renamed is saved to a file as expl
     - topic_name: /ping
       callback_name: subscription_callback_0
   message_contexts:
-    - context_type: 'UNDEFINED'
+    - context_type: "UNDEFINED"
       subscription_topic_name: /ping
       publisher_topic_name: /pong
 ```
