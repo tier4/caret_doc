@@ -5,7 +5,7 @@ CARET served Python-based APIs to define data path, and the API could rewrite ar
 
 This section will explain how to remove intra-node data paths defined by the API in the previous section.
 
-### Python API
+## Python API
 
 CARET serves Python-based APIs to remove intra-node data path. The example of previous section is used for explanation.
 
@@ -14,7 +14,7 @@ Incidentally, essential description is extracted in the following snippet, but y
 All of the following code snippets can be executed after the `Architecture('type', 'file_path')` method loads an architecture object.
 The architecture object whose sub-objects are renamed is saved to a file as explained in [the previous page](./load_and_save.md#save).
 
-#### `use_latest_message`
+### `use_latest_message`
 
 Using the following Python API to remove intra-node data path of `use_latest_message` on an architecture file.
 
@@ -52,7 +52,7 @@ Incidentally, the output of the architecture file is updated as follows.
       publisher_topic_name: /pong
 ```
 
-#### `callback_chain`
+### `callback_chain`
 
 Using the following Python API to remove intra-node data path of `callback_chain` on an architecture file.
 
