@@ -197,7 +197,7 @@ Using the following Python API to use `callback_chain` on an architecture file. 
 If callback name which publish topic is not registered a publishers, you can register callback with `insert_publisher_callback` function in `Architecture` class.
 As arguments, the target node name, publishing topic name and publisher callback name must be specified.
 
-Then, if the appropriate pariable passing is not registered in architecture object, you can register variable passing with `insert_variable_passing` function in `Architecture` class.
+Then, if the appropriate variable passing is not registered in architecture object, you can register variable passing with `insert_variable_passing` function in `Architecture` class.
 As arguments, the target node name, write callback name and read callback name must be specified.
 
 Finally, you can update `context_types` to `callback_chain` between targeted subscription and publisher with `update_message_context` function in `Architecture` class.
