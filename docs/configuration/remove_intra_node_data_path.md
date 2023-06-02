@@ -1,4 +1,4 @@
-# How to define intra-node data path
+# How to remove intra-node data path
 
 In the previous section, you learned how to define inter-node data path.
 CARET served Python-based APIs to define data path, and the API could rewrite architecture files.
