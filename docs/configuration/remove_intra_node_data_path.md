@@ -1,7 +1,7 @@
 # How to remove intra-node data path
 
 In the previous section, you learned how to define inter-node data path.
-CARET served Python-based APIs to define data path, and the API could rewrite architecture files.
+CARET served Python-based APIs to define data path and rewrite architecture files.
 
 This section will explain how to remove intra-node data paths defined by the API in the previous section.
 
@@ -18,11 +18,11 @@ The architecture object whose sub-objects are renamed is saved to a file as expl
 
 Using the following Python API to remove intra-node data path of `use_latest_message` on an architecture file.
 
-You can remove callback to publisher with `insert_publisher_callback` function in `Architecture` class.
-As arguments, the target node name, publishing topic name and publisher callback name must be specified.
+- You can remove callback to publisher with `insert_publisher_callback` function in `Architecture` class.
+  - As arguments, the target node name, publishing topic name and publisher callback name must be specified.
 
-Then, you can update `context_types` to `UNDEFINED` between targeted subscription and publisher with `update_message_context` function in `Architecture` class.
-As arguments, the target node name, subscription topic name and publisher topic name must be specified.
+- You can update `context_types` to `UNDEFINED` between targeted subscription and publisher with `update_message_context` function in `Architecture` class.
+  - As arguments, the target node name, subscription topic name and publisher topic name must be specified.
 
 ```python
 # arch is caret_analyze.architecture.architecture.Architecture-based object
@@ -56,14 +56,14 @@ Incidentally, the output of the architecture file is updated as follows.
 
 Using the following Python API to remove intra-node data path of `callback_chain` on an architecture file.
 
-You can remove callback to publisher with `insert_publisher_callback` function in `Architecture` class.
-As arguments, the target node name, publishing topic name and publisher callback name must be specified.
+- You can remove callback to publisher with `insert_publisher_callback` function in `Architecture` class.
+  - As arguments, the target node name, publishing topic name and publisher callback name must be specified.
 
-Then, you can remove variable passing with `insert_variable_passing` function in `Architecture` class.
-As arguments, the target node name, write callback name and read callback name must be specified.
+- You can remove variable passing with `insert_variable_passing` function in `Architecture` class.
+  - As arguments, the target node name, write callback name and read callback name must be specified.
 
-Finally, you can update `context_types` to `UNDEFINED` between targeted subscription and publisher with `update_message_context` function in `Architecture` class.
-As arguments, the target node name, subscription topic name and publisher topic name must be specified.
+- You can update `context_types` to `UNDEFINED` between targeted subscription and publisher with `update_message_context` function in `Architecture` class.
+  - As arguments, the target node name, subscription topic name and publisher topic name must be specified.
 
 ```python
 arch.remove_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
