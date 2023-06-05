@@ -2012,8 +2012,6 @@
         
           
         
-          
-        
       
       
         
@@ -2070,22 +2068,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trace_points/runtime_trace_points%28v4.10~%29/" class="md-nav__link">
-        Runtime trace points(v4.10~)
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../trace_points/runtime_trace_points%28~v4.9%29/" class="md-nav__link">
-        Runtime trace points(~v4.9)
+      <a href="../../trace_points/runtime_trace_points/" class="md-nav__link">
+        Runtime trace points
       </a>
     </li>
   
@@ -2703,8 +2687,8 @@ This check is done in O1 order because it uses std::unordered_map.</p>
 <li><a href="../../../recording/trace_filtering/">Recording | trace filtering</a></li>
 </ul>
 <h2 id="tracepoint-filtering-in-dds-layer">Tracepoint filtering in <abbr title="Data Distribution System">DDS</abbr> layer<a class="headerlink" href="#tracepoint-filtering-in-dds-layer" title="Permanent link">#</a></h2>
-<p>To filter tracepoint, we need an object such as <code>callback</code> and <code>publisher</code> which contains information about node and topic. In <abbr title="Data Distribution System">DDS</abbr> layer, such object is not available, which means we cannot filter <a href="../trace_points/runtime_trace_points.md#ros2_caretdds_write"><code>dds_write</code></a> and <a href="../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_stamp"><code>dds_bind_addr_to_stamp</code></a> in the same way with the tracepoints in ROS2 layer.</p>
-<p>To filter these tracepoints, we utilize the fact that <a href="../trace_points/runtime_trace_points.md#ros2rcl_publish"><code>rcl_publish</code></a>, <code>dds_write</code> and <code>dds_bind_addr_to_stamp</code> are always recorded sequentially in the same thread. When <code>rcl_publish</code> is filtered out, subsequent <code>dds_write</code> and <code>dds_bind_addr_to_stamp</code> in the same thread can also be filtered out. When <code>rcl_publish</code> is not filtered out, subsequent <code>dds_write</code> and <code>dds_bind_addr_to_stamp</code> in the same thread cannot be filtered out either.</p>
+<p>To filter tracepoint, we need an object such as <code>callback</code> and <code>publisher</code> which contains information about node and topic. In <abbr title="Data Distribution System">DDS</abbr> layer, such object is not available, which means we cannot filter <a href="../../trace_points/runtime_trace_points/#ros2_caretdds_write"><code>dds_write</code></a> and <a href="../../trace_points/runtime_trace_points/#ros2_caretdds_bind_addr_to_stamp"><code>dds_bind_addr_to_stamp</code></a> in the same way with the tracepoints in ROS2 layer.</p>
+<p>To filter these tracepoints, we utilize the fact that <a href="../../trace_points/runtime_trace_points/#ros2rcl_publish"><code>rcl_publish</code></a>, <code>dds_write</code> and <code>dds_bind_addr_to_stamp</code> are always recorded sequentially in the same thread. When <code>rcl_publish</code> is filtered out, subsequent <code>dds_write</code> and <code>dds_bind_addr_to_stamp</code> in the same thread can also be filtered out. When <code>rcl_publish</code> is not filtered out, subsequent <code>dds_write</code> and <code>dds_bind_addr_to_stamp</code> in the same thread cannot be filtered out either.</p>
 <p>We utilize thread-local storage to transmit if <code>rcl_publish</code> is recorded or not.</p>
 <div class="highlight"><pre><span></span><code><span class="k">thread_local</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">trace_filter_is_rcl_publish_recorded</span><span class="p">;</span>
 

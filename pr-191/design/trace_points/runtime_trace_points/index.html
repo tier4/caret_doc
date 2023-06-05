@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-191/design/trace_points/runtime_trace_points%28v4.10~%29/">
+        <link rel="canonical" href="https://tier4.github.io/CARET_doc/pr-191/design/trace_points/runtime_trace_points/">
       
       
         <link rel="prev" href="../initialization_trace_points/">
       
       
-        <link rel="next" href="../runtime_trace_points%28~v4.9%29/">
+        <link rel="next" href="../../configuration/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Runtime trace points(v4.10~) - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Runtime trace points - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Runtime trace points(v4.10~)
+              Runtime trace points
             
           </span>
         </div>
@@ -1971,8 +1971,6 @@
         
           
         
-          
-        
       
       
         
@@ -2037,12 +2035,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Runtime trace points(v4.10~)
+          Runtime trace points
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Runtime trace points(v4.10~)
+        Runtime trace points
       </a>
       
         
@@ -2095,15 +2093,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2rmw_take" class="md-nav__link">
-    ros2:rmw_take
+  <a href="#ros2rclcpp_intra_publish" class="md-nav__link">
+    ros2:rclcpp_intra_publish
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2rclcpp_intra_publish" class="md-nav__link">
-    ros2:rclcpp_intra_publish
+  <a href="#ros2dispatch_subscription_callback-before-v049" class="md-nav__link">
+    ros2:dispatch_subscription_callback (before v0.4.9)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2rmw_take-after-v0410" class="md-nav__link">
+    ros2:rmw_take (after v0.4.10)
   </a>
   
 </li>
@@ -2159,20 +2164,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../runtime_trace_points%28~v4.9%29/" class="md-nav__link">
-        Runtime trace points(~v4.9)
-      </a>
     </li>
   
 
@@ -2778,15 +2769,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2rmw_take" class="md-nav__link">
-    ros2:rmw_take
+  <a href="#ros2rclcpp_intra_publish" class="md-nav__link">
+    ros2:rclcpp_intra_publish
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2rclcpp_intra_publish" class="md-nav__link">
-    ros2:rclcpp_intra_publish
+  <a href="#ros2dispatch_subscription_callback-before-v049" class="md-nav__link">
+    ros2:dispatch_subscription_callback (before v0.4.9)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2rmw_take-after-v0410" class="md-nav__link">
+    ros2:rmw_take (after v0.4.10)
   </a>
   
 </li>
@@ -2856,7 +2854,7 @@
   
 
 
-  <h1>Runtime trace points(v4.10~)</h1>
+  <h1>Runtime trace points</h1>
 
 <h3 id="relationships-of-each-runtime-trace-points">Relationships of each runtime trace points<a class="headerlink" href="#relationships-of-each-runtime-trace-points" title="Permanent link">#</a></h3>
 <pre class="mermaid"><code>erDiagram
@@ -2886,11 +2884,18 @@
  uint64_t message_timestamp
  }
 
- rmw_take {
+ "rmw_take(after v0.4.10)"{
  address rmw_subscription_handle
  address message
  uint64_t source_timestamp
  bool taken
+ }
+
+ "dispatch_subscription_callback(before v0.4.9)"{
+ address message
+ address callback
+ uint64_t source_timestamp
+ uint64_t message_timestamp
  }
 
  dispatch_intra_process_subscription_callback{
@@ -2924,11 +2929,13 @@
     rcl_publish ||--|| dds_write: message_addr
     dds_write ||--|| dds_bind_addr_to_stamp: message_addr
 
-    dds_bind_addr_to_stamp ||--|| rmw_take: source_timestamp
+    dds_bind_addr_to_stamp ||--|| "dispatch_subscription_callback(before v0.4.9)": source_timestamp
 
-
+    dds_bind_addr_to_stamp ||--|| "rmw_take(after v0.4.10)": source_timestamp
+    "rmw_take(after v0.4.10)" ||--|| callback_start: tid
     dispatch_intra_process_subscription_callback ||--|| callback_start: callback
-    rmw_take ||--|| callback_start: tid
+    "dispatch_subscription_callback(before v0.4.9)" ||--|| callback_start: callback
+
     callback_start ||--|| callback_end: callback
 </code></pre>
 <p>Using addresses, thread id (<code>tid</code>) and source timestamp, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to identify a pair of message publish and corresponding subscription.
@@ -2958,16 +2965,6 @@ However, it's difficult to associate a certain message publish to corresponding 
 <li>void * constructed_message</li>
 </ul>
 <hr />
-<h4 id="ros2rmw_take">ros2:rmw_take<a class="headerlink" href="#ros2rmw_take" title="Permanent link">#</a></h4>
-<p>[Built-in tracepoints]</p>
-<p>Sampled items</p>
-<ul>
-<li>void * rmw_subscription_handle</li>
-<li>void * message</li>
-<li>int64_t * source_timestamp</li>
-<li>bool * taken</li>
-</ul>
-<hr />
 <h4 id="ros2rclcpp_intra_publish">ros2:rclcpp_intra_publish<a class="headerlink" href="#ros2rclcpp_intra_publish" title="Permanent link">#</a></h4>
 <p>[Extended tracepoints]</p>
 <p>Sampled items</p>
@@ -2975,6 +2972,27 @@ However, it's difficult to associate a certain message publish to corresponding 
 <li>void * publisher_handle</li>
 <li>void * message</li>
 <li>uint64_t message_timestamp</li>
+</ul>
+<hr />
+<h4 id="ros2dispatch_subscription_callback-before-v049">ros2:dispatch_subscription_callback (before v0.4.9)<a class="headerlink" href="#ros2dispatch_subscription_callback-before-v049" title="Permanent link">#</a></h4>
+<p>[Extended tracepoints]</p>
+<p>Sampled items</p>
+<ul>
+<li>void * message</li>
+<li>void * callback</li>
+<li>uint64_t source_timestamp</li>
+<li>uint64_t message_timestamp</li>
+</ul>
+<p>This tracepoint was <strong>deprecated</strong> in v0.4.10.</p>
+<hr />
+<h4 id="ros2rmw_take-after-v0410">ros2:rmw_take (after v0.4.10)<a class="headerlink" href="#ros2rmw_take-after-v0410" title="Permanent link">#</a></h4>
+<p>[Built-in tracepoints]</p>
+<p>Sampled items</p>
+<ul>
+<li>void * rmw_subscription_handle</li>
+<li>void * message</li>
+<li>int64_t * source_timestamp</li>
+<li>bool * taken</li>
 </ul>
 <hr />
 <h4 id="ros2dispatch_intra_process_subscription_callback">ros2:dispatch_intra_process_subscription_callback<a class="headerlink" href="#ros2dispatch_intra_process_subscription_callback" title="Permanent link">#</a></h4>
@@ -3066,13 +3084,13 @@ However, it's difficult to associate a certain message publish to corresponding 
         
         
           
-          <a href="../runtime_trace_points%28~v4.9%29/" class="md-footer__link md-footer__link--next" aria-label="Next: Runtime trace points(~v4.9)" rel="next">
+          <a href="../../configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Runtime trace points(~v4.9)
+                Configuration
               </div>
             </div>
             <div class="md-footer__button md-icon">
