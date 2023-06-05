@@ -193,6 +193,7 @@ The architecture object whose sub-objects are renamed is saved to a file as expl
 Using the following Python API to use `use_latest_message` on an architecture file. The examples below follow the previous section.
 
 - You can add callback to publisher with `insert_publisher_callback` function in `Architecture` class.
+
   - As arguments, the target node name, publishing topic name and publisher callback name must be specified.
 
 - You can update `context_types` to `use_latest_message` between targeted subscription and publisher with `update_message_context` function in `Architecture` class.
@@ -213,9 +214,11 @@ The edited architecture file is output by `arch.export()` function.
 Using the following Python API to use `callback_chain` on an architecture file. The examples below follow the previous section.
 
 - You can add callback to publisher with `insert_publisher_callback` function in `Architecture` class.
+
   - As arguments, the target node name, publishing topic name and publisher callback name must be specified.
 
 - You can add variable passing with `insert_variable_passing` function in `Architecture` class.
+
   - As arguments, the target node name, write callback name and read callback name must be specified.
 
 - You can update `context_types` to `callback_chain` between targeted subscription and publisher with `update_message_context` function in `Architecture` class.
