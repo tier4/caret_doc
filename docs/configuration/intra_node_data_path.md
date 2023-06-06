@@ -134,7 +134,7 @@ There are two ways to define inter-node data path.
 
 Either way will produce the same results as long as it is defined correctly, so define the data path as you prefer.
 
-### Directly editing the Architecture file
+### Directly editing the file
 
 This section explain how to add intra-node data path definition with editing an architecture file. The example issue above is used for explanation.
 
@@ -190,7 +190,7 @@ On the other hand, CARET requires users to provide the following description if 
 User have to fill callback name in `variable_passings`, `publishes`'s `callback_name`. `context_type` must be set as `callback_chain`.
 After editing, use path.verify() described in the beginning of this section to verify that it has been set correctly.
 
-### Manipulating the Architecture instance
+### Manipulating the instance
 
 CARET serves Python-based APIs to define intra-node data path.
 The following commands enable `Architecture file editing` done in the previous section to be implemented by python commands.
