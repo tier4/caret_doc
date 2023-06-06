@@ -129,6 +129,7 @@ CARET maps mechanically messages of `/pong` topic to messages of `/ping` which f
 In order to measure latency in the inter-node data path, the Architecture file must be edited to match the entity of the application to be measured.
 
 There are two ways to define inter-node data path.
+
 1. Directly editing the Architecture file with an editor, etc
 2. Manipulating the Architecture object using the Python API
 
