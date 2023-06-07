@@ -146,7 +146,7 @@ Sampled items
 - uint64_t source_timestamp
 - uint64_t message_timestamp
 
-This trace point is no longer used since v0.4.10.
+This tracepoint is no longer used from v0.4.10 onwards.
 
 ---
 
@@ -161,7 +161,7 @@ Sampled items
 - int64_t \* source_timestamp
 - bool \* taken
 
-In CARET, this trace point is used to determine the callback_start event corresponding to the rclcpp_publish event.
+In CARET, this tracepoint is used to determine the `callback_start` corresponding to the `rclcpp_publish`.
 Until version 0.4.9, ros2:dispatch_subscription_callback was used to link rclcpp_publish and callback_start events.
 
 ---
