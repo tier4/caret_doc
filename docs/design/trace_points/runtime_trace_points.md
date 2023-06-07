@@ -161,8 +161,8 @@ Sampled items
 - int64_t \* source_timestamp
 - bool \* taken
 
-In CARET, this tracepoint is used to determine the `callback_start` corresponding to the `rclcpp_publish`.
-Until version 0.4.9, ros2:dispatch_subscription_callback was used to link rclcpp_publish and callback_start events.
+In CARET, This tracepoint is used to correctly link `callback_start` to the `rclcpp_publish` that triggered the callback..
+Until version 0.4.9, ros2:dispatch_subscription_callback was used to link `rclcpp_publish` and `callback_start` events.
 
 ---
 
