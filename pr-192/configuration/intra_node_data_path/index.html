@@ -14,7 +14,7 @@
         <link rel="prev" href="../inter_node_data_path/">
       
       
-        <link rel="next" href="../remove_intra_node_data_path/">
+        <link rel="next" href="../rename_function/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
@@ -821,8 +821,6 @@
         
           
         
-          
-        
       
       
         
@@ -962,12 +960,25 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#architecture-file-editing" class="md-nav__link">
-    Architecture file editing
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-intra-node-data-path-to-the-architecture-fileobject" class="md-nav__link">
+    Define intra-node data path to the Architecture file/object
   </a>
   
-    <nav class="md-nav" aria-label="Architecture file editing">
+    <nav class="md-nav" aria-label="Define intra-node data path to the Architecture file/object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directly-editing-the-file" class="md-nav__link">
+    Directly editing the file
+  </a>
+  
+    <nav class="md-nav" aria-label="Directly editing the file">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -990,11 +1001,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#python-api" class="md-nav__link">
-    Python API
+  <a href="#manipulating-the-object" class="md-nav__link">
+    Manipulating the object
   </a>
   
-    <nav class="md-nav" aria-label="Python API">
+    <nav class="md-nav" aria-label="Manipulating the object">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1016,6 +1027,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#remove-intra-node-data-path" class="md-nav__link">
+    Remove intra-node data path
+  </a>
+  
+    <nav class="md-nav" aria-label="Remove intra-node data path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use_latest_message_3" class="md-nav__link">
+    use_latest_message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain_3" class="md-nav__link">
+    callback_chain
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1025,20 +1063,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../remove_intra_node_data_path/" class="md-nav__link">
-        Remove intra-node data path
-      </a>
     </li>
   
 
@@ -2781,12 +2805,25 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#architecture-file-editing" class="md-nav__link">
-    Architecture file editing
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-intra-node-data-path-to-the-architecture-fileobject" class="md-nav__link">
+    Define intra-node data path to the Architecture file/object
   </a>
   
-    <nav class="md-nav" aria-label="Architecture file editing">
+    <nav class="md-nav" aria-label="Define intra-node data path to the Architecture file/object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directly-editing-the-file" class="md-nav__link">
+    Directly editing the file
+  </a>
+  
+    <nav class="md-nav" aria-label="Directly editing the file">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2809,11 +2846,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#python-api" class="md-nav__link">
-    Python API
+  <a href="#manipulating-the-object" class="md-nav__link">
+    Manipulating the object
   </a>
   
-    <nav class="md-nav" aria-label="Python API">
+    <nav class="md-nav" aria-label="Manipulating the object">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2825,6 +2862,33 @@
         
           <li class="md-nav__item">
   <a href="#callback_chain_2" class="md-nav__link">
+    callback_chain
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-intra-node-data-path" class="md-nav__link">
+    Remove intra-node data path
+  </a>
+  
+    <nav class="md-nav" aria-label="Remove intra-node data path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use_latest_message_3" class="md-nav__link">
+    use_latest_message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain_3" class="md-nav__link">
     callback_chain
   </a>
   
@@ -2950,7 +3014,15 @@ For example, message filter is currently unable to measure.</p>
 <p><code>use_latest_message</code> and <code>callback_chain</code> do not cover all of use cases for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>. We, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> development team, continue improvements of intra-node data path definition.</p>
 </div>
 <p><prettier-ignore-end></p>
-<h3 id="architecture-file-editing">Architecture file editing<a class="headerlink" href="#architecture-file-editing" title="Permanent link">#</a></h3>
+<h2 id="define-intra-node-data-path-to-the-architecture-fileobject">Define intra-node data path to the Architecture file/object<a class="headerlink" href="#define-intra-node-data-path-to-the-architecture-fileobject" title="Permanent link">#</a></h2>
+<p>In order to measure latency in the inter-node data path, the Architecture file must be edited to match the entity of the application to be measured.</p>
+<p>There are two ways to define inter-node data path.</p>
+<ol>
+<li>Directly editing the Architecture file with an editor, etc</li>
+<li>Manipulating the Architecture object using the Python API</li>
+</ol>
+<p>Either way will produce the same results as long as it is defined correctly, so define the data path as you prefer.</p>
+<h3 id="directly-editing-the-file">Directly editing the file<a class="headerlink" href="#directly-editing-the-file" title="Permanent link">#</a></h3>
 <p>This section explain how to add intra-node data path definition with editing an architecture file. The example issue above is used for explanation.</p>
 <h4 id="use_latest_message_1"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message_1" title="Permanent link">#</a></h4>
 <p>Next sample description is required for using <code>use_latest_message</code> on an architecture file. <code>use_latest_message</code> is applied to <code>/pong_node</code> in the next sample description. Essential description is extracted in the following snippet, but you will confront with busy YAML file actually rather than the sample.</p>
@@ -2994,13 +3066,13 @@ For example, message filter is currently unable to measure.</p>
 </code></pre></div>
 <p>User have to fill callback name in <code>variable_passings</code>, <code>publishes</code>'s <code>callback_name</code>. <code>context_type</code> must be set as <code>callback_chain</code>.
 After editing, use path.verify() described in the beginning of this section to verify that it has been set correctly.</p>
-<h3 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h3>
+<h3 id="manipulating-the-object">Manipulating the object<a class="headerlink" href="#manipulating-the-object" title="Permanent link">#</a></h3>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python-based APIs to define intra-node data path.
 The following commands enable <code>Architecture file editing</code> done in the previous section to be implemented by python commands.</p>
 <p>All of the following code snippets can be executed after the <code>Architecture('type', 'file_path')</code> method loads an architecture object.
 The architecture object whose sub-objects are renamed is saved to a file as explained in <a href="../load_and_save/#save">the previous page</a>.</p>
 <h4 id="use_latest_message_2"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message_2" title="Permanent link">#</a></h4>
-<p>Using the following Python API to use <code>use_latest_message</code> on an architecture file. The examples below follow the previous section.</p>
+<p>Using the following Python API to use <code>use_latest_message</code> on an architecture object. The examples below follow the previous section.</p>
 <ul>
 <li>
 <p>You can add callback to publisher with <code>insert_publisher_callback</code> function in <code>Architecture</code> class.</p>
@@ -3023,7 +3095,7 @@ The architecture object whose sub-objects are renamed is saved to a file as expl
 <p>As a result of these processes, data path is defined as <code>use_latest_message</code>.
 The edited architecture file is output by <code>arch.export()</code> function.</p>
 <h4 id="callback_chain_2"><code>callback_chain</code><a class="headerlink" href="#callback_chain_2" title="Permanent link">#</a></h4>
-<p>Using the following Python API to use <code>callback_chain</code> on an architecture file. The examples below follow the previous section.</p>
+<p>Using the following Python API to use <code>callback_chain</code> on an architecture object. The examples below follow the previous section.</p>
 <ul>
 <li>
 <p>You can add callback to publisher with <code>insert_publisher_callback</code> function in <code>Architecture</code> class.</p>
@@ -3052,6 +3124,24 @@ The edited architecture file is output by <code>arch.export()</code> function.</
 </code></pre></div>
 <p>As a result of these processes, data path is defined as <code>callback_chain</code>.
 The edited architecture file is output by <code>arch.export()</code> function.</p>
+<h3 id="remove-intra-node-data-path">Remove intra-node data path<a class="headerlink" href="#remove-intra-node-data-path" title="Permanent link">#</a></h3>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> served Python-based APIs to remove data path and rewrite architecture files.
+The changes made in the previous section can be removed by the following manipulations.</p>
+<h4 id="use_latest_message_3"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message_3" title="Permanent link">#</a></h4>
+<p>Using the following Python API to remove intra-node data path of <code>use_latest_message</code> on an architecture file.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">remove_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDEFINED&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="callback_chain_3"><code>callback_chain</code><a class="headerlink" href="#callback_chain_3" title="Permanent link">#</a></h4>
+<p>Using the following Python API to remove intra-node data path of <code>callback_chain</code> on an architecture file.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">remove_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">remove_variable_passing</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;subscription_callback_0&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDEFINED&#39;</span><span class="p">)</span>
+</code></pre></div>
 
 
 
@@ -3094,13 +3184,13 @@ The edited architecture file is output by <code>arch.export()</code> function.</
         
         
           
-          <a href="../remove_intra_node_data_path/" class="md-footer__link md-footer__link--next" aria-label="Next: Remove intra-node data path" rel="next">
+          <a href="../rename_function/" class="md-footer__link md-footer__link--next" aria-label="Next: Rename sub-objects" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Remove intra-node data path
+                Rename sub-objects
               </div>
             </div>
             <div class="md-footer__button md-icon">
