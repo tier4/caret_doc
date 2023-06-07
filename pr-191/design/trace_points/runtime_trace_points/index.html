@@ -2994,8 +2994,8 @@ However, it's difficult to associate a certain message publish to corresponding 
 <li>int64_t * source_timestamp</li>
 <li>bool * taken</li>
 </ul>
-<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, this tracepoint is used to determine the <code>callback_start</code> corresponding to the <code>rclcpp_publish</code>.
-Until version 0.4.9, ros2:dispatch_subscription_callback was used to link rclcpp_publish and callback_start events.</p>
+<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, This tracepoint is used to correctly link <code>callback_start</code> to the <code>rclcpp_publish</code> that triggered the callback..
+Until version 0.4.9, ros2:dispatch_subscription_callback was used to link <code>rclcpp_publish</code> and <code>callback_start</code> events.</p>
 <hr />
 <h4 id="ros2dispatch_intra_process_subscription_callback">ros2:dispatch_intra_process_subscription_callback<a class="headerlink" href="#ros2dispatch_intra_process_subscription_callback" title="Permanent link">#</a></h4>
 <p>[Extended tracepoints]</p>
