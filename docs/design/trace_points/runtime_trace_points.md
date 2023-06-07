@@ -28,6 +28,13 @@ erDiagram
  uint64_t message_timestamp
  }
 
+ rmw_take{
+ address rmw_subscription_handle
+ address message
+ uint64_t source_timestamp
+ bool taken
+ }
+
  dispatch_subscription_callback{
  address message
  address callback
@@ -68,9 +75,11 @@ erDiagram
 
     dds_bind_addr_to_stamp ||--|| dispatch_subscription_callback: source_timestamp
 
-
+    dds_bind_addr_to_stamp ||--|| rmw_take: source_timestamp
+    rmw_take ||--|| callback_start: tid
     dispatch_intra_process_subscription_callback ||--|| callback_start: callback
     dispatch_subscription_callback ||--|| callback_start: callback
+
     callback_start ||--|| callback_end: callback
 
 ```
@@ -126,7 +135,7 @@ Sampled items
 
 ---
 
-#### ros2:dispatch_subscription_callback
+#### ros2:dispatch_subscription_callback (before v0.4.9)
 
 [Extended tracepoints]
 
@@ -136,6 +145,24 @@ Sampled items
 - void \* callback
 - uint64_t source_timestamp
 - uint64_t message_timestamp
+
+This tracepoint is no longer used from v0.4.10 onwards.
+
+---
+
+#### ros2:rmw_take (after v0.4.10)
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* rmw_subscription_handle
+- void \* message
+- int64_t \* source_timestamp
+- bool \* taken
+
+In CARET, this tracepoint is used to correctly link the `callback_start` to the `rclcpp_publish` that triggered the callback.
+Until version 0.4.9, ros2:dispatch_subscription_callback was used to link `rclcpp_publish` and `callback_start` events.
 
 ---
 
