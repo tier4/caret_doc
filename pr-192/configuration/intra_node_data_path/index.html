@@ -1022,29 +1022,9 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#remove-intra-node-data-path" class="md-nav__link">
     Remove intra-node data path
-  </a>
-  
-    <nav class="md-nav" aria-label="Remove intra-node data path">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use_latest_message_3" class="md-nav__link">
-    use_latest_message
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#callback_chain_3" class="md-nav__link">
-    callback_chain
   </a>
   
 </li>
@@ -2867,29 +2847,9 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#remove-intra-node-data-path" class="md-nav__link">
     Remove intra-node data path
-  </a>
-  
-    <nav class="md-nav" aria-label="Remove intra-node data path">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use_latest_message_3" class="md-nav__link">
-    use_latest_message
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#callback_chain_3" class="md-nav__link">
-    callback_chain
   </a>
   
 </li>
@@ -3124,17 +3084,21 @@ The edited architecture file is output by <code>arch.export()</code> function.</
 </code></pre></div>
 <p>As a result of these processes, data path is defined as <code>callback_chain</code>.
 The edited architecture file is output by <code>arch.export()</code> function.</p>
-<h3 id="remove-intra-node-data-path">Remove intra-node data path<a class="headerlink" href="#remove-intra-node-data-path" title="Permanent link">#</a></h3>
+<h4 id="remove-intra-node-data-path">Remove intra-node data path<a class="headerlink" href="#remove-intra-node-data-path" title="Permanent link">#</a></h4>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> served Python-based APIs to remove data path and rewrite architecture files.
 The changes made in the previous section can be removed by the following manipulations.</p>
-<h4 id="use_latest_message_3"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message_3" title="Permanent link">#</a></h4>
+<ul>
+<li>remove <code>use_latest_message</code></li>
+</ul>
 <p>Using the following Python API to remove intra-node data path of <code>use_latest_message</code> on an architecture file.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
 
 <span class="n">arch</span><span class="o">.</span><span class="n">remove_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
 <span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDEFINED&#39;</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="callback_chain_3"><code>callback_chain</code><a class="headerlink" href="#callback_chain_3" title="Permanent link">#</a></h4>
+<ul>
+<li>remove <code>callback_chain</code></li>
+</ul>
 <p>Using the following Python API to remove intra-node data path of <code>callback_chain</code> on an architecture file.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
 
