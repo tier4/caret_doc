@@ -271,4 +271,3 @@ arch.remove_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
 arch.remove_variable_passing('/pong_node', 'subscription_callback_0', 'timer_callback_1')
 arch.update_message_context('/pong_node', '/ping', '/pong', 'UNDEFINED')
 ```
-
