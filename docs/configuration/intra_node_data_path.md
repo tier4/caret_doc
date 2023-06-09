@@ -220,6 +220,15 @@ arch.update_message_context('/pong_node', '/ping', '/pong', 'use_latest_message'
 As a result of these processes, data path is defined as `use_latest_message`.
 The edited architecture file is output by `arch.export()` function.
 
+You can also remove intra-node data path of `use_latest_message` in Architecture object using the following Python API.
+
+```python
+# arch is caret_analyze.architecture.architecture.Architecture-based object
+
+arch.remove_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
+arch.update_message_context('/pong_node', '/ping', '/pong', 'UNDEFINED')
+```
+
 #### `callback_chain`
 
 Using the following Python API to use `callback_chain` on an architecture object. The examples below follow the previous section.
@@ -244,25 +253,7 @@ arch.update_message_context('/pong_node', '/ping', '/pong', 'callback_chain')
 As a result of these processes, data path is defined as `callback_chain`.
 The edited architecture file is output by `arch.export()` function.
 
-#### Remove intra-node data path
-
-CARET served Python-based APIs to remove data path and rewrite architecture files.
-The changes made in the previous section can be removed by the following manipulations.
-
-- remove `use_latest_message`
-
-Using the following Python API to remove intra-node data path of `use_latest_message` on an architecture file.
-
-```python
-# arch is caret_analyze.architecture.architecture.Architecture-based object
-
-arch.remove_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
-arch.update_message_context('/pong_node', '/ping', '/pong', 'UNDEFINED')
-```
-
-- remove `callback_chain`
-
-Using the following Python API to remove intra-node data path of `callback_chain` on an architecture file.
+You can also remove intra-node data path of `callback_chain` in Architecture object using the following Python API.
 
 ```python
 # arch is caret_analyze.architecture.architecture.Architecture-based object
