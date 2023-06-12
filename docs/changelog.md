@@ -2,6 +2,11 @@
 
 ## CARET
 
+### v0.4.10 <small>\_ Jun 12, 2023</small> {id = "0.4.10"}
+
+- **Update**: Changed trace points used to tie records of inter-process communication. This change affects trace data compatibility. However, this only affects cases where trace data captured after this update is analyzed by caret_analyze before this update. In that case, update caret_analyze ([CARET_analyze #296](https://github.com/tier4/CARET_analyze/pull/296)), ([CARET_trace #113](https://github.com/tier4/CARET_trace/pull/113)), ([CARET_doc #191](https://github.com/tier4/CARET_doc/pull/191)), ([ros2caret #70](https://github.com/tier4/ros2caret/pull/70))
+- Improved the API set for manipulating the objects (message_context, callback_chain, publisher, etc.) in Python ([CARET_analyze #297](https://github.com/tier4/CARET_analyze/pull/297))
+
 ### v0.4.9 <small>\_ May 15, 2023</small> {id = "0.4.9"}
 
 - **Update**:Improved path analysis to analyze paths that contain the same symbol object ([CARET_analyze #261](https://github.com/tier4/CARET_analyze/pull/261)), ([CARET_doc #183](https://github.com/tier4/CARET_doc/pull/183))
@@ -20,6 +25,7 @@
 ### v0.4.6 <small>\_ Apr 3, 2023</small> {id = "0.4.6"}
 
 - **New**: Added function to visualize response time with the stacked bar graph([CARET_analyze #265](https://github.com/tier4/CARET_analyze/pull/265), [CARET_analyze #259](https://github.com/tier4/CARET_analyze/pull/259), [CARET_doc #169](https://github.com/tier4/CARET_doc/pull/169))
+-
 - **Update**: Added selective path definition to include or exclude first and last callback execution ([CARET_analyze #263](https://github.com/tier4/CARET_analyze/pull/263), [CARET_analyze #271](https://github.com/tier4/CARET_analyze/pull/271), [CARET_analyze #272](https://github.com/tier4/CARET_analyze/pull/272), [CARET_analyze #273](https://github.com/tier4/CARET_analyze/pull/273))
 - Added a new function to get difference between two Architecture objects ([CARET_analyze #245](https://github.com/tier4/CARET_analyze/pull/245), [CARET_doc #168](https://github.com/tier4/CARET_doc/pull/168))
 - Removed deprecated interface such as `callback_sched` and `Plot.create_*_plot` ([CARET_analyze #266](https://github.com/tier4/CARET_analyze/pull/266))
