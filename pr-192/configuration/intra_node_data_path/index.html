@@ -2964,7 +2964,7 @@ For example, message filter is currently unable to measure.</p>
 <p>In order to measure latency in the inter-node data path, the Architecture file must be edited to match the entity of the application to be measured.</p>
 <p>There are two ways to define inter-node data path.</p>
 <ol>
-<li>Directly editing the Architecture file with an editor, etc</li>
+<li>Directly editing the architecture file with an editor or similar tools</li>
 <li>Manipulating the Architecture object using the Python API</li>
 </ol>
 <p>Either way will produce the same results as long as it is defined correctly, so define the data path as you prefer.</p>
@@ -3013,15 +3013,15 @@ For example, message filter is currently unable to measure.</p>
 <p>User have to fill callback name in <code>variable_passings</code>, <code>publishes</code>'s <code>callback_name</code>. <code>context_type</code> must be set as <code>callback_chain</code>.
 After editing, use path.verify() described in the beginning of this section to verify that it has been set correctly.</p>
 <h3 id="manipulating-the-object">Manipulating the object<a class="headerlink" href="#manipulating-the-object" title="Permanent link">#</a></h3>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python-based APIs to define intra-node data path.
-The following commands enable <code>Architecture file editing</code> done in the previous section to be implemented by python commands.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python API to define intra-node data path.
+The following commands enable <code>Architecture file editing</code> done in the previous section to be implemented by Python commands.</p>
 <p>All of the following code snippets can be executed after the <code>Architecture('type', 'file_path')</code> method loads an architecture object.
 The architecture object whose sub-objects are renamed is saved to a file as explained in <a href="../load_and_save/#save">the previous page</a>.</p>
 <h4 id="use_latest_message_2"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message_2" title="Permanent link">#</a></h4>
 <p>Using the following Python API to use <code>use_latest_message</code> on an architecture object. The examples below follow the previous section.</p>
 <ul>
 <li>
-<p>You can add callback to publisher with <code>insert_publisher_callback</code> function in <code>Architecture</code> class.</p>
+<p>You can add a callback to a publisher with <code>insert_publisher_callback</code> function in <code>Architecture</code> class.</p>
 <ul>
 <li>As arguments, the target node name, publishing topic name and publisher callback name must be specified.</li>
 </ul>
@@ -3050,7 +3050,7 @@ The edited architecture file is output by <code>arch.export()</code> function.</
 <p>Using the following Python API to use <code>callback_chain</code> on an architecture object. The examples below follow the previous section.</p>
 <ul>
 <li>
-<p>You can add callback to publisher with <code>insert_publisher_callback</code> function in <code>Architecture</code> class.</p>
+<p>You can add a callback to a publisher with <code>insert_publisher_callback</code> function in <code>Architecture</code> class.</p>
 <ul>
 <li>As arguments, the target node name, publishing topic name and publisher callback name must be specified.</li>
 </ul>
@@ -3076,7 +3076,7 @@ The edited architecture file is output by <code>arch.export()</code> function.</
 </code></pre></div>
 <p>As a result of these processes, data path is defined as <code>callback_chain</code>.
 The edited architecture file is output by <code>arch.export()</code> function.</p>
-<p>You can also remove intra-node data path of <code>callback_chain</code> in Architecture object using the following Python API.</p>
+<p>You can also remove intra-node data path of <code>callback_chain</code> in <code>Architecture</code> object using the following Python API.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
 
 <span class="n">arch</span><span class="o">.</span><span class="n">remove_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
