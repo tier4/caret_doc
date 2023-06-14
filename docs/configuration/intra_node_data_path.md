@@ -130,7 +130,7 @@ In order to measure latency in the inter-node data path, the Architecture file m
 
 There are two ways to define inter-node data path.
 
-1. Directly editing the Architecture file with an editor, etc
+1. Directly editing the architecture file with an editor or similar tools
 2. Manipulating the Architecture object using the Python API
 
 Either way will produce the same results as long as it is defined correctly, so define the data path as you prefer.
@@ -193,8 +193,8 @@ After editing, use path.verify() described in the beginning of this section to v
 
 ### Manipulating the object
 
-CARET serves Python-based APIs to define intra-node data path.
-The following commands enable `Architecture file editing` done in the previous section to be implemented by python commands.
+CARET serves Python API to define intra-node data path.
+The following commands enable `Architecture file editing` done in the previous section to be implemented by Python commands.
 
 All of the following code snippets can be executed after the `Architecture('type', 'file_path')` method loads an architecture object.
 The architecture object whose sub-objects are renamed is saved to a file as explained in [the previous page](./load_and_save.md#save).
@@ -203,7 +203,7 @@ The architecture object whose sub-objects are renamed is saved to a file as expl
 
 Using the following Python API to use `use_latest_message` on an architecture object. The examples below follow the previous section.
 
-- You can add callback to publisher with `insert_publisher_callback` function in `Architecture` class.
+- You can add a callback to a publisher with `insert_publisher_callback` function in `Architecture` class.
 
   - As arguments, the target node name, publishing topic name and publisher callback name must be specified.
 
@@ -233,7 +233,7 @@ arch.update_message_context('/pong_node', '/ping', '/pong', 'UNDEFINED')
 
 Using the following Python API to use `callback_chain` on an architecture object. The examples below follow the previous section.
 
-- You can add callback to publisher with `insert_publisher_callback` function in `Architecture` class.
+- You can add a callback to a publisher with `insert_publisher_callback` function in `Architecture` class.
 
   - As arguments, the target node name, publishing topic name and publisher callback name must be specified.
 
@@ -253,7 +253,7 @@ arch.update_message_context('/pong_node', '/ping', '/pong', 'callback_chain')
 As a result of these processes, data path is defined as `callback_chain`.
 The edited architecture file is output by `arch.export()` function.
 
-You can also remove intra-node data path of `callback_chain` in Architecture object using the following Python API.
+You can also remove intra-node data path of `callback_chain` in `Architecture` object using the following Python API.
 
 ```python
 # arch is caret_analyze.architecture.architecture.Architecture-based object
