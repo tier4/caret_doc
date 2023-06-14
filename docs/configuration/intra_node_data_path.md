@@ -133,7 +133,7 @@ There are two ways to define inter-node data path.
 1. Directly editing the architecture file with an editor or similar tools
 2. Manipulating the Architecture object using the Python API
 
-Either way will produce the same results as long as it is defined correctly, so define the data path as you prefer.
+Both methods will yield the same results as long as it is defined correctly, so define the data path as you prefer.
 
 ### Directly editing the file
 
