@@ -196,7 +196,7 @@ After editing, use path.verify() described in the beginning of this section to v
 CARET serves Python APIs to define intra-node data path.
 The following commands enable the `Architecture file editing` done in the previous section to be implemented by Python commands.
 
-All of the following code snippets can be executed after the `Architecture('type', 'file_path')` method loads an architecture object.
+All of the following code snippets can be executed after loading an architecture object using the `Architecture('type', 'file_path')` method.
 The architecture object whose sub-objects are renamed is saved to a file as explained in [the previous page](./load_and_save.md#save).
 
 #### `use_latest_message`
