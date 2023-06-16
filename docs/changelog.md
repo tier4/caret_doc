@@ -5,7 +5,7 @@
 ### v0.4.10 <small>\_ Jun 12, 2023</small> {id = "0.4.10"}
 
 - **Update**: Changed trace points used to tie records of inter-process communication. This change affects trace data compatibility. However, this only affects cases where trace data captured after this update is analyzed by caret_analyze before this update. In that case, update caret_analyze ([CARET_analyze #296](https://github.com/tier4/CARET_analyze/pull/296)), ([CARET_trace #113](https://github.com/tier4/CARET_trace/pull/113)), ([CARET_doc #191](https://github.com/tier4/CARET_doc/pull/191)), ([ros2caret #70](https://github.com/tier4/ros2caret/pull/70))
-- Improved the API set for manipulating the objects (message_context, callback_chain, publisher, etc.) in Python ([CARET_analyze #297](https://github.com/tier4/CARET_analyze/pull/297))
+- Added remove functions to modify intra-node data path: `remove_variable_passing` and `remove_publisher_callback` ([CARET_analyze #297](https://github.com/tier4/CARET_analyze/pull/297))
 
 ### v0.4.9 <small>\_ May 15, 2023</small> {id = "0.4.9"}
 
