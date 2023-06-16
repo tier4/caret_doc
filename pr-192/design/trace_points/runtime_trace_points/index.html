@@ -17,7 +17,7 @@
         <link rel="next" href="../../configuration/">
       
       <link rel="icon" href="../../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
@@ -2100,8 +2100,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2dispatch_subscription_callback" class="md-nav__link">
-    ros2:dispatch_subscription_callback
+  <a href="#ros2dispatch_subscription_callback-before-v049" class="md-nav__link">
+    ros2:dispatch_subscription_callback (before v0.4.9)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2rmw_take-after-v0410" class="md-nav__link">
+    ros2:rmw_take (after v0.4.10)
   </a>
   
 </li>
@@ -2769,8 +2776,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2dispatch_subscription_callback" class="md-nav__link">
-    ros2:dispatch_subscription_callback
+  <a href="#ros2dispatch_subscription_callback-before-v049" class="md-nav__link">
+    ros2:dispatch_subscription_callback (before v0.4.9)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2rmw_take-after-v0410" class="md-nav__link">
+    ros2:rmw_take (after v0.4.10)
   </a>
   
 </li>
@@ -2870,6 +2884,13 @@
  uint64_t message_timestamp
  }
 
+ rmw_take{
+ address rmw_subscription_handle
+ address message
+ uint64_t source_timestamp
+ bool taken
+ }
+
  dispatch_subscription_callback{
  address message
  address callback
@@ -2910,9 +2931,11 @@
 
     dds_bind_addr_to_stamp ||--|| dispatch_subscription_callback: source_timestamp
 
-
+    dds_bind_addr_to_stamp ||--|| rmw_take: source_timestamp
+    rmw_take ||--|| callback_start: tid
     dispatch_intra_process_subscription_callback ||--|| callback_start: callback
     dispatch_subscription_callback ||--|| callback_start: callback
+
     callback_start ||--|| callback_end: callback
 </code></pre>
 <p>Using addresses, thread id (<code>tid</code>) and source timestamp, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to identify a pair of message publish and corresponding subscription.
@@ -2951,7 +2974,7 @@ However, it's difficult to associate a certain message publish to corresponding 
 <li>uint64_t message_timestamp</li>
 </ul>
 <hr />
-<h4 id="ros2dispatch_subscription_callback">ros2:dispatch_subscription_callback<a class="headerlink" href="#ros2dispatch_subscription_callback" title="Permanent link">#</a></h4>
+<h4 id="ros2dispatch_subscription_callback-before-v049">ros2:dispatch_subscription_callback (before v0.4.9)<a class="headerlink" href="#ros2dispatch_subscription_callback-before-v049" title="Permanent link">#</a></h4>
 <p>[Extended tracepoints]</p>
 <p>Sampled items</p>
 <ul>
@@ -2960,6 +2983,19 @@ However, it's difficult to associate a certain message publish to corresponding 
 <li>uint64_t source_timestamp</li>
 <li>uint64_t message_timestamp</li>
 </ul>
+<p>This tracepoint is no longer used from v0.4.10 onwards.</p>
+<hr />
+<h4 id="ros2rmw_take-after-v0410">ros2:rmw_take (after v0.4.10)<a class="headerlink" href="#ros2rmw_take-after-v0410" title="Permanent link">#</a></h4>
+<p>[Built-in tracepoints]</p>
+<p>Sampled items</p>
+<ul>
+<li>void * rmw_subscription_handle</li>
+<li>void * message</li>
+<li>int64_t * source_timestamp</li>
+<li>bool * taken</li>
+</ul>
+<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, this tracepoint is used to correctly link the <code>callback_start</code> to the <code>rclcpp_publish</code> that triggered the callback.
+Until version 0.4.9, ros2:dispatch_subscription_callback was used to link <code>rclcpp_publish</code> and <code>callback_start</code> events.</p>
 <hr />
 <h4 id="ros2dispatch_intra_process_subscription_callback">ros2:dispatch_intra_process_subscription_callback<a class="headerlink" href="#ros2dispatch_intra_process_subscription_callback" title="Permanent link">#</a></h4>
 <p>[Extended tracepoints]</p>
@@ -3095,11 +3131,15 @@ However, it's difficult to associate a certain message publish to corresponding 
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a51614de.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
+        
+          <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
+        
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
       
     
   </body>

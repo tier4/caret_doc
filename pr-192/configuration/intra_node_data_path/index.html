@@ -17,7 +17,7 @@
         <link rel="next" href="../rename_function/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
@@ -3013,8 +3013,8 @@ For example, message filter is currently unable to measure.</p>
 <p>User have to fill callback name in <code>variable_passings</code>, <code>publishes</code>'s <code>callback_name</code>. <code>context_type</code> must be set as <code>callback_chain</code>.
 After editing, use path.verify() described in the beginning of this section to verify that it has been set correctly.</p>
 <h3 id="manipulating-the-object">Manipulating the object<a class="headerlink" href="#manipulating-the-object" title="Permanent link">#</a></h3>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python API to define intra-node data path.
-The following commands enable <code>Architecture file editing</code> done in the previous section to be implemented by Python commands.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python APIs to define intra-node data path.
+The following commands enable the <code>Architecture file editing</code> done in the previous section to be implemented by Python commands.</p>
 <p>All of the following code snippets can be executed after the <code>Architecture('type', 'file_path')</code> method loads an architecture object.
 The architecture object whose sub-objects are renamed is saved to a file as explained in <a href="../load_and_save/#save">the previous page</a>.</p>
 <h4 id="use_latest_message_2"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message_2" title="Permanent link">#</a></h4>
@@ -3038,9 +3038,9 @@ The architecture object whose sub-objects are renamed is saved to a file as expl
 <span class="n">arch</span><span class="o">.</span><span class="n">insert_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
 <span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;use_latest_message&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>As a result of these processes, data path is defined as <code>use_latest_message</code>.
+<p>As a result of these processes, the data path is defined as <code>use_latest_message</code>.
 The edited architecture file is output by <code>arch.export()</code> function.</p>
-<p>You can also remove intra-node data path of <code>use_latest_message</code> in Architecture object using the following Python API.</p>
+<p>You can also remove intra-node data path of <code>use_latest_message</code> in the Architecture object using the following Python API.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
 
 <span class="n">arch</span><span class="o">.</span><span class="n">remove_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
@@ -3070,7 +3070,9 @@ The edited architecture file is output by <code>arch.export()</code> function.</
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">arch</span><span class="o">.</span><span class="n">insert_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">insert_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
 <span class="n">arch</span><span class="o">.</span><span class="n">insert_variable_passing</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;subscription_callback_0&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
 <span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;callback_chain&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -3170,11 +3172,15 @@ The edited architecture file is output by <code>arch.export()</code> function.</
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
+        
+          <script src="https://unpkg.com/mermaid@8.13.10/dist/mermaid.min.js"></script>
+        
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
       
     
   </body>
