@@ -193,8 +193,8 @@ After editing, use path.verify() described in the beginning of this section to v
 
 ### Manipulating the object
 
-CARET serves Python API to define intra-node data path.
-The following commands enable `Architecture file editing` done in the previous section to be implemented by Python commands.
+CARET serves Python APIs to define intra-node data path.
+The following commands enable the `Architecture file editing` done in the previous section to be implemented by Python commands.
 
 All of the following code snippets can be executed after the `Architecture('type', 'file_path')` method loads an architecture object.
 The architecture object whose sub-objects are renamed is saved to a file as explained in [the previous page](./load_and_save.md#save).
@@ -217,10 +217,10 @@ arch.insert_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
 arch.update_message_context('/pong_node', '/ping', '/pong', 'use_latest_message')
 ```
 
-As a result of these processes, data path is defined as `use_latest_message`.
+As a result of these processes, the data path is defined as `use_latest_message`.
 The edited architecture file is output by `arch.export()` function.
 
-You can also remove intra-node data path of `use_latest_message` in Architecture object using the following Python API.
+You can also remove intra-node data path of `use_latest_message` in the Architecture object using the following Python API.
 
 ```python
 # arch is caret_analyze.architecture.architecture.Architecture-based object
@@ -245,6 +245,8 @@ Using the following Python API to use `callback_chain` on an architecture object
   - As arguments, the target node name, subscription topic name and publisher topic name must be specified.
 
 ```python
+# arch is caret_analyze.architecture.architecture.Architecture-based object
+
 arch.insert_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
 arch.insert_variable_passing('/pong_node', 'subscription_callback_0', 'timer_callback_1')
 arch.update_message_context('/pong_node', '/ping', '/pong', 'callback_chain')
