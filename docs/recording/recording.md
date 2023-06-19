@@ -181,6 +181,7 @@ def generate_launch_description():
             "ros2:rclcpp*" ,
             "ros2_caret:rclcpp*" ,
             "ros2_caret:rmw*",
+            "ros2:rmw_take",
             "*callback_group*",
             "ros2_caret:*executor",
             "ros2_caret:dds_bind*",
