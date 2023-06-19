@@ -9,8 +9,8 @@
 
 |                               | trace data (<=0.4.9) | trace data (>=v0.4.10) |
 | ----------------------------- | :------------------: | :--------------------: |
-| **CARET_analyze (<=v0.4.9)**  |          Supported   |          Unsupported   |
-| **CARET_analyze (>=v0.4.10)** |          Supported   |          Supported     |
+| **CARET_analyze (<=v0.4.9)**  |      Supported       |      Unsupported       |
+| **CARET_analyze (>=v0.4.10)** |      Supported       |       Supported        |
 
 - Added remove functions to modify intra-node data path: `remove_variable_passing` and `remove_publisher_callback` ([CARET_analyze #297](https://github.com/tier4/CARET_analyze/pull/297))
 
