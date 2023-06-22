@@ -506,6 +506,13 @@
         
           <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
+    v0.4.10 _ Jun 12, 2023
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
     v0.4.9 _ May 15, 2023
   </a>
   
@@ -2776,6 +2783,13 @@
         
           <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
+    v0.4.10 _ Jun 12, 2023
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
     v0.4.9 _ May 15, 2023
   </a>
   
@@ -2918,6 +2932,37 @@
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">#</a></h1>
 <h2 id="caret"><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#caret" title="Permanent link">#</a></h2>
+<h3 id="id">v0.4.10 <small>_ Jun 12, 2023</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Update</strong>: Changed trace points used to tie records of inter-process communication. This change affects trace data compatibility. However, this only affects cases where trace data captured after this update is analyzed by caret_analyze before this update. In that case, update caret_analyze (<a href="https://github.com/tier4/CARET_analyze/pull/296">CARET_analyze #296</a>), (<a href="https://github.com/tier4/CARET_trace/pull/113">CARET_trace #113</a>), (<a href="https://github.com/tier4/CARET_doc/pull/191">CARET_doc #191</a>), (<a href="https://github.com/tier4/ros2caret/pull/70">ros2caret #70</a>)<ul>
+<li>Please see the table below for the supported combinations</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">trace data (&lt;=0.4.9)</th>
+<th align="center">trace data (&gt;=v0.4.10)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CARET_analyze (&lt;=v0.4.9)</strong></td>
+<td align="center">Supported</td>
+<td align="center">Unsupported</td>
+</tr>
+<tr>
+<td><strong>CARET_analyze (&gt;=v0.4.10)</strong></td>
+<td align="center">Supported</td>
+<td align="center">Supported</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Added remove functions to modify intra-node data path: <code>remove_variable_passing</code> and <code>remove_publisher_callback</code> (<a href="https://github.com/tier4/CARET_analyze/pull/297">CARET_analyze #297</a>)</li>
+</ul>
 <h3 id="id">v0.4.9 <small>_ May 15, 2023</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>Update</strong>:Improved path analysis to analyze paths that contain the same symbol object (<a href="https://github.com/tier4/CARET_analyze/pull/261">CARET_analyze #261</a>), (<a href="https://github.com/tier4/CARET_doc/pull/183">CARET_doc #183</a>)</li>

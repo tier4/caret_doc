@@ -3040,7 +3040,7 @@ The architecture object whose sub-objects are renamed is saved to a file as expl
 </code></pre></div>
 <p>As a result of these processes, the data path is defined as <code>use_latest_message</code>.
 The edited architecture file is output by <code>arch.export()</code> function.</p>
-<p>You can also remove intra-node data path of <code>use_latest_message</code> in the Architecture object using the following Python API.</p>
+<p>If you want to disable the intra-node data path of <code>use_latest_message</code>, specify 'UNDEFINED' in the message context using the following Python API.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
 
 <span class="n">arch</span><span class="o">.</span><span class="n">remove_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
@@ -3078,7 +3078,7 @@ The edited architecture file is output by <code>arch.export()</code> function.</
 </code></pre></div>
 <p>As a result of these processes, data path is defined as <code>callback_chain</code>.
 The edited architecture file is output by <code>arch.export()</code> function.</p>
-<p>You can also remove intra-node data path of <code>callback_chain</code> in <code>Architecture</code> object using the following Python API.</p>
+<p>If you want to disable the intra-node data path of <code>callback_chain</code>, specify 'UNDEFINED' in the message context using the following Python API.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
 
 <span class="n">arch</span><span class="o">.</span><span class="n">remove_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
