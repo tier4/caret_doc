@@ -960,19 +960,25 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#python-api" class="md-nav__link">
-    Python API
-  </a>
+      </ul>
+    </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#architecture-file-editing" class="md-nav__link">
-    Architecture file editing
+      
+        <li class="md-nav__item">
+  <a href="#define-intra-node-data-path-to-the-architecture-fileobject" class="md-nav__link">
+    Define intra-node data path to the Architecture file/object
   </a>
   
-    <nav class="md-nav" aria-label="Architecture file editing">
+    <nav class="md-nav" aria-label="Define intra-node data path to the Architecture file/object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directly-editing-the-file" class="md-nav__link">
+    Directly editing the file
+  </a>
+  
+    <nav class="md-nav" aria-label="Directly editing the file">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -984,6 +990,33 @@
         
           <li class="md-nav__item">
   <a href="#callback_chain_1" class="md-nav__link">
+    callback_chain
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulating-the-object" class="md-nav__link">
+    Manipulating the object
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulating the object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use_latest_message_2" class="md-nav__link">
+    use_latest_message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain_2" class="md-nav__link">
     callback_chain
   </a>
   
@@ -2745,19 +2778,25 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#python-api" class="md-nav__link">
-    Python API
-  </a>
+      </ul>
+    </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#architecture-file-editing" class="md-nav__link">
-    Architecture file editing
+      
+        <li class="md-nav__item">
+  <a href="#define-intra-node-data-path-to-the-architecture-fileobject" class="md-nav__link">
+    Define intra-node data path to the Architecture file/object
   </a>
   
-    <nav class="md-nav" aria-label="Architecture file editing">
+    <nav class="md-nav" aria-label="Define intra-node data path to the Architecture file/object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directly-editing-the-file" class="md-nav__link">
+    Directly editing the file
+  </a>
+  
+    <nav class="md-nav" aria-label="Directly editing the file">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2769,6 +2808,33 @@
         
           <li class="md-nav__item">
   <a href="#callback_chain_1" class="md-nav__link">
+    callback_chain
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulating-the-object" class="md-nav__link">
+    Manipulating the object
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulating the object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use_latest_message_2" class="md-nav__link">
+    use_latest_message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback_chain_2" class="md-nav__link">
     callback_chain
   </a>
   
@@ -2894,9 +2960,15 @@ For example, message filter is currently unable to measure.</p>
 <p><code>use_latest_message</code> and <code>callback_chain</code> do not cover all of use cases for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>. We, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> development team, continue improvements of intra-node data path definition.</p>
 </div>
 <p><prettier-ignore-end></p>
-<h3 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">#</a></h3>
-<p>Python API is not implemented so far. Python API support is planned in 2023.</p>
-<h3 id="architecture-file-editing">Architecture file editing<a class="headerlink" href="#architecture-file-editing" title="Permanent link">#</a></h3>
+<h2 id="define-intra-node-data-path-to-the-architecture-fileobject">Define intra-node data path to the Architecture file/object<a class="headerlink" href="#define-intra-node-data-path-to-the-architecture-fileobject" title="Permanent link">#</a></h2>
+<p>In order to measure latency in the inter-node data path, the Architecture file must be edited to match the entity of the application to be measured.</p>
+<p>There are two ways to define inter-node data path.</p>
+<ol>
+<li>Directly editing the architecture file with an editor or similar tools</li>
+<li>Manipulating the Architecture object using the Python API</li>
+</ol>
+<p>Both methods will yield the same results as long as it is defined correctly, so define the data path as you prefer.</p>
+<h3 id="directly-editing-the-file">Directly editing the file<a class="headerlink" href="#directly-editing-the-file" title="Permanent link">#</a></h3>
 <p>This section explain how to add intra-node data path definition with editing an architecture file. The example issue above is used for explanation.</p>
 <h4 id="use_latest_message_1"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message_1" title="Permanent link">#</a></h4>
 <p>Next sample description is required for using <code>use_latest_message</code> on an architecture file. <code>use_latest_message</code> is applied to <code>/pong_node</code> in the next sample description. Essential description is extracted in the following snippet, but you will confront with busy YAML file actually rather than the sample.</p>
@@ -2940,6 +3012,79 @@ For example, message filter is currently unable to measure.</p>
 </code></pre></div>
 <p>User have to fill callback name in <code>variable_passings</code>, <code>publishes</code>'s <code>callback_name</code>. <code>context_type</code> must be set as <code>callback_chain</code>.
 After editing, use path.verify() described in the beginning of this section to verify that it has been set correctly.</p>
+<h3 id="manipulating-the-object">Manipulating the object<a class="headerlink" href="#manipulating-the-object" title="Permanent link">#</a></h3>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves Python APIs to define intra-node data path.
+The following commands enable the <code>Architecture file editing</code> done in the previous section to be implemented by Python commands.</p>
+<p>All of the following code snippets can be executed after loading an architecture object using the <code>Architecture('type', 'file_path')</code> method.
+The architecture object whose sub-objects are renamed is saved to a file as explained in <a href="../load_and_save/#save">the previous page</a>.</p>
+<h4 id="use_latest_message_2"><code>use_latest_message</code><a class="headerlink" href="#use_latest_message_2" title="Permanent link">#</a></h4>
+<p>Using the following Python API to use <code>use_latest_message</code> on an architecture object. The examples below follow the previous section.</p>
+<ul>
+<li>
+<p>You can add a callback to a publisher with <code>insert_publisher_callback</code> function in <code>Architecture</code> class.</p>
+<ul>
+<li>As arguments, the target node name, publishing topic name and publisher callback name must be specified.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>You can update <code>context_types</code> to <code>use_latest_message</code> between targeted subscription and publisher with <code>update_message_context</code> function in <code>Architecture</code> class.<ul>
+<li>As arguments, the target node name, subscription topic name and publisher topic name must be specified.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">insert_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;use_latest_message&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>As a result of these processes, the data path is defined as <code>use_latest_message</code>.
+The edited architecture file is output by <code>arch.export()</code> function.</p>
+<p>If you want to disable the intra-node data path of <code>use_latest_message</code>, specify 'UNDEFINED' in the message context using the following Python API.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">remove_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDEFINED&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="callback_chain_2"><code>callback_chain</code><a class="headerlink" href="#callback_chain_2" title="Permanent link">#</a></h4>
+<p>Using the following Python API to use <code>callback_chain</code> on an architecture object. The examples below follow the previous section.</p>
+<ul>
+<li>
+<p>You can add a callback to a publisher with <code>insert_publisher_callback</code> function in <code>Architecture</code> class.</p>
+<ul>
+<li>As arguments, the target node name, publishing topic name and publisher callback name must be specified.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>You can add variable passing with <code>insert_variable_passing</code> function in <code>Architecture</code> class.</p>
+<ul>
+<li>As arguments, the target node name, write callback name and read callback name must be specified.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>You can update <code>context_types</code> to <code>callback_chain</code> between targeted subscription and publisher with <code>update_message_context</code> function in <code>Architecture</code> class.<ul>
+<li>As arguments, the target node name, subscription topic name and publisher topic name must be specified.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">insert_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">insert_variable_passing</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;subscription_callback_0&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;callback_chain&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>As a result of these processes, data path is defined as <code>callback_chain</code>.
+The edited architecture file is output by <code>arch.export()</code> function.</p>
+<p>If you want to disable the intra-node data path of <code>callback_chain</code>, specify 'UNDEFINED' in the message context using the following Python API.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># arch is caret_analyze.architecture.architecture.Architecture-based object</span>
+
+<span class="n">arch</span><span class="o">.</span><span class="n">remove_publisher_callback</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">remove_variable_passing</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;subscription_callback_0&#39;</span><span class="p">,</span> <span class="s1">&#39;timer_callback_1&#39;</span><span class="p">)</span>
+<span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDEFINED&#39;</span><span class="p">)</span>
+</code></pre></div>
 
 
 
