@@ -2,6 +2,12 @@
 
 ## CARET
 
+### v0.4.11 <small>\_ Jun 26, 2023</small> {id = "0.4.11"}
+
+- Applied to the type hinting for generics in standard collections adopted from Python 3.9. ([CARET_analyze #294](https://github.com/tier4/CARET_analyze/pull/294)), ([CARET_analyze #299](https://github.com/tier4/CARET_analyze/pull/299))
+- Fixed a segmentation fault problem that occurred depending on the condition of the data analyzed by CARET_analyze. ([CARET_analyze_cpp_impl #79](https://github.com/tier4/CARET_analyze_cpp_impl/pull/79))
+- Added `ros2 caret version` command to get the CARET version. ([ros2caret #69](https://github.com/tier4/ros2caret/pull/69))
+
 ### v0.4.10 <small>\_ Jun 12, 2023</small> {id = "0.4.10"}
 
 - **Update**: Changed trace points used to tie records of inter-process communication. This change affects trace data compatibility. However, this only affects cases where trace data captured after this update is analyzed by caret_analyze before this update. In that case, update caret_analyze ([CARET_analyze #296](https://github.com/tier4/CARET_analyze/pull/296)), ([CARET_trace #113](https://github.com/tier4/CARET_trace/pull/113)), ([CARET_doc #191](https://github.com/tier4/CARET_doc/pull/191)), ([ros2caret #70](https://github.com/tier4/ros2caret/pull/70))
