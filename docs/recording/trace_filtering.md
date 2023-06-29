@@ -34,25 +34,27 @@ It will be handy to prepare a trace filter setting file like the following.
 
 export CARET_IGNORE_NODES=\
 "\
-/rviz*\
+/rviz*:\
+/care_trace_*:\
 "
 
 export CARET_IGNORE_TOPICS=\
 "\
 /clock:\
-/parameter_events\
+/parameter_events:\
 "
 
 # if you want to select nodes or topics,
 # please remove comment out of the followings.
 # export CARET_SELECT_NODES=\
 # "\
-# /rviz*\
+# /rviz*:\
+# /care_trace_*:\
 # "
 
 # export CARET_SELECT_TOPICS=\
 # "\
 # /clock:\
-# /parameter_events\
+# /parameter_events:\
 # "
 ```
