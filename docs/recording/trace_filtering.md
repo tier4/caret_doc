@@ -35,7 +35,7 @@ It will be handy to prepare a trace filter setting file like the following.
 export CARET_IGNORE_NODES=\
 "\
 /rviz*:\
-/care_trace_*:\
+/caret_trace_*:\
 "
 
 export CARET_IGNORE_TOPICS=\
@@ -49,7 +49,7 @@ export CARET_IGNORE_TOPICS=\
 # export CARET_SELECT_NODES=\
 # "\
 # /rviz*:\
-# /care_trace_*:\
+# /caret_trace_*:\
 # "
 
 # export CARET_SELECT_TOPICS=\
