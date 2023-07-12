@@ -2,6 +2,11 @@
 
 ## CARET
 
+### v0.4.12 <small>\_ Jul 10, 2023</small> {id = "0.4.12"}
+
+- Fixed a bug in the Plot class API that could not create graphs correctly when the `xaxis_type='sim_time'` option was specified. ([CARET_analyze #276](https://github.com/tier4/CARET_analyze/pull/276)), ([CARET_analyze #306](https://github.com/tier4/CARET_analyze/pull/306))
+- Fixed a bug that caused incorrect warnings to be output when using `ros2 caret check_ctf`. ([CARET_analyze #308](https://github.com/tier4/CARET_analyze/pull/308))
+
 ### v0.4.11 <small>\_ Jun 26, 2023</small> {id = "0.4.11"}
 
 - Applied to the type hinting for generics in standard collections adopted from Python 3.9. ([CARET_analyze #294](https://github.com/tier4/CARET_analyze/pull/294)), ([CARET_analyze #299](https://github.com/tier4/CARET_analyze/pull/299))
