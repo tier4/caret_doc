@@ -8,7 +8,7 @@ CARET only supports environments as follows.
 - Support FastDDS or CycloneDDS
 - Support only Linux, especially Ubuntu
 - Support Galactic and Humble
-- Require rebuilding of an application
+- Require rebuilding of an application with CARET libraries
 
 ## ROS 2 functions
 
@@ -25,3 +25,5 @@ CARET does not support implementations as follows.
 - Multiple nodes whose full-names are same
 - Wrapper for ROS layers
 - Reentrant callback group
+- Other than processing that operates on a node
+- Other than nodes built with rclcpp library
