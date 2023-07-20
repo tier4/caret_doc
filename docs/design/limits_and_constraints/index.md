@@ -8,7 +8,9 @@ CARET only supports environments as follows.
 - Support FastDDS or CycloneDDS
 - Support only Linux, especially Ubuntu
 - Support Galactic and Humble
-- Require rebuilding of an application
+- Support only applications build with rclcpp library
+- Support only processes acting as node
+- Require rebuilding of an application with CARET libraries
 
 ## ROS 2 functions
 
