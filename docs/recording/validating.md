@@ -39,6 +39,7 @@ ros2 caret check_ctf -d <path-to-trace-data>
 ### `Trace data from a package built without caret-rclcpp was detected.`
 
 - Cause
+
   - Some packages, which used in the target appliaction, is not built with CARET/rclcpp
 
 - Solution
