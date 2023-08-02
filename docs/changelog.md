@@ -2,6 +2,10 @@
 
 ## CARET
 
+### v0.4.13 <small>\_ Jul 24, 2023</small> {id = "0.4.13"}
+
+- Fixed a bug that delayed starting a measurement after `caret record` is launched depending on the time elapsed after the application being measured was launched. ([CARET_trace #129](https://github.com/tier4/CARET_trace/pull/129))
+
 ### v0.4.12 <small>\_ Jul 10, 2023</small> {id = "0.4.12"}
 
 - Fixed a bug in the Plot class API that could not create graphs correctly when the `xaxis_type='sim_time'` option was specified. ([CARET_analyze #276](https://github.com/tier4/CARET_analyze/pull/276)), ([CARET_analyze #306](https://github.com/tier4/CARET_analyze/pull/306))
