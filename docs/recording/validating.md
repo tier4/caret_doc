@@ -39,11 +39,11 @@ ros2 caret check_ctf -d <path-to-trace-data>
 ### `Trace data from a package built without caret-rclcpp was detected.`
 
 - Cause
-
-  - Some packages, which used in the target application, is not built with CARET/rclcpp
-
+  - Some packages (e.g. packages installed with apt) have been built without using caret-rclcpp.
 - Solution
-  - If you are using pre-built binaries obtained from apt or other sources, rebuild the application including the target package
+  - Build the application with CARET (See [build section](./build_check.md))
+  - If you still get this warning after checking the above,
+  add all packages used in your application to your workspace and build using CARET.
 
 ### `Tracer discarded`
 
