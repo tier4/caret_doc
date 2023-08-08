@@ -43,7 +43,7 @@ ros2 caret check_ctf -d <path-to-trace-data>
 - Solution
   - Build the application with CARET (See [build section](./build_check.md))
   - If you still get this warning after checking the above,
-  add all packages used in your application to your workspace and build using CARET.
+    add all packages used in your application to your workspace and build using CARET.
 
 ### `Tracer discarded`
 
