@@ -36,7 +36,7 @@ ros2 caret check_ctf -d <path-to-trace-data>
 - Solution
   - Set `LD_PRELOAD` before running the application (See [recording section](./recording.md))
 
-### `Trace data from a package built without caret-rclcpp was detected.`
+### `Trace data from a package built without caret-rclcpp was detected`
 
 - Cause
   - Some packages (e.g. packages installed with apt) have been built without using caret-rclcpp.
