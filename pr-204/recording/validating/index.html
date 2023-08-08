@@ -2874,16 +2874,14 @@
 </ul>
 <h3 id="trace-data-from-a-package-built-without-caret-rclcpp-was-detected"><code>Trace data from a package built without caret-rclcpp was detected.</code><a class="headerlink" href="#trace-data-from-a-package-built-without-caret-rclcpp-was-detected" title="Permanent link">#</a></h3>
 <ul>
-<li>
-<p>Cause</p>
-<ul>
-<li>Some packages, which used in the target application, is not built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp</li>
+<li>Cause<ul>
+<li>Some packages (e.g. packages installed with apt) have been built without using caret-rclcpp.</li>
 </ul>
 </li>
-</ul>
-<ul>
 <li>Solution<ul>
-<li>If you are using pre-built binaries obtained from apt or other sources, rebuild the application including the target package</li>
+<li>Build the application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> (See <a href="../build_check/">build section</a>)</li>
+<li>If you still get this warning after checking the above,
+add all packages used in your application to your workspace and build using <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.</li>
 </ul>
 </li>
 </ul>
