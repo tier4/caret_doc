@@ -803,6 +803,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#trace-data-from-a-package-built-without-caret-rclcpp-was-detected" class="md-nav__link">
+    Trace data from a package built without caret-rclcpp was detected
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#tracer-discarded" class="md-nav__link">
     Tracer discarded
   </a>
@@ -2746,6 +2753,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#trace-data-from-a-package-built-without-caret-rclcpp-was-detected" class="md-nav__link">
+    Trace data from a package built without caret-rclcpp was detected
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#tracer-discarded" class="md-nav__link">
     Tracer discarded
   </a>
@@ -2855,6 +2869,19 @@
 </li>
 <li>Solution<ul>
 <li>Set <code>LD_PRELOAD</code> before running the application (See <a href="../recording/">recording section</a>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="trace-data-from-a-package-built-without-caret-rclcpp-was-detected"><code>Trace data from a package built without caret-rclcpp was detected</code><a class="headerlink" href="#trace-data-from-a-package-built-without-caret-rclcpp-was-detected" title="Permanent link">#</a></h3>
+<ul>
+<li>Cause<ul>
+<li>Some packages (e.g. packages installed with apt) have been built without using caret-rclcpp.</li>
+</ul>
+</li>
+<li>Solution<ul>
+<li>Build the application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> (See <a href="../build_check/">build section</a>)</li>
+<li>If you still get this warning after checking the above,
+  add all packages used in your application to your workspace and build using <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.</li>
 </ul>
 </li>
 </ul>

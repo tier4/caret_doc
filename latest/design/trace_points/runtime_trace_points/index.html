@@ -2881,7 +2881,6 @@
  rclcpp_intra_publish{
  address publisher_handle
  address message
- uint64_t message_timestamp
  }
 
  rmw_take{
@@ -2912,7 +2911,6 @@
  rclcpp_publish{
  address publisher_handle
  address message
- uint64_t message_timestamp
  }
 
  dds_write{
@@ -2971,7 +2969,6 @@ However, it's difficult to associate a certain message publish to corresponding 
 <ul>
 <li>void * publisher_handle</li>
 <li>void * message</li>
-<li>uint64_t message_timestamp</li>
 </ul>
 <hr />
 <h4 id="ros2dispatch_subscription_callback-before-v049">ros2:dispatch_subscription_callback (before v0.4.9)<a class="headerlink" href="#ros2dispatch_subscription_callback-before-v049" title="Permanent link">#</a></h4>
@@ -3020,7 +3017,6 @@ Until version 0.4.9, ros2:dispatch_subscription_callback was used to link <code>
 <ul>
 <li>void * publisher_handle</li>
 <li>void * message</li>
-<li>uint64_t message_timestamp</li>
 </ul>
 <h4 id="ros2_caretdds_write">ros2_caret:dds_write<a class="headerlink" href="#ros2_caretdds_write" title="Permanent link">#</a></h4>
 <p>[Hooked tracepoints]</p>
