@@ -25,7 +25,6 @@ erDiagram
  rclcpp_intra_publish{
  address publisher_handle
  address message
- uint64_t message_timestamp
  }
 
  rmw_take{
@@ -56,7 +55,6 @@ erDiagram
  rclcpp_publish{
  address publisher_handle
  address message
- uint64_t message_timestamp
  }
 
  dds_write{
@@ -131,7 +129,6 @@ Sampled items
 
 - void \* publisher_handle
 - void \* message
-- uint64_t message_timestamp
 
 ---
 
@@ -197,7 +194,6 @@ Sampled items
 
 - void \* publisher_handle
 - void \* message
-- uint64_t message_timestamp
 
 #### ros2_caret:dds_write
 
