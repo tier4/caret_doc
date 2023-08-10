@@ -21,6 +21,23 @@ source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 's
 colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
 ```
 
+<details>
+<summary>for iron</summary>
+
+```bash
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws
+
+git clone https://github.com/tier4/CARET_demos.git src/CARET_demos
+
+source /opt/ros/iron/setup.bash
+source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/iron/setup.bash'
+
+colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
+```
+
+</details>
+
 The following command allows you to check whether CARET/rclcpp is applied to each package.
 If caret/rclcpp is not applied to the package you want to record, please check which rclcpp is used for the target and your workspace's environment variables.
 
@@ -61,6 +78,28 @@ export CARET_IGNORE_TOPICS="/clock:/parameter_events"
 ros2 launch caret_demos end_to_end_sample.launch.py
 ```
 
+<details>
+<summary>for iron</summary>
+
+```bash
+# Environment settings (keep the order as below)
+source /opt/ros/iron/setup.bash
+source ~/ros2_caret_ws/install/local_setup.bash
+source ~/ros2_ws/install/local_setup.bash
+
+# Enable tracepoints which are defined hooked functions.
+export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
+
+# (Optional) Exclude nodes and topics which you are not concerned with
+export CARET_IGNORE_NODES="/rviz*"
+export CARET_IGNORE_TOPICS="/clock:/parameter_events"
+
+# Launch the target application, demos_end_to_end_sample
+ros2 launch caret_demos end_to_end_sample.launch.py
+```
+
+</details>
+
 ### Starting recording
 
 Open a new terminal and record the performance data.
@@ -79,6 +118,26 @@ ros2 caret record -s e2e_sample
 # > All process tarted recording.
 # > press enter to stop...
 ```
+
+<details>
+<summary>for iron</summary>
+
+```bash
+source /opt/ros/iron/setup.bash
+source ~/ros2_caret_ws/install/local_setup.bash
+
+# set a destination directory. ~/.ros/tracing is default.
+mkdir -p ~/ros2_ws/evaluate
+export ROS_TRACE_DIR=~/ros2_ws/evaluate
+
+ros2 caret record -s e2e_sample
+
+# Start recording with pressing Enter key
+# > All process tarted recording.
+# > press enter to stop...
+```
+
+</details>
 
 ## Validating recorded data briefly
 
