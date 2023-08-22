@@ -2,6 +2,12 @@
 
 ## CARET
 
+### v0.4.14 <small>\_ Aug 21, 2023</small> {id = "0.4.14"}
+
+- Supported for function argument changes in `ros/ros2_tracing`. This support is in preparation for functionality improvements that will make rebuilding of the measurement application unnecessary. ([rclcpp #2](https://github.com/tier4/rclcpp/pull/2)), ([ros2_tracing #5](https://github.com/tier4/ros2_tracing/pull/5)), ([CARET_trace #136](https://github.com/tier4/CARET_trace/pull/136)), ([CARET_analyze #302](https://github.com/tier4/CARET_analyze/pull/302)), ([CARET_doc #204](https://github.com/tier4/CARET_doc/pull/204))
+- Adjusted Lttng buffer size to appropriate value. ([ros2_tracing #6](https://github.com/tier4/ros2_tracing/pull/6))
+- Fixed a build error that occurred in environments older than Python 3.10. ([ros2caret #81](https://github.com/tier4/ros2caret/pull/81))
+
 ### v0.4.13 <small>\_ Jul 24, 2023</small> {id = "0.4.13"}
 
 - Fixed a bug that delayed starting a measurement after `caret record` is launched depending on the time elapsed after the application being measured was launched. ([CARET_trace #129](https://github.com/tier4/CARET_trace/pull/129))
