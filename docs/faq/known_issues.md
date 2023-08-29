@@ -61,6 +61,37 @@ sudo cp /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake /opt/ros/
 sudo sed -i -e 's/\/opt\/ros\/humble\/include\/rclcpp;//g' /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
 ```
 
+### Warnings caused by `setup.py`.
+
+- Issue
+  - The following warnings happens when building CARET
+
+```sh
+Starting >>> caret_analyze_cpp_impl
+--- stderr: tracetools_test
+/usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` and ``easy_install``.
+        Instead, use pypa/build, pypa/installer, pypa/build or
+        other standards-based tools.
+
+        See https://github.com/pypa/setuptools/issues/917 for details.
+        ********************************************************************************
+```
+
+- Cause
+  - Python3 deprecates building with `setup.py`
+  - However, `setup.py` is used to build ROS2 by colcon.
+- Workaround
+  - This warning does not prevent CARET from working and does not require any action
+  - However, if you really want to remove the warning, the following steps can be taken to suppress the warning.
+
+```sh
+export PYTHONWARNINGS=ignore:"setup.py install is deprecated.",ignore:"easy_install command is deprecated."
+```
+
 ## Recording
 
 ### Only metadata is recorded
