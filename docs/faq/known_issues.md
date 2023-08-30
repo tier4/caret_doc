@@ -61,7 +61,7 @@ sudo cp /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake /opt/ros/
 sudo sed -i -e 's/\/opt\/ros\/humble\/include\/rclcpp;//g' /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
 ```
 
-### Warnings caused by `setup.py`.
+### Warnings caused by `setup.py`
 
 - Issue
   - The following warnings happens when building CARET
