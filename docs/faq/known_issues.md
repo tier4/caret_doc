@@ -100,10 +100,10 @@ sudo sed -i -e 's/\/opt\/ros\/humble\/include\/rclcpp;//g' /opt/ros/humble/share
 
 - Cause
   - Python3 deprecates building with `setup.py`
-  - However, `setup.py` is used to build ROS 2 by colcon.
+  - However, `setup.py` is used to build ROS 2 by colcon
 - Workaround
   - This warning does not prevent CARET from working and does not require any action
-  - However, if you really want to remove the warning, the following steps can be taken to suppress the warning.
+  - However, if you really want to remove the warning, the following steps can be taken to suppress the warning
 
 ```sh
 export PYTHONWARNINGS=ignore:"setup.py install is deprecated.",ignore:"easy_install command is deprecated."
