@@ -64,7 +64,7 @@ sudo sed -i -e 's/\/opt\/ros\/humble\/include\/rclcpp;//g' /opt/ros/humble/share
 ### Warnings caused by `setup.py`
 
 - Issue
-  - The following warnings happens when building CARET
+  - The following warnings happen when building CARET
 
 ```sh
 /usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
