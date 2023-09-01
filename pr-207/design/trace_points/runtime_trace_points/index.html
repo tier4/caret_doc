@@ -2121,6 +2121,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ros2rclcpp_ring_buffer_enqueue" class="md-nav__link">
+    ros2:rclcpp_ring_buffer_enqueue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2rclcpp_ring_buffer_dequeue" class="md-nav__link">
+    ros2:rclcpp_ring_buffer_dequeue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ros2rcl_publish" class="md-nav__link">
     ros2:rcl_publish
   </a>
@@ -2797,6 +2811,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ros2rclcpp_ring_buffer_enqueue" class="md-nav__link">
+    ros2:rclcpp_ring_buffer_enqueue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2rclcpp_ring_buffer_dequeue" class="md-nav__link">
+    ros2:rclcpp_ring_buffer_dequeue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ros2rcl_publish" class="md-nav__link">
     ros2:rcl_publish
   </a>
@@ -2922,6 +2950,19 @@
  uint64_t source_stamp
  }
 
+ rclcpp_ring_buffer_enqueue{
+ address buffer
+ uint64_t index
+ uint64_t size
+ bool overwritten
+ }
+
+ rclcpp_ring_buffer_dequeue{
+ address buffer
+ uint64_t index
+ uint64_t size
+ }
+
     rclcpp_intra_publish ||--|| dispatch_intra_process_subscription_callback: message_addr
     rclcpp_publish ||--|| rcl_publish: message_addr
     rcl_publish ||--|| dds_write: message_addr
@@ -2933,7 +2974,10 @@
     rmw_take ||--|| callback_start: tid
     dispatch_intra_process_subscription_callback ||--|| callback_start: callback
     dispatch_subscription_callback ||--|| callback_start: callback
-
+    rclcpp_intra_publish ||--|| rclcpp_ring_buffer_enqueue: tid
+    rclcpp_ring_buffer_enqueue ||--|| rclcpp_ring_buffer_dequeue: index
+    rclcpp_ring_buffer_dequeue ||--|| callback_start: tid
+rclcpp_
     callback_start ||--|| callback_end: callback
 </code></pre>
 <p>Using addresses, thread id (<code>tid</code>) and source timestamp, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to identify a pair of message publish and corresponding subscription.
@@ -3001,6 +3045,25 @@ Until version 0.4.9, ros2:dispatch_subscription_callback was used to link <code>
 <li>void * message</li>
 <li>void * callback</li>
 <li>uint64_t message_timestamp</li>
+</ul>
+<hr />
+<h4 id="ros2rclcpp_ring_buffer_enqueue">ros2:rclcpp_ring_buffer_enqueue<a class="headerlink" href="#ros2rclcpp_ring_buffer_enqueue" title="Permanent link">#</a></h4>
+<p>[Built-in tracepoints]</p>
+<p>Sampled items</p>
+<ul>
+<li>void * buffer</li>
+<li>uint64_t index</li>
+<li>uint64_t size</li>
+<li>bool * overwritten</li>
+</ul>
+<hr />
+<h4 id="ros2rclcpp_ring_buffer_dequeue">ros2:rclcpp_ring_buffer_dequeue<a class="headerlink" href="#ros2rclcpp_ring_buffer_dequeue" title="Permanent link">#</a></h4>
+<p>[Built-in tracepoints]</p>
+<p>Sampled items</p>
+<ul>
+<li>void * buffer</li>
+<li>uint64_t index</li>
+<li>uint64_t size</li>
 </ul>
 <hr />
 <h4 id="ros2rcl_publish">ros2:rcl_publish<a class="headerlink" href="#ros2rcl_publish" title="Permanent link">#</a></h4>
