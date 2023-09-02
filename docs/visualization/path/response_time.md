@@ -87,3 +87,32 @@ plot.show()
 The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')`.
 
 `[worst - best] response time` in legends refers to the difference in response time between the worst case and the best case.
+
+## TimeSeries
+
+The following scripts generate timeseries graphs of response time. Horizontal axis of the graph means timeseries and vertical axis means Response time in the best case, worst case, or all case.
+
+```python
+# plot best case
+plot = Plot.create_response_time_timeseries_plot(path)
+plot.show()
+# or
+# plot = Plot.create_response_time_timeseries_plot(path, case='best')
+# plot.show()
+```
+![response_time_timeseries_best](../../imgs/response_time_timeseries_best.png)
+
+```python
+# plot worst case
+plot = Plot.create_response_time_stacked_bar_plot(path, case='worst')
+plot.show()
+```
+![response_time_timeseries_worst](../../imgs/response_time_timeseries_worst.png)
+
+```python
+# plot all case
+plot = Plot.create_response_time_stacked_bar_plot(path, case='all')
+plot.show()
+```
+
+![response_time_timeseries_all](../../imgs/response_time_timeseries_all.png)
