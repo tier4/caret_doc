@@ -100,6 +100,7 @@ plot.show()
 # plot = Plot.create_response_time_timeseries_plot(path, case='best')
 # plot.show()
 ```
+
 ![response_time_timeseries_best](../../imgs/response_time_timeseries_best.png)
 
 ```python
@@ -107,6 +108,7 @@ plot.show()
 plot = Plot.create_response_time_stacked_bar_plot(path, case='worst')
 plot.show()
 ```
+
 ![response_time_timeseries_worst](../../imgs/response_time_timeseries_worst.png)
 
 ```python
