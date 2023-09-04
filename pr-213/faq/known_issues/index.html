@@ -2592,6 +2592,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+    <nav class="md-nav" aria-label="Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warnings-caused-by-setuppy" class="md-nav__link">
+    Warnings caused by setup.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#build" class="md-nav__link">
     Build
   </a>
@@ -2616,13 +2636,6 @@
           <li class="md-nav__item">
   <a href="#systems-rclcpp-is-referred" class="md-nav__link">
     SYSTEM's rclcpp is referred
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#warnings-caused-by-setuppy" class="md-nav__link">
-    Warnings caused by setup.py
   </a>
   
 </li>
@@ -2694,6 +2707,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+    <nav class="md-nav" aria-label="Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warnings-caused-by-setuppy" class="md-nav__link">
+    Warnings caused by setup.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#build" class="md-nav__link">
     Build
   </a>
@@ -2718,13 +2751,6 @@
           <li class="md-nav__item">
   <a href="#systems-rclcpp-is-referred" class="md-nav__link">
     SYSTEM's rclcpp is referred
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#warnings-caused-by-setuppy" class="md-nav__link">
-    Warnings caused by setup.py
   </a>
   
 </li>
@@ -2773,6 +2799,56 @@
 
 
 <h1 id="known-issues">Known issues<a class="headerlink" href="#known-issues" title="Permanent link">#</a></h1>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">#</a></h2>
+<h3 id="warnings-caused-by-setuppy">Warnings caused by <code>setup.py</code><a class="headerlink" href="#warnings-caused-by-setuppy" title="Permanent link">#</a></h3>
+<ul>
+<li>Issue<ul>
+<li>The following warnings happen when building <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>/usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40:<span class="w"> </span>EasyInstallDeprecationWarning:<span class="w"> </span>easy_install<span class="w"> </span><span class="nb">command</span><span class="w"> </span>is<span class="w"> </span>deprecated.
+!!
+
+<span class="w">        </span>********************************************************************************
+<span class="w">        </span>Please<span class="w"> </span>avoid<span class="w"> </span>running<span class="w"> </span><span class="sb">``</span>setup.py<span class="sb">``</span><span class="w"> </span>and<span class="w"> </span><span class="sb">``</span>easy_install<span class="sb">``</span>.
+<span class="w">        </span>Instead,<span class="w"> </span>use<span class="w"> </span>pypa/build,<span class="w"> </span>pypa/installer<span class="w"> </span>or<span class="w"> </span>other
+<span class="w">        </span>standards-based<span class="w"> </span>tools.
+
+<span class="w">        </span>See<span class="w"> </span>https://github.com/pypa/setuptools/issues/917<span class="w"> </span><span class="k">for</span><span class="w"> </span>details.
+<span class="w">        </span>********************************************************************************
+
+!!
+<span class="w">  </span>easy_install.initialize_options<span class="o">(</span>self<span class="o">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66:<span class="w"> </span>SetuptoolsDeprecationWarning:<span class="w"> </span>setup.py<span class="w"> </span>install<span class="w"> </span>is<span class="w"> </span>deprecated.
+!!
+
+<span class="w">        </span>********************************************************************************
+<span class="w">        </span>Please<span class="w"> </span>avoid<span class="w"> </span>running<span class="w"> </span><span class="sb">``</span>setup.py<span class="sb">``</span><span class="w"> </span>directly.
+<span class="w">        </span>Instead,<span class="w"> </span>use<span class="w"> </span>pypa/build,<span class="w"> </span>pypa/installer<span class="w"> </span>or<span class="w"> </span>other
+<span class="w">        </span>standards-based<span class="w"> </span>tools.
+
+<span class="w">        </span>See<span class="w"> </span>https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html<span class="w"> </span><span class="k">for</span><span class="w"> </span>details.
+<span class="w">        </span>********************************************************************************
+
+!!
+<span class="w">  </span>self.initialize_options<span class="o">()</span>
+</code></pre></div>
+<ul>
+<li>Cause<ul>
+<li>Python3 deprecates building with <code>setup.py</code></li>
+<li>However, <code>setup.py</code> is used to build <abbr title="Robot Operating System">ROS</abbr> 2 by colcon</li>
+</ul>
+</li>
+<li>Workaround<ul>
+<li>This warning does not prevent <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> from working and does not require any action</li>
+<li>However, if you really want to remove the warning, the following steps can be taken to suppress the warning</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONWARNINGS</span><span class="o">=</span>ignore:<span class="s2">&quot;setup.py install is deprecated.&quot;</span>,ignore:<span class="s2">&quot;easy_install command is deprecated.&quot;</span>
+</code></pre></div>
 <h2 id="build">Build<a class="headerlink" href="#build" title="Permanent link">#</a></h2>
 <h3 id="conflicts-of-dependency-on-libtracetoolsso">Conflicts of dependency on <code>libtracetools.so</code><a class="headerlink" href="#conflicts-of-dependency-on-libtracetoolsso" title="Permanent link">#</a></h3>
 <ul>
@@ -2847,55 +2923,6 @@ sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span
 </ul>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cp<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake.bak2
 sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/\/opt\/ros\/humble\/include\/rclcpp;//g&#39;</span><span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
-</code></pre></div>
-<h3 id="warnings-caused-by-setuppy">Warnings caused by <code>setup.py</code><a class="headerlink" href="#warnings-caused-by-setuppy" title="Permanent link">#</a></h3>
-<ul>
-<li>Issue<ul>
-<li>The following warnings happen when building <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr></li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>/usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40:<span class="w"> </span>EasyInstallDeprecationWarning:<span class="w"> </span>easy_install<span class="w"> </span><span class="nb">command</span><span class="w"> </span>is<span class="w"> </span>deprecated.
-!!
-
-<span class="w">        </span>********************************************************************************
-<span class="w">        </span>Please<span class="w"> </span>avoid<span class="w"> </span>running<span class="w"> </span><span class="sb">``</span>setup.py<span class="sb">``</span><span class="w"> </span>and<span class="w"> </span><span class="sb">``</span>easy_install<span class="sb">``</span>.
-<span class="w">        </span>Instead,<span class="w"> </span>use<span class="w"> </span>pypa/build,<span class="w"> </span>pypa/installer<span class="w"> </span>or<span class="w"> </span>other
-<span class="w">        </span>standards-based<span class="w"> </span>tools.
-
-<span class="w">        </span>See<span class="w"> </span>https://github.com/pypa/setuptools/issues/917<span class="w"> </span><span class="k">for</span><span class="w"> </span>details.
-<span class="w">        </span>********************************************************************************
-
-!!
-<span class="w">  </span>easy_install.initialize_options<span class="o">(</span>self<span class="o">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>/usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66:<span class="w"> </span>SetuptoolsDeprecationWarning:<span class="w"> </span>setup.py<span class="w"> </span>install<span class="w"> </span>is<span class="w"> </span>deprecated.
-!!
-
-<span class="w">        </span>********************************************************************************
-<span class="w">        </span>Please<span class="w"> </span>avoid<span class="w"> </span>running<span class="w"> </span><span class="sb">``</span>setup.py<span class="sb">``</span><span class="w"> </span>directly.
-<span class="w">        </span>Instead,<span class="w"> </span>use<span class="w"> </span>pypa/build,<span class="w"> </span>pypa/installer<span class="w"> </span>or<span class="w"> </span>other
-<span class="w">        </span>standards-based<span class="w"> </span>tools.
-
-<span class="w">        </span>See<span class="w"> </span>https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html<span class="w"> </span><span class="k">for</span><span class="w"> </span>details.
-<span class="w">        </span>********************************************************************************
-
-!!
-<span class="w">  </span>self.initialize_options<span class="o">()</span>
-</code></pre></div>
-<ul>
-<li>Cause<ul>
-<li>Python3 deprecates building with <code>setup.py</code></li>
-<li>However, <code>setup.py</code> is used to build <abbr title="Robot Operating System">ROS</abbr> 2 by colcon</li>
-</ul>
-</li>
-<li>Workaround<ul>
-<li>This warning does not prevent <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> from working and does not require any action</li>
-<li>However, if you really want to remove the warning, the following steps can be taken to suppress the warning</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONWARNINGS</span><span class="o">=</span>ignore:<span class="s2">&quot;setup.py install is deprecated.&quot;</span>,ignore:<span class="s2">&quot;easy_install command is deprecated.&quot;</span>
 </code></pre></div>
 <h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
 <h3 id="only-metadata-is-recorded">Only metadata is recorded<a class="headerlink" href="#only-metadata-is-recorded" title="Permanent link">#</a></h3>
