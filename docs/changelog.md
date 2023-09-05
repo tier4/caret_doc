@@ -4,7 +4,7 @@
 
 ### v0.4.15 <small>\_ Sep 4, 2023</small> {id = "0.4.15"}
 - Updated the version of humble branch in tier4/rclcpp repository, which is forked from ros2/rclcpp, from 16.0.1 to 16.0.5. ([rclcpp #4](https://github.com/tier4/rclcpp/pull/4))
-- Refactored `APIs to calculate response time. ([CARET_analyze #310](https://github.com/tier4/CARET_analyze/pull/310)), ([CARET_analyze #313](https://github.com/tier4/CARET_analyze/pull/313)), ([CARET_analyze #319](https://github.com/tier4/CARET_analyze/pull/319))
+- Refactored and added APIs to calculate response time, these are a preparation to add options for visualizing graph in the future update. ([CARET_analyze #310](https://github.com/tier4/CARET_analyze/pull/310)), ([CARET_analyze #313](https://github.com/tier4/CARET_analyze/pull/313)), ([CARET_analyze #319](https://github.com/tier4/CARET_analyze/pull/319))
 - Fixed typo in CMakeLists.txt. ([CARET_analyze_cpp_impl #131](https://github.com/tier4/CARET_analyze_cpp_impl/pull/131))
 - Specified Pandas library version as '<2.1.0' to avoid problems with the Pandas library 2.1.0. ([CARET_analyze #324](https://github.com/tier4/CARET_analyze/pull/324))
 - Fixed to force loading process to ignore the second and subsequent callbacks even if "Duplicated callback id" occurs during CARET analyzing. ([CARET_analyze #314](https://github.com/tier4/CARET_analyze/pull/314))
