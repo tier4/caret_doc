@@ -506,6 +506,13 @@
         
           <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
+    v0.4.15 _ Sep 4, 2023
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
     v0.4.14 _ Aug 21, 2023
   </a>
   
@@ -2811,6 +2818,13 @@
         
           <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
+    v0.4.15 _ Sep 4, 2023
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
     v0.4.14 _ Aug 21, 2023
   </a>
   
@@ -2988,9 +3002,43 @@
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">#</a></h1>
 <h2 id="caret"><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#caret" title="Permanent link">#</a></h2>
+<h3 id="id">v0.4.15 <small>_ Sep 4, 2023</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
+<ul>
+<li>Updated the version of humble branch in tier4/rclcpp repository, which is forked from ros2/rclcpp, from 16.0.1 to 16.0.5. (<a href="https://github.com/tier4/rclcpp/pull/4">rclcpp #4</a>)</li>
+<li>Refactored and added APIs to calculate response time, these are a preparation to add options for visualizing graph in the future update. (<a href="https://github.com/tier4/CARET_analyze/pull/310">CARET_analyze #310</a>), (<a href="https://github.com/tier4/CARET_analyze/pull/313">CARET_analyze #313</a>), (<a href="https://github.com/tier4/CARET_analyze/pull/319">CARET_analyze #319</a>)</li>
+<li>Fixed typo in CMakeLists.txt. (<a href="https://github.com/tier4/CARET_analyze_cpp_impl/pull/131">CARET_analyze_cpp_impl #131</a>)</li>
+<li>Specified Pandas library version as '&lt;2.1.0' to avoid problems with the Pandas library 2.1.0. (<a href="https://github.com/tier4/CARET_analyze/pull/324">CARET_analyze #324</a>)</li>
+<li>Fixed to force loading process to ignore the second and subsequent callbacks even if "Duplicated callback id" occurs during <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> analyzing. (<a href="https://github.com/tier4/CARET_analyze/pull/314">CARET_analyze #314</a>)</li>
+</ul>
 <h3 id="id">v0.4.14 <small>_ Aug 21, 2023</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
 <ul>
-<li>Supported for function argument changes in <code>ros/ros2_tracing</code>. This support is in preparation for functionality improvements that will make rebuilding of the measurement application unnecessary. (<a href="https://github.com/tier4/rclcpp/pull/2">rclcpp #2</a>), (<a href="https://github.com/tier4/ros2_tracing/pull/5">ros2_tracing #5</a>), (<a href="https://github.com/tier4/CARET_trace/pull/136">CARET_trace #136</a>), (<a href="https://github.com/tier4/CARET_analyze/pull/302">CARET_analyze #302</a>), (<a href="https://github.com/tier4/CARET_doc/pull/204">CARET_doc #204</a>)</li>
+<li>Supported for function argument changes in <code>ros/ros2_tracing</code>. This support is in preparation for functionality improvements that will make rebuilding of the measurement application unnecessary. (<a href="https://github.com/tier4/rclcpp/pull/2">rclcpp #2</a>), (<a href="https://github.com/tier4/ros2_tracing/pull/5">ros2_tracing #5</a>), (<a href="https://github.com/tier4/CARET_trace/pull/136">CARET_trace #136</a>), (<a href="https://github.com/tier4/CARET_analyze/pull/302">CARET_analyze #302</a>), (<a href="https://github.com/tier4/CARET_doc/pull/204">CARET_doc #204</a>)<ul>
+<li>This change affects trace data compatibility. However, this only affects cases where trace data captured after this update is analyzed by caret_analyze before this update. Please see the table below for the supported combinations.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">trace data (&lt;=0.4.13)</th>
+<th align="center">trace data (&gt;=v0.4.14)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CARET_analyze (&lt;=v0.4.13)</strong></td>
+<td align="center">Supported</td>
+<td align="center">Unsupported</td>
+</tr>
+<tr>
+<td><strong>CARET_analyze (&gt;=v0.4.14)</strong></td>
+<td align="center">Supported</td>
+<td align="center">Supported</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li>Adjusted Lttng buffer size to appropriate value. (<a href="https://github.com/tier4/ros2_tracing/pull/6">ros2_tracing #6</a>)</li>
 <li>Fixed a build error that occurred in environments older than Python 3.10. (<a href="https://github.com/tier4/ros2caret/pull/81">ros2caret #81</a>)</li>
 </ul>
