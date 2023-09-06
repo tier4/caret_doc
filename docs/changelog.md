@@ -2,9 +2,24 @@
 
 ## CARET
 
+### v0.4.15 <small>\_ Sep 4, 2023</small> {id = "0.4.15"}
+
+- Updated the version of humble branch in tier4/rclcpp repository, which is forked from ros2/rclcpp, from 16.0.1 to 16.0.5. ([rclcpp #4](https://github.com/tier4/rclcpp/pull/4))
+- Refactored and added APIs to calculate response time, these are a preparation to add options for visualizing graph in the future update. ([CARET_analyze #310](https://github.com/tier4/CARET_analyze/pull/310)), ([CARET_analyze #313](https://github.com/tier4/CARET_analyze/pull/313)), ([CARET_analyze #319](https://github.com/tier4/CARET_analyze/pull/319))
+- Fixed typo in CMakeLists.txt. ([CARET_analyze_cpp_impl #131](https://github.com/tier4/CARET_analyze_cpp_impl/pull/131))
+- Specified Pandas library version as '<2.1.0' to avoid problems with the Pandas library 2.1.0. ([CARET_analyze #324](https://github.com/tier4/CARET_analyze/pull/324))
+- Fixed to force loading process to ignore the second and subsequent callbacks even if "Duplicated callback id" occurs during CARET analyzing. ([CARET_analyze #314](https://github.com/tier4/CARET_analyze/pull/314))
+
 ### v0.4.14 <small>\_ Aug 21, 2023</small> {id = "0.4.14"}
 
 - Supported for function argument changes in `ros/ros2_tracing`. This support is in preparation for functionality improvements that will make rebuilding of the measurement application unnecessary. ([rclcpp #2](https://github.com/tier4/rclcpp/pull/2)), ([ros2_tracing #5](https://github.com/tier4/ros2_tracing/pull/5)), ([CARET_trace #136](https://github.com/tier4/CARET_trace/pull/136)), ([CARET_analyze #302](https://github.com/tier4/CARET_analyze/pull/302)), ([CARET_doc #204](https://github.com/tier4/CARET_doc/pull/204))
+  - This change affects trace data compatibility. However, this only affects cases where trace data captured after this update is analyzed by caret_analyze before this update. Please see the table below for the supported combinations.
+
+|                               | trace data (<=0.4.13) | trace data (>=v0.4.14) |
+| ----------------------------- | :-------------------: | :--------------------: |
+| **CARET_analyze (<=v0.4.13)** |       Supported       |      Unsupported       |
+| **CARET_analyze (>=v0.4.14)** |       Supported       |       Supported        |
+
 - Adjusted Lttng buffer size to appropriate value. ([ros2_tracing #6](https://github.com/tier4/ros2_tracing/pull/6))
 - Fixed a build error that occurred in environments older than Python 3.10. ([ros2caret #81](https://github.com/tier4/ros2caret/pull/81))
 
