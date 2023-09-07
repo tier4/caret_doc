@@ -90,7 +90,7 @@ The horizontal axis can be changed to `system time` or `index` by changing `plot
 
 ## TimeSeries
 
-The following scripts generate timeseries graphs of response time. Horizontal axis of the graph means timeseries and vertical axis means Response time in the best case, worst case, or all case.
+The following scripts generate timeseries graphs of response time. Horizontal axis of the graph means timeseries and vertical axis means `Response time` in the best case, worst case, or all case.
 
 ```python
 # plot best case
