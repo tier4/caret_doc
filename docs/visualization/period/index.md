@@ -30,7 +30,7 @@ period_df
 
 ![callback_period_df](../../imgs/callback_period_df.png)
 
-### Timeserise
+### Time Series
 
 ```python
 ### Time-series graph
@@ -76,7 +76,7 @@ period_df
 
 ![communication_period_df](../../imgs/communication_period_df.png)
 
-### Timeserise
+### Time Series
 
 ```python
 ### Time-series graph

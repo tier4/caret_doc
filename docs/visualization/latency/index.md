@@ -29,7 +29,7 @@ latency_df
 
 ![callback_latency_df](../../imgs/callback_latency_df.png)
 
-### Timeseries
+### Time Series
 
 ```python
 ### Time-series graph
@@ -75,7 +75,7 @@ latency_df
 
 ![callback_latency_df](../../imgs/communication_latency_df.png)
 
-### Timeseries
+### Time Series
 
 ```python
 ### Time-series graph

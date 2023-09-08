@@ -30,7 +30,7 @@ frequency_df
 
 ![callback_frequency_df](../../imgs/callback_frequency_df.png)
 
-### Timeseries
+### Time Series
 
 ```python
 ### Time-series graph
@@ -76,7 +76,7 @@ frequency_df
 
 ![comm_frequency_df](../../imgs/comm_frequency_df.png)
 
-### Timeserise
+### Time Series
 
 ```python
 ### Time-series graph
