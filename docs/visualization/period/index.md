@@ -61,7 +61,6 @@ The horizontal axis means period, labeled as `period [ms]`. The vertical axis is
 
 ## Communication
 
-
 `Plot.create_period_timeseries_plot(communications: Collection[Communication])` and `Plot.create_period_histogram_plot(communications: Collection[Communication])` is helpful if you want to see that communication period is stable or not.
 Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See [Premise of communication](../premise_of_communication.md) for more details.
