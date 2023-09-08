@@ -16,7 +16,7 @@ app = Application(arch, lttng)
 
 ## Callback
 
-`Plot.create_latency_timeseries_plot(callbacks: Collections[CallbackBase])` is served to see execution time of callback functions.
+`Plot.create_latency_timeseries_plot(callbacks: Collections[CallbackBase])` and `Plot.create_latency_histogram_plot(callbacks: Collections[CallbackBase])` is served to see execution time of callback functions.
 
 ```python
 ### Timestamp tables
@@ -28,6 +28,8 @@ latency_df
 ```
 
 ![callback_latency_df](../../imgs/callback_latency_df.png)
+
+### Timeseries
 
 ```python
 ### Time-series graph
@@ -42,9 +44,23 @@ plot.show()
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared to select index of x-axis among Linux system time, [ROS simulation time](../../recording/sim_time.md), and 0-based ordering. One of `'system_time'`, `'sim_time'` and `'index'` is chosen as `xaxis_type` though `'system_time'` is the default value.
 The vertical axis means execution time of callback function, labeled as `Latency [ms]`. It is duration from `callback_start` to `callback_end` and plotted per sample.
 
+### Histogram
+
+```python
+### Histogram graph
+plot = Plot.create_latency_histogram_plot(app.callbacks)
+plot.show()
+
+# ---Output in jupyter-notebook as below---
+```
+
+![callback_latency_histogram](../../imgs/callback_latency_histogram.png)
+
+The horizontal axis means latency, labeled as `Latency [ms]`. The vertical axis is the Probability of delay, labeled as `probability`.
+
 ## Communication
 
-`Plot.create_latency_timeseries_plot(communications: Collection[Communication])` is called when you are concerned how long time is consumed from message publish to corresponding subscription.
+`Plot.create_latency_timeseries_plot(communications: Collection[Communication])` and `Plot.create_latency_histogram_plot(communications: Collection[Communication])` is called when you are concerned how long time is consumed from message publish to corresponding subscription.
 Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See Premise of communication for more details.
 
@@ -58,6 +74,8 @@ latency_df
 ```
 
 ![callback_latency_df](../../imgs/communication_latency_df.png)
+
+### Timeseries
 
 ```python
 ### Time-series graph
@@ -77,3 +95,17 @@ The vertical axis means latency, labeled as `Latency [ms]`. It is plotted per sa
     Communication latency is defined as elapsed time from topic message publish to subscription callback execution corresponding to the message.
     Strictly speaking, it is not not only elapsed time from message transmission to reception, but it also includes scheduling latency of callback.
 <prettier-ignore-end>
+
+### Histogram
+
+```python
+### Histogram graph
+plot = Plot.create_latency_histogram_plot(app.communications)
+plot.show()
+
+# ---Output in jupyter-notebook as below---
+```
+
+![communication_latency_histogram](../../imgs/communication_latency_histogram.png)
+
+The horizontal axis means latency, labeled as `Latency [ms]`. The vertical axis is the Probability of delay, labeled as `probability`.

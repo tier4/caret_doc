@@ -17,7 +17,7 @@ app = Application(arch, lttng)
 
 ## Callback
 
-`Plot.create_period_timeseries_plot(callbacks: Collections[CallbackBase])` is introduced to check period between invocation of callback function . Period is more detailed metrics than frequency.
+`Plot.create_period_timeseries_plot(callbacks: Collections[CallbackBase])` and `Plot.create_period_histogram_plot(callbacks: Collections[CallbackBase])` is introduced to check period between invocation of callback function . Period is more detailed metrics than frequency.
 
 ```python
 ### Timestamp tables
@@ -29,6 +29,8 @@ period_df
 ```
 
 ![callback_period_df](../../imgs/callback_period_df.png)
+
+### Timeserise
 
 ```python
 ### Time-series graph
@@ -43,9 +45,24 @@ plot.show()
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared to select index of x-axis among Linux system time, [ROS simulation time](../../recording/sim_time.md), and 0-based ordering. One of `'system_time'`, `'sim_time'` and `'index'` is chosen as `xaxis_type` though `'system_time'` is the default value.
 The vertical axis means period of callback start, labeled as `Period [ms]`. It is plotted per sample.
 
+### Histogram
+
+```python
+### histogram graph
+plot = Plot.create_period_histogram_plot(app.callbacks)
+plot.show()
+
+# ---Output in jupyter-notebook as below---
+```
+
+![callback_period_histogram](../../imgs/callback_period_histogram.png)
+
+The horizontal axis means period, labeled as `period [ms]`. The vertical axis is the probability of execution in that time period, labeled `probability`.
+
 ## Communication
 
-`Plot.create_period_timeseries_plot(communications: Collection[Communication])` is helpful if you want to see that communication period is stable or not.
+
+`Plot.create_period_timeseries_plot(communications: Collection[Communication])` and `Plot.create_period_histogram_plot(communications: Collection[Communication])` is helpful if you want to see that communication period is stable or not.
 Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See [Premise of communication](../premise_of_communication.md) for more details.
 
@@ -60,6 +77,8 @@ period_df
 
 ![communication_period_df](../../imgs/communication_period_df.png)
 
+### Timeserise
+
 ```python
 ### Time-series graph
 plot = Plot.create_period_timeseries_plot(app.communications)
@@ -71,6 +90,20 @@ plot.show()
 ![communication_period_time_line](../../imgs/communication_period_time_line.png)
 
 The horizontal axis means time, labeled as `Time [s]` while the vertical axis means period, labeled as `Period [ms]`, from communication of a certain message to that of next one. `xaxis_type` argument is provided as well as callback execution.
+
+### Histogram
+
+```python
+### Histogram graph
+plot = Plot.create_period_histogram_plot(app.communications)
+plot.show()
+
+# ---Output in jupyter-notebook as below---
+```
+
+![communication_period_histogram](../../imgs/communication_period_histogram.png)
+
+The horizontal axis means period, labeled as `period [ms]`. The vertical axis is the probability of execution in that time period, labeled `probability`.
 
 ## Publish and Subscription
 
