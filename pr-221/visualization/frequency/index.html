@@ -2693,7 +2693,7 @@ Execute the following script code to load trace data and an architecture object 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="callback">Callback<a class="headerlink" href="#callback" title="Permanent link">#</a></h2>
-<p><code>Plot.create_frequency_timeseries_plot(callbacks: Collections[CallbackBase])</code> is introduced to confirm whether targeted callback functions were running at desired frequency.</p>
+<p><code>Plot.create_frequency_timeseries_plot(callbacks: Collections[CallbackBase])</code> and <code>Plot.create_frequency_histogram_plot(callbacks: Collections[CallbackBase])</code> are introduced to confirm whether targeted callback functions were running at desired frequency.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_frequency_timeseries_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 <span class="n">frequency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
@@ -2722,7 +2722,7 @@ The vertical axis means frequency of callback execution, labeled as <code>Freque
 <p><img alt="callback_frequency_histogram" src="../../imgs/callback_frequency_histogram.png" /></p>
 <p>The horizontal axis means frequency, labeled as <code>frequency [Hz]</code>. The vertical axis is the probability of execution at that frequency, labeled <code>probability</code>.</p>
 <h2 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">#</a></h2>
-<p><code>Plot.create_frequency_timeseries_plot(communications: Collection[Communication])</code> is introduced to confirm targeted topic is communicated at expected frequency.
+<p><code>Plot.create_frequency_timeseries_plot(communications: Collection[Communication])</code> and <code>Plot.create_frequency_timeseries_plot(communications: Collection[Communication])</code> are introduced to confirm targeted topic is communicated at expected frequency.
 Here, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See <a href="../premise_of_communication/">Premise of communication</a> for more details.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>

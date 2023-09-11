@@ -2685,7 +2685,7 @@ Execute the following script code to load trace data and an architecture object 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="callback">Callback<a class="headerlink" href="#callback" title="Permanent link">#</a></h2>
-<p><code>Plot.create_latency_timeseries_plot(callbacks: Collections[CallbackBase])</code> and <code>Plot.create_latency_histogram_plot(callbacks: Collections[CallbackBase])</code> is served to see execution time of callback functions.</p>
+<p><code>Plot.create_latency_timeseries_plot(callbacks: Collections[CallbackBase])</code> and <code>Plot.create_latency_histogram_plot(callbacks: Collections[CallbackBase])</code> are served to see execution time of callback functions.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_timeseries_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 <span class="n">latency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
@@ -2712,9 +2712,9 @@ The vertical axis means execution time of callback function, labeled as <code>La
 <span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <p><img alt="callback_latency_histogram" src="../../imgs/callback_latency_histogram.png" /></p>
-<p>The horizontal axis means latency, labeled as <code>Latency [ms]</code>. The vertical axis is the Probability of delay, labeled as <code>probability</code>.</p>
+<p>The horizontal axis means latency, labeled as <code>Latency [ms]</code>. The vertical axis is the probability of execution at that latency, labeled <code>probability</code>.</p>
 <h2 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">#</a></h2>
-<p><code>Plot.create_latency_timeseries_plot(communications: Collection[Communication])</code> and <code>Plot.create_latency_histogram_plot(communications: Collection[Communication])</code> is called when you are concerned how long time is consumed from message publish to corresponding subscription.
+<p><code>Plot.create_latency_timeseries_plot(communications: Collection[Communication])</code> and <code>Plot.create_latency_histogram_plot(communications: Collection[Communication])</code> are called when you are concerned how long time is consumed from message publish to corresponding subscription.
 Here, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See Premise of communication for more details.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>
@@ -2750,7 +2750,7 @@ Strictly speaking, it is not not only elapsed time from message transmission to 
 <span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <p><img alt="communication_latency_histogram" src="../../imgs/communication_latency_histogram.png" /></p>
-<p>The horizontal axis means latency, labeled as <code>Latency [ms]</code>. The vertical axis is the Probability of delay, labeled as <code>probability</code>.</p>
+<p>The horizontal axis means latency, labeled as <code>Latency [ms]</code>. The vertical axis is the probability of execution at that latency, labeled <code>probability</code>.</p>
 
 
 
