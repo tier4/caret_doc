@@ -17,7 +17,7 @@ app = Application(arch, lttng)
 
 ## Callback
 
-`Plot.create_frequency_timeseries_plot(callbacks: Collections[CallbackBase])` is introduced to confirm whether targeted callback functions were running at desired frequency.
+`Plot.create_frequency_timeseries_plot(callbacks: Collections[CallbackBase])` and `Plot.create_frequency_histogram_plot(callbacks: Collections[CallbackBase])` are introduced to confirm whether targeted callback functions were running at desired frequency.
 
 ```python
 ### Timestamp tables
@@ -61,7 +61,7 @@ The horizontal axis means frequency, labeled as `frequency [Hz]`. The vertical a
 
 ## Communication
 
-`Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` is introduced to confirm targeted topic is communicated at expected frequency.
+`Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` and `Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` are introduced to confirm targeted topic is communicated at expected frequency.
 Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See [Premise of communication](../premise_of_communication.md) for more details.
 

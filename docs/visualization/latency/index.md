@@ -16,7 +16,7 @@ app = Application(arch, lttng)
 
 ## Callback
 
-`Plot.create_latency_timeseries_plot(callbacks: Collections[CallbackBase])` and `Plot.create_latency_histogram_plot(callbacks: Collections[CallbackBase])` is served to see execution time of callback functions.
+`Plot.create_latency_timeseries_plot(callbacks: Collections[CallbackBase])` and `Plot.create_latency_histogram_plot(callbacks: Collections[CallbackBase])` are served to see execution time of callback functions.
 
 ```python
 ### Timestamp tables
@@ -56,11 +56,11 @@ plot.show()
 
 ![callback_latency_histogram](../../imgs/callback_latency_histogram.png)
 
-The horizontal axis means latency, labeled as `Latency [ms]`. The vertical axis is the Probability of delay, labeled as `probability`.
+The horizontal axis means latency, labeled as `Latency [ms]`. The vertical axis is the probability of execution at that latency, labeled `probability`.
 
 ## Communication
 
-`Plot.create_latency_timeseries_plot(communications: Collection[Communication])` and `Plot.create_latency_histogram_plot(communications: Collection[Communication])` is called when you are concerned how long time is consumed from message publish to corresponding subscription.
+`Plot.create_latency_timeseries_plot(communications: Collection[Communication])` and `Plot.create_latency_histogram_plot(communications: Collection[Communication])` are called when you are concerned how long time is consumed from message publish to corresponding subscription.
 Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See Premise of communication for more details.
 
@@ -108,4 +108,4 @@ plot.show()
 
 ![communication_latency_histogram](../../imgs/communication_latency_histogram.png)
 
-The horizontal axis means latency, labeled as `Latency [ms]`. The vertical axis is the Probability of delay, labeled as `probability`.
+The horizontal axis means latency, labeled as `Latency [ms]`. The vertical axis is the probability of execution at that latency, labeled `probability`.
