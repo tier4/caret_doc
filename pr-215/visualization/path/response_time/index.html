@@ -2760,7 +2760,7 @@ Horizontal axis of the stacked bar graph means timeseries and vertical axis mean
 <p>The horizontal axis can be changed to <code>system time</code> or <code>index</code> by changing <code>plot.show()</code> to <code>plot.show(xaxis_type='index')</code>.</p>
 <p><code>[worst - best] response time</code> in legends refers to the difference in response time between the worst case and the best case.</p>
 <h2 id="timeseries">TimeSeries<a class="headerlink" href="#timeseries" title="Permanent link">#</a></h2>
-<p>The following scripts generate timeseries graphs of response time. The horizontal axis means time, labeled as Time [s]. The vertical axis means <code>Response time</code> in the best case, worst case, worst_in_input case, or all case.</p>
+<p>The following scripts generate timeseries graphs of response time. The horizontal axis means time, labeled as Time [s]. The vertical axis means <code>Response time</code> in the best case, worst case, worst-in-input case, or all case.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># plot best case</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_timeseries_plot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2775,7 +2775,7 @@ Horizontal axis of the stacked bar graph means timeseries and vertical axis mean
 </code></pre></div>
 <p><img alt="response_time_timeseries_worst" src="../../../imgs/response_time_timeseries_worst.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># plot worst_in_input case</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_stacked_bar_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;worst_in_input&#39;</span><span class="p">)</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_stacked_bar_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;worst-in-input&#39;</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="response_time_timeseries_worst_in_input" src="../../../imgs/response_time_timeseries_worst_in_input.png" /></p>
