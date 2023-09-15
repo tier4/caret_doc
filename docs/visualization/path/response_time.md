@@ -90,7 +90,7 @@ The horizontal axis can be changed to `system time` or `index` by changing `plot
 
 ## TimeSeries
 
-The following scripts generate timeseries graphs of response time. The horizontal axis means time, labeled as Time [s]. The vertical axis means `Response time` in the best case, worst case, worst_in_input case, or all case.
+The following scripts generate timeseries graphs of response time. The horizontal axis means time, labeled as Time [s]. The vertical axis means `Response time` in the best case, worst case, worst-in-input case, or all case.
 
 ```python
 # plot best case
@@ -100,6 +100,7 @@ plot.show()
 # plot = Plot.create_response_time_timeseries_plot(path, case='best')
 # plot.show()
 ```
+
 ![response_time_timeseries_best](../../imgs/response_time_timeseries_best.png)
 
 ```python
@@ -107,13 +108,15 @@ plot.show()
 plot = Plot.create_response_time_stacked_bar_plot(path, case='worst')
 plot.show()
 ```
+
 ![response_time_timeseries_worst](../../imgs/response_time_timeseries_worst.png)
 
 ```python
 # plot worst_in_input case
-plot = Plot.create_response_time_stacked_bar_plot(path, case='worst_in_input')
+plot = Plot.create_response_time_stacked_bar_plot(path, case='worst-in-input')
 plot.show()
 ```
+
 ![response_time_timeseries_worst_in_input](../../imgs/response_time_timeseries_worst_in_input.png)
 
 ```python
@@ -124,4 +127,4 @@ plot.show()
 
 ![response_time_timeseries_all](../../imgs/response_time_timeseries_all.png)
 
-The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')` though `system_time` is the default value. 
+The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')` though `system_time` is the default value.
