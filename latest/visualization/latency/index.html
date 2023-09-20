@@ -2605,12 +2605,52 @@
     Callback
   </a>
   
+    <nav class="md-nav" aria-label="Callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-series" class="md-nav__link">
+    Time Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histogram" class="md-nav__link">
+    Histogram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#communication" class="md-nav__link">
     Communication
   </a>
+  
+    <nav class="md-nav" aria-label="Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-series_1" class="md-nav__link">
+    Time Series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histogram_1" class="md-nav__link">
+    Histogram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2645,7 +2685,7 @@ Execute the following script code to load trace data and an architecture object 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">arch</span><span class="p">,</span> <span class="n">lttng</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="callback">Callback<a class="headerlink" href="#callback" title="Permanent link">#</a></h2>
-<p><code>Plot.create_latency_timeseries_plot(callbacks: Collections[CallbackBase])</code> is served to see execution time of callback functions.</p>
+<p><code>Plot.create_latency_timeseries_plot(callbacks: Collections[CallbackBase])</code> and <code>Plot.create_latency_histogram_plot(callbacks: Collections[CallbackBase])</code> are served to see execution time of callback functions.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_timeseries_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 <span class="n">latency_df</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
@@ -2654,6 +2694,7 @@ Execute the following script code to load trace data and an architecture object 
 <span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <p><img alt="callback_latency_df" src="../../imgs/callback_latency_df.png" /></p>
+<h3 id="time-series">Time Series<a class="headerlink" href="#time-series" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">### Time-series graph</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_timeseries_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2663,8 +2704,17 @@ Execute the following script code to load trace data and an architecture object 
 <p><img alt="callback_latency_time_line" src="../../imgs/callback_latency_time_line.png" /></p>
 <p>The horizontal axis means time, labeled as <code>Time [s]</code>. <code>xaxis_type</code> argument is prepared to select index of x-axis among Linux system time, <a href="../../recording/sim_time/"><abbr title="Robot Operating System">ROS</abbr> simulation time</a>, and 0-based ordering. One of <code>'system_time'</code>, <code>'sim_time'</code> and <code>'index'</code> is chosen as <code>xaxis_type</code> though <code>'system_time'</code> is the default value.
 The vertical axis means execution time of callback function, labeled as <code>Latency [ms]</code>. It is duration from <code>callback_start</code> to <code>callback_end</code> and plotted per sample.</p>
+<h3 id="histogram">Histogram<a class="headerlink" href="#histogram" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">### Histogram graph</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_histogram_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<p><img alt="callback_latency_histogram" src="../../imgs/callback_latency_histogram.png" /></p>
+<p>The horizontal axis means latency, labeled as <code>Latency [ms]</code>. The vertical axis is the probability of execution at that latency, labeled <code>probability</code>.</p>
 <h2 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">#</a></h2>
-<p><code>Plot.create_latency_timeseries_plot(communications: Collection[Communication])</code> is called when you are concerned how long time is consumed from message publish to corresponding subscription.
+<p><code>Plot.create_latency_timeseries_plot(communications: Collection[Communication])</code> and <code>Plot.create_latency_histogram_plot(communications: Collection[Communication])</code> are called when you are concerned how long time is consumed from message publish to corresponding subscription.
 Here, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See Premise of communication for more details.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>
@@ -2675,6 +2725,7 @@ See Premise of communication for more details.</p>
 <span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <p><img alt="callback_latency_df" src="../../imgs/communication_latency_df.png" /></p>
+<h3 id="time-series_1">Time Series<a class="headerlink" href="#time-series_1" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">### Time-series graph</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_timeseries_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">communications</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2691,6 +2742,15 @@ The vertical axis means latency, labeled as <code>Latency [ms]</code>. It is plo
 Strictly speaking, it is not not only elapsed time from message transmission to reception, but it also includes scheduling latency of callback.</p>
 </div>
 <p><prettier-ignore-end></p>
+<h3 id="histogram_1">Histogram<a class="headerlink" href="#histogram_1" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">### Histogram graph</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_latency_histogram_plot</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">communications</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ---Output in jupyter-notebook as below---</span>
+</code></pre></div>
+<p><img alt="communication_latency_histogram" src="../../imgs/communication_latency_histogram.png" /></p>
+<p>The horizontal axis means latency, labeled as <code>Latency [ms]</code>. The vertical axis is the probability of execution at that latency, labeled <code>probability</code>.</p>
 
 
 
