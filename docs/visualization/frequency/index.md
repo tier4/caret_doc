@@ -17,7 +17,7 @@ app = Application(arch, lttng)
 
 ## Callback
 
-`Plot.create_frequency_timeseries_plot(callbacks: Collections[CallbackBase])` is introduced to confirm whether targeted callback functions were running at desired frequency.
+`Plot.create_frequency_timeseries_plot(callbacks: Collections[CallbackBase])` and `Plot.create_frequency_histogram_plot(callbacks: Collections[CallbackBase])` are introduced to confirm whether targeted callback functions were running at desired frequency.
 
 ```python
 ### Timestamp tables
@@ -29,6 +29,8 @@ frequency_df
 ```
 
 ![callback_frequency_df](../../imgs/callback_frequency_df.png)
+
+### Time Series
 
 ```python
 ### Time-series graph
@@ -43,9 +45,23 @@ plot.show()
 The horizontal axis means time, labeled as `Time [s]`. `xaxis_type` argument is prepared to select index of x-axis among Linux system time, [ROS simulation time](../../recording/sim_time.md), and 0-based ordering. One of `'system_time'`, `'sim_time'` and `'index'` is chosen as `xaxis_type` though `'system_time'` is the default value.
 The vertical axis means frequency of callback execution, labeled as `Frequency [Hz]`. It is plotted per second.
 
+### Histogram
+
+```python
+### Time-series graph
+plot = Plot.create_frequency_histogram_plot(app.callbacks)
+plot.show()
+
+# ---Output in jupyter-notebook as below---
+```
+
+![callback_frequency_histogram](../../imgs/callback_frequency_histogram.png)
+
+The horizontal axis means frequency, labeled as `frequency [Hz]`. The vertical axis is the probability of execution at that frequency, labeled `probability`.
+
 ## Communication
 
-`Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` is introduced to confirm targeted topic is communicated at expected frequency.
+`Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` and `Plot.create_frequency_timeseries_plot(communications: Collection[Communication])` are introduced to confirm targeted topic is communicated at expected frequency.
 Here, CARET takes into account communication when both transmission and reception on a message are performed successfully without being lost.
 See [Premise of communication](../premise_of_communication.md) for more details.
 
@@ -60,6 +76,8 @@ frequency_df
 
 ![comm_frequency_df](../../imgs/comm_frequency_df.png)
 
+### Time Series
+
 ```python
 ### Time-series graph
 plot = Plot.create_frequency_timeseries_plot(app.communications)
@@ -71,6 +89,20 @@ plot.show()
 ![communication_frequency_time_line](../../imgs/communication_frequency_time_line.png)
 
 The horizontal axis means time, labeled as `Time [s]` while the vertical axis means frequency of communication, labeled as `Frequency [Hz]` as well as time-series graph for callback execution. `xaxis_type` argument is provided as well.
+
+### Histogram
+
+```python
+### Time-series graph
+plot = Plot.create_frequency_histogram_plot(app.communications)
+plot.show()
+
+# ---Output in jupyter-notebook as below---
+```
+
+![communication_frequency_histogram](../../imgs/communication_frequency_histogram.png)
+
+The horizontal axis means frequency, labeled as `frequency [Hz]`. The vertical axis is the probability of execution at that frequency, labeled `probability`.
 
 ## Publish and Subscription
 
