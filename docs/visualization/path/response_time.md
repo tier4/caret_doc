@@ -105,7 +105,7 @@ plot.show()
 
 ```python
 # plot worst case
-plot = Plot.create_response_time_stacked_bar_plot(path, case='worst')
+plot = Plot.create_response_time_timreseries_plot(path, case='worst')
 plot.show()
 ```
 
@@ -113,7 +113,7 @@ plot.show()
 
 ```python
 # plot worst_in_input case
-plot = Plot.create_response_time_stacked_bar_plot(path, case='worst-in-input')
+plot = Plot.create_response_time_timreseries_plot(path, case='worst-in-input')
 plot.show()
 ```
 
@@ -121,7 +121,7 @@ plot.show()
 
 ```python
 # plot all case
-plot = Plot.create_response_time_stacked_bar_plot(path, case='all')
+plot = Plot.create_response_time_timreseries_plot(path, case='all')
 plot.show()
 ```
 
