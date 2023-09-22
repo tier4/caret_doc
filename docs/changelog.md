@@ -2,6 +2,12 @@
 
 ## CARET
 
+### v0.4.16.1 <small>\_ Sep 21, 2023</small> {id = "0.4.16.1"}
+
+- **Fix**: Fixed an issue that prevented CARETmeasurement when using cyclonedds 0.10.x. ([caret #121](https://github.com/tier4/caret/pull/121))
+- **New**: Added API to plot the response time of Paths as timeseries. ([CARET_analyze #322](https://github.com/tier4/CARET_analyze/pull/322))
+- Changed to temporarily specify the version of `setuptools` to be installed, as the latest `setuptools` causes error during CARET building. ([CARET_analyze #330](https://github.com/tier4/CARET_analyze/pull/330))
+
 ### v0.4.15 <small>\_ Sep 4, 2023</small> {id = "0.4.15"}
 
 - Updated the version of humble branch in tier4/rclcpp repository, which is forked from ros2/rclcpp, from 16.0.1 to 16.0.5. ([rclcpp #4](https://github.com/tier4/rclcpp/pull/4))
