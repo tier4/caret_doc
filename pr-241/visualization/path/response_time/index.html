@@ -2710,7 +2710,7 @@ Execute the following script code to load trace data and an architecture object 
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_histogram_plot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1"># or</span>
-<span class="c1"># plot = Plot.create_response_time_timeseries_plot(path, case=&#39;all&#39;)</span>
+<span class="c1"># plot = Plot.create_response_time_histogram_plot(path, case=&#39;all&#39;)</span>
 <span class="c1"># plot.show()</span>
 </code></pre></div>
 <p><prettier-ignore-start></p>
@@ -2730,7 +2730,7 @@ Execute the following script code to load trace data and an architecture object 
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="response_time_worst_histogram" src="../../imgs/response_time_histogram_worst.png" /></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># plot worst case</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># plot worst-in-input case</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_histogram_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;worst-in-input&#39;</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
