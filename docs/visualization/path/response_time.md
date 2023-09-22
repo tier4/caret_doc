@@ -85,7 +85,7 @@ plot.show()
 ![response_time_best_stacked_bar](../imgs/response_time_stacked_bar_best.png)
 
 ```python
-# plot best case
+# plot worst-in-input case
 plot = Plot.create_response_time_stacked_bar_plot(path, case='worst-in-input')
 plot.show()
 ```
@@ -93,7 +93,7 @@ plot.show()
 ![response_time_worst_in_input_stacked_bar](../imgs/response_time_stacked_bar_worst_in_input.png)
 
 ```python
-# plot best case
+# plot all case
 plot = Plot.create_response_time_stacked_bar_plot(path, case='all')
 plot.show()
 ```
