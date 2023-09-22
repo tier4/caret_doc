@@ -35,6 +35,9 @@ The following scripts generate histograms of response time. Horizontal axis of t
 # plot best-to-worst case
 plot = Plot.create_response_time_histogram_plot(path)
 plot.show()
+# or
+# plot = Plot.create_response_time_timeseries_plot(path, case='all')
+# plot.show()
 ```
 
 <prettier-ignore-start>
@@ -42,7 +45,7 @@ plot.show()
     The `output_notebook()` is needed to show figures inside Jupyter Notebook.
 <prettier-ignore-end>
 
-![response_time_default_histogram](../../imgs/response_time_default_histogram.png)
+![response_time_all_histogram](../imgs/response_time_histogram_all.png)
 
 ```python
 # plot best case
@@ -50,7 +53,7 @@ plot = Plot.create_response_time_histogram_plot(path, case='best')
 plot.show()
 ```
 
-![response_time_best_histogram](../../imgs/response_time_best_histogram.png)
+![response_time_best_histogram](../imgs/response_time_histogram_best.png)
 
 ```python
 # plot worst case
@@ -58,7 +61,15 @@ plot = Plot.create_response_time_histogram_plot(path, case='worst')
 plot.show()
 ```
 
-![response_time_worst_histogram](../../imgs/response_time_worst_histogram.png)
+![response_time_worst_histogram](../imgs/response_time_histogram_worst.png)
+
+```python
+# plot worst case
+plot = Plot.create_response_time_histogram_plot(path, case='worst-in-input')
+plot.show()
+```
+
+![response_time_worst_in_input_histogram](../imgs/response_time_histogram_worst_in_input.png)
 
 ## Stacked Bar
 
