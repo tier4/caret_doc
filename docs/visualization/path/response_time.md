@@ -36,7 +36,7 @@ The following scripts generate histograms of response time. Horizontal axis of t
 plot = Plot.create_response_time_histogram_plot(path)
 plot.show()
 # or
-# plot = Plot.create_response_time_timeseries_plot(path, case='all')
+# plot = Plot.create_response_time_histogram_plot(path, case='all')
 # plot.show()
 ```
 
@@ -64,7 +64,7 @@ plot.show()
 ![response_time_worst_histogram](../imgs/response_time_histogram_worst.png)
 
 ```python
-# plot worst case
+# plot worst-in-input case
 plot = Plot.create_response_time_histogram_plot(path, case='worst-in-input')
 plot.show()
 ```
