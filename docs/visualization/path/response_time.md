@@ -117,7 +117,7 @@ plot = Plot.create_response_time_timreseries_plot(path, case='worst-in-input')
 plot.show()
 ```
 
-![response_time_timeseries_worst_in_input](../../imgs/response_time_timeseries_worst_in_input.png)
+![response_time_timeseries_worst_in_input](../../imgs/response_time_timeseries_worst-in-input.png)
 
 ```python
 # plot all case
