@@ -63,7 +63,7 @@ plot.show()
 ## Stacked Bar
 
 The following scripts generate stacked bar graphs of response time.
-Horizontal axis of the stacked bar graph means timeseries and vertical axis means `Response time` in the worst case or in the best case.
+Horizontal axis of the stacked bar graph means timeseries and vertical axis means `Response time` in the worst, best, all, worst-in-input case.
 
 ```python
 # plot worst case
@@ -74,7 +74,7 @@ plot.show()
 # plot.show()
 ```
 
-![response_time_worst_stacked_bar](../../imgs/response_time_worst_stacked_bar.png)
+![response_time_worst_stacked_bar](../imgs/response_time_stacked_bar_worst.png)
 
 ```python
 # plot best case
@@ -82,7 +82,23 @@ plot = Plot.create_response_time_stacked_bar_plot(path, case='best')
 plot.show()
 ```
 
-![response_time_best_stacked_bar](../../imgs/response_time_best_stacked_bar.png)
+![response_time_best_stacked_bar](../imgs/response_time_stacked_bar_best.png)
+
+```python
+# plot worst-in-input case
+plot = Plot.create_response_time_stacked_bar_plot(path, case='worst-in-input')
+plot.show()
+```
+
+![response_time_worst_in_input_stacked_bar](../imgs/response_time_stacked_bar_worst_in_input.png)
+
+```python
+# plot all case
+plot = Plot.create_response_time_stacked_bar_plot(path, case='all')
+plot.show()
+```
+
+![response_time_all_stacked_bar](../imgs/response_time_stacked_bar_all.png)
 
 The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')`.
 
