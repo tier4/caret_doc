@@ -2729,7 +2729,7 @@ Execute the following script code to load trace data and an architecture object 
 <p><img alt="response_time_worst_histogram" src="../../../imgs/response_time_worst_histogram.png" /></p>
 <h2 id="stacked-bar">Stacked Bar<a class="headerlink" href="#stacked-bar" title="Permanent link">#</a></h2>
 <p>The following scripts generate stacked bar graphs of response time.
-Horizontal axis of the stacked bar graph means timeseries and vertical axis means <code>Response time</code> in the worst case or in the best case.</p>
+Horizontal axis of the stacked bar graph means timeseries and vertical axis means <code>Response time</code> in the worst, best, all, worst-in-input case.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># plot worst case</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_stacked_bar_plot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2737,12 +2737,22 @@ Horizontal axis of the stacked bar graph means timeseries and vertical axis mean
 <span class="c1"># plot = Plot.create_response_time_stacked_bar_plot(path, case=&#39;worst&#39;)</span>
 <span class="c1"># plot.show()</span>
 </code></pre></div>
-<p><img alt="response_time_worst_stacked_bar" src="../../../imgs/response_time_worst_stacked_bar.png" /></p>
+<p><img alt="response_time_worst_stacked_bar" src="../../imgs/response_time_stacked_bar_worst.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># plot best case</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_stacked_bar_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="response_time_best_stacked_bar" src="../../../imgs/response_time_best_stacked_bar.png" /></p>
+<p><img alt="response_time_best_stacked_bar" src="../../imgs/response_time_stacked_bar_best.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># plot worst-in-input case</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_stacked_bar_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;worst-in-input&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="response_time_worst_in_input_stacked_bar" src="../../imgs/response_time_stacked_bar_worst_in_input.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># plot all case</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_stacked_bar_plot</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="response_time_all_stacked_bar" src="../../imgs/response_time_stacked_bar_all.png" /></p>
 <p>The horizontal axis can be changed to <code>system time</code> or <code>index</code> by changing <code>plot.show()</code> to <code>plot.show(xaxis_type='index')</code>.</p>
 <p><code>[worst - best] response time</code> in legends refers to the difference in response time between the worst case and the best case.</p>
 
