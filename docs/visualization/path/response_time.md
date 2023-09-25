@@ -128,7 +128,7 @@ plot.show()
 # plot.show()
 ```
 
-![response_time_timeseries_all](../../imgs/response_time_timeseries_all.png)
+![response_time_timeseries_all](../imgs/response_time_timeseries_all.png)
 
 ```python
 # plot best case
@@ -136,7 +136,7 @@ plot = Plot.create_response_time_timeseries_plot(path, case='best')
 plot.show()
 ```
 
-![response_time_timeseries_best](../../imgs/response_time_timeseries_best.png)
+![response_time_timeseries_best](../imgs/response_time_timeseries_best.png)
 
 ```python
 # plot worst case
@@ -144,7 +144,7 @@ plot = Plot.create_response_time_timeseries_plot(path, case='worst')
 plot.show()
 ```
 
-![response_time_timeseries_worst](../../imgs/response_time_timeseries_worst.png)
+![response_time_timeseries_worst](../imgs/response_time_timeseries_worst.png)
 
 ```python
 # plot worst-with-external-latency case
@@ -152,6 +152,6 @@ plot = Plot.create_response_time_timeseries_plot(path, case='worst-with-external
 plot.show()
 ```
 
-![response_time_timeseries_worst_with_external_latency](../../imgs/response_time_timeseries_worst_with_external_latency.png)
+![response_time_timeseries_worst_with_external_latency](../imgs/response_time_timeseries_worst_with_external_latency.png)
 
 The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')` though `system_time` is the default value.
