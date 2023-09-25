@@ -10,9 +10,9 @@ Please refer to [FAQ](../../faq/faq.md#how-response-time-is-calculated) if you a
     However, both will be referred to as "response time" for simplicity in this document.
 <prettier-ignore-end>
 
-Three cases of response time is defined; `all`, `best`, `worst`, and `worst-with-external-latency`. With `best` case, CARET samples shortest time elapsed in a targeted path. With `worst` case, the previous message input timing is taken into account. `best-to-worst` case includes most of all cases between `best` and `worst`.
+Three cases of response time is defined; `all`, `best`, `worst`, and `worst-with-external-latency`. With `all` case, CARET samples all time elapsed in a targeted path. With `best` case, CARET samples shortest time elapsed in a targeted path. With `worst` case, CARET samples largest time elapsed in a targeted path. With `worst-with-external-latency` case, the previous message input timing is taken into account. `best-to-worst` case includes most of all cases between `best` and `worst`.
 
-This section shows two methods to visualize response time, `Histogram` and `Stacked Bar`.
+This section shows two methods to visualize response time, `Histogram`, `Stacked Bar` and `TimeSeries`.
 Execute the following script code to load trace data and an architecture object before calling this method.
 
 ```python
