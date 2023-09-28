@@ -17,7 +17,7 @@ As a visualisation of the graph, four different cases can be specified in the `c
 - `best` case
   - CARET displays the elapsed time that is the shortest of all input times in the same cycle.
 - `worst` case
-  - CARET displays the elapsed time that is the longest of all input times in the same cycle. 
+  - CARET displays the elapsed time that is the longest of all input times in the same cycle.
 - `worst-with-external-latency` case
   - CARET displays the elapsed time from the last input time of a previous cycle.
 
