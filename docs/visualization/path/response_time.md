@@ -10,9 +10,18 @@ Please refer to [FAQ](../../faq/faq.md#how-response-time-is-calculated) if you a
     However, both will be referred to as "response time" for simplicity in this document.
 <prettier-ignore-end>
 
-Three cases of response time is defined; `best-to-worst`, `best`, and `worst`. With `best` case, CARET samples shortest time elapsed in a targeted path. With `worst` case, the previous message input timing is taken into account. `best-to-worst` case includes most of all cases between `best` and `worst`.
+As a visualization of the graph, four different cases can be specified in the `case` argument. Default value is 'all'; 'all', 'best', 'worst', and 'worst-with-external-latency'.
 
-This section shows two methods to visualize response time, `Histogram` and `Stacked Bar`.
+- `all` case
+  - CARET displays the elapsed time from all input times in the same cycle.
+- `best` case
+  - CARET displays the elapsed time that is the shortest of all input times in the same cycle.
+- `worst` case
+  - CARET displays the elapsed time that is the longest of all input times in the same cycle.
+- `worst-with-external-latency` case
+  - CARET displays the elapsed time from the last input time of a previous cycle.
+
+This section shows three methods to visualize response time, `Histogram`, `Stacked Bar` and `TimeSeries`.
 Execute the following script code to load trace data and an architecture object before calling this method.
 
 ```python
@@ -32,7 +41,7 @@ path = app.get_path('target_path')
 The following scripts generate histograms of response time. Horizontal axis of the histograms means response time, labeled `Response Time [ms]` and vertical axis of the histograms means `Probability`.
 
 ```python
-# plot best-to-worst case
+# plot all case
 plot = Plot.create_response_time_histogram_plot(path)
 plot.show()
 # or
@@ -45,7 +54,7 @@ plot.show()
     The `output_notebook()` is needed to show figures inside Jupyter Notebook.
 <prettier-ignore-end>
 
-![response_time_all_histogram](../imgs/response_time_histogram_all.png)
+![response_time_histogram_all](../imgs/response_time_histogram_all.png)
 
 ```python
 # plot best case
@@ -53,7 +62,7 @@ plot = Plot.create_response_time_histogram_plot(path, case='best')
 plot.show()
 ```
 
-![response_time_best_histogram](../imgs/response_time_histogram_best.png)
+![response_time_histogram_best](../imgs/response_time_histogram_best.png)
 
 ```python
 # plot worst case
@@ -61,31 +70,31 @@ plot = Plot.create_response_time_histogram_plot(path, case='worst')
 plot.show()
 ```
 
-![response_time_worst_histogram](../imgs/response_time_histogram_worst.png)
+![response_time_histogram_worst](../imgs/response_time_histogram_worst.png)
 
 ```python
-# plot worst-in-input case
-plot = Plot.create_response_time_histogram_plot(path, case='worst-in-input')
+# plot worst-with-external-latency case
+plot = Plot.create_response_time_histogram_plot(path, case='worst-with-external-latency')
 plot.show()
 ```
 
-![response_time_worst_in_input_histogram](../imgs/response_time_histogram_worst_in_input.png)
+![response_time_histogram_worst_with_external_latency](../imgs/response_time_histogram_worst_with_external_latency.png)
 
 ## Stacked Bar
 
 The following scripts generate stacked bar graphs of response time.
-Horizontal axis of the stacked bar graph means timeseries and vertical axis means `Response time` in the worst, best, all, worst-in-input case.
+Horizontal axis of the stacked bar graph means `system time [s]` or `index` and vertical axis means breakdown of time elapsed for each callback in `response time [s]`.
 
 ```python
-# plot worst case
+# plot all case
 plot = Plot.create_response_time_stacked_bar_plot(path)
 plot.show()
 # or
-# plot = Plot.create_response_time_stacked_bar_plot(path, case='worst')
+# plot = Plot.create_response_time_stacked_bar_plot(path, case='all')
 # plot.show()
 ```
 
-![response_time_worst_stacked_bar](../imgs/response_time_stacked_bar_worst.png)
+![response_time_stacked_bar_all](../imgs/response_time_stacked_bar_all.png)
 
 ```python
 # plot best case
@@ -93,23 +102,23 @@ plot = Plot.create_response_time_stacked_bar_plot(path, case='best')
 plot.show()
 ```
 
-![response_time_best_stacked_bar](../imgs/response_time_stacked_bar_best.png)
+![response_time_stacked_bar_best](../imgs/response_time_stacked_bar_best.png)
 
 ```python
-# plot worst-in-input case
-plot = Plot.create_response_time_stacked_bar_plot(path, case='worst-in-input')
+# plot worst case
+plot = Plot.create_response_time_stacked_bar_plot(path, case='worst')
 plot.show()
 ```
 
-![response_time_worst_in_input_stacked_bar](../imgs/response_time_stacked_bar_worst_in_input.png)
+![response_time_stacked_bar_worst](../imgs/response_time_stacked_bar_worst.png)
 
 ```python
-# plot all case
-plot = Plot.create_response_time_stacked_bar_plot(path, case='all')
+# plot worst-with-external-latency case
+plot = Plot.create_response_time_stacked_bar_plot(path, case='worst-with-external-latency')
 plot.show()
 ```
 
-![response_time_all_stacked_bar](../imgs/response_time_stacked_bar_all.png)
+![response_time_stacked_bar_worst_with_external_latency](../imgs/response_time_stacked_bar_worst_with_external_latency.png)
 
 The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')`.
 
@@ -117,18 +126,26 @@ The horizontal axis can be changed to `system time` or `index` by changing `plot
 
 ## TimeSeries
 
-The following scripts generate timeseries graphs of response time. The horizontal axis means time, labeled as Time [s]. The vertical axis means `Response time` in the best case, worst case, worst-in-input case, or all case.
+The following scripts generate timeseries graphs of response time. The horizontal axis means `system time [s]` or `index`. The vertical axis means `Response Time [ms]`.
 
 ```python
-# plot best case
+# plot all case
 plot = Plot.create_response_time_timeseries_plot(path)
 plot.show()
 # or
-# plot = Plot.create_response_time_timeseries_plot(path, case='best')
+# plot = Plot.create_response_time_timeseries_plot(path, case='all')
 # plot.show()
 ```
 
-![response_time_timeseries_best](../../imgs/response_time_timeseries_best.png)
+![response_time_timeseries_all](../imgs/response_time_timeseries_all.png)
+
+```python
+# plot best case
+plot = Plot.create_response_time_timeseries_plot(path, case='best')
+plot.show()
+```
+
+![response_time_timeseries_best](../imgs/response_time_timeseries_best.png)
 
 ```python
 # plot worst case
@@ -136,22 +153,14 @@ plot = Plot.create_response_time_timeseries_plot(path, case='worst')
 plot.show()
 ```
 
-![response_time_timeseries_worst](../../imgs/response_time_timeseries_worst.png)
+![response_time_timeseries_worst](../imgs/response_time_timeseries_worst.png)
 
 ```python
-# plot worst_in_input case
-plot = Plot.create_response_time_timeseries_plot(path, case='worst-in-input')
+# plot worst-with-external-latency case
+plot = Plot.create_response_time_timeseries_plot(path, case='worst-with-external-latency')
 plot.show()
 ```
 
-![response_time_timeseries_worst_in_input](../../imgs/response_time_timeseries_worst-in-input.png)
-
-```python
-# plot all case
-plot = Plot.create_response_time_timeseries_plot(path, case='all')
-plot.show()
-```
-
-![response_time_timeseries_all](../../imgs/response_time_timeseries_all.png)
+![response_time_timeseries_worst_with_external_latency](../imgs/response_time_timeseries_worst_with_external_latency.png)
 
 The horizontal axis can be changed to `system time` or `index` by changing `plot.show()` to `plot.show(xaxis_type='index')` though `system_time` is the default value.
