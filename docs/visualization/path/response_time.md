@@ -10,9 +10,18 @@ Please refer to [FAQ](../../faq/faq.md#how-response-time-is-calculated) if you a
     However, both will be referred to as "response time" for simplicity in this document.
 <prettier-ignore-end>
 
-Three cases of response time is defined; `all`, `best`, `worst`, and `worst-with-external-latency`. With `all` case, CARET samples all time elapsed in a targeted path. With `best` case, CARET samples shortest time elapsed in a targeted path. With `worst` case, CARET samples largest time elapsed in a targeted path. With `worst-with-external-latency` case, the previous message input timing is taken into account. `best-to-worst` case includes most of all cases between `best` and `worst`.
+As a visualisation of the graph, four different cases can be specified in the `case` argument. Default value is 'all'; 'all', 'best', 'worst', and 'worst-with-external-latency'.
 
-This section shows two methods to visualize response time, `Histogram`, `Stacked Bar` and `TimeSeries`.
+- `all` case
+  - CARET displays the elapsed time from all input times in the same cycle.
+- `best` case
+  - CARET displays the elapsed time that is the shortest of all input times in the same cycle.
+- `worst` case
+  - CARET displays the elapsed time that is the longest of all input times in the same cycle. 
+- `worst-with-external-latency` case
+  - CARET displays the elapsed time from the last input time of a previous cycle.
+
+This section shows three methods to visualize response time, `Histogram`, `Stacked Bar` and `TimeSeries`.
 Execute the following script code to load trace data and an architecture object before calling this method.
 
 ```python
@@ -74,7 +83,7 @@ plot.show()
 ## Stacked Bar
 
 The following scripts generate stacked bar graphs of response time.
-Horizontal axis of the stacked bar graph means timeseries and vertical axis means `Response time` in the all, best, worst, worst-with-external-latency case.
+Horizontal axis of the stacked bar graph means `system time [s]` or `index` and vertical axis means breakdown of time elapsed for each callback in `response time [s]`.
 
 ```python
 # plot all case
@@ -117,7 +126,7 @@ The horizontal axis can be changed to `system time` or `index` by changing `plot
 
 ## TimeSeries
 
-The following scripts generate timeseries graphs of response time. The horizontal axis means time, labeled as Time [s]. The vertical axis means `Response time` in the all, best, worst, worst-with-external-latency case.
+The following scripts generate timeseries graphs of response time. The horizontal axis means `system time [s]` or `index`. The vertical axis means `Response Time [ms]`.
 
 ```python
 # plot all case
