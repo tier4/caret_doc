@@ -10,7 +10,7 @@ Please refer to [FAQ](../../faq/faq.md#how-response-time-is-calculated) if you a
     However, both will be referred to as "response time" for simplicity in this document.
 <prettier-ignore-end>
 
-As a visualisation of the graph, four different cases can be specified in the `case` argument. Default value is 'all'; 'all', 'best', 'worst', and 'worst-with-external-latency'.
+As a visualization of the graph, four different cases can be specified in the `case` argument. Default value is 'all'; 'all', 'best', 'worst', and 'worst-with-external-latency'.
 
 - `all` case
   - CARET displays the elapsed time from all input times in the same cycle.
