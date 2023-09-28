@@ -2705,8 +2705,26 @@ Therefore, when analyzing a part of a system (when a target path is a part of en
 However, both will be referred to as "response time" for simplicity in this document.</p>
 </div>
 <p><prettier-ignore-end></p>
-<p>Three cases of response time is defined; <code>all</code>, <code>best</code>, <code>worst</code>, and <code>worst-with-external-latency</code>. With <code>all</code> case, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> samples all time elapsed in a targeted path. With <code>best</code> case, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> samples shortest time elapsed in a targeted path. With <code>worst</code> case, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> samples largest time elapsed in a targeted path. With <code>worst-with-external-latency</code> case, the previous message input timing is taken into account. <code>best-to-worst</code> case includes most of all cases between <code>best</code> and <code>worst</code>.</p>
-<p>This section shows two methods to visualize response time, <code>Histogram</code>, <code>Stacked Bar</code> and <code>TimeSeries</code>.
+<p>As a visualisation of the graph, four different cases can be specified in the <code>case</code> argument. Default value is 'all'; 'all', 'best', 'worst', and 'worst-with-external-latency'.</p>
+<ul>
+<li><code>all</code> case<ul>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> displays the elapsed time from all input times in the same cycle.</li>
+</ul>
+</li>
+<li><code>best</code> case<ul>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> displays the elapsed time that is the shortest of all input times in the same cycle.</li>
+</ul>
+</li>
+<li><code>worst</code> case<ul>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> displays the elapsed time that is the longest of all input times in the same cycle. </li>
+</ul>
+</li>
+<li><code>worst-with-external-latency</code> case<ul>
+<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> displays the elapsed time from the last input time of a previous cycle.</li>
+</ul>
+</li>
+</ul>
+<p>This section shows three methods to visualize response time, <code>Histogram</code>, <code>Stacked Bar</code> and <code>TimeSeries</code>.
 Execute the following script code to load trace data and an architecture object before calling this method.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 <span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Lttng</span>
@@ -2751,7 +2769,7 @@ Execute the following script code to load trace data and an architecture object 
 <p><img alt="response_time_histogram_worst_with_external_latency" src="../../imgs/response_time_histogram_worst_with_external_latency.png" /></p>
 <h2 id="stacked-bar">Stacked Bar<a class="headerlink" href="#stacked-bar" title="Permanent link">#</a></h2>
 <p>The following scripts generate stacked bar graphs of response time.
-Horizontal axis of the stacked bar graph means timeseries and vertical axis means <code>Response time</code> in the all, best, worst, worst-with-external-latency case.</p>
+Horizontal axis of the stacked bar graph means <code>system time [s]</code> or <code>index</code> and vertical axis means breakdown of time elapsed for each callback in <code>response time [s]</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># plot all case</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_stacked_bar_plot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2778,7 +2796,7 @@ Horizontal axis of the stacked bar graph means timeseries and vertical axis mean
 <p>The horizontal axis can be changed to <code>system time</code> or <code>index</code> by changing <code>plot.show()</code> to <code>plot.show(xaxis_type='index')</code>.</p>
 <p><code>[worst - best] response time</code> in legends refers to the difference in response time between the worst case and the best case.</p>
 <h2 id="timeseries">TimeSeries<a class="headerlink" href="#timeseries" title="Permanent link">#</a></h2>
-<p>The following scripts generate timeseries graphs of response time. The horizontal axis means time, labeled as Time [s]. The vertical axis means <code>Response time</code> in the all, best, worst, worst-with-external-latency case.</p>
+<p>The following scripts generate timeseries graphs of response time. The horizontal axis means <code>system time [s]</code> or <code>index</code>. The vertical axis means <code>Response Time [ms]</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># plot all case</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_response_time_timeseries_plot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
