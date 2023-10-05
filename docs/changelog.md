@@ -2,6 +2,24 @@
 
 ## CARET
 
+### v0.4.17 <small>\_ Oct 03, 2023</small> {id = "0.4.17"}
+
+- **Update**: Improved `case` option for calculating the elapsed time specified for functions that graph response time. ([CARET_analyze #339](https://github.com/tier4/CARET_analyze/pull/339)), ([CART_analyze #355](https://github.com/tier4/CARET_analyze/pull/355))
+  - Added new "all" option, which uses all input times in the same cycle to calculate the elapsed time.
+  - Renamed "worst" option to "worst-with-external-latency".
+  - Added new "worst" option, which uses the worst of all input times in the same cycle to calculate the elapsed time.
+
+| CARET<0.4.17 |         CARET>=v0.4.7         |
+| :----------: | :---------------------------: |
+|     N/A      |             "all"             |
+|    "best"    |            "best"             |
+|     N/A      |            "worst"            |
+|   "worst"    | "worst-with-external-latency" |
+
+- **Update**: Added `create_response_time_histogram_plot` function to graph response time as histogram. ([CARET_analyze #349](https://github.com/tier4/CARET_analyze/pull/349))
+- **Fix**: Improved measurement leaks in the first measurement after the host machine has been started up. ([caret #142](https://github.com/tier4/caret/pull/142))
+- Removed unnecessary dependent modules from CARET_analyze_cpp_impl. ([CARET_analyze_cpp_impl #142](https://github.com/tier4/CARET_analyze_cpp_impl/pull/142)), ([CARET_analyze #332](https://github.com/tier4/CARET_analyze/pull/332))
+
 ### v0.4.16.1 <small>\_ Sep 21, 2023</small> {id = "0.4.16.1"}
 
 - **Fix**: Fixed an issue that prevented CARETmeasurement when using cyclonedds 0.10.x. ([caret #121](https://github.com/tier4/caret/pull/121))
