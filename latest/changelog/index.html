@@ -506,6 +506,13 @@
         
           <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
+    v0.4.17 _ Oct 03, 2023
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
     v0.4.16.1 _ Sep 21, 2023
   </a>
   
@@ -2825,6 +2832,13 @@
         
           <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
+    v0.4.17 _ Oct 03, 2023
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
     v0.4.16.1 _ Sep 21, 2023
   </a>
   
@@ -3016,6 +3030,46 @@
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">#</a></h1>
 <h2 id="caret"><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#caret" title="Permanent link">#</a></h2>
+<h3 id="id">v0.4.17 <small>_ Oct 03, 2023</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Update</strong>: Improved <code>case</code> option for calculating the elapsed time specified for functions that graph response time. (<a href="https://github.com/tier4/CARET_analyze/pull/339">CARET_analyze #339</a>), (<a href="https://github.com/tier4/CARET_analyze/pull/355">CART_analyze #355</a>)<ul>
+<li>Added new "all" option, which uses all input times in the same cycle to calculate the elapsed time.</li>
+<li>Renamed "worst" option to "worst-with-external-latency".</li>
+<li>Added new "worst" option, which uses the worst of all input times in the same cycle to calculate the elapsed time.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>&lt;0.4.17</th>
+<th align="center"><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>&gt;=v0.4.7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">N/A</td>
+<td align="center">"all"</td>
+</tr>
+<tr>
+<td align="center">"best"</td>
+<td align="center">"best"</td>
+</tr>
+<tr>
+<td align="center">N/A</td>
+<td align="center">"worst"</td>
+</tr>
+<tr>
+<td align="center">"worst"</td>
+<td align="center">"worst-with-external-latency"</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Update</strong>: Added <code>create_response_time_histogram_plot</code> function to graph response time as histogram. (<a href="https://github.com/tier4/CARET_analyze/pull/349">CARET_analyze #349</a>)</li>
+<li><strong>Fix</strong>: Improved measurement leaks in the first measurement after the host machine has been started up. (<a href="https://github.com/tier4/caret/pull/142">caret #142</a>)</li>
+<li>Removed unnecessary dependent modules from CARET_analyze_cpp_impl. (<a href="https://github.com/tier4/CARET_analyze_cpp_impl/pull/142">CARET_analyze_cpp_impl #142</a>), (<a href="https://github.com/tier4/CARET_analyze/pull/332">CARET_analyze #332</a>)</li>
+</ul>
 <h3 id="id">v0.4.16.1 <small>_ Sep 21, 2023</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>Fix</strong>: Fixed an issue that prevented CARETmeasurement when using cyclonedds 0.10.x. (<a href="https://github.com/tier4/caret/pull/121">caret #121</a>)</li>
