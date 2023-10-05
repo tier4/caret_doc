@@ -16,7 +16,7 @@
 |     N/A      |            "worst"            |
 |   "worst"    | "worst-with-external-latency" |
 
-- **Update**: Added `create_response_time_histogram_plot` function to graph response time as histgram. ([CARET_analyze #349](https://github.com/tier4/CARET_analyze/pull/349))
+- **Update**: Added `create_response_time_histogram_plot` function to graph response time as histogram. ([CARET_analyze #349](https://github.com/tier4/CARET_analyze/pull/349))
 - **Fix**: Improved measurement leaks in the first measurement after the host machine has been started up. ([caret #142](https://github.com/tier4/caret/pull/142))
 - Removed unnecessary dependent modules from CARET_analyze_cpp_impl. ([CARET_analyze_cpp_impl #142](https://github.com/tier4/CARET_analyze_cpp_impl/pull/142)), ([CARET_analyze #332](https://github.com/tier4/CARET_analyze/pull/332))
 
