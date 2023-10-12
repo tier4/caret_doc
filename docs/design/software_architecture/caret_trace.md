@@ -151,7 +151,7 @@ void ros_trace_XXX_init(TRACEPOINT_ARGS)
   // This function is executed with delay.
   // This function is executed either from the record at the end of this function
   // or from TraceNode's timer callback.
-  // Duplicate data are resolved with CARET_analyze.
+  // Duplicate data are resolved with caret_analyze.
   static auto record = [](TRACEPOINT_ARGS, now) {
     // Record trace data only if current callback is allowed to record
     if (controller.is_allowed(TRACEPOINT_ARGS)) {

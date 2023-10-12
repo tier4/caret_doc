@@ -5,7 +5,7 @@ This section describes the function hooking introduced to CARET.
 
 See also
 
-- [CARET_trace](../software_architecture/caret_trace.md)
+- [caret_trace](../software_architecture/caret_trace.md)
 
 ## Advantage of Hook
 

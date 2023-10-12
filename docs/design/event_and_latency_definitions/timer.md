@@ -53,7 +53,7 @@ $$
 
 See also
 
-- [Timer API](https://tier4.github.io/CARET_analyze/latest/infra/#caret_analyze.infra.lttng.records_provider_lttng.RecordsProviderLttng.timer_records)
+- [Timer API](https://tier4.github.io/caret_analyze/latest/infra/#caret_analyze.infra.lttng.records_provider_lttng.RecordsProviderLttng.timer_records)
 - [Trace point | callback_start](../trace_points/runtime_trace_points.md#ros2callback_start)
 - [Trace point | callback_end](../trace_points/runtime_trace_points.md#ros2callback_end)
 - [Trace point | rcl_timer_init](../trace_points/initialization_trace_points.md#ros2rcl_timer_init)

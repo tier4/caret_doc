@@ -2,13 +2,13 @@
 
 The previous sections have explained what to do in configuration. This section explains you a practical example to let you understand the flow of configuration.
 
-This section demonstrates creation of an architecture file for `CARET_demos` on Jupyter Notebook. Defining inter-node and intra-node data path is also demonstrated. The following three steps are explained.
+This section demonstrates creation of an architecture file for `caret_demos` on Jupyter Notebook. Defining inter-node and intra-node data path is also demonstrated. The following three steps are explained.
 
 1. Load an Architecture object on Jupyter Notebook
 2. Define an inter-node data path
 3. Define an intra-node data path
 
-The architecture file that will be created in the example is provided [here](https://raw.githubusercontent.com/tier4/CARET_demos/main/samples/end_to_end_sample/architecture.yaml).
+The architecture file that will be created in the example is provided [here](https://raw.githubusercontent.com/tier4/caret_demos/main/samples/end_to_end_sample/architecture.yaml).
 
 ## Load an Architecture object on Jupyter Notebook
 

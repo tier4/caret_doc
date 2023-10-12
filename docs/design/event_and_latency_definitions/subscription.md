@@ -54,7 +54,7 @@ deactivate rclcpp
 
 See also
 
-- [Subscription API](https://tier4.github.io/CARET_analyze/latest/infra/#caret_analyze.infra.lttng.records_provider_lttng.RecordsProviderLttng.subscribe_records)
+- [Subscription API](https://tier4.github.io/caret_analyze/latest/infra/#caret_analyze.infra.lttng.records_provider_lttng.RecordsProviderLttng.subscribe_records)
 - [Trace points | dispatch_subscription_callback](../trace_points/runtime_trace_points.md#ros2dispatch_subscription_callback)
 - [Trace points | callback_start](../trace_points/runtime_trace_points.md#ros2callback_start)
 
@@ -92,6 +92,6 @@ deactivate rclcpp
 
 See also
 
-- [Subscription API](https://tier4.github.io/CARET_analyze/latest/infra/#caret_analyze.infra.lttng.records_provider_lttng.RecordsProviderLttng.subscribe_records)
+- [Subscription API](https://tier4.github.io/caret_analyze/latest/infra/#caret_analyze.infra.lttng.records_provider_lttng.RecordsProviderLttng.subscribe_records)
 - [Trace points | dispatch_intra_process_subscription_callback](../trace_points/runtime_trace_points.md#ros2dispatch_intra_process_subscription_callback)
 - [Trace points | callback_start](../trace_points/runtime_trace_points.md#ros2callback_start)

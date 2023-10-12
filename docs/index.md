@@ -40,8 +40,8 @@ You have to build CARET and your application if you want to use.
 
 After you run your application with CARET, you will get recorded data which includes events, metadata and timestamp. You have to write a configuration file, called architecture file, in which you defines node latency and target path, before you analyze the data set.
 
-You will visualize trace data with the architecture file and `CARET_analyze` package, including API for data analysis.
-`CARET_analyze` is designed on assumption that users analyze trace data on Jupyter Notebook.
+You will visualize trace data with the architecture file and `caret_analyze` package, including API for data analysis.
+`caret_analyze` is designed on assumption that users analyze trace data on Jupyter Notebook.
 
 ## Contents list
 
@@ -79,22 +79,22 @@ CARET serves helpful functions for you to analyze your application efficiently. 
 
 ### API list
 
-CARET serves powerful API to visualize and analyze performance. API list is located on the other repository, `CARET_analyze`.
+CARET serves powerful API to visualize and analyze performance. API list is located on the other repository, `caret_analyze`.
 
-- [API list](https://tier4.github.io/CARET_analyze/latest/) (external link)
+- [API list](https://tier4.github.io/caret_analyze/latest/) (external link)
 
-There are two types of APIs: [for user](https://tier4.github.io/CARET_analyze/latest/architecture/) and [for developer](https://tier4.github.io/CARET_analyze/latest/common/).
+There are two types of APIs: [for user](https://tier4.github.io/caret_analyze/latest/architecture/) and [for developer](https://tier4.github.io/caret_analyze/latest/common/).
 
 ## Related repositories
 
 CARET is constructed of the following packages
 
-- [CARET_trace](https://github.com/tier4/CARET_trace) ｜ Define tracepoints added by function hooking
-- [CARET_analyze](https://github.com/tier4/CARET_analyze) ｜ Library for scripts to analyze and visualize data
-- [CARET_analyze_cpp_impl](https://github.com/tier4/CARET_analyze_cpp_impl.git) ｜ Efficient helper functions to analyze trace data written in C++
+- [caret_trace](https://github.com/tier4/caret_trace) ｜ Define tracepoints added by function hooking
+- [caret_analyze](https://github.com/tier4/caret_analyze) ｜ Library for scripts to analyze and visualize data
+- [caret_analyze_cpp_impl](https://github.com/tier4/caret_analyze_cpp_impl.git) ｜ Efficient helper functions to analyze trace data written in C++
 - [ros2caret](https://github.com/tier4/ros2caret.git) ｜ CLI commands like `ros2 caret`
-- [CARET_demos](https://github.com/tier4/CARET_demos) ｜ Demo programs for CARET
-- [CARET_doc](https://github.com/tier4/CARET_doc) ｜ Documentation
+- [caret_demos](https://github.com/tier4/caret_demos) ｜ Demo programs for CARET
+- [caret_doc](https://github.com/tier4/caret_doc) ｜ Documentation
 - [rclcpp](https://github.com/tier4/rclcpp/tree/rc/v0.3.0) ｜ the forked `rclcpp` including CARET-dedicated tracepoints
 - [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/rc/v0.3.0)｜ the forked `ros2_tracing` including definition of CARET-dedicated tracepoints
 

@@ -71,7 +71,7 @@ Output
 
 See also
 
-- [API Reference | Period](https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.Period)
+- [API Reference | Period](https://tier4.github.io/caret_analyze/latest/record/#caret_analyze.record.Period)
 
 ## Frequency
 

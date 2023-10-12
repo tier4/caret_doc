@@ -253,7 +253,7 @@ Velocity of storing initialization trace data to a LTTng's ring buffer is adjust
     Initialization trace data are recorded synchronously in all states. In the PREPARE state, the same data are also recorded from trace nodes with delay.
     In this way, Initialization trace data are recorded as much as possible, even if the LTTng session and the application are started in the opposite order.
     Especially in the PREPARE state, there are two types of recording: synchronous recording and delayed recording from trace nodes.
-    Therefore, the same data may be stored in duplicate. Duplicate data are handled on the CARET_analyze side.
+    Therefore, the same data may be stored in duplicate. Duplicate data are handled on the caret_analyze side.
 <prettier-ignore-end>
 
 ### RECORD
@@ -364,7 +364,7 @@ deactivate CLI
 ## Tracepoint
 
 Runtime recording feature has delayed recording which supports recording activation anytime after a target application launches. As a timestamp is given when event is recorded, that for initialization trace point is different from actual time when the trace point is called.
-It is inconvenient for analysis script provided by `CARET_analyze` because it utilizes invocation time of the initialization trace point. For example, expected time when timer callback is invoked is calculated from initialization time and a given period. If only recording time is given, the expected time cannot be calculated correctly.
+It is inconvenient for analysis script provided by `caret_analyze` because it utilizes invocation time of the initialization trace point. For example, expected time when timer callback is invoked is calculated from initialization time and a given period. If only recording time is given, the expected time cannot be calculated correctly.
 
 To tackle this inconvenience, all initialization trace points have timestamps given respectively when they are called during launch of a target application.
 

@@ -31,7 +31,7 @@ In particular, it is used to join initialization-related trace data that can be 
 
 See also
 
-- [API:merge](https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge)
+- [API:merge](https://tier4.github.io/caret_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge)
 
 ## merge_sequential
 
@@ -44,7 +44,7 @@ CARET mainly performs this merging and calculates latency.
 
 See also
 
-- [API:merge](https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential)
+- [API:merge](https://tier4.github.io/caret_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential)
 - [Callback Latency Definition](../event_and_latency_definitions/callback.md)
 
 ## merge_sequential_for_addr_track
@@ -55,7 +55,7 @@ This merge is used when binding is done based on addresses and copying occurs in
 
 See also
 
-- [API:merge_sequential_for_addr_track](https://tier4.github.io/CARET_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential_for_addr_track)
+- [API:merge_sequential_for_addr_track](https://tier4.github.io/caret_analyze/latest/record/#caret_analyze.record.interface.RecordsInterface.merge_sequential_for_addr_track)
 
 <prettier-ignore-start>
 !!!warning
