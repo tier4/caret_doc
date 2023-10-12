@@ -133,7 +133,7 @@ KeysSet "1" o-- "0..*" HashableKeys
 
 ## Implementation of tracepoints with function hooking
 
-CARET adopts function hooking mainly for adding new trace points. On the other hand, existing tracepoints, which are built in ROS2, are also re-defined by function hooking because CARET adds the function to manage tracepoint state.
+CARET adopts function hooking mainly for adding new trace points. On the other hand, existing tracepoints, which are built in ROS 2, are also re-defined by function hooking because CARET adds the function to manage tracepoint state.
 
 Here is the pseudo code for hook functions.
 
