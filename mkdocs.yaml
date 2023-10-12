@@ -1,6 +1,6 @@
 site_name: Chain-Aware ROS Evaluation Tool (CARET)
-site_url: https://tier4.github.io/CARET_doc
-repo_url: https://github.com/tier4/CARET_doc
+site_url: https://tier4.github.io/caret_doc
+repo_url: https://github.com/tier4/caret_doc
 edit_uri: edit/main/
 docs_dir: docs
 copyright: Copyright &copy; 2022 TIER IV, Inc.

@@ -13,7 +13,7 @@ CARET is confirmed to run on the platforms shown in the following table with sup
 | Python3            | 3.10.x            |
 
 The recent version, after v0.3.0, of CARET supports only the combination of ROS 2 Humble and Ubuntu 22.04.  
-If you want to run CARET on ROS 2 Galactic and Ubuntu 20.04, please refer to [documents for v0.2.3](https://tier4.github.io/CARET_doc/refs-tags-v0.2.3/tutorials/installation/)
+If you want to run CARET on ROS 2 Galactic and Ubuntu 20.04, please refer to [documents for v0.2.3](https://tier4.github.io/caret_doc/refs-tags-v0.2.3/tutorials/installation/)
 
 ## Installation
 

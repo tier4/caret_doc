@@ -1,6 +1,6 @@
-# CARET_doc
+# caret_doc
 
-document is published at <https://tier4.github.io/CARET_doc/>
+document is published at <https://tier4.github.io/caret_doc/>
 
 ## How to browse CARET document on your local machine
 
@@ -9,8 +9,8 @@ Try the following commands if you want to do so.
 
 ```bash
 # clone and enter the repository
-git clone https://github.com/tier4/CARET_doc.git
-cd CARET_doc
+git clone https://github.com/tier4/caret_doc.git
+cd caret_doc
 
 
 # install required packages to build the pages

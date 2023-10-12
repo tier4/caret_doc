@@ -64,9 +64,9 @@ The followings are CARET-related packages.
 
 | Package                             | Role                                                                                | Repository                                                                                           |
 | ----------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [CARET_trace](./caret_trace.md)     | Add tracepoints via function hooking and functions to manage states of tracepoints. | [https://github.com/tier4/CARET_trace/](https://github.com/tier4/CARET_trace/)                       |
+| [caret_trace](./caret_trace.md)     | Add tracepoints via function hooking and functions to manage states of tracepoints. | [https://github.com/tier4/caret_trace/](https://github.com/tier4/caret_trace/)                       |
 | CARET_rclcpp                        | Add tracepoints by fork                                                             | [https://github.com/tier4/rclcpp](https://github.com/tier4/rclcpp)                                   |
 | ros2caret                           | Provide CARET CLI                                                                   | [https://github.com/tier4/ros2caret/](https://github.com/tier4/ros2caret/)                           |
-| [CARET_analyze](./caret_analyze.md) | Analyze trace data                                                                  | [https://github.com/tier4/CARET_analyze/](https://github.com/tier4/CARET_analyze/)                   |
-| CARET_analyze_cpp_impl              | Accelerate CARET_analyze                                                            | [https://github.com/tier4/CARET_analyze_cpp_impl/](https://github.com/tier4/CARET_analyze_cpp_impl/) |
+| [caret_analyze](./caret_analyze.md) | Analyze trace data                                                                  | [https://github.com/tier4/caret_analyze/](https://github.com/tier4/caret_analyze/)                   |
+| caret_analyze_cpp_impl              | Accelerate caret_analyze                                                            | [https://github.com/tier4/caret_analyze_cpp_impl/](https://github.com/tier4/caret_analyze_cpp_impl/) |
 | [TILDE](./tilde.md)                 | Add tracepoints within the system to be measure                                     | [https://github.com/tier4/TILDE](https://github.com/tier4/TILDE)                                     |

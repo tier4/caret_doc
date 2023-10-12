@@ -1,7 +1,7 @@
 # Recording with CARET
 
 This page explains usage of CARET with a sample application.
-The sample application is located on [CARET_demos](https://github.com/tier4/CARET_demos.git) repository.
+The sample application is located on [caret_demos](https://github.com/tier4/caret_demos.git) repository.
 
 See [Recording](../recording/index.md) to find more details.
 
@@ -13,7 +13,7 @@ To trace a target application, the target should be built with CARET/rclcpp. If 
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws
 
-git clone https://github.com/tier4/CARET_demos.git src/CARET_demos
+git clone https://github.com/tier4/caret_demos.git src/caret_demos
 
 source /opt/ros/humble/setup.bash
 source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/humble/setup.bash'

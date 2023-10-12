@@ -18,7 +18,7 @@
    id="svg247"
    sodipodi:docname="communication_latency.svg"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   inkscape:export-filename="/home/hasegawa/CARET_doc/docs/imgs/communication_latency.png"
+   inkscape:export-filename="/home/hasegawa/caret_doc/docs/imgs/communication_latency.png"
    inkscape:export-xdpi="143.8"
    inkscape:export-ydpi="143.8">
   <metadata
@@ -365,7 +365,7 @@
        x="168"
        y="59.9482"
        id="text61"
-       style="font-size:14px;font-family:sans-serif;fill:#000000">ROS2</text>
+       style="font-size:14px;font-family:sans-serif;fill:#000000">ROS 2</text>
     <rect
        height="30.2969"
        style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
@@ -380,7 +380,7 @@
        x="168"
        y="806.16699"
        id="text65"
-       style="font-size:14px;font-family:sans-serif;fill:#000000">ROS2</text>
+       style="font-size:14px;font-family:sans-serif;fill:#000000">ROS 2</text>
     <rect
        height="30.2969"
        style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
@@ -987,59 +987,59 @@
 title: Definition of major trace points
 
 participant UserCode
-participant ROS2
+participant ROS 2
 participant DDS
 participant LTTng
 
 == Publisher Side ==
 
-activate ROS2
+activate ROS 2
 activate UserCode
-UserCode -> ROS2: publish()
-activate ROS2
-ROS2 - -> LTTng: [rclcpp_publish] \n[rclcpp_intra_publish]
+UserCode -> ROS 2: publish()
+activate ROS 2
+ROS 2 - -> LTTng: [rclcpp_publish] \n[rclcpp_intra_publish]
 
 
-ROS2 -> DDS: dds_write()
-deactivate ROS2
+ROS 2 -> DDS: dds_write()
+deactivate ROS 2
 activate DDS
 DDS - -> LTTng: [dds_write]
 
-UserCode -> ROS2 : callback_end
+UserCode -> ROS 2 : callback_end
 deactivate UserCode
-deactivate ROS2
+deactivate ROS 2
 deactivate DDS
 
 
 == Subscription Side ==
 
-UserCode -> ROS2 : spin()
+UserCode -> ROS 2 : spin()
 activate DDS
-activate ROS2
+activate ROS 2
 
 loop
-    ROS2 -> ROS2 : wait until next event
-    activate ROS2
-    DDS -> ROS2: <notify> on_data_available
-    ROS2 - -> LTTng : [on_data_available]
-    deactivate ROS2
+    ROS 2 -> ROS 2 : wait until next event
+    activate ROS 2
+    DDS -> ROS 2: <notify> on_data_available
+    ROS 2 - -> LTTng : [on_data_available]
+    deactivate ROS 2
 
     deactivate DDS
-    ROS2 -> DDS : reset ready-set, take messages
+    ROS 2 -> DDS : reset ready-set, take messages
     activate DDS
-    DDS -> ROS2
+    DDS -> ROS 2
     deactivate DDS
 
     group execute timer callbacks
     end
 
     group execute subscription callbacks
-        ROS2 - -> LTTng: [callback_start]
-        ROS2 -> UserCode: callback start
+        ROS 2 - -> LTTng: [callback_start]
+        ROS 2 -> UserCode: callback start
         activate UserCode
-        UserCode -> ROS2: callback end
+        UserCode -> ROS 2: callback end
         deactivate UserCode
-        ROS2 - -> LTTng: [callback_end]
+        ROS 2 - -> LTTng: [callback_end]
     end
 
     group execute service callbacks
@@ -1049,7 +1049,7 @@ loop
     end
 end
 
-deactivate ROS2
+deactivate ROS 2
 
 @enduml
 

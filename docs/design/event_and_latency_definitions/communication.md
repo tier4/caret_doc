@@ -77,7 +77,7 @@ See also
 - [Trace points | dispatch_intra_process_subscription_callback](../trace_points/runtime_trace_points.md#ros2dispatch_intra_process_subscription_callback)
 - [Trace points | callback start](../trace_points/runtime_trace_points.md#ros2callback_start)
 - [Trace points | message_construct](../trace_points/runtime_trace_points.md#ros2message_construct)
-- [RuntimeDataProvider API](https://tier4.github.io/CARET_analyze/latest/infra/#caret_analyze.infra.lttng.lttng.Lttng.compose_intra_proc_comm_records)
+- [RuntimeDataProvider API](https://tier4.github.io/caret_analyze/latest/infra/#caret_analyze.infra.lttng.lttng.Lttng.compose_intra_proc_comm_records)
 
 ## Inter process communication
 
@@ -88,48 +88,48 @@ A simplified sequence diagram focusing only on the relevant data flow is shown b
 title: Definition of major tracepoints
 
 participant UserCode
-participant ROS2
+participant ROS 2
 participant DDS
 participant LTTng
 
 == Publisher Side ==
 
 
-activate ROS2
+activate ROS 2
 activate UserCode
-UserCode -> ROS2: publish()
-activate ROS2
-ROS2 -> LTTng: sample rclcpp_publish
+UserCode -> ROS 2: publish()
+activate ROS 2
+ROS 2 -> LTTng: sample rclcpp_publish
 
 
-ROS2 -> DDS: dds_write()
-deactivate ROS2
+ROS 2 -> DDS: dds_write()
+deactivate ROS 2
 activate DDS
 DDS -> LTTng: sample dds_write
 DDS -> LTTng: sample dds_bind_addr_to_stamp
 
-UserCode -> ROS2 : callback_end
+UserCode -> ROS 2 : callback_end
 deactivate UserCode
-deactivate ROS2
+deactivate ROS 2
 
 
 == Subscription Side ==
 
 
-DDS -> ROS2: <notify> on_data_available
-activate ROS2
+DDS -> ROS 2: <notify> on_data_available
+activate ROS 2
 
-ROS2 -> DDS :  take messages
-DDS -> ROS2
+ROS 2 -> DDS :  take messages
+DDS -> ROS 2
 deactivate DDS
-ROS2 -> LTTng: sample dispatch_subscription_callback
-ROS2 -> LTTng: sample [callback_start
-ROS2 -> UserCode: callback start
+ROS 2 -> LTTng: sample dispatch_subscription_callback
+ROS 2 -> LTTng: sample [callback_start
+ROS 2 -> UserCode: callback start
 activate UserCode
-UserCode -> ROS2: callback end
+UserCode -> ROS 2: callback end
 deactivate UserCode
 
-deactivate ROS2
+deactivate ROS 2
 @enduml
 ```
 
@@ -152,4 +152,4 @@ See also
 - [Trace points | bind_addr_to_stamp](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_stamp)
 - [Trace points | callback start](../trace_points/runtime_trace_points.md#ros2callback_start)
 - [Trace points | dispatch_subscription_callback](../trace_points/runtime_trace_points.md#ros2dispatch_subscription_callback)
-- [RuntimeDataProvider API](https://tier4.github.io/CARET_analyze/latest/infra/#caret_analyze.infra.lttng.lttng.Lttng.compose_inter_proc_comm_records)
+- [RuntimeDataProvider API](https://tier4.github.io/caret_analyze/latest/infra/#caret_analyze.infra.lttng.lttng.Lttng.compose_inter_proc_comm_records)

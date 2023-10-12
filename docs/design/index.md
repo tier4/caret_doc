@@ -33,4 +33,4 @@ This chapter describes the design policy and key points as listed below. As the 
   1. [Processing trace data](./processing_trace_data/index.md)
   2. [Visualization](./visualizations/index.md)
 
-If you are interested in details of implementation, [CARET_analyze API document](https://tier4.github.io/CARET_analyze/) might be helpful.
+If you are interested in details of implementation, [caret_analyze API document](https://tier4.github.io/caret_analyze/) might be helpful.

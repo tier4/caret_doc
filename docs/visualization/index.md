@@ -82,5 +82,5 @@ CARET provides some APIs which can help users to focus on their respective inter
 
 <prettier-ignore-start>
 !!!info
-    [CARET analyze API document](https://tier4.github.io/CARET_analyze/) describes the parameters and returns of APIs.
+    [CARET analyze API document](https://tier4.github.io/caret_analyze/) describes the parameters and returns of APIs.
 <prettier-ignore-end>

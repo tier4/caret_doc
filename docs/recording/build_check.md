@@ -51,7 +51,7 @@ ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
 In case CARET/rclcpp is not applied to the package you want to analyze, you need to fix it. The followings show possible causes and solutions.
 
 - Case 1: All packages are listed as CARET/rclcpp is not applied
-  - Make sure you applied CARET's `local_setup.bash` after ROS2's `setup.bash` (keep the order)
+  - Make sure you applied CARET's `local_setup.bash` after ROS 2's `setup.bash` (keep the order)
 - Case 2: Some, but not all, packages are listed as CARET/rclcpp is not applied
   - Make sure you have the following line in `package.xml` in the listed package
     - `<depend>rclcpp</depend>`

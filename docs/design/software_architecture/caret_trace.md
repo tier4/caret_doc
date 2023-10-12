@@ -133,7 +133,7 @@ KeysSet "1" o-- "0..*" HashableKeys
 
 ## Implementation of tracepoints with function hooking
 
-CARET adopts function hooking mainly for adding new trace points. On the other hand, existing tracepoints, which are built in ROS2, are also re-defined by function hooking because CARET adds the function to manage tracepoint state.
+CARET adopts function hooking mainly for adding new trace points. On the other hand, existing tracepoints, which are built in ROS 2, are also re-defined by function hooking because CARET adds the function to manage tracepoint state.
 
 Here is the pseudo code for hook functions.
 
@@ -151,7 +151,7 @@ void ros_trace_XXX_init(TRACEPOINT_ARGS)
   // This function is executed with delay.
   // This function is executed either from the record at the end of this function
   // or from TraceNode's timer callback.
-  // Duplicate data are resolved with CARET_analyze.
+  // Duplicate data are resolved with caret_analyze.
   static auto record = [](TRACEPOINT_ARGS, now) {
     // Record trace data only if current callback is allowed to record
     if (controller.is_allowed(TRACEPOINT_ARGS)) {

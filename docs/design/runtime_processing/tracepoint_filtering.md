@@ -27,7 +27,7 @@ See also
 
 ## Tracepoint filtering in DDS layer
 
-To filter tracepoint, we need an object such as `callback` and `publisher` which contains information about node and topic. In DDS layer, such object is not available, which means we cannot filter [`dds_write`](../trace_points/runtime_trace_points.md#ros2_caretdds_write) and [`dds_bind_addr_to_stamp`](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_stamp) in the same way with the tracepoints in ROS2 layer.
+To filter tracepoint, we need an object such as `callback` and `publisher` which contains information about node and topic. In DDS layer, such object is not available, which means we cannot filter [`dds_write`](../trace_points/runtime_trace_points.md#ros2_caretdds_write) and [`dds_bind_addr_to_stamp`](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_stamp) in the same way with the tracepoints in ROS 2 layer.
 
 To filter these tracepoints, we utilize the fact that [`rcl_publish`](../trace_points/runtime_trace_points.md#ros2rcl_publish), `dds_write` and `dds_bind_addr_to_stamp` are always recorded sequentially in the same thread. When `rcl_publish` is filtered out, subsequent `dds_write` and `dds_bind_addr_to_stamp` in the same thread can also be filtered out. When `rcl_publish` is not filtered out, subsequent `dds_write` and `dds_bind_addr_to_stamp` in the same thread cannot be filtered out either.
 

@@ -57,59 +57,59 @@ Below is a detailed sequence diagram of the SingleThreadedExecutor, from publish
 title: Definition of major tracepoints
 
 participant UserCode
-participant ROS2
+participant ROS 2
 participant DDS
 participant LTTng
 
 == Publisher Side ==
 
-activate ROS2
+activate ROS 2
 activate UserCode
-UserCode -> ROS2: publish()
-activate ROS2
-ROS2 -> LTTng: sample rclcpp_publish \n sample rclcpp_intra_publish
+UserCode -> ROS 2: publish()
+activate ROS 2
+ROS 2 -> LTTng: sample rclcpp_publish \n sample rclcpp_intra_publish
 
 
-ROS2 -> DDS: dds_write()
-deactivate ROS2
+ROS 2 -> DDS: dds_write()
+deactivate ROS 2
 activate DDS
 DDS -> LTTng: sample dds_write
 
-UserCode -> ROS2 : callback_end
+UserCode -> ROS 2 : callback_end
 deactivate UserCode
-deactivate ROS2
+deactivate ROS 2
 deactivate DDS
 
 
 == Subscription Side ==
 
-UserCode -> ROS2 : spin()
+UserCode -> ROS 2 : spin()
 activate DDS
-activate ROS2
+activate ROS 2
 
 loop
-    ROS2 -> ROS2 : wait until next event
-    activate ROS2
-    DDS -> ROS2: <notify> on_data_available
-    ROS2 -> LTTng : sample on_data_available
-    deactivate ROS2
+    ROS 2 -> ROS 2 : wait until next event
+    activate ROS 2
+    DDS -> ROS 2: <notify> on_data_available
+    ROS 2 -> LTTng : sample on_data_available
+    deactivate ROS 2
 
     deactivate DDS
-    ROS2 -> DDS : reset ready-set, take messages
+    ROS 2 -> DDS : reset ready-set, take messages
     activate DDS
-    DDS -> ROS2
+    DDS -> ROS 2
     deactivate DDS
 
     group execute timer callbacks
     end
 
     group execute subscription callbacks
-        ROS2 -> LTTng: sample callback_start
-        ROS2 -> UserCode: callback start
+        ROS 2 -> LTTng: sample callback_start
+        ROS 2 -> UserCode: callback start
         activate UserCode
-        UserCode -> ROS2: callback end
+        UserCode -> ROS 2: callback end
         deactivate UserCode
-        ROS2 -> LTTng: sample callback_end
+        ROS 2 -> LTTng: sample callback_end
     end
 
     group execute service callbacks
@@ -119,14 +119,14 @@ loop
     end
 end
 
-deactivate ROS2
+deactivate ROS 2
 @enduml
 ```
 
 Here, each element indicates the following
 
 - UserCode is a callback
-- ROS2 is rclcpp, rcl, and rmw
+- ROS 2 is rclcpp, rcl, and rmw
 - DDS is FastDDS or CycloneDDS
 - LTTng is the output destination for tracepoints
 
