@@ -1,0 +1,1135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   contentScriptType="application/ecmascript"
+   contentStyleType="text/css"
+   height="830"
+   preserveAspectRatio="none"
+   version="1.1"
+   viewBox="0 0 642 830"
+   width="642"
+   zoomAndPan="magnify"
+   id="svg247"
+   sodipodi:docname="communication_latency.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   inkscape:export-filename="/home/hasegawa/caret_doc/docs/imgs/communication_latency.png"
+   inkscape:export-xdpi="143.8"
+   inkscape:export-ydpi="143.8">
+  <metadata
+     id="metadata251">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1020"
+     inkscape:window-height="1041"
+     id="namedview249"
+     showgrid="false"
+     inkscape:zoom="0.5686747"
+     inkscape:cx="132.36785"
+     inkscape:cy="407.87325"
+     inkscape:window-x="896"
+     inkscape:window-y="18"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg247" />
+  <defs
+     id="defs11">
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker5994"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path5992"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#00cfff;stroke-opacity:1;fill:#00cfff;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) rotate(180) translate(-2.3,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Send"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1093"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#ff0000;stroke-opacity:1;fill:#ff0000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) rotate(180) translate(-2.3,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1075"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1087"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker4636"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4634"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2906"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#0b75f6;fill-opacity:1;fill-rule:evenodd;stroke:#0b75f6;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path2904"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2878"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mstart">
+      <path
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         style="fill:#0b75f6;fill-opacity:1;fill-rule:evenodd;stroke:#0b75f6;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path2876"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <filter
+       height="3"
+       id="f1vkeucjz5yp91"
+       width="3"
+       x="-1"
+       y="-1">
+      <feGaussianBlur
+         result="blurOut"
+         stdDeviation="2.0"
+         id="feGaussianBlur2" />
+      <feColorMatrix
+         in="blurOut"
+         result="blurOut2"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"
+         id="feColorMatrix4" />
+      <feOffset
+         dx="4.0"
+         dy="4.0"
+         in="blurOut2"
+         result="blurOut3"
+         id="feOffset6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut3"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="g245"
+     transform="translate(0.809763,-0.398445)">
+    <text
+       font-size="18"
+       lengthAdjust="spacing"
+       textLength="276"
+       x="153"
+       y="28.708"
+       id="text13"
+       style="font-size:18px;font-family:sans-serif;fill:#000000">Definition of major trace points</text>
+    <rect
+       height="195.9297"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="68.5"
+       y="85.25"
+       id="rect15" />
+    <rect
+       height="29.132799"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="68.5"
+       y="634.64062"
+       id="rect17" />
+    <rect
+       height="195.9297"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="184.5"
+       y="85.25"
+       id="rect19" />
+    <rect
+       height="73.398399"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="189.5"
+       y="149.51559"
+       id="rect21" />
+    <rect
+       height="423.72659"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="184.5"
+       y="353.44531"
+       id="rect23" />
+    <rect
+       height="63.265598"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="189.5"
+       y="414.71091"
+       id="rect25" />
+    <rect
+       height="58.265598"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="417.5"
+       y="222.91409"
+       id="rect27" />
+    <rect
+       height="124.5313"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="417.5"
+       y="353.44531"
+       id="rect29" />
+    <rect
+       height="14"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="417.5"
+       y="507.10941"
+       id="rect31" />
+    <rect
+       height="401.72659"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;filter:url(#f1vkeucjz5yp91)"
+       width="562"
+       x="10"
+       y="368.44531"
+       id="rect33" />
+    <rect
+       height="17.132799"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;filter:url(#f1vkeucjz5yp91)"
+       width="226"
+       x="40"
+       y="536.10938"
+       id="rect35" />
+    <rect
+       height="133.66409"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;filter:url(#f1vkeucjz5yp91)"
+       width="542"
+       x="20"
+       y="567.24219"
+       id="rect37" />
+    <rect
+       height="17.132799"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;filter:url(#f1vkeucjz5yp91)"
+       width="239"
+       x="40"
+       y="714.90631"
+       id="rect39" />
+    <rect
+       height="17.132799"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;filter:url(#f1vkeucjz5yp91)"
+       width="227"
+       x="40"
+       y="746.03912"
+       id="rect41" />
+    <line
+       style="stroke:#a80036;stroke-width:1;stroke-dasharray:5, 5"
+       x1="73"
+       x2="73"
+       y1="75.25"
+       y2="787.17188"
+       id="line43" />
+    <line
+       style="stroke:#a80036;stroke-width:1;stroke-dasharray:5, 5"
+       x1="189"
+       x2="189"
+       y1="75.25"
+       y2="787.17188"
+       id="line45" />
+    <line
+       style="stroke:#a80036;stroke-width:1;stroke-dasharray:5, 5"
+       x1="422"
+       x2="422"
+       y1="75.25"
+       y2="787.17188"
+       id="line47" />
+    <line
+       style="stroke:#a80036;stroke-width:1;stroke-dasharray:5, 5"
+       x1="521"
+       x2="521"
+       y1="75.25"
+       y2="787.17188"
+       id="line49" />
+    <rect
+       height="30.2969"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
+       width="83"
+       x="30"
+       y="39.953098"
+       id="rect51" />
+    <text
+       font-size="14"
+       lengthAdjust="spacing"
+       textLength="69"
+       x="37"
+       y="59.9482"
+       id="text53"
+       style="font-size:14px;font-family:sans-serif;fill:#000000">UserCode</text>
+    <rect
+       height="30.2969"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
+       width="83"
+       x="30"
+       y="786.17188"
+       id="rect55" />
+    <text
+       font-size="14"
+       lengthAdjust="spacing"
+       textLength="69"
+       x="37"
+       y="806.16699"
+       id="text57"
+       style="font-size:14px;font-family:sans-serif;fill:#000000">UserCode</text>
+    <rect
+       height="30.2969"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
+       width="53"
+       x="161"
+       y="39.953098"
+       id="rect59" />
+    <text
+       font-size="14"
+       lengthAdjust="spacing"
+       textLength="39"
+       x="168"
+       y="59.9482"
+       id="text61"
+       style="font-size:14px;font-family:sans-serif;fill:#000000">ROS2</text>
+    <rect
+       height="30.2969"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
+       width="53"
+       x="161"
+       y="786.17188"
+       id="rect63" />
+    <text
+       font-size="14"
+       lengthAdjust="spacing"
+       textLength="39"
+       x="168"
+       y="806.16699"
+       id="text65"
+       style="font-size:14px;font-family:sans-serif;fill:#000000">ROS2</text>
+    <rect
+       height="30.2969"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
+       width="45"
+       x="398"
+       y="39.953098"
+       id="rect67" />
+    <text
+       font-size="14"
+       lengthAdjust="spacing"
+       textLength="31"
+       x="405"
+       y="59.9482"
+       id="text69"
+       style="font-size:14px;font-family:sans-serif;fill:#000000">DDS</text>
+    <rect
+       height="30.2969"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
+       width="45"
+       x="398"
+       y="786.17188"
+       id="rect71" />
+    <text
+       font-size="14"
+       lengthAdjust="spacing"
+       textLength="31"
+       x="405"
+       y="806.16699"
+       id="text73"
+       style="font-size:14px;font-family:sans-serif;fill:#000000">DDS</text>
+    <rect
+       height="30.2969"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
+       width="57"
+       x="491"
+       y="39.953098"
+       id="rect75" />
+    <text
+       font-size="14"
+       lengthAdjust="spacing"
+       textLength="43"
+       x="498"
+       y="59.9482"
+       id="text77"
+       style="font-size:14px;font-family:sans-serif;fill:#000000">LTTng</text>
+    <rect
+       height="30.2969"
+       style="fill:#fefece;stroke:#a80036;stroke-width:1.5;filter:url(#f1vkeucjz5yp91)"
+       width="57"
+       x="491"
+       y="786.17188"
+       id="rect79" />
+    <text
+       font-size="14"
+       lengthAdjust="spacing"
+       textLength="43"
+       x="498"
+       y="806.16699"
+       id="text81"
+       style="font-size:14px;font-family:sans-serif;fill:#000000">LTTng</text>
+    <rect
+       height="195.9297"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="68.5"
+       y="85.25"
+       id="rect83" />
+    <rect
+       height="29.132799"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="68.5"
+       y="634.64062"
+       id="rect85" />
+    <rect
+       height="195.9297"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="184.5"
+       y="85.25"
+       id="rect87" />
+    <rect
+       height="73.398399"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="189.5"
+       y="149.51559"
+       id="rect89" />
+    <rect
+       height="423.72659"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="184.5"
+       y="353.44531"
+       id="rect91" />
+    <rect
+       height="63.265598"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="189.5"
+       y="414.71091"
+       id="rect93" />
+    <rect
+       height="58.265598"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="417.5"
+       y="222.91409"
+       id="rect95" />
+    <rect
+       height="124.5313"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="417.5"
+       y="353.44531"
+       id="rect97" />
+    <rect
+       height="14"
+       style="fill:#ffffff;stroke:#a80036;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="10"
+       x="417.5"
+       y="507.10941"
+       id="rect99" />
+    <rect
+       height="3"
+       style="fill:#eeeeee;stroke:#eeeeee;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="582"
+       x="0"
+       y="105.8164"
+       id="rect101" />
+    <line
+       style="stroke:#000000;stroke-width:1"
+       x1="0"
+       x2="582"
+       y1="105.8164"
+       y2="105.8164"
+       id="line103" />
+    <line
+       style="stroke:#000000;stroke-width:1"
+       x1="0"
+       x2="582"
+       y1="108.8164"
+       y2="108.8164"
+       id="line105" />
+    <rect
+       height="23.132799"
+       style="fill:#eeeeee;stroke:#000000;stroke-width:2;filter:url(#f1vkeucjz5yp91)"
+       width="125"
+       x="228.5"
+       y="95.25"
+       id="rect107" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacing"
+       textLength="106"
+       x="234.5"
+       y="111.3169"
+       id="text109"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000">Publisher Side</text>
+    <polygon
+       points="181.5,149.5156 177.5,145.5156 187.5,149.5156 177.5,153.5156 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon111" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="78.5"
+       x2="183.5"
+       y1="149.51559"
+       y2="149.51559"
+       id="line113" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="55"
+       x="85.5"
+       y="144.44971"
+       id="text115"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">publish()</text>
+    <polygon
+       points="513.5,193.7813 509.5,189.7813 519.5,193.7813 509.5,197.7813 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon117" />
+    <line
+       style="stroke:#a80036;stroke-width:1;stroke-dasharray:1.99999996, 1.99999996"
+       x1="199.49998"
+       x2="598.18805"
+       y1="193.7813"
+       y2="193.7813"
+       id="line119" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="100"
+       x="206.5"
+       y="173.5825"
+       id="text121"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">[rclcpp_publish]</text>
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="136"
+       x="206.5"
+       y="188.7153"
+       id="text123"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">[rclcpp_intra_publish]</text>
+    <polygon
+       points="409.5,222.9141 405.5,218.9141 415.5,222.9141 405.5,226.9141 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon125" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="194.5"
+       x2="411.5"
+       y1="222.91409"
+       y2="222.91409"
+       id="line127" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="70"
+       x="201.5"
+       y="217.8481"
+       id="text129"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">dds_write()</text>
+    <polygon
+       points="513.5,252.0469 509.5,248.0469 519.5,252.0469 509.5,256.0469 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon131" />
+    <line
+       style="stroke:#a80036;stroke-width:1;stroke-dasharray:2, 2"
+       x1="427.5"
+       x2="515.5"
+       y1="252.04691"
+       y2="252.04691"
+       id="line133" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="70"
+       x="434.5"
+       y="246.981"
+       id="text135"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">[dds_write]</text>
+    <polygon
+       points="181.5,281.1797 177.5,277.1797 187.5,281.1797 177.5,285.1797 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon137" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="73.5"
+       x2="183.5"
+       y1="281.17969"
+       y2="281.17969"
+       id="line139" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="82"
+       x="80.5"
+       y="276.1138"
+       id="text141"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">callback_end</text>
+    <rect
+       height="3"
+       style="fill:#eeeeee;stroke:#eeeeee;stroke-width:1;filter:url(#f1vkeucjz5yp91)"
+       width="582"
+       x="0"
+       y="309.74609"
+       id="rect143" />
+    <line
+       style="stroke:#000000;stroke-width:1"
+       x1="0"
+       x2="582"
+       y1="309.74609"
+       y2="309.74609"
+       id="line145" />
+    <line
+       style="stroke:#000000;stroke-width:1"
+       x1="0"
+       x2="582"
+       y1="312.74609"
+       y2="312.74609"
+       id="line147" />
+    <rect
+       height="23.132799"
+       style="fill:#eeeeee;stroke:#000000;stroke-width:2;filter:url(#f1vkeucjz5yp91)"
+       width="148"
+       x="217"
+       y="299.17969"
+       id="rect149" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacing"
+       textLength="129"
+       x="223"
+       y="315.24661"
+       id="text151"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000">Subscription Side</text>
+    <polygon
+       points="176.5,353.4453 172.5,349.4453 182.5,353.4453 172.5,357.4453 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon153" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="73.5"
+       x2="178.5"
+       y1="353.44531"
+       y2="353.44531"
+       id="line155" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="36"
+       x="80.5"
+       y="348.37939"
+       id="text157"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">spin()</text>
+    <path
+       d="m 10,368.4453 h 77 v 7 l -10,10 H 10 v -17"
+       style="fill:#eeeeee;stroke:#000000;stroke-width:1"
+       id="path159"
+       inkscape:connector-curvature="0" />
+    <rect
+       height="401.72659"
+       style="fill:none;stroke:#000000;stroke-width:2"
+       width="562"
+       x="10"
+       y="368.44531"
+       id="rect161" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacing"
+       textLength="32"
+       x="25"
+       y="381.51221"
+       id="text163"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000">loop</text>
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="194.5"
+       x2="241.5"
+       y1="401.71091"
+       y2="401.71091"
+       id="line165" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="241.5"
+       x2="241.5"
+       y1="401.71091"
+       y2="414.71091"
+       id="line167" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="200.5"
+       x2="241.5"
+       y1="414.71091"
+       y2="414.71091"
+       id="line169" />
+    <polygon
+       points="206.5,414.7109 210.5,410.7109 200.5,414.7109 210.5,418.7109 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon171" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="128"
+       x="206.5"
+       y="396.64499"
+       id="text173"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">wait until next event</text>
+    <polygon
+       points="206.5,448.8438 210.5,444.8438 200.5,448.8438 210.5,452.8438 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon175" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="204.5"
+       x2="416.5"
+       y1="448.84381"
+       y2="448.84381"
+       id="line177" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="176"
+       x="216.5"
+       y="443.7778"
+       id="text179"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">&lt;notify&gt; on_data_available</text>
+    <polygon
+       points="513.5,477.9766 509.5,473.9766 519.5,477.9766 509.5,481.9766 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon181" />
+    <line
+       style="stroke:#a80036;stroke-width:1;stroke-dasharray:2, 2"
+       x1="194.5"
+       x2="515.5"
+       y1="477.97659"
+       y2="477.97659"
+       id="line183" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="125"
+       x="201.5"
+       y="472.91061"
+       id="text185"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">[on_data_available]</text>
+    <polygon
+       points="409.5,507.1094 405.5,503.1094 415.5,507.1094 405.5,511.1094 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon187" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="194.5"
+       x2="411.5"
+       y1="507.10941"
+       y2="507.10941"
+       id="line189" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="204"
+       x="201.5"
+       y="502.04349"
+       id="text191"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">reset ready-set, take messages</text>
+    <polygon
+       points="201.5,521.1094 205.5,517.1094 195.5,521.1094 205.5,525.1094 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon193" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="199.5"
+       x2="421.5"
+       y1="521.10938"
+       y2="521.10938"
+       id="line195" />
+    <path
+       d="m 40,536.1094 h 221 v 7 l -10,10 H 40 v -17"
+       style="fill:#eeeeee;stroke:#000000;stroke-width:1"
+       id="path197"
+       inkscape:connector-curvature="0" />
+    <rect
+       height="17.132799"
+       style="fill:none;stroke:#000000;stroke-width:2"
+       width="226"
+       x="40"
+       y="536.10938"
+       id="rect199" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacing"
+       textLength="176"
+       x="55"
+       y="549.17627"
+       id="text201"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000">execute timer callbacks</text>
+    <path
+       d="m 20,567.2422 h 273 v 7 l -10,10 H 20 v -17"
+       style="fill:#eeeeee;stroke:#000000;stroke-width:1"
+       id="path203"
+       inkscape:connector-curvature="0" />
+    <rect
+       height="133.66409"
+       style="fill:none;stroke:#000000;stroke-width:2"
+       width="542"
+       x="20"
+       y="567.24219"
+       id="rect205" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacing"
+       textLength="228"
+       x="35"
+       y="580.30908"
+       id="text207"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000">execute subscription callbacks</text>
+    <polygon
+       points="513.5,605.5078 509.5,601.5078 519.5,605.5078 509.5,609.5078 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon209" />
+    <line
+       style="stroke:#a80036;stroke-width:1;stroke-dasharray:2.00000011, 2.00000011"
+       x1="194.5"
+       x2="603.78351"
+       y1="605.50781"
+       y2="605.50781"
+       id="line211" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="98"
+       x="201.5"
+       y="600.44189"
+       id="text213"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">[callback_start]</text>
+    <polygon
+       points="85.5,634.6406 89.5,630.6406 79.5,634.6406 89.5,638.6406 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon215" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="83.5"
+       x2="183.5"
+       y1="634.64062"
+       y2="634.64062"
+       id="line217" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="85"
+       x="95.5"
+       y="629.57471"
+       id="text219"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">callback start</text>
+    <polygon
+       points="176.5,663.7734 172.5,659.7734 182.5,663.7734 172.5,667.7734 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon221" />
+    <line
+       style="stroke:#a80036;stroke-width:1"
+       x1="73.5"
+       x2="178.5"
+       y1="663.77338"
+       y2="663.77338"
+       id="line223" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="79"
+       x="80.5"
+       y="658.70752"
+       id="text225"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">callback end</text>
+    <polygon
+       points="513.5,692.9063 509.5,688.9063 519.5,692.9063 509.5,696.9063 "
+       style="fill:#a80036;stroke:#a80036;stroke-width:1"
+       id="polygon227" />
+    <line
+       style="stroke:#a80036;stroke-width:1;stroke-dasharray:2, 2"
+       x1="194.5"
+       x2="515.5"
+       y1="692.90631"
+       y2="692.90631"
+       id="line229" />
+    <text
+       font-size="13"
+       lengthAdjust="spacing"
+       textLength="92"
+       x="201.5"
+       y="687.84027"
+       id="text231"
+       style="font-size:13px;font-family:sans-serif;fill:#000000">[callback_end]</text>
+    <path
+       d="m 40,714.9063 h 234 v 7 l -10,10 H 40 v -17"
+       style="fill:#eeeeee;stroke:#000000;stroke-width:1"
+       id="path233"
+       inkscape:connector-curvature="0" />
+    <rect
+       height="17.132799"
+       style="fill:none;stroke:#000000;stroke-width:2"
+       width="239"
+       x="40"
+       y="714.90631"
+       id="rect235" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacing"
+       textLength="189"
+       x="55"
+       y="727.97308"
+       id="text237"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000">execute service callbacks</text>
+    <path
+       d="m 40,746.0391 h 222 v 7 l -10,10 H 40 v -17"
+       style="fill:#eeeeee;stroke:#000000;stroke-width:1"
+       id="path239"
+       inkscape:connector-curvature="0" />
+    <rect
+       height="17.132799"
+       style="fill:none;stroke:#000000;stroke-width:2"
+       width="227"
+       x="40"
+       y="746.03912"
+       id="rect241" />
+    <text
+       font-size="13"
+       font-weight="bold"
+       lengthAdjust="spacing"
+       textLength="177"
+       x="55"
+       y="759.10602"
+       id="text243"
+       style="font-weight:bold;font-size:13px;font-family:sans-serif;fill:#000000">execute client callbacks</text>
+    <!--MD5=[3da2d8c465a3cccc705c42a560a4f414]
+@startuml main_trace_points_definition
+title: Definition of major trace points
+
+participant UserCode
+participant ROS2
+participant DDS
+participant LTTng
+
+== Publisher Side ==
+
+activate ROS2
+activate UserCode
+UserCode -> ROS2: publish()
+activate ROS2
+ROS2 - -> LTTng: [rclcpp_publish] \n[rclcpp_intra_publish]
+
+
+ROS2 -> DDS: dds_write()
+deactivate ROS2
+activate DDS
+DDS - -> LTTng: [dds_write]
+
+UserCode -> ROS2 : callback_end
+deactivate UserCode
+deactivate ROS2
+deactivate DDS
+
+
+== Subscription Side ==
+
+UserCode -> ROS2 : spin()
+activate DDS
+activate ROS2
+
+loop
+    ROS2 -> ROS2 : wait until next event
+    activate ROS2
+    DDS -> ROS2: <notify> on_data_available
+    ROS2 - -> LTTng : [on_data_available]
+    deactivate ROS2
+
+    deactivate DDS
+    ROS2 -> DDS : reset ready-set, take messages
+    activate DDS
+    DDS -> ROS2
+    deactivate DDS
+
+    group execute timer callbacks
+    end
+
+    group execute subscription callbacks
+        ROS2 - -> LTTng: [callback_start]
+        ROS2 -> UserCode: callback start
+        activate UserCode
+        UserCode -> ROS2: callback end
+        deactivate UserCode
+        ROS2 - -> LTTng: [callback_end]
+    end
+
+    group execute service callbacks
+    end
+
+    group execute client callbacks
+    end
+end
+
+deactivate ROS2
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 21:40:07 JST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+-->
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 194.5,353.44531 V 633.53817 H 53.46746 v 36.05945 h 135.53379 v 100.71777 h 6.21715 v 0"
+       id="path4544"
+       inkscape:connector-curvature="0" />
+  </g>
+  <path
+     inkscape:connector-curvature="0"
+     id="path2874"
+     d="M 586.59261,205.09177 V 594.03772"
+     style="fill:none;stroke:#0b75f6;stroke-width:4.60000038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker2878);marker-end:url(#marker2906)" />
+  <g
+     id="g4186">
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:#0b75f6;stroke-width:2.70000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4174"
+       width="94.078392"
+       height="52.754238"
+       x="538.97247"
+       y="316.52542" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:15.82335949px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
+       x="585.66785"
+       y="337.37827"
+       id="text4180"><tspan
+         sodipodi:role="line"
+         x="585.66785"
+         y="337.37827"
+         style="text-align:center;text-anchor:middle;stroke-width:1"
+         id="tspan4176">Pub-Sub</tspan><tspan
+         sodipodi:role="line"
+         x="585.66785"
+         y="357.15747"
+         style="text-align:center;text-anchor:middle;stroke-width:1"
+         id="tspan4178">Latency</tspan></text>
+  </g>
+  <path
+     style="opacity:0.272;fill:none;stroke:#ff0000;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+     d="m 188.5,382.46014 v 123.98054 l 233.32356,0.23151 -0.0878,14.19128 L 188.5,521.18962 V 634.24218 H 69.309763 l 0.467028,32.13527 H 189.2184 v 35.77336"
+     id="path4632"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccccccc" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:24px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     x="64.184311"
+     y="400.05295"
+     id="text5822"><tspan
+       sodipodi:role="line"
+       id="tspan5820"
+       x="64.184311"
+       y="400.05295"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#dc051a;fill-opacity:1">Callback thread</tspan></text>
+  <text
+     id="text5976"
+     y="421.15466"
+     x="327.07626"
+     style="font-style:normal;font-weight:normal;font-size:24px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0032c8;fill-opacity:1;stroke:none;"
+     xml:space="preserve"><tspan
+       style="font-size:13.33333302px;fill:#0032c8;fill-opacity:1;-inkscape-font-specification:'sans-serif Bold';font-family:sans-serif;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;"
+       y="421.15466"
+       x="327.07626"
+       id="tspan5974"
+       sodipodi:role="line">DDS thread</tspan></text>
+  <path
+     style="opacity:0.33800001;fill:none;stroke:#00cfff;stroke-width:9.69999981;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5994)"
+     d="m 423.79237,367.52119 v 73.85593 H 197.10381 v 22.7733 h 225.80933 v 15.34322"
+     id="path5978"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccc" />
+</svg>
