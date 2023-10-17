@@ -11,7 +11,7 @@
 
 ### v0.4.17 <small>\_ Oct 03, 2023</small> {id = "0.4.17"}
 
-- **Update**: Improved `case` option for calculating the elapsed time specified for functions that graph response time. ([caret_analyze #339](https://github.com/tier4/caret_analyze/pull/339)), ([CART_analyze #355](https://github.com/tier4/caret_analyze/pull/355))
+- **Update**: Improved `case` option for calculating the elapsed time specified for functions that graph response time. ([caret_analyze #339](https://github.com/tier4/caret_analyze/pull/339)), ([caret_analyze #355](https://github.com/tier4/caret_analyze/pull/355))
   - Added new "all" option, which uses all input times in the same cycle to calculate the elapsed time.
   - Renamed "worst" option to "worst-with-external-latency".
   - Added new "worst" option, which uses the worst of all input times in the same cycle to calculate the elapsed time.
