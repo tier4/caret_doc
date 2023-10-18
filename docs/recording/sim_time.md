@@ -148,7 +148,7 @@ The following steps can be performed either with or without CARET. If you have b
     source ~/ros2_caret_ws/install/local_setup.bash
     source ~/ros2_ws/install/local_setup.bash
 
-    ros2 caret record -s e2e_samaple --record-clock
+    ros2 caret record -s e2e_sample --record-clock
    ```
 
 3. Open another terminal to play the rosbag
