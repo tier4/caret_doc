@@ -127,6 +127,7 @@ The following steps can be performed either with or without CARET. If you have b
    ```
 
 ### Record trace data
+
 1. Open terminal to run a target application to record trace data with CARET
 
    In the launch file, `use_sim_time` is set to true and source nodes are disabled.
