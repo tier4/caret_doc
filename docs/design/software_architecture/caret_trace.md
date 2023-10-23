@@ -188,10 +188,10 @@ See [Initialization trace points](../trace_points/initialization_trace_points.md
 ## clock recorder
 
 CARET can select simulation time, represented as `sim_time`, for visualization.
-`sim_time` can be recorded by running the `simtime_recorder` node, which adds trace points for `sim_time` recording.
+`sim_time` can be recorded by running the `clock_recorder` node, which adds trace points for `sim_time` recording.
 
 ```bash
-ros2 run caret_trace clock_recorder
+ros2 caret trace --record-clock
 ```
 
 `ClockRecorder` node wakes up per second and records a pair of `sim_time` and system time.

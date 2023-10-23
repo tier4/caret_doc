@@ -13,7 +13,7 @@ This page explains how to use sim_time.
 
 `/clock` topic needs to be recorded in trace data. `/clock` topis is recorded as `ros2_caret:sim_time` event in trace data.
 
-Open a new terminal and run the following commands before recording and running a target application.
+Add the `--record-clock` option to the `ros2 caret record` command.
 
 <prettier-ignore-start>
 !!!info
@@ -25,7 +25,7 @@ Open a new terminal and run the following commands before recording and running 
 source /opt/ros/humble/setup.bash
 source ~/ros2_caret_ws/install/local_setup.bash
 
-ros2 run caret_trace clock_recorder
+ros2 caret record --record-clock
 ```
 
 You can check whether `/clock` is successfully recorded by the following command.
@@ -128,16 +128,7 @@ The following steps can be performed either with or without CARET. If you have b
 
 ### Record trace data
 
-1. Open another terminal and run the following commands
-
-   ```bash
-   source /opt/ros/humble/setup.bash
-   source ~/ros2_caret_ws/install/local_setup.bash
-
-   ros2 run caret_trace clock_recorder
-   ```
-
-2. Open another terminal to run a target application to record trace data with CARET
+1. Open terminal to run a target application to record trace data with CARET
 
    In the launch file, `use_sim_time` is set to true and source nodes are disabled.
 
@@ -147,7 +138,17 @@ The following steps can be performed either with or without CARET. If you have b
     source ~/ros2_ws/install/local_setup.bash
     export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
 
-    ros2 launch caret_demos end_to_end_sample_with_lttng_session_use_sim.launch.py use_sim_time:=true use_rosbag:=true
+    ros2 launch caret_demos end_to_end_sample.launch.py use_sim_time:=true use_rosbag:=true
+   ```
+
+2. Open another terminal to record the performance data with `/clock` topic.
+
+   ```sh
+    source /opt/ros/humble/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash
+    source ~/ros2_ws/install/local_setup.bash
+
+    ros2 caret record -s e2e_sample --record-clock
    ```
 
 3. Open another terminal to play the rosbag
