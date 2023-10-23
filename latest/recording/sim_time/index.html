@@ -2772,7 +2772,7 @@
 <p>This page explains how to use sim_time.</p>
 <h2 id="recording-clock-topic">Recording <code>/clock</code> topic<a class="headerlink" href="#recording-clock-topic" title="Permanent link">#</a></h2>
 <p><code>/clock</code> topic needs to be recorded in trace data. <code>/clock</code> topis is recorded as <code>ros2_caret:sim_time</code> event in trace data.</p>
-<p>Open a new terminal and run the following commands before recording and running a target application.</p>
+<p>Add the <code>--record-clock</code> option to the <code>ros2 caret record</code> command.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -2783,7 +2783,7 @@
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
 <span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
 
-ros2<span class="w"> </span>run<span class="w"> </span>caret_trace<span class="w"> </span>clock_recorder
+ros2<span class="w"> </span>caret<span class="w"> </span>record<span class="w"> </span>--record-clock
 </code></pre></div>
 <p>You can check whether <code>/clock</code> is successfully recorded by the following command.</p>
 <div class="highlight"><pre><span></span><code>babeltrace<span class="w"> </span>&lt;path-to-trace-data&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39; &#39;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sim_time
@@ -2867,22 +2867,23 @@ Topic<span class="w"> </span>information:<span class="w"> </span>Topic:<span cla
 <h3 id="record-trace-data">Record trace data<a class="headerlink" href="#record-trace-data" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>Open another terminal and run the following commands</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
-
-ros2<span class="w"> </span>run<span class="w"> </span>caret_trace<span class="w"> </span>clock_recorder
-</code></pre></div>
-</li>
-<li>
-<p>Open another terminal to run a target application to record trace data with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr></p>
+<p>Open terminal to run a target application to record trace data with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr></p>
 <p>In the launch file, <code>use_sim_time</code> is set to true and source nodes are disabled.</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
 <span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
 <span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/local_setup.bash
 <span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink<span class="w"> </span>-f<span class="w"> </span>~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
 
-<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>caret_demos<span class="w"> </span>end_to_end_sample_with_lttng_session_use_sim.launch.py<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_rosbag:<span class="o">=</span><span class="nb">true</span>
+<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>caret_demos<span class="w"> </span>end_to_end_sample.launch.py<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>use_rosbag:<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+</li>
+<li>
+<p>Open another terminal to record the performance data with <code>/clock</code> topic.</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
+<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/local_setup.bash
+
+<span class="w"> </span>ros2<span class="w"> </span>caret<span class="w"> </span>record<span class="w"> </span>-s<span class="w"> </span>e2e_sample<span class="w"> </span>--record-clock
 </code></pre></div>
 </li>
 <li>
