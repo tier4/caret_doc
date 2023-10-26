@@ -18,7 +18,7 @@ CARET provides CLI tools which can be utilized at recording process.
 This command checks whether a target application is successfully built with CARET/rclcpp. ([See details](./build_check.md#check-whether-caretrclcpp-is-applied-to-each-package))
 
 ```bash
-ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
+ros2 caret check_caret_rclcpp <path-to-workspace>
 ```
 
 ```bash
@@ -54,7 +54,7 @@ This command checks whether a recording is successful. ([See details](./validati
 If there are problems with the recorded data, warning messages will be displayed
 
 ```bash
-ros2 caret check_ctf --trace_dir <path-to-trace-data>
+ros2 caret check_ctf <path-to-trace-data>
 ```
 
 ## Node summary
@@ -62,7 +62,7 @@ ros2 caret check_ctf --trace_dir <path-to-trace-data>
 This command displays the number of events per node.
 
 ```bash
-ros2 caret node_summary --trace_dir <path-to-trace-data>
+ros2 caret node_summary <path-to-trace-data>
 ```
 
 ```bash
@@ -89,7 +89,7 @@ Trace duration          | 0:01:00
 This command displays the number of events per topic.
 
 ```bash
-ros2 caret topic_summary --trace_dir <path-to-trace-data>
+ros2 caret topic_summary <path-to-trace-data>
 ```
 
 ```bash
@@ -122,7 +122,7 @@ Trace duration          | 0:01:00
 This command displays all tracepoints included in the trace data and the number of events collected by tracepoints.
 
 ```bash
-ros2 caret trace_point_summary --trace_dir <path-to-trace-data>
+ros2 caret trace_point_summary <path-to-trace-data>
 ```
 
 ```bash
@@ -187,8 +187,8 @@ The following two options allow you to filter the load range of trace data used 
 In both options, the argument type is float and the unit of time is second.
 
 ```bash
-ros2 caret trace_point_summary --trace_dir <path-to-trace-data> --duration_filter <DURATION> <OFFSET>
-ros2 caret trace_point_summary --trace_dir <path-to-trace-data> --strip_filter <LSTRIP> <RSTRIP>
+ros2 caret trace_point_summary <path-to-trace-data> --duration_filter <DURATION> <OFFSET>
+ros2 caret trace_point_summary <path-to-trace-data> --strip_filter <LSTRIP> <RSTRIP>
 ```
 
 - `--duration_filter [DURATION] [OFFSET]`
