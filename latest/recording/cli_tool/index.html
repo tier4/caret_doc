@@ -2763,7 +2763,7 @@
 <p><prettier-ignore-end></p>
 <h2 id="build-results-validation">Build results validation<a class="headerlink" href="#build-results-validation" title="Permanent link">#</a></h2>
 <p>This command checks whether a target application is successfully built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp. (<a href="../build_check/#check-whether-caretrclcpp-is-applied-to-each-package">See details</a>)</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span class="w"> </span>--workspace<span class="w"> </span>&lt;path-to-workspace&gt;
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span class="w"> </span>&lt;path-to-workspace&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>---Output<span class="w"> </span>text<span class="w"> </span>as<span class="w"> </span>below---
 
@@ -2785,11 +2785,11 @@ However, if large value is given to <code>&lt;recording_frequency&gt;</code>, re
 <h2 id="trace-data-validation">Trace data validation<a class="headerlink" href="#trace-data-validation" title="Permanent link">#</a></h2>
 <p>This command checks whether a recording is successful. (<a href="../validating/#validating-trace-data">See details</a>)</p>
 <p>If there are problems with the recorded data, warning messages will be displayed</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_ctf<span class="w"> </span>--trace_dir<span class="w"> </span>&lt;path-to-trace-data&gt;
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_ctf<span class="w"> </span>&lt;path-to-trace-data&gt;
 </code></pre></div>
 <h2 id="node-summary">Node summary<a class="headerlink" href="#node-summary" title="Permanent link">#</a></h2>
 <p>This command displays the number of events per node.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>node_summary<span class="w"> </span>--trace_dir<span class="w"> </span>&lt;path-to-trace-data&gt;
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>node_summary<span class="w"> </span>&lt;path-to-trace-data&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>---Output<span class="w"> </span>text<span class="w"> </span>as<span class="w"> </span>below---
 
@@ -2810,7 +2810,7 @@ Trace<span class="w"> </span>duration<span class="w">          </span><span clas
 </code></pre></div>
 <h2 id="topic-summary">Topic summary<a class="headerlink" href="#topic-summary" title="Permanent link">#</a></h2>
 <p>This command displays the number of events per topic.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>topic_summary<span class="w"> </span>--trace_dir<span class="w"> </span>&lt;path-to-trace-data&gt;
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>topic_summary<span class="w"> </span>&lt;path-to-trace-data&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>---Output<span class="w"> </span>text<span class="w"> </span>as<span class="w"> </span>below---
 
@@ -2838,7 +2838,7 @@ Trace<span class="w"> </span>duration<span class="w">          </span><span clas
 <p><prettier-ignore-end></p>
 <h2 id="tracepoint-summary">Tracepoint summary<a class="headerlink" href="#tracepoint-summary" title="Permanent link">#</a></h2>
 <p>This command displays all tracepoints included in the trace data and the number of events collected by tracepoints.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>trace_point_summary<span class="w"> </span>--trace_dir<span class="w"> </span>&lt;path-to-trace-data&gt;
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>trace_point_summary<span class="w"> </span>&lt;path-to-trace-data&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>---Output<span class="w"> </span>text<span class="w"> </span>as<span class="w"> </span>below---
 
@@ -2897,8 +2897,8 @@ Trace<span class="w"> </span>duration<span class="w">          </span><span clas
 <p>Executing a summary command for huge trace data (e.g., more than 10 minutes) takes time.
 The following two options allow you to filter the load range of trace data used for summary output.
 In both options, the argument type is float and the unit of time is second.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>trace_point_summary<span class="w"> </span>--trace_dir<span class="w"> </span>&lt;path-to-trace-data&gt;<span class="w"> </span>--duration_filter<span class="w"> </span>&lt;DURATION&gt;<span class="w"> </span>&lt;OFFSET&gt;
-ros2<span class="w"> </span>caret<span class="w"> </span>trace_point_summary<span class="w"> </span>--trace_dir<span class="w"> </span>&lt;path-to-trace-data&gt;<span class="w"> </span>--strip_filter<span class="w"> </span>&lt;LSTRIP&gt;<span class="w"> </span>&lt;RSTRIP&gt;
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>trace_point_summary<span class="w"> </span>&lt;path-to-trace-data&gt;<span class="w"> </span>--duration_filter<span class="w"> </span>&lt;DURATION&gt;<span class="w"> </span>&lt;OFFSET&gt;
+ros2<span class="w"> </span>caret<span class="w"> </span>trace_point_summary<span class="w"> </span>&lt;path-to-trace-data&gt;<span class="w"> </span>--strip_filter<span class="w"> </span>&lt;LSTRIP&gt;<span class="w"> </span>&lt;RSTRIP&gt;
 </code></pre></div>
 <ul>
 <li><code>--duration_filter [DURATION] [OFFSET]</code><ul>
