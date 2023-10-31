@@ -2,6 +2,12 @@
 
 ## CARET
 
+### v0.4.19 <small>\_ Oct 31, 2023</small> {id = "0.4.19"}
+
+- **Update**: Improvement of option specification of ros2 caret command. ([ros2caret #129](https://github.com/tier4/ros2caret/pull/129)), ([caret_doc #287](https://github.com/tier4/caret_doc/pull/287)), ([caret #176](https://github.com/tier4/caret/pull/176))
+
+- **Update**: Version update support for multimethod. ([caret_analyze #403](https://github.com/tier4/caret_analyze/pull/403)), ([caret_analyze #398](https://github.com/tier4/caret_analyze/pull/398))
+
 ### v0.4.18 <small>\_ Oct 16, 2023</small> {id = "0.4.18"}
 
 - **New**: Supported for iron tracepoint. ([caret_analyze #318](https://github.com/tier4/CARET_analyze/pull/318)), ([caret_trace #150](https://github.com/tier4/CARET_trace/pull/150)), ([ros2caret #84](https://github.com/tier4/ros2caret/pull/84)), ([ros2caret #86](https://github.com/tier4/ros2caret/pull/86))
