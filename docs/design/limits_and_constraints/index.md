@@ -7,7 +7,7 @@ CARET only supports environments as follows.
 - Support single host
 - Support FastDDS or CycloneDDS
 - Support only Linux, especially Ubuntu
-- Support Galactic and Humble
+- Support Galacticm, Humble and Iron
 - Require rebuilding of an application with CARET libraries
 
 ## ROS 2 functions
