@@ -25,7 +25,7 @@ The following command allows you to check whether CARET/rclcpp is applied to eac
 If caret/rclcpp is not applied to the package you want to record, please check which rclcpp is used for the target and your workspace's environment variables.
 
 ```bash
-ros2 caret check_caret_rclcpp --workspace ~/ros2_ws/
+ros2 caret check_caret_rclcpp ~/ros2_ws/
 
 # Expected output. CARET/rclcpp is applied to all packages
 INFO    : 2022-06-12 12:26:49 | All packages are built using caret-rclcpp.
@@ -85,7 +85,7 @@ ros2 caret record -s e2e_sample
 You can check whether tracing is successful or not with `ros2 caret check_ctf` command before visualizing recorded data.
 
 ```bash
-ros2 caret check_ctf -d ~/ros2_ws/evaluate/e2e_sample/
+ros2 caret check_ctf ~/ros2_ws/evaluate/e2e_sample/
 
 # If there are problems with the recorded data, warning messages will be displayed.
 ```
