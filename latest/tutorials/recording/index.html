@@ -2752,7 +2752,7 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 </code></pre></div>
 <p>The following command allows you to check whether <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is applied to each package.
 If caret/rclcpp is not applied to the package you want to record, please check which rclcpp is used for the target and your workspace's environment variables.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span class="w"> </span>--workspace<span class="w"> </span>~/ros2_ws/
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span class="w"> </span>~/ros2_ws/
 
 <span class="c1"># Expected output. CARET/rclcpp is applied to all packages</span>
 INFO<span class="w">    </span>:<span class="w"> </span><span class="m">2022</span>-06-12<span class="w"> </span><span class="m">12</span>:26:49<span class="w"> </span><span class="p">|</span><span class="w"> </span>All<span class="w"> </span>packages<span class="w"> </span>are<span class="w"> </span>built<span class="w"> </span>using<span class="w"> </span>caret-rclcpp.
@@ -2799,7 +2799,7 @@ ros2<span class="w"> </span>caret<span class="w"> </span>record<span class="w"> 
 </code></pre></div>
 <h2 id="validating-recorded-data-briefly">Validating recorded data briefly<a class="headerlink" href="#validating-recorded-data-briefly" title="Permanent link">#</a></h2>
 <p>You can check whether tracing is successful or not with <code>ros2 caret check_ctf</code> command before visualizing recorded data.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_ctf<span class="w"> </span>-d<span class="w"> </span>~/ros2_ws/evaluate/e2e_sample/
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_ctf<span class="w"> </span>~/ros2_ws/evaluate/e2e_sample/
 
 <span class="c1"># If there are problems with the recorded data, warning messages will be displayed.</span>
 </code></pre></div>
