@@ -93,7 +93,6 @@ erDiagram
     rclcpp_intra_publish ||--|| rclcpp_ring_buffer_enqueue: tid
     rclcpp_ring_buffer_enqueue ||--|| rclcpp_ring_buffer_dequeue: index
     rclcpp_ring_buffer_dequeue ||--|| callback_start: tid
-rclcpp_
     callback_start ||--|| callback_end: callback
 
 ```
