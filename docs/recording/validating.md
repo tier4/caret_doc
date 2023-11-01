@@ -5,7 +5,7 @@
 You can check whether a recording is successful with `ros2 caret check_ctf` command.
 
 ```sh
-ros2 caret check_ctf -d <path-to-trace-data>
+ros2 caret check_ctf <path-to-trace-data>
 ```
 
 <prettier-ignore-start>

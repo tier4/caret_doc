@@ -17,7 +17,7 @@ In case CLI tool execution fails, please make sure to perform CARET environment 
 source /opt/ros/humble/setup.bash
 source ~/ros2_caret_ws/install/local_setup.bash
 
-ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
+ros2 caret check_caret_rclcpp <path-to-workspace>
 ```
 
 <prettier-ignore-start>

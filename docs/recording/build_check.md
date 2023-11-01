@@ -38,7 +38,7 @@ colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF
 You can check whether a target application is successfully built with CARET/rclcpp using `ros2 caret check_caret_rclcpp` command.
 
 ```sh
-ros2 caret check_caret_rclcpp --workspace <path-to-workspace>
+ros2 caret check_caret_rclcpp <path-to-workspace>
 ```
 
 | Output Message                                                  | Description                                                                                     |
