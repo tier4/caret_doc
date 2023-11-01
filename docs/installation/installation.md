@@ -40,11 +40,30 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    vcs import src < caret.repos
    ```
 
+   <details>
+   <summary>for iron</summary>
+
+   ```bash
+   mkdir src
+   vcs import src < caret_iron.repos
+   ```
+
+   </details>
+
 3. Run `setup_caret.sh`.
 
    ```bash
    ./setup_caret.sh
    ```
+
+   <details>
+   <summary>for iron</summary>
+
+   ```bash
+   ./setup_caret_iron.sh
+   ```
+
+   </details>
 
 4. Build the workspace.
 
@@ -52,6 +71,16 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    source /opt/ros/humble/setup.bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
+
+   <details>
+   <summary>for iron</summary>
+
+   ```bash
+   source /opt/ros/iron/setup.bash
+   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+   ```
+
+   </details>
 
 5. Check whether CARET (ros2-tracing) is enabled.
 
