@@ -74,7 +74,7 @@ Execute the following code for visualization with message flow.
 ```python
 from caret_analyze.plot import Plot
 
-path = app.get_path('target')
+target_path = app.get_path('target')
 plot = Plot.create_message_flow_plot(target_path)
 plot.show()
 ```
