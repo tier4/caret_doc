@@ -13,6 +13,7 @@ erDiagram
 
  caret_init{
  int64_t clock_offset
+ string distribution
  }
 
  rcl_node_init{
@@ -346,6 +347,7 @@ Sampled items
 Sampled items
 
 - int64_t \* clock_offset
+- char \* distribution
 
 ---
 
