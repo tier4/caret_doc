@@ -3021,6 +3021,7 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
 
  caret_init{
  int64_t clock_offset
+ string distribution
  }
 
  rcl_node_init{
@@ -3304,7 +3305,8 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <p>[Hooked tracepoints]</p>
 <p>Sampled items</p>
 <ul>
-<li>int64_t * clock_offset</li>
+<li>int64_t clock_offset</li>
+<li>char * distribution</li>
 </ul>
 <hr />
 <h4 id="ros2_caretrmw_implementation">ros2_caret:rmw_implementation<a class="headerlink" href="#ros2_caretrmw_implementation" title="Permanent link">#</a></h4>
