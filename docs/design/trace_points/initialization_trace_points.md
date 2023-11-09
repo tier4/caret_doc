@@ -346,7 +346,7 @@ Sampled items
 
 Sampled items
 
-- int64_t \* clock_offset
+- int64_t clock_offset
 - char \* distribution
 
 ---
