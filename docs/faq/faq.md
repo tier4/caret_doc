@@ -153,3 +153,37 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
 - CARET also provides `response_time.to_histogram()` API. It creates histogram assuming a new object appears from point C to point A at intervals of histogram bin size
 
 ![response_time](./imgs/response_time.drawio.png)
+
+### Message flow is broken when using RelayNode
+
+- Message_flow is sometimes broken when using RelayNode.
+RelayNode uses GenericPublisher and GenericSubscription instead of the usual Publisher and Subscription.
+These classes do not have the trace points needed for analysis by CARET.
+
+If you want to measure routes that include measuring applications that use GenericPublisher, GenericSubscription such as RelayNode, you will need to rebuild with [caret-rclcpp](https://github.com/tier4/rclcpp/tree/humble_tracepoint_added) and record with '--light' option.
+The rebuild procedure is shown below.
+
+1. Clone [topic_tools](https://github.com/ros-tooling/topic_tools) in your workspace. You may also choose ros2_caret_ws for this workspace.
+
+```
+cd /path/to/workspace
+mkdir src
+cd src
+git clone https://github.com/ros-tooling/topic_tools -b $ROS_DISTRO
+```
+
+2. Build with caret-rclcpp.
+
+```
+cd /path/to/workspace
+source /opt/ros/humble/setup.bash
+source ~/ros2_caret_ws/install/local_setup.bash
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+```
+
+3. Run the RelayNode. Before executing, make sure you have run local_setup.sh in the workspace containing topic_tools.
+
+```
+source /path/to/workspace/install/local_setup.bash
+ros2 run topic_tools relay <intopic> <outtopic>
+```
