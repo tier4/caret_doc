@@ -185,5 +185,5 @@ The rebuild procedure is shown below.
 
    ```bash
    source /path/to/workspace/install/local_setup.bash
-   ros2 run topic_tools relay <intopic> <outtopic>
+   ros2 run topic_tools relay <in-topic> <out-topic>
    ```
