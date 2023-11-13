@@ -157,8 +157,8 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
 ### Message flow is broken when using RelayNode
 
 - Message_flow is sometimes broken when using RelayNode.
-RelayNode uses GenericPublisher and GenericSubscription instead of the usual Publisher and Subscription.
-These classes do not have the trace points needed for analysis by CARET.
+  RelayNode uses GenericPublisher and GenericSubscription instead of the usual Publisher and Subscription.
+  These classes do not have the trace points needed for analysis by CARET.
 
 If you want to measure routes that include measuring applications that use GenericPublisher, GenericSubscription such as RelayNode, you will need to rebuild with [caret-rclcpp](https://github.com/tier4/rclcpp/tree/humble_tracepoint_added) and record with '--light' option.
 The rebuild procedure is shown below.
