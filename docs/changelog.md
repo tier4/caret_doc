@@ -14,7 +14,7 @@
 
 - **New**: GitHub Actions support for caret_analyze_cpp_impl in caret_analyze. ([caret_analyze #405](https://github.com/tier4/caret_analyze/pull/405))
 
-- **Update**: Unify caption information for graphs created by Plot in path. ([caret_analyze #410](https://github.com/tier4/caret_analyze/pull/410))
+- **Update**: Unify graph captions for `path`. ([caret_analyze #410](https://github.com/tier4/caret_analyze/pull/410))
 
 ### v0.4.19 <small>\_ Oct 31, 2023</small> {id = "0.4.19"}
 
