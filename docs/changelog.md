@@ -10,7 +10,7 @@
 
 - **Update**: Support for bokeh 3.x. ([caret_analyze #391](https://github.com/tier4/caret_analyze/pull/391))
 
-- **Update**: Change in the method of 'Timeseries'. The method of calculating ResponseTime for the best and worst-with-external-latency cases has been changed to be the same as for all and worst case. ([caret_analyze #323](https://github.com/tier4/caret_analyze/pull/323))
+- **Update**: Change in the method of 'Timeseries'. The method of calculating ResponseTime for the best and worst-with-external-latency cases has been changed to be the same as for `all` and `worst` case. ([caret_analyze #323](https://github.com/tier4/caret_analyze/pull/323))
 
 - **New**: GitHub Actions support for caret_analyze_cpp_impl in caret_analyze. ([caret_analyze #405](https://github.com/tier4/caret_analyze/pull/405))
 
