@@ -2,6 +2,20 @@
 
 ## CARET
 
+### v0.4.20 <small>\_ Nov 13, 2023</small> {id = "0.4.20"}
+
+- **Update**: Update documentation with changes to ros2 caret command. ([caret_doc #295](https://github.com/tier4/caret_doc/pull/295))
+
+- **Update**: Update tracepoint event 'caret_init'. ([caret_doc #304](https://github.com/tier4/caret_doc/pull/304))
+
+- **Update**: Support for bokeh 3.x. ([caret_analyze #391](https://github.com/tier4/caret_analyze/pull/391))
+
+- **Update**: Change in the method of 'Timeseries'. The method of calculating ResponseTime for the best and worst-with-external-latency cases has been changed to be the same as for `all` and `worst` case. ([caret_analyze #323](https://github.com/tier4/caret_analyze/pull/323))
+
+- **New**: Changed the CI for caret_analyze to use cart_analyze_cpp_impl. ([caret_analyze #405](https://github.com/tier4/caret_analyze/pull/405))
+
+- **Update**: Unify graph captions for `path`. ([caret_analyze #410](https://github.com/tier4/caret_analyze/pull/410))
+
 ### v0.4.19 <small>\_ Oct 31, 2023</small> {id = "0.4.19"}
 
 - **Update**: Improvement of option specification of ros2 caret command. ([ros2caret #129](https://github.com/tier4/ros2caret/pull/129)), ([caret_doc #287](https://github.com/tier4/caret_doc/pull/287)), ([caret #176](https://github.com/tier4/caret/pull/176))
