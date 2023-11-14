@@ -2,7 +2,7 @@
 
 ## CARET
 
-### v0.4.19 <small>\_ Nov 13, 2023</small> {id = "0.4.20"}
+### v0.4.20 <small>\_ Nov 13, 2023</small> {id = "0.4.20"}
 
 - **Update**: Update documentation with changes to ros2 caret command. ([caret_doc #295](https://github.com/tier4/caret_doc/pull/295))
 
