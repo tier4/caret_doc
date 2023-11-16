@@ -2720,7 +2720,7 @@ The vertical axis means frequency of callback execution, labeled as <code>Freque
 <span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <p><img alt="callback_frequency_histogram" src="../../imgs/callback_frequency_histogram.png" /></p>
-<p>The horizontal axis is frequency, labeled as <code>frequency [Hz]</code>. The vertical axis is the number of samples executed in that frequency, labeled as <code>The number of samples</code>.</p>
+<p>The horizontal axis represents the frequency, labeled as <code>frequency [Hz]</code>. The vertical axis represents the number of samples executed at each frequency, labeled as <code>The number of samples</code>.</p>
 <h2 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">#</a></h2>
 <p><code>Plot.create_frequency_timeseries_plot(communications: Collection[Communication])</code> and <code>Plot.create_frequency_timeseries_plot(communications: Collection[Communication])</code> are introduced to confirm targeted topic is communicated at expected frequency.
 Here, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> takes into account communication when both transmission and reception on a message are performed successfully without being lost.
@@ -2750,7 +2750,7 @@ See <a href="../premise_of_communication/">Premise of communication</a> for more
 <span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <p><img alt="communication_frequency_histogram" src="../../imgs/communication_frequency_histogram.png" /></p>
-<p>The horizontal axis is frequency, labeled as <code>frequency [Hz]</code>. The vertical axis is the number of samples executed in that frequency, labeled as <code>The number of samples</code>.</p>
+<p>The horizontal axis represents the frequency, labeled as <code>frequency [Hz]</code>. The vertical axis represents the number of samples executed at each frequency, labeled as <code>The number of samples</code>.</p>
 <h2 id="publish-and-subscription">Publish and Subscription<a class="headerlink" href="#publish-and-subscription" title="Permanent link">#</a></h2>
 <p><code>Plot.create_frequency_timeseries_plot(Collection[publish: Publisher or subscription: Subscriber])</code> is introduced to check how frequent target publisher or subscription is invoked.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>
