@@ -3212,7 +3212,15 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 </li>
 <li>
 <p>Run the RelayNode. Before executing, make sure you have run local_setup.sh in the workspace containing topic_tools.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/path/to/workspace/install/local_setup.bash
+<div class="highlight"><pre><span></span><code><span class="c1"># Environment settings (keep the order as below)</span>
+<span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
+<span class="nb">source</span><span class="w"> </span>/path/to/workspace/install/local_setup.bash
+
+<span class="c1"># Enable tracepoints which are defined hooked functions.</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink<span class="w"> </span>-f<span class="w"> </span>~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
+
+<span class="c1"># Run RelayNode</span>
 ros2<span class="w"> </span>run<span class="w"> </span>topic_tools<span class="w"> </span>relay<span class="w"> </span>&lt;<span class="k">in</span>-topic&gt;<span class="w"> </span>&lt;out-topic&gt;
 </code></pre></div>
 </li>
