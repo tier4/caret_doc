@@ -184,6 +184,14 @@ The rebuild procedure is shown below.
 3. Run the RelayNode. Before executing, make sure you have run local_setup.sh in the workspace containing topic_tools.
 
    ```bash
+   # Environment settings (keep the order as below)
+   source /opt/ros/humble/setup.bash
+   source ~/ros2_caret_ws/install/local_setup.bash
    source /path/to/workspace/install/local_setup.bash
+
+   # Enable tracepoints which are defined hooked functions.
+   export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
+
+   # Run RelayNode
    ros2 run topic_tools relay <in-topic> <out-topic>
    ```
