@@ -38,7 +38,7 @@ path = app.get_path('target_path')
 
 ## Histogram
 
-The following scripts generate histograms of response time. Horizontal axis of the histograms means response time, labeled `Response Time [ms]` and vertical axis of the histograms means `Probability`.
+The following scripts generate histograms of response time. Horizontal axis of the histograms means response time, labeled `response time [ms]` and vertical axis of the histograms means `The number of samples`.
 
 ```python
 # plot all case
