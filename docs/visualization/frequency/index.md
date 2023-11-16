@@ -57,7 +57,7 @@ plot.show()
 
 ![callback_frequency_histogram](../../imgs/callback_frequency_histogram.png)
 
-The horizontal axis is frequency, labeled as `frequency [Hz]`. The vertical axis is the number of samples executed in that frequency, labeled as `The number of samples`.
+The horizontal axis represents the frequency, labeled as `frequency [Hz]`. The vertical axis represents the number of samples executed at each frequency, labeled as `The number of samples`.
 
 ## Communication
 
@@ -102,7 +102,7 @@ plot.show()
 
 ![communication_frequency_histogram](../../imgs/communication_frequency_histogram.png)
 
-The horizontal axis is frequency, labeled as `frequency [Hz]`. The vertical axis is the number of samples executed in that frequency, labeled as `The number of samples`.
+The horizontal axis represents the frequency, labeled as `frequency [Hz]`. The vertical axis represents the number of samples executed at each frequency, labeled as `The number of samples`.
 
 ## Publish and Subscription
 

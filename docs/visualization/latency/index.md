@@ -56,7 +56,7 @@ plot.show()
 
 ![callback_latency_histogram](../../imgs/callback_latency_histogram.png)
 
-The horizontal axis is latency, labeled as `latency [Hz]`. The vertical axis is the number of samples executed in that latency, labeled as `The number of samples`.
+The horizontal axis represents the latency, labeled as `latency [ms]`. The vertical axis represents the number of samples executed at each latency, labeled as `The number of samples`.
 
 ## Communication
 
@@ -108,4 +108,4 @@ plot.show()
 
 ![communication_latency_histogram](../../imgs/communication_latency_histogram.png)
 
-The horizontal axis is latency, labeled as `latency [Hz]`. The vertical axis is the number of samples executed in that latency, labeled as `The number of samples`.
+The horizontal axis represents the latency, labeled as `latency [ms]`. The vertical axis represents the number of samples executed at each latency, labeled as `The number of samples`.
