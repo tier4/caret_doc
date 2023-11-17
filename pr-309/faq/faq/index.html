@@ -3191,7 +3191,7 @@ ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span
   RelayNode uses GenericPublisher and GenericSubscription instead of the usual Publisher and Subscription.
   These classes do not have the trace points needed for analysis by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.</li>
 </ul>
-<p>If you want to record paths that include measuring applications that use GenericPublisher or GenericSubscription such as RelayNode, you will need to rebuild with <a href="https://github.com/tier4/rclcpp/tree/humble_tracepoint_added">caret-rclcpp</a> and record with '--light' option.
+<p>If you want to record paths that use GenericPublisher or GenericSubscription such as RelayNode, you will need to rebuild with <a href="https://github.com/tier4/rclcpp/tree/humble_tracepoint_added">caret-rclcpp</a> and record with '--light' option.
 The rebuild procedure is shown below.</p>
 <ol>
 <li>
@@ -3199,7 +3199,7 @@ The rebuild procedure is shown below.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/workspace
 mkdir<span class="w"> </span>src
 <span class="nb">cd</span><span class="w"> </span>src
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-tooling/topic_tools<span class="w"> </span>-b<span class="w"> </span><span class="nv">$ROS_DISTRO</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-tooling/topic_tools<span class="w"> </span>-b<span class="w"> </span>humble
 </code></pre></div>
 </li>
 <li>
