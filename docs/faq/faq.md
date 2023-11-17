@@ -160,7 +160,7 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
   RelayNode uses GenericPublisher and GenericSubscription instead of the usual Publisher and Subscription.
   These classes do not have the trace points needed for analysis by CARET.
 
-- If you want to record nodes that use GenericPublisher or GenericSubscription, you need to rebuild them with [caret-rclcpp](https://github.com/tier4/rclcpp/tree/humble_tracepoint_added) and record them with '--light' option.
+- If you want to record nodes that use GenericPublisher or GenericSubscription, you need to rebuild them with [caret-rclcpp](https://github.com/tier4/rclcpp/tree/humble_tracepoint_added) and record them with `--light` option.
   Here are the steps to rebuild a RelayNode.
 
 1. Clone [topic_tools](https://github.com/ros-tooling/topic_tools) into your workspace. You can choose ros2_caret_ws for this workspace.
