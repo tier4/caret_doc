@@ -3192,12 +3192,12 @@ ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span
   These classes do not have the trace points needed for analysis by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.</li>
 </ul>
 <ul>
-<li>If you want to record paths that use GenericPublisher or GenericSubscription such as RelayNode, you will need to rebuild with <a href="https://github.com/tier4/rclcpp/tree/humble_tracepoint_added">caret-rclcpp</a> and record with '--light' option.
-  The rebuild procedure is shown below.</li>
+<li>If you want to record nodes that use GenericPublisher or GenericSubscription, you need to rebuild them with <a href="https://github.com/tier4/rclcpp/tree/humble_tracepoint_added">caret-rclcpp</a> and record them with '--light' option.
+Here are the steps to rebuild a node that uses GenericPublisher and GenericSubscription. We will use RelayNode as an example.</li>
 </ul>
 <ol>
 <li>
-<p>Clone <a href="https://github.com/ros-tooling/topic_tools">topic_tools</a> in your workspace. You may also choose ros2_caret_ws for this workspace.</p>
+<p>Clone <a href="https://github.com/ros-tooling/topic_tools">topic_tools</a> into your workspace. You can choose ros2_caret_ws for this workspace.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/workspace
 mkdir<span class="w"> </span>src
 <span class="nb">cd</span><span class="w"> </span>src
@@ -3205,28 +3205,15 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-t
 </code></pre></div>
 </li>
 <li>
-<p>Build with caret-rclcpp.</p>
+<p>Build topic_tools with caret-rclcpp.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/workspace
 <span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
 <span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </code></pre></div>
 </li>
-<li>
-<p>Run the RelayNode. Before executing, make sure you have run local_setup.sh in the workspace containing topic_tools.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Environment settings (keep the order as below)</span>
-<span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
-<span class="nb">source</span><span class="w"> </span>/path/to/workspace/install/local_setup.bash
-
-<span class="c1"># Enable tracepoints which are defined hooked functions.</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span><span class="k">$(</span>readlink<span class="w"> </span>-f<span class="w"> </span>~/ros2_caret_ws/install/caret_trace/lib/libcaret.so<span class="k">)</span>
-
-<span class="c1"># Run RelayNode</span>
-ros2<span class="w"> </span>run<span class="w"> </span>topic_tools<span class="w"> </span>relay<span class="w"> </span>&lt;<span class="k">in</span>-topic&gt;<span class="w"> </span>&lt;out-topic&gt;
-</code></pre></div>
-</li>
 </ol>
+<p>Please make sure to source local_setup.bash of this workspace before you run RelayNode.</p>
 
 
 
