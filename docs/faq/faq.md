@@ -160,10 +160,10 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
   RelayNode uses GenericPublisher and GenericSubscription instead of the usual Publisher and Subscription.
   These classes do not have the trace points needed for analysis by CARET.
 
-- If you want to record paths that use GenericPublisher or GenericSubscription such as RelayNode, you will need to rebuild with [caret-rclcpp](https://github.com/tier4/rclcpp/tree/humble_tracepoint_added) and record with '--light' option.
-  The rebuild procedure is shown below.
+- If you want to record nodes that use GenericPublisher or GenericSubscription, you need to rebuild them with [caret-rclcpp](https://github.com/tier4/rclcpp/tree/humble_tracepoint_added) and record them with '--light' option.
+Here are the steps to rebuild a node that uses GenericPublisher and GenericSubscription. We will use RelayNode as an example.
 
-1. Clone [topic_tools](https://github.com/ros-tooling/topic_tools) in your workspace. You may also choose ros2_caret_ws for this workspace.
+1. Clone [topic_tools](https://github.com/ros-tooling/topic_tools) into your workspace. You can choose ros2_caret_ws for this workspace.
 
    ```bash
    cd /path/to/workspace
@@ -172,7 +172,7 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
    git clone https://github.com/ros-tooling/topic_tools -b humble
    ```
 
-2. Build with caret-rclcpp.
+2. Build topic_tools with caret-rclcpp.
 
    ```bash
    cd /path/to/workspace
@@ -181,17 +181,4 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
 
-3. Run the RelayNode. Before executing, make sure you have run local_setup.sh in the workspace containing topic_tools.
-
-   ```bash
-   # Environment settings (keep the order as below)
-   source /opt/ros/humble/setup.bash
-   source ~/ros2_caret_ws/install/local_setup.bash
-   source /path/to/workspace/install/local_setup.bash
-
-   # Enable tracepoints which are defined hooked functions.
-   export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
-
-   # Run RelayNode
-   ros2 run topic_tools relay <in-topic> <out-topic>
-   ```
+Please make sure to source local_setup.bash of this workspace before you run RelayNode.
