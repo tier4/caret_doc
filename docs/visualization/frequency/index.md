@@ -57,7 +57,7 @@ plot.show()
 
 ![callback_frequency_histogram](../../imgs/callback_frequency_histogram.png)
 
-The horizontal axis means frequency, labeled as `frequency [Hz]`. The vertical axis is the probability of execution at that frequency, labeled `probability`.
+The horizontal axis represents the frequency, labeled as `frequency [Hz]`. The vertical axis represents the number of samples executed at each frequency, labeled as `The number of samples`.
 
 ## Communication
 
@@ -102,7 +102,7 @@ plot.show()
 
 ![communication_frequency_histogram](../../imgs/communication_frequency_histogram.png)
 
-The horizontal axis means frequency, labeled as `frequency [Hz]`. The vertical axis is the probability of execution at that frequency, labeled `probability`.
+The horizontal axis represents the frequency, labeled as `frequency [Hz]`. The vertical axis represents the number of samples executed at each frequency, labeled as `The number of samples`.
 
 ## Publish and Subscription
 

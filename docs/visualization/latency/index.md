@@ -56,7 +56,7 @@ plot.show()
 
 ![callback_latency_histogram](../../imgs/callback_latency_histogram.png)
 
-The horizontal axis means latency, labeled as `Latency [ms]`. The vertical axis is the probability of execution at that latency, labeled `probability`.
+The horizontal axis represents the latency, labeled as `latency [ms]`. The vertical axis represents the number of samples executed at each latency, labeled as `The number of samples`.
 
 ## Communication
 
@@ -108,4 +108,4 @@ plot.show()
 
 ![communication_latency_histogram](../../imgs/communication_latency_histogram.png)
 
-The horizontal axis means latency, labeled as `Latency [ms]`. The vertical axis is the probability of execution at that latency, labeled `probability`.
+The horizontal axis represents the latency, labeled as `latency [ms]`. The vertical axis represents the number of samples executed at each latency, labeled as `The number of samples`.

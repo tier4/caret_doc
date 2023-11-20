@@ -57,7 +57,7 @@ plot.show()
 
 ![callback_period_histogram](../../imgs/callback_period_histogram.png)
 
-The horizontal axis means period, labeled as `period [ms]`. The vertical axis is the probability of execution at that period, labeled `probability`.
+The horizontal axis represents the period, labeled as `period [ms]`. The vertical axis represents the number of samples executed at each period, labeled as `The number of samples`.
 
 ## Communication
 
@@ -102,7 +102,7 @@ plot.show()
 
 ![communication_period_histogram](../../imgs/communication_period_histogram.png)
 
-The horizontal axis means period, labeled as `period [ms]`. The vertical axis is the probability of execution at that period, labeled `probability`.
+The horizontal axis represents the period, labeled as `period [ms]`. The vertical axis represents the number of samples executed at each period, labeled as `The number of samples`.
 
 ## Publish and Subscription
 
