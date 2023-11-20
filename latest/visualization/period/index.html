@@ -2720,7 +2720,7 @@ The vertical axis means period of callback start, labeled as <code>Period [ms]</
 <span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <p><img alt="callback_period_histogram" src="../../imgs/callback_period_histogram.png" /></p>
-<p>The horizontal axis means period, labeled as <code>period [ms]</code>. The vertical axis is the probability of execution at that period, labeled <code>probability</code>.</p>
+<p>The horizontal axis represents the period, labeled as <code>period [ms]</code>. The vertical axis represents the number of samples executed at each period, labeled as <code>The number of samples</code>.</p>
 <h2 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">#</a></h2>
 <p><code>Plot.create_period_timeseries_plot(communications: Collection[Communication])</code> and <code>Plot.create_period_histogram_plot(communications: Collection[Communication])</code> are helpful if you want to see that communication period is stable or not.
 Here, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> takes into account communication when both transmission and reception on a message are performed successfully without being lost.
@@ -2750,7 +2750,7 @@ See <a href="../premise_of_communication/">Premise of communication</a> for more
 <span class="c1"># ---Output in jupyter-notebook as below---</span>
 </code></pre></div>
 <p><img alt="communication_period_histogram" src="../../imgs/communication_period_histogram.png" /></p>
-<p>The horizontal axis means period, labeled as <code>period [ms]</code>. The vertical axis is the probability of execution at that period, labeled <code>probability</code>.</p>
+<p>The horizontal axis represents the period, labeled as <code>period [ms]</code>. The vertical axis represents the number of samples executed at each period, labeled as <code>The number of samples</code>.</p>
 <h2 id="publish-and-subscription">Publish and Subscription<a class="headerlink" href="#publish-and-subscription" title="Permanent link">#</a></h2>
 <p><code>Plot.create_period_timeseries_plot(Collection[publish: Publisher or subscription: Subscriber])</code> is useful to check how stable invocation cycle of publisher or subscription is.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">### Timestamp tables</span>
