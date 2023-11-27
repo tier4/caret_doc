@@ -4,7 +4,7 @@
 
 ### v0.4.21 <small>\_ Nov 27, 2023</small> {id = "0.4.21"}
 
-- **Update**: Update maintainer. ([caret_analyze #422](https://github.com/tier4/caret_analyze/pull/422), [caret_analyze_cpp_impl #172](https://github.com/tier4/caret_analyze_cpp_impl/pull/172), [caret_trace #244](https://github.com/tier4/caret_trace/pull/244), [ros2_caret #143](https://github.com/tier4/ros2caret/pull/143))
+- **Update**: Update maintainer. ([caret_analyze #422](https://github.com/tier4/caret_analyze/pull/422), [caret_analyze_cpp_impl #172](https://github.com/tier4/caret_analyze_cpp_impl/pull/172), [caret_trace #244](https://github.com/tier4/caret_trace/pull/244), [ros2caret #143](https://github.com/tier4/ros2caret/pull/143))
 
 - **New**: Add trace points to GenericPublisher and GenericSubscription when using topic_tools RelayNode. Support for measurement using RelayNode. ([rclcpp #7](https://github.com/tier4/rclcpp/pull/7), [caret_trace #220](https://github.com/tier4/caret_trace/pull/220), [caret_trace #228](https://github.com/tier4/caret_trace/pull/228))
 
