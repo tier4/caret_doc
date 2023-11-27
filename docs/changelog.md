@@ -10,7 +10,7 @@
 
 - **Update**: Fix for mypy error in CARET_analyze PR. Support for mypy v1.x. ([caret_analyze #425](https://github.com/tier4/caret_analyze/pull/425))
 
-- **Update**: The change aims to improve the clarity of the histogram graph by using the number of samples on the Y-axis instead of probability. ([caret_analyze #430](https://github.com/tier4/caret_analyze/pull/430), [caret_doc #313](https://github.com/tier4/caret_doc/pull/313))
+- **Update**: Changed Y-axis from probability to number of samples for better readability of graphs. ([caret_analyze #430](https://github.com/tier4/caret_analyze/pull/430), [caret_doc #313](https://github.com/tier4/caret_doc/pull/313))
 
 ### v0.4.20 <small>\_ Nov 13, 2023</small> {id = "0.4.20"}
 
