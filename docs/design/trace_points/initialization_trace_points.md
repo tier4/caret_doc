@@ -81,6 +81,21 @@ erDiagram
  string function_symbol
  }
 
+ rclcpp_buffer_to_ipb{
+ address buffer
+ address ipb
+ }
+
+ rclcpp_ipb_to_subscription{
+ address ipb
+ address subscription
+ }
+
+ rclcpp_construct_ring_buffer{
+ address buffer
+ uint64_t capacity
+ }
+
  rmw_implementation{
  string rmw_impl
  }
@@ -94,6 +109,10 @@ erDiagram
     rcl_subscription_init ||--|| SUBSCRIPTION_HANDLE : node_handle
     rcl_timer_init ||--|| TIMER_HANDLE : node_handle
     rcl_service_init ||--|| SERVICE_HANDLE : node_handle
+
+    rclcpp_subscription_init ||--|| rclcpp_ipb_to_subscription : subscription
+    rclcpp_ipb_to_subscription ||--|| rclcpp_buffer_to_ipb : ipb
+    rclcpp_buffer_to_ipb ||--|| rclcpp_construct_ring_buffer : buffer
 
     rcl_subscription_init ||--|| rclcpp_subscription_init : subscription_handle
     rclcpp_subscription_init ||--|| rclcpp_subscription_callback_added : subscription
@@ -336,6 +355,42 @@ Sampled items
 
 - void \* callback
 - char \* function_symbol
+- int64_t init_timestamp (caret_trace added)
+
+---
+
+#### ros2:rclcpp_ipb_to_subscription
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* ipb
+- void \* subscription
+- int64_t init_timestamp (caret_trace added)
+
+---
+
+#### ros2:rclcpp_buffer_to_ipb
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* buffer
+- void \* ipb
+- int64_t init_timestamp (caret_trace added)
+
+---
+
+#### ros2:rclcpp_construct_ring_buffer
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* buffer
+- void \* capacity
 - int64_t init_timestamp (caret_trace added)
 
 ---
