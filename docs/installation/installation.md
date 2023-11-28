@@ -60,7 +60,7 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    <summary>for iron</summary>
 
    ```bash
-   ./setup_caret_iron.sh
+   ./setup_caret.sh -d iron
    ```
 
    </details>
