@@ -91,7 +91,7 @@ erDiagram
     dispatch_intra_process_subscription_callback ||--|| callback_start: callback
     dispatch_subscription_callback ||--|| callback_start: callback
     rclcpp_intra_publish ||--|| rclcpp_ring_buffer_enqueue: tid
-    rclcpp_ring_buffer_enqueue ||--|| rclcpp_ring_buffer_dequeue: buffer, index
+    rclcpp_ring_buffer_enqueue ||--|| rclcpp_ring_buffer_dequeue: buffer_and_index
     rclcpp_ring_buffer_dequeue ||--|| callback_start: tid
     callback_start ||--|| callback_end: callback
 
