@@ -199,7 +199,7 @@ Sampled items
 - void \* buffer
 - uint64_t index
 - uint64_t size
-- bool \* overwritten
+- bool overwritten
 
 ---
 
