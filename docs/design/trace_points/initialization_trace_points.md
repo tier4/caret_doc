@@ -390,7 +390,7 @@ Sampled items
 Sampled items
 
 - void \* buffer
-- void \* capacity
+- uint64_t capacity
 - int64_t init_timestamp (caret_trace added)
 
 ---
