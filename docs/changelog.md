@@ -4,7 +4,7 @@
 
 ### v0.4.22 <small>\_ Dec 12, 2023</small> {id = "0.4.22"}
 
-- **Update** Add demos which uses `GenericSubscription` and `GenericPublisher`. ([caret_demos #8](https://github.com/tier4/caret_demos/pull/8))
+- **Update** Add a demo using `GenericSubscription` and `GenericPublisher`. ([caret_demos #8](https://github.com/tier4/caret_demos/pull/8))
 
 - **Update** Support for analysis of trace data without `--light`` option for applications using GenericPublisher, GenericSubscription. ([caret_analyze #432](https://github.com/tier4/caret_analyze/pull/432), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/445))
 
