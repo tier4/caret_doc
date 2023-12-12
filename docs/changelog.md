@@ -2,6 +2,14 @@
 
 ## CARET
 
+### v0.4.22 <small>\_ Dec 12, 2023</small> {id = "0.4.22"}
+
+- **Update** Support for analysis of trace data without `--light` option for applications using GenericPublisher, GenericSubscription. ([caret_analyze #432](https://github.com/tier4/caret_analyze/pull/432), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/445))
+
+- **Update** Fixed a bug when address duplication occurs. ([caret_analyze #342](https://github.com/tier4/caret_analyze/pull/342))
+
+- **Update** Update some API to support sim_time. ([caret_analyze #433](https://github.com/tier4/caret_analyze/pull/433), [ros2caret #152](https://github.com/tier4/ros2caret/pull/152))
+
 ### v0.4.21 <small>\_ Nov 27, 2023</small> {id = "0.4.21"}
 
 - **Update**: Update maintainer. ([caret_analyze #422](https://github.com/tier4/caret_analyze/pull/422), [caret_analyze_cpp_impl #172](https://github.com/tier4/caret_analyze_cpp_impl/pull/172), [caret_trace #244](https://github.com/tier4/caret_trace/pull/244), [ros2caret #143](https://github.com/tier4/ros2caret/pull/143))
