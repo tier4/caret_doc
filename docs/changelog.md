@@ -4,7 +4,7 @@
 
 ### v0.4.22 <small>\_ Dec 12, 2023</small> {id = "0.4.22"}
 
-- **Update** Support for analysis of trace data without `--light`` option for applications using GenericPublisher, GenericSubscription. ([caret_analyze #432](https://github.com/tier4/caret_analyze/pull/432), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/445))
+- **Update** Support for analysis of trace data without `--light` option for applications using GenericPublisher, GenericSubscription. ([caret_analyze #432](https://github.com/tier4/caret_analyze/pull/432), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/445))
 
 - **Update** Fixed a bug when address duplication occurs. ([caret_analyze #342](https://github.com/tier4/caret_analyze/pull/342))
 
