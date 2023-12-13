@@ -13,7 +13,9 @@ CARET is confirmed to run on the platforms shown in the following table with sup
 | Python3            | 3.10.x            |
 
 The recent version, after v0.3.0, of CARET supports only the combination of ROS 2 Humble and Ubuntu 22.04.  
-If you want to run CARET on ROS 2 Galactic and Ubuntu 20.04, please refer to [documents for v0.2.3](https://tier4.github.io/caret_doc/refs-tags-v0.2.3/tutorials/installation/)
+If you want to run CARET on ROS 2 Galactic and Ubuntu 20.04, please refer to [documents for v0.2.3](https://tier4.github.io/caret_doc/refs-tags-v0.2.3/tutorials/installation/)  
+We have added an experimental implementation to work with iron.  
+To install for iron, open `for iron` in the Installation section below and follow the instructions.
 
 ## Installation
 
@@ -40,11 +42,30 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    vcs import src < caret.repos
    ```
 
+   <details>
+   <summary>for iron</summary>
+
+   ```bash
+   mkdir src
+   vcs import src < caret_iron.repos
+   ```
+
+   </details>
+
 3. Run `setup_caret.sh`.
 
    ```bash
    ./setup_caret.sh
    ```
+
+   <details>
+   <summary>for iron</summary>
+
+   ```bash
+   ./setup_caret.sh -d iron
+   ```
+
+   </details>
 
 4. Build the workspace.
 
@@ -52,6 +73,16 @@ Please execute the following steps on Ubuntu 20.04. The order is important so th
    source /opt/ros/humble/setup.bash
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
    ```
+
+   <details>
+   <summary>for iron</summary>
+
+   ```bash
+   source /opt/ros/iron/setup.bash
+   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+   ```
+
+   </details>
 
 5. Check whether CARET (ros2-tracing) is enabled.
 

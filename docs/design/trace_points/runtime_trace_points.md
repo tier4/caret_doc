@@ -66,6 +66,19 @@ erDiagram
  uint64_t source_stamp
  }
 
+ rclcpp_ring_buffer_enqueue{
+ address buffer
+ uint64_t index
+ uint64_t size
+ bool overwritten
+ }
+
+ rclcpp_ring_buffer_dequeue{
+ address buffer
+ uint64_t index
+ uint64_t size
+ }
+
     rclcpp_intra_publish ||--|| dispatch_intra_process_subscription_callback: message_addr
     rclcpp_publish ||--|| rcl_publish: message_addr
     rcl_publish ||--|| dds_write: message_addr
@@ -77,7 +90,9 @@ erDiagram
     rmw_take ||--|| callback_start: tid
     dispatch_intra_process_subscription_callback ||--|| callback_start: callback
     dispatch_subscription_callback ||--|| callback_start: callback
-
+    rclcpp_intra_publish ||--|| rclcpp_ring_buffer_enqueue: tid
+    rclcpp_ring_buffer_enqueue ||--|| rclcpp_ring_buffer_dequeue: buffer_and_index
+    rclcpp_ring_buffer_dequeue ||--|| callback_start: tid
     callback_start ||--|| callback_end: callback
 
 ```
@@ -172,6 +187,31 @@ Sampled items
 - void \* message
 - void \* callback
 - uint64_t message_timestamp
+
+---
+
+#### ros2:rclcpp_ring_buffer_enqueue
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* buffer
+- uint64_t index
+- uint64_t size
+- bool overwritten
+
+---
+
+#### ros2:rclcpp_ring_buffer_dequeue
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* buffer
+- uint64_t index
+- uint64_t size
 
 ---
 
