@@ -31,7 +31,6 @@ cd ~/ros2_ws
 git clone https://github.com/tier4/CARET_demos.git src/CARET_demos
 
 source /opt/ros/iron/setup.bash
-source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/iron/setup.bash'
 
 colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
 ```
