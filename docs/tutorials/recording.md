@@ -63,7 +63,7 @@ There is no need to run following command.
 ros2 caret check_caret_rclcpp ~/ros2_ws/
 ```
 
-CARET does not require a build using caret-rclcpp with ROS 2 Distributuions after iron.
+CARET does not require a build using caret-rclcpp with ROS 2 Distributions after iron.
 
 </details>
 
