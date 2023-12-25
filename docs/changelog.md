@@ -2,6 +2,18 @@
 
 ## CARET
 
+### v0.4.23 <small>\_ Dec 12, 2023</small> {id = "0.4.23"}
+
+- **Update** In mypy 1.x, to use --check-untyped-defs option is recommended for more strict type checking.This option has been added to pytest in caret, and the type warnings revealed by the --check-untyped-defs option have been corrected. ([caret_analyze #441](https://github.com/tier4/caret_analyze/pull/441))
+
+- **Update** Changed implementation so that BokehUserWarning (out of range integer) in Bokeh 3.x is not generated. ([caret_analyze #447](https://github.com/tier4/caret_analyze/pull/447))
+
+- **Update** Fixed API list (doc_string) except value_objects. ([caret_analyze #446](https://github.com/tier4/caret_analyze/pull/446/files))
+
+- **Fix** Fixed argument error passed to _find_node_path. ([caret_analyze #453](https://github.com/tier4/caret_analyze/pull/453))
+
+- **New** Added setup script for iron. Added build procedure and tutorial for iron. ([caret #175](https://github.com/tier4/caret/pull/175),[caret_doc #207](https://github.com/tier4/caret_doc/pull/207), [caret_doc #322](https://github.com/tier4/caret_doc/pull/322))
+
 ### v0.4.22 <small>\_ Dec 12, 2023</small> {id = "0.4.22"}
 
 - **Update** Support for analysis of trace data without `--light` option for applications using GenericPublisher, GenericSubscription. ([caret_analyze #432](https://github.com/tier4/caret_analyze/pull/432), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/445))
