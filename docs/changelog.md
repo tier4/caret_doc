@@ -12,7 +12,7 @@
 
 - **Fix** Fixed argument error passed to \_find_node_path. ([caret_analyze #453](https://github.com/tier4/caret_analyze/pull/453))
 
-- **New** Added setup script for iron. Added build procedure and tutorial for iron. ([caret #175](https://github.com/tier4/caret/pull/175),[caret_doc #207](https://github.com/tier4/caret_doc/pull/207), [caret_doc #322](https://github.com/tier4/caret_doc/pull/322))
+- **New** Added setup script for iron. Added build procedure and tutorial for iron. ([caret #175](https://github.com/tier4/caret/pull/175), [caret_doc #207](https://github.com/tier4/caret_doc/pull/207), [caret_doc #322](https://github.com/tier4/caret_doc/pull/322))
 
 ### v0.4.22 <small>\_ Dec 12, 2023</small> {id = "0.4.22"}
 
