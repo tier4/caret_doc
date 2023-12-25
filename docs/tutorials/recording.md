@@ -59,7 +59,7 @@ WARNING : 2022-06-12 12:25:26 | The following packages have not been built using
 
 There is no need to run following command.
 
-```
+```bash
 ros2 caret check_caret_rclcpp ~/ros2_ws/
 ```
 
