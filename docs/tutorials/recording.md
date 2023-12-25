@@ -31,7 +31,6 @@ cd ~/ros2_ws
 git clone https://github.com/tier4/CARET_demos.git src/CARET_demos
 
 source /opt/ros/iron/setup.bash
-source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/iron/setup.bash'
 
 colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
 ```
@@ -54,6 +53,19 @@ WARNING : 2022-06-12 12:25:26 | The following packages have not been built using
    caret_demos
    intra_process_demo
 ```
+
+<details>
+<summary>for iron</summary>
+
+There is no need to run following command.
+
+```bash
+ros2 caret check_caret_rclcpp ~/ros2_ws/
+```
+
+CARET does not require a build using caret-rclcpp with ROS 2 Distributions after iron.
+
+</details>
 
 ## Tracing the sample application with CARET
 
