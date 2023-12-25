@@ -4,7 +4,7 @@
 
 ### v0.4.23 <small>\_ Dec 12, 2023</small> {id = "0.4.23"}
 
-- **Update** In mypy 1.x, it is recommended to use the --check-untyped-defs option for stricter type checking. this option has been added to pytest in caret_analyze, and the type warnings revealed by the --check-untyped-defs option have been corrected. ([caret_analyze #441](https://github.com/tier4/caret_analyze/pull/441))
+- **Update** In mypy 1.x, it is recommended to use the --check-untyped-defs option for stricter type checking. this option has been added to pytest in caret_analyze, and the warning that occurred after the option was added has been corrected. ([caret_analyze #441](https://github.com/tier4/caret_analyze/pull/441))
 
 - **Update** Changed implementation so that BokehUserWarning (out of range integer) in Bokeh 3.x is not generated. ([caret_analyze #447](https://github.com/tier4/caret_analyze/pull/447))
 
