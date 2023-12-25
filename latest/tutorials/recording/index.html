@@ -2759,7 +2759,6 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tier4/CARET_demos.git<span class="w"> </span>src/CARET_demos
 
 <span class="nb">source</span><span class="w"> </span>/opt/ros/iron/setup.bash
-<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash<span class="w"> </span><span class="c1"># please keep the order after &#39;source /opt/ros/iron/setup.bash&#39;</span>
 
 colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--packages-up-to<span class="w"> </span>caret_demos<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF
 </code></pre></div>
@@ -2780,6 +2779,18 @@ WARNING<span class="w"> </span>:<span class="w"> </span><span class="m">2022</sp
 <span class="w">   </span>caret_demos
 <span class="w">   </span>intra_process_demo
 </code></pre></div>
+<details>
+<summary>for iron</summary>
+
+There is no need to run following command.
+
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span class="w"> </span>~/ros2_ws/
+</code></pre></div>
+
+CARET does not require a build using caret-rclcpp with ROS 2 Distributions after iron.
+
+</details>
+
 <h2 id="tracing-the-sample-application-with-caret">Tracing the sample application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#tracing-the-sample-application-with-caret" title="Permanent link">#</a></h2>
 <h3 id="launching-the-target-application">Launching the target application<a class="headerlink" href="#launching-the-target-application" title="Permanent link">#</a></h3>
 <p>Run the target as shown in the following.</p>
