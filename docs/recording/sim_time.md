@@ -80,6 +80,11 @@ In case `/clock` topic is not recorded in trace data, the following error will o
 InvalidArgumentError: Failed to load sim_time. Please measure again with clock_recorder running.
 ```
 
+<prettier-ignore-start>
+!!!warning
+    If the timer callback exists in middle of the target path, ROSBAG playback rate significantly affects the behavior of the path. As a result, even when `xaxis_type` is `'sim_time'`, [response time](../visualization/path/response_time.md) of the path cannot be calculated correctly for the trace data whose ROSBAG playback rate is not 1.0.
+<prettier-ignore-end>
+
 ## Sample to use sim_time
 
 Explanation below assumes CARET is installed to `~/ros2_caret_ws` and the sample application used in the tutorial section is located in `~/ros2_ws`.
