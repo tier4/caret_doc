@@ -82,7 +82,7 @@ InvalidArgumentError: Failed to load sim_time. Please measure again with clock_r
 
 <prettier-ignore-start>
 !!!warning
-    If the timer callback exists in middle of the target path, ROSBAG playback rate signifficantly affects the behavior of the path. As a result, even when `xaxis_type` is `'sim_time'`, [response time](../visualization/path/response_time.md) of the path cannot be calculated correctly for the trace data whose ROSBAG playback rate is not 1.0.
+    If the timer callback exists in middle of the target path, ROSBAG playback rate significantly affects the behavior of the path. As a result, even when `xaxis_type` is `'sim_time'`, [response time](../visualization/path/response_time.md) of the path cannot be calculated correctly for the trace data whose ROSBAG playback rate is not 1.0.
 <prettier-ignore-end>
 
 ## Sample to use sim_time
