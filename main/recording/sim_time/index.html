@@ -2825,6 +2825,12 @@ ros2_caret:sim_time:
 <p>In case <code>/clock</code> topic is not recorded in trace data, the following error will occur.</p>
 <div class="highlight"><pre><span></span><code><span class="n">InvalidArgumentError</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">sim_time</span><span class="o">.</span> <span class="n">Please</span> <span class="n">measure</span> <span class="n">again</span> <span class="k">with</span> <span class="n">clock_recorder</span> <span class="n">running</span><span class="o">.</span>
 </code></pre></div>
+<p><prettier-ignore-start></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the timer callback exists in middle of the target path, ROSBAG playback rate significantly affects the behavior of the path. As a result, even when <code>xaxis_type</code> is <code>'sim_time'</code>, <a href="../../visualization/path/response_time/">response time</a> of the path cannot be calculated correctly for the trace data whose ROSBAG playback rate is not 1.0.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="sample-to-use-sim_time">Sample to use sim_time<a class="headerlink" href="#sample-to-use-sim_time" title="Permanent link">#</a></h2>
 <p>Explanation below assumes <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is installed to <code>~/ros2_caret_ws</code> and the sample application used in the tutorial section is located in <code>~/ros2_ws</code>.</p>
 <h3 id="record-rosbag">Record rosbag<a class="headerlink" href="#record-rosbag" title="Permanent link">#</a></h3>
