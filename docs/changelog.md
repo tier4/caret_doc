@@ -7,7 +7,7 @@
 - **Update** Delete past implementations of histograms and response times that are no longer needed. ([caret_analyze #442](https://github.com/tier4/caret_analyze/pull/442))
 - **Fix** Fixed behavior of `ros2 caret check_caret_rclcpp` command after iron. ([ros2caret #135](https://github.com/tier4/ros2caret/pull/135))
 - **Fix** Fixed a bug in the `ros2 caret record --immediate` option. It caused an error in the input operation if there was no standard input. ([ros2caret #164](https://github.com/tier4/ros2caret/pull/164))
-- **Update** Determination method of ROS distribution for iron or rolling replaces to correspond to distribution after iron. ([caret_analyze #452](https://github.com/tier4/caret_analyze/pull/452), [ros2caret #161](https://github.com/tier4/ros2caret/pull/161))
+- **Update** Change in the method of determining ROS Distributions. ([caret_analyze #452](https://github.com/tier4/caret_analyze/pull/452), [ros2caret #161](https://github.com/tier4/ros2caret/pull/161))
 
 ### v0.4.23 <small>\_ Dec 12, 2023</small> {id = "0.4.23"}
 
