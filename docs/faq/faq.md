@@ -5,7 +5,6 @@
 ### Setup fails
 
 - In case you encounter errors during setup or build process, please make sure to use an appropriate branch for your environment
-  - ROS 2 Galactic, Ubuntu 20.04: `galactic` branch
   - ROS 2 Humble, Ubuntu 22.04: main branch
   - ROS 2 Iron, Ubuntu 22.04: main branch
 - It's also important to delete `./build` `./install` and `./src` directory before rebuilding CARET if you have built CARET using wrong settings
