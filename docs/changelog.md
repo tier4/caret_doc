@@ -5,7 +5,7 @@
 ### v0.4.25 <small>\_ Feb 26, 2024</small> {id = "0.4.25"}
 
 - **Fix** Fixed annotations in the Plot API about TimeSeriesTypes. ([caret_analyze #463](https://github.com/tier4/caret_analyze/pull/463))
-- **Fix** An issue where the histogram would exit with an error if an empty dataset was entered has been resolved. After the fix, an empty histogram is displayed. ([caret_analyze #466](https://github.com/tier4/caret_analyze/pull/466))
+- **Fix** An issue where the histogram would exit with an error if an empty records was entered has been resolved. Fixed an empty histogram is displayed. ([caret_analyze #466](https://github.com/tier4/caret_analyze/pull/466))
 - **Update** Added and fixed doc string information in value_object package. ([caret_analyze #454](https://github.com/tier4/caret_analyze/pull/454))
 - **Update** Copyright change from ISP to TIER IV, Inc. ([caret_analyze #473](https://github.com/tier4/caret_analyze/pull/473))
 - **Update** Removed Galactic and Ubuntu 20.04 support from the documentation. ([caret_doc #328](https://github.com/tier4/caret_doc/pull/328))
