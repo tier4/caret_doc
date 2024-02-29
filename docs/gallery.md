@@ -69,10 +69,6 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![message_flow](./imgs/message_flow_sample.png)
 
-### [Response Time Histogram](./visualization/path/response_time.md)
-
-![Response_Time_Histogram](./imgs/response_time_default_histogram.png)
-
 ### [Chain latency](./visualization/path/chain_latency.md)
 
 ![chain_latency_sample](./imgs/chain_latency_sample.png)
