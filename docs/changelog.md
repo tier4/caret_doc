@@ -2,6 +2,15 @@
 
 ## CARET
 
+### v0.4.25 <small>\_ Feb 26, 2024</small> {id = "0.4.25"}
+
+- **Fix** Fixed annotations in the Plot API about TimeSeriesTypes. ([caret_analyze #463](https://github.com/tier4/caret_analyze/pull/463))
+- **Fix** Fixed an issue where the histogram would exit with an error if an empty records was entered. ([caret_analyze #466](https://github.com/tier4/caret_analyze/pull/466))
+- **Update** Added and fixed doc string information in value_object package. ([caret_analyze #454](https://github.com/tier4/caret_analyze/pull/454))
+- **Update** Copyright change from ISP to TIER IV, Inc. ([caret_analyze #473](https://github.com/tier4/caret_analyze/pull/473))
+- **Update** Removed Galactic and Ubuntu 20.04 support from the documentation. ([caret_doc #328](https://github.com/tier4/caret_doc/pull/328))
+- **New** Add a workflow to automatically update package.xml on git tag. ([caret_analye #467](https://github.com/tier4/caret_analyze/pull/467), [caret_analyze_cpp_impl #194](https://github.com/tier4/caret_analyze_cpp_impl/pull/194), [caret_trace #268](https://github.com/tier4/caret_trace/pull/268), [ros2caret #169](https://github.com/tier4/ros2caret/pull/169))
+
 ### v0.4.24 <small>\_ Jan 15, 2024</small> {id = "0.4.24"}
 
 - **Update** Delete past implementations of histograms and response times that are no longer needed. ([caret_analyze #442](https://github.com/tier4/caret_analyze/pull/442))
