@@ -9,7 +9,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ![callback_frequency_time_line](./imgs/callback_frequency_time_line.png)
 
-#### Other combinations of the following can be performed.
+#### Other combinations of the following can be performed
 
 - Communication frequency
 - Pub/Sub frequency
@@ -20,14 +20,13 @@ If you find what you are interested in, please access to a link embedded in a he
 - Communication period
 - Pub/Sub period
 
-
 ## Histogram
 
 ### [callback latency graph](./visualization/latency/index.md)
 
 ![callback_latency_histogram](./imgs/callback_latency_histogram.png)
 
-#### Other combinations of the following can be performed.
+#### Other combinations of the following can be performed
 
 - Callback frequency
 - Communication frequency
