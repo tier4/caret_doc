@@ -21,7 +21,6 @@ If you find what you are interested in, please access to a link embedded in a he
 - Communication period
 - Pub/Sub period
 
-
 ## Histogram
 
 ### [callback latency graph](./visualization/latency/index.md)
