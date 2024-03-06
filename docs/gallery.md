@@ -14,12 +14,12 @@ If you find what you are interested in, please access to a link embedded in a he
 - Callback frequency
 - Communication frequency
 - Pub/Sub frequency
-- Path frequency
 - Callback latency
 - Communication latency
 - Callback period
 - Communication period
 - Pub/Sub period
+- Path response time
 
 ## Histogram
 
@@ -32,12 +32,12 @@ If you find what you are interested in, please access to a link embedded in a he
 - Callback frequency
 - Communication frequency
 - Pub/Sub frequency
-- Path frequency
 - Callback latency
 - Communication latency
 - Callback period
 - Communication period
 - Pub/Sub period
+- Path response time
 
 ## Stacked Bar
 
@@ -56,6 +56,15 @@ If you find what you are interested in, please access to a link embedded in a he
 ### [Timing chart of callback scheduling](./visualization/scheduling/callback.md)
 
 ![Callback_Scheduling_Visualization_sample](./visualization/imgs/callback_scheduling_executor.png)
+
+#### The following elements can be visualized
+
+- Path callback scheduling
+- Application callback scheduling
+- Executor callback scheduling
+- Node callback scheduling
+- CallbackGroup callback scheduling
+- Sequence[CallbackGroup] callback scheduling
 
 ## Chain latency
 
