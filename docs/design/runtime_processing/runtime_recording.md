@@ -207,10 +207,6 @@ Lttng0 is "Active"
 User0_1 -> Hook1
 
 @7
-Hook0 is RECORD
-Hook0 -> User0_1 : Notify state transition \n[ /caret/status ]
-
-@9
 User1_1 is "ros2 caret record"
 Hook1 is PREPARE
 User1_1 -> Hook1 : Start recording \n[ /caret/start_record ]\n\n\n\n
@@ -218,12 +214,13 @@ User1_1 -> Lttng1
 Lttng1 is "Active"
 User1_1 -> Hook0
 
-@11
+@9
+Hook0 is RECORD
 Hook1 is RECORD
 Hook1 -> User1_1
 Hook1 -> User0_1 : Notify state transition \n[ /caret/status ]\n
 
-@16
+@14
 User0_1 is "Idle"
 Hook0 is WAIT
 User0_1 -> Hook0 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
@@ -231,7 +228,7 @@ User0_1 -> Lttng0
 User0_1 -> Hook1
 Lttng0 is "Destroyed"
 
-@17
+@15
 User1_1 is "Idle"
 Hook1 is WAIT
 User1_1 -> Hook1 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
@@ -432,7 +429,7 @@ loop Until recording end.
    end note
 end
 
-CARET --> CLI : Status message \n[/caret/status] \n(RECORDING state)
+CARET --> CLI : Status message \n[/caret/status] \n(RECORD state)
 
 CARET -> CARET : Transition to RECORD state \ncancel timer callback
 deactivate CARET
@@ -535,7 +532,7 @@ CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(PREPARE state)
 CARET_0 -> Lttng0 : Recod initialization trace data
 CARET_0 -> CARET_0 : Transition to RECORD state \ncancel timer callback
 
-CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(RECORDING state)
+CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(RECORD state)
 
 & APP_0 -> APP_0: Runtime event \n(e.g. callback start)
 activate APP_0
@@ -558,7 +555,8 @@ activate CARET_1
 & CLI_1 -> CARET_0 : Start message \n[/caret/start_record]
 activate CARET_0
 
-CARET_0 -> CARET_0 : Ignore message because \ncurrent state is not WAIT
+CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(RECORD state)
+& CARET_0 --> CLI_1 : Status message \n[/caret/status] \n(RECORD state)
 deactivate CARET_0
 
 & CARET_1 -> CARET_1 : Transition to PREPARE state
@@ -566,8 +564,8 @@ CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(PREPARE state)
 CARET_1 --> CLI_0 : Status message \n[/caret/status] \n(PREPARE state)
 CARET_1 -> Lttng1 : Recod initialization trace data
 CARET_1 -> CARET_1 : Transition to RECORD state
-CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(RECORDING state)
-CARET_1 --> CLI_0 : Status message \n[/caret/status] \n(RECORDING state)
+CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(RECORD state)
+CARET_1 --> CLI_0 : Status message \n[/caret/status] \n(RECORD state)
 
 & APP_1 -> APP_1: Runtime event \n(e.g. callback start)
 activate APP_1
@@ -604,7 +602,7 @@ activate CARET_1
 activate CARET_0
 CARET_1 -> CARET_1 : Transition to WAIT state
 deactivate CARET_1
-& CARET_0 -> CARET_0 : Ignore message because \ncurrent state is already WAIT
+CARET_0 --> CLI_1: Status message \n[/caret/status] \n(WAIT state)
 deactivate CARET_0
 CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(WAIT state)
 deactivate CARET_1
