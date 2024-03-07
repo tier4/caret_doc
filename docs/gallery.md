@@ -41,7 +41,7 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ## Stacked Bar
 
-### [Response time graph](./visualization/path/response_time.md)
+### [Path Response time graph](./visualization/path/response_time.md)
 
 ![response_time_stacked_bar_all](./imgs/response_time_stacked_bar_all.png)
 
@@ -53,9 +53,9 @@ If you find what you are interested in, please access to a link embedded in a he
 
 ## [Callback Scheduling Visualization](./visualization/scheduling/callback.md)
 
-### [Timing chart of callback scheduling](./visualization/scheduling/callback.md)
+### [Callback graph](./visualization/scheduling/callback.md)
 
-![Callback_Scheduling_Visualization_sample](./visualization/imgs/callback_scheduling_executor.png)
+![callback_Scheduling_Visualization_sample](./visualization/imgs/callback_scheduling_executor.png)
 
 #### The following elements can be visualized
 
@@ -64,7 +64,7 @@ If you find what you are interested in, please access to a link embedded in a he
 - Executor callback scheduling
 - Node callback scheduling
 - CallbackGroup callback scheduling
-- Sequence[CallbackGroup] callback scheduling
+- Multiple CallbackGroup callback scheduling
 
 ## Chain latency
 
