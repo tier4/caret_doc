@@ -3,72 +3,71 @@
 This page shows examples of figures that can be visualized in CARET.
 If you find what you are interested in, please access to a link embedded in a headline.
 
-## Callback
+## Timeseries
 
-### [Execution frequency](./visualization/frequency/index.md#callback)
-
-#### Timestamp tables
-
-![callback_frequency_df](./imgs/callback_frequency_df.png)
-
-#### Time-series graph
+### [Callback frequency graph](./visualization/frequency/index.md)
 
 ![callback_frequency_time_line](./imgs/callback_frequency_time_line.png)
 
-### [Execution period](./visualization/period/index.md#callback)
+#### The following elements can be visualized
 
-#### Timestamp tables
+- Callback frequency
+- Communication frequency
+- Pub/Sub frequency
+- Callback latency
+- Communication latency
+- Callback period
+- Communication period
+- Pub/Sub period
+- Path response time
 
-![callback_period_df](./imgs/callback_period_df.png)
+## Histogram
 
-#### Time-series graph
+### [callback latency graph](./visualization/latency/index.md)
 
-![callback_period_time_line](./imgs/callback_period_time_line.png)
+![callback_latency_histogram](./imgs/callback_latency_histogram.png)
 
-### [Latency (or Execution time)](./visualization/latency/index.md#callback)
+#### The following elements can be visualized
 
-#### Timestamp tables
+- Callback frequency
+- Communication frequency
+- Pub/Sub frequency
+- Callback latency
+- Communication latency
+- Callback period
+- Communication period
+- Pub/Sub period
+- Path response time
 
-![callback_latency_df](./imgs/callback_latency_df.png)
+## Stacked Bar
 
-#### Time-series graph
+### [Path Response time graph](./visualization/path/response_time.md)
 
-![callback_latency_time_line](./imgs/callback_latency_time_line.png)
+![response_time_stacked_bar_all](./imgs/response_time_stacked_bar_all.png)
 
-### [Callback Scheduling Visualization](./visualization/scheduling/callback.md)
+## Message flow
 
-#### Timing chart of callback scheduling
-
-![Callback_Scheduling_Visualization_sample](./visualization/imgs/callback_scheduling_executor.png)
-
-## Communication
-
-### [Frequency](./visualization/frequency/index.md#communication)
-
-![communication_frequency_time_line](./imgs/communication_frequency_time_line.png)
-
-### [Period](./visualization/period/index.md#communication)
-
-![communication_period_time_line](./imgs/communication_period_time_line.png)
-
-### [Latency](./visualization/latency/index.md#communication)
-
-![communication_latency_time_line](./imgs/communication_latency_time_line.png)
-
-### [Publish/Subscribe Frequency](./visualization/frequency/index.md#publish-and-subscription)
-
-![pub_sub_frequency_time_line](./imgs/pub_sub_frequency_time_line.png)
-
-### [Publish/Subscribe Period](./visualization/period/index.md#publish-and-subscription)
-
-![pub_sub_period_time_line](./imgs/pub_sub_period_time_line.png)
-
-## Path
-
-### [Message flow](./visualization/path/message_flow.md)
+### [Path graph](./visualization/path/message_flow.md)
 
 ![message_flow](./imgs/message_flow_sample.png)
 
-### [Chain latency](./visualization/path/chain_latency.md)
+## [Callback Scheduling Visualization](./visualization/scheduling/callback.md)
+
+### [Callback graph](./visualization/scheduling/callback.md)
+
+![callback_Scheduling_Visualization_sample](./visualization/imgs/callback_scheduling_executor.png)
+
+#### The following elements can be visualized
+
+- Path callback scheduling
+- Application callback scheduling
+- Executor callback scheduling
+- Node callback scheduling
+- CallbackGroup callback scheduling
+- Multiple CallbackGroup callback scheduling
+
+## Chain latency
+
+### [Path graph](./visualization/path/chain_latency.md)
 
 ![chain_latency_sample](./imgs/chain_latency_sample.png)
