@@ -4,52 +4,69 @@
 
 ### v0.5.1 <small>\_ Mar 11, 2024</small> {id = "0.5.1"}
 
-- **Update** Remove the description of response time histogram. ([caret_doc #331](https://github.com/tier4/caret_doc/pull/331))
-- **Fix** Fixed that histograms are stacked, because overlapping histograms are hard to see. ([caret_analyze #475](https://github.com/tier4/caret_analyze/pull/475))
-- **Fix** Fixed problem with ros2 caret command not working when built without `--symlink-install`. ([ros2caret #175](https://github.com/tier4/ros2caret/pull/175))
-- **Update** Add a dynamic type check method for the plot API. ([caret_analyze #472](https://github.com/tier4/caret_analyze/pull/472))
-- **Fix** Speeding up by limiting registration to init_events because id_remapper takes a long time to load measurement data. ([caret_analyze #480](https://github.com/tier4/caret_analyze/pull/480))
-- **Fix** Fixed warning "More than three callbacks are registered in one subscription_handle. Skip loading callback info." when parsing certain trace data. ([caret_analyze #470](https://github.com/tier4/caret_analyze/pull/470))
+- **Update**: Remove the description of response time histogram. ([caret_doc #331](https://github.com/tier4/caret_doc/pull/331))
+
+- **Fix**: Fixed that histograms are stacked, because overlapping histograms are hard to see. ([caret_analyze #475](https://github.com/tier4/caret_analyze/pull/475))
+
+- **Fix**: Fixed problem with ros2 caret command not working when built without `--symlink-install`. ([ros2caret #175](https://github.com/tier4/ros2caret/pull/175))
+
+- **Update**: Add a dynamic type check method for the plot API. ([caret_analyze #472](https://github.com/tier4/caret_analyze/pull/472))
+
+- **Fix**: Speeding up by limiting registration to init_events because id_remapper takes a long time to load measurement data. ([caret_analyze #480](https://github.com/tier4/caret_analyze/pull/480))
+
+- **Fix**: Fixed warning "More than three callbacks are registered in one subscription_handle. Skip loading callback info." when parsing certain trace data. ([caret_analyze #470](https://github.com/tier4/caret_analyze/pull/470))
+
 - **Fix**: Fixed a bug where the count of filtered data wasn't correctly displayed ("filtered to 0 events") when loading trace data. ([caret_analyze #480](https://github.com/tier4/caret_analyze/pull/480))
-- **Update** Update latency visualization API features in the Gallery section. ([caret_doc #332](https://github.com/tier4/caret_doc/pull/332))
-- **Fix** Fixed a very slow node loading problem with a large number of callbacks by limiting the construction_order when searching for node callback paths. ([caret_analyze #477](https://github.com/tier4/caret_analyze/pull/477))
-- **New** Added max_construction_order argument to commands using Architecture-API. ([ros2caret #173](https://github.com/tier4/ros2caret/pull/173))
+
+- **Update**: Update latency visualization API features in the Gallery section. ([caret_doc #332](https://github.com/tier4/caret_doc/pull/332))
+
+- **Fix**: Fixed a very slow node loading problem with a large number of callbacks by limiting the construction_order when searching for node callback paths. ([caret_analyze #477](https://github.com/tier4/caret_analyze/pull/477))
+
+- **New**: Added max_construction_order argument to commands using Architecture-API. ([ros2caret #173](https://github.com/tier4/ros2caret/pull/173))
 
 ### v0.4.25 <small>\_ Feb 26, 2024</small> {id = "0.4.25"}
 
-- **Fix** Fixed annotations in the Plot API about TimeSeriesTypes. ([caret_analyze #463](https://github.com/tier4/caret_analyze/pull/463))
-- **Fix** Fixed an issue where the histogram would exit with an error if an empty records was entered. ([caret_analyze #466](https://github.com/tier4/caret_analyze/pull/466))
-- **Update** Added and fixed doc string information in value_object package. ([caret_analyze #454](https://github.com/tier4/caret_analyze/pull/454))
-- **Update** Copyright change from ISP to TIER IV, Inc. ([caret_analyze #473](https://github.com/tier4/caret_analyze/pull/473))
-- **Update** Removed Galactic and Ubuntu 20.04 support from the documentation. ([caret_doc #328](https://github.com/tier4/caret_doc/pull/328))
-- **New** Add a workflow to automatically update package.xml on git tag. ([caret_analye #467](https://github.com/tier4/caret_analyze/pull/467), [caret_analyze_cpp_impl #194](https://github.com/tier4/caret_analyze_cpp_impl/pull/194), [caret_trace #268](https://github.com/tier4/caret_trace/pull/268), [ros2caret #169](https://github.com/tier4/ros2caret/pull/169))
+- **Fix**: Fixed annotations in the Plot API about TimeSeriesTypes. ([caret_analyze #463](https://github.com/tier4/caret_analyze/pull/463))
+
+- **Fix**: Fixed an issue where the histogram would exit with an error if an empty records was entered. ([caret_analyze #466](https://github.com/tier4/caret_analyze/pull/466))
+
+- **Update**: Added and fixed doc string information in value_object package. ([caret_analyze #454](https://github.com/tier4/caret_analyze/pull/454))
+
+- **Update**: Copyright change from ISP to TIER IV, Inc. ([caret_analyze #473](https://github.com/tier4/caret_analyze/pull/473))
+
+- **Update**: Removed Galactic and Ubuntu 20.04 support from the documentation. ([caret_doc #328](https://github.com/tier4/caret_doc/pull/328))
+
+- **New**: Add a workflow to automatically update package.xml on git tag. ([caret_analye #467](https://github.com/tier4/caret_analyze/pull/467), [caret_analyze_cpp_impl #194](https://github.com/tier4/caret_analyze_cpp_impl/pull/194), [caret_trace #268](https://github.com/tier4/caret_trace/pull/268), [ros2caret #169](https://github.com/tier4/ros2caret/pull/169))
 
 ### v0.4.24 <small>\_ Jan 15, 2024</small> {id = "0.4.24"}
 
-- **Update** Delete past implementations of histograms and response times that are no longer needed. ([caret_analyze #442](https://github.com/tier4/caret_analyze/pull/442))
-- **Fix** Fixed behavior of `ros2 caret check_caret_rclcpp` command after iron. ([ros2caret #135](https://github.com/tier4/ros2caret/pull/135))
-- **Fix** Fixed a bug in the `ros2 caret record --immediate` option. It caused an error in the input operation if there was no standard input. ([ros2caret #164](https://github.com/tier4/ros2caret/pull/164))
-- **Update** Change in the method of determining ROS Distributions. ([caret_analyze #452](https://github.com/tier4/caret_analyze/pull/452), [ros2caret #161](https://github.com/tier4/ros2caret/pull/161))
+- **Update**: Delete past implementations of histograms and response times that are no longer needed. ([caret_analyze #442](https://github.com/tier4/caret_analyze/pull/442))
+
+- **Fix**: Fixed behavior of `ros2 caret check_caret_rclcpp` command after iron. ([ros2caret #135](https://github.com/tier4/ros2caret/pull/135))
+
+- **Fix**: Fixed a bug in the `ros2 caret record --immediate` option. It caused an error in the input operation if there was no standard input. ([ros2caret #164](https://github.com/tier4/ros2caret/pull/164))
+
+- **Update**: Change in the method of determining ROS Distributions. ([caret_analyze #452](https://github.com/tier4/caret_analyze/pull/452), [ros2caret #161](https://github.com/tier4/ros2caret/pull/161))
 
 ### v0.4.23 <small>\_ Dec 12, 2023</small> {id = "0.4.23"}
 
-- **Update** In mypy 1.x, it is recommended to use the --check-untyped-defs option for stricter type checking. this option has been added to pytest in caret_analyze, and the warning that occurred after the option was added has been corrected. ([caret_analyze #441](https://github.com/tier4/caret_analyze/pull/441))
+- **Update**: In mypy 1.x, it is recommended to use the --check-untyped-defs option for stricter type checking. this option has been added to pytest in caret_analyze, and the warning that occurred after the option was added has been corrected. ([caret_analyze #441](https://github.com/tier4/caret_analyze/pull/441))
 
-- **Update** Changed implementation so that BokehUserWarning (out of range integer) in Bokeh 3.x is not generated. ([caret_analyze #447](https://github.com/tier4/caret_analyze/pull/447))
+- **Update**: Changed implementation so that BokehUserWarning (out of range integer) in Bokeh 3.x is not generated. ([caret_analyze #447](https://github.com/tier4/caret_analyze/pull/447))
 
-- **Update** Fixed API list (doc_string) except value_objects. ([caret_analyze #446](https://github.com/tier4/caret_analyze/pull/446/files))
+- **Update**: Fixed API list (doc_string) except value_objects. ([caret_analyze #446](https://github.com/tier4/caret_analyze/pull/446/files))
 
-- **Fix** Fixed argument error passed to \_find_node_path. ([caret_analyze #453](https://github.com/tier4/caret_analyze/pull/453))
+- **Fix**: Fixed argument error passed to \_find_node_path. ([caret_analyze #453](https://github.com/tier4/caret_analyze/pull/453))
 
-- **New** Added setup script for iron. Added build procedure and tutorial for iron. ([caret #175](https://github.com/tier4/caret/pull/175), [caret_doc #207](https://github.com/tier4/caret_doc/pull/207), [caret_doc #322](https://github.com/tier4/caret_doc/pull/322))
+- **New**: Added setup script for iron. Added build procedure and tutorial for iron. ([caret #175](https://github.com/tier4/caret/pull/175), [caret_doc #207](https://github.com/tier4/caret_doc/pull/207), [caret_doc #322](https://github.com/tier4/caret_doc/pull/322))
 
 ### v0.4.22 <small>\_ Dec 12, 2023</small> {id = "0.4.22"}
 
-- **Update** Support for analysis of trace data without `--light` option for applications using GenericPublisher, GenericSubscription. ([caret_analyze #432](https://github.com/tier4/caret_analyze/pull/432), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/445))
+- **Update**: Support for analysis of trace data without `--light` option for applications using GenericPublisher, GenericSubscription. ([caret_analyze #432](https://github.com/tier4/caret_analyze/pull/432), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/445))
 
-- **Update** Fixed a bug when address duplication occurs. ([caret_analyze #342](https://github.com/tier4/caret_analyze/pull/342))
+- **Update**: Fixed a bug when address duplication occurs. ([caret_analyze #342](https://github.com/tier4/caret_analyze/pull/342))
 
-- **Update** Update some API to support sim_time. ([caret_analyze #433](https://github.com/tier4/caret_analyze/pull/433), [ros2caret #152](https://github.com/tier4/ros2caret/pull/152))
+- **Update**: Update some API to support sim_time. ([caret_analyze #433](https://github.com/tier4/caret_analyze/pull/433), [ros2caret #152](https://github.com/tier4/ros2caret/pull/152))
 
 ### v0.4.21 <small>\_ Nov 27, 2023</small> {id = "0.4.21"}
 
