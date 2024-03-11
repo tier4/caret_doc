@@ -8,7 +8,7 @@
 - **Fix** Fixed that histograms are stacked, because overlapping histograms are hard to see. ([caret_analyze #475](https://github.com/tier4/caret_analyze/pull/475))
 - **Fix** Fixed problem with ros2 caret command not working when built without `--symlink-install`. ([ros2caret #175](https://github.com/tier4/ros2caret/pull/175))
 - **Update** Add a dynamic type check method for the plot API. ([caret_analyze #472](https://github.com/tier4/caret_analyze/pull/472))
-- **Fix** Fixed speeding up by limiting registration to init_events because id_remapper takes a long time to load measurement data. ([caret_analyze #480](https://github.com/tier4/caret_analyze/pull/480))
+- **Fix** Speeding up by limiting registration to init_events because id_remapper takes a long time to load measurement data. ([caret_analyze #480](https://github.com/tier4/caret_analyze/pull/480))
 - **Fix** Fixed warning "More than three callbacks are registered in one subscription_handle. Skip loading callback info." when parsing certain trace data. ([caret_analyze #470](https://github.com/tier4/caret_analyze/pull/470))
 - **Fix**: Fixed a bug where the count of filtered data wasn't correctly displayed ("filtered to 0 events") when loading trace data. ([caret_analyze #480](https://github.com/tier4/caret_analyze/pull/480))
 - **Update** Update latency visualization API features in the Gallery section. ([caret_doc #332](https://github.com/tier4/caret_doc/pull/332))
