@@ -20,7 +20,7 @@
 
 - **Update**: Update latency visualization API features in the Gallery section. ([caret_doc #332](https://github.com/tier4/caret_doc/pull/332))
 
-- **Fix**: Speeding up `search_paths` by limitting number of `construction_order`. ([caret_analyze #477](https://github.com/tier4/caret_analyze/pull/477))
+- **Fix**: Speeding up `search_paths` by limiting number of `construction_order`. ([caret_analyze #477](https://github.com/tier4/caret_analyze/pull/477))
 
 - **New**: Added max_construction_order argument to commands using Architecture-API. ([ros2caret #173](https://github.com/tier4/ros2caret/pull/173))
 
