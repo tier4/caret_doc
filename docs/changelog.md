@@ -6,7 +6,7 @@
 
 - **Update**: Remove the description of response time histogram. ([caret_doc #331](https://github.com/tier4/caret_doc/pull/331))
 
-- **Fix**: Fixed that histograms are stacked, because overlapping histograms are hard to see. ([caret_analyze #475](https://github.com/tier4/caret_analyze/pull/475))
+- **Fix**: Fixed overlapping histograms are hard to see. ([caret_analyze #475](https://github.com/tier4/caret_analyze/pull/475))
 
 - **Fix**: Fixed problem with ros2 caret command not working when built without `--symlink-install`. ([ros2caret #175](https://github.com/tier4/ros2caret/pull/175))
 
@@ -20,7 +20,7 @@
 
 - **Update**: Update latency visualization API features in the Gallery section. ([caret_doc #332](https://github.com/tier4/caret_doc/pull/332))
 
-- **Fix**: Fixed a very slow node loading problem with a large number of callbacks by limiting the construction_order when searching for node callback paths. ([caret_analyze #477](https://github.com/tier4/caret_analyze/pull/477))
+- **Fix**: Speeding up `search_paths` by limitting number of `construction_order`. ([caret_analyze #477](https://github.com/tier4/caret_analyze/pull/477))
 
 - **New**: Added max_construction_order argument to commands using Architecture-API. ([ros2caret #173](https://github.com/tier4/ros2caret/pull/173))
 
