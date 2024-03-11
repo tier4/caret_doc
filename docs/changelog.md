@@ -6,7 +6,7 @@
 
 - **Update**: Remove the description of response time histogram. ([caret_doc #331](https://github.com/tier4/caret_doc/pull/331))
 
-- **Fix**: Fixed overlapping histograms are hard to see. ([caret_analyze #475](https://github.com/tier4/caret_analyze/pull/475))
+- **Fix**: Fixed that overlapping histograms are hard to see. ([caret_analyze #475](https://github.com/tier4/caret_analyze/pull/475))
 
 - **Fix**: Fixed problem with ros2 caret command not working when built without `--symlink-install`. ([ros2caret #175](https://github.com/tier4/ros2caret/pull/175))
 
