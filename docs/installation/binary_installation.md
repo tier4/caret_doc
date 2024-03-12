@@ -1,7 +1,7 @@
 # Binary Installation
 
 Visualization packages with CARET can also be installed in binary.
-CARET binaly packages are currently only installable on Ubuntu Jammy and ROS 2 Humble.
+CARET binary packages are currently only installable on Ubuntu Jammy and ROS 2 Humble.
 
 <prettier-ignore-start>
 !!! Note
