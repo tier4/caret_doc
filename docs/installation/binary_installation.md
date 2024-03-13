@@ -22,9 +22,8 @@ CARET is confirmed to run on the platforms shown in the following table with sup
 
 Update your apt repository caches.
 
-```
+```bash
 sudo apt update
-```
 
 The following packages are required for the CARET binary packages. These dependencies are not automatically installed with the binary installation.
 
