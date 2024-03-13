@@ -237,7 +237,7 @@ User1_1 -> Hook0
 Lttng1 is "Destroyed"
 ```
 
-Please note that "Start recording" and "Stop recording" are sent to all trace nodes regardless of its host since it is topic messages. To prevent state transitions by messages from other hosts, trace node ignores messages as follows.
+Please note that "Start recording" and "Stop recording" are sent to all trace nodes regardless of its host since they are topic messages. To prevent state transitions by messages from other hosts, trace node ignores messages as follows.
 
 - Ignore "Start recording" when no active LTTng session exists.
 - Ignore "Start recording" when its state is not WAIT.
