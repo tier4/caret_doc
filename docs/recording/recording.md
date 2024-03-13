@@ -85,7 +85,7 @@ Two terminals are needed for this method; one for executing a target application
 
 <prettier-ignore-start>
 !!!info
-      To trace multi-host system, you need to follow these steps on all hosts.
+      To trace multi-host system, you need to follow these steps on hosts which contain nodes you want to trace.
 <prettier-ignore-end>
 
 ## Starting LTTng session via ROS launch
