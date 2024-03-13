@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://tier4.github.io/caret_doc/pr-335/installation/binary_installation/">
       
       
-        <link rel="prev" href="../../faq/known_issues/">
+        <link rel="prev" href="../manual_installation/">
       
       
-        <link rel="next" href="../installation/">
+        <link rel="next" href="../../tutorials/recording/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
@@ -500,6 +500,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -537,6 +539,68 @@
       <a href="../manual_installation/" class="md-nav__link">
         Manual Installation
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Binary Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Binary Installation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-of-required-packages" class="md-nav__link">
+    Installation of required packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-caret-packages" class="md-nav__link">
+    Install CARET packages
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2633,19 +2697,50 @@
 
 
 <h1 id="binary-installation">Binary Installation<a class="headerlink" href="#binary-installation" title="Permanent link">#</a></h1>
-<p>Visualization packages with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can also be installed in binary.
-<abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> binary packages are currently only installable on Ubuntu Jammy and <abbr title="Robot Operating System">ROS</abbr> 2 Humble.</p>
+<p>Visualization packages with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can also be installed in binary.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The binary does not include measurement packages.</p>
+<p>Only the visualization packages can be installed by binary installation.
+The binary does not include measurement packages.</p>
 </div>
 <p><prettier-ignore-end></p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is confirmed to run on the platforms shown in the following table with supported version.</p>
+<table>
+<thead>
+<tr>
+<th>dependent platform</th>
+<th>supported version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><abbr title="Robot Operating System">ROS</abbr></td>
+<td>Humble</td>
+</tr>
+<tr>
+<td>Ubuntu</td>
+<td>22.04</td>
+</tr>
+<tr>
+<td><abbr title="Linux Tracing Tool next generation">LTTng</abbr></td>
+<td>stable-2.13</td>
+</tr>
+<tr>
+<td>Linux Kernel</td>
+<td>5.15.x</td>
+</tr>
+<tr>
+<td>Python3</td>
+<td>3.10.x</td>
+</tr>
+</tbody>
+</table>
 <h2 id="installation-of-required-packages">Installation of required packages<a class="headerlink" href="#installation-of-required-packages" title="Permanent link">#</a></h2>
 <p>Update your apt repository caches.</p>
 <div class="highlight"><pre><span></span><code>sudo apt update
 </code></pre></div>
-<p>Install packages for visualization with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.</p>
+<p>The following packages are required for the <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> binary packages. These dependencies are not automatically installed with the binary installation.</p>
 <div class="highlight"><pre><span></span><code>sudo apt install python3-bt2
 python3 -m pip install -U \
   &#39;pandas&gt;=1.4.0&#39; \
@@ -2654,7 +2749,7 @@ python3 -m pip install -U \
   multimethod
 </code></pre></div>
 <h2 id="install-caret-packages">Install <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> packages<a class="headerlink" href="#install-caret-packages" title="Permanent link">#</a></h2>
-<p>Analysis packages for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.</p>
+<p>Visualization packages for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.</p>
 <div class="highlight"><pre><span></span><code>sudo apt install ros-humble-caret-analyze
 sudo apt install ros-humble-caret-analyze-cpp-impl
 sudo apt install ros-humble-ros2caret
@@ -2691,7 +2786,7 @@ jupyter-lab
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../faq/known_issues/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Known issues" rel="prev">
+          <a href="../manual_installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Manual Installation" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2700,20 +2795,20 @@ jupyter-lab
                 Previous
               </span>
               <div class="md-ellipsis">
-                Known issues
+                Manual Installation
               </div>
             </div>
           </a>
         
         
           
-          <a href="../installation/" class="md-footer__link md-footer__link--next" aria-label="Next: Installation" rel="next">
+          <a href="../../tutorials/recording/" class="md-footer__link md-footer__link--next" aria-label="Next: Recording" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Installation
+                Recording
               </div>
             </div>
             <div class="md-footer__button md-icon">
