@@ -26,7 +26,6 @@ Update your apt repository caches.
 sudo apt update
 ```
 
-
 The following packages are required for the CARET binary packages. These dependencies are not automatically installed with the binary installation.
 
 ```
