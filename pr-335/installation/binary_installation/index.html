@@ -2724,30 +2724,30 @@ The binary does not include measurement packages.</p>
 </table>
 <h2 id="installation-of-required-packages">Installation of required packages<a class="headerlink" href="#installation-of-required-packages" title="Permanent link">#</a></h2>
 <p>Update your apt repository caches.</p>
-<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 
 The<span class="w"> </span>following<span class="w"> </span>packages<span class="w"> </span>are<span class="w"> </span>required<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>CARET<span class="w"> </span>binary<span class="w"> </span>packages.<span class="w"> </span>These<span class="w"> </span>dependencies<span class="w"> </span>are<span class="w"> </span>not<span class="w"> </span>automatically<span class="w"> </span>installed<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>binary<span class="w"> </span>installation.
 </code></pre></div>
-sudo apt install python3-bt2
+<p>sudo apt install python3-bt2
 python3 -m pip install -U \
-  'pandas&gt;=1.4.0' \
-  bokeh \
-  jupyterlab \
-  multimethod
+ 'pandas&gt;=1.4.0' \
+ bokeh \
+ jupyterlab \
+ multimethod</p>
 <div class="highlight"><pre><span></span><code>## Install CARET packages
 
 Visualization packages for CARET install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.
 </code></pre></div>
-sudo apt install ros-humble-caret-analyze
+<p>sudo apt install ros-humble-caret-analyze
 sudo apt install ros-humble-caret-analyze-cpp-impl
 sudo apt install ros-humble-ros2caret
-sudo apt install ros-humble-caret-msgs
+sudo apt install ros-humble-caret-msgs</p>
 <div class="highlight"><pre><span></span><code>Please open Jupyter Lab.
 </code></pre></div>
-export PATH=$PATH:~/.local/bin
-jupyter-lab
-```</p>
-<p>Recommend trying <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> functionality by following the tutorial.</p>
+<p>export PATH=$PATH:~/.local/bin
+jupyter-lab</p>
+<div class="highlight"><pre><span></span><code>Recommend trying CARET functionality by following the tutorial.
+</code></pre></div>
 
 
 
