@@ -1,12 +1,22 @@
 # Binary Installation
 
 Visualization packages with CARET can also be installed in binary.
-CARET binary packages are currently only installable on Ubuntu Jammy and ROS 2 Humble.
 
 <prettier-ignore-start>
 !!! Note
+    Only the visualization packages can be installed by binary installation.
     The binary does not include measurement packages.
 <prettier-ignore-end>
+
+CARET is confirmed to run on the platforms shown in the following table with supported version.
+
+| dependent platform | supported version |
+| ------------------ | ----------------- |
+| ROS                | Humble            |
+| Ubuntu             | 22.04             |
+| LTTng              | stable-2.13       |
+| Linux Kernel       | 5.15.x            |
+| Python3            | 3.10.x            |
 
 ## Installation of required packages
 
@@ -16,7 +26,8 @@ Update your apt repository caches.
 sudo apt update
 ```
 
-Install packages for visualization with CARET.
+
+The following packages are required for the CARET binary packages. These dependencies are not automatically installed with the binary installation.
 
 ```
 sudo apt install python3-bt2
@@ -29,7 +40,7 @@ python3 -m pip install -U \
 
 ## Install CARET packages
 
-Analysis packages for CARET install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.
+Visualization packages for CARET install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.
 
 ```
 sudo apt install ros-humble-caret-analyze

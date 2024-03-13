@@ -1,3 +1,4 @@
 nav:
     - Installation: installation.md
     - Manual Installation: manual_installation.md
+    - Binary Installation: binary_installation.md
