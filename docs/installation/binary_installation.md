@@ -5,7 +5,7 @@ Visualization packages with CARET can also be installed in binary.
 <prettier-ignore-start>
 !!! Note
     Only the visualization packages can be installed by binary installation.
-    The binary does not include measurement packages.
+    The binary does not include measurement packages. You can only analyze trace data.
 <prettier-ignore-end>
 
 CARET is confirmed to run on the platforms shown in the following table with supported version.
