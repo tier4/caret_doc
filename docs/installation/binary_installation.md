@@ -32,7 +32,7 @@ The following packages are required for the CARET binary packages. These depende
 sudo apt install python3-bt2
 python3 -m pip install -U \
  'pandas>=2.1.1' \
- bokeh \
+ 'bokeh>=3' \
  jupyterlab \
  multimethod
 ```
@@ -58,4 +58,4 @@ jupyter-lab
 ```
 
 Recommend trying CARET functionality by following the tutorial.
-```
+
