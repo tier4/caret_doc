@@ -207,6 +207,10 @@ Lttng0 is "Active"
 User0_1 -> Hook1
 
 @7
+Hook0 is RECORD
+Hook0 -> User0_1 : Notify state transition \n[ /caret/status ]
+
+@9
 User1_1 is "ros2 caret record"
 Hook1 is PREPARE
 User1_1 -> Hook1 : Start recording \n[ /caret/start_record ]\n\n\n\n
@@ -214,13 +218,12 @@ User1_1 -> Lttng1
 Lttng1 is "Active"
 User1_1 -> Hook0
 
-@9
-Hook0 is RECORD
+@11
 Hook1 is RECORD
 Hook1 -> User1_1
 Hook1 -> User0_1 : Notify state transition \n[ /caret/status ]\n
 
-@14
+@16
 User0_1 is "Idle"
 Hook0 is WAIT
 User0_1 -> Hook0 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
@@ -228,7 +231,7 @@ User0_1 -> Lttng0
 User0_1 -> Hook1
 Lttng0 is "Destroyed"
 
-@15
+@17
 User1_1 is "Idle"
 Hook1 is WAIT
 User1_1 -> Hook1 : End recording \n[ /caret/end_record ]\n\n\n\n\n\n
