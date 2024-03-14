@@ -48,14 +48,11 @@ sudo apt install ros-humble-ros2caret
 sudo apt install ros-humble-caret-msgs
 ```
 
-Please open Jupyter Lab.
+Check whether CARET (ros2caret) is enabled.
 
 ```bash
-
-export PATH=$PATH:~/.local/bin
-jupyter-lab
-
+source /opt/ros/humble/setup.bash
+ros2 caret version
 ```
 
-Recommend trying CARET functionality by following the tutorial.
-
+If you see CARET version, you can continue to apply CARET to your application.
