@@ -24,36 +24,33 @@ Update your apt repository caches.
 
 ```bash
 sudo apt update
+```
 
 The following packages are required for the CARET binary packages. These dependencies are not automatically installed with the binary installation.
 
-```
-
+```bash
 sudo apt install python3-bt2
 python3 -m pip install -U \
- 'pandas>=1.4.0' \
+ 'pandas>=2.1.1' \
  bokeh \
  jupyterlab \
  multimethod
-
 ```
 
 ## Install CARET packages
 
 Visualization packages for CARET install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.
 
-```
-
+```bash
 sudo apt install ros-humble-caret-analyze
 sudo apt install ros-humble-caret-analyze-cpp-impl
 sudo apt install ros-humble-ros2caret
 sudo apt install ros-humble-caret-msgs
-
 ```
 
 Please open Jupyter Lab.
 
-```
+```bash
 
 export PATH=$PATH:~/.local/bin
 jupyter-lab
