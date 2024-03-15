@@ -416,7 +416,7 @@ CLI -> CARET : Start message \n[/caret/start_record] \n(PENDING state)
 activate CARET
 
 
-CARET -> CARET : Transition to PREPARE state　\nstart timer callback
+CARET -> CARET : Transition to PREPARE state  \nstart timer callback
 activate CARET
 CARET --> CLI : Status message \n[/caret/status]  \n(PREPARE state)
 
@@ -524,18 +524,20 @@ CLI_0 -> Lttng0 : Start LTTng session
 activate Lttng0
 CLI_0 -> CARET_0 : Start message \n[/caret/start_record]
 activate CARET_0
-CLI_0 -> CARET_1 : Start message \n[/caret/start_record]
+CLI_0 -> CARET_1 : Start message \n[/caret/start_record]s
 activate CARET_1
 
-CARET_1 -> CARET_1 : Ignore message because no \nactive LTTNG session exists
+CARET_1 -> CARET_1: No state transition \nbecause there is no lttng session
+CARET_1 --> CLI_0 :Status message \n[/caret/status] \n(WAIT state)
 deactivate CARET_1
 
-& CARET_0 -> CARET_0 : Transition to PREPARE state
+CARET_0 -> CARET_0 : Transition to PREPARE state
 CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(PREPARE state)
 CARET_0 -> Lttng0 : Recod initialization trace data
-CARET_0 -> CARET_0 : Transition to RECORD state \ncancel timer callback
+CARET_0 -> CARET_0 : Transition to RECORD state
 
 CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(RECORD state)
+deactivate CARET_0
 
 & APP_0 -> APP_0: Runtime event \n(e.g. callback start)
 activate APP_0
@@ -557,9 +559,9 @@ CLI_1 -> CARET_1 : Start message \n[/caret/start_record]
 activate CARET_1
 & CLI_1 -> CARET_0 : Start message \n[/caret/start_record]
 activate CARET_0
-
+CARET_0 -> CARET_0: No state transition \nbecause the state is already RECORD.
 CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(RECORD state)
-& CARET_0 --> CLI_1 : Status message \n[/caret/status] \n(RECORD state)
+CARET_0 --> CLI_1 : Status message \n[/caret/status] \n(RECORD state)
 deactivate CARET_0
 
 & CARET_1 -> CARET_1 : Transition to PREPARE state
@@ -569,6 +571,7 @@ CARET_1 -> Lttng1 : Recod initialization trace data
 CARET_1 -> CARET_1 : Transition to RECORD state
 CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(RECORD state)
 CARET_1 --> CLI_0 : Status message \n[/caret/status] \n(RECORD state)
+deactivate CARET_1
 
 & APP_1 -> APP_1: Runtime event \n(e.g. callback start)
 activate APP_1
@@ -584,15 +587,20 @@ deactivate APP_1
 CLI_0 -> Lttng0 : Stop & destroy LTTng session
 deactivate Lttng0
 CLI_0 -> CARET_0 : End message \n[/caret/end_record]
+
 activate CARET_0
 CLI_0 -> CARET_1 : End message \n[/caret/end_record]
 activate CARET_1
-CARET_1 -> CARET_1 : Ignore message because an \nactive LTTng session exists
-deactivate CARET_1
-& CARET_0 -> CARET_0 : Transition to WAIT state
-deactivate CARET_0
+CARET_0 -> CARET_0 : Transition to WAIT state
 CARET_0 --> CLI_0 : Status message \n[/caret/status] \n(WAIT state)
+& CARET_0 --> CLI_1 : Status message \n[/caret/status] \n(WAIT state)
 deactivate CARET_0
+
+CARET_1 -> CARET_1 :  No state transition because an \nactive LTTng session exists
+CARET_1 --> CLI_1: Status message \n[/caret/status] \n(RECORD state)
+CARET_1 --> CLI_0: Status message \n[/caret/status] \n(RECORD state)
+deactivate CARET_1
+
 <-- CLI_0
 deactivate CLI_0
 
@@ -603,12 +611,13 @@ CLI_1 -> CARET_1 : End message \n[/caret/end_record]
 activate CARET_1
 & CLI_1 -> CARET_0 : End message \n[/caret/end_record]
 activate CARET_0
+
 CARET_1 -> CARET_1 : Transition to WAIT state
+CARET_1 --> CLI_1: Status message \n[/caret/status] \n(WAIT state)
 deactivate CARET_1
 CARET_0 --> CLI_1: Status message \n[/caret/status] \n(WAIT state)
 deactivate CARET_0
-CARET_1 --> CLI_1 : Status message \n[/caret/status] \n(WAIT state)
-deactivate CARET_1
+
 <-- CLI_1
 deactivate CLI_1
 @enduml
