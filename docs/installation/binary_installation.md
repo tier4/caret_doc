@@ -4,8 +4,8 @@ Visualization packages with CARET can also be installed in binary.
 
 <prettier-ignore-start>
 !!! Note
-    Only the visualization packages can be installed by binary installation.
-    The binary does not include measurement packages. You can only analyze trace data.
+    Only the [visualization](https://tier4.github.io/caret_doc/main/visualization/) packages can be installed by binary installation.<br>
+    The binary does not include [recording](https://tier4.github.io/caret_doc/main/recording/) packages. You can only analyze trace data.
 <prettier-ignore-end>
 
 CARET is confirmed to run on the platforms shown in the following table with supported version.
@@ -41,12 +41,13 @@ python3 -m pip install -U \
 
 Visualization packages for CARET install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.
 
-````bash
+```bash
 sudo apt install -y \
   ros-humble-caret-analyze \
   ros-humble-caret-analyze-cpp-impl \
   ros-humble-ros2caret \
   ros-humble-caret-msgs
+```
 
 Check whether CARET (ros2caret) is enabled.
 
