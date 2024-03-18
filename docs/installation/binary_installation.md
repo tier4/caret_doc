@@ -31,8 +31,8 @@ The following packages are required for the CARET binary packages. These depende
 ```bash
 sudo apt install python3-bt2
 python3 -m pip install -U \
- 'pandas>=2.1.1' \
- 'bokeh>=3' \
+ pandas>=2.1.1 \
+ bokeh>=3 \
  jupyterlab \
  multimethod
 ```
