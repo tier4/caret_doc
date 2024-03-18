@@ -42,11 +42,11 @@ python3 -m pip install -U \
 Visualization packages for CARET install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.
 
 ```bash
-sudo apt install ros-humble-caret-analyze
-sudo apt install ros-humble-caret-analyze-cpp-impl
-sudo apt install ros-humble-ros2caret
-sudo apt install ros-humble-caret-msgs
-```
+sudo apt install -y \
+  ros-humble-caret-analyze \
+  ros-humble-caret-analyze-cpp-impl \
+  ros-humble-ros2caret \
+  ros-humble-caret-msgs
 
 Check whether CARET (ros2caret) is enabled.
 
