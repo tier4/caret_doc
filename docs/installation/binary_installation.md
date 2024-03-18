@@ -56,4 +56,19 @@ source /opt/ros/humble/setup.bash
 ros2 caret version
 ````
 
+<prettier-ignore-start>
+!!! Note
+    As of 2024.3, the version command cannot be specified in the current release of ros2caret.<br>
+    A fix for this bug will be released in the near future.<br>
+    You can confirm that the installation was successful by using the alternative method.
+    ```
+    root@f2fd836ae725:/# source /opt/ros/humble/setup.bash
+    root@f2fd836ae725:/# ros2 pkg list | grep caret
+    caret_analyze
+    caret_analyze_cpp_impl
+    caret_msgs
+    ros2caret
+    ```
+<prettier-ignore-end>
+
 If you see CARET version, you can continue to apply CARET to your application.
