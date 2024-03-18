@@ -41,7 +41,7 @@ python3 -m pip install -U \
 
 Visualization packages for CARET install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.
 
-```bash
+````bash
 sudo apt install -y \
   ros-humble-caret-analyze \
   ros-humble-caret-analyze-cpp-impl \
@@ -53,6 +53,6 @@ Check whether CARET (ros2caret) is enabled.
 ```bash
 source /opt/ros/humble/setup.bash
 ros2 caret version
-```
+````
 
 If you see CARET version, you can continue to apply CARET to your application.
