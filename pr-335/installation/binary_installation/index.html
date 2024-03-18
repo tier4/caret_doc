@@ -2757,22 +2757,22 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 <span class="w">  </span>ros-humble-caret-msgs
 </code></pre></div>
 <p>Check whether <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> (ros2caret) is enabled.</p>
-<p>```bash
-source /opt/ros/humble/setup.bash
-ros2 caret version
-````</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+ros2<span class="w"> </span>caret<span class="w"> </span>version
+</code></pre></div>
 <p><prettier-ignore-start></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As of 2024.3, the version command cannot be specified in the current release of ros2caret.<br>
 A fix for this bug will be released in the near future.<br>
 You can confirm that the installation was successful by using the alternative method.
-<code>root@f2fd836ae725:/# source /opt/ros/humble/setup.bash
+<div class="highlight"><pre><span></span><code>root@f2fd836ae725:/# source /opt/ros/humble/setup.bash
 root@f2fd836ae725:/# ros2 pkg list | grep caret
 caret_analyze
 caret_analyze_cpp_impl
 caret_msgs
-ros2caret</code></p>
+ros2caret
+</code></pre></div></p>
 </div>
 <p><prettier-ignore-end></p>
 <p>If you see <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> version, you can continue to apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> to your application.</p>
