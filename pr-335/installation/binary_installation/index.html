@@ -2701,8 +2701,8 @@
 <p><prettier-ignore-start></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only the visualization packages can be installed by binary installation.
-The binary does not include measurement packages. You can only analyze trace data.</p>
+<p>Only the <a href="https://tier4.github.io/caret_doc/main/visualization/">visualization</a> packages can be installed by binary installation.<br>
+The binary does not include <a href="https://tier4.github.io/caret_doc/main/recording/">recording</a> packages. You can only analyze trace data.</p>
 </div>
 <p><prettier-ignore-end></p>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is confirmed to run on the platforms shown in the following table with supported version.</p>
@@ -2755,13 +2755,26 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 <span class="w">  </span>ros-humble-caret-analyze-cpp-impl<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>ros-humble-ros2caret<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>ros-humble-caret-msgs
-
-Check<span class="w"> </span>whether<span class="w"> </span>CARET<span class="w"> </span><span class="o">(</span>ros2caret<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>enabled.
-
-<span class="sb">```</span>bash
-<span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-ros2<span class="w"> </span>caret<span class="w"> </span>version
 </code></pre></div>
+<p>Check whether <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> (ros2caret) is enabled.</p>
+<p>```bash
+source /opt/ros/humble/setup.bash
+ros2 caret version
+````</p>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of 2024.3, the version command cannot be specified in the current release of ros2caret.<br>
+A fix for this bug will be released in the near future.<br>
+You can confirm that the installation was successful by using the alternative method.
+<code>root@f2fd836ae725:/# source /opt/ros/humble/setup.bash
+root@f2fd836ae725:/# ros2 pkg list | grep caret
+caret_analyze
+caret_analyze_cpp_impl
+caret_msgs
+ros2caret</code></p>
+</div>
+<p><prettier-ignore-end></p>
 <p>If you see <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> version, you can continue to apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> to your application.</p>
 
 
