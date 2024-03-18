@@ -8,6 +8,8 @@ Visualization packages with CARET can also be installed in binary.
     The binary does not include [recording](https://tier4.github.io/caret_doc/main/recording/) packages. You can only analyze trace data.
 <prettier-ignore-end>
 
+## Requirements
+
 CARET is confirmed to run on the platforms shown in the following table with supported version.
 
 | dependent platform | supported version |
@@ -71,4 +73,4 @@ ros2 caret version
     ```
 <prettier-ignore-end>
 
-If you see CARET version, you can continue to apply CARET to your application.
+Recommend trying CARET functionality by following the tutorial.
