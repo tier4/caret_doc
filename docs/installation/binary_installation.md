@@ -54,7 +54,7 @@ Check whether CARET (ros2caret) is enabled.
 ```bash
 source /opt/ros/humble/setup.bash
 ros2 caret version
-````
+```
 
 <prettier-ignore-start>
 !!! Note
