@@ -2785,12 +2785,12 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 <span class="w">  </span>ros-humble-caret-msgs
 </code></pre></div>
 <p>You can confirm that the installation was successful by using the alternative method.</p>
-<div class="highlight"><pre><span></span><code>source /opt/ros/humble/setup.bash
-ros2 pkg list | grep caret
-# caret_analyze
-# caret_analyze_cpp_impl
-# caret_msgs
-# ros2caret
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+ros2<span class="w"> </span>pkg<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>caret
+<span class="c1"># caret_analyze</span>
+<span class="c1"># caret_analyze_cpp_impl</span>
+<span class="c1"># caret_msgs</span>
+<span class="c1"># ros2caret</span>
 </code></pre></div>
 <p>Recommend trying <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> functionality by following the tutorial.
 Prepare trace data and try visualization, following <a href="https://tier4.github.io/caret_doc/main/tutorials/visualization/">this tutorial</a>.</p>
