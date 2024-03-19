@@ -67,7 +67,7 @@ sudo apt install -y \
 
 You can confirm that the installation was successful by using the alternative method.
 
-```
+```bash
 source /opt/ros/humble/setup.bash
 ros2 pkg list | grep caret
 # caret_analyze
