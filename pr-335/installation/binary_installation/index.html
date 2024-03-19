@@ -2711,14 +2711,27 @@
 
 
 <h1 id="binary-installation">Binary Installation<a class="headerlink" href="#binary-installation" title="Permanent link">#</a></h1>
-<p>Visualization packages with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can also be installed in binary.</p>
+<p>The packages for analyzing trace data with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> can also be installed in binary.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only the <a href="https://tier4.github.io/caret_doc/main/visualization/">visualization</a> packages can be installed by binary installation.<br>
-The binary does not include <a href="https://tier4.github.io/caret_doc/main/recording/">recording</a> packages. You can only analyze trace data.</p>
+<p>Only the packages for analyzing trace data can be installed by binary installation.<br>
+The binary does not include the packages for recording trace data.</p>
 </div>
 <p><prettier-ignore-end></p>
+<p>The table of packages installable via binary installation is following.
+| packages name          | packages description                                                          | binary install |
+| ---------------------- | ----------------------------------------------------------------------------- | :------------: |
+| <a href="https://github.com/tier4/caret">caret</a>                  | Meta-repository                                                               |       ×        |
+| <a href="https://github.com/tier4/caret_trace/tree/main/CARET_trace">caret_trace</a>            | Define tracepoints added by function hooking                                  |       ×        |
+| <a href="https://github.com/tier4/caret_trace/tree/main/caret_msgs">caret_msgs</a>             | Message type defined by caret                                                 |       ○        |
+| <a href="https://github.com/tier4/caret_analyze">caret_analyze</a>          | Library for scripts to analyze and visualize data                             |       ○        |
+| <a href="https://github.com/tier4/caret_analyze_cpp_impl.git">caret_analyze_cpp_impl</a> | Efficient helper functions to analyze trace data written in C++               |       ○        |
+| <a href="https://github.com/tier4/ros2caret.git">ros2caret</a>              | CLI commands like <code>ros2 caret</code>                                                |       ○        |
+| <a href="https://github.com/tier4/caret_doc">caret_doc</a>              | Documentation                                                                 |       ×        |
+| <a href="https://github.com/tier4/caret_demos">caret_demos</a>            | Demo programs for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>                                                       |       ×        |
+| <a href="https://github.com/tier4/rclcpp/tree/v0.3.0">rclcpp</a>                 | The forked rclcpp including <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints                       |       ×        |
+| <a href="https://github.com/tier4/ros2_tracing/tree/v0.3.0">ros2_tracing</a>           | The forked <code>ros2_tracing</code> including definition of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints |       ×        |</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is confirmed to run on the platforms shown in the following table with supported version.</p>
 <table>
@@ -2758,39 +2771,29 @@ The binary does not include <a href="https://tier4.github.io/caret_doc/main/reco
 <p>The following packages are required for the <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> binary packages. These dependencies are not automatically installed with the binary installation.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-bt2
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>pandas&gt;<span class="o">=</span><span class="m">2</span>.1.1<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>bokeh&gt;<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>jupyterlab<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>multimethod
+<span class="w">  </span>pandas&gt;<span class="o">=</span><span class="m">2</span>.1.1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>bokeh&gt;<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>jupyterlab<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>multimethod
 </code></pre></div>
 <h2 id="install-caret-packages">Install <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> packages<a class="headerlink" href="#install-caret-packages" title="Permanent link">#</a></h2>
-<p>Visualization packages for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> install: caret_analyze, caret_analyze_cpp_impl, ros2caret, caret_msgs.</p>
+<p>The packages for analyzing trace data with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> install.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>ros-humble-caret-analyze<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>ros-humble-caret-analyze-cpp-impl<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>ros-humble-ros2caret<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>ros-humble-caret-msgs
 </code></pre></div>
-<p>Check whether <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> (ros2caret) is enabled.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-ros2<span class="w"> </span>caret<span class="w"> </span>version
-</code></pre></div>
-<p><prettier-ignore-start></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>As of 2024.3, the version command cannot be specified in the current release of ros2caret.<br>
-A fix for this bug will be released in the near future.<br>
-You can confirm that the installation was successful by using the alternative method.
-<div class="highlight"><pre><span></span><code>root@f2fd836ae725:/# source /opt/ros/humble/setup.bash
-root@f2fd836ae725:/# ros2 pkg list | grep caret
-caret_analyze
-caret_analyze_cpp_impl
-caret_msgs
-ros2caret
+<p>You can confirm that the installation was successful by using the alternative method.
+<div class="highlight"><pre><span></span><code>source /opt/ros/humble/setup.bash
+ros2 pkg list | grep caret
+# caret_analyze
+# caret_analyze_cpp_impl
+# caret_msgs
+# ros2caret
 </code></pre></div></p>
-</div>
-<p><prettier-ignore-end></p>
-<p>Recommend trying <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> functionality by following the tutorial.</p>
+<p>Recommend trying <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> functionality by following the tutorial.
+Prepare trace data and try visualization, following <a href="https://tier4.github.io/caret_doc/main/tutorials/visualization/">this tutorial</a>.</p>
 
 
 
