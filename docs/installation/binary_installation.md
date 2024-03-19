@@ -43,7 +43,8 @@ Update your apt repository caches.
 sudo apt update
 ```
 
-The following packages are required for the CARET binary packages. These dependencies are not automatically installed with the binary installation.
+The following packages are required for the CARET binary packages.<br>
+These dependencies are not automatically installed with the binary installation.
 
 ```bash
 sudo apt install python3-bt2
@@ -77,5 +78,5 @@ ros2 pkg list | grep caret
 # ros2caret
 ```
 
-Recommend trying CARET functionality by following the tutorial.
+Recommend trying CARET functionality by following the tutorial.<br>
 Prepare trace data and try visualization, following [this tutorial](https://tier4.github.io/caret_doc/main/tutorials/visualization/).
