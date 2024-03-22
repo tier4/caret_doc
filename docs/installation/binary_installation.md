@@ -1,6 +1,6 @@
 # Binary Installation
 
-The packages for analyzing trace data with CARET can also be installed in binary.<br>
+The packages for analyzing trace data with CARET can also be installed in binary.  
 The table of packages installable via binary installation is following.
 
 | packages name                                                                 | packages description                                                          | binary install |
@@ -15,7 +15,7 @@ The table of packages installable via binary installation is following.
 
 <prettier-ignore-start>
 !!! Note
-    Only the packages for analyzing trace data can be installed by binary installation.<br>
+    Only the packages for analyzing trace data can be installed by binary installation.  
     The binary does not include the packages for recording trace data.
 <prettier-ignore-end>
 
@@ -39,7 +39,7 @@ Update your apt repository caches.
 sudo apt update
 ```
 
-The following packages are required for the CARET binary packages.<br>
+The following packages are required for the CARET binary packages.  
 These dependencies are not automatically installed with the binary installation.
 
 ```bash
@@ -63,7 +63,7 @@ sudo apt install -y \
   ros-humble-caret-msgs
 ```
 
-You can confirm that the installation was successful by using the alternative method.
+You can confirm that the installation was successful by the following method.
 
 ```bash
 source /opt/ros/humble/setup.bash
@@ -74,5 +74,5 @@ ros2 pkg list | grep caret
 # ros2caret
 ```
 
-Recommend trying CARET functionality by following the tutorial.<br>
+Recommend trying CARET functionality by following the tutorial.  
 Prepare trace data and try visualization, following [this tutorial](https://tier4.github.io/caret_doc/main/tutorials/visualization/).
