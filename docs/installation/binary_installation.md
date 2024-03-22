@@ -74,5 +74,5 @@ ros2 pkg list | grep caret
 # ros2caret
 ```
 
-Recommend trying CARET functionality by following the tutorial.  
+Recommend trying CARET functionality.  
 Prepare trace data and try visualization, following [this tutorial](https://tier4.github.io/caret_doc/main/tutorials/visualization/).
