@@ -74,5 +74,5 @@ ros2 pkg list | grep caret
 # ros2caret
 ```
 
-Recommend trying CARET functionality.  
-Prepare trace data and try visualization, following [this tutorial](https://tier4.github.io/caret_doc/main/tutorials/visualization/).
+The CARET installed in this section provides the ability to analyze pre-measured trace data.  
+Please see the [tutorial](../tutorials/visualization.md) for the analysis procedures.
