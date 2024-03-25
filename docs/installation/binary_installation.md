@@ -53,7 +53,8 @@ python3 -m pip install -U \
 
 ## Install CARET packages
 
-The packages for analyzing trace data with CARET install.
+Install the caret package released in ROS build farm.  
+The packages installed here are only those related to trace data analysis.
 
 ```bash
 sudo apt install -y \
