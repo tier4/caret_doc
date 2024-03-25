@@ -1,7 +1,7 @@
 # Binary Installation
 
-The packages for analyzing trace data with CARET can also be installed in binary.  
-The table of packages installable via binary installation is following.
+Some caret packages are available as Debian packages.  
+The table below lists the packages that can be installed using binary installation.
 
 | packages name                                                                 | packages description                                                          | binary install |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | :------------: |
