@@ -8,7 +8,7 @@ The table below lists the packages that can be installed using binary installati
 | [caret_trace](https://github.com/tier4/caret_trace/tree/main/CARET_trace)     | Define tracepoints added by function hooking                                  |       ×        |
 | [caret_msgs](https://github.com/tier4/caret_trace/tree/main/caret_msgs)       | Message type defined by caret                                                 |       ○        |
 | [caret_analyze](https://github.com/tier4/caret_analyze)                       | Library for scripts to analyze and visualize data                             |       ○        |
-| [caret_analyze_cpp_impl](https://github.com/tier4/caret_analyze_cpp_impl.git) | Efficient helper functions to analyze trace data written in C++               |       ○        |
+| [caret_analyze_cpp_impl](https://github.com/tier4/caret_analyze_cpp_impl) | Efficient helper functions to analyze trace data written in C++               |       ○        |
 | [ros2caret](https://github.com/tier4/ros2caret.git)                           | CLI commands like `ros2 caret`                                                |       ○        |
 | [rclcpp](https://github.com/tier4/rclcpp/tree/v0.3.0)                         | The forked rclcpp including CARET-dedicated tracepoints                       |       ×        |
 | [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/v0.3.0)             | The forked `ros2_tracing` including definition of CARET-dedicated tracepoints |       ×        |
