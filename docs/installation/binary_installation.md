@@ -63,7 +63,7 @@ sudo apt install -y \
   ros-humble-caret-msgs
 ```
 
-You can confirm that the installation was successful by the following method.
+You can confirm that the installation was successful by the following command.
 
 ```bash
 source /opt/ros/humble/setup.bash
