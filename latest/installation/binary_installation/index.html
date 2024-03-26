@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://tier4.github.io/caret_doc/latest/installation/installation/">
+        <link rel="canonical" href="https://tier4.github.io/caret_doc/latest/installation/binary_installation/">
       
       
-        <link rel="prev" href="../../changelog/">
+        <link rel="prev" href="../manual_installation/">
       
       
-        <link rel="next" href="../manual_installation/">
+        <link rel="next" href="../../tutorials/recording/">
       
       <link rel="icon" href="../../assets/images/tier4.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
-        <title>Installation - Chain-Aware ROS Evaluation Tool (CARET)</title>
+        <title>Binary Installation - Chain-Aware ROS Evaluation Tool (CARET)</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#binary-installation" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              Binary Installation
             
           </span>
         </div>
@@ -234,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../installation/" class="md-tabs__link md-tabs__link--active">
         Installation
       </a>
     </li>
@@ -520,6 +520,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_installation/" class="md-nav__link">
+        Manual Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -532,12 +560,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Installation
+          Binary Installation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Installation
+        Binary Installation
       </a>
       
         
@@ -563,8 +591,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation_1" class="md-nav__link">
-    Installation
+  <a href="#installation-of-required-packages" class="md-nav__link">
+    Installation of required packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-caret-packages" class="md-nav__link">
+    Install CARET packages
   </a>
   
 </li>
@@ -573,34 +608,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../manual_installation/" class="md-nav__link">
-        Manual Installation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../binary_installation/" class="md-nav__link">
-        Binary Installation
-      </a>
     </li>
   
 
@@ -2672,8 +2679,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation_1" class="md-nav__link">
-    Installation
+  <a href="#installation-of-required-packages" class="md-nav__link">
+    Installation of required packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-caret-packages" class="md-nav__link">
+    Install CARET packages
   </a>
   
 </li>
@@ -2696,7 +2710,62 @@
   
 
 
-<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h1>
+<h1 id="binary-installation">Binary Installation<a class="headerlink" href="#binary-installation" title="Permanent link">#</a></h1>
+<p>Some caret packages are available as Debian packages.<br />
+The table below lists the packages that can be installed using binary installation.</p>
+<table>
+<thead>
+<tr>
+<th>packages name</th>
+<th>packages description</th>
+<th align="center">binary install</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/tier4/caret_trace/tree/main/CARET_trace">caret_trace</a></td>
+<td>Define tracepoints added by function hooking</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tier4/caret_trace/tree/main/caret_msgs">caret_msgs</a></td>
+<td>Message type defined by caret</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tier4/caret_analyze">caret_analyze</a></td>
+<td>Library for scripts to analyze and visualize data</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tier4/caret_analyze_cpp_impl">caret_analyze_cpp_impl</a></td>
+<td>Efficient helper functions to analyze trace data written in C++</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tier4/ros2caret.git">ros2caret</a></td>
+<td>CLI commands like <code>ros2 caret</code></td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tier4/rclcpp/tree/v0.3.0">rclcpp</a></td>
+<td>The forked rclcpp including <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tier4/ros2_tracing/tree/v0.3.0">ros2_tracing</a></td>
+<td>The forked <code>ros2_tracing</code> including definition of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints</td>
+<td align="center">×</td>
+</tr>
+</tbody>
+</table>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only the packages for analyzing trace data can be installed by binary installation.<br />
+The binary does not include the packages for recording trace data.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is confirmed to run on the platforms shown in the following table with supported version.</p>
 <table>
@@ -2729,73 +2798,38 @@
 </tr>
 </tbody>
 </table>
-<p>The recent version, after v0.3.0, of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> supports only the combination of <abbr title="Robot Operating System">ROS</abbr> 2 Humble and Ubuntu 22.04.<br />
-We have added an experimental implementation to work with iron.<br />
-To install for iron, open <code>for iron</code> in the Installation section below and follow the instructions.</p>
-<h2 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">#</a></h2>
-<p>Installation using meta repository is the least time-consuming way to install <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.<br />
-With meta repository and Ansible, you can skip the laborious manual setup which is explained in manual installation(./manual_installation.md) section (written in Japanese).</p>
-<p>Please execute the following steps on Ubuntu 22.04. The order is important so that you have to follow the steps in order.</p>
-<ol>
-<li>
-<p>Clone <code>caret</code> and enter the directory.</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tier4/caret.git<span class="w"> </span>ros2_caret_ws
-<span class="nb">cd</span><span class="w"> </span>ros2_caret_ws
+<h2 id="installation-of-required-packages">Installation of required packages<a class="headerlink" href="#installation-of-required-packages" title="Permanent link">#</a></h2>
+<p>Update your apt repository caches.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div>
-</li>
-<li>
-<p>Create the src directory and clone repositories into it.</p>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses vcstool to construct workspaces.</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>src
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>caret.repos
+<p>The following packages are required for the <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> binary packages.<br />
+These dependencies are not automatically installed with the binary installation.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-bt2
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pandas&gt;<span class="o">=</span><span class="m">2</span>.1.1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>bokeh&gt;<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>jupyterlab<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>multimethod
 </code></pre></div>
-<details>
-   <summary>for iron</summary>
-
-   <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>src
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>caret_iron.repos
+<h2 id="install-caret-packages">Install <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> packages<a class="headerlink" href="#install-caret-packages" title="Permanent link">#</a></h2>
+<p>Install the caret package released in <abbr title="Robot Operating System">ROS</abbr> build farm.<br />
+The packages installed here are only those related to trace data analysis.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ros-humble-caret-analyze<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ros-humble-caret-analyze-cpp-impl<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ros-humble-ros2caret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ros-humble-caret-msgs
 </code></pre></div>
-
-   </details>
-
-</li>
-<li>
-<p>Run <code>setup_caret.sh</code>.</p>
-<div class="highlight"><pre><span></span><code>./setup_caret.sh
-</code></pre></div>
-<details>
-   <summary>for iron</summary>
-
-   <div class="highlight"><pre><span></span><code>./setup_caret.sh<span class="w"> </span>-d<span class="w"> </span>iron
-</code></pre></div>
-
-   </details>
-
-</li>
-<li>
-<p>Build the workspace.</p>
+<p>You can confirm that the installation was successful by the following command.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+ros2<span class="w"> </span>pkg<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>caret
+<span class="c1"># caret_analyze</span>
+<span class="c1"># caret_analyze_cpp_impl</span>
+<span class="c1"># caret_msgs</span>
+<span class="c1"># ros2caret</span>
 </code></pre></div>
-<details>
-   <summary>for iron</summary>
-
-   <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/iron/setup.bash
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div>
-
-   </details>
-
-</li>
-<li>
-<p>Check whether <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> (ros2-tracing) is enabled.</p>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> inherits some functions from <a href="https://gitlab.com/ros-tracing/ros2_tracing">ros2-tracing</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
-ros2<span class="w"> </span>run<span class="w"> </span>tracetools<span class="w"> </span>status<span class="w"> </span><span class="c1"># return Tracing enabled</span>
-</code></pre></div>
-</li>
-</ol>
-<p>If you see <code>Tracing enabled</code>, you can continue to apply <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> to your application.</p>
+<p>The <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> installed in this section provides the ability to analyze pre-measured trace data.<br />
+Please see the <a href="../../tutorials/visualization/">tutorial</a> for the analysis procedures.</p>
 
 
 
@@ -2822,7 +2856,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>tracetools<span class="w"
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../changelog/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Changelog" rel="prev">
+          <a href="../manual_installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Manual Installation" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2831,20 +2865,20 @@ ros2<span class="w"> </span>run<span class="w"> </span>tracetools<span class="w"
                 Previous
               </span>
               <div class="md-ellipsis">
-                Changelog
+                Manual Installation
               </div>
             </div>
           </a>
         
         
           
-          <a href="../manual_installation/" class="md-footer__link md-footer__link--next" aria-label="Next: Manual Installation" rel="next">
+          <a href="../../tutorials/recording/" class="md-footer__link md-footer__link--next" aria-label="Next: Recording" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Manual Installation
+                Recording
               </div>
             </div>
             <div class="md-footer__button md-icon">
