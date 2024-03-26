@@ -2,6 +2,30 @@
 
 ## CARET
 
+### v0.5.2 <small>\_ Mar 26, 2024</small> {id = "0.5.2"}
+
+- **Update**: If pydantic is not imported using `type_check_decorator`, issue a warning message. ([caret_analyze #484](https://github.com/tier4/caret_analyze/pull/484))
+
+- **Update**: Update `histogram` images in the documentation. ([caret_doc #336](https://github.com/tier4/caret_doc/pull/336))
+
+- **Update**: Update docker images used for CI. ([caret_analyze #483](https://github.com/tier4/caret_analyze/pull/483), [ros2caret #178](https://github.com/tier4/ros2caret/pull/178))
+
+- **Update**: Fixed a problem where the filter function would not work when the publisher_handle address changed during execution. ([caret_trace #277](https://github.com/tier4/caret_trace/pull/277))
+
+- **Update**: Fixed annotations of API documentation. ([caret_analyze #488](https://github.com/tier4/caret_analyze/pull/488), [caret_analyze #490](https://github.com/tier4/caret_analyze/pull/490))
+
+- **Update**: Changed to ignore some data used to calculate response time. Data present at the beginning of the measurement data that cannot be used to calculate an accurate response time is no longer used in the response time calculation. ([caret_analyze #486](https://github.com/tier4/caret_analyze/pull/486))
+
+- **Update**: Refactoring of the code related to the `type_check_decorator`. ([caret_analyze #489](https://github.com/tier4/caret_analyze/pull/489))
+
+- **Update**: Refactoring of the code related to the `histogram`. ([caret_analyze #481](https://github.com/tier4/caret_analyze/pull/481))
+
+- **Update**: Improved type_check_decorator warning. When a variable-length argument violates a type, the message now includes the index of the violating location. ([caret_analyze #485](https://github.com/tier4/caret_analyze/pull/485))
+
+- **New**: Add documentation for installation of CARET Debian packages. ([caret_doc #335](https://github.com/tier4/caret_doc/pull/335))
+
+- **New**: Add a trace point filtering feature for the specified process. ([caret_trace #273](https://github.com/tier4/caret_trace/pull/273))
+
 ### v0.5.1 <small>\_ Mar 11, 2024</small> {id = "0.5.1"}
 
 - **Update**: Remove the description of response time histogram. ([caret_doc #331](https://github.com/tier4/caret_doc/pull/331))
