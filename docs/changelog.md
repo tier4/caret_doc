@@ -6,7 +6,7 @@
 
 - **Update**: If pydantic is not imported using `type_check_decorator`, issue a warning message. ([caret_analyze #484](https://github.com/tier4/caret_analyze/pull/484))
 
-- **Update**: Update `histgram` images in the documentation. ([caret_doc #336](https://github.com/tier4/caret_doc/pull/336))
+- **Update**: Update `histogram` images in the documentation. ([caret_doc #336](https://github.com/tier4/caret_doc/pull/336))
 
 - **Update**: Update docker images used for CI. ([caret_analyze #483](https://github.com/tier4/caret_analyze/pull/483), [ros2caret #178](https://github.com/tier4/ros2caret/pull/178))
 
