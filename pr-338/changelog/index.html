@@ -3203,7 +3203,7 @@
 <li><strong>Update</strong>: Fixed annotations of API documentation. (<a href="https://github.com/tier4/caret_analyze/pull/488">caret_analyze #488</a>, <a href="https://github.com/tier4/caret_analyze/pull/490">caret_analyze #490</a>)</li>
 </ul>
 <ul>
-<li><strong>Update</strong>: Ignore the data flow until the first data of the output column reaches the response time. (<a href="https://github.com/tier4/caret_analyze/pull/486">caret_analyze #486</a>)</li>
+<li><strong>Update</strong>: Changed to ignore some data used to calculate response time. Data present at the beginning of the measurement data that cannot be used to calculate an accurate response time is no longer used in the response time calculation. (<a href="https://github.com/tier4/caret_analyze/pull/486">caret_analyze #486</a>)</li>
 </ul>
 <ul>
 <li><strong>Update</strong>: Refactoring of the code related to the <code>type_check_decorator</code>. (<a href="https://github.com/tier4/caret_analyze/pull/489">caret_analyze #489</a>)</li>
