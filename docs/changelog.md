@@ -16,7 +16,7 @@
 
 - **Update**: Ignore the data flow until the first data of the output column reaches the response time. ([caret_analyze #486](https://github.com/tier4/caret_analyze/pull/486))
 
-- **Update**: Refactor `type_check_decorator`. ([caret_analyze #489](https://github.com/tier4/caret_analyze/pull/489))
+- **Update**: Refactoring of the code related to the `type_check_decorator`. ([caret_analyze #489](https://github.com/tier4/caret_analyze/pull/489))
 
 - **Update**: Refactoring of the code related to the `histogram`. ([caret_analyze #481](https://github.com/tier4/caret_analyze/pull/481))
 
