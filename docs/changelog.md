@@ -18,7 +18,7 @@
 
 - **Update**: Refactor `type_check_decorator`. ([caret_analyze #489](https://github.com/tier4/caret_analyze/pull/489))
 
-- **Update**: Refactor `histgram`. ([caret_analyze #481](https://github.com/tier4/caret_analyze/pull/481))
+- **Update**: Refactoring of the code related to the `histogram`. ([caret_analyze #481](https://github.com/tier4/caret_analyze/pull/481))
 
 - **Update**: When an unexpected type is entered into a variable-length argument in `type_check_decrator`, issue a warning message. ([caret_analyze #485](https://github.com/tier4/caret_analyze/pull/485))
 
