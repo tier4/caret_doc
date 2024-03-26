@@ -24,7 +24,7 @@
 
 - **New**: Add documentation for installation of CARET Debian packages. ([caret_doc #335](https://github.com/tier4/caret_doc/pull/335))
 
-- **Update**: Traces of processes listed in the environment variable CARET_IGNORE_PROCESSES are filtered. ([caret_trace #273](https://github.com/tier4/caret_trace/pull/273))
+- **New**: Add a trace point filtering feature for the specified process. ([caret_trace #273](https://github.com/tier4/caret_trace/pull/273))
 
 ### v0.5.1 <small>\_ Mar 11, 2024</small> {id = "0.5.1"}
 
