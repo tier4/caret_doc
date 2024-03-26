@@ -20,7 +20,7 @@
 
 - **Update**: Refactoring of the code related to the `histogram`. ([caret_analyze #481](https://github.com/tier4/caret_analyze/pull/481))
 
-- **Update**: When an unexpected type is entered into a variable-length argument in `type_check_decrator`, issue a warning message. ([caret_analyze #485](https://github.com/tier4/caret_analyze/pull/485))
+- **Update**: Improved type_check_decorator warning. When a variable-length argument violates a type, the message now includes the index of the violating location. ([caret_analyze #485](https://github.com/tier4/caret_analyze/pull/485))
 
 - **New**: Add documentation for installation of CARET Debian packages. ([caret_doc #335](https://github.com/tier4/caret_doc/pull/335))
 
