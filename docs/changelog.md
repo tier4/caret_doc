@@ -10,7 +10,7 @@
 
 - **Update**: Unified the method of specifying modules and paths when import a module. ([caret_analyze #496](https://github.com/tier4/caret_analyze/pull/496))
 
-- **Update**: `abc.abstractproperty` is deprecated. Replaced with currently recommended method. ([caret_analyze #497](https://github.com/tier4/caret_analyze/pull/497))
+- **Update**: Replaced deprecated method with currently recommended one. ([caret_analyze #497](https://github.com/tier4/caret_analyze/pull/497))
 
 ### v0.5.2 <small>\_ Mar 26, 2024</small> {id = "0.5.2"}
 
