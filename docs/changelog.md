@@ -2,6 +2,16 @@
 
 ## CARET
 
+### v0.5.3 <small>\_ Apr 22, 2024</small> {id = "0.5.3"}
+
+- **Fix**: Removed duplicate code in processing service callbacks. No change in functionality. ([caret_analyze #494](https://github.com/tier4/caret_analyze/pull/494))
+
+- **Update**: Removed unused objects. Record and Records class are not currently used in CARET. ([caret_analyze #493](https://github.com/tier4/caret_analyze/pull/493))
+
+- **Update**: Unified the method of specifying modules and paths when import a module. ([caret_analyze #496](https://github.com/tier4/caret_analyze/pull/496))
+
+- **Update**: abc.abstractproperty is deprecated. Replaced with currently recommended method. ([caret_analyze #497](https://github.com/tier4/caret_analyze/pull/497))
+
 ### v0.5.2 <small>\_ Mar 26, 2024</small> {id = "0.5.2"}
 
 - **Update**: If pydantic is not imported using `type_check_decorator`, issue a warning message. ([caret_analyze #484](https://github.com/tier4/caret_analyze/pull/484))
