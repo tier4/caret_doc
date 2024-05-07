@@ -2,6 +2,16 @@
 
 ## CARET
 
+### v0.5.4 <small>\_ May 7, 2024</small> {id = "0.5.4"}
+
+- **Fix**: Trace points of nodes specified by the environment variable CARET_IGNORE_NODES may not be excluded. ([caret_trace #280](https://github.com/tier4/caret_trace/pull/280))
+
+- **Fix**: Bug fix for address duplication (process ID support). ([caret_trace #280](https://github.com/tier4/caret_trace/pull/280))
+
+- **Fix**: Filtering does not work in some cases when using FastDDS in iron environment. ([caret_trace #280](https://github.com/tier4/caret_trace/pull/280))
+
+- **Fix**: construct_static_executor is not outputting when measurement is started after the application is launched. ([caret_trace #280](https://github.com/tier4/caret_trace/pull/280))
+
 ### v0.5.3 <small>\_ Apr 22, 2024</small> {id = "0.5.3"}
 
 - **Fix**: Removed duplicate code in processing service callbacks. No change in functionality. ([caret_analyze #494](https://github.com/tier4/caret_analyze/pull/494))
