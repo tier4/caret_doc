@@ -10,7 +10,7 @@
 
 - **Fix**: Filtering does not work in some cases when using FastDDS in iron environment. ([caret_trace #280](https://github.com/tier4/caret_trace/pull/280))
 
-- **Fix**: construct_static_executor is not outputting “when measuring from the middle of the measurement”. ([caret_trace #280](https://github.com/tier4/caret_trace/pull/280))
+- **Fix**: construct_static_executor is not outputting when measurement is started after the application is launched. ([caret_trace #280](https://github.com/tier4/caret_trace/pull/280))
 
 ### v0.5.3 <small>\_ Apr 22, 2024</small> {id = "0.5.3"}
 
