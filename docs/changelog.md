@@ -2,6 +2,11 @@
 
 ## CARET
 
+### v0.5.5 <small>\_ May 10, 2024</small> {id = "0.5.5"}
+
+- **New**: Added the feature to measure systems operating with multiple hosts and to analyze the measured data.([caret_trace #262](https://github.com/tier4/caret_trace/pull/262
+), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/455), [ros2caret #163](https://github.com/tier4/ros2caret/pull/163), [caret_doc #333](https://github.com/tier4/caret_doc/pull/333))
+
 ### v0.5.4 <small>\_ May 7, 2024</small> {id = "0.5.4"}
 
 - **Fix**: Trace points of nodes specified by the environment variable CARET_IGNORE_NODES may not be excluded. ([caret_trace #280](https://github.com/tier4/caret_trace/pull/280))
