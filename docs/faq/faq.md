@@ -41,6 +41,10 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
 
 - As described in [design section](../design/runtime_processing/index.md), a node to store CARET events is created for each process. Therefore, if a target application is huge and has a lot of processes, the number of CARET nodes also becomes huge
 
+### Precautions when starting at the same time as Autoware
+
+- If you start Autoware and `ros2 caret record` at the same time, operation may become unstable and some nodes may not be recorded.
+
 ## Visualization
 
 ### Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result
