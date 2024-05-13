@@ -14,7 +14,7 @@ cd caret_doc
 
 
 # install required packages to build the pages
-sudo pip3 install mkdocs-requirements.txt
+sudo pip3 install -r deploy-docs/mkdocs-requirements.txt
 
 # launch server to browse the pages
 mkdocs serve
