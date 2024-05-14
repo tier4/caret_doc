@@ -44,6 +44,7 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
 ### Precautions when starting at the same time as Autoware
 
 - If you start Autoware and `ros2 caret record` at the same time, operation may become unstable and some nodes may not be recorded.
+- It is recommended to start `ros2 caret record` a little while after starting Autoware.
 
 ## Visualization
 
