@@ -1,4 +1,4 @@
-"Initialization tracepoints” are tracepoints that occur mainly when ROS2 configuration objects such as Node, Executor, and Callback are created.
+"Initialization tracepoints” are tracepoints that occur mainly when ROS configuration objects such as Node, Executor, and Callback are created.
 Some tracepoints share same addresses (e.g. node_handle and callback address).
 By binding these addresses, CARET constructs structures of each trace point relationship.
 
