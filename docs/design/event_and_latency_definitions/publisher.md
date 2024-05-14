@@ -21,7 +21,7 @@ UserCode -> rclcpp: publish()
 activate rclcpp
 
 rclcpp -> LTTng: sample rclcpp_intra_publish
-rclcpp -> LTTng: sample message_construct
+rclcpp -> LTTng: sample message_construct(Not available after iron)
 rclcpp -> LTTng: sample rclcpp_publish
 
 rclcpp -> rcl: rcl_publish()
@@ -77,3 +77,8 @@ See also
 - [Trace points | dds_write](../trace_points/runtime_trace_points.md#ros2_caretdds_write)
 - [Trace points | bind_addr_to_addr](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_addr)
 - [Trace points | bind_addr_to_stamp](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_stamp)
+
+<prettier-ignore-start>
+!!! Info
+        If it is not after jazzy, it will not appear in generic_publish().
+<prettier-ignore-end>

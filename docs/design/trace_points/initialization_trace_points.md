@@ -1,3 +1,4 @@
+"Initialization tracepoints” are tracepoints that occur mainly when ROS2 configuration objects such as Node, Executor, and Callback are created.
 Some tracepoints share same addresses (e.g. node_handle and callback address).
 By binding these addresses, CARET constructs structures of each trace point relationship.
 
@@ -98,6 +99,18 @@ erDiagram
 
  rmw_implementation{
  string rmw_impl
+ }
+
+ rcl_client_init{
+ address client_handle
+ address node_handle
+ address rmw_client_handle
+ string service_name
+ }
+
+ rcl_lifecycle_state_machine_init{
+ address node_handle
+ address state_machine
  }
 
     rcl_node_init ||--o{ rcl_publisher_init : node_handle
@@ -359,7 +372,7 @@ Sampled items
 
 ---
 
-#### ros2:rclcpp_ipb_to_subscription
+#### ros2:rclcpp_ipb_to_subscription (Only for iron or later and intra communication)
 
 [Built-in tracepoints]
 
@@ -371,7 +384,7 @@ Sampled items
 
 ---
 
-#### ros2:rclcpp_buffer_to_ipb
+#### ros2:rclcpp_buffer_to_ipb (Only for iron or later and intra communication)
 
 [Built-in tracepoints]
 
@@ -383,7 +396,7 @@ Sampled items
 
 ---
 
-#### ros2:rclcpp_construct_ring_buffer
+#### ros2:rclcpp_construct_ring_buffer (Only for iron or later and intra communication)
 
 [Built-in tracepoints]
 
@@ -414,6 +427,30 @@ Sampled items
 
 - char \* rmw_impl
 - int64_t init_timestamp
+
+---
+
+#### ros2:rcl_client_init
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* client_handle
+- void \* node_handle
+- void \* rmw_client_handle
+- char \* service_name
+
+---
+
+#### ros2:rcl_lifecycle_state_machine_init
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* node_handle
+- void \* state_machine
 
 ---
 

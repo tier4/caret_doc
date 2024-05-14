@@ -79,6 +79,12 @@ erDiagram
  uint64_t size
  }
 
+ rcl_lifecycle_transition{
+ address state_machine
+ string start_label
+ string goal_label
+ }
+
     rclcpp_intra_publish ||--|| dispatch_intra_process_subscription_callback: message_addr
     rclcpp_publish ||--|| rcl_publish: message_addr
     rcl_publish ||--|| dds_write: message_addr
@@ -100,7 +106,7 @@ erDiagram
 Using addresses, thread id (`tid`) and source timestamp, CARET is able to identify a pair of message publish and corresponding subscription.
 However, it's difficult to associate a certain message publish to corresponding callback execution because mapping between callback and publish cannot be obtained automatically.
 
-`message_construct` and `dds_bind_addr_to_addr` are trace points to adapt to copying and converting instances for binding.
+`message_construct`(Not available after iron) and `dds_bind_addr_to_addr` are trace points to adapt to copying and converting instances for binding.
 
 ### Trace point definition
 
@@ -125,7 +131,7 @@ Sampled items
 
 ---
 
-#### ros2:message_construct
+#### ros2:message_construct (Not available after iron)
 
 [Extended tracepoints]
 
@@ -190,7 +196,7 @@ Sampled items
 
 ---
 
-#### ros2:rclcpp_ring_buffer_enqueue
+#### ros2:rclcpp_ring_buffer_enqueue (Only for iron or later and intra communication)
 
 [Built-in tracepoints]
 
@@ -203,7 +209,7 @@ Sampled items
 
 ---
 
-#### ros2:rclcpp_ring_buffer_dequeue
+#### ros2:rclcpp_ring_buffer_dequeue (Only for iron or later and intra communication)
 
 [Built-in tracepoints]
 
@@ -264,3 +270,15 @@ Sampled items
 
 - void \* addr_from
 - void \* addr_to
+
+---
+
+#### ros2_caret:rcl_lifecycle_transition
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* state_machine
+- char \* start_label
+- char \* goal_label

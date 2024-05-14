@@ -26,7 +26,7 @@ This cloning is for adding trace point which cannot added via function hooking w
 
 See also
 
-- [Tracepoints](../trace_points/)
+- [Tracepoints](./index.md)
 
 It's needed to add include directory of ros2_tracing.
 
