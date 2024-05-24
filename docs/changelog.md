@@ -2,9 +2,21 @@
 
 ## CARET
 
+### v0.5.5 <small>\_ May 24, 2024</small> {id = "0.5.6"}
+
+- **Update**: Fix command to install packages needed to build mkdocs. ([caret_doc #334](https://github.com/tier4/caret_doc/pull/344))
+- **Fix**: If there is a Subscription callback with the same symbol, it will not be possible to analyze correctly. ([caret_analyze #460](https://github.com/tier4/caret_analyze/pull/460))
+- **Update**: If Autoware is started and CARET measurement is started at the same time, some nodes may not be recorded. ([caret_doc #343](https://github.com/tier4/caret_doc/pull/343))
+- **Fix**: Fixed a bug in NodeStructValue.get_timer (external API). ([caret_analyze #502](https://github.com/tier4/caret_analyze/pull/502))
+- **Update**: Removed special duplicate check when recording trace events. ([caret_trace #284](https://github.com/tier4/caret_trace/pull/284))
+- **Fix**: Fixed problem with ros2 caret check_ctf not validating even if a single path is entered. ([caret_analyze #503](https://github.com/tier4/caret_analyze/pull/503))
+- **Update**: Added output of message_construct trace points during light measurements. ([ros2caret #187](https://github.com/tier4/ros2caret/pull/187))
+- **Fix**: Fix for segmentation fault occurrence in autoware pandar_node_container (segmentation fault due to race condition). ([caret_trace #285](https://github.com/tier4/caret_trace/pull/285))
+- **Update**: Provide a filter function suitable for analyzing multiple data. ([caret_analyze #504](https://github.com/tier4/caret_analyze/pull/504))
+
 ### v0.5.5 <small>\_ May 10, 2024</small> {id = "0.5.5"}
 
-- **New**: Added the feature to measure systems operating with multiple hosts and to analyze the measured data.([caret_trace #262](https://github.com/tier4/caret_trace/pull/262), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/455), [ros2caret #163](https://github.com/tier4/ros2caret/pull/163), [caret_doc #333](https://github.com/tier4/caret_doc/pull/333))
+- **New**: Added the feature to measure systems operating with multiple hosts and to analyze the measured data. ([caret_trace #262](https://github.com/tier4/caret_trace/pull/262), [caret_analyze #445](https://github.com/tier4/caret_analyze/pull/455), [ros2caret #163](https://github.com/tier4/ros2caret/pull/163), [caret_doc #333](https://github.com/tier4/caret_doc/pull/333))
 
 ### v0.5.4 <small>\_ May 7, 2024</small> {id = "0.5.4"}
 
