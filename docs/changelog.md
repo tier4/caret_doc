@@ -2,7 +2,7 @@
 
 ## CARET
 
-### v0.5.5 <small>\_ May 24, 2024</small> {id = "0.5.6"}
+### v0.5.6 <small>\_ May 24, 2024</small> {id = "0.5.6"}
 
 - **Update**: Fix command to install packages needed to build mkdocs. ([caret_doc #334](https://github.com/tier4/caret_doc/pull/344))
 - **Fix**: If there is a Subscription callback with the same symbol, it will not be possible to analyze correctly. ([caret_analyze #460](https://github.com/tier4/caret_analyze/pull/460))
