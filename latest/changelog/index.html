@@ -506,6 +506,13 @@
         
           <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
+    v0.5.6 _ May 24, 2024
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
     v0.5.5 _ May 10, 2024
   </a>
   
@@ -2939,6 +2946,13 @@
         
           <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
+    v0.5.6 _ May 24, 2024
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
     v0.5.5 _ May 10, 2024
   </a>
   
@@ -3228,9 +3242,21 @@
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">#</a></h1>
 <h2 id="caret"><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#caret" title="Permanent link">#</a></h2>
+<h3 id="id">v0.5.6 <small>_ May 24, 2024</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Update</strong>: Fix command to install packages needed to build mkdocs. (<a href="https://github.com/tier4/caret_doc/pull/344">caret_doc #334</a>)</li>
+<li><strong>Fix</strong>: If there is a Subscription callback with the same symbol, it will not be possible to analyze correctly. (<a href="https://github.com/tier4/caret_analyze/pull/460">caret_analyze #460</a>)</li>
+<li><strong>Update</strong>: If <abbr title="OSS-based self-driving software">Autoware</abbr> is started and <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> measurement is started at the same time, some nodes may not be recorded. (<a href="https://github.com/tier4/caret_doc/pull/343">caret_doc #343</a>)</li>
+<li><strong>Fix</strong>: Fixed a bug in NodeStructValue.get_timer (external API). (<a href="https://github.com/tier4/caret_analyze/pull/502">caret_analyze #502</a>)</li>
+<li><strong>Update</strong>: Removed special duplicate check when recording trace events. (<a href="https://github.com/tier4/caret_trace/pull/284">caret_trace #284</a>)</li>
+<li><strong>Fix</strong>: Fixed problem with ros2 caret check_ctf not validating even if a single path is entered. (<a href="https://github.com/tier4/caret_analyze/pull/503">caret_analyze #503</a>)</li>
+<li><strong>Update</strong>: Added output of message_construct trace points during light measurements. (<a href="https://github.com/tier4/ros2caret/pull/187">ros2caret #187</a>)</li>
+<li><strong>Fix</strong>: Fix for segmentation fault occurrence in autoware pandar_node_container (segmentation fault due to race condition). (<a href="https://github.com/tier4/caret_trace/pull/285">caret_trace #285</a>)</li>
+<li><strong>Update</strong>: Provide a filter function suitable for analyzing multiple data. (<a href="https://github.com/tier4/caret_analyze/pull/504">caret_analyze #504</a>)</li>
+</ul>
 <h3 id="id">v0.5.5 <small>_ May 10, 2024</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>New</strong>: Added the feature to measure systems operating with multiple hosts and to analyze the measured data.(<a href="https://github.com/tier4/caret_trace/pull/262">caret_trace #262</a>, <a href="https://github.com/tier4/caret_analyze/pull/455">caret_analyze #445</a>, <a href="https://github.com/tier4/ros2caret/pull/163">ros2caret #163</a>, <a href="https://github.com/tier4/caret_doc/pull/333">caret_doc #333</a>)</li>
+<li><strong>New</strong>: Added the feature to measure systems operating with multiple hosts and to analyze the measured data. (<a href="https://github.com/tier4/caret_trace/pull/262">caret_trace #262</a>, <a href="https://github.com/tier4/caret_analyze/pull/455">caret_analyze #445</a>, <a href="https://github.com/tier4/ros2caret/pull/163">ros2caret #163</a>, <a href="https://github.com/tier4/caret_doc/pull/333">caret_doc #333</a>)</li>
 </ul>
 <h3 id="id">v0.5.4 <small>_ May 7, 2024</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
 <ul>
