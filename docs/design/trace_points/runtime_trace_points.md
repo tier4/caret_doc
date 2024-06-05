@@ -251,7 +251,7 @@ Sampled items
 
 ---
 
-#### ros2_caret:dds_bind_addr_to_stamp (No output in fastdds)
+#### ros2_caret:dds_bind_addr_to_stamp (In fastdds, this trace point of generic_publish() is not output)
 
 [Hooked tracepoints]
 
