@@ -251,7 +251,7 @@ Sampled items
 
 ---
 
-#### ros2_caret:dds_bind_addr_to_stamp
+#### ros2_caret:dds_bind_addr_to_stamp (No output in fastdds)
 
 [Hooked tracepoints]
 
