@@ -372,7 +372,7 @@ Sampled items
 
 ---
 
-#### ros2:rclcpp_ipb_to_subscription (Only for iron or later and intra communication)
+#### ros2:rclcpp_ipb_to_subscription
 
 [Built-in tracepoints]
 
@@ -382,9 +382,14 @@ Sampled items
 - void \* subscription
 - int64_t init_timestamp (caret_trace added)
 
+<prettier-ignore-start>
+!!!Note
+    Only for iron or later and intra communication.
+<prettier-ignore-end>
+
 ---
 
-#### ros2:rclcpp_buffer_to_ipb (Only for iron or later and intra communication)
+#### ros2:rclcpp_buffer_to_ipb
 
 [Built-in tracepoints]
 
@@ -394,9 +399,14 @@ Sampled items
 - void \* ipb
 - int64_t init_timestamp (caret_trace added)
 
+<prettier-ignore-start>
+!!!Note
+    Only for iron or later and intra communication.
+<prettier-ignore-end>
+
 ---
 
-#### ros2:rclcpp_construct_ring_buffer (Only for iron or later and intra communication)
+#### ros2:rclcpp_construct_ring_buffer
 
 [Built-in tracepoints]
 
@@ -405,6 +415,11 @@ Sampled items
 - void \* buffer
 - uint64_t capacity
 - int64_t init_timestamp (caret_trace added)
+
+<prettier-ignore-start>
+!!!Note
+    Only for iron or later and intra communication.
+<prettier-ignore-end>
 
 ---
 

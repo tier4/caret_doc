@@ -152,4 +152,5 @@ See also
 - [Trace points | bind_addr_to_stamp](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_stamp)
 - [Trace points | callback start](../trace_points/runtime_trace_points.md#ros2callback_start)
 - [Trace points | dispatch_subscription_callback](../trace_points/runtime_trace_points.md#ros2dispatch_subscription_callback)
+- [Trace points | rmw_take](../trace_points/runtime_trace_points.md#ros2rmw_take)
 - [RuntimeDataProvider API](https://tier4.github.io/caret_analyze/latest/infra/#caret_analyze.infra.lttng.lttng.Lttng.compose_inter_proc_comm_records)

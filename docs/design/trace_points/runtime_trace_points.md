@@ -131,7 +131,7 @@ Sampled items
 
 ---
 
-#### ros2:message_construct (Not available after iron)
+#### ros2:message_construct
 
 [Extended tracepoints]
 
@@ -139,6 +139,11 @@ Sampled items
 
 - void \* original_message
 - void \* constructed_message
+
+<prettier-ignore-start>
+!!!Note
+    Not available after iron.
+<prettier-ignore-end>
 
 ---
 
@@ -151,9 +156,14 @@ Sampled items
 - void \* publisher_handle
 - void \* message
 
+<prettier-ignore-start>
+!!!Note
+    In humble, they are Extended trace points, but from iron onwards they are Built-in trace points.
+<prettier-ignore-end>
+
 ---
 
-#### ros2:dispatch_subscription_callback (before v0.4.9)
+#### ros2:dispatch_subscription_callback
 
 [Extended tracepoints]
 
@@ -164,11 +174,14 @@ Sampled items
 - uint64_t source_timestamp
 - uint64_t message_timestamp
 
-This tracepoint is no longer used from v0.4.10 onwards.
+<prettier-ignore-start>
+!!!Note
+    This tracepoint is no longer used from v0.4.10 onwards.
+<prettier-ignore-end>
 
 ---
 
-#### ros2:rmw_take (after v0.4.10)
+#### ros2:rmw_take
 
 [Built-in tracepoints]
 
@@ -179,8 +192,11 @@ Sampled items
 - int64_t \* source_timestamp
 - bool \* taken
 
-In CARET, this tracepoint is used to correctly link the `callback_start` to the `rclcpp_publish` that triggered the callback.
-Until version 0.4.9, ros2:dispatch_subscription_callback was used to link `rclcpp_publish` and `callback_start` events.
+<prettier-ignore-start>
+!!!Note
+    In CARET, this tracepoint is used to correctly link the `callback_start` to the `rclcpp_publish` that triggered the callback.
+    Until version 0.4.9, ros2:dispatch_subscription_callback was used to link `rclcpp_publish` and `callback_start` events.
+<prettier-ignore-end>
 
 ---
 
@@ -196,7 +212,7 @@ Sampled items
 
 ---
 
-#### ros2:rclcpp_ring_buffer_enqueue (Only for iron or later and intra communication)
+#### ros2:rclcpp_ring_buffer_enqueue
 
 [Built-in tracepoints]
 
@@ -207,9 +223,14 @@ Sampled items
 - uint64_t size
 - bool overwritten
 
+<prettier-ignore-start>
+!!!Note
+    Only for iron or later and intra communication.
+<prettier-ignore-end>
+
 ---
 
-#### ros2:rclcpp_ring_buffer_dequeue (Only for iron or later and intra communication)
+#### ros2:rclcpp_ring_buffer_dequeue
 
 [Built-in tracepoints]
 
@@ -218,6 +239,11 @@ Sampled items
 - void \* buffer
 - uint64_t index
 - uint64_t size
+
+<prettier-ignore-start>
+!!!Note
+    Only for iron or later and intra communication.
+<prettier-ignore-end>
 
 ---
 
@@ -251,7 +277,7 @@ Sampled items
 
 ---
 
-#### ros2_caret:dds_bind_addr_to_stamp (In fastdds, the publish() of GenericPublisher does not output this tracepoint)
+#### ros2_caret:dds_bind_addr_to_stamp
 
 [Hooked tracepoints]
 
@@ -259,6 +285,11 @@ Sampled items
 
 - void \* addr
 - uint64_t source_stamp
+
+<prettier-ignore-start>
+!!!Note
+    In fastdds, the publish() of GenericPublisher does not output this tracepoint.
+<prettier-ignore-end>
 
 ---
 
