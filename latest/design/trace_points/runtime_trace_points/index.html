@@ -2116,15 +2116,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2dispatch_subscription_callback-before-v049" class="md-nav__link">
-    ros2:dispatch_subscription_callback (before v0.4.9)
+  <a href="#ros2dispatch_subscription_callback" class="md-nav__link">
+    ros2:dispatch_subscription_callback
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2rmw_take-after-v0410" class="md-nav__link">
-    ros2:rmw_take (after v0.4.10)
+  <a href="#ros2rmw_take" class="md-nav__link">
+    ros2:rmw_take
   </a>
   
 </li>
@@ -2181,6 +2181,13 @@
           <li class="md-nav__item">
   <a href="#ros2_caretdds_bind_addr_to_addr" class="md-nav__link">
     ros2_caret:dds_bind_addr_to_addr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2_caretrcl_lifecycle_transition" class="md-nav__link">
+    ros2_caret:rcl_lifecycle_transition
   </a>
   
 </li>
@@ -2806,15 +2813,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2dispatch_subscription_callback-before-v049" class="md-nav__link">
-    ros2:dispatch_subscription_callback (before v0.4.9)
+  <a href="#ros2dispatch_subscription_callback" class="md-nav__link">
+    ros2:dispatch_subscription_callback
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2rmw_take-after-v0410" class="md-nav__link">
-    ros2:rmw_take (after v0.4.10)
+  <a href="#ros2rmw_take" class="md-nav__link">
+    ros2:rmw_take
   </a>
   
 </li>
@@ -2871,6 +2878,13 @@
           <li class="md-nav__item">
   <a href="#ros2_caretdds_bind_addr_to_addr" class="md-nav__link">
     ros2_caret:dds_bind_addr_to_addr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2_caretrcl_lifecycle_transition" class="md-nav__link">
+    ros2_caret:rcl_lifecycle_transition
   </a>
   
 </li>
@@ -2979,6 +2993,12 @@
  uint64_t size
  }
 
+ rcl_lifecycle_transition{
+ address state_machine
+ string start_label
+ string goal_label
+ }
+
     rclcpp_intra_publish ||--|| dispatch_intra_process_subscription_callback: message_addr
     rclcpp_publish ||--|| rcl_publish: message_addr
     rcl_publish ||--|| dds_write: message_addr
@@ -2997,7 +3017,7 @@
 </code></pre>
 <p>Using addresses, thread id (<code>tid</code>) and source timestamp, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> is able to identify a pair of message publish and corresponding subscription.
 However, it's difficult to associate a certain message publish to corresponding callback execution because mapping between callback and publish cannot be obtained automatically.</p>
-<p><code>message_construct</code> and <code>dds_bind_addr_to_addr</code> are trace points to adapt to copying and converting instances for binding.</p>
+<p><code>message_construct</code>(Not available after iron) and <code>dds_bind_addr_to_addr</code> are trace points to adapt to copying and converting instances for binding.</p>
 <h3 id="trace-point-definition">Trace point definition<a class="headerlink" href="#trace-point-definition" title="Permanent link">#</a></h3>
 <h4 id="ros2callback_start">ros2:callback_start<a class="headerlink" href="#ros2callback_start" title="Permanent link">#</a></h4>
 <p>[Built-in tracepoints]</p>
@@ -3021,6 +3041,12 @@ However, it's difficult to associate a certain message publish to corresponding 
 <li>void * original_message</li>
 <li>void * constructed_message</li>
 </ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not available after iron.</p>
+</div>
+<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2rclcpp_intra_publish">ros2:rclcpp_intra_publish<a class="headerlink" href="#ros2rclcpp_intra_publish" title="Permanent link">#</a></h4>
 <p>[Extended tracepoints]</p>
@@ -3029,8 +3055,14 @@ However, it's difficult to associate a certain message publish to corresponding 
 <li>void * publisher_handle</li>
 <li>void * message</li>
 </ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In humble, they are Extended trace points, but from iron onwards they are Built-in trace points.</p>
+</div>
+<p><prettier-ignore-end></p>
 <hr />
-<h4 id="ros2dispatch_subscription_callback-before-v049">ros2:dispatch_subscription_callback (before v0.4.9)<a class="headerlink" href="#ros2dispatch_subscription_callback-before-v049" title="Permanent link">#</a></h4>
+<h4 id="ros2dispatch_subscription_callback">ros2:dispatch_subscription_callback<a class="headerlink" href="#ros2dispatch_subscription_callback" title="Permanent link">#</a></h4>
 <p>[Extended tracepoints]</p>
 <p>Sampled items</p>
 <ul>
@@ -3039,9 +3071,14 @@ However, it's difficult to associate a certain message publish to corresponding 
 <li>uint64_t source_timestamp</li>
 <li>uint64_t message_timestamp</li>
 </ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>This tracepoint is no longer used from v0.4.10 onwards.</p>
+</div>
+<p><prettier-ignore-end></p>
 <hr />
-<h4 id="ros2rmw_take-after-v0410">ros2:rmw_take (after v0.4.10)<a class="headerlink" href="#ros2rmw_take-after-v0410" title="Permanent link">#</a></h4>
+<h4 id="ros2rmw_take">ros2:rmw_take<a class="headerlink" href="#ros2rmw_take" title="Permanent link">#</a></h4>
 <p>[Built-in tracepoints]</p>
 <p>Sampled items</p>
 <ul>
@@ -3050,8 +3087,13 @@ However, it's difficult to associate a certain message publish to corresponding 
 <li>int64_t * source_timestamp</li>
 <li>bool * taken</li>
 </ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, this tracepoint is used to correctly link the <code>callback_start</code> to the <code>rclcpp_publish</code> that triggered the callback.
 Until version 0.4.9, ros2:dispatch_subscription_callback was used to link <code>rclcpp_publish</code> and <code>callback_start</code> events.</p>
+</div>
+<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2dispatch_intra_process_subscription_callback">ros2:dispatch_intra_process_subscription_callback<a class="headerlink" href="#ros2dispatch_intra_process_subscription_callback" title="Permanent link">#</a></h4>
 <p>[Extended tracepoints]</p>
@@ -3071,6 +3113,12 @@ Until version 0.4.9, ros2:dispatch_subscription_callback was used to link <code>
 <li>uint64_t size</li>
 <li>bool overwritten</li>
 </ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only for iron or later and intra communication.</p>
+</div>
+<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2rclcpp_ring_buffer_dequeue">ros2:rclcpp_ring_buffer_dequeue<a class="headerlink" href="#ros2rclcpp_ring_buffer_dequeue" title="Permanent link">#</a></h4>
 <p>[Built-in tracepoints]</p>
@@ -3080,6 +3128,12 @@ Until version 0.4.9, ros2:dispatch_subscription_callback was used to link <code>
 <li>uint64_t index</li>
 <li>uint64_t size</li>
 </ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only for iron or later and intra communication.</p>
+</div>
+<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2rcl_publish">ros2:rcl_publish<a class="headerlink" href="#ros2rcl_publish" title="Permanent link">#</a></h4>
 <p>[Built-in tracepoints]</p>
@@ -3110,6 +3164,12 @@ Until version 0.4.9, ros2:dispatch_subscription_callback was used to link <code>
 <li>void * addr</li>
 <li>uint64_t source_stamp</li>
 </ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In fastdds, the publish() of GenericPublisher does not output this tracepoint.</p>
+</div>
+<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2_caretdds_bind_addr_to_addr">ros2_caret:dds_bind_addr_to_addr<a class="headerlink" href="#ros2_caretdds_bind_addr_to_addr" title="Permanent link">#</a></h4>
 <p>[Hooked tracepoints]</p>
@@ -3117,6 +3177,15 @@ Until version 0.4.9, ros2:dispatch_subscription_callback was used to link <code>
 <ul>
 <li>void * addr_from</li>
 <li>void * addr_to</li>
+</ul>
+<hr />
+<h4 id="ros2_caretrcl_lifecycle_transition">ros2_caret:rcl_lifecycle_transition<a class="headerlink" href="#ros2_caretrcl_lifecycle_transition" title="Permanent link">#</a></h4>
+<p>[Built-in tracepoints]</p>
+<p>Sampled items</p>
+<ul>
+<li>void * state_machine</li>
+<li>char * start_label</li>
+<li>char * goal_label</li>
 </ul>
 
 
