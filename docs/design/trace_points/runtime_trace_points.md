@@ -79,6 +79,12 @@ erDiagram
  uint64_t size
  }
 
+ rcl_lifecycle_transition{
+ address state_machine
+ string start_label
+ string goal_label
+ }
+
     rclcpp_intra_publish ||--|| dispatch_intra_process_subscription_callback: message_addr
     rclcpp_publish ||--|| rcl_publish: message_addr
     rcl_publish ||--|| dds_write: message_addr
@@ -100,7 +106,7 @@ erDiagram
 Using addresses, thread id (`tid`) and source timestamp, CARET is able to identify a pair of message publish and corresponding subscription.
 However, it's difficult to associate a certain message publish to corresponding callback execution because mapping between callback and publish cannot be obtained automatically.
 
-`message_construct` and `dds_bind_addr_to_addr` are trace points to adapt to copying and converting instances for binding.
+`message_construct`(Not available after iron) and `dds_bind_addr_to_addr` are trace points to adapt to copying and converting instances for binding.
 
 ### Trace point definition
 
@@ -134,6 +140,11 @@ Sampled items
 - void \* original_message
 - void \* constructed_message
 
+<prettier-ignore-start>
+!!!Note
+    Not available after iron.
+<prettier-ignore-end>
+
 ---
 
 #### ros2:rclcpp_intra_publish
@@ -145,9 +156,14 @@ Sampled items
 - void \* publisher_handle
 - void \* message
 
+<prettier-ignore-start>
+!!!Note
+    In humble, they are Extended trace points, but from iron onwards they are Built-in trace points.
+<prettier-ignore-end>
+
 ---
 
-#### ros2:dispatch_subscription_callback (before v0.4.9)
+#### ros2:dispatch_subscription_callback
 
 [Extended tracepoints]
 
@@ -158,11 +174,14 @@ Sampled items
 - uint64_t source_timestamp
 - uint64_t message_timestamp
 
-This tracepoint is no longer used from v0.4.10 onwards.
+<prettier-ignore-start>
+!!!Note
+    This tracepoint is no longer used from v0.4.10 onwards.
+<prettier-ignore-end>
 
 ---
 
-#### ros2:rmw_take (after v0.4.10)
+#### ros2:rmw_take
 
 [Built-in tracepoints]
 
@@ -173,8 +192,11 @@ Sampled items
 - int64_t \* source_timestamp
 - bool \* taken
 
-In CARET, this tracepoint is used to correctly link the `callback_start` to the `rclcpp_publish` that triggered the callback.
-Until version 0.4.9, ros2:dispatch_subscription_callback was used to link `rclcpp_publish` and `callback_start` events.
+<prettier-ignore-start>
+!!!Note
+    In CARET, this tracepoint is used to correctly link the `callback_start` to the `rclcpp_publish` that triggered the callback.
+    Until version 0.4.9, ros2:dispatch_subscription_callback was used to link `rclcpp_publish` and `callback_start` events.
+<prettier-ignore-end>
 
 ---
 
@@ -201,6 +223,11 @@ Sampled items
 - uint64_t size
 - bool overwritten
 
+<prettier-ignore-start>
+!!!Note
+    Only for iron or later and intra communication.
+<prettier-ignore-end>
+
 ---
 
 #### ros2:rclcpp_ring_buffer_dequeue
@@ -212,6 +239,11 @@ Sampled items
 - void \* buffer
 - uint64_t index
 - uint64_t size
+
+<prettier-ignore-start>
+!!!Note
+    Only for iron or later and intra communication.
+<prettier-ignore-end>
 
 ---
 
@@ -254,6 +286,11 @@ Sampled items
 - void \* addr
 - uint64_t source_stamp
 
+<prettier-ignore-start>
+!!!Note
+    In fastdds, the publish() of GenericPublisher does not output this tracepoint.
+<prettier-ignore-end>
+
 ---
 
 #### ros2_caret:dds_bind_addr_to_addr
@@ -264,3 +301,15 @@ Sampled items
 
 - void \* addr_from
 - void \* addr_to
+
+---
+
+#### ros2_caret:rcl_lifecycle_transition
+
+[Built-in tracepoints]
+
+Sampled items
+
+- void \* state_machine
+- char \* start_label
+- char \* goal_label

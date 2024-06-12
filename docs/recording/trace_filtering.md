@@ -58,3 +58,8 @@ export CARET_IGNORE_TOPICS=\
 # /parameter_events:\
 # "
 ```
+
+<prettier-ignore-start>
+!!! Info
+        If the node cannot be identified from the trace point information, the trace will be collected without applying the filter.
+<prettier-ignore-end>

@@ -21,7 +21,7 @@ UserCode -> rclcpp: publish()
 activate rclcpp
 
 rclcpp -> LTTng: sample rclcpp_intra_publish
-rclcpp -> LTTng: sample message_construct
+rclcpp -> LTTng: sample message_construct(Not available after iron)
 rclcpp -> LTTng: sample rclcpp_publish
 
 rclcpp -> rcl: rcl_publish()
@@ -36,8 +36,8 @@ rmw -> LTTng: sample dds_write
 
 rmw -> DDS: dds_write()
 activate DDS
-DDS -> LTTng: sample bind_addr_to_addr
-DDS -> LTTng: sample bind_addr_to_stamp
+DDS -> LTTng: sample dds_bind_addr_to_addr
+DDS -> LTTng: sample dds_bind_addr_to_stamp
 
 DDS -> rmw
 deactivate DDS
@@ -74,6 +74,7 @@ See also
 - [Trace points | message_construct](../trace_points/runtime_trace_points.md#ros2message_construct)
 - [Trace points | rclcpp_publish](../trace_points/runtime_trace_points.md#ros2rclcpp_publish)
 - [Trace points | rcl_publish](../trace_points/runtime_trace_points.md#ros2rcl_publish)
+- [Trace points | rclcpp_ring_buffer_enqueue](../trace_points/runtime_trace_points.md#ros2rclcpp_ring_buffer_enqueue)
 - [Trace points | dds_write](../trace_points/runtime_trace_points.md#ros2_caretdds_write)
-- [Trace points | bind_addr_to_addr](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_addr)
-- [Trace points | bind_addr_to_stamp](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_stamp)
+- [Trace points | dds_bind_addr_to_addr](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_addr)
+- [Trace points | dds_bind_addr_to_stamp](../trace_points/runtime_trace_points.md#ros2_caretdds_bind_addr_to_stamp)
