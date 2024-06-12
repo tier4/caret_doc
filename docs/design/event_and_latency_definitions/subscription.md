@@ -56,6 +56,7 @@ See also
 
 - [Subscription API](https://tier4.github.io/caret_analyze/latest/infra/#caret_analyze.infra.lttng.records_provider_lttng.RecordsProviderLttng.subscribe_records)
 - [Trace points | dispatch_subscription_callback](../trace_points/runtime_trace_points.md#ros2dispatch_subscription_callback)
+- [Trace points | rmw_take](../trace_points/runtime_trace_points.md#ros2rmw_take)
 - [Trace points | callback_start](../trace_points/runtime_trace_points.md#ros2callback_start)
 
 ## Intra process communication
@@ -93,6 +94,6 @@ deactivate rclcpp
 See also
 
 - [Subscription API](https://tier4.github.io/caret_analyze/latest/infra/#caret_analyze.infra.lttng.records_provider_lttng.RecordsProviderLttng.subscribe_records)
+- [Trace points | rclcpp_ring_buffer_dequeue](../trace_points/runtime_trace_points.md#ros2rclcpp_ring_buffer_dequeue)
 - [Trace points | dispatch_intra_process_subscription_callback](../trace_points/runtime_trace_points.md#ros2dispatch_intra_process_subscription_callback)
-- [Trace points | rmw_take](../trace_points/runtime_trace_points.md#ros2rmw_take)
 - [Trace points | callback_start](../trace_points/runtime_trace_points.md#ros2callback_start)
