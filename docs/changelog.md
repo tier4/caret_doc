@@ -2,16 +2,36 @@
 
 ## CARET
 
+### v0.5.7 <small>\_ Jun 24, 2024</small> {id = "0.5.7"}
+
+- **Update**: controlling the dds_bind_addr_to_stamp output of `generic_publish()`. ([caret_trace #288](https://github.com/tier4/caret_trace/pull/288))
+
+- **Update**: Build support for caret_analyze_cpp_impl using gcc13. Fixed build failure due to some C++ standard library header changes. ([caret_analyze_cpp_impl #210](https://github.com/tier4/caret_analyze_cpp_impl/pull/210))
+
+- **Update**: changed the log level when the executor failed to load. ([caret_analyze #509](https://github.com/tier4/caret_analyze/pull/509))
+
+- **Update**: fixed incorrect arguments in rclcpp_service_callback_added. ([caret_trace #289](https://github.com/tier4/caret_trace/pull/289))
+
+- **Update**: Unify the description of doxygen comments for methods of the same family declared in tracing_controller.hpp. ([caret_trace #287](https://github.com/tier4/caret_trace/pull/287))
+
 ### v0.5.6 <small>\_ May 24, 2024</small> {id = "0.5.6"}
 
 - **Update**: Fix command to install packages needed to build mkdocs. ([caret_doc #334](https://github.com/tier4/caret_doc/pull/344))
+
 - **Fix**: If there is a Subscription callback with the same symbol, it will not be possible to analyze correctly. ([caret_analyze #460](https://github.com/tier4/caret_analyze/pull/460))
+
 - **Update**: If Autoware is started and CARET measurement is started at the same time, some nodes may not be recorded. ([caret_doc #343](https://github.com/tier4/caret_doc/pull/343))
+
 - **Fix**: Fixed a bug in NodeStructValue.get_timer (external API). ([caret_analyze #502](https://github.com/tier4/caret_analyze/pull/502))
+
 - **Update**: Removed special duplicate check when recording trace events. ([caret_trace #284](https://github.com/tier4/caret_trace/pull/284))
+
 - **Fix**: Fixed problem with ros2 caret check_ctf not validating even if a single path is entered. ([caret_analyze #503](https://github.com/tier4/caret_analyze/pull/503))
+
 - **Update**: Added output of message_construct trace points during light measurements. ([ros2caret #187](https://github.com/tier4/ros2caret/pull/187))
+
 - **Fix**: Fix for segmentation fault occurrence in autoware pandar_node_container (segmentation fault due to race condition). ([caret_trace #285](https://github.com/tier4/caret_trace/pull/285))
+
 - **Update**: Provide a filter function suitable for analyzing multiple data. ([caret_analyze #504](https://github.com/tier4/caret_analyze/pull/504))
 
 ### v0.5.5 <small>\_ May 10, 2024</small> {id = "0.5.5"}
