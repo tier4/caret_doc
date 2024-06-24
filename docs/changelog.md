@@ -4,11 +4,11 @@
 
 ### v0.5.7 <small>\_ Jun 24, 2024</small> {id = "0.5.7"}
 
-- **Update**: controllng the dds_bind_addr_to_stamp output of `generic_publish()`. ([caret_trace #288](https://github.com/tier4/caret_trace/pull/288))
+- **Update**: controlling the dds_bind_addr_to_stamp output of `generic_publish()`. ([caret_trace #288](https://github.com/tier4/caret_trace/pull/288))
 
 - **Update**: Build support for caret_analyze_cpp_impl using gcc13. Fixed build failure due to some C++ standard library header changes. ([caret_analyze_cpp_impl #210](https://github.com/tier4/caret_analyze_cpp_impl/pull/210))
 
-- **Update**: changed the log level when the executor failed to load. ([caret_anlayze #509](https://github.com/tier4/caret_analyze/pull/509))
+- **Update**: changed the log level when the executor failed to load. ([caret_analyze #509](https://github.com/tier4/caret_analyze/pull/509))
 
 - **Update**: fixed incorrect arguments in rclcpp_service_callback_added. ([caret_trace #289](https://github.com/tier4/caret_trace/pull/289))
 
