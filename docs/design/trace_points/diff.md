@@ -2,7 +2,7 @@
 
 <prettier-ignore-start>
 !!! note
-    This section explains differences between v0.2 implementation of CARET and implementation of ROS2 Galactic. The explanation is not up-to-date from viewpoints of implementation, but it is enough for readers to understand differences from viewpoints of design.
+    This section explains differences between v0.2 implementation of CARET and implementation of ROS 2 Galactic. The explanation is not up-to-date from viewpoints of implementation, but it is enough for readers to understand differences from viewpoints of design.
 <prettier-ignore-end>
 
 ## v0.2 vs galactic
@@ -13,7 +13,7 @@
 - <https://github.com/tier4/rclcpp/tree/galactic_tracepoint_added>
 - <https://github.com/tier4/ros2_tracing/tree/galactic_tracepoint_added>
 
-They are cloned from original ROS2 repositories, respectively. This section describes the differences from originals.
+They are cloned from original ROS 2 repositories, respectively. This section describes the differences from originals.
 
 ### rcl
 

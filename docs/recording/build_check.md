@@ -4,20 +4,20 @@
 
 A target application should be built with CARET/rclcpp to record trace data. If you have already built the application without CARET/rclcpp, you have to build the application with CARET/rclcpp again.
 
-For building the application with CARET/rclcpp, CARET's `local_setup.bash` should be applied along with ROS2's `setup.bash` as shown below. Also, `-DBUILD_TESTING=OFF` should be given to build option.
+For building the application with CARET/rclcpp, CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as shown below. Also, `-DBUILD_TESTING=OFF` should be given to build option.
 
 ```sh
 cd <path-to-workspace>
 
 source /opt/ros/humble/setup.bash
-source ~/ros2_caret_ws/install/local_setup.bash  # please keep the order after ROS2's setup.bash
+source ~/ros2_caret_ws/install/local_setup.bash  # please keep the order after ROS 2's setup.bash
 
 colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF
 ```
 
 <prettier-ignore-start>
 !!!info "Reason for building a target application with CARET/rclcpp"
-      CARET/rclcpp is a fork of [ROS2-based rclcpp](https://github.com/ros2/rclcpp) which has some additional tracepoints defined by CARET.
+      CARET/rclcpp is a fork of [ROS 2-based rclcpp](https://github.com/ros2/rclcpp) which has some additional tracepoints defined by CARET.
       Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for CARET to record a target application.
       In order to apply rclcpp which has the additional tracepoints, the application have to be built with CARET/rclcpp again.
       Therefore, CARET cannot trace the application provided by Ubuntu's aptitude such as `demo_nodes_cpp`.
@@ -51,7 +51,7 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
 In case CARET/rclcpp is not applied to the package you want to analyze, you need to fix it. The followings show possible causes and solutions.
 
 - Case 1: All packages are listed as CARET/rclcpp is not applied
-  - Make sure you applied CARET's `local_setup.bash` after ROS2's `setup.bash` (keep the order)
+  - Make sure you applied CARET's `local_setup.bash` after ROS 2's `setup.bash` (keep the order)
 - Case 2: Some, but not all, packages are listed as CARET/rclcpp is not applied
   - Make sure you have the following line in `package.xml` in the listed package
     - `<depend>rclcpp</depend>`

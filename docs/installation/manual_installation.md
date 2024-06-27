@@ -15,8 +15,8 @@ sudo apt-get install python3-babeltrace python3-lttng
 
 ### Install packages to build CARET
 
-Install ROS2 Humble and related packages.
-See also [the official document for ROS2](https://docs.ros.org/en/humble/Installation/Ubuntu-Development-Setup.html).
+Install ROS 2 Humble and related packages.
+See also [the official document for ROS 2](https://docs.ros.org/en/humble/Installation/Ubuntu-Development-Setup.html).
 
 ```bash
 sudo apt update && sudo apt install -y \

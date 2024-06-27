@@ -13,7 +13,7 @@ Two terminals are needed for this method; one for executing a target application
 
 1. Open a terminal and launch a target application
 
-   - Perform environment settings in the same order as below. CARET's `local_setup.bash` should be applied along with ROS2's `setup.bash` as the target application refers to CARET/rclcpp
+   - Perform environment settings in the same order as below. CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as the target application refers to CARET/rclcpp
 
      ```sh
      # Environment settings (keep the order as below)
