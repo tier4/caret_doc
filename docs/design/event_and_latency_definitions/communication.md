@@ -88,48 +88,48 @@ A simplified sequence diagram focusing only on the relevant data flow is shown b
 title: Definition of major tracepoints
 
 participant UserCode
-participant ROS 2
+participant ROS2
 participant DDS
 participant LTTng
 
 == Publisher Side ==
 
 
-activate ROS 2
+activate ROS2
 activate UserCode
-UserCode -> ROS 2: publish()
-activate ROS 2
-ROS 2 -> LTTng: sample rclcpp_publish
+UserCode -> ROS2: publish()
+activate ROS2
+ROS2 -> LTTng: sample rclcpp_publish
 
 
-ROS 2 -> DDS: dds_write()
-deactivate ROS 2
+ROS2 -> DDS: dds_write()
+deactivate ROS2
 activate DDS
 DDS -> LTTng: sample dds_write
 DDS -> LTTng: sample dds_bind_addr_to_stamp
 
-UserCode -> ROS 2 : callback_end
+UserCode -> ROS2 : callback_end
 deactivate UserCode
-deactivate ROS 2
+deactivate ROS2
 
 
 == Subscription Side ==
 
 
-DDS -> ROS 2: <notify> on_data_available
-activate ROS 2
+DDS -> ROS2: <notify> on_data_available
+activate ROS2
 
-ROS 2 -> DDS :  take messages
-DDS -> ROS 2
+ROS2 -> DDS :  take messages
+DDS -> ROS2
 deactivate DDS
-ROS 2 -> LTTng: sample dispatch_subscription_callback
-ROS 2 -> LTTng: sample [callback_start
-ROS 2 -> UserCode: callback start
+ROS2 -> LTTng: sample dispatch_subscription_callback
+ROS2 -> LTTng: sample [callback_start
+ROS2 -> UserCode: callback start
 activate UserCode
-UserCode -> ROS 2: callback end
+UserCode -> ROS2: callback end
 deactivate UserCode
 
-deactivate ROS 2
+deactivate ROS2
 @enduml
 ```
 
