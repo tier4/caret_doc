@@ -14,7 +14,6 @@
 
 ```plantuml
 
-note left of Context : A class that manages instances; Singleton.
 class Context {
     -- public --
     + get_trace_controller(): TracingController
@@ -22,8 +21,8 @@ class Context {
     + is_recording_enabled(): bool
     + ...
 }
+note left of Context : A class that manages instances; Singleton.
 
-note left of HashableKeys : Tuple-like class that can calculate and compare hash values
 class HashableKeys<T1, T2, ...> {
     -- public --
     .. read only ..
@@ -33,8 +32,8 @@ class HashableKeys<T1, T2, ...> {
     - key: T1;
     - ...
 }
+note left of HashableKeys : Tuple-like class that can calculate and compare hash values
 
-note left of KeysSet : Class that stores HashableKeys as a set.
 class KeysSet<T> {
     -- public --
     + insert(value: T): void
@@ -42,10 +41,10 @@ class KeysSet<T> {
     + first(): T
     + ...
     -- private --
-    - keys_: set<HashbleKeys<T>>
+    - keys_: set<HashableKeys<T>>
 }
+note left of KeysSet : Class that stores HashableKeys as a set.
 
-note left of RecordableData : Data storage class that has a record function\nData are stored as pending during recording, and are merged after the record is completed. Thread safe.
 class RecordableData<KeyT> {
     -- public [writer lock] --
     + assign(function: FuncT): void
@@ -60,18 +59,18 @@ class RecordableData<KeyT> {
     - pending_set_ : KeysSet<KeyT>
     - set_ : KeysSet<KeyT>
 }
+note left of RecordableData : Data storage class that has a record function\nData are stored as pending during recording, and are merged after the record is completed. Thread safe.
 
-note left of LttngSession : Class for manipulating LTTng sessions.
 class LttngSession {
     + is_session_running(): bool
 }
+note left of LttngSession : Class for manipulating LTTng sessions.
 
-note left of Clock : Class for LTTng clock
 class Clock {
     + now(): int64_t
 }
+note left of Clock : Class for LTTng clock
 
-note left of TracingController : Class for tracepoint filtering.
 class TracingController {
     -- public [writer lock] --
     + add_node(address: void *): void
@@ -81,8 +80,8 @@ class TracingController {
     + is_allowed_node(address: void *) : bool
     + ...
 }
+note left of TracingController : Class for tracepoint filtering.
 
-note left of DataContainer : Class that stores RecordableData for all tracepoints.
 class DataContainer{
     -- public --
     + record(loop_count: uint64_t): bool
@@ -96,8 +95,8 @@ class DataContainer{
     - rcl_init_: shared_ptr<RecordableData>
     - ...
 }
+note left of DataContainer : Class that stores RecordableData for all tracepoints.
 
-note left of DataRecorder : Class for handling RecordableData for all trace points
 class DataRecorder {
     -- public --
     + start(): void
@@ -107,13 +106,14 @@ class DataRecorder {
     + finished(): bool
     + ...
 }
+note left of DataRecorder : Class for handling RecordableData for all trace points
 
-note left of TraceNode : Class for controlling recording state.
 class TraceNode {
     + start_callback(caret_msgs::Start)
     + end_callback(caret_msgs::End)
     + timer_callback()
 }
+note left of TraceNode : Class for controlling recording state.
 
 DataContainer "1" --> "1" DataRecorder : use
 DataRecorder "1" --> "0..*" RecordableData: use
@@ -133,7 +133,7 @@ KeysSet "1" o-- "0..*" HashableKeys
 
 ## Implementation of tracepoints with function hooking
 
-CARET adopts function hooking mainly for adding new trace points. On the other hand, existing tracepoints, which are built in ROS 2, are also re-defined by function hooking because CARET adds the function to manage tracepoint state.
+CARET adopts function hooking mainly for adding new trace points. On the other hand, existing tracepoints, which are built in ROS2, are also re-defined by function hooking because CARET adds the function to manage tracepoint state.
 
 Here is the pseudo code for hook functions.
 
