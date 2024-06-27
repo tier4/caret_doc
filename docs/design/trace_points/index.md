@@ -28,15 +28,15 @@ Each tracepoint for CARET is added by one of following methods.
 ![builtin_and_extended_tracepoints](../../imgs/builtin_and_extended_trace_points.drawio.png)
 
 - Built-in tracepoints
-  - tracepoints embedded in original ROS 2 middleware which are utilized by ros2-tracing
+  - tracepoints embedded in original ROS2 middleware which are utilized by ros2-tracing
   - some of tracepoints, for service, action and lifecycle node, are not utilized by current CARET
 - Hooked tracepoints
   - CARET-dedicated tracepoints introduced by function hooking with LD_PRELOAD
 - Extended tracepoints
   - CARET-dedicated tracepoints added to the fork of rclcpp
 
-CARET utilizes some of the tracepoints built-in original ROS 2.
-Some of the tracepoints are added by hooking with LD_PRELOAD, and rest tracepoints are added to the fork of ROS 2's rclcpp.
+CARET utilizes some of the tracepoints built-in original ROS2.
+Some of the tracepoints are added by hooking with LD_PRELOAD, and rest tracepoints are added to the fork of ROS2's rclcpp.
 
 <prettier-ignore-start>
 !!! info

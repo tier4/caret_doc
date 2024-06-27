@@ -7,7 +7,7 @@
     This premise section may be boring for some users. If you don't have much time, please feel free to skip the section.
 <prettier-ignore-end>
 
-In ROS 2, nodes communicate each other via topic messages. The topic messages are transmitted by publishers and received by subscriptions. The following figure shows the simplest example where one node sends topic message and the other node receives it.
+In ROS2, nodes communicate each other via topic messages. The topic messages are transmitted by publishers and received by subscriptions. The following figure shows the simplest example where one node sends topic message and the other node receives it.
 
 ![simple communication](./imgs/simple_communication.svg)
 
@@ -17,7 +17,7 @@ Topic messages have possibility to be lost in communication path as they are tra
 
 ## Many-to-many communication
 
-ROS 2 allows topic messages to be published from multiple nodes and to be received by multiple nodes. Topic messages who share a same topic are transmitted and received among many nodes as the following figure shows.
+ROS2 allows topic messages to be published from multiple nodes and to be received by multiple nodes. Topic messages who share a same topic are transmitted and received among many nodes as the following figure shows.
 
 ![many-to-many communication](./imgs/many_to_many_communication.svg)
 

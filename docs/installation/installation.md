@@ -12,7 +12,7 @@ CARET is confirmed to run on the platforms shown in the following table with sup
 | Linux Kernel       | 5.15.x            |
 | Python3            | 3.10.x            |
 
-The recent version, after v0.3.0, of CARET supports only the combination of ROS 2 Humble and Ubuntu 22.04.  
+The recent version, after v0.3.0, of CARET supports only the combination of ROS2 Humble and Ubuntu 22.04.  
 We have added an experimental implementation to work with iron.  
 To install for iron, open `for iron` in the Installation section below and follow the instructions.
 

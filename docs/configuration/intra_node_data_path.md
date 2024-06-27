@@ -116,7 +116,7 @@ CARET maps mechanically messages of `/pong` topic to messages of `/ping` which f
 `callback_chain` looks the best choice. However, it has several drawbacks.
 
 - It is not designed for node which have multiple callbacks running at parallel, and response time might be longer than actual
-- It is not able to detect actual time when buffered data are consumed because only CARET does not trace user code on ROS 2
+- It is not able to detect actual time when buffered data are consumed because only CARET does not trace user code on ROS2
 - Users are expected to know node structure beforehand
 
 <prettier-ignore-start>

@@ -7,7 +7,7 @@ See [Recording](../recording/index.md) to find more details.
 
 ## Building application with CARET
 
-To trace a target application, the target should be built with CARET/rclcpp. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again. For building the application with CARET/rclcpp, CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as shown below.
+To trace a target application, the target should be built with CARET/rclcpp. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again. For building the application with CARET/rclcpp, CARET's `local_setup.bash` should be applied along with ROS2's `setup.bash` as shown below.
 
 ```bash
 mkdir -p ~/ros2_ws/src
@@ -63,7 +63,7 @@ There is no need to run following command.
 ros2 caret check_caret_rclcpp ~/ros2_ws/
 ```
 
-CARET does not require a build using caret-rclcpp with ROS 2 Distributions after iron.
+CARET does not require a build using caret-rclcpp with ROS2 Distributions after iron.
 
 </details>
 

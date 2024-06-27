@@ -6,7 +6,7 @@ $$
 l_{node} = t_{transfer} - t_{receive}
 $$
 
-As transmission is replaced by publish and reception is subscription in the context of ROS 2, the equation is translated into the next one.
+As transmission is replaced by publish and reception is subscription in the context of ROS2, the equation is translated into the next one.
 
 $$
 l_{node} = t_{pub} - t_{sub}

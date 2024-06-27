@@ -92,6 +92,6 @@ ros2 caret check_ctf <path-to-trace-data>
 ### `Failed to find callback group`
 
 - Cause
-  - CARET failed to bind callback groups, callbacks and executors. It mainly because of ROS 2 "service". "Service" is not supported by CARET
+  - CARET failed to bind callback groups, callbacks and executors. It mainly because of ROS2 "service". "Service" is not supported by CARET
 - Solution
   - There is no solution at the moment. This warning can be ignored in most cases
