@@ -57,59 +57,59 @@ Below is a detailed sequence diagram of the SingleThreadedExecutor, from publish
 title: Definition of major tracepoints
 
 participant UserCode
-participant ROS 2
+participant "ROS 2" as ROS2
 participant DDS
 participant LTTng
 
 == Publisher Side ==
 
-activate ROS 2
+activate ROS2
 activate UserCode
-UserCode -> ROS 2: publish()
-activate ROS 2
-ROS 2 -> LTTng: sample rclcpp_publish \n sample rclcpp_intra_publish
+UserCode -> ROS2: publish()
+activate ROS2
+ROS2 -> LTTng: sample rclcpp_publish \n sample rclcpp_intra_publish
 
 
-ROS 2 -> DDS: dds_write()
-deactivate ROS 2
+ROS2 -> DDS: dds_write()
+deactivate ROS2
 activate DDS
 DDS -> LTTng: sample dds_write
 
-UserCode -> ROS 2 : callback_end
+UserCode -> ROS2 : callback_end
 deactivate UserCode
-deactivate ROS 2
+deactivate ROS2
 deactivate DDS
 
 
 == Subscription Side ==
 
-UserCode -> ROS 2 : spin()
+UserCode -> ROS2 : spin()
 activate DDS
-activate ROS 2
+activate ROS2
 
 loop
-    ROS 2 -> ROS 2 : wait until next event
-    activate ROS 2
-    DDS -> ROS 2: <notify> on_data_available
-    ROS 2 -> LTTng : sample on_data_available
-    deactivate ROS 2
+    ROS2 -> ROS2 : wait until next event
+    activate ROS2
+    DDS -> ROS2: <notify> on_data_available
+    ROS2 -> LTTng : sample on_data_available
+    deactivate ROS2
 
     deactivate DDS
-    ROS 2 -> DDS : reset ready-set, take messages
+    ROS2 -> DDS : reset ready-set, take messages
     activate DDS
-    DDS -> ROS 2
+    DDS -> ROS2
     deactivate DDS
 
     group execute timer callbacks
     end
 
     group execute subscription callbacks
-        ROS 2 -> LTTng: sample callback_start
-        ROS 2 -> UserCode: callback start
+        ROS2 -> LTTng: sample callback_start
+        ROS2 -> UserCode: callback start
         activate UserCode
-        UserCode -> ROS 2: callback end
+        UserCode -> ROS2: callback end
         deactivate UserCode
-        ROS 2 -> LTTng: sample callback_end
+        ROS2 -> LTTng: sample callback_end
     end
 
     group execute service callbacks
@@ -119,7 +119,7 @@ loop
     end
 end
 
-deactivate ROS 2
+deactivate ROS2
 @enduml
 ```
 
