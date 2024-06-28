@@ -57,7 +57,7 @@ Below is a detailed sequence diagram of the SingleThreadedExecutor, from publish
 title: Definition of major tracepoints
 
 participant UserCode
-participant "ROS2 " as ROS2
+participant "ROS 2" as ROS2
 participant DDS
 participant LTTng
 
