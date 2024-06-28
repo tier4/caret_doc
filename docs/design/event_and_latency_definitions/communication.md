@@ -88,7 +88,7 @@ A simplified sequence diagram focusing only on the relevant data flow is shown b
 title: Definition of major tracepoints
 
 participant UserCode
-participant ROS2
+participant "ROS2" as ROS2
 participant DDS
 participant LTTng
 
