@@ -8,7 +8,7 @@
 
 - **Update**: Remove the pull-request trigger in cppcheck-all-files workflow. ([caret_trace #294](https://github.com/tier4/caret_trace/pull/294))
 
-- **Update**: Explicitly include cstdint for gcc13. ([caret_trace #293](https://github.com/tier4/caret_trace/pull/293))
+- **Update**: Explicitly include some standard headers to support g++13. ([caret_trace #293](https://github.com/tier4/caret_trace/pull/293))
 
 - **Fix**: Fixed a PlantUML bug in documentation. ([caret_doc #348](https://github.com/tier4/caret_doc/pull/348))
 
