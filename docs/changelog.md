@@ -20,7 +20,6 @@
 
 - **Update**: Fixed to recognize callback groups that are not associated with the executor. ([caret_analyze #511](https://github.com/tier4/caret_analyze/pull/511))
 
-
 ### v0.5.7 <small>\_ Jun 24, 2024</small> {id = "0.5.7"}
 
 - **Update**: controlling the dds_bind_addr_to_stamp output of `generic_publish()`. ([caret_trace #288](https://github.com/tier4/caret_trace/pull/288))
