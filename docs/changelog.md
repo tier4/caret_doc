@@ -2,6 +2,24 @@
 
 ## CARET
 
+### v0.5.8 <small>\_ Jul 29, 2024</small> {id = "0.5.8"}
+
+- **New**: Add cppcheck to ci. At the same time, the correction of the indicated items in cppcheck is carried out. ([caret_trace #291](https://github.com/tier4/caret_trace/pull/291), [caret_analyze_cpp_impl #211](https://github.com/tier4/caret_analyze_cpp_impl/pull/211))
+
+- **Update**: Remove the pull-request trigger in cppcheck-all-files workflow. ([caret_trace #294](https://github.com/tier4/caret_trace/pull/294))
+
+- **Update**: Explicitly include some standard headers to support g++13. ([caret_trace #293](https://github.com/tier4/caret_trace/pull/293))
+
+- **Fix**: Fixed a PlantUML bug in documentation. ([caret_doc #348](https://github.com/tier4/caret_doc/pull/348))
+
+- **Update**: Reviewed import statements not at the beginning of caret_analyze. ([caret_analyze #510](https://github.com/tier4/caret_analyze/pull/510/))
+
+- **Update**: Added feature to verify trace points on dds layer. ([caret_analyze #514](https://github.com/tier4/caret_analyze/pull/514))
+
+- **Update**: Update docker image used for ci. ([caret_analyze #515](https://github.com/tier4/caret_analyze/pull/515), [ros2caret #194](https://github.com/tier4/ros2caret/pull/194))
+
+- **Update**: Fixed to recognize callback groups that are not associated with the executor. ([caret_analyze #511](https://github.com/tier4/caret_analyze/pull/511))
+
 ### v0.5.7 <small>\_ Jun 24, 2024</small> {id = "0.5.7"}
 
 - **Update**: controlling the dds_bind_addr_to_stamp output of `generic_publish()`. ([caret_trace #288](https://github.com/tier4/caret_trace/pull/288))
