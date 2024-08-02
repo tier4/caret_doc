@@ -25,6 +25,22 @@ ros2 caret check_caret_rclcpp <path-to-workspace>
       CARET CLI tool doesn't work properly in Anaconda environment. Please use pure Python.
 <prettier-ignore-end>
 
+### Import error caused by numpy2
+
+With the release of numpy2, the following warnings may occur depending on the environment.
+
+```
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.1 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+```
+
+To use caret, it is sufficient to update the following packages.
+- numexpr
+- bottleneck
+- matplotlib
+
 ## Recording
 
 ### LTTng session doesn't start after `ros2 caret record`
