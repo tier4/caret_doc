@@ -36,13 +36,7 @@ versions of NumPy, modules must be compiled with NumPy 2.0.
 Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
 ```
 
-To use caret, it is sufficient to update the following packages.
-
-- numexpr
-- bottleneck
-- matplotlib
-
-The following commands can be used to update the package.
+To use caret, it is sufficient to update packages `numexpr`, `bottleneck`, and `matplotlib`. The packages can be updated by the following command.
 
 ```
 pip3 install -U numexpr bottleneck matplotlib
