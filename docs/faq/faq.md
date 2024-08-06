@@ -37,6 +37,7 @@ Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
 ```
 
 To use caret, it is sufficient to update the following packages.
+
 - numexpr
 - bottleneck
 - matplotlib
