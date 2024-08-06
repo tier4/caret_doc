@@ -42,6 +42,12 @@ To use caret, it is sufficient to update the following packages.
 - bottleneck
 - matplotlib
 
+The following commands can be used to update the package.
+
+```
+pip3 install -U numexpr bottleneck matplotlib
+```
+
 ## Recording
 
 ### LTTng session doesn't start after `ros2 caret record`
