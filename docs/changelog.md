@@ -6,7 +6,7 @@
 
 - **Fix**: Temporarily limit mypy version for CI execution. ([caret_analyze #519](https://github.com/tier4/caret_analyze/pull/519))
 
-- **Update**: Supports the implementation that users explicitly take messages using `subscription->take`. This allows visualization of the message flow of the path containing the nodes implemented above. ([caret_analyze #516](https://github.com/tier4/caret_analyze/pull/516))
+- **Update**: Supports the implementation that users explicitly take messages using subscription->take. This allows visualization of the message flow of the path containing the nodes implemented above. ([caret_analyze #516](https://github.com/tier4/caret_analyze/pull/516))
 
 ### v0.5.8 <small>\_ Jul 29, 2024</small> {id = "0.5.8"}
 
