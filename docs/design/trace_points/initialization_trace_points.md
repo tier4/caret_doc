@@ -591,7 +591,6 @@ Sampled items
 - void \* client_handle
 - int64_t init_timestamp
 
-
 #### callback_group_to_executor_entity_collector
 
 Sampled items
@@ -612,5 +611,6 @@ Sampled items
 - int64_t init_timestamp
 
 hooked function:
+
 - `Executor::Executor(const std::shared_ptr<rclcpp::Context> & context)`
 - `Executor::Executor(const rclcpp::ExecutorOptions & options)`
