@@ -3076,13 +3076,14 @@ ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span
 <p><prettier-ignore-end></p>
 <h3 id="import-error-caused-by-numpy2">Import error caused by numpy2<a class="headerlink" href="#import-error-caused-by-numpy2" title="Permanent link">#</a></h3>
 <p>With the release of numpy2, the following warnings may occur depending on the environment.</p>
-<div class="highlight"><pre><span></span><code>A module that was compiled using NumPy 1.x cannot be run in
+<blockquote>
+<p>A module that was compiled using NumPy 1.x cannot be run in
 NumPy 2.0.1 as it may crash. To support both 1.x and 2.x
 versions of NumPy, modules must be compiled with NumPy 2.0.
-Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
-</code></pre></div>
-<p>To use caret, it is sufficient to update packages <code>numexpr</code>, <code>bottleneck</code>, and <code>matplotlib</code>. The packages can be updated by the following command.</p>
-<div class="highlight"><pre><span></span><code>pip3 install -U numexpr bottleneck matplotlib
+Some module may need to rebuild instead e.g. with 'pybind11&gt;=2.12'.</p>
+</blockquote>
+<p>To use caret, it is sufficient to update packages using numpy. The packages can be updated by the following command.</p>
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>numexpr<span class="w"> </span>bottleneck<span class="w"> </span>matplotlib
 </code></pre></div>
 <h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
 <h3 id="lttng-session-doesnt-start-after-ros2-caret-record"><abbr title="Linux Tracing Tool next generation">LTTng</abbr> session doesn't start after <code>ros2 caret record</code><a class="headerlink" href="#lttng-session-doesnt-start-after-ros2-caret-record" title="Permanent link">#</a></h3>
