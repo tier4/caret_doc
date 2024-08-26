@@ -8,7 +8,7 @@
 
 - **Fix**: Fixed the issue that many hover icons appear when displaying histograms. ([caret_analyze #522](https://github.com/tier4/caret_analyze/pull/522))
 
-- **Update**: Suppress warnings about bokeh version upgrades when drawing graphs. ([caret_analyze #520](https://github.com/tier4/caret_analyze/pull/520))
+- **Update**: Suppress warnings associated with using deprecated Bokeh properties. ([caret_analyze #520](https://github.com/tier4/caret_analyze/pull/520))
 
 ### v0.5.9 <small>\_ Aug 7, 2024</small> {id = "0.5.9"}
 
