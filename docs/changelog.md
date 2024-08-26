@@ -2,6 +2,14 @@
 
 ## CARET
 
+### v0.5.10 <small>\_ Aug 26, 2024</small> {id = "0.5.10"}
+
+- **Update**: Added description of problems with numpy v2 release. ([caret_doc #350](https://github.com/tier4/caret_doc/pull/350))
+
+- **Fix**: Fixed the issue that Many hover icons appear when displaying histograms. ([caret_analyze #522](https://github.com/tier4/caret_analyze/pull/522))
+
+- **Update**: Suppress warnings about bokeh version upgrades when drawing graphs. ([caret_analyze #520](https://github.com/tier4/caret_analyze/pull/520))
+
 ### v0.5.9 <small>\_ Aug 7, 2024</small> {id = "0.5.9"}
 
 - **Fix**: Temporarily limit mypy version for CI execution. ([caret_analyze #519](https://github.com/tier4/caret_analyze/pull/519))
