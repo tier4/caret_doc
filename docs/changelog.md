@@ -6,7 +6,7 @@
 
 - **Update**: Added description of problems with numpy v2 release. ([caret_doc #350](https://github.com/tier4/caret_doc/pull/350))
 
-- **Fix**: Fixed the issue that Many hover icons appear when displaying histograms. ([caret_analyze #522](https://github.com/tier4/caret_analyze/pull/522))
+- **Fix**: Fixed the issue that many hover icons appear when displaying histograms. ([caret_analyze #522](https://github.com/tier4/caret_analyze/pull/522))
 
 - **Update**: Suppress warnings about bokeh version upgrades when drawing graphs. ([caret_analyze #520](https://github.com/tier4/caret_analyze/pull/520))
 
