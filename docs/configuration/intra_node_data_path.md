@@ -279,7 +279,7 @@ When use_latest_message is specified and the subscription callback does not exis
 
 inter node:
 
-- The inter-node data path is mapped based on the matched source_timestamp from dds_bind_addr_to_stamp on the publisher side and the source_timestamp from rmw_take on the subscriber side.  Please refer to [Design section](../design/trace_points/runtime_trace_points.md) for an explanation of tracepoints.
+- The inter-node data path is mapped based on the matched source_timestamp from dds_bind_addr_to_stamp on the publisher side and the source_timestamp from rmw_take on the subscriber side. Please refer to [Design section](../design/trace_points/runtime_trace_points.md) for an explanation of tracepoints.
 - if `take() == false`(indicating that there are no new messages in the queue), the previous source timestamp is used.
 
 intra node:
