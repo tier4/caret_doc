@@ -264,3 +264,28 @@ arch.remove_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
 arch.remove_variable_passing('/pong_node', 'subscription_callback_0', 'timer_callback_1')
 arch.update_message_context('/pong_node', '/ping', '/pong', 'UNDEFINED')
 ```
+
+## Handling special cases
+
+### In case subscription callback does not exist
+
+In ROS2, it is possible to suppress calling subscription callback upon receiving a topic,
+and take a message using `Subscription->take()` method only when the message is needed.
+Refer to [the page](https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/topic-message-handling/#call-take-method-of-subscription-object) to understand the basic concept of the recommended manner.
+
+In CARET, only `use_latest_message` message context is supported for this case.
+
+When use_latest_message is specified and the subscription callback does not exist, the data path is defined as follows:
+
+inter node:
+
+- The inter-node data path is mapped based on the matched source_timestamp from dds_bind_addr_to_stamp on the publisher side and the source_timestamp from rmw_take on the subscriber side.  Please refer to [Design section](../design/trace_points/runtime_trace_points.md) for an explanation of tracepoints.
+- if `take() == false`(indicating that there are no new messages in the queue), the previous source timestamp is used.
+
+intra node:
+
+- Link `source_timestamp` of the input message with `rclcpp_publish` that is closest to the system time on the output_message side.
+
+The following timing chart shows how input messages are mapped to output messages.
+
+![Timing chart for using `Subscription->take()` case](../imgs/timing_chart_take_impl_case.png)
