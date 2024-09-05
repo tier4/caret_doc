@@ -1057,8 +1057,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#in-case-subscription-callback-does-not-exist" class="md-nav__link">
-    In case subscription callback does not exist
+  <a href="#call-take-method-of-subscription-object" class="md-nav__link">
+    Call take() method of Subscription object
   </a>
   
 </li>
@@ -2895,8 +2895,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#in-case-subscription-callback-does-not-exist" class="md-nav__link">
-    In case subscription callback does not exist
+  <a href="#call-take-method-of-subscription-object" class="md-nav__link">
+    Call take() method of Subscription object
   </a>
   
 </li>
@@ -3142,20 +3142,20 @@ The edited architecture file is output by <code>arch.export()</code> function.</
 <span class="n">arch</span><span class="o">.</span><span class="n">update_message_context</span><span class="p">(</span><span class="s1">&#39;/pong_node&#39;</span><span class="p">,</span> <span class="s1">&#39;/ping&#39;</span><span class="p">,</span> <span class="s1">&#39;/pong&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDEFINED&#39;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="handling-special-cases">Handling special cases<a class="headerlink" href="#handling-special-cases" title="Permanent link">#</a></h2>
-<h3 id="in-case-subscription-callback-does-not-exist">In case subscription callback does not exist<a class="headerlink" href="#in-case-subscription-callback-does-not-exist" title="Permanent link">#</a></h3>
+<h3 id="call-take-method-of-subscription-object">Call <code>take()</code> method of Subscription object<a class="headerlink" href="#call-take-method-of-subscription-object" title="Permanent link">#</a></h3>
 <p>In ROS2, it is possible to suppress calling subscription callback upon receiving a topic,
-and take a message using <code>Subscription-&gt;take()</code> method only when the message is needed.
+and take a message using <code>take()</code> method of Subscription object only when the message is needed.
 Refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/topic-message-handling/#call-take-method-of-subscription-object">the page</a> to understand the basic concept of the recommended manner.</p>
-<p>In <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, only <code>use_latest_message</code> message context is supported for this case.</p>
-<p>When use_latest_message is specified and the subscription callback does not exist, the data path is defined as follows:</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides the method of analyzing this case with <code>message_context = use_latest_message</code>.</p>
+<p>When message_context is specified in <code>use_latest_message</code> and the subscription callback does not running, the data path is defined as follows:</p>
 <p>inter node:</p>
 <ul>
-<li>The inter-node data path is mapped based on the matched source_timestamp from dds_bind_addr_to_stamp on the publisher side and the source_timestamp from rmw_take on the subscriber side. Please refer to <a href="../../design/trace_points/runtime_trace_points/">Design section</a> for an explanation of tracepoints.</li>
-<li>if <code>take() == false</code>(indicating that there are no new messages in the queue), the previous source timestamp is used.</li>
+<li>The inter-node data path is mapped based on the <code>source_timestamp</code> which must match between the publisher and the subscriber.</li>
+<li>if <code>take() == false</code>(indicating that there are no new messages in the queue), the latest source timestamp is used.</li>
 </ul>
 <p>intra node:</p>
 <ul>
-<li>Link <code>source_timestamp</code> of the input message with <code>rclcpp_publish</code> that is closest to the system time on the output_message side.</li>
+<li>Link the <code>source_timestamp</code> of the input message to the <code>rclcpp_publish</code> closest to the system time of the output message.</li>
 </ul>
 <p>The following timing chart shows how input messages are mapped to output messages.</p>
 <p><img alt="Timing chart for using Subscription-&gt;take() case" src="../../imgs/timing_chart_take_impl_case.png" /></p>
