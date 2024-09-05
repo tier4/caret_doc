@@ -267,24 +267,24 @@ arch.update_message_context('/pong_node', '/ping', '/pong', 'UNDEFINED')
 
 ## Handling special cases
 
-### In case subscription callback does not exist
+### Call `take()` method of Subscription object
 
 In ROS2, it is possible to suppress calling subscription callback upon receiving a topic,
-and take a message using `Subscription->take()` method only when the message is needed.
+and take a message using `take()` method of Subscription object only when the message is needed.
 Refer to [the page](https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/topic-message-handling/#call-take-method-of-subscription-object) to understand the basic concept of the recommended manner.
 
-In CARET, only `use_latest_message` message context is supported for this case.
+CARET provides the method of analyzing this case with `message_context = use_latest_message`.
 
-When use_latest_message is specified and the subscription callback does not exist, the data path is defined as follows:
+When message_context is specified in `use_latest_message` and the subscription callback does not running, the data path is defined as follows:
 
 inter node:
 
-- The inter-node data path is mapped based on the matched source_timestamp from dds_bind_addr_to_stamp on the publisher side and the source_timestamp from rmw_take on the subscriber side. Please refer to [Design section](../design/trace_points/runtime_trace_points.md) for an explanation of tracepoints.
-- if `take() == false`(indicating that there are no new messages in the queue), the previous source timestamp is used.
+- The inter-node data path is mapped based on the `source_timestamp` which must match between the publisher and the subscriber.
+- if `take() == false`(indicating that there are no new messages in the queue), the latest source timestamp is used.
 
 intra node:
 
-- Link `source_timestamp` of the input message with `rclcpp_publish` that is closest to the system time on the output_message side.
+- Link the `source_timestamp` of the input message to the `rclcpp_publish` closest to the system time of the output message.
 
 The following timing chart shows how input messages are mapped to output messages.
 
