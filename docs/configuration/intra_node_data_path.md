@@ -269,7 +269,7 @@ arch.update_message_context('/pong_node', '/ping', '/pong', 'UNDEFINED')
 
 ### Call `take()` method of Subscription object
 
-In ROS2, it is possible to suppress calling subscription callback upon receiving a topic,
+In ROS 2, it is possible to suppress calling subscription callback upon receiving a topic,
 and take a message using `take()` method of Subscription object only when the message is needed.
 Refer to [the page](https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/topic-message-handling/#call-take-method-of-subscription-object) to understand the basic concept of the recommended manner.
 
