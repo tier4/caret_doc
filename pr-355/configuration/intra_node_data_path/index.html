@@ -3146,7 +3146,7 @@ The edited architecture file is output by <code>arch.export()</code> function.</
 <p>In <abbr title="Robot Operating System">ROS</abbr> 2, it is possible to suppress calling subscription callback upon receiving a topic,
 and take a message using <code>take()</code> method of Subscription object only when the message is needed.
 Refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/topic-message-handling/#call-take-method-of-subscription-object">the page</a> to understand the basic concept of the recommended manner.</p>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides the method of analyzing this case with <code>message_context = use_latest_message</code>.</p>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides the method to analyze this case with <code>message_context = use_latest_message</code>.</p>
 <p>When message_context is specified in <code>use_latest_message</code> and the subscription callback does not running, the data path is defined as follows:</p>
 <p>inter node:</p>
 <ul>
