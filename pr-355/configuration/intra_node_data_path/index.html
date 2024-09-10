@@ -3143,8 +3143,8 @@ The edited architecture file is output by <code>arch.export()</code> function.</
 </code></pre></div>
 <h2 id="handling-special-cases">Handling special cases<a class="headerlink" href="#handling-special-cases" title="Permanent link">#</a></h2>
 <h3 id="call-take-method-of-subscription-object">Call <code>take()</code> method of <code>Subscription</code> object<a class="headerlink" href="#call-take-method-of-subscription-object" title="Permanent link">#</a></h3>
-<p>In <abbr title="Robot Operating System">ROS</abbr> 2, it is possible to suppress calling subscription callback upon receiving a topic,
-and take a message using <code>take()</code> method of <code>Subscription</code> object only when the message is needed.
+<p>In <abbr title="Robot Operating System">ROS</abbr> 2 it is possible to suppress the invocation of subscription callbacks when receiving a topic.
+If the callback is not executed, the user can still receive the message using the <code>take()</code> method of the <code>Subscription</code> object.
 Refer to <a href="https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/topic-message-handling/#call-take-method-of-subscription-object">the page</a> to understand the basic concept of the recommended manner.</p>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides the method to analyze this case with <code>message_context = use_latest_message</code>.</p>
 <p>When message_context is specified in <code>use_latest_message</code> and the subscription callback does not running, the data path is defined as follows:</p>
