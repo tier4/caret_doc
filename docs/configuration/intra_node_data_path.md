@@ -273,7 +273,7 @@ In ROS 2, it is possible to suppress calling subscription callback upon receivin
 and take a message using `take()` method of Subscription object only when the message is needed.
 Refer to [the page](https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/topic-message-handling/#call-take-method-of-subscription-object) to understand the basic concept of the recommended manner.
 
-CARET provides the method of analyzing this case with `message_context = use_latest_message`.
+CARET provides the method to analyze this case with `message_context = use_latest_message`.
 
 When message_context is specified in `use_latest_message` and the subscription callback does not running, the data path is defined as follows:
 
