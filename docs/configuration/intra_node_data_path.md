@@ -279,7 +279,7 @@ When message_context is specified in `use_latest_message` and the subscription c
 
 inter node:
 
-- The inter-node data path is mapped based on the `source_timestamp` which must match between the publisher and the subscriber.
+- The inter-node data path is mapped based on the `source_timestamp`, which must match between the publisher side and the subscriber side.
 - if `take() == false`(indicating that there are no new messages in the queue), the latest source timestamp is used.
 
 intra node:
