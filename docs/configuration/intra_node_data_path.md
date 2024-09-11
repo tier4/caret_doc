@@ -264,3 +264,28 @@ arch.remove_publisher_callback('/pong_node', '/pong', 'timer_callback_1')
 arch.remove_variable_passing('/pong_node', 'subscription_callback_0', 'timer_callback_1')
 arch.update_message_context('/pong_node', '/ping', '/pong', 'UNDEFINED')
 ```
+
+## Handling special cases
+
+### Call `take()` method of `Subscription` object
+
+In ROS 2, it is possible to suppress calling subscription callback when receiving a topic.
+And even if the callback is not executed, the user can still receive the message using the `take()` method of the `Subscription` object.
+Refer to [the page](https://autowarefoundation.github.io/autoware-documentation/main/contributing/coding-guidelines/ros-nodes/topic-message-handling/#call-take-method-of-subscription-object) to understand the basic concept of the recommended manner.
+
+CARET provides the method to analyze this case with `message_context = use_latest_message`.
+
+When message_context is specified in `use_latest_message` and the subscription callback does not running, the data path is defined as follows:
+
+inter node:
+
+- The inter-node data path is mapped based on the `source_timestamp`, which must match between the publisher side and the subscriber side.
+- if `take() == false`(e.g. there are no new messages in the queue), the latest source timestamp is used.
+
+intra node:
+
+- Link the `source_timestamp` of the input message to the `rclcpp_publish` latest to the system time of the output message.
+
+The following timing chart shows how input messages are mapped to output messages.
+
+![Timing chart for using `Subscription->take()` case](../imgs/timing_chart_take_impl_case.png)
