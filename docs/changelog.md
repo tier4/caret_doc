@@ -4,21 +4,21 @@
 
 ### v0.5.11 <small>\_ Sep 30, 2024</small> {id = "0.5.11"}
 
-- **Update**: Fixed a probelm where a warning was incorrectly displayed when the maximum number of legends was not exceeded. ([caret_analyze #523](https://github.com/tier4/caret_analyze/pull/523))
+- **Update**: Fixed a problem where a warning was incorrectly displayed when the maximum number of legends was not exceeded. ([caret_analyze #523](https://github.com/tier4/caret_analyze/pull/523))
 
 - **Update**: Fixed mypy1.11 error untyped-overrides. ([caret_analyze #527](https://github.com/tier4/caret_analyze/pull/527))
 
-- **Update**: Fixed stackedbar when time reversal occurs. ([caret_analyze #517](https://github.com/tier4/caret_analyze/pull/517))
+- **Update**: Fixed stacked bar graph when time reversal occurs. ([caret_analyze #517](https://github.com/tier4/caret_analyze/pull/517))
 
 - **Update**: Fixed type_check_decorator. ([caret_analyze #513](https://github.com/tier4/caret_analyze/pull/513))
 
-- **Update**: Refactoring of AssignContextReader class. ([caret_analyze #532](https://github.com/tier4/caret_analyze/pull/532))
+- **Update**: Delete the AssignContextReader class and change the implementation to be more in line with the actual situation. ([caret_analyze #532](https://github.com/tier4/caret_analyze/pull/532))
 
-- **Update**: refactoring for the case of merging with source timestamp. ([caret_analyze #526](https://github.com/tier4/caret_analyze/pull/526))
+- **Update**: Refactoring and bug fixes for [#516](https://github.com/tier4/caret_analyze/pull/516). ([caret_analyze #526](https://github.com/tier4/caret_analyze/pull/526))
 
 - **Update**: Fix docstring of RecordsCppImpl and TracePointData. ([caret_analyze #528](https://github.com/tier4/caret_analyze/pull/528))
 
-- **Update**: Fixed the issue where typeguard 2.2.2 is installed. ([caret_analyze #529](https://github.com/tier4/caret_analyze/pull/529))
+- **Update**: Fixed the issue where version 2.2.2 of the type-checking library was installed. ([caret_analyze #529](https://github.com/tier4/caret_analyze/pull/529))
 
 - **Update**: Fixed deploy docs has error because installed griffe>=1.0.0. ([caret_analyze #531](https://github.com/tier4/caret_analyze/pull/531))
 
