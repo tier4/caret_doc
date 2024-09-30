@@ -2,6 +2,26 @@
 
 ## CARET
 
+### v0.5.11 <small>\_ Sep 30, 2024</small> {id = "0.5.11"}
+
+- **Update**: Fixed a problem where only one legend is displayed even if the maximum number of legends is exceeded. ([caret_analyze #523](https://github.com/tier4/caret_analyze/pull/523))
+
+- **Update**: Fixed mypy1.11 error untyped-overrides. ([caret_analyze #527](https://github.com/tier4/caret_analyze/pull/527))
+
+- **Update**: Fixed stackedbar when time reversal occurs. ([caret_analyze #517](https://github.com/tier4/caret_analyze/pull/517))
+
+- **Update**: Fixed type_check_decorator. ([caret_analyze #513](https://github.com/tier4/caret_analyze/pull/513))
+
+- **Update**: Refactoring of AssignContextReader class. ([caret_analyze #532](https://github.com/tier4/caret_analyze/pull/532))
+
+- **Update**: refactoring for the case of merging with source timestamp. ([caret_analyze #526](https://github.com/tier4/caret_analyze/pull/526))
+
+- **Update**: Fix docstring of RecordsCppImpl and TracePointData. ([caret_analyze #528](https://github.com/tier4/caret_analyze/pull/528))
+
+- **Update**: Fixed the issue where typeguard 2.2.2 is installed. ([caret_analyze #529](https://github.com/tier4/caret_analyze/pull/529))
+
+- **Update**: Fixed deploy docs has error because installed griffe>=1.0.0. ([caret_analyze #531](https://github.com/tier4/caret_analyze/pull/531))
+
 ### v0.5.10 <small>\_ Aug 26, 2024</small> {id = "0.5.10"}
 
 - **Update**: Added description of problems with numpy v2 release. ([caret_doc #350](https://github.com/tier4/caret_doc/pull/350))
