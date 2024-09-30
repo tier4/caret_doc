@@ -4,7 +4,7 @@
 
 ### v0.5.11 <small>\_ Sep 30, 2024</small> {id = "0.5.11"}
 
-- **Update**: Fixed a problem where a warning was incorrectly displayed when the maximum number of legends was not exceeded. ([caret_analyze #523](https://github.com/tier4/caret_analyze/pull/523))
+- **Fix**: Fixed a problem where a warning was incorrectly displayed when the maximum number of legends was not exceeded. ([caret_analyze #523](https://github.com/tier4/caret_analyze/pull/523))
 
 - **Update**: Fixed mypy1.11 error untyped-overrides. ([caret_analyze #527](https://github.com/tier4/caret_analyze/pull/527))
 
