@@ -2,6 +2,10 @@
 
 ## CARET
 
+### v0.5.12 <small>\_ Oct 09, 2024</small> {id = "0.5.12"}
+
+- **Fix**: Analysis of caret_report with sim_time enabled may fail when analyzing caret measurement data with sim_time enabled. ([caret_analyze #536](https://github.com/tier4/caret_analyze/pull/536))
+
 ### v0.5.11 <small>\_ Sep 30, 2024</small> {id = "0.5.11"}
 
 - **Fix**: Fixed a problem where a warning was incorrectly displayed when the maximum number of legends was not exceeded. ([caret_analyze #523](https://github.com/tier4/caret_analyze/pull/523))
