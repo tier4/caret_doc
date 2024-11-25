@@ -18,7 +18,7 @@
 
 - **Update**: In the caret setup, modify the python module to be installed with user privileges. ([caret #206](https://github.com/tier4/caret/pull/206))
 
-- **Update**: Increase the version of ansible to ��6\*�� to match autoware. ([caret #207](https://github.com/tier4/caret/pull/207))
+- **Update**: Increase the version of ansible to "6*" to match autoware. ([caret #207](https://github.com/tier4/caret/pull/207))
 
 - **Update**: Add warning indicating sim_time reversal detection. ([caret_trace #307](https://github.com/tier4/caret_trace/pull/307))
 
