@@ -14,18 +14,17 @@
 
 - **Update**: revert setuptools version. ([caret_analyze #540](https://github.com/tier4/caret_analyze/pull/540))
 
-- **Update**: Exclude ¡Èstruct/__init__.py¡É from test_frake8.py. ([caret_analyze #541](https://github.com/tier4/caret_analyze/pull/541))
+- **Update**: Exclude ï¿½ï¿½struct/**init**.pyï¿½ï¿½ from test_frake8.py. ([caret_analyze #541](https://github.com/tier4/caret_analyze/pull/541))
 
 - **Fix**: Add retry for init LTTng. ([ros2caret #200](https://github.com/tier4/ros2caret/pull/200))
 
 - **Update**: In the caret setup, modify the python module to be installed with user privileges. ([caret #206](https://github.com/tier4/caret/pull/206))
 
-- **Update**: Increase the version of ansible to ¡È6*¡É to match autoware. ([caret #207](https://github.com/tier4/caret/pull/207))
+- **Update**: Increase the version of ansible to ï¿½ï¿½6\*ï¿½ï¿½ to match autoware. ([caret #207](https://github.com/tier4/caret/pull/207))
 
 - **Update**: Add warning indicating sim_time reversal detection. ([caret_trace #307](https://github.com/tier4/caret_trace/pull/307))
 
 - **Fix**: Use default value if no key is registered in event_counter.py. ([caret_analyze #543](https://github.com/tier4/caret_analyze/pull/543))
-
 
 ### v0.5.12 <small>\_ Oct 09, 2024</small> {id = "0.5.12"}
 
