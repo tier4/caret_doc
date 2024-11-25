@@ -4,9 +4,7 @@
 
 ### v0.5.13 <small>\_ Nov 25, 2024</small> {id = "0.5.13"}
 
-- **Update**: Update symc files. ([caret_trace #303](https://github.com/tier4/caret_trace/pull/303))
-
-- **Update**: Update symc files. ([caret_trace #305](https://github.com/tier4/caret_trace/pull/305))
+- **Update**: Update sync-files. ([caret_trace #303](https://github.com/tier4/caret_trace/pull/303), [caret_trace #305](https://github.com/tier4/caret_trace/pull/305))
 
 - **Update**: Setuptools version specification. ([caret_analyze #534](https://github.com/tier4/caret_analyze/pull/534))
 
