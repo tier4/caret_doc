@@ -22,7 +22,7 @@
 
 - **Update**: Add warning indicating sim_time reversal detection. ([caret_trace #307](https://github.com/tier4/caret_trace/pull/307))
 
-- **Fix**: Use default value if no key is registered in event_counter.py. ([caret_analyze #543](https://github.com/tier4/caret_analyze/pull/543))
+- **Fix**: Use default value if the key is not registered in `event_counter.py`. ([caret_analyze #543](https://github.com/tier4/caret_analyze/pull/543))
 
 ### v0.5.12 <small>\_ Oct 09, 2024</small> {id = "0.5.12"}
 
