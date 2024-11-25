@@ -12,7 +12,7 @@
 
 - **Update**: revert setuptools version. ([caret_analyze #540](https://github.com/tier4/caret_analyze/pull/540))
 
-- **Update**: Exclude "struct/**init**.py" from test_flake8.py. ([caret_analyze #541](https://github.com/tier4/caret_analyze/pull/541))
+- **Update**: Exclude "struct/\_\_init\_\_.py" from test_flake8.py. ([caret_analyze #541](https://github.com/tier4/caret_analyze/pull/541))
 
 - **Fix**: Add retry for init LTTng. ([ros2caret #200](https://github.com/tier4/ros2caret/pull/200))
 
