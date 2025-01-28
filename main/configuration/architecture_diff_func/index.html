@@ -2781,7 +2781,7 @@
 <p>The <code>diff</code> function can be used to find the difference between two architecture objects. Specifically, the <code>diff</code> functions can find data that exist only in one of the architectures, such as node, published topics, subscribed topics, and etc.
 There are several <code>diff</code> functions, which can be divided into functions that compare the entire architecture and functions that compare nodes within the architecture.</p>
 <p>The <code>diff</code> function is explained in the following sections. Before using the <code>diff</code> functions, the two architecture objects are loaded onto memory beforehand, as shown in the following script.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">caret_analyze</span><span class="w"> </span><span class="kn">import</span> <span class="n">Architecture</span>
 <span class="n">left_arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;old_architecture.yaml&#39;</span><span class="p">)</span>
 <span class="n">right_arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;new_architecture.yaml&#39;</span><span class="p">)</span>
 </code></pre></div>
