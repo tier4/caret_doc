@@ -1,6 +1,7 @@
 # Changelog
 
 ## CARET
+
 ### v0.5.13 <small>\_ Nov 25, 2024</small> {id = "0.5.13"}
 
 - **Update**: Fixes to leave the existing values in the set part of LD_PRELOAD. ([caret #208](https://github.com/tier4/caret/pull/208), [caret #208](https://github.com/tier4/caret/pull/208))
