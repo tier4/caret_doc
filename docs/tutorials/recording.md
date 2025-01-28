@@ -22,7 +22,9 @@ colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD
 ```
 
 <details>
-<summary>for iron</summary>
+<summary>for after iron</summary>
+
+Substitute an appropriate value for "distribution" and run the following command.
 
 ```bash
 mkdir -p ~/ros2_ws/src
@@ -30,7 +32,7 @@ cd ~/ros2_ws
 
 git clone https://github.com/tier4/CARET_demos.git src/CARET_demos
 
-source /opt/ros/iron/setup.bash
+source /opt/ros/<distribution>/setup.bash
 
 colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
 ```
@@ -55,7 +57,7 @@ WARNING : 2022-06-12 12:25:26 | The following packages have not been built using
 ```
 
 <details>
-<summary>for iron</summary>
+<summary>for after iron</summary>
 
 There is no need to run following command.
 
@@ -91,11 +93,13 @@ ros2 launch caret_demos end_to_end_sample.launch.py
 ```
 
 <details>
-<summary>for iron</summary>
+<summary>for after iron</summary>
+
+Substitute an appropriate value for "distribution" and run the following command.
 
 ```bash
 # Environment settings (keep the order as below)
-source /opt/ros/iron/setup.bash
+source /opt/ros/<distribution>/setup.bash
 source ~/ros2_caret_ws/install/local_setup.bash
 source ~/ros2_ws/install/local_setup.bash
 
@@ -132,10 +136,12 @@ ros2 caret record -s e2e_sample
 ```
 
 <details>
-<summary>for iron</summary>
+<summary>for after iron</summary>
+
+Substitute an appropriate value for "distribution" and run the following command.
 
 ```bash
-source /opt/ros/iron/setup.bash
+source /opt/ros/<distribution>/setup.bash
 source ~/ros2_caret_ws/install/local_setup.bash
 
 # set a destination directory. ~/.ros/tracing is default.
