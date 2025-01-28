@@ -6,7 +6,7 @@
 
 - **Update**: Fixes to leave the existing values in the set part of LD_PRELOAD. ([caret #208](https://github.com/tier4/caret/pull/208), [caret #208](https://github.com/tier4/caret/pull/208))
 
-- **Fix**: Fixed a dispatch bug for RecordInterface.append() when using multihost>2.0.0. ([caret_analyze #546](https://github.com/tier4/caret_analyze/pull/546), [caret_analyze #546](https://github.com/tier4/caret_analyze/pull/546))
+- **Fix**: Fixed a dispatch bug for RecordInterface.append() when using multimethod >= 2.0.0. ([caret_analyze #546](https://github.com/tier4/caret_analyze/pull/546))
 
 - **Fix**: Fixed merge method for nodes that get messages by take() on user code. ([caret_analyze #545](https://github.com/tier4/caret_analyze/pull/545), [caret_analyze #545](https://github.com/tier4/caret_analyze/pull/545))
 
