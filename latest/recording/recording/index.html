@@ -2828,11 +2828,11 @@ ros2<span class="w"> </span>caret<span class="w"> </span>record<span class="w"> 
 <li>
 <p>Create a launch file for a target application in <abbr title="Robot Operating System">ROS</abbr> general manner if you haven't made it</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch/end_to_end_sample.launch.py</span>
-<span class="kn">import</span> <span class="nn">launch</span>
-<span class="kn">import</span> <span class="nn">launch_ros.actions</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">launch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">launch_ros.actions</span>
 
 
-<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">launch</span><span class="o">.</span><span class="n">LaunchDescription</span><span class="p">([</span>
         <span class="n">launch_ros</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span>
             <span class="n">package</span><span class="o">=</span><span class="s1">&#39;caret_demos&#39;</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;end_to_end_sample&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span><span class="p">),</span>
@@ -2842,12 +2842,12 @@ ros2<span class="w"> </span>caret<span class="w"> </span>record<span class="w"> 
 <li>
 <p>Add description to start a <abbr title="Linux Tracing Tool next generation">LTTng</abbr> session</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch/end_to_end_sample_with_lttng_session.launch.py</span>
-<span class="kn">import</span> <span class="nn">launch</span>
-<span class="kn">import</span> <span class="nn">launch_ros.actions</span>
-<span class="kn">from</span> <span class="nn">tracetools_launch.action</span> <span class="kn">import</span> <span class="n">Trace</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">launch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">launch_ros.actions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tracetools_launch.action</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trace</span>
 
 
-<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">launch</span><span class="o">.</span><span class="n">LaunchDescription</span><span class="p">([</span>
         <span class="n">Trace</span><span class="p">(</span>
             <span class="n">session_name</span><span class="o">=</span><span class="s1">&#39;e2e_sample&#39;</span><span class="p">,</span>
@@ -2892,16 +2892,16 @@ ros2<span class="w"> </span>launch<span class="w"> </span>caret_demos<span class
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># launch/end_to_end_sample_with_lttng_session.launch.py</span>
-<span class="kn">import</span> <span class="nn">launch</span>
-<span class="kn">import</span> <span class="nn">launch_ros.actions</span>
-<span class="kn">from</span> <span class="nn">tracetools_launch.action</span> <span class="kn">import</span> <span class="n">Trace</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">launch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">launch_ros.actions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tracetools_launch.action</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trace</span>
 
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">from</span> <span class="nn">distutils.util</span> <span class="kn">import</span> <span class="n">strtobool</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">distutils.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">strtobool</span>
 
 
-<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
   <span class="n">caret_session</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
   <span class="n">caret_event</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ros2*&quot;</span><span class="p">]</span>
   <span class="n">caret_light</span> <span class="o">=</span> <span class="kc">True</span>

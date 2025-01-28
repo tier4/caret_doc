@@ -2757,7 +2757,7 @@
 </ul>
 <h2 id="sample-code">Sample code<a class="headerlink" href="#sample-code" title="Permanent link">#</a></h2>
 <p>A sample code, where <code>duration_filter</code> is used, is given as below.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">caret_analyze</span><span class="w"> </span><span class="kn">import</span> <span class="n">Lttng</span><span class="p">,</span> <span class="n">LttngEventFilter</span>
 
 <span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;/path/to/ctf&#39;</span><span class="p">,</span> <span class="n">event_filters</span><span class="o">=</span><span class="p">[</span>
   <span class="n">LttngEventFilter</span><span class="o">.</span><span class="n">duration_filter</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>

@@ -2725,14 +2725,14 @@ jupyter-lab
 </code></pre></div>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> uses <a href="https://bokeh.org/"><code>bokeh</code></a> for some visualization APIs.
  Execute the following code for loading <code>bokeh</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">output_notebook</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">output_notebook</span>
 <span class="n">output_notebook</span><span class="p">()</span>
 </code></pre></div>
 </li>
 <li>
 <p>Loading trace data onto Jupyter notebook</p>
 <p>Locate trace data on Jupyter notebook as well as the architecture file.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">caret_analyze</span><span class="w"> </span><span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
 
 <span class="c1"># load the architecture file which is created in the previous page</span>
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;./architecture.yaml&#39;</span><span class="p">)</span>
@@ -2769,7 +2769,7 @@ jupyter-lab
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> provides some APIs to visualize measured data.
 With message flow, which is one of effective visualizations, users can understand what happens and where is bottleneck in target applications.
 Execute the following code for visualization with message flow.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">caret_analyze.plot</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plot</span>
 
 <span class="n">target_path</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">Plot</span><span class="o">.</span><span class="n">create_message_flow_plot</span><span class="p">(</span><span class="n">target_path</span><span class="p">)</span>

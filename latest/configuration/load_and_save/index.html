@@ -2784,7 +2784,7 @@
 <p>All of the following code snippets can be executed after load environment variables with <code>source /path/to/ros2_caret_ws/install/setup.bash</code>.</p>
 <h3 id="load-from-a-set-of-ctf-based-recorded-data">Load from a set of <abbr title="Common Trace Format">CTF</abbr>-based recorded data<a class="headerlink" href="#load-from-a-set-of-ctf-based-recorded-data" title="Permanent link">#</a></h3>
 <p>You can load an architecture object with <code>Architecture</code> constructor.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">caret_analyze</span><span class="w"> </span><span class="kn">import</span> <span class="n">Architecture</span>
 
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/ctf-based_recorded_data&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -2795,7 +2795,7 @@
 <p>Loading an architecture object from <abbr title="Common Trace Format">CTF</abbr>-based recorded data tends to be time-consuming task.</p>
 <h3 id="load-from-a-yaml-based-architecture-file">Load from a YAML-based architecture file<a class="headerlink" href="#load-from-a-yaml-based-architecture-file" title="Permanent link">#</a></h3>
 <p>As I mentioned, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> serves a function to stored an architecture object into YAML-based architecture file for reusability. It can save loading time and preserve update of the object. You can load it from YAML-based file with only replacing '<code>lttng</code>' of the first argument of <code>Architecture</code> constructor by '<code>yaml</code>'.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">caret_analyze</span><span class="w"> </span><span class="kn">import</span> <span class="n">Architecture</span>
 
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/architecture.yaml&#39;</span><span class="p">)</span>
 </code></pre></div>

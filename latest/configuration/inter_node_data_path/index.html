@@ -2859,7 +2859,7 @@ The list size will be too large to find target path if application has large num
 <p>As node filter is similar to communication filter, they are explained together in this section.</p>
 <p>With node filter and communication filter, <code>Architecture.search_paths()</code> excludes paths which includes selected nodes or topics. They support regular expression.</p>
 <p>The following sample code shows usage.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 <span class="c1"># name list of nodes to be excluded</span>
 <span class="n">node_filters</span> <span class="o">=</span> <span class="p">[</span>
@@ -2871,13 +2871,13 @@ The list size will be too large to find target path if application has large num
 <span class="n">comm_filters</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/tf/*&#39;</span><span class="p">),</span>
 <span class="p">]</span>
-<span class="k">def</span> <span class="nf">comm_filter</span><span class="p">(</span><span class="n">topic_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">comm_filter</span><span class="p">(</span><span class="n">topic_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">for</span> <span class="n">comm_filter</span> <span class="ow">in</span> <span class="n">comm_filters</span><span class="p">:</span>
         <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">comm_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">topic_name</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">can_pass</span>
 
-<span class="k">def</span> <span class="nf">node_filter</span><span class="p">(</span><span class="n">node_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">node_filter</span><span class="p">(</span><span class="n">node_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="n">can_pass</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">for</span> <span class="n">node_filter</span> <span class="ow">in</span> <span class="n">node_filters</span><span class="p">:</span>
         <span class="n">can_pass</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node_filter</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">node_name</span><span class="p">))</span>

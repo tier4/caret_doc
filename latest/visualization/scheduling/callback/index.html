@@ -2640,8 +2640,8 @@
 <p>The function <code>Plot.create_callback_scheduling_plot()</code> visualizes the callback scheduling of targets, such as Node, Path, Executor, and Callbackgroup.
 This section describes sample visualization scripts for them.
 Execute the following script code to load trace data and an architecture object before calling this method.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">caret_analyze</span> <span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
-<span class="kn">from</span> <span class="nn">caret_analyze.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">caret_analyze</span><span class="w"> </span><span class="kn">import</span> <span class="n">Architecture</span><span class="p">,</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Lttng</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">caret_analyze.plot</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plot</span>
 
 <span class="n">arch</span> <span class="o">=</span> <span class="n">Architecture</span><span class="p">(</span><span class="s1">&#39;lttng&#39;</span><span class="p">,</span> <span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
 <span class="n">lttng</span> <span class="o">=</span> <span class="n">Lttng</span><span class="p">(</span><span class="s1">&#39;./e2e_sample&#39;</span><span class="p">)</span>
