@@ -14,7 +14,7 @@ CARET is confirmed to run on the platforms shown in the following table with sup
 
 The recent version, after v0.3.0, of CARET supports only the combination of ROS 2 Humble and Ubuntu 22.04.  
 We have added an experimental implementation to work with iron.  
-To install for iron, open `for iron` in the Installation section below and follow the instructions.
+For setup of each distribution, please open each tab.  
 To install for jazzy, open `for jazzy` in the Installation section below and follow the instructions.
 
 ## Installation
@@ -40,18 +40,18 @@ Please execute the following steps on Ubuntu 22.04. The order is important so th
 
    </details>
 
-   <prettier-ignore-start>
-   1. Clone `caret` and enter the directory.
-   <prettier-ignore-end>
+<prettier-ignore-start>
+1. Clone `caret` and enter the directory.
+<prettier-ignore-end>
 
    ```bash
    git clone https://github.com/tier4/caret.git ros2_caret_ws
    cd ros2_caret_ws
    ```
 
-   <prettier-ignore-start>
-   2. Create the src directory and clone repositories into it.
-   <prettier-ignore-end>
+<prettier-ignore-start>
+2. Create the src directory and clone repositories into it.
+<prettier-ignore-end>
 
    CARET uses vcstool to construct workspaces.
 
@@ -76,9 +76,9 @@ Please execute the following steps on Ubuntu 22.04. The order is important so th
     vcs import src < caret_jazzy.repos
     ```
 
-   <prettier-ignore-start>
-   3. Run `setup_caret.sh`.
-   <prettier-ignore-end>
+<prettier-ignore-start>
+3. Run `setup_caret.sh`.
+<prettier-ignore-end>
 
 === "humble"
 
@@ -98,9 +98,9 @@ Please execute the following steps on Ubuntu 22.04. The order is important so th
     ./setup_caret.sh -d jazzy
     ```
 
-   <prettier-ignore-start>
-   4. Build the workspace.
-   <prettier-ignore-end>
+<prettier-ignore-start>
+4. Build the workspace.
+<prettier-ignore-end>
 
 === "humble"
 
@@ -123,9 +123,9 @@ Please execute the following steps on Ubuntu 22.04. The order is important so th
     colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
     ```
 
-   <prettier-ignore-start>
-   5. Check whether CARET (ros2-tracing) is enabled.
-   <prettier-ignore-end>
+<prettier-ignore-start>
+5. Check whether CARET (ros2-tracing) is enabled.
+<prettier-ignore-end>
 
    CARET inherits some functions from [ros2-tracing](https://gitlab.com/ros-tracing/ros2_tracing).
 
