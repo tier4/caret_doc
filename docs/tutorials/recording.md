@@ -33,7 +33,6 @@ To trace a target application, the target should be built with CARET/rclcpp. If 
     git clone https://github.com/tier4/caret_demos.git src/caret_demos
 
     source /opt/ros/iron/setup.bash
-    source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/iron/setup.bash'
 
     colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
     ```
@@ -47,7 +46,6 @@ To trace a target application, the target should be built with CARET/rclcpp. If 
     git clone https://github.com/tier4/caret_demos.git src/caret_demos
 
     source /opt/ros/jazzy/setup.bash
-    source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/jazzy/setup.bash'
 
     colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
     ```

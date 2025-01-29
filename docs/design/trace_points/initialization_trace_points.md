@@ -497,7 +497,7 @@ Sampled items
 
 <prettier-ignore-start>
 !!!Note
-    This trace point is acquired after jazzy.
+    This trace point is available after jazzy.
 <prettier-ignore-end>
 
 ---
@@ -512,7 +512,7 @@ Sampled items
 
 <prettier-ignore-start>
 !!!Note
-    This trace point is acquired after jazzy.
+    This trace point is available after jazzy.
 <prettier-ignore-end>
 
 ---
@@ -555,7 +555,7 @@ Sampled items
 
 <prettier-ignore-start>
 !!!Note
-    This trace point is not acquired after jazzy.
+    This trace point is not available after jazzy.
 <prettier-ignore-end>
 
 ---
@@ -573,7 +573,7 @@ Sampled items
 
 <prettier-ignore-start>
 !!!Note
-    This trace point is not acquired after jazzy.
+    This trace point is not available after jazzy.
 <prettier-ignore-end>
 
 ---
