@@ -40,86 +40,82 @@ Please execute the following steps on Ubuntu 22.04. The order is important so th
 
    </details>
 
-1. Clone `caret` and enter the directory.
+   1. Clone `caret` and enter the directory.
 
    ```bash
    git clone https://github.com/tier4/caret.git ros2_caret_ws
    cd ros2_caret_ws
    ```
 
-2. Create the src directory and clone repositories into it.
+   2. Create the src directory and clone repositories into it.
 
    CARET uses vcstool to construct workspaces.
 
-   ```bash
-   mkdir src
-   vcs import src < caret.repos
-   ```
+=== "humble"
 
-   <details>
-   <summary>for iron</summary>
+    ``` bash
+    mkdir src
+    vcs import src < caret.repos
+    ```
 
-   ```bash
-   mkdir src
-   vcs import src < caret_iron.repos
-   ```
+=== "iron"
 
-   </details>
+    ``` bash
+    mkdir src
+    vcs import src < caret_iron.repos
+    ```
 
-   <details>
-   <summary>for jazzy</summary>
+=== "jazzy"
 
-   ```bash
-   mkdir src
-   vcs import src < caret_jazzy.repos
-   ```
+    ``` bash
+    mkdir src
+    vcs import src < caret_jazzy.repos
+    ```
 
-   </details>
+   3. Run `setup_caret.sh`.
 
-3. Run `setup_caret.sh`.
+=== "humble"
 
-   ```bash
-   ./setup_caret.sh
-   ```
+    ``` bash
+    ./setup_caret.sh
+    ```
 
-   <details>
-   <summary>for iron</summary>
+=== "iron"
 
-   ```bash
-   ./setup_caret.sh -d iron
-   ```
+    ``` bash
+    ./setup_caret.sh -d iron
+    ```
 
-   </details>
+=== "jazzy"
 
-   <details>
-   <summary>for jazzy</summary>
+    ``` bash
+    ./setup_caret.sh -d jazzy
+    ```
 
-   ```bash
-   ./setup_caret.sh -d jazzy
-   ```
+   4. Build the workspace.
 
-   </details>
+=== "humble"
 
-4. Build the workspace.
+    ``` bash
+    source /opt/ros/humble/setup.bash
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+    ```
 
-   ```bash
-   source /opt/ros/humble/setup.bash
-   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-   ```
+=== "iron"
 
-   <details>
-   <summary>for after iron</summary>
+    ``` bash
+    source /opt/ros/iron/setup.bash
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+    ```
 
-   Substitute an appropriate value for "distribution" and run the following command.
+=== "jazzy"
 
-   ```bash
-   source /opt/ros/<distribution>/setup.bash
-   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-   ```
+    ``` bash
+    source /opt/ros/jazzy/setup.bash
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+    ```
 
-   </details>
-
-5. Check whether CARET (ros2-tracing) is enabled.
+   5. Check whether CARET (ros2-tracing) is enabled.
 
    CARET inherits some functions from [ros2-tracing](https://gitlab.com/ros-tracing/ros2_tracing).
 

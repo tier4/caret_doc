@@ -9,35 +9,48 @@ See [Recording](../recording/index.md) to find more details.
 
 To trace a target application, the target should be built with CARET/rclcpp. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again. For building the application with CARET/rclcpp, CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as shown below.
 
-```bash
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws
 
-git clone https://github.com/tier4/caret_demos.git src/caret_demos
+=== "humble"
 
-source /opt/ros/humble/setup.bash
-source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/humble/setup.bash'
+    ``` bash
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws
 
-colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
-```
+    git clone https://github.com/tier4/caret_demos.git src/caret_demos
 
-<details>
-<summary>for after iron</summary>
+    source /opt/ros/humble/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/humble/setup.bash'
 
-Substitute an appropriate value for "distribution" and run the following command.
+    colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
+    ```
 
-```bash
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws
+=== "iron"
 
-git clone https://github.com/tier4/CARET_demos.git src/CARET_demos
+    ``` bash
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws
 
-source /opt/ros/<distribution>/setup.bash
+    git clone https://github.com/tier4/caret_demos.git src/caret_demos
 
-colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
-```
+    source /opt/ros/iron/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/iron/setup.bash'
 
-</details>
+    colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
+    ```
+
+=== "jazzy"
+
+    ``` bash
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws
+
+    git clone https://github.com/tier4/caret_demos.git src/caret_demos
+
+    source /opt/ros/jazzy/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash # please keep the order after 'source /opt/ros/jazzy/setup.bash'
+
+    colcon build --symlink-install --packages-up-to caret_demos --cmake-args -DBUILD_TESTING=OFF
+    ```
 
 The following command allows you to check whether CARET/rclcpp is applied to each package.
 If caret/rclcpp is not applied to the package you want to record, please check which rclcpp is used for the target and your workspace's environment variables.
@@ -75,87 +88,117 @@ CARET does not require a build using caret-rclcpp with ROS 2 Distributions after
 
 Run the target as shown in the following.
 
-```bash
-# Environment settings (keep the order as below)
-source /opt/ros/humble/setup.bash
-source ~/ros2_caret_ws/install/local_setup.bash
-source ~/ros2_ws/install/local_setup.bash
+=== "humble"
 
-# Enable tracepoints which are defined hooked functions.
-export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
+    ``` bash
+    # Environment settings (keep the order as below)
+    source /opt/ros/humble/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash
+    source ~/ros2_ws/install/local_setup.bash
 
-# (Optional) Exclude nodes and topics which you are not concerned with
-export CARET_IGNORE_NODES="/rviz*"
-export CARET_IGNORE_TOPICS="/clock:/parameter_events"
+    # Enable tracepoints which are defined hooked functions.
+    export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
 
-# Launch the target application, demos_end_to_end_sample
-ros2 launch caret_demos end_to_end_sample.launch.py
-```
+    # (Optional) Exclude nodes and topics which you are not concerned with
+    export CARET_IGNORE_NODES="/rviz*"
+    export CARET_IGNORE_TOPICS="/clock:/parameter_events"
 
-<details>
-<summary>for after iron</summary>
+    # Launch the target application, demos_end_to_end_sample
+    ros2 launch caret_demos end_to_end_sample.launch.py
+    ```
 
-Substitute an appropriate value for "distribution" and run the following command.
+=== "iron"
 
-```bash
-# Environment settings (keep the order as below)
-source /opt/ros/<distribution>/setup.bash
-source ~/ros2_caret_ws/install/local_setup.bash
-source ~/ros2_ws/install/local_setup.bash
+    ``` bash
+    # Environment settings (keep the order as below)
+    source /opt/ros/iron/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash
+    source ~/ros2_ws/install/local_setup.bash
 
-# Enable tracepoints which are defined hooked functions.
-export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
+    # Enable tracepoints which are defined hooked functions.
+    export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
 
-# (Optional) Exclude nodes and topics which you are not concerned with
-export CARET_IGNORE_NODES="/rviz*"
-export CARET_IGNORE_TOPICS="/clock:/parameter_events"
+    # (Optional) Exclude nodes and topics which you are not concerned with
+    export CARET_IGNORE_NODES="/rviz*"
+    export CARET_IGNORE_TOPICS="/clock:/parameter_events"
 
-# Launch the target application, demos_end_to_end_sample
-ros2 launch caret_demos end_to_end_sample.launch.py
-```
+    # Launch the target application, demos_end_to_end_sample
+    ros2 launch caret_demos end_to_end_sample.launch.py
+    ```
 
-</details>
+=== "jazzy"
+
+    ``` bash
+    # Environment settings (keep the order as below)
+    source /opt/ros/jazzy/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash
+    source ~/ros2_ws/install/local_setup.bash
+
+    # Enable tracepoints which are defined hooked functions.
+    export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
+
+    # (Optional) Exclude nodes and topics which you are not concerned with
+    export CARET_IGNORE_NODES="/rviz*"
+    export CARET_IGNORE_TOPICS="/clock:/parameter_events"
+
+    # Launch the target application, demos_end_to_end_sample
+    ros2 launch caret_demos end_to_end_sample.launch.py
+    ```
 
 ### Starting recording
 
 Open a new terminal and record the performance data.
 
-```bash
-source /opt/ros/humble/setup.bash
-source ~/ros2_caret_ws/install/local_setup.bash
+=== "humble"
 
-# set a destination directory. ~/.ros/tracing is default.
-mkdir -p ~/ros2_ws/evaluate
-export ROS_TRACE_DIR=~/ros2_ws/evaluate
+    ``` bash
+    source /opt/ros/humble/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash
 
-ros2 caret record -s e2e_sample
+    # set a destination directory. ~/.ros/tracing is default.
+    mkdir -p ~/ros2_ws/evaluate
+    export ROS_TRACE_DIR=~/ros2_ws/evaluate
 
-# Start recording with pressing Enter key
-# > All process tarted recording.
-# > press enter to stop...
-```
+    ros2 caret record -s e2e_sample
 
-<details>
-<summary>for after iron</summary>
+    # Start recording with pressing Enter key
+    # > All process tarted recording.
+    # > press enter to stop...
+    ```
 
-Substitute an appropriate value for "distribution" and run the following command.
+=== "iron"
 
-```bash
-source /opt/ros/<distribution>/setup.bash
-source ~/ros2_caret_ws/install/local_setup.bash
+    ``` bash
+    source /opt/ros/iron/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash
 
-# set a destination directory. ~/.ros/tracing is default.
-mkdir -p ~/ros2_ws/evaluate
-export ROS_TRACE_DIR=~/ros2_ws/evaluate
+    # set a destination directory. ~/.ros/tracing is default.
+    mkdir -p ~/ros2_ws/evaluate
+    export ROS_TRACE_DIR=~/ros2_ws/evaluate
 
-ros2 caret record -s e2e_sample
+    ros2 caret record -s e2e_sample
 
-# Start recording with pressing Enter key
-# > All process tarted recording.
-# > press enter to stop...
-```
+    # Start recording with pressing Enter key
+    # > All process tarted recording.
+    # > press enter to stop...
+    ```
 
-</details>
+=== "jazzy"
+
+    ``` bash
+    source /opt/ros/jazzy/setup.bash
+    source ~/ros2_caret_ws/install/local_setup.bash
+
+    # set a destination directory. ~/.ros/tracing is default.
+    mkdir -p ~/ros2_ws/evaluate
+    export ROS_TRACE_DIR=~/ros2_ws/evaluate
+
+    ros2 caret record -s e2e_sample
+
+    # Start recording with pressing Enter key
+    # > All process tarted recording.
+    # > press enter to stop...
+    ```
 
 ## Validating recorded data briefly
 

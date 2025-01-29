@@ -495,6 +495,11 @@ Sampled items
 - void \* group_type_name
 - int64_t init_timestamp
 
+<prettier-ignore-start>
+!!!Note
+    This trace point is acquired after jazzy.
+<prettier-ignore-end>
+
 ---
 
 #### ros2_caret:executor_entity_collector_to_executor
@@ -504,6 +509,11 @@ Sampled items
 - void \* executor_addr
 - void \* entities_collector_addr
 - int64_t init_timestamp
+
+<prettier-ignore-start>
+!!!Note
+    This trace point is acquired after jazzy.
+<prettier-ignore-end>
 
 ---
 
@@ -543,6 +553,11 @@ Sampled items
 - char \* group_type_name
 - int64_t init_timestamp
 
+<prettier-ignore-start>
+!!!Note
+    This trace point is not acquired after jazzy.
+<prettier-ignore-end>
+
 ---
 
 #### ros2_caret:add_callback_group_static_executor
@@ -555,6 +570,11 @@ Sampled items
 - void \* callback_group_addr
 - char \* group_type_name
 - int64_t init_timestamp
+
+<prettier-ignore-start>
+!!!Note
+    This trace point is not acquired after jazzy.
+<prettier-ignore-end>
 
 ---
 
