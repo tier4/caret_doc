@@ -27,16 +27,16 @@ Please execute the following steps on Ubuntu 22.04. The order is important so th
    <details>
    <summary>for jazzy</summary>
 
-   Currently, jazzy assumes installation in a virtual environment.
-   First, create and activate the virtual environment with the following commands.
+Currently, jazzy assumes installation in a virtual environment.
+First, create and activate the virtual environment with the following commands.
 
-   ```bash
-   sudo apt install python3-pip
-   sudo apt-get install python3-virtualenv
+```bash
+sudo apt install python3-pip
+sudo apt-get install python3-virtualenv
 
-   virtualenv -p python3 --system-site-packages $HOME/venv/jazzy
-   source $HOME/venv/jazzy/bin/activate
-   ```
+virtualenv -p python3 --system-site-packages $HOME/venv/jazzy
+source $HOME/venv/jazzy/bin/activate
+```
 
    </details>
 
@@ -44,16 +44,16 @@ Please execute the following steps on Ubuntu 22.04. The order is important so th
 1. Clone `caret` and enter the directory.
 <prettier-ignore-end>
 
-   ```bash
-   git clone https://github.com/tier4/caret.git ros2_caret_ws
-   cd ros2_caret_ws
-   ```
+```bash
+git clone https://github.com/tier4/caret.git ros2_caret_ws
+cd ros2_caret_ws
+```
 
 <prettier-ignore-start>
 2. Create the src directory and clone repositories into it.
 <prettier-ignore-end>
 
-   CARET uses vcstool to construct workspaces.
+CARET uses vcstool to construct workspaces.
 
 === "humble"
 
@@ -127,11 +127,11 @@ Please execute the following steps on Ubuntu 22.04. The order is important so th
 5. Check whether CARET (ros2-tracing) is enabled.
 <prettier-ignore-end>
 
-   CARET inherits some functions from [ros2-tracing](https://gitlab.com/ros-tracing/ros2_tracing).
+CARET inherits some functions from [ros2-tracing](https://gitlab.com/ros-tracing/ros2_tracing).
 
-   ```bash
-   source ~/ros2_caret_ws/install/local_setup.bash
-   ros2 run tracetools status # return Tracing enabled
-   ```
+```bash
+source ~/ros2_caret_ws/install/local_setup.bash
+ros2 run tracetools status # return Tracing enabled
+```
 
 If you see `Tracing enabled`, you can continue to apply CARET to your application.

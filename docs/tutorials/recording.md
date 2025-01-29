@@ -9,7 +9,6 @@ See [Recording](../recording/index.md) to find more details.
 
 To trace a target application, the target should be built with CARET/rclcpp. If you have already built the target without CARET/rclcpp, you have to build the target with CARET/rclcpp again. For building the application with CARET/rclcpp, CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as shown below.
 
-
 === "humble"
 
     ``` bash
