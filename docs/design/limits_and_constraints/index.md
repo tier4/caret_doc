@@ -7,8 +7,9 @@ CARET only supports environments as follows.
 - Support single host
 - Support FastDDS or CycloneDDS
 - Support only Linux, especially Ubuntu
-- Support Humble and Iron
+- Support Humble and Iron and Jazzy
   - Iron support is an experimental feature
+  - Jazzy support is an experimental feature
 - Require rebuilding of an application with CARET libraries
 
 ## ROS 2 functions

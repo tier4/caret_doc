@@ -14,7 +14,8 @@ CARET is confirmed to run on the platforms shown in the following table with sup
 
 The recent version, after v0.3.0, of CARET supports only the combination of ROS 2 Humble and Ubuntu 22.04.  
 We have added an experimental implementation to work with iron.  
-To install for iron, open `for iron` in the Installation section below and follow the instructions.
+For setup of each distribution, please open each tab.  
+To install for jazzy, open `for jazzy` in the Installation section below and follow the instructions.
 
 ## Installation
 
@@ -23,71 +24,114 @@ With meta repository and Ansible, you can skip the laborious manual setup which 
 
 Please execute the following steps on Ubuntu 22.04. The order is important so that you have to follow the steps in order.
 
+   <details>
+   <summary>for jazzy</summary>
+
+Currently, jazzy assumes installation in a virtual environment.
+First, create and activate the virtual environment with the following commands.
+
+```bash
+sudo apt install python3-pip
+sudo apt-get install python3-virtualenv
+
+virtualenv -p python3 --system-site-packages $HOME/venv/jazzy
+source $HOME/venv/jazzy/bin/activate
+```
+
+   </details>
+
+<prettier-ignore-start>
 1. Clone `caret` and enter the directory.
+<prettier-ignore-end>
 
-   ```bash
-   git clone https://github.com/tier4/caret.git ros2_caret_ws
-   cd ros2_caret_ws
-   ```
+```bash
+git clone https://github.com/tier4/caret.git ros2_caret_ws
+cd ros2_caret_ws
+```
 
+<prettier-ignore-start>
 2. Create the src directory and clone repositories into it.
+<prettier-ignore-end>
 
-   CARET uses vcstool to construct workspaces.
+CARET uses vcstool to construct workspaces.
 
-   ```bash
-   mkdir src
-   vcs import src < caret.repos
-   ```
+=== "humble"
 
-   <details>
-   <summary>for iron</summary>
+    ``` bash
+    mkdir src
+    vcs import src < caret.repos
+    ```
 
-   ```bash
-   mkdir src
-   vcs import src < caret_iron.repos
-   ```
+=== "iron"
 
-   </details>
+    ``` bash
+    mkdir src
+    vcs import src < caret_iron.repos
+    ```
 
+=== "jazzy"
+
+    ``` bash
+    mkdir src
+    vcs import src < caret_jazzy.repos
+    ```
+
+<prettier-ignore-start>
 3. Run `setup_caret.sh`.
+<prettier-ignore-end>
 
-   ```bash
-   ./setup_caret.sh
-   ```
+=== "humble"
 
-   <details>
-   <summary>for iron</summary>
+    ``` bash
+    ./setup_caret.sh
+    ```
 
-   ```bash
-   ./setup_caret.sh -d iron
-   ```
+=== "iron"
 
-   </details>
+    ``` bash
+    ./setup_caret.sh -d iron
+    ```
 
+=== "jazzy"
+
+    ``` bash
+    ./setup_caret.sh -d jazzy
+    ```
+
+<prettier-ignore-start>
 4. Build the workspace.
+<prettier-ignore-end>
 
-   ```bash
-   source /opt/ros/humble/setup.bash
-   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-   ```
+=== "humble"
 
-   <details>
-   <summary>for iron</summary>
+    ``` bash
+    source /opt/ros/humble/setup.bash
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+    ```
 
-   ```bash
-   source /opt/ros/iron/setup.bash
-   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-   ```
+=== "iron"
 
-   </details>
+    ``` bash
+    source /opt/ros/iron/setup.bash
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+    ```
 
+=== "jazzy"
+
+    ``` bash
+    source /opt/ros/jazzy/setup.bash
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+    ```
+
+<prettier-ignore-start>
 5. Check whether CARET (ros2-tracing) is enabled.
+<prettier-ignore-end>
 
-   CARET inherits some functions from [ros2-tracing](https://gitlab.com/ros-tracing/ros2_tracing).
+CARET inherits some functions from [ros2-tracing](https://gitlab.com/ros-tracing/ros2_tracing).
 
-   ```bash
-   source ~/ros2_caret_ws/install/local_setup.bash
-   ros2 run tracetools status # return Tracing enabled
-   ```
+```bash
+source ~/ros2_caret_ws/install/local_setup.bash
+ros2 run tracetools status # return Tracing enabled
+```
 
 If you see `Tracing enabled`, you can continue to apply CARET to your application.

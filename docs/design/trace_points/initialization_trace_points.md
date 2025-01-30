@@ -166,6 +166,16 @@ erDiagram
  string group_type_name
  }
 
+ callback_group_to_executor_entity_collector{
+ address entities_collector_addr
+ address callback_group_addr
+ address group_type_name
+ }
+ executor_entity_collector_to_executor{
+ address executor_addr
+ address entities_collector_addr
+ }
+
  add_callback_group_static_executor{
  address entities_collector_addr
  address callback_group_addr
@@ -200,11 +210,18 @@ erDiagram
     add_callback_group_static_executor ||--o{ callback_group_add_subscription : callback_group_addr
     add_callback_group_static_executor ||--o{ callback_group_add_service : callback_group_addr
     add_callback_group_static_executor ||--o{ callback_group_add_client : callback_group_addr
+    callback_group_to_executor_entity_collector ||--|| executor_entity_collector_to_executor: entities_collector_addr
+    executor_entity_collector_to_executor ||--|| construct_executor: executor_addr
+    executor_entity_collector_to_executor ||--|| construct_static_executor: executor_addr
     add_callback_group ||--o{ callback_group_add_timer : callback_group_addr
     add_callback_group ||--o{ callback_group_add_subscription : callback_group_addr
     add_callback_group ||--o{ callback_group_add_service : callback_group_addr
     add_callback_group ||--o{ callback_group_add_client : callback_group_addr
 
+    callback_group_to_executor_entity_collector ||--o{ callback_group_add_timer : callback_group_addr
+    callback_group_to_executor_entity_collector ||--o{ callback_group_add_subscription : callback_group_addr
+    callback_group_to_executor_entity_collector ||--o{ callback_group_add_service : callback_group_addr
+    callback_group_to_executor_entity_collector ||--o{ callback_group_add_client : callback_group_addr
     callback_group_add_timer ||--|| TIMER_HANDLE : callback_group_addr
     callback_group_add_subscription ||--|| SUBSCRIPTION_HANDLE : callback_group_addr
     callback_group_add_service ||--|| SERVICE_HANDLE : callback_group_addr
@@ -469,6 +486,37 @@ Sampled items
 
 ---
 
+#### ros2_caret:callback_group_to_executor_entity_collector
+
+Sampled items
+
+- void \* entities_collector_addr
+- void \* callback_group_addr
+- void \* group_type_name
+- int64_t init_timestamp
+
+<prettier-ignore-start>
+!!!Note
+    This trace point is available after jazzy.
+<prettier-ignore-end>
+
+---
+
+#### ros2_caret:executor_entity_collector_to_executor
+
+Sampled items
+
+- void \* executor_addr
+- void \* entities_collector_addr
+- int64_t init_timestamp
+
+<prettier-ignore-start>
+!!!Note
+    This trace point is available after jazzy.
+<prettier-ignore-end>
+
+---
+
 #### ros2_caret:construct_executor
 
 [Hooked tracepoints]
@@ -505,6 +553,11 @@ Sampled items
 - char \* group_type_name
 - int64_t init_timestamp
 
+<prettier-ignore-start>
+!!!Note
+    This trace point is not available after jazzy.
+<prettier-ignore-end>
+
 ---
 
 #### ros2_caret:add_callback_group_static_executor
@@ -517,6 +570,11 @@ Sampled items
 - void \* callback_group_addr
 - char \* group_type_name
 - int64_t init_timestamp
+
+<prettier-ignore-start>
+!!!Note
+    This trace point is not available after jazzy.
+<prettier-ignore-end>
 
 ---
 
