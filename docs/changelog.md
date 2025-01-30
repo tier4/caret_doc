@@ -4,15 +4,7 @@
 
 ### v0.6.0 <small>\_ Jan 29, 2025</small> {id = "0.6.0"}
 
-- **New/Update**: jazzy support. ([caret #210](https://github.com/tier4/caret/pull/210))
-
-- **New/Update**: jazzy support. ([caret_analyze #542](https://github.com/tier4/caret_analyze/pull/542))
-
-- **New/Update**: jazzy support. ([caret_trace #306](https://github.com/tier4/caret_trace/pull/306))
-
-- **New/Update**: jazzy support. ([caret_analyze_cpp_impl #222](https://github.com/tier4/caret_analyze_cpp_impl/pull/222))
-
-- **New/Update**: jazzy support. ([caret_doc #361](https://github.com/tier4/caret_doc/pull/361))
+- **New/Update**: jazzy support. ([caret #210](https://github.com/tier4/caret/pull/210)),  ([caret_analyze #542](https://github.com/tier4/caret_analyze/pull/542)), ([caret_trace #306](https://github.com/tier4/caret_trace/pull/306)), ([caret_analyze_cpp_impl #222](https://github.com/tier4/caret_analyze_cpp_impl/pull/222)), ([caret_doc #361](https://github.com/tier4/caret_doc/pull/361))
 
 ### v0.5.14 <small>\_ Jan 28, 2025</small> {id = "0.5.14"}
 
