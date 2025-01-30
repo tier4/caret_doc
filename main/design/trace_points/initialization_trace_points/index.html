@@ -2214,6 +2214,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ros2_caretcallback_group_to_executor_entity_collector" class="md-nav__link">
+    ros2_caret:callback_group_to_executor_entity_collector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2_caretexecutor_entity_collector_to_executor" class="md-nav__link">
+    ros2_caret:executor_entity_collector_to_executor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ros2_caretconstruct_executor" class="md-nav__link">
     ros2_caret:construct_executor
   </a>
@@ -3016,6 +3030,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ros2_caretcallback_group_to_executor_entity_collector" class="md-nav__link">
+    ros2_caret:callback_group_to_executor_entity_collector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2_caretexecutor_entity_collector_to_executor" class="md-nav__link">
+    ros2_caret:executor_entity_collector_to_executor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ros2_caretconstruct_executor" class="md-nav__link">
     ros2_caret:construct_executor
   </a>
@@ -3254,6 +3282,16 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
  string group_type_name
  }
 
+ callback_group_to_executor_entity_collector{
+ address entities_collector_addr
+ address callback_group_addr
+ address group_type_name
+ }
+ executor_entity_collector_to_executor{
+ address executor_addr
+ address entities_collector_addr
+ }
+
  add_callback_group_static_executor{
  address entities_collector_addr
  address callback_group_addr
@@ -3288,11 +3326,18 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
     add_callback_group_static_executor ||--o{ callback_group_add_subscription : callback_group_addr
     add_callback_group_static_executor ||--o{ callback_group_add_service : callback_group_addr
     add_callback_group_static_executor ||--o{ callback_group_add_client : callback_group_addr
+    callback_group_to_executor_entity_collector ||--|| executor_entity_collector_to_executor: entities_collector_addr
+    executor_entity_collector_to_executor ||--|| construct_executor: executor_addr
+    executor_entity_collector_to_executor ||--|| construct_static_executor: executor_addr
     add_callback_group ||--o{ callback_group_add_timer : callback_group_addr
     add_callback_group ||--o{ callback_group_add_subscription : callback_group_addr
     add_callback_group ||--o{ callback_group_add_service : callback_group_addr
     add_callback_group ||--o{ callback_group_add_client : callback_group_addr
 
+    callback_group_to_executor_entity_collector ||--o{ callback_group_add_timer : callback_group_addr
+    callback_group_to_executor_entity_collector ||--o{ callback_group_add_subscription : callback_group_addr
+    callback_group_to_executor_entity_collector ||--o{ callback_group_add_service : callback_group_addr
+    callback_group_to_executor_entity_collector ||--o{ callback_group_add_client : callback_group_addr
     callback_group_add_timer ||--|| TIMER_HANDLE : callback_group_addr
     callback_group_add_subscription ||--|| SUBSCRIPTION_HANDLE : callback_group_addr
     callback_group_add_service ||--|| SERVICE_HANDLE : callback_group_addr
@@ -3498,6 +3543,35 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <li>void * state_machine</li>
 </ul>
 <hr />
+<h4 id="ros2_caretcallback_group_to_executor_entity_collector">ros2_caret:callback_group_to_executor_entity_collector<a class="headerlink" href="#ros2_caretcallback_group_to_executor_entity_collector" title="Permanent link">#</a></h4>
+<p>Sampled items</p>
+<ul>
+<li>void * entities_collector_addr</li>
+<li>void * callback_group_addr</li>
+<li>void * group_type_name</li>
+<li>int64_t init_timestamp</li>
+</ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This trace point is available after jazzy.</p>
+</div>
+<p><prettier-ignore-end></p>
+<hr />
+<h4 id="ros2_caretexecutor_entity_collector_to_executor">ros2_caret:executor_entity_collector_to_executor<a class="headerlink" href="#ros2_caretexecutor_entity_collector_to_executor" title="Permanent link">#</a></h4>
+<p>Sampled items</p>
+<ul>
+<li>void * executor_addr</li>
+<li>void * entities_collector_addr</li>
+<li>int64_t init_timestamp</li>
+</ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This trace point is available after jazzy.</p>
+</div>
+<p><prettier-ignore-end></p>
+<hr />
 <h4 id="ros2_caretconstruct_executor">ros2_caret:construct_executor<a class="headerlink" href="#ros2_caretconstruct_executor" title="Permanent link">#</a></h4>
 <p>[Hooked tracepoints]</p>
 <p>Sampled items</p>
@@ -3526,6 +3600,12 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <li>char * group_type_name</li>
 <li>int64_t init_timestamp</li>
 </ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This trace point is not available after jazzy.</p>
+</div>
+<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2_caretadd_callback_group_static_executor">ros2_caret:add_callback_group_static_executor<a class="headerlink" href="#ros2_caretadd_callback_group_static_executor" title="Permanent link">#</a></h4>
 <p>[Hooked tracepoints]</p>
@@ -3536,6 +3616,12 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <li>char * group_type_name</li>
 <li>int64_t init_timestamp</li>
 </ul>
+<p><prettier-ignore-start></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This trace point is not available after jazzy.</p>
+</div>
+<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2_caretcallback_group_add_timer">ros2_caret:callback_group_add_timer<a class="headerlink" href="#ros2_caretcallback_group_add_timer" title="Permanent link">#</a></h4>
 <p>[Hooked tracepoints]</p>
