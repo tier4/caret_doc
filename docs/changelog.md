@@ -2,6 +2,10 @@
 
 ## CARET
 
+### v0.6.1 <small>\_ Feb 25, 2025</small> {id = "0.6.1"}
+
+- **Fix**: Error when multiple types of input are given to create_frequency_timeseries_plot(). ([caret_analyze #549](https://github.com/tier4/caret_analyze/pull/549))
+
 ### v0.6.0 <small>\_ Jan 29, 2025</small> {id = "0.6.0"}
 
 - **New/Update**: jazzy support. ([caret #210](https://github.com/tier4/caret/pull/210)), ([caret_analyze #542](https://github.com/tier4/caret_analyze/pull/542)), ([caret_trace #306](https://github.com/tier4/caret_trace/pull/306)), ([caret_analyze_cpp_impl #222](https://github.com/tier4/caret_analyze_cpp_impl/pull/222)), ([caret_doc #361](https://github.com/tier4/caret_doc/pull/361))
