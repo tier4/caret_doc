@@ -72,7 +72,7 @@ This section will show basic flow to visualize data with Jupyter notebook.
     app = Application(arch, lttng)
     ```
 
-   After execution of the code, users will often refer to the `app` object defined as `Application` class. The `app` objects provides users latency of callbacks, communication, and paths. `Application` class is similar to `Architecture` class which describes structure of the application and their interfaces are similar. In addition, `Application` class has interfaces to get latency.
+After execution of the code, users will often refer to the `app` object defined as `Application` class. The `app` objects provides users latency of callbacks, communication, and paths. `Application` class is similar to `Architecture` class which describes structure of the application and their interfaces are similar. In addition, `Application` class has interfaces to get latency.
 
 ## Basic API to get latency
 
