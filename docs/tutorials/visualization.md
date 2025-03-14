@@ -27,18 +27,50 @@ This section will show basic flow to visualize data with Jupyter notebook.
 
    Locate trace data on Jupyter notebook as well as the architecture file.
 
-   ```python
-   from caret_analyze import Architecture, Application, Lttng
+=== "humble"
 
-   # load the architecture file which is created in the previous page
-   arch = Architecture('yaml', './architecture.yaml')
+    ``` python
+    from caret_analyze import Architecture, Application, Lttng
 
-   # load recorded data by CARET
-   lttng = Lttng('./e2e_sample')
+    # load the architecture file which is created in the previous page
+    arch = Architecture('yaml', './architecture.yaml')
 
-   # map the application architecture to recorded data
-   app = Application(arch, lttng)
-   ```
+    # load recorded data by CARET
+    lttng = Lttng('./e2e_sample')
+
+    # map the application architecture to recorded data
+    app = Application(arch, lttng)
+    ```
+
+=== "iron"
+
+    ``` python
+    from caret_analyze import Architecture, Application, Lttng
+
+    # load the architecture file which is created in the previous page
+    arch = Architecture('yaml', './architecture.yaml')
+
+    # load recorded data by CARET
+    lttng = Lttng('./e2e_sample')
+
+    # map the application architecture to recorded data
+    app = Application(arch, lttng)
+    ```
+
+=== "jazzy"
+
+    ``` python
+    from caret_analyze import Architecture, Application, Lttng
+
+    # load the architecture file which is created in the previous page
+    arch = Architecture('yaml', './architecture_jazzy.yaml')
+
+    # load recorded data by CARET
+    lttng = Lttng('./e2e_sample')
+
+    # map the application architecture to recorded data
+    app = Application(arch, lttng)
+    ```
 
    After execution of the code, users will often refer to the `app` object defined as `Application` class. The `app` objects provides users latency of callbacks, communication, and paths. `Application` class is similar to `Architecture` class which describes structure of the application and their interfaces are similar. In addition, `Application` class has interfaces to get latency.
 
