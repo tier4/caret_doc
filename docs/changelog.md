@@ -14,7 +14,6 @@
 
 - **Chore**: Add topic_tools repo. ([caret #211](https://github.com/tier4/caret/pull/211))
 
-
 ### v0.6.1 <small>\_ Feb 25, 2025</small> {id = "0.6.1"}
 
 - **Fix**: Error when multiple types of input are given to create_frequency_timeseries_plot(). ([caret_analyze #549](https://github.com/tier4/caret_analyze/pull/549))
