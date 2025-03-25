@@ -2,6 +2,18 @@
 
 ## CARET
 
+### v0.6.2 <small>\_ Mar 24, 2025</small> {id = "0.6.2"}
+
+- **Test**: Add test for record directory. ([caret_analyze #552](https://github.com/tier4/caret_analyze/pull/552))
+
+- **Fix**: Exclude 3.7.0 from bokeh installation. ([caret_analyze #556](https://github.com/tier4/caret_analyze/pull/556))
+
+- **Chore**: Disable workflows using changed-files. ([caret_trace #313](https://github.com/tier4/caret_trace/pull/313)), ([caret_analyze_cpp_impl #226](https://github.com/tier4/caret_analyze_cpp_impl/pull/226))
+
+- **Refactor**: Replace logger.warn() to logger.warning(). ([caret_analyze #555](https://github.com/tier4/caret_analyze/pull/555))
+
+- **Chore**: Add topic_tools repo. ([caret #211](https://github.com/tier4/caret/pull/211))
+
 ### v0.6.1 <small>\_ Feb 25, 2025</small> {id = "0.6.1"}
 
 - **Fix**: Error when multiple types of input are given to create_frequency_timeseries_plot(). ([caret_analyze #549](https://github.com/tier4/caret_analyze/pull/549))
