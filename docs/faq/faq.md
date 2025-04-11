@@ -203,3 +203,8 @@ pip3 install -U numexpr bottleneck matplotlib
    ```
 
 Please make sure to source local_setup.bash of this workspace before you run RelayNode.
+
+<prettier-ignore-start>
+!!! Note
+    The iron version of caret does not support RelayNode analysis because it does not add trace points for Generic communication.
+<prettier-ignore-end>
