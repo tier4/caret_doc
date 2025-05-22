@@ -2832,7 +2832,7 @@ The list size will be too large to find target path if application has large num
     <span class="n">communication_filter</span><span class="p">:</span> <span class="s1">&#39;Optional[Callable[[str], bool]]&#39;</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;List[PathStructValue]&#39;</span>
 </code></pre></div>
-<p>The following sub-sections will explain their roles and usages in details.</p>
+<p>The following sub-sections will explain their roles and usages in detail, and a example of using these options in a path search for <abbr title="OSS-based self-driving software">Autoware</abbr> can be found in <a href="https://github.com/tier4/caret_report/blob/main/report/analyze_path/add_path_to_architecture.py">add_path_to_architecture.py</a>.</p>
 <h4 id="additional-nodes">Additional nodes<a class="headerlink" href="#additional-nodes" title="Permanent link">#</a></h4>
 <p>In the previous example, <code>Architecture.search_paths()</code> had two arguments <code>source_node</code> and <code>destination_node</code>. However, the number of nodes given to <code>Architecture.search_paths()</code> is variable and not always two. You can add other nodes to <code>Architecture.search_paths()</code> as below, and you will get a list including multiple paths which passes all given nodes.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Architecture object is loaded to variable of arch</span>
