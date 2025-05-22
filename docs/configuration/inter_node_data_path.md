@@ -59,7 +59,7 @@ search_paths(
 ) -> 'List[PathStructValue]'
 ```
 
-The following sub-sections will explain their roles and usages in details and a example of using these options in a path search for Autoware can be found in [add_path_to_architecture.py](https://github.com/tier4/caret_report/blob/main/report/analyze_path/add_path_to_architecture.py).
+The following sub-sections will explain their roles and usages in detail, and a example of using these options in a path search for Autoware can be found in [add_path_to_architecture.py](https://github.com/tier4/caret_report/blob/main/report/analyze_path/add_path_to_architecture.py).
 
 #### Additional nodes
 
