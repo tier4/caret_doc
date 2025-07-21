@@ -158,7 +158,6 @@ Define an intra-node data path on the loaded architecture object as section of [
    ```
 
    In the example, `path.verify()` tells you two nodes have undefined relationships of input and output.
-
    - input `/topic2` and output `/topic3` in node `/message_driven_node`
    - input `/topic3` and output `/topic4` in node `/timer_driven_node`
 
