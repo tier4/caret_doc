@@ -12,7 +12,6 @@ Explanation in this page assumes CARET is installed to `~/ros2_caret_ws` and the
 Two terminals are needed for this method; one for executing a target application, another for starting a LTTng session.
 
 1. Open a terminal and launch a target application
-
    - Perform environment settings in the same order as below. CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as the target application refers to CARET/rclcpp
 
      ```sh
@@ -46,7 +45,6 @@ Two terminals are needed for this method; one for executing a target application
      ```
 
 2. Open another terminal and start a LTTng session with the following commands
-
    - Trace data will be stored into the directory whose path is defined as `{ROS_TRACE_DIR}/{SESSION_NAME}`.
      - `ROS_TRACE_DIR` is an environmental variable whose default value is `~/.ros/tracing`  
         (Optional) You can set `ROS_TRACE_DIR` environment variable to change a destination directory where recorded trace data will be stored
@@ -129,7 +127,6 @@ You can start LTTng session using ROS launch system. When you have started a tar
    ```
 
 3. Launch a target application and a LTTng session via the launch file
-
    - Environment settings are still needed, but all operations are performed in just one terminal
 
    ```sh
