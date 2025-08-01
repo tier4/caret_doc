@@ -2850,11 +2850,9 @@ jupyter-lab
 <span class="n">publish_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic4</span>
 <span class="n">subscribe_topic_name</span><span class="p">:</span> <span class="o">/</span><span class="n">topic3</span>
 </code></pre></div>
-<p>In the example, <code>path.verify()</code> tells you two nodes have undefined relationships of input and output.</p>
-<ul>
-<li>input <code>/topic2</code> and output <code>/topic3</code> in node <code>/message_driven_node</code></li>
-<li>input <code>/topic3</code> and output <code>/topic4</code> in node <code>/timer_driven_node</code></li>
-</ul>
+<p>In the example, <code>path.verify()</code> tells you two nodes have undefined relationships of input and output.
+ - input <code>/topic2</code> and output <code>/topic3</code> in node <code>/message_driven_node</code>
+ - input <code>/topic3</code> and output <code>/topic4</code> in node <code>/timer_driven_node</code></p>
 <p>Their relationships must be explicit with corresponding message_context items in the architecture file.</p>
 </li>
 <li>
