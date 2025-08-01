@@ -2,6 +2,38 @@
 
 ## CARET
 
+### v0.6.3 <small>\_ Aug 01, 2025</small> {id = "0.6.3"}
+
+- **Update**: exclude 3.7.0 from bokeh installation. ([caret_analyze #558](https://github.com/tier4/caret_analyze/pull/558))
+
+- **Feat**: accelerate graph search and cached method. ([caret_analyze #554](https://github.com/tier4/caret_analyze/pull/554))
+
+- **Update**: add topic_tools to the caret release script. ([caret #212](https://github.com/tier4/caret/pull/212))
+
+- **Update**: overhaul of docstrings(runtime, plot, value_objects). ([caret_analyze #553](https://github.com/tier4/caret_analyze/pull/553))
+
+- **Refactor**: refactor frequency calculation logic. ([caret_analyze #560](https://github.com/tier4/caret_analyze/pull/560))
+
+- **Update**: overhaul of docstrings(architecture). ([caret_analyze #559](https://github.com/tier4/caret_analyze/pull/559))
+
+- **Update**: overhaul of docstrings(infra). ([caret_analyze #561](https://github.com/tier4/caret_analyze/pull/561))
+
+- **Fix**: ignore setuptools 80.0.0. ([caret_analyze #565](https://github.com/tier4/caret_analyze/pull/565))
+
+- **Fix**: ignore Agnocast for CI (GitHub Workflow). ([caret #216](https://github.com/tier4/caret/pull/216))
+
+- **Update**: add description to path search example for large ROS 2 application. ([caret_doc #367](https://github.com/tier4/caret_doc/pull/367))
+
+- **Fix**: fix failed to find callback. ([caret_analyze #567](https://github.com/tier4/caret_analyze/pull/567))
+
+- **Test**: fix unable to run pytest in github actions. ([caret_analyze #569](https://github.com/tier4/caret_analyze/pull/569)), ([ros2caret #207](https://github.com/tier4/ros2caret/pull/207))
+
+- **Fix**: correct mypy errors/warnings. ([caret_analyze #570](https://github.com/tier4/caret_analyze/pull/570))
+
+- **Fix**: If the final node of the path is a take implementation, calculate the latency without exception. ([caret_analyze #573](https://github.com/tier4/caret_analyze/pull/573))
+
+- **Fix**: raise exception at executor has no callbacks. ([caret_analyze #571](https://github.com/tier4/caret_analyze/pull/571))
+
 ### v0.6.2 <small>\_ Mar 24, 2025</small> {id = "0.6.2"}
 
 - **Test**: Add test for record directory. ([caret_analyze #552](https://github.com/tier4/caret_analyze/pull/552))
