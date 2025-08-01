@@ -6,7 +6,7 @@
 
 - **Update**: exclude 3.7.0 from bokeh installation. ([caret_analyze #558](https://github.com/tier4/caret_analyze/pull/558))
 
-- **Feat**: accelerate graph search and cached getmembers. ([caret_analyze #554](https://github.com/tier4/caret_analyze/pull/554))
+- **Feat**: accelerate graph search and cached method. ([caret_analyze #554](https://github.com/tier4/caret_analyze/pull/554))
 
 - **Update**: add topic_tools to the caret release script. ([caret #212](https://github.com/tier4/caret/pull/212))
 
