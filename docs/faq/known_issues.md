@@ -87,6 +87,7 @@ sudo grep -rl '/opt/ros/humble/lib/libtracetools.so;' /opt/ros/humble/share --in
 
 - Workaround 3
   - If the error persists even after applying workaround 1 and 2, ensure that the CARET tracetools library is used by explicitly setting `-Dtracetools_DIR`
+  - This can occur especially when the target application is built with `--merge-install`
 
 ```sh
 --cmake-args -Dtracetools_DIR="$HOME/ros2_caret_ws/install/tracetools/share/tracetools/cmake"
@@ -128,6 +129,7 @@ sudo grep -rl '/opt/ros/humble/include/rclcpp;' /opt/ros/humble/share --include=
 
 - Workaround 3
   - If the error persists even after applying workaround 1 and 2, ensure that the CARET rclcpp is used by explicitly setting `-Drclcpp_DIR`
+  - This can occur especially when the target application is built with `--merge-install`
 
 ```sh
 --cmake-args -Drclcpp_DIR="$HOME/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake"
