@@ -2909,6 +2909,7 @@ sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span
 <ul>
 <li>Workaround 3<ul>
 <li>If the error persists even after applying workaround 1 and 2, ensure that the <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> tracetools library is used by explicitly setting <code>-Dtracetools_DIR</code></li>
+<li>This can occur especially when the target application is built with <code>--merge-install</code></li>
 </ul>
 </li>
 </ul>
@@ -2955,6 +2956,7 @@ sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span
 <ul>
 <li>Workaround 3<ul>
 <li>If the error persists even after applying workaround 1 and 2, ensure that the <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> rclcpp is used by explicitly setting <code>-Drclcpp_DIR</code></li>
+<li>This can occur especially when the target application is built with <code>--merge-install</code></li>
 </ul>
 </li>
 </ul>
