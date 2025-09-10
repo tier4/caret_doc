@@ -2643,15 +2643,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#build-using-ament_cmake" class="md-nav__link">
-    Build using ament_cmake
+  <a href="#systems-rclcpp-is-referred" class="md-nav__link">
+    SYSTEM's rclcpp is referred
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#systems-rclcpp-is-referred" class="md-nav__link">
-    SYSTEM's rclcpp is referred
+  <a href="#build-using-ament_cmake" class="md-nav__link">
+    Build using ament_cmake
   </a>
   
 </li>
@@ -2758,15 +2758,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#build-using-ament_cmake" class="md-nav__link">
-    Build using ament_cmake
+  <a href="#systems-rclcpp-is-referred" class="md-nav__link">
+    SYSTEM's rclcpp is referred
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#systems-rclcpp-is-referred" class="md-nav__link">
-    SYSTEM's rclcpp is referred
+  <a href="#build-using-ament_cmake" class="md-nav__link">
+    Build using ament_cmake
   </a>
   
 </li>
@@ -2813,6 +2813,8 @@
   
   
 
+
+<!-- cspell:ignore Drclcpp Dtracetools -->
 
 <h1 id="known-issues">Known issues<a class="headerlink" href="#known-issues" title="Permanent link">#</a></h1>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">#</a></h2>
@@ -2883,13 +2885,82 @@
 <li>For instance, <code>pcl_ros</code> package has <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code> which enforces <code>/opt/ros/humble/lib/libtracetools.so</code> to be linked</li>
 </ul>
 </li>
-<li>Workaround<ul>
+<li>Workaround 1<ul>
 <li>Remove <code>/opt/ros/humble/lib/libtracetools.so;</code> from <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code></li>
 </ul>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cp<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake.bak
 sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/\/opt\/ros\/humble\/lib\/libtracetools.so;//g&#39;</span><span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
+</code></pre></div>
+<ul>
+<li>Workaround 2<ul>
+<li>If the error persists after applying workaround 1, modify all libraries</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>grep<span class="w"> </span>-rl<span class="w"> </span><span class="s1">&#39;/opt/ros/humble/lib/libtracetools.so;&#39;</span><span class="w"> </span>/opt/ros/humble/share<span class="w"> </span>--include<span class="o">=</span><span class="s2">&quot;*.cmake&quot;</span><span class="w"> </span><span class="p">|</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>f<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Delete reference to libtracetools from </span><span class="nv">$f</span><span class="s2">&quot;</span>
+<span class="w">        </span>sudo<span class="w"> </span>cp<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">.bak&quot;</span>
+<span class="w">        </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|/opt/ros/humble/lib/libtracetools.so;||g&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">done</span>
+</code></pre></div>
+<ul>
+<li>Workaround 3<ul>
+<li>If the error persists even after applying workaround 1 and 2, ensure that the <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> tracetools library is used by explicitly setting <code>-Dtracetools_DIR</code></li>
+<li>This can occur especially when the target application is built with <code>--merge-install</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>--cmake-args<span class="w"> </span>-Dtracetools_DIR<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/ros2_caret_ws/install/tracetools/share/tracetools/cmake&quot;</span>
+</code></pre></div>
+<h3 id="systems-rclcpp-is-referred">SYSTEM's rclcpp is referred<a class="headerlink" href="#systems-rclcpp-is-referred" title="Permanent link">#</a></h3>
+<ul>
+<li>Issue<ul>
+<li>The following error happens when building a target application</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:<span class="w"> </span>In<span class="w"> </span>member<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘void<span class="w"> </span>rclcpp::Publisher&lt;MessageT,<span class="w"> </span>AllocatorT&gt;::do_inter_process_publish<span class="o">(</span>const<span class="w"> </span>ROSMessageType<span class="p">&amp;</span><span class="o">)</span>’:
+/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:452:5:<span class="w"> </span>error:<span class="w"> </span>too<span class="w"> </span>few<span class="w"> </span>arguments<span class="w"> </span>to<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘void<span class="w"> </span>ros_trace_rclcpp_publish<span class="o">(</span>const<span class="w"> </span>void*,<span class="w"> </span>const<span class="w"> </span>void*,<span class="w"> </span>uint64_t<span class="o">)</span>’
+<span class="w">  </span><span class="m">452</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>TRACEPOINT<span class="o">(</span>rclcpp_publish,<span class="w"> </span>nullptr,<span class="w"> </span>static_cast&lt;const<span class="w"> </span>void<span class="w"> </span>*&gt;<span class="o">(</span><span class="p">&amp;</span>msg<span class="o">))</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Cause<ul>
+<li>To build with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, caret/rclcpp should be used. However, in case rclcpp in SYSTEM ( <code>/opt/ros/humble</code> ) is used for some reasons, build will fail</li>
+<li>Take <code>pcl_ros</code> for example, <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code> enforces <code>/opt/ros/humble/include/rclcpp</code> to be referred. So that caret/rclcpp is not used and building a package depending on <code>pcl_ros</code> will fail</li>
+</ul>
+</li>
+<li>Workaround 1<ul>
+<li>Remove <code>/opt/ros/humble/include/rclcpp;</code> from <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cp<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake.bak2
+sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/\/opt\/ros\/humble\/include\/rclcpp;//g&#39;</span><span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
+</code></pre></div>
+<ul>
+<li>Workaround 2<ul>
+<li>If the error persists after applying workaround 1, modify all libraries</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>grep<span class="w"> </span>-rl<span class="w"> </span><span class="s1">&#39;/opt/ros/humble/include/rclcpp;&#39;</span><span class="w"> </span>/opt/ros/humble/share<span class="w"> </span>--include<span class="o">=</span><span class="s2">&quot;*.cmake&quot;</span><span class="w"> </span><span class="p">|</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>f<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Delete reference to rclcpp from </span><span class="nv">$f</span><span class="s2">&quot;</span>
+<span class="w">        </span>sudo<span class="w"> </span>cp<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">.bak&quot;</span>
+<span class="w">        </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|/opt/ros/humble/include/rclcpp;||g&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">done</span>
+</code></pre></div>
+<ul>
+<li>Workaround 3<ul>
+<li>If the error persists even after applying workaround 1 and 2, ensure that the <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> rclcpp is used by explicitly setting <code>-Drclcpp_DIR</code></li>
+<li>This can occur especially when the target application is built with <code>--merge-install</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>--cmake-args<span class="w"> </span>-Drclcpp_DIR<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake&quot;</span>
 </code></pre></div>
 <h3 id="build-using-ament_cmake">Build using ament_cmake<a class="headerlink" href="#build-using-ament_cmake" title="Permanent link">#</a></h3>
 <ul>
@@ -2914,31 +2985,6 @@ sudo<span class="w"> </span>cp<span class="w"> </span>ament_auto_add_executable.
 sudo<span class="w"> </span>cp<span class="w"> </span>ament_auto_add_library.cmake<span class="w"> </span>ament_auto_add_library.cmake.bak
 sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/SYSTEM//g&#39;</span><span class="w"> </span>ament_auto_add_executable.cmake
 sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/SYSTEM//g&#39;</span><span class="w"> </span>ament_auto_add_library.cmake
-</code></pre></div>
-<h3 id="systems-rclcpp-is-referred">SYSTEM's rclcpp is referred<a class="headerlink" href="#systems-rclcpp-is-referred" title="Permanent link">#</a></h3>
-<ul>
-<li>Issue<ul>
-<li>The following error happens when building a target application</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:<span class="w"> </span>In<span class="w"> </span>member<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘void<span class="w"> </span>rclcpp::Publisher&lt;MessageT,<span class="w"> </span>AllocatorT&gt;::do_inter_process_publish<span class="o">(</span>const<span class="w"> </span>ROSMessageType<span class="p">&amp;</span><span class="o">)</span>’:
-/opt/ros/humble/include/rclcpp/rclcpp/publisher.hpp:452:5:<span class="w"> </span>error:<span class="w"> </span>too<span class="w"> </span>few<span class="w"> </span>arguments<span class="w"> </span>to<span class="w"> </span><span class="k">function</span><span class="w"> </span>‘void<span class="w"> </span>ros_trace_rclcpp_publish<span class="o">(</span>const<span class="w"> </span>void*,<span class="w"> </span>const<span class="w"> </span>void*,<span class="w"> </span>uint64_t<span class="o">)</span>’
-<span class="w">  </span><span class="m">452</span><span class="w"> </span><span class="p">|</span><span class="w">     </span>TRACEPOINT<span class="o">(</span>rclcpp_publish,<span class="w"> </span>nullptr,<span class="w"> </span>static_cast&lt;const<span class="w"> </span>void<span class="w"> </span>*&gt;<span class="o">(</span><span class="p">&amp;</span>msg<span class="o">))</span><span class="p">;</span>
-</code></pre></div>
-<ul>
-<li>Cause<ul>
-<li>To build with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, caret/rclcpp should be used. However, in case rclcpp in SYSTEM ( <code>/opt/ros/humble</code> ) is used for some reasons, build will fail</li>
-<li>Take <code>pcl_ros</code> for example, <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code> enforces <code>/opt/ros/humble/include/rclcpp</code> to be referred. So that caret/rclcpp is not used and building a package depending on <code>pcl_ros</code> will fail</li>
-</ul>
-</li>
-<li>Workaround<ul>
-<li>Remove <code>/opt/ros/humble/include/rclcpp;</code> from <code>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake</code></li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cp<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake<span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake.bak2
-sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/\/opt\/ros\/humble\/include\/rclcpp;//g&#39;</span><span class="w"> </span>/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
 </code></pre></div>
 <h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
 <h3 id="only-metadata-is-recorded">Only metadata is recorded<a class="headerlink" href="#only-metadata-is-recorded" title="Permanent link">#</a></h3>
