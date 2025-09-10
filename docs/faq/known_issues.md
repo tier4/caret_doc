@@ -1,3 +1,5 @@
+<!-- cspell:ignore Drclcpp Dtracetools -->
+
 # Known issues
 
 ## Install
