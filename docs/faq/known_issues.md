@@ -90,25 +90,6 @@ sudo grep -rl '/opt/ros/humble/lib/libtracetools.so;' /opt/ros/humble/share --in
 --cmake-args -Dtracetools_DIR="$HOME/ros2_caret_ws/install/tracetools/share/tracetools/cmake"
 ```
 
-
-### Build using ament_cmake
-
-- Issue
-  - The following error happens when building a target application using ament_cmake
-    - `error: too few arguments to function ‘void ros_trace_rclcpp_publish`
-- Cause
-  - `SYSTEM` is added as dependencies in ament_cmake_auto by [this PR](https://github.com/ament/ament_cmake/commit/799183ab9bcfd9b66df0de9b644abaf8c9b78e84). As a result, ros2/rclcpp is used rather than CARET/rclcpp in some packages
-- Workaround
-  - Remove `SYSTEM` from dependencies in ament_cmake_auto
-
-```sh
-cd /opt/ros/humble/share/ament_cmake_auto/cmake/
-sudo cp ament_auto_add_executable.cmake ament_auto_add_executable.cmake.bak
-sudo cp ament_auto_add_library.cmake ament_auto_add_library.cmake.bak
-sudo sed -i -e 's/SYSTEM//g' ament_auto_add_executable.cmake
-sudo sed -i -e 's/SYSTEM//g' ament_auto_add_library.cmake
-```
-
 ### SYSTEM's rclcpp is referred
 
 - Issue
@@ -148,6 +129,24 @@ sudo grep -rl '/opt/ros/humble/include/rclcpp;' /opt/ros/humble/share --include=
 
 ```sh
 --cmake-args -Drclcpp_DIR="$HOME/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake"
+```
+
+### Build using ament_cmake
+
+- Issue
+  - The following error happens when building a target application using ament_cmake
+    - `error: too few arguments to function ‘void ros_trace_rclcpp_publish`
+- Cause
+  - `SYSTEM` is added as dependencies in ament_cmake_auto by [this PR](https://github.com/ament/ament_cmake/commit/799183ab9bcfd9b66df0de9b644abaf8c9b78e84). As a result, ros2/rclcpp is used rather than CARET/rclcpp in some packages
+- Workaround
+  - Remove `SYSTEM` from dependencies in ament_cmake_auto
+
+```sh
+cd /opt/ros/humble/share/ament_cmake_auto/cmake/
+sudo cp ament_auto_add_executable.cmake ament_auto_add_executable.cmake.bak
+sudo cp ament_auto_add_library.cmake ament_auto_add_library.cmake.bak
+sudo sed -i -e 's/SYSTEM//g' ament_auto_add_executable.cmake
+sudo sed -i -e 's/SYSTEM//g' ament_auto_add_library.cmake
 ```
 
 ## Recording
