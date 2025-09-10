@@ -63,13 +63,33 @@ export PYTHONWARNINGS=ignore:"setup.py install is deprecated.",ignore:"easy_inst
 - Cause
   - `~/ros2_caret_ws/install/tracetools/lib/libtracetools.so` needs to be linked, but `/opt/ros/humble/lib/libtracetools.so` is referred when using some packages
   - For instance, `pcl_ros` package has `/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake` which enforces `/opt/ros/humble/lib/libtracetools.so` to be linked
-- Workaround
+- Workaround 1
   - Remove `/opt/ros/humble/lib/libtracetools.so;` from `/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake`
 
 ```sh
 sudo cp /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake.bak
 sudo sed -i -e 's/\/opt\/ros\/humble\/lib\/libtracetools.so;//g' /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
 ```
+
+- Workaround 2
+  - If the error persists after applying workaround 1, modify all libraries
+
+```sh
+sudo grep -rl '/opt/ros/humble/lib/libtracetools.so;' /opt/ros/humble/share --include="*.cmake" |
+    while read -r f; do
+        echo "Delete reference to libtracetools from $f"
+        sudo cp "$f" "$f.bak"
+        sudo sed -i 's|/opt/ros/humble/lib/libtracetools.so;||g' "$f"
+    done
+```
+
+- Workaround 3
+  - If the error persists even after applying workaround 1 and 2, ensure that the CARET tracetools library is used by explicitly setting `-Dtracetools_DIR`
+
+```sh
+--cmake-args -Dtracetools_DIR="$HOME/ros2_caret_ws/install/tracetools/share/tracetools/cmake"
+```
+
 
 ### Build using ament_cmake
 
@@ -103,12 +123,31 @@ sudo sed -i -e 's/SYSTEM//g' ament_auto_add_library.cmake
 - Cause
   - To build with CARET, caret/rclcpp should be used. However, in case rclcpp in SYSTEM ( `/opt/ros/humble` ) is used for some reasons, build will fail
   - Take `pcl_ros` for example, `/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake` enforces `/opt/ros/humble/include/rclcpp` to be referred. So that caret/rclcpp is not used and building a package depending on `pcl_ros` will fail
-- Workaround
+- Workaround 1
   - Remove `/opt/ros/humble/include/rclcpp;` from `/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake`
 
 ```sh
 sudo cp /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake.bak2
 sudo sed -i -e 's/\/opt\/ros\/humble\/include\/rclcpp;//g' /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
+```
+
+- Workaround 2
+  - If the error persists after applying workaround 1, modify all libraries
+
+```sh
+sudo grep -rl '/opt/ros/humble/include/rclcpp;' /opt/ros/humble/share --include="*.cmake" |
+    while read -r f; do
+        echo "Delete reference to rclcpp from $f"
+        sudo cp "$f" "$f.bak"
+        sudo sed -i 's|/opt/ros/humble/include/rclcpp;||g' "$f"
+    done
+```
+
+- Workaround 3
+  - If the error persists even after applying workaround 1 and 2, ensure that the CARET rclcpp is used by explicitly setting `-Drclcpp_DIR`
+
+```sh
+--cmake-args -Drclcpp_DIR="$HOME/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake"
 ```
 
 ## Recording
