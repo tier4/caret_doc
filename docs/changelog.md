@@ -2,6 +2,18 @@
 
 ## CARET
 
+### v0.6.4 <small>\_ Nov 10, 2025</small> {id = "0.6.4"}
+
+- **Update**: rosdep update --include-eol-distros for iron. ([caret #214](https://github.com/tier4/caret/pull/214), [caret_doc #366](https://github.com/tier4/caret_doc/pull/366))
+
+- **Update**: ichange tests_require to extras_require in setup.py. ([caret_analyze #575](https://github.com/tier4/caret_analyze/pull/575), [ros2caret #210](https://github.com/tier4/ros2caret/pull/210))
+
+- **Update**: add additional workarounds for library conflicts to the known issues list. ([caret_doc #370](https://github.com/tier4/caret_doc/pull/370))
+
+- **Update**: add disk cleanup for build-ci. ([caret #220](https://github.com/tier4/caret/pull/220))
+
+- **Update**: fixed an issue where CI would hang due to actions requiring user interaction. ([caret #221](https://github.com/tier4/caret/pull/221))
+
 ### v0.6.3 <small>\_ Aug 01, 2025</small> {id = "0.6.3"}
 
 - **Update**: exclude 3.7.0 from bokeh installation. ([caret_analyze #558](https://github.com/tier4/caret_analyze/pull/558))
@@ -26,7 +38,7 @@
 
 - **Fix**: fix failed to find callback. ([caret_analyze #567](https://github.com/tier4/caret_analyze/pull/567))
 
-- **Test**: fix unable to run pytest in github actions. ([caret_analyze #569](https://github.com/tier4/caret_analyze/pull/569)), ([ros2caret #207](https://github.com/tier4/ros2caret/pull/207))
+- **Test**: fix unable to run pytest in github actions. ([caret_analyze #569](https://github.com/tier4/caret_analyze/pull/569), [ros2caret #207](https://github.com/tier4/ros2caret/pull/207))
 
 - **Fix**: correct mypy errors/warnings. ([caret_analyze #570](https://github.com/tier4/caret_analyze/pull/570))
 
@@ -40,7 +52,7 @@
 
 - **Fix**: Exclude 3.7.0 from bokeh installation. ([caret_analyze #556](https://github.com/tier4/caret_analyze/pull/556))
 
-- **Chore**: Disable workflows using changed-files. ([caret_trace #313](https://github.com/tier4/caret_trace/pull/313)), ([caret_analyze_cpp_impl #226](https://github.com/tier4/caret_analyze_cpp_impl/pull/226))
+- **Chore**: Disable workflows using changed-files. ([caret_trace #313](https://github.com/tier4/caret_trace/pull/313), [caret_analyze_cpp_impl #226](https://github.com/tier4/caret_analyze_cpp_impl/pull/226))
 
 - **Refactor**: Replace logger.warn() to logger.warning(). ([caret_analyze #555](https://github.com/tier4/caret_analyze/pull/555))
 
@@ -52,7 +64,7 @@
 
 ### v0.6.0 <small>\_ Jan 29, 2025</small> {id = "0.6.0"}
 
-- **New/Update**: jazzy support. ([caret #210](https://github.com/tier4/caret/pull/210)), ([caret_analyze #542](https://github.com/tier4/caret_analyze/pull/542)), ([caret_trace #306](https://github.com/tier4/caret_trace/pull/306)), ([caret_analyze_cpp_impl #222](https://github.com/tier4/caret_analyze_cpp_impl/pull/222)), ([caret_doc #361](https://github.com/tier4/caret_doc/pull/361))
+- **New/Update**: jazzy support. ([caret #210](https://github.com/tier4/caret/pull/210a), [caret_analyze #542](https://github.com/tier4/caret_analyze/pull/542), [caret_trace #306](https://github.com/tier4/caret_trace/pull/306), [caret_analyze_cpp_impl #222](https://github.com/tier4/caret_analyze_cpp_impl/pull/222), [caret_doc #361](https://github.com/tier4/caret_doc/pull/361))
 
 ### v0.5.14 <small>\_ Jan 28, 2025</small> {id = "0.5.14"}
 
@@ -100,7 +112,7 @@
 
 - **Update**: Delete the AssignContextReader class and change the implementation to be more in line with the actual situation. ([caret_analyze #532](https://github.com/tier4/caret_analyze/pull/532))
 
-- **Update**: Refactoring and bug fixes for [#516](https://github.com/tier4/caret_analyze/pull/516). ([caret_analyze #526](https://github.com/tier4/caret_analyze/pull/526))
+- **Update**: Refactoring and bug fixes for ([caret_analyze #516](https://github.com/tier4/caret_analyze/pull/516), [caret_analyze #526](https://github.com/tier4/caret_analyze/pull/526))
 
 - **Update**: Fix docstring of RecordsCppImpl and TracePointData. ([caret_analyze #528](https://github.com/tier4/caret_analyze/pull/528))
 
