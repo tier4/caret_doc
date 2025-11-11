@@ -6,7 +6,7 @@
 
 - **Update**: rosdep update --include-eol-distros for iron. ([caret #214](https://github.com/tier4/caret/pull/214), [caret_doc #366](https://github.com/tier4/caret_doc/pull/366))
 
-- **Update**: ichange tests_require to extras_require in setup.py. ([caret_analyze #575](https://github.com/tier4/caret_analyze/pull/575), [ros2caret #210](https://github.com/tier4/ros2caret/pull/210))
+- **Update**: change tests_require to extras_require in setup.py. ([caret_analyze #575](https://github.com/tier4/caret_analyze/pull/575), [ros2caret #210](https://github.com/tier4/ros2caret/pull/210))
 
 - **Update**: add additional workarounds for library conflicts to the known issues list. ([caret_doc #370](https://github.com/tier4/caret_doc/pull/370))
 
