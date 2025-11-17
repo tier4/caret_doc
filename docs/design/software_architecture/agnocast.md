@@ -10,4 +10,4 @@ Please refer to the following PRs for the implementations:
 
 ## Version Compatibility
 
-CARET supports only Agnocast version 2.1.3 and later.
+CARET supports only Agnocast versions later than [2.1.2](https://github.com/tier4/agnocast/releases/tag/2.1.2).
