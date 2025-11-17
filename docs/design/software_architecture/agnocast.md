@@ -10,4 +10,4 @@ Please refer to the following PRs for the implementations:
 
 ## Version Compatibility
 
-The current implementation supports Agnocast version 2.1.3 and later. For applications using earlier versions of Agnocast, please use the [rc/v0.6.2-rclcpp-t4-main-caret-add-agnocast](https://github.com/tier4/caret/tree/rc/v0.6.2-rclcpp-t4-main-caret-add-agnocast) branch of CARET.
+CARET supports only Agnocast version 2.1.3 and later.
