@@ -208,3 +208,14 @@ Please make sure to source local_setup.bash of this workspace before you run Rel
 !!! Note
     The iron version of caret does not support RelayNode analysis because it does not add trace points for Generic communication.
 <prettier-ignore-end>
+
+### Application Splitting and CARET Measurement/Analysis Based on "ROS_DOMAIN_ID" Settings
+
+CARET does not take "ROS_DOMAIN_ID" into account. Depending on the measurement method, it behaves as shown in the following table.
+
+|**No**|**Measurement timing**|**Domain executing the record command**|**Result**|**Note**|
+|---|---|---|---|---|
+|1|Measure from the start|Issue the record command once for any domain (or without specifying a domain)|All domains are subject to measurement.|Namespace + Node name is OK if there are no duplicates.</br>Only domains with LD_PRELOAD set can be analyzed.|
+|2|Measure from the start|Issue the record command for each domain|NG||
+|3|Measurement from midway|Issue the record command once only for the target domain.|The domain where the record was executed is the measurement target.|The presence or absence of the LD_PRELOAD setting is generally irrelevant outside the target domain.|
+|4|Measurement from midway|Issue the record command for each domain|NG||
