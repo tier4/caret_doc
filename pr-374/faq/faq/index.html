@@ -4890,30 +4890,30 @@ Some module may need to rebuild instead e.g. with 'pybind11&gt;=2.12'.</p>
 <tbody>
 <tr>
 <td>1</td>
-<td>Measure from the start</td>
+<td>Before the application starts</td>
 <td>Execute the record command once for any domain (or without specifying a domain)</td>
 <td>All domains are subject to measurement.</td>
 <td>Namespace + Node name is OK if there are no duplicates.</br>Only domains with LD_PRELOAD set can be analyzed.</td>
 </tr>
 <tr>
 <td>2</td>
-<td>Measure from the start</td>
+<td>Before the application starts</td>
 <td>Execute the record command for each domain</td>
-<td>NG</td>
+<td>Not supported</td>
 <td></td>
 </tr>
 <tr>
 <td>3</td>
-<td>Measurement from midway</td>
+<td>While the application is running</td>
 <td>Execute the record command once only for the target domain.</td>
 <td>The domain where the record was executed is the measurement target.</td>
 <td>The presence or absence of the LD_PRELOAD setting is generally irrelevant outside the target domain.</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Measurement from midway</td>
+<td>While the application is running</td>
 <td>Execute the record command for each domain</td>
-<td>NG</td>
+<td>Not supported</td>
 <td></td>
 </tr>
 </tbody>
