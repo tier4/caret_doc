@@ -66,12 +66,12 @@ pip3 install -U numexpr bottleneck matplotlib
 
 CARET does not take "ROS_DOMAIN_ID" into account. Depending on the measurement method, it behaves as shown in the following table.
 
-|**No**|**The timing when the record command is executed**|**The domain where the record command is executed**|**Result**|**Note**|
-|---|---|---|---|---|
-|1|Measure from the start|Execute the record command once for any domain (or without specifying a domain)|All domains are subject to measurement.|Namespace + Node name is OK if there are no duplicates.</br>Only domains with LD_PRELOAD set can be analyzed.|
-|2|Measure from the start|Execute the record command for each domain|NG||
-|3|Measurement from midway|Execute the record command once only for the target domain.|The domain where the record was executed is the measurement target.|The presence or absence of the LD_PRELOAD setting is generally irrelevant outside the target domain.|
-|4|Measurement from midway|Execute the record command for each domain|NG||
+| **No** | **The timing when the record command is executed** | **The domain where the record command is executed**                             | **Result**                                                          | **Note**                                                                                                      |
+| ------ | -------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| 1      | Measure from the start                             | Execute the record command once for any domain (or without specifying a domain) | All domains are subject to measurement.                             | Namespace + Node name is OK if there are no duplicates.</br>Only domains with LD_PRELOAD set can be analyzed. |
+| 2      | Measure from the start                             | Execute the record command for each domain                                      | NG                                                                  |                                                                                                               |
+| 3      | Measurement from midway                            | Execute the record command once only for the target domain.                     | The domain where the record was executed is the measurement target. | The presence or absence of the LD_PRELOAD setting is generally irrelevant outside the target domain.          |
+| 4      | Measurement from midway                            | Execute the record command for each domain                                      | NG                                                                  |                                                                                                               |
 
 ## Visualization
 
