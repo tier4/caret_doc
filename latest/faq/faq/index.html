@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/tier4.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -4230,6 +4230,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-to-measure-a-system-with-multiple-ros_domain_ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to measure a system with multiple ROS_DOMAIN_IDs
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4583,6 +4594,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-to-measure-a-system-with-multiple-ros_domain_ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to measure a system with multiple ROS_DOMAIN_IDs
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4853,6 +4875,49 @@ Some module may need to rebuild instead e.g. with 'pybind11&gt;=2.12'.</p>
 <li>If you start <abbr title="OSS-based self-driving software">Autoware</abbr> and <code>ros2 caret record</code> at the same time, operation may become unstable and some nodes may not be recorded.</li>
 <li>It is recommended to start <code>ros2 caret record</code> a little while after starting <abbr title="OSS-based self-driving software">Autoware</abbr>.</li>
 </ul>
+<h3 id="how-to-measure-a-system-with-multiple-ros_domain_ids">How to measure a system with multiple ROS_DOMAIN_IDs<a class="headerlink" href="#how-to-measure-a-system-with-multiple-ros_domain_ids" title="Permanent link">#</a></h3>
+<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> does not take "ROS_DOMAIN_ID" into account. Depending on the measurement method, it behaves as shown in the following table.</p>
+<table>
+<thead>
+<tr>
+<th><strong>No</strong></th>
+<th><strong>The timing when the record command is executed</strong></th>
+<th><strong>The domain where the record command is executed</strong></th>
+<th><strong>Result</strong></th>
+<th><strong>Note</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Before the application starts</td>
+<td>Execute the record command once for any domain (or without specifying a domain)</td>
+<td>All domains are subject to measurement.</td>
+<td>- The data can be analyzed as long as there are no duplicate namespace/node_name pairs.</br>- Only domains with LD_PRELOAD set can be analyzed.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Before the application starts</td>
+<td>Execute the record command for each domain</td>
+<td>Not supported</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>While the application is running</td>
+<td>Execute the record command once only for the target domain.</td>
+<td>The domain where the record was executed is the measurement target.</td>
+<td>The presence or absence of the LD_PRELOAD setting is generally irrelevant outside the target domain.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>While the application is running</td>
+<td>Execute the record command for each domain</td>
+<td>Not supported</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
 <h3 id="result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result">Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result<a class="headerlink" href="#result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result" title="Permanent link">#</a></h3>
 <ul>
