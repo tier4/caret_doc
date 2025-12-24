@@ -11,6 +11,8 @@ on:
       - "**/*.svg"
       - "**/*.png"
       - "**/*.jpg"
+    tags:
+      - "[0-9]+.[0-9]+*"
   pull_request_target:
     types:
       - opened
@@ -19,18 +21,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  prevent-no-label-execution:
-    uses: autowarefoundation/autoware-github-actions/.github/workflows/prevent-no-label-execution.yaml@v1
+  require-label:
+    if: ${{ github.event_name == 'pull_request_target' }}
+    uses: autowarefoundation/autoware-github-actions/.github/workflows/require-label.yaml@v1
     with:
       label: tag:deploy-docs
 
-  deploy-docs:
-    needs: prevent-no-label-execution
-    if: ${{ needs.prevent-no-label-execution.outputs.run == 'true' }}
+  deploy-docs-pr:
+    if: ${{ github.event_name == 'pull_request_target' && needs.require-label.outputs.result == 'true' }}
+    needs: require-label
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
@@ -39,4 +42,53 @@ jobs:
         uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          latest: ${{ github.event_name != 'pull_request_target' && github.ref_name == github.event.repository.default_branch }}
+          latest: false
+          mkdocs-requirements-txt: mkdocs-requirements.txt
+
+  deploy-docs-push:
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Deploy docs
+        uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          latest: false
+          mkdocs-requirements-txt: mkdocs-requirements.txt
+
+  deploy-docs-workflow-dispatch:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Deploy docs
+        uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          latest: false
+          mkdocs-requirements-txt: mkdocs-requirements.txt
+
+  reorder-versions-json:
+    needs:
+      - deploy-docs-pr
+      - deploy-docs-push
+      - deploy-docs-workflow-dispatch
+    if: |
+      always() &&
+      (
+        needs.deploy-docs-pr.result == 'success' ||
+        needs.deploy-docs-push.result == 'success' ||
+        needs.deploy-docs-workflow-dispatch.result == 'success'
+      )
+    uses: ./.github/workflows/reorder-versions.yaml
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
