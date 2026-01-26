@@ -8,10 +8,9 @@
 
 - **New**: Supported Agnocast. ([caret_analyze #577](https://github.com/tier4/caret_analyze/pull/577), [caret_trace #316](https://github.com/tier4/caret_trace/pull/316), [caret_trace #318](https://github.com/tier4/caret_trace/pull/318), [caret_trace #321](https://github.com/tier4/caret_trace/pull/321), [ros2caret #206](https://github.com/tier4/ros2caret/pull/206))
   - Added analysis of agnocast trace points.
-  - runtime recording for Agnocast.
-  - trace filtering for Agnocast.
-  - rename to callback_info_id.
-  - add Agnocast-related trace events into “ros2 caret record” command.
+  - Added runtime recording for Agnocast.
+  - Added trace filtering for Agnocast.
+  - Enabled recording of Agnocast-related trace points in the `ros2 caret record` command.
 
 - **Fix**: Ensure changes to cyclonedds' CMakeLists.txt are applied. ([caret #223](https://github.com/tier4/caret/pull/223))
 
