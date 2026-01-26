@@ -18,7 +18,7 @@
 
 - **Fix**: filter multiple subscription callbacks. ([caret_analyze #582](https://github.com/tier4/caret_analyze/pull/582))
 
-- **Update**: pandas future warning handling. ([caret_analyze #583](https://github.com/tier4/caret_analyze/pull/583))
+- **Update**: Suppress pandas future warning. ([caret_analyze #583](https://github.com/tier4/caret_analyze/pull/583))
 
 - **Update**: Fixed Mermaid graph rendering.. ([caret_doc #375](https://github.com/tier4/caret_doc/pull/375))
 
