@@ -12,7 +12,7 @@
   - Added trace filtering for Agnocast.
   - Enabled recording of Agnocast-related trace points in the `ros2 caret record` command.
 
-- **Fix**: Ensure changes to cyclonedds' CMakeLists.txt are applied. ([caret #223](https://github.com/tier4/caret/pull/223))
+- **Fix**: Moved CycloneDDS CMakeLists.txt modifications from Ansible to shell scripts to ensure changes are applied reliably during the setup. ([caret #223](https://github.com/tier4/caret/pull/223))
 
 - **Update**: updated the setup procedure for Build with Autoware. ([caret #224](https://github.com/tier4/caret/pull/224))
 
