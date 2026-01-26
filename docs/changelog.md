@@ -10,7 +10,7 @@
   - Added analysis of agnocast trace points.
   - runtime recording for Agnocast.
   - trace filtering for Agnocast.
-  - rename ciid.
+  - rename to callback_info_id.
   - add Agnocast-related trace events into “ros2 caret record” command.
 
 - **Fix**: Ensure changes to cyclonedds' CMakeLists.txt are applied. ([caret #223](https://github.com/tier4/caret/pull/223))
