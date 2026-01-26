@@ -20,7 +20,7 @@
 
 - **Update**: Suppress pandas future warning. ([caret_analyze #583](https://github.com/tier4/caret_analyze/pull/583))
 
-- **Update**: Fixed Mermaid graph rendering.. ([caret_doc #375](https://github.com/tier4/caret_doc/pull/375))
+- **Update**: Fixed Mermaid graph rendering. ([caret_doc #375](https://github.com/tier4/caret_doc/pull/375))
 
 ### v0.6.4 <small>\_ Nov 10, 2025</small> {id = "0.6.4"}
 
