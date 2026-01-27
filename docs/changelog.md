@@ -2,6 +2,26 @@
 
 ## CARET
 
+### v0.7.0 <small>\_ Jan 26, 2026</small> {id = "0.7.0"}
+
+- **Update**: added “ROS_DOMAIN_ID” and caret behavior. ([caret_doc #374](https://github.com/tier4/caret_doc/pull/374))
+
+- **New**: Supported Agnocast. ([caret_analyze #577](https://github.com/tier4/caret_analyze/pull/577), [caret_trace #316](https://github.com/tier4/caret_trace/pull/316), [caret_trace #318](https://github.com/tier4/caret_trace/pull/318), [caret_trace #321](https://github.com/tier4/caret_trace/pull/321), [ros2caret #206](https://github.com/tier4/ros2caret/pull/206))
+  - Added analysis of agnocast trace points.
+  - Added runtime recording for Agnocast.
+  - Added trace filtering for Agnocast.
+  - Enabled recording of Agnocast-related trace points in the `ros2 caret record` command.
+
+- **Fix**: Moved CycloneDDS CMakeLists.txt modifications from Ansible to shell scripts to ensure changes are applied reliably during the setup. ([caret #223](https://github.com/tier4/caret/pull/223))
+
+- **Update**: updated the setup procedure for Build with Autoware. ([caret #224](https://github.com/tier4/caret/pull/224))
+
+- **Fix**: filter multiple subscription callbacks. ([caret_analyze #582](https://github.com/tier4/caret_analyze/pull/582))
+
+- **Update**: Suppress pandas future warning. ([caret_analyze #583](https://github.com/tier4/caret_analyze/pull/583))
+
+- **Update**: Fixed Mermaid graph rendering. ([caret_doc #375](https://github.com/tier4/caret_doc/pull/375))
+
 ### v0.6.4 <small>\_ Nov 10, 2025</small> {id = "0.6.4"}
 
 - **Update**: rosdep update --include-eol-distros for iron. ([caret #214](https://github.com/tier4/caret/pull/214), [caret_doc #366](https://github.com/tier4/caret_doc/pull/366))
