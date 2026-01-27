@@ -11,6 +11,7 @@
   - Added runtime recording for Agnocast.
   - Added trace filtering for Agnocast.
   - Enabled recording of Agnocast-related trace points in the `ros2 caret record` command.
+  - **Note**: This feature supports Agnocast v2.1.3 or later. Earlier versions (v2.1.2 and before) are not supported.
 
 - **Fix**: Moved CycloneDDS CMakeLists.txt modifications from Ansible to shell scripts to ensure changes are applied reliably during the setup. ([caret #223](https://github.com/tier4/caret/pull/223))
 
