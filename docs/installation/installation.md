@@ -4,39 +4,25 @@
 
 CARET is confirmed to run on the platforms shown in the following table with supported version.
 
-| dependent platform | supported version |
-| ------------------ | ----------------- |
-| ROS                | Humble            |
-| Ubuntu             | 22.04             |
-| LTTng              | stable-2.13       |
-| Linux Kernel       | 5.15.x            |
-| Python3            | 3.10.x            |
+|ROS 2 |OS |LTTng |Python |Status |
+|:---|:---|:---|:---|:---|
+|Jazzy |Ubuntu 24.04 |stable-2.13|3.12.x|Supported|
+|Humble|Ubuntu 22.04 |stable-2.13|3.10.x|Supported (LTS)|
 
-The recent version, after v0.3.0, of CARET supports only the combination of ROS 2 Humble and Ubuntu 22.04.  
-We have added an experimental implementation to work with iron.  
-For setup of each distribution, please open each tab.  
-To install for jazzy, open `for jazzy` in the Installation section below and follow the instructions.
+Please follow the steps according to your ROS 2 distribution. For jazzy, ensure you run the export command in the setup step to comply with PEP 668.
 
 ## Installation
 
 Installation using meta repository is the least time-consuming way to install CARET.  
 With meta repository and Ansible, you can skip the laborious manual setup which is explained in manual installation(./manual_installation.md) section (written in Japanese).
 
-Please execute the following steps on Ubuntu 22.04. The order is important so that you have to follow the steps in order.
+Please execute the following steps on Ubuntu 22.04 or 24.04. The order is important so that you have to follow the steps in order.
 
    <details>
    <summary>for jazzy</summary>
 
-Currently, jazzy assumes installation in a virtual environment.
-First, create and activate the virtual environment with the following commands.
-
-```bash
-sudo apt install python3-pip
-sudo apt-get install python3-virtualenv
-
-virtualenv -p python3 --system-site-packages $HOME/venv/jazzy
-source $HOME/venv/jazzy/bin/activate
-```
+Since Ubuntu 24.04 (Jazzy) restricts pip installations into the system environment (PEP 668), you need to acknowledge this by setting an environment variable(PIP_BREAK_SYSTEM_PACKAGES) before running the setup script.
+If you are using Jazzy, please ensure you follow the steps under the "jazzy" tabs below, which include the necessary environment variable.
 
    </details>
 
@@ -95,6 +81,7 @@ CARET uses vcstool to construct workspaces.
 === "jazzy"
 
     ``` bash
+    export PIP_BREAK_SYSTEM_PACKAGES=1
     ./setup_caret.sh -d jazzy
     ```
 
