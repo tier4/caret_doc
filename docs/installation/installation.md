@@ -4,10 +4,10 @@
 
 CARET is confirmed to run on the platforms shown in the following table with supported version.
 
-|ROS 2 |OS |LTTng |Python |Status |
-|:---|:---|:---|:---|:---|
-|Jazzy |Ubuntu 24.04 |stable-2.13|3.12.x|Supported|
-|Humble|Ubuntu 22.04 |stable-2.13|3.10.x|Supported (LTS)|
+| ROS 2  | OS           | LTTng       | Python | Status          |
+| :----- | :----------- | :---------- | :----- | :-------------- |
+| Jazzy  | Ubuntu 24.04 | stable-2.13 | 3.12.x | Supported       |
+| Humble | Ubuntu 22.04 | stable-2.13 | 3.10.x | Supported (LTS) |
 
 Please follow the steps according to your ROS 2 distribution. For jazzy, ensure you run the export command in the setup step to comply with PEP 668.
 
