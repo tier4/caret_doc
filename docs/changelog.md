@@ -2,6 +2,13 @@
 
 ## CARET
 
+### v0.7.1 <small>\_ Mar 09, 2026</small> {id = "0.7.1"}
+
+- **Update**: Add “/AGNOCAST_SRV_*” to the default topic filter. ([caret #226](https://github.com/tier4/caret_doc/pull/374))
+- **Update**: Enable analysis of caret measurement results for agnocast 2.1.2. ([caret_analyze #585](https://github.com/tier4/caret_analyze/pull/585))
+- **Update**: Update for jazzy. ([caret #228](https://github.com/tier4/caret/pull/228), [caret_doc #378](https://github.com/tier4/caret_doc/pull/378))
+- **Update**: Add a CI workflow for CARET build. ([caret #229](https://github.com/tier4/caret/pull/229), [caret #230](https://github.com/tier4/caret/pull/230))
+
 ### v0.7.0 <small>\_ Jan 26, 2026</small> {id = "0.7.0"}
 
 - **Update**: added “ROS_DOMAIN_ID” and caret behavior. ([caret_doc #374](https://github.com/tier4/caret_doc/pull/374))
