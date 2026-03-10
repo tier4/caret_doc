@@ -5,9 +5,16 @@
 ### v0.7.1 <small>\_ Mar 09, 2026</small> {id = "0.7.1"}
 
 - **Update**: Add “/AGNOCAST_SRV_*” to the default topic filter. ([caret #226](https://github.com/tier4/caret/pull/226))
+
 - **Update**: Enable analysis of caret measurement results for agnocast 2.1.2. ([caret_analyze #585](https://github.com/tier4/caret_analyze/pull/585))
+
 - **Update**: Update for jazzy. ([caret #228](https://github.com/tier4/caret/pull/228), [caret_doc #378](https://github.com/tier4/caret_doc/pull/378))
+  - Update ansible roles and setup script use PIP_BREAK_SYSTEM_PACKAGES.
+  - Installation method to use PIP_BREAK_SYSTEM_PACKAGES instead of virtualenv.
+
 - **Update**: Add a CI workflow for CARET build. ([caret #229](https://github.com/tier4/caret/pull/229), [caret #230](https://github.com/tier4/caret/pull/230))
+  - Added caret builds (humble/iron/jazzy).
+  - Add setting PIP_BREAK_SYSTEM_PACKAGES in jazzy.
 
 ### v0.7.0 <small>\_ Jan 26, 2026</small> {id = "0.7.0"}
 
