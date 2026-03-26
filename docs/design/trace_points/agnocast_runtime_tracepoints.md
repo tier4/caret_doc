@@ -1,9 +1,5 @@
 ### Relationships of each Agnocast runtime trace points
 
-In Agnocast, message passing uses `entry_id` to associate a publish event with the corresponding subscription callback execution.
-`agnocast_publish` is linked to `agnocast_create_callable` and `agnocast_take` via `entry_id`.
-The callable lifecycle (`agnocast_callable_start` / `agnocast_callable_end`) is tracked via `callable` address.
-
 ```mermaid
 erDiagram
   agnocast_publish {
@@ -43,9 +39,15 @@ erDiagram
   agnocast_callable_start ||--|| agnocast_callable_end : callable
 ```
 
+In Agnocast, message passing uses `entry_id` to associate a publish event with the corresponding subscription callback execution.
+`agnocast_publish` is linked to `agnocast_create_callable` and `agnocast_take` via `entry_id`.
+The callable lifecycle (`agnocast_callable_start` / `agnocast_callable_end`) is tracked via `callable` address.
+
 ### Trace point definition
 
 #### agnocast:agnocast_publish
+
+[Built-in tracepoints]
 
 Sampled items
 
@@ -55,6 +57,8 @@ Sampled items
 ---
 
 #### agnocast:agnocast_create_callable
+
+[Built-in tracepoints]
 
 Sampled items
 
@@ -66,6 +70,8 @@ Sampled items
 
 #### agnocast:agnocast_create_timer_callable
 
+[Built-in tracepoints]
+
 Sampled items
 
 - void \* callable
@@ -75,6 +81,8 @@ Sampled items
 
 #### agnocast:agnocast_callable_start
 
+[Built-in tracepoints]
+
 Sampled items
 
 - void \* callable
@@ -83,6 +91,8 @@ Sampled items
 
 #### agnocast:agnocast_callable_end
 
+[Built-in tracepoints]
+
 Sampled items
 
 - void \* callable
@@ -90,6 +100,8 @@ Sampled items
 ---
 
 #### agnocast:agnocast_take
+
+[Built-in tracepoints]
 
 Sampled items
 

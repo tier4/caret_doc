@@ -4,6 +4,7 @@ Relationships of each trace point related to a single agnocast node are shown as
 
 Unlike ROS 2 initialization trace points, `agnocast_subscription_init` and `agnocast_timer_init` directly contain `callback`, `callback_group`, and `symbol` fields.
 Therefore, separate trace points such as `rclcpp_callback_register`, `callback_group_add_subscription`, and `callback_group_add_timer` are not needed.
+As a result, the executor/callback group structure and the node structure can be represented in a single diagram.
 
 ```mermaid
 erDiagram
@@ -68,6 +69,8 @@ erDiagram
 
 #### ros2_caret:agnocast_init
 
+[Hooked tracepoints]
+
 Sampled items
 
 - void \* context_handle
@@ -76,6 +79,8 @@ Sampled items
 ---
 
 #### ros2_caret:agnocast_node_init
+
+[Hooked tracepoints]
 
 Sampled items
 
@@ -87,6 +92,8 @@ Sampled items
 
 #### ros2_caret:agnocast_publisher_init
 
+[Hooked tracepoints]
+
 Sampled items
 
 - void \* publisher_handle
@@ -97,6 +104,8 @@ Sampled items
 ---
 
 #### ros2_caret:agnocast_subscription_init
+
+[Hooked tracepoints]
 
 Sampled items
 
@@ -113,6 +122,8 @@ Sampled items
 
 #### ros2_caret:agnocast_timer_init
 
+[Hooked tracepoints]
+
 Sampled items
 
 - void \* timer_handle
@@ -126,6 +137,8 @@ Sampled items
 
 #### ros2_caret:agnocast_add_callback_group
 
+[Hooked tracepoints]
+
 Sampled items
 
 - void \* executor_addr
@@ -135,6 +148,8 @@ Sampled items
 ---
 
 #### ros2_caret:agnocast_construct_executor
+
+[Hooked tracepoints]
 
 Sampled items
 
