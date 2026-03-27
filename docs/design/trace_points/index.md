@@ -1,5 +1,3 @@
-<!-- cSpell:ignore ciid -->
-
 # Tracepoints definition
 
 This section lists all tracepoints and their definitions.
