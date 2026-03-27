@@ -14,8 +14,8 @@ Please refer to the following PRs for the implementations:
 
 For more details on the tracepoint definitions, please refer to the following documents:
 
-- [Agnocast Initialization Tracepoints](./trace_points/agnocast_initialization_tracepoints.md)
-- [Agnocast Runtime Tracepoints](./trace_points/agnocast_runtime_tracepoints.md)
+- [Agnocast Initialization Tracepoints](../trace_points/agnocast_initialization_tracepoints.md)
+- [Agnocast Runtime Tracepoints](../trace_points/agnocast_runtime_tracepoints.md)
 
 ## Version Compatibility
 
