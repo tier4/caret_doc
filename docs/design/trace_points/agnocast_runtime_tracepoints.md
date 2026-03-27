@@ -4,13 +4,13 @@
 erDiagram
   agnocast_publish {
     address publisher_handle
-    uint64_t entry_id
+    int64_t entry_id
   }
 
   agnocast_create_callable {
     address callable
-    uint64_t entry_id
-    int64_t pid_callback_info_id
+    int64_t entry_id
+    uint64_t pid_callback_info_id
   }
 
   agnocast_create_timer_callable {
@@ -29,7 +29,7 @@ erDiagram
   agnocast_take {
     address subscription_handle
     address message
-    uint64_t entry_id
+    int64_t entry_id
   }
 
   agnocast_publish ||--o{ agnocast_create_callable : entry_id
@@ -52,7 +52,7 @@ The callable lifecycle (`agnocast_callable_start` / `agnocast_callable_end`) is 
 Sampled items
 
 - void \* publisher_handle
-- uint64_t entry_id
+- int64_t entry_id
 
 ---
 
@@ -63,8 +63,13 @@ Sampled items
 Sampled items
 
 - void \* callable
-- uint64_t entry_id
-- int64_t pid_callback_info_id
+- int64_t entry_id
+- uint64_t pid_callback_info_id
+
+<prettier-ignore-start>
+!!!Note
+    In older versions, `pid_callback_info_id` may be recorded as `pid_ciid`.
+<prettier-ignore-end>
 
 ---
 
@@ -107,4 +112,4 @@ Sampled items
 
 - void \* subscription_handle
 - void \* message
-- uint64_t entry_id
+- int64_t entry_id

@@ -10,7 +10,6 @@ As a result, the executor/callback group structure and the node structure can be
 erDiagram
   agnocast_init {
     address context_handle
-    int64_t pid
   }
 
   agnocast_node_init {
@@ -34,7 +33,7 @@ erDiagram
     string symbol
     string topic_name
     size_t queue_depth
-    int64_t pid_callback_info_id
+    uint64_t pid_callback_info_id
   }
 
   agnocast_timer_init {
@@ -48,6 +47,7 @@ erDiagram
 
   agnocast_add_callback_group {
     address executor_addr
+    address node_handle
     address callback_group_addr
     string group_type_name
   }
@@ -74,7 +74,7 @@ erDiagram
 Sampled items
 
 - void \* context_handle
-- int64_t pid
+- int64_t init_timestamp (caret_trace added)
 
 ---
 
@@ -87,6 +87,7 @@ Sampled items
 - void \* node_handle
 - char \* node_name
 - char \* namespace
+- int64_t init_timestamp (caret_trace added)
 
 ---
 
@@ -100,6 +101,7 @@ Sampled items
 - void \* node_handle
 - char \* topic_name
 - size_t queue_depth
+- int64_t init_timestamp (caret_trace added)
 
 ---
 
@@ -116,7 +118,13 @@ Sampled items
 - char \* symbol
 - char \* topic_name
 - size_t queue_depth
-- int64_t pid_callback_info_id
+- uint64_t pid_callback_info_id
+- int64_t init_timestamp (caret_trace added)
+
+<prettier-ignore-start>
+!!!Note
+    In older versions, `pid_callback_info_id` may be recorded as `pid_ciid`.
+<prettier-ignore-end>
 
 ---
 
@@ -132,6 +140,7 @@ Sampled items
 - void \* callback_group
 - char \* symbol
 - int64_t period
+- int64_t init_timestamp (caret_trace added)
 
 ---
 
@@ -142,8 +151,10 @@ Sampled items
 Sampled items
 
 - void \* executor_addr
+- void \* node_handle
 - void \* callback_group_addr
 - char \* group_type_name
+- int64_t init_timestamp (caret_trace added)
 
 ---
 
@@ -155,3 +166,4 @@ Sampled items
 
 - void \* executor_addr
 - char \* executor_type_name
+- int64_t init_timestamp (caret_trace added)
