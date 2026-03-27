@@ -1,8 +1,4 @@
 {
-  "import": [
-    "@tier4/cspell-dicts/caret/cspell-ext.json"
-  ],
-  "words": [
-    "ciid"
-  ]
+  "import": ["@tier4/cspell-dicts/caret/cspell-ext.json"],
+  "words": ["ciid"]
 }
