@@ -66,6 +66,24 @@ export PYTHONWARNINGS=ignore:"setup.py install is deprecated.",ignore:"easy_inst
   - `~/ros2_caret_ws/install/tracetools/lib/libtracetools.so` needs to be linked, but `/opt/ros/humble/lib/libtracetools.so` is referred when using some packages
   - For instance, `pcl_ros` package has `/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake` which enforces `/opt/ros/humble/lib/libtracetools.so` to be linked
 - Workaround 1
+  - Please try the following build options to ensure that the CARET tracetools library is used by explicitly setting `-Dtracetools_DIR`
+  - This can occur especially when the target application is built with `--merge-install`
+
+```sh
+colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF \
+  -Drclcpp_DIR="$HOME/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake" \
+  -Dtracetools_DIR="$HOME/ros2_caret_ws/install/tracetools/share/tracetools/cmake"
+
+or
+
+colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF \
+  -DCMAKE_SHARED_LINKER_FLAGS="-L$HOME/ros2_caret_ws/install/tracetools/lib -ltracetools" \
+  -DCMAKE_EXE_LINKER_FLAGS="-L$HOME/ros2_caret_ws/install/tracetools/lib -ltracetools" \
+  -Drclcpp_DIR="$HOME/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake" \
+  -Dtracetools_DIR="$HOME/ros2_caret_ws/install/tracetools/share/tracetools/cmake"
+```
+
+- Workaround 2
   - Remove `/opt/ros/humble/lib/libtracetools.so;` from `/opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake`
 
 ```sh
@@ -73,7 +91,7 @@ sudo cp /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake /opt/ros/
 sudo sed -i -e 's/\/opt\/ros\/humble\/lib\/libtracetools.so;//g' /opt/ros/humble/share/pcl_ros/cmake/export_pcl_rosExport.cmake
 ```
 
-- Workaround 2
+- Workaround 3
   - If the error persists after applying workaround 1, modify all libraries
 
 ```sh
@@ -83,14 +101,6 @@ sudo grep -rl '/opt/ros/humble/lib/libtracetools.so;' /opt/ros/humble/share --in
         sudo cp "$f" "$f.bak"
         sudo sed -i 's|/opt/ros/humble/lib/libtracetools.so;||g' "$f"
     done
-```
-
-- Workaround 3
-  - If the error persists even after applying workaround 1 and 2, ensure that the CARET tracetools library is used by explicitly setting `-Dtracetools_DIR`
-  - This can occur especially when the target application is built with `--merge-install`
-
-```sh
---cmake-args -Dtracetools_DIR="$HOME/ros2_caret_ws/install/tracetools/share/tracetools/cmake"
 ```
 
 ### SYSTEM's rclcpp is referred
