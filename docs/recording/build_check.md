@@ -1,3 +1,5 @@
+<!-- cspell:ignore Drclcpp Dtracetools ltracetools -->
+
 # Build with CARET
 
 ## Build a target application with CARET

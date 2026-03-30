@@ -1,4 +1,4 @@
-<!-- cspell:ignore Drclcpp Dtracetools -->
+<!-- cspell:ignore Drclcpp Dtracetools ltracetools -->
 
 # Known issues
 
