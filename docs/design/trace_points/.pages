@@ -1,7 +1,1 @@
-nav:
-  - index.md
-  - diff.md
-  - initialization_trace_points.md
-  - runtime_trace_points.md
-  - agnocast_initialization_tracepoints.md
-  - agnocast_runtime_tracepoints.md
+order: desc

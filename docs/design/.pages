@@ -5,8 +5,7 @@ nav:
         - Design: runtime_processing
     - Processing trace data:
         - Design: processing_trace_data
-    - Tracepoints:
-        - Design: trace_points
+    - Tracepoints: trace_points
     - Configuration:
         - Design: configuration
     - Event and latency definitions:
