@@ -92,7 +92,7 @@ sudo sed -i -e 's/\/opt\/ros\/humble\/lib\/libtracetools.so;//g' /opt/ros/humble
 ```
 
 - Workaround 3
-  - If the error persists after applying workaround 1, modify all libraries
+  - If the error persists after applying workaround 2, modify all libraries
 
 ```sh
 sudo grep -rl '/opt/ros/humble/lib/libtracetools.so;' /opt/ros/humble/share --include="*.cmake" |
