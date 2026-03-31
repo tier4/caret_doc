@@ -19,7 +19,7 @@ colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF
 
 <prettier-ignore-start>
 !!!info "How to fix build errors and caret-rclcpp check errors"
-      If a build error occurs or a warning is shown by `check_caret_rclcpp` (described later), please try the following build options:
+      If a build error occurs or a warning is shown by `check_caret_rclcpp` (described later), please try the following build options. For details on the specific error messages and their causes, see [Known Issues - Build](../faq/known_issues.md#build).
 
       ```sh
       colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF \
