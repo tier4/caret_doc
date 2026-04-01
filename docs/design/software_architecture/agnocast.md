@@ -19,4 +19,4 @@ For more details on the tracepoint definitions, please refer to the following do
 
 ## Version Compatibility
 
-CARET supports only Agnocast versions later than [2.1.2](https://github.com/tier4/agnocast/releases/tag/2.1.2).
+CARET supports only Agnocast versions later than [2.3.1](https://github.com/autowarefoundation/agnocast/releases/tag/2.3.1).
