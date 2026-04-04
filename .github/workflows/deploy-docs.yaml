@@ -35,8 +35,16 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
 
+      - name: Show installed packages
+        run: |
+          echo "--- Installing from local requirements ---"
+          pip install -r mkdocs-requirements.txt
+          echo "--- Final package list ---"
+          pip list
+
       - name: Deploy docs
         uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          mkdocs-requirements-txt: ./mkdocs-requirements.txt
           latest: ${{ github.event_name != 'pull_request_target' && github.ref_name == github.event.repository.default_branch }}
