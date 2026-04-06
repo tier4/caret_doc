@@ -1,3 +1,5 @@
+<!-- cspell:ignore Drclcpp Dtracetools ltracetools -->
+
 # Build with CARET
 
 ## Build a target application with CARET
@@ -14,6 +16,28 @@ source ~/ros2_caret_ws/install/local_setup.bash  # please keep the order after R
 
 colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF
 ```
+
+<prettier-ignore-start>
+!!!info "How to fix build errors and caret-rclcpp check errors"
+      If a build error occurs or a warning is shown by `check_caret_rclcpp` (described later), please try the following build options. For details on the specific error messages and their causes, see [Known Issues - Build](../faq/known_issues.md#build).
+
+      ```sh
+      colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF \
+        -Drclcpp_DIR="$HOME/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake" \
+        -Dtracetools_DIR="$HOME/ros2_caret_ws/install/tracetools/share/tracetools/cmake"
+      ```
+
+      or
+
+      ```sh
+      colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF \
+        -DCMAKE_SHARED_LINKER_FLAGS="-L$HOME/ros2_caret_ws/install/tracetools/lib -ltracetools" \
+        -DCMAKE_EXE_LINKER_FLAGS="-L$HOME/ros2_caret_ws/install/tracetools/lib -ltracetools" \
+        -Drclcpp_DIR="$HOME/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake" \
+        -Dtracetools_DIR="$HOME/ros2_caret_ws/install/tracetools/share/tracetools/cmake"
+      ```
+
+<prettier-ignore-end>
 
 <prettier-ignore-start>
 !!!info "Reason for building a target application with CARET/rclcpp"
