@@ -14,3 +14,5 @@ plantuml-markdown
 pymdown-extensions
 python-markdown-math
 tabulate
+# cspell:ignore pygments
+pygments==2.18.0
