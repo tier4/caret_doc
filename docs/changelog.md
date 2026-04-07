@@ -2,9 +2,25 @@
 
 ## CARET
 
+### v0.7.2 <small>\_ Apr 07, 2026</small> {id = "0.7.2"}
+
+- **Feat**: Adding Trace Points by Implementing agnocast::Node. ([caret_analyze #587](https://github.com/tier4/caret_analyze/pull/587), [caret_trace #326](https://github.com/tier4/caret_trace/pull/326), [caret #380](https://github.com/tier4/caret/pull/380))
+  - Add analysis of Additional tracepoints.
+  - Add agnocast node tracepoints.
+  - Add tracepoints to the ER diagram.
+  - **Note**: This feature supports Agnocast v2.3.1 or later. Earlier versions (v2.1.3 and before) are not supported.
+
+- **Chore**: Update topic_tools hash. ([caret #231](https://github.com/tier4/caret/pull/231))
+
+- **Chore**: Add build options to "known issues". ([caret_doc #381](https://github.com/tier4/caret_doc/pull/381))
+
+- **fix**: Fixed handle pd.NA in node_id comparison to avoid TypeError. ([caret_analyze #588](https://github.com/tier4/caret_analyze/pull/588))
+
+- **fix**: Fixed an issue with the rendering of code snippets in the CI environment. ([caret_doc #382](https://github.com/tier4/caret_doc/pull/382))
+
 ### v0.7.1 <small>\_ Mar 09, 2026</small> {id = "0.7.1"}
 
-- **Update**: Add “/AGNOCAST*SRV*\*” to the default topic filter. ([caret #226](https://github.com/tier4/caret/pull/226))
+- **Update**: Add “/AGNOCAST_SRV_*” to the default topic filter. ([caret #226](https://github.com/tier4/caret/pull/226))
 
 - **Update**: Enable analysis of caret measurement results for agnocast 2.1.2. ([caret_analyze #585](https://github.com/tier4/caret_analyze/pull/585))
 
