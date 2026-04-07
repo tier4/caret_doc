@@ -4,7 +4,7 @@
 
 ### v0.7.2 <small>\_ Apr 07, 2026</small> {id = "0.7.2"}
 
-- **Feat**: Adding Trace Points by Implementing agnocast::Node. ([caret_analyze #587](https://github.com/tier4/caret_analyze/pull/587), [caret_trace #326](https://github.com/tier4/caret_trace/pull/326), [caret #380](https://github.com/tier4/caret/pull/380))
+- **Feat**: Adding Trace Points by Implementing agnocast::Node. ([caret_analyze #587](https://github.com/tier4/caret_analyze/pull/587), [caret_trace #326](https://github.com/tier4/caret_trace/pull/326), [caret_doc #380](https://github.com/tier4/caret_doc/pull/380))
   - Add analysis of Additional tracepoints.
   - Add agnocast node tracepoints.
   - Add tracepoints to the ER diagram.
