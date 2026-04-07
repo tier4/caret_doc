@@ -20,7 +20,7 @@
 
 ### v0.7.1 <small>\_ Mar 09, 2026</small> {id = "0.7.1"}
 
-- **Update**: Add “/AGNOCAST_SRV_*” to the default topic filter. ([caret #226](https://github.com/tier4/caret/pull/226))
+- **Update**: Add “/AGNOCAST*SRV*\*” to the default topic filter. ([caret #226](https://github.com/tier4/caret/pull/226))
 
 - **Update**: Enable analysis of caret measurement results for agnocast 2.1.2. ([caret_analyze #585](https://github.com/tier4/caret_analyze/pull/585))
 
