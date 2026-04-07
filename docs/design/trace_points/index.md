@@ -20,6 +20,8 @@ See also
 
 - [Initialization tracepoints](./initialization_trace_points.md)
 - [Runtime tracepoints](./runtime_trace_points.md)
+- [Agnocast initialization tracepoints](./agnocast_initialization_tracepoints.md)
+- [Agnocast runtime tracepoints](./agnocast_runtime_tracepoints.md)
 
 ## Implementation method category
 
@@ -37,6 +39,7 @@ Each tracepoint for CARET is added by one of following methods.
 
 CARET utilizes some of the tracepoints built-in original ROS 2.
 Some of the tracepoints are added by hooking with LD_PRELOAD, and rest tracepoints are added to the fork of ROS 2's rclcpp.
+In addition to the above, Agnocast defines its own tracepoints. Agnocast initialization tracepoints (e.g. `ros2_caret:agnocast_init`) are hooked tracepoints, while Agnocast runtime tracepoints (e.g. `agnocast:agnocast_publish`) are built into the Agnocast library itself.
 
 <prettier-ignore-start>
 !!! info
