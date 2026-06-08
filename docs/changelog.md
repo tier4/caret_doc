@@ -6,8 +6,7 @@
 
 - **Update**: Switch from installing ros_tracing via apt to installing it via rosdep. ([caret #233](https://github.com/tier4/caret/pull/233), i[caret #235](https://github.com/tier4/caret/pull/235), [caret #238](https://github.com/tier4/caret/pull/238))
 
-**Update**: Prevent numpy from upgrading to version 2.x by setting the maximum Pandas version to less than 2.2. ([caret analyze_#592](https://github.com/tier4/caret_analyze/pull/592
-))
+**Update**: Prevent numpy from upgrading to version 2.x by setting the maximum Pandas version to less than 2.2. ([caret analyze\_#592](https://github.com/tier4/caret_analyze/pull/592))
 
 **Update**: Fixing the execution permissions for the setup script for Jazzy. ([caret #237](https://github.com/tier4/caret/pull/237))
 
