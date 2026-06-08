@@ -2,6 +2,15 @@
 
 ## CARET
 
+### v0.7.3 <small>\_ Jun 04, 2026</small> {id = "0.7.3"}
+
+- **Update**: Switch from installing ros_tracing via apt to installing it via rosdep. ([caret #233](https://github.com/tier4/caret/pull/233), i[caret #235](https://github.com/tier4/caret/pull/235), [caret #238](https://github.com/tier4/caret/pull/238))
+
+**Update**: Prevent numpy from upgrading to version 2.x by setting the maximum Pandas version to less than 2.2. ([caret analyze_#592](https://github.com/tier4/caret_analyze/pull/592
+))
+
+**Update**: Fixing the execution permissions for the setup script for Jazzy. ([caret #237](https://github.com/tier4/caret/pull/237))
+
 ### v0.7.2 <small>\_ Apr 07, 2026</small> {id = "0.7.2"}
 
 - **Feat**: Adding Trace Points by Implementing agnocast::Node. ([caret_analyze #587](https://github.com/tier4/caret_analyze/pull/587), [caret_trace #326](https://github.com/tier4/caret_trace/pull/326), [caret_doc #380](https://github.com/tier4/caret_doc/pull/380))
