@@ -2,6 +2,8 @@
 Some tracepoints share same addresses (e.g. node_handle and callback address).
 By binding these addresses, CARET constructs structures of each trace point relationship.
 
+> **Note:** This document describes the trace points for Jazzy. For Humble, refer to the documentation for v0.7.3.
+
 ### Relationships for each initialization trace points
 
 Relationships of each trace point related to a single node are shown as follows.
@@ -160,12 +162,6 @@ erDiagram
  string executor_type_name
  }
 
- add_callback_group{
- address executor_addr
- address callback_group_addr
- string group_type_name
- }
-
  callback_group_to_executor_entity_collector{
  address entities_collector_addr
  address callback_group_addr
@@ -174,12 +170,6 @@ erDiagram
  executor_entity_collector_to_executor{
  address executor_addr
  address entities_collector_addr
- }
-
- add_callback_group_static_executor{
- address entities_collector_addr
- address callback_group_addr
- string group_type_name
  }
 
  callback_group_add_timer{
@@ -202,21 +192,9 @@ erDiagram
  address client_handle
  }
 
-
- construct_executor ||--o{ add_callback_group : executor_addr
- construct_static_executor ||--o{ add_callback_group_static_executor : entities_collector_addr
-
-    add_callback_group_static_executor ||--o{ callback_group_add_timer : callback_group_addr
-    add_callback_group_static_executor ||--o{ callback_group_add_subscription : callback_group_addr
-    add_callback_group_static_executor ||--o{ callback_group_add_service : callback_group_addr
-    add_callback_group_static_executor ||--o{ callback_group_add_client : callback_group_addr
     callback_group_to_executor_entity_collector ||--|| executor_entity_collector_to_executor: entities_collector_addr
     executor_entity_collector_to_executor ||--|| construct_executor: executor_addr
     executor_entity_collector_to_executor ||--|| construct_static_executor: executor_addr
-    add_callback_group ||--o{ callback_group_add_timer : callback_group_addr
-    add_callback_group ||--o{ callback_group_add_subscription : callback_group_addr
-    add_callback_group ||--o{ callback_group_add_service : callback_group_addr
-    add_callback_group ||--o{ callback_group_add_client : callback_group_addr
 
     callback_group_to_executor_entity_collector ||--o{ callback_group_add_timer : callback_group_addr
     callback_group_to_executor_entity_collector ||--o{ callback_group_add_subscription : callback_group_addr
@@ -226,8 +204,6 @@ erDiagram
     callback_group_add_subscription ||--|| SUBSCRIPTION_HANDLE : callback_group_addr
     callback_group_add_service ||--|| SERVICE_HANDLE : callback_group_addr
     callback_group_add_client ||--|| CLIENT_HANDLE : callback_group_addr
-
-
 ```
 
 ### Trace point definition
@@ -401,7 +377,7 @@ Sampled items
 
 <prettier-ignore-start>
 !!!Note
-    Only for iron or later and intra communication.
+    Only for intra communication.
 <prettier-ignore-end>
 
 ---
@@ -418,7 +394,7 @@ Sampled items
 
 <prettier-ignore-start>
 !!!Note
-    Only for iron or later and intra communication.
+    Only for intra communication.
 <prettier-ignore-end>
 
 ---
@@ -435,7 +411,7 @@ Sampled items
 
 <prettier-ignore-start>
 !!!Note
-    Only for iron or later and intra communication.
+    Only for intra communication.
 <prettier-ignore-end>
 
 ---
@@ -495,11 +471,6 @@ Sampled items
 - void \* group_type_name
 - int64_t init_timestamp
 
-<prettier-ignore-start>
-!!!Note
-    This trace point is available after jazzy.
-<prettier-ignore-end>
-
 ---
 
 #### ros2_caret:executor_entity_collector_to_executor
@@ -509,11 +480,6 @@ Sampled items
 - void \* executor_addr
 - void \* entities_collector_addr
 - int64_t init_timestamp
-
-<prettier-ignore-start>
-!!!Note
-    This trace point is available after jazzy.
-<prettier-ignore-end>
 
 ---
 
@@ -539,42 +505,6 @@ Sampled items
 - void \* entities_collector_addr
 - char \* executor_type_name
 - int64_t init_timestamp
-
----
-
-#### ros2_caret:add_callback_group
-
-[Hooked tracepoints]
-
-Sampled items
-
-- void \* executor_addr
-- void \* callback_group_addr
-- char \* group_type_name
-- int64_t init_timestamp
-
-<prettier-ignore-start>
-!!!Note
-    This trace point is not available after jazzy.
-<prettier-ignore-end>
-
----
-
-#### ros2_caret:add_callback_group_static_executor
-
-[Hooked tracepoints]
-
-Sampled items
-
-- void \* entities_collector_addr
-- void \* callback_group_addr
-- char \* group_type_name
-- int64_t init_timestamp
-
-<prettier-ignore-start>
-!!!Note
-    This trace point is not available after jazzy.
-<prettier-ignore-end>
 
 ---
 

@@ -34,14 +34,12 @@ Each tracepoint for CARET is added by one of following methods.
   - some of tracepoints, for service, action and lifecycle node, are not utilized by current CARET
 - Hooked tracepoints
   - CARET-dedicated tracepoints introduced by function hooking with LD_PRELOAD
-- Extended tracepoints
-  - CARET-dedicated tracepoints added to the fork of rclcpp
 
 CARET utilizes some of the tracepoints built-in original ROS 2.
-Some of the tracepoints are added by hooking with LD_PRELOAD, and rest tracepoints are added to the fork of ROS 2's rclcpp.
+Some of the tracepoints are added by hooking with LD_PRELOAD.
 In addition to the above, Agnocast defines its own tracepoints. Agnocast initialization tracepoints (e.g. `ros2_caret:agnocast_init`) are hooked tracepoints, while Agnocast runtime tracepoints (e.g. `agnocast:agnocast_publish`) are built into the Agnocast library itself.
 
 <prettier-ignore-start>
 !!! info
-    Please read this section if you are interested in CARET-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. CARET would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Builtin rclcpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.
+    If you are interested in how CARET-specific tracepoints are extended by LD_PRELOAD, please read this section. In Jazzy, tracepoints are handled exclusively through function hooking using LD_PRELOAD. In Humble, on the other hand, in addition to LD_PRELOAD, the necessary tracepoints are added to a fork of rclcpp. This difference in approach arises because while LD_PRELOAD is suitable for hooking functions defined in dynamic libraries, it cannot be applied to functions implemented using C++ templates.
 <prettier-ignore-end>

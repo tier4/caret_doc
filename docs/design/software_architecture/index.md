@@ -17,7 +17,7 @@ Only if it is not possible to add tracepoints by function hooking due to some co
 
 All of recorded events are stored to a set of trace data CTF-based. It is visualized for users to observe application's performance and behavior.
 
-[`caret_trace`](./caret_trace.md) is the main package for realizing recording. `caret_trace` collects events invoked in `rclcpp`, `rcl` and DDS. It is inconvenient to see actual time when data is consumed because data is consumed in a user code actually. [TILDE](./tilde.md) serves tracepoints to collect events which happens in a user code. CARET is able to refer to them for diving into events in a user code.
+[`caret_trace`](./caret_trace.md) is the main package for realizing recording. `caret_trace` collects events invoked in `rclcpp`, `rcl` and DDS. It is inconvenient to see actual time when data is consumed because data is consumed in a user code actually.
 
 See also
 
@@ -69,4 +69,3 @@ The followings are CARET-related packages.
 | ros2caret                           | Provide CARET CLI                                                                   | [https://github.com/tier4/ros2caret/](https://github.com/tier4/ros2caret/)                           |
 | [caret_analyze](./caret_analyze.md) | Analyze trace data                                                                  | [https://github.com/tier4/caret_analyze/](https://github.com/tier4/caret_analyze/)                   |
 | caret_analyze_cpp_impl              | Accelerate caret_analyze                                                            | [https://github.com/tier4/caret_analyze_cpp_impl/](https://github.com/tier4/caret_analyze_cpp_impl/) |
-| [TILDE](./tilde.md)                 | Add tracepoints within the system to be measure                                     | [https://github.com/tier4/TILDE](https://github.com/tier4/TILDE)                                     |

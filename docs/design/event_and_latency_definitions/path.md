@@ -4,9 +4,15 @@ Path latency is sum of node latency and communication latency included in a cert
 Path represents data flow which is constructed of multiple nodes connected each other.
 
 $$
-l_{path} = \sum_{\in path} l_{node} + \sum_{\in path} l_{comm} \\
-l_{node} = t_{pub} - t_{sub} \\
-l_{comm} = t_{sub} - t_{pub} \\
+l_{path} = \sum_{\in path} l_{node} + \sum_{\in path} l_{comm}
+$$
+
+$$
+l_{node} = t_{pub} - t_{sub}
+$$
+
+$$
+l_{comm} = t_{sub} - t_{pub}
 $$
 
 In CARET, the path is defined as `[node_name]-[topic_name]-... -[topic_name]-[node_name]`.  

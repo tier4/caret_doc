@@ -12,47 +12,34 @@ Explanation in this page assumes CARET is installed to `~/ros2_caret_ws` and the
 Two terminals are needed for this method; one for executing a target application, another for starting a LTTng session.
 
 1. Open a terminal and launch a target application
-   - Perform environment settings in the same order as below. CARET's `local_setup.bash` should be applied along with ROS 2's `setup.bash` as the target application refers to CARET/rclcpp
+   - Perform environment settings. In Jazzy, since CARET provides tracepoints at runtime via `LD_PRELOAD`, there is **no need** to source CARET’s `local_setup.bash`. However, since there’s no real downside, it’s easier to use `setenv_caret.bash`(CARET’s custom environments setup script) to complete the necessary setup.
 
      ```sh
-     # Environment settings (keep the order as below)
-     source /opt/ros/humble/setup.bash
-     source ~/ros2_caret_ws/install/local_setup.bash
+     # Environment settings
+     ~/ros2_caret_ws/setenv_caret.bash
+     # source caret_demos
      source ~/ros2_ws/install/local_setup.bash
-     ```
-
-   - Set `LD_PRELOAD` to enable tracepoints provided by function hook
-
-     ```sh
-     export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
-     ```
-
-   - (Optional) Apply [trace filtering](./trace_filtering.md). With configuration of trace filtering, CARET can ignore unnecessary nodes/topics. This function is useful for a large application
-
-     ```sh
-     # Apply filter directly
-     export CARET_IGNORE_NODES="/rviz*"
-     export CARET_IGNORE_TOPICS="/clock:/parameter_events"
-
-     # Apply filter using a setting file
-     source ./caret_topic_filter.bash
      ```
 
    - Launch the target application
 
      ```sh
      ros2 run caret_demos end_to_end_sample
+     
+     or
+     
+     ros2 launch caret_demos end_to_end_sample.launch.py
      ```
 
 2. Open another terminal and start a LTTng session with the following commands
    - Trace data will be stored into the directory whose path is defined as `{ROS_TRACE_DIR}/{SESSION_NAME}`.
      - `ROS_TRACE_DIR` is an environmental variable whose default value is `~/.ros/tracing`  
-        (Optional) You can set `ROS_TRACE_DIR` environment variable to change a destination directory where recorded trace data will be stored
+       (Optional) You can set `ROS_TRACE_DIR` environment variable to change a destination directory where recorded trace data will be stored
      - `SESSION_NAME` means a session name given with `-s` option for `ros2 caret record` command
    - Press "Enter" key to start a session
 
    ```sh
-   source /opt/ros/humble/setup.bash
+   source /opt/ros/jazzy/setup.bash
    source ~/ros2_caret_ws/install/local_setup.bash
 
    # (Optional) Set a destination directory
@@ -79,11 +66,6 @@ Two terminals are needed for this method; one for executing a target application
 <prettier-ignore-start>
 !!!info
       You may find that size of recorded data is strangely smaller than expected after updating LTTng to 2.13 if you apply CARET to a large application like [Autoware](https://github.com/autowarefoundation/autoware) which has hundreds of nodes. You have to suspect that maximum number of file descriptors is not enough in the case. You can check the number with `ulimit -n` command. The default maximum number is 1024, but it is not enough for the large application. You can avoid this problem by enlarging the maximum number with executing the command; `ulimit -n 65536`.
-<prettier-ignore-end>
-
-<prettier-ignore-start>
-!!!info
-      To trace multi-host system, you need to follow these steps on hosts which contain nodes you want to trace.
 <prettier-ignore-end>
 
 ## Starting LTTng session via ROS launch
@@ -130,20 +112,15 @@ You can start LTTng session using ROS launch system. When you have started a tar
    - Environment settings are still needed, but all operations are performed in just one terminal
 
    ```sh
-   source /opt/ros/humble/setup.bash
-   source ~/ros2_caret_ws/install/local_setup.bash
+   ~/ros2_caret_ws/setenv_caret.bash
    source ~/ros2_ws/install/local_setup.bash
-
-   export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)
-
-   source ./caret_topic_filter.bash
 
    ros2 launch caret_demos end_to_end_sample_with_lttng_session.launch.py
    ```
 
 <prettier-ignore-start>
 !!!info
-      To trace multi-host system, you need to follow these steps on hosts which contain nodes you want to trace.
+      To trace a multi-host system, it is recommended that you perform this procedure on a host that contains the node you want to trace.
 <prettier-ignore-end>
 
 ## Advanced: Useful settings for launch file

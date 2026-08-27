@@ -7,25 +7,10 @@ CARET provides CLI tools which can be utilized at recording process.
       CARET environment settings need to be performed to use these CLI tools by the following commands.
 
       ```bash
-      source /opt/ros/humble/setup.bash
-      source ~/ros2_caret_ws/install/local_setup.bash
+      source /opt/ros/jazzy/setup.bash
       ```
 
 <prettier-ignore-end>
-
-## Build results validation
-
-This command checks whether a target application is successfully built with CARET/rclcpp. ([See details](./build_check.md#check-whether-caretrclcpp-is-applied-to-each-package))
-
-```bash
-ros2 caret check_caret_rclcpp <path-to-workspace>
-```
-
-```bash
----Output text as below---
-
-INFO    : 2022-09-29 20:18:43 | All packages are built using caret-rclcpp.
-```
 
 ## Recording
 
@@ -120,6 +105,7 @@ Trace duration          | 0:01:00
 ## Tracepoint summary
 
 This command displays all tracepoints included in the trace data and the number of events collected by tracepoints.
+These are the results from Humble.
 
 ```bash
 ros2 caret trace_point_summary <path-to-trace-data>
@@ -163,7 +149,6 @@ Trace duration          | 0:01:00
  ros2:rcl_init                                     |                        1
  ros2:rcl_client_init                              |                        0
  ros2:dispatch_intra_process_subscription_callback |                        0
- ros2_caret:tilde_subscribe_added                  |                        0
  ros2_caret:tilde_subscribe                        |                        0
  ros2_caret:tilde_publisher_init                   |                        0
  ros2_caret:tilde_publish                          |                        0
@@ -236,7 +221,6 @@ Filtered trace duration | 0:00:29
  ros2:rcl_init                                     |                        1
  ros2:rcl_client_init                              |                        0
  ros2:dispatch_intra_process_subscription_callback |                        0
- ros2_caret:tilde_subscribe_added                  |                        0
  ros2_caret:tilde_subscribe                        |                        0
  ros2_caret:tilde_publisher_init                   |                        0
  ros2_caret:tilde_publish                          |                        0

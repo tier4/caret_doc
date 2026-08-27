@@ -9,7 +9,7 @@ Features:
 - Low overhead with LTTng-based tracepoints for sampling events in ROS/DDS layer
 - Flexible tracepoints added by function hooking with LD_PRELOAD
 - Python-based API for flexible data analysis and visualization
-- Application-layer events tracing by cooperation with TILDE, runtime message tracer
+- Runtime message tracer
 
 Capabilities:
 
@@ -24,19 +24,18 @@ Capabilities:
 - Search of target paths to trace
 - Trace of application events like consumption of buffered topic message
   - `/tf` (planned for v0.3.x release)
-  - `message_filters` (supported by TILDE)
-  - `image_transport` (supported by TILDE)
+  - `message_filters`
+  - `image_transport`
 
 ## Tracing flow with CARET
 
 ![measurement_flow](./imgs/measurement_flow.svg)
 
-CARET gives you capability of tracing your application with introducing new tracepoints to ROS and DDS layer while it utilized original tracepoints for [`ros2_tracing`](https://gitlab.com/ros-tracing/ros2_tracing).
+CARET gives you capability of tracing your application with introducing new tracepoints to ROS and DDS layer, extending the standard ROS 2 tracing capabilities.
 
 CARET is served as only source code, but not as `apt` package, so far.  
 CARET hooks dedicated functions to those defined in dynamic library in order to add tracepoints.  
-The fork of rclcpp which has CARET-dedicated tracepoints is delivered.
-You have to build CARET and your application if you want to use.
+Since Jazzy, CARET does **not** require a forked rclcpp; tracepoints are provided via `LD_PRELOAD` at runtime.
 
 After you run your application with CARET, you will get recorded data which includes events, metadata and timestamp. You have to write a configuration file, called architecture file, in which you defines node latency and target path, before you analyze the data set.
 
@@ -95,8 +94,6 @@ CARET is constructed of the following packages
 - [ros2caret](https://github.com/tier4/ros2caret.git) ｜ CLI commands like `ros2 caret`
 - [caret_demos](https://github.com/tier4/caret_demos) ｜ Demo programs for CARET
 - [caret_doc](https://github.com/tier4/caret_doc) ｜ Documentation
-- [rclcpp](https://github.com/tier4/rclcpp/tree/rc/v0.3.0) ｜ the forked `rclcpp` including CARET-dedicated tracepoints
-- [ros2_tracing](https://github.com/tier4/ros2_tracing/tree/rc/v0.3.0)｜ the forked `ros2_tracing` including definition of CARET-dedicated tracepoints
 
 ---
 

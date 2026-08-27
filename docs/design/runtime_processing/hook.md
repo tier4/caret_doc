@@ -57,4 +57,3 @@ There are some cases that cannot or are difficult to hook with LD_PRELOAD.
 - Hooks for functions implemented in headers
 
 Specifically, intra-process publish cannot be hooked by LD_PRELOAD.
-In CARET, trace points for intra-process communication are added in the forked rclcpp.

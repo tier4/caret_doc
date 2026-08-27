@@ -2,7 +2,7 @@
 
 <prettier-ignore-start>
 !!! note
-    This section explains differences between v0.2 implementation of CARET and implementation of ROS 2 Galactic. The explanation is not up-to-date from viewpoints of implementation, but it is enough for readers to understand differences from viewpoints of design.
+    In Jazzy, all trace points required by CARET are already implemented, so there is no difference from ROS 2; however, this section has been retained to explain the historical background.
 <prettier-ignore-end>
 
 ## v0.2 vs galactic
@@ -42,9 +42,3 @@ It's needed to add include directory of ros2_tracing.
 ### ros2_tracing
 
 This cloning is for defining tracepoints added to rclcpp.
-
-## v0.3 vs Humble
-
-In v0.3, the trace points used in the Galactic version of CARET have been ported.
-Some tracepoints have been added in Humble, but they are not currently used by CARET.
-These tracepoints will be supported in a future version.

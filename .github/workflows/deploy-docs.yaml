@@ -23,26 +23,36 @@ jobs:
     uses: autowarefoundation/autoware-github-actions/.github/workflows/prevent-no-label-execution.yaml@v1
     with:
       label: tag:deploy-docs
+    # When running manually, either do not skip the job and mark it as successful (outputs.run = ‘true’), or use conditional branching as shown below:
+    if: github.event_name != 'workflow_dispatch'
 
   deploy-docs:
     needs: prevent-no-label-execution
-    if: ${{ needs.prevent-no-label-execution.outputs.run == 'true' }}
+    # When executed manually, or when `prevent-no-label-execution` is executed and the conditions are met
+    if: always() && (github.event_name == 'workflow_dispatch' || needs.prevent-no-label-execution.result == 'success')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
-      - name: Deploy docs
-        uses: autowarefoundation/autoware-github-actions/deploy-docs@v1
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          mkdocs-requirements-txt: deploy-docs/mkdocs-requirements.txt
-          latest: ${{ github.event_name != 'pull_request_target' && github.ref_name == github.event.repository.default_branch }}
+          python-version: '3.10'
 
-      - name: Show installed packages
+      - name: Install dependencies
         run: |
-          echo "--- Final package list used for deployment ---"
-          pip list
+          pip install -r deploy-docs/mkdocs-requirements.txt
+
+      - name: Build docs (Not Deploy)
+        run: |
+          mkdocs build --clean
+
+      - name: Upload built site as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-docs-html
+          path: site/

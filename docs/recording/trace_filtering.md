@@ -42,7 +42,9 @@ export CARET_IGNORE_TOPICS=\
 "\
 /clock:\
 /parameter_events:\
+/AGNOCAST_SRV_*\
 "
+
 
 # if you want to select nodes or topics,
 # please remove comment out of the followings.

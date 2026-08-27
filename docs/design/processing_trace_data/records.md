@@ -59,7 +59,7 @@ See also
 
 <prettier-ignore-start>
 !!!warning
-    This merge is slow and causes inconsistencies when nodes not using caret-rclcpp are published.
+    This merge is slow.
     As much as possible, trace points should be designed so that merge_sequential is sufficient.
 <prettier-ignore-end>
 
